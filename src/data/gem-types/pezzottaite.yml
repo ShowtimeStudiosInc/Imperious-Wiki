@@ -1,0 +1,57 @@
+name: Pezzottaite
+slug: pezzottaite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 6
+  int: 6
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Party Conjuring
+    tags: []
+    cost: null
+    text: Pezzottaite can summon heart-shaped checklist screens, streamers, confetti, and bright colored lights on the spot.
+    moves:
+      - name: Confetti Storm
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          A burst of confetti and streamers fills the area. Until the end of the round, attacks against allies Near her
+          need +1 to hit.
+  - section: ACT Bonus
+    name: Keep It Running
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that organize, schedule, or get an event back on track are especially effective for
+      her.
+    moves: []
+role: >-
+  Pezzottaites serve the empire as official party and event helpers, working as assistants to Pyropes. With their
+  heart-shaped checklists, confetti, streamers, and colorful lights, they can turn up at any event and make it a little
+  flashier. They range from pink to red in color.
+interactions: >-
+  Hosting a large event with a lot of guests can overwhelm even a Pyrope, so Pezzottaites handle the running order while
+  the Pyrope oversees the room. A Pezzottaite always knows what's on the checklist next, usually because she's holding
+  it.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

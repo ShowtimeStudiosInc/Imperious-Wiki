@@ -1,0 +1,41 @@
+name: Brown Tourmaline (Dravite)
+slug: brown-tourmaline-dravite
+rank: '4.3'
+side: null
+faction: gempire
+kind: sub-type
+parent: tourmaline
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 38
+  atk: 5
+  def: 9
+  spd: 3
+  int: 4
+  mag: 1
+abilities:
+  - section: Signature Ability
+    name: Anchoring
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      Brown Tourmaline anchors a structure or an ally firmly to the ground. For 2 turns, they can't be knocked back or
+      moved against their will.
+    moves: []
+role: >-
+  Brown Tourmaline serves as a construction foreman, often working alongside Bismuth and Coal crews. She's the one
+  making sure nothing collapses mid build.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

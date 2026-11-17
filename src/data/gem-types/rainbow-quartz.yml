@@ -1,0 +1,46 @@
+name: Rainbow Quartz
+slug: rainbow-quartz
+rank: null
+side: null
+faction: lost
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 30
+  atk: 7
+  def: 5
+  spd: 5
+  int: 5
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Prismatic Channel
+    tags: []
+    cost: null
+    text: Rainbow Quartz can channel energy through any element, adapting her abilities to whatever the moment needs.
+    moves:
+      - name: Prism Bolt
+        tags:
+          - 2 SP
+        cost: 2
+        text: A bolt of energy hits one target for 2d4 + MAG damage, in any element she chooses.
+role: >-
+  Rainbow Quartz were a highly specialized Quartz subtype from Omega White Diamond's original empire. Rather than being
+  designed around raw physical strength, they were produced with unusually strong energy-channeling capabilities. This
+  allowed them to adapt their existing abilities to different elemental properties, giving them a degree of versatility
+  uncommon among Quartz. They were considered exceptionally advanced for their time, with surviving examples remaining
+  rare.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

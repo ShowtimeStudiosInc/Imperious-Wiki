@@ -1,0 +1,39 @@
+name: Cavansite
+slug: cavansite
+rank: '4.3'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 3'9"
+stats:
+  hp: 30
+  atk: 8
+  def: 5
+  spd: 4
+  int: 3
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Enhanced Strength
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Cavansite can carry loads up to ten times her own size. She can carry an ally while moving between Near, Far, and
+      Behind, and <:Act:1568035453842751618>ACTs that lift or throw heavy objects are especially effective for her.
+    moves: []
+role: Cargo transporters, capable of lifting material up to ten times their size to carry them to their destinations.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

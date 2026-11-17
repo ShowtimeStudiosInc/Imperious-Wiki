@@ -1,0 +1,41 @@
+name: Bismuth
+slug: bismuth
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'8"
+stats:
+  hp: 34
+  atk: 7
+  def: 7
+  spd: 4
+  int: 5
+  mag: 2
+abilities:
+  - section: ACT Bonus
+    name: Fortify
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that build or repair cover, barricades, or gear in the middle of a battle are
+      especially effective for her.
+    moves: []
+role: >-
+  Bismuths are constructive gems who help build colonies, towers, and tools for Diamonds and elite gems. They are known
+  to finish construction quickly and for their teamwork. Bismuths work with Coals, who aid them in building. When not
+  assigned to make towers or colonies, they are found at the Forge.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,46 @@
+name: Chrysoberyl
+slug: chrysoberyl
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 30
+  atk: 4
+  def: 5
+  spd: 5
+  int: 7
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Share a Meal
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that offer food or comfort to raise someone's Mercy are especially effective for
+      her.
+    moves: []
+  - section: Latent Ability
+    name: Heat Generation
+    tags: []
+    cost: null
+    text: >-
+      Chrysoberyl may learn to heat her hands enough to cook or warm food on contact. Its moves and SP costs are set
+      when it's unlocked.
+    moves: []
+role: Chrysoberyl run kitchens, restaurants, and community meals across the Gempire.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,43 @@
+name: Rainbow Obsidian
+slug: rainbow-obsidian
+rank: null
+side: null
+faction: lost
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 38
+  atk: 9
+  def: 9
+  spd: 3
+  int: 3
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Prismatic Edge
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      At the start of each of her turns, Rainbow Obsidian chooses an element. Her <:Fight:1568035371974135940>FIGHTs
+      deal that element's damage until her next turn.
+    moves: []
+role: >-
+  Rainbow Obsidian was a rare Obsidian variant produced within Omega White Diamond's empire. They retained the immense
+  physical strength and durability expected from Obsidian while possessing unusual elemental properties not found in
+  modern Obsidian. Their bodies were large, heavy, and difficult to damage, but their physical size limited their speed.
+  Very few Rainbow Obsidians were ever produced, making surviving members exceptionally uncommon in the modern Gempire.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

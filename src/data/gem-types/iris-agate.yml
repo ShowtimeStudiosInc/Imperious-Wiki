@@ -1,0 +1,43 @@
+name: Iris Agate
+slug: iris-agate
+rank: null
+side: null
+faction: lost
+kind: sub-type
+parent: agate
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 36
+  atk: 6
+  def: 8
+  spd: 4
+  int: 8
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Commander's Presence
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      While Iris Agate is conscious and able to command, she keeps nearby gems organized and in step. Once per round,
+      when an ally Near her misses an attack, they may reroll it.
+    moves: []
+role: >-
+  Iris Agates were a specialized Agate subtype produced within Omega White Diamond's empire. Rather than focusing
+  entirely on supervising and organizing other Gems, Iris Agates were designed to function as battlefield commanders.
+  Their greatest strength was their ability to keep nearby Gems organized and coordinated, making them valuable leaders
+  despite lacking the overwhelming physical strength of many military Gem-types.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,40 @@
+name: Nephrite
+slug: nephrite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'4"
+stats:
+  hp: 26
+  atk: 6
+  def: 3
+  spd: 8
+  int: 6
+  mag: 2
+abilities:
+  - section: ACT Bonus
+    name: Pilot
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that fly, steer, or maneuver a vehicle or ship are especially effective for her.
+    moves: []
+role: >-
+  Nephrites serve the empire as transport and cargo pilots. These gems have innate skills in aviation and piloting.
+  They're also skilled technicians, adept with both the simple and incredible tech that the empire has to offer.
+interactions: >-
+  Nephrites fly alone or in teams, and are assigned to higher-ups who need to get somewhere. Emeralds and Fluorites rely
+  on them to do the flying so they can focus on command and tactics, which keeps a good Nephrite in steady demand.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

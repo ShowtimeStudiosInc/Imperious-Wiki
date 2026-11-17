@@ -1,0 +1,62 @@
+name: Dragon's Breath Fire Opal
+slug: dragon-s-breath-fire-opal
+rank: '3.1'
+side: null
+faction: gempire
+kind: sub-type
+parent: opal
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 32
+  atk: 9
+  def: 6
+  spd: 4
+  int: 3
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Fire Breath
+    tags: []
+    cost: null
+    text: >-
+      Fire Opal can expel a concentrated blast of flame from her mouth, strong enough to melt through metal barriers or
+      scorch a whole line of enemies at once.
+    moves:
+      - name: Dragon's Breath
+        tags:
+          - 3 SP
+        cost: 3
+        text: A blast of flame hits every enemy who is Near for 2d4 + MAG Fire damage.
+  - section: Signature Ability
+    name: Scaled Hide
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      Fire Opal hardens patches of her skin into heat resistant plating. For 2 turns, every hit on her is reduced by 2
+      more, and her own flames can't hurt her.
+    moves: []
+  - section: Latent Ability
+    name: Heat Perception
+    tags:
+      - PASSIVE
+    cost: null
+    text: Fire Opal may learn to feel heat sources and flame nearby, even with her eyes closed.
+    moves: []
+role: >-
+  Fire Opals are shock troops built for scorched earth tactics, deployed wherever the Gempire needs a line burned
+  through fast. They serve alongside Quartz soldiers as heavy hitters, often leading a charge rather than holding a
+  line, since they hit far harder than they defend.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

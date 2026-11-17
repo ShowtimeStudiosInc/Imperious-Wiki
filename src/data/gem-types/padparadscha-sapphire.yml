@@ -1,0 +1,88 @@
+name: Padparadscha Sapphire
+slug: padparadscha-sapphire
+rank: '4.1'
+side: null
+faction: gempire
+kind: sub-type
+parent: sapphire
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 5
+  int: 6
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Cartomancy
+    tags: []
+    cost: null
+    text: >-
+      Padparadscha draws from a deck of tarot cards made of light. Outside of battle, her readings predict a set of
+      events that may or may not happen that day, depending on whether the gem being read follows the path the cards
+      point to.
+    moves:
+      - name: Fated Draw
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          She draws one card at random (roll 1d20), and its outcome affects the battle. She can draw up to 5 times per
+          battle.
+  - section: Signature Ability
+    name: Fire Generation
+    tags: []
+    cost: null
+    text: Padparadscha can make fire, but not shape or control it once it leaves her.
+    moves:
+      - name: Ember
+        tags:
+          - 1 SP
+        cost: 1
+        text: A small burst of fire hits one target who is Near for 1d4 + MAG Fire damage.
+extraBlocks:
+  - title: Fated Draw
+    lines:
+      - '`1 - The Fool:` Nothing happens. The deck slips from her hands.'
+      - '`2 - The Magician:` +2 MAG for 2 turns.'
+      - '`3 - The High Priestess:` Learn one target''s exact stats and one of their Abilities.'
+      - '`4 - The Empress:` Heal herself or one ally for 1d6 + MAG.'
+      - '`5 - The Emperor:` For 2 turns, every physical hit on her is reduced by 2 more.'
+      - '`6 - The Lovers:` She and one ally each gain +1 ATK, and hits on them are reduced by 1 more, for 2 turns.'
+      - '`7 - The Chariot:` She acts again right after this turn ends.'
+      - '`8 - Strength:` Her next attack this turn deals bonus damage equal to half her INT.'
+      - '`9 - The Hermit:` A shield blocks the next hit aimed at her.'
+      - '`10 - Wheel of Fortune:` She or an ally may reroll one roll made this round and keep the new result.'
+      - '`11 - Justice:` For 2 turns, half of any damage she takes is sent back at the attacker.'
+      - '`12 - Death:` For 2 turns, every hit on one target deals +2 damage.'
+      - '`13 - Temperance:` She or an ally is cleansed of one negative status and healed for 1d4.'
+      - '`14 - The Devil:` One target''s next roll has disadvantage.'
+      - '`15 - The Tower:` Deals 1d8 + MAG damage to one target.'
+      - '`16 - The Star:` Heals herself and all allies for 1d4.'
+      - >-
+        `17 - The Moon:` One target resists with INT. If they fail, they are <:Frightened:1568074311229644951>Frightened
+        for 2 turns.
+      - '`18 - The Sun:` +2 ATK for 2 turns.'
+      - '`19 - Judgement:` Cleanses all negative statuses from herself and up to 2 allies.'
+      - '`20 - The World:` +2 ATK and +2 MAG, and every hit on her is reduced by 2 more, for 2 turns.'
+role: >-
+  Padparadschas are often called the poor man's Sapphire, and for good reason. They don't have Clairvoyance the way a
+  standard Sapphire does. Instead they draw from a deck of tarot cards made of light, which predicts a set of events
+  that may or may not happen that day, depending on whether the gem being read follows the path the cards point to.
+  Because their sight comes through cards instead of a direct vision, Padparadschas are seen as less reliable than
+  standard Sapphires, which is also why they rank lower. That lower rank opens them up to a much wider range of clients
+  than a standard Sapphire gets, and low ranked gems make up a good chunk of who comes to them for a daily reading.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

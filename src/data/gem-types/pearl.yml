@@ -1,0 +1,77 @@
+name: Pearl
+slug: pearl
+rank: '5.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'0"
+stats:
+  hp: 26
+  atk: 3
+  def: 3
+  spd: 5
+  int: 6
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      A Pearl can tuck items away into a pocket space inside her gemstone and pull them back out later. Equipping an
+      item from her pocket space doesn't use her turn.
+    moves: []
+  - section: Signature Ability
+    name: Hologram Projection
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      A Pearl makes a harmless image of light appear, for showing information or fooling the eye. One enemy who doesn't
+      see through it attacks the image instead of its real target.
+    moves: []
+  - section: Latent Ability
+    name: Self-Duplication
+    tags:
+      - 2 SP
+    cost: 2
+    text: >-
+      In rare cases, a Pearl can make a short lived copy of herself out of light, called a Holo-Pearl. It lasts 3 turns
+      and can <:Fight:1568035371974135940>FIGHT on her turn.
+    moves: []
+  - section: Latent Ability
+    name: Elemental Affinity
+    tags: []
+    cost: null
+    text: >-
+      Depending on her coloration, a Pearl may carry a power over one element tied to her color. Its moves and SP costs
+      are set when it's unlocked.
+    moves: []
+role: >-
+  Pearls serve as the assistants of the empire. They work alongside or do tasks to help the gem they were assigned to,
+  taking work off their hands. A Pearl is also a prize. Only high-ranked gems, or gems who have done something worthy of
+  one, earn the right to choose a Pearl, and having one says as much about the owner as the Pearl. Pearls can change
+  their outfits, colors, and uniform design to match their superior. Unlike most other gems who are created in
+  kindergartens, Pearls are created in Reefs, most commonly by a Nacre.
+interactions: >-
+  A Pearl serves one gem only. If her superior is shattered, disgraced, or gives her up, she goes home to her Reef,
+  where she may be presented again and placed with a new gem. Some Pearls are placed with a facility instead of a single
+  gem.
+notes:
+  - >-
+    Note: changing her colors doesn't change her Elemental Affinity. That comes from her gemstone's color, not her
+    outfit.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

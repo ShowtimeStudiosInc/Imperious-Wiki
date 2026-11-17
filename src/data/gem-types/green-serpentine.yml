@@ -1,0 +1,71 @@
+name: Green Serpentine
+slug: green-serpentine
+rank: '2.2'
+side: Aristocratic
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - lapis
+  - scapolite
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Champion
+height: 13'11"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Hydrokinesis
+    tags:
+      - Base
+      - Elements
+    cost: null
+    text: >-
+      From her Lapis half. Green Serpentine can move and shape large amounts of water. She needs a source of water
+      nearby.
+    moves:
+      - name: Water Lash
+        tags:
+          - 2 SP
+        cost: 2
+        text: A whip of water strikes one target for 2d4 + MAG damage.
+  - section: ACT Bonus
+    name: Examine
+    tags: []
+    cost: null
+    text: >-
+      From her Serpentine half. <:Act:1568035453842751618>ACTs that study a sample, substance, or wound up close are
+      especially effective for her.
+    moves: []
+  - section: Fusion Ability
+    name: Hypnotic Lullaby
+    tags:
+      - 3 SP
+    cost: 3
+    text: >-
+      Green Serpentine sings a lullaby. Every enemy who is Near resists with INT. Those who fail fall Asleep for 1 turn,
+      and any damage wakes them.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: >-
+      `Serpent Shift`, `Voice Mimicry`, and `Voice Stealing` - Green Serpentine may learn to change into a large
+      serpent, copy another gem's voice, or take another gem's voice away for a time. Their moves and SP costs are set
+      when unlocked.
+    moves: []
+role: >-
+  A Green Serpentine's job isn't much different from a Scapolite's. She acts as a change of pace for when a Scapolite's
+  voice starts to feel dull. By fusing with a Lapis Lazuli, her singing voice grows even stronger and gains more range.
+  Gems say listening to a Green Serpentine sing feels like a lullaby, and while her soft voice is calming, it can also
+  pull listeners in without them meaning to be drawn.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

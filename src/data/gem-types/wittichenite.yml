@@ -1,0 +1,44 @@
+name: Wittichenite
+slug: wittichenite
+rank: null
+side: null
+faction: lost
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 44
+  atk: 10
+  def: 12
+  spd: 2
+  int: 3
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Heavy Blow
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Wittichenite's sheer mass breaks through armor. Her <:Fight:1568035371974135940>FIGHTs ignore the target's DEF
+      reduction.
+    moves: []
+role: >-
+  Wittichenites were enormous Gems produced during Omega White Diamond's original empire, with surviving specimens
+  remembered as some of the largest individual Gems ever created. Their size came with considerable physical mass and
+  durability, but also made them slower and less agile than most modern Gems. Wittichenites were primarily used for
+  heavy labor and physically demanding assignments, with some being assigned to combat roles where their immense bodies
+  could be put to use.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

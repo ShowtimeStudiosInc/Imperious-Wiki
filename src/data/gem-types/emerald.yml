@@ -1,0 +1,52 @@
+name: Emerald
+slug: emerald
+rank: '2.2'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'1"
+stats:
+  hp: 38
+  atk: 9
+  def: 9
+  spd: 4
+  int: 4
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Fear Inducement
+    tags: []
+    cost: null
+    text: Emerald can expel a terrifying aura that instantly makes troops fall back in line.
+    moves:
+      - name: Terrifying Aura
+        tags:
+          - 3 SP
+        cost: 3
+        text: >-
+          Every enemy who is Near resists with INT. Those who fail are <:Frightened:1568074311229644951>Frightened for 2
+          turns.
+role: >-
+  Emeralds serve the empire as administrators and fleet commanders. In wartime they command whole fleets. The rest of
+  the time, many run scouting vessels on their own or with a small command group. They can pilot their own ships, and
+  they know every ship under them well enough to tell when one isn't running right. Their commanding power is a force to
+  be reckoned with, as resistance groups know all too well. Daily tasks may include organizing and commanding fleets,
+  keeping ships in working order, handling fleet records and reports, monitoring prison areas, and reporting to higher
+  ups.
+interactions: >-
+  Emeralds can fly their own ships, but most hand the flying to an assigned Nephrite so they can keep their full
+  attention on command. A good Emerald and Nephrite pair can work together for centuries, with the Nephrite knowing
+  where to steer before the order is finished.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

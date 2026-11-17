@@ -1,0 +1,62 @@
+name: Goshenite
+slug: goshenite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 0 Side-B
+species: gem
+status:
+  - Discontinued
+traits: []
+court: null
+threatClass: null
+height: 7'8"
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 4
+  int: 5
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Plasma Manipulation
+    tags: []
+    cost: null
+    text: >-
+      Goshenite can create, shape, and control plasma, a state of matter made of an ionized gas where the charges move
+      and generate their own electric currents and magnetic fields.
+    moves:
+      - name: Plasma Bolt
+        tags:
+          - 2 SP
+        cost: 2
+        text: A bolt of plasma hits one target for 2d4 + MAG Electric damage.
+  - section: Signature Ability
+    name: Energy Perception
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Through her goggles, Goshenite reads the energy signatures of gems, tech, and structures in sight. She can always
+      tell holograms and light constructs from the real thing. Without her goggles, she loses this, and her plasma
+      attacks need +2 to hit.
+    moves: []
+role: >-
+  Goshenites are researchers and energy analysts. They study and get close to things that would destroy most other gems,
+  like plasma storms, unstable ionic fields, and other high energy environments. Within the Northstar Research Institute
+  [Part of the United Frontier], they handle energy based research and collect data in places too dangerous for most
+  gems to work in. Within Court Emerald, most of their old work has been taken over by Peridots and Serpentine, so the
+  ones still active serve as energy analysts spread across the empire, making sure power sources in colonies stay
+  properly monitored. Goshenite is a Legacy Gem Type, first made under Omega White Diamond and later recreated by Alpha
+  Black Diamond near the end of Era 0. They were most active early in Era 1A before newer gem types like Peridot and
+  Serpentine took over most of their work. Only a handful remain today, and few gems across the empire know of them.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

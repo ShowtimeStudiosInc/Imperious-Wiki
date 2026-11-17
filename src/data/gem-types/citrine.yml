@@ -1,0 +1,50 @@
+name: Citrine
+slug: citrine
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 30
+  atk: 9
+  def: 5
+  spd: 5
+  int: 5
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Taunt
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that mock or provoke an enemy into attacking her or making a mistake are especially
+      effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Corrosion Inducement
+    tags: []
+    cost: null
+    text: >-
+      Citrine may learn to speed up rust and corrosion on metal surfaces a small amount. Many never realize they can.
+      Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Citrines run in the same circles as Cherry Quartzes, no doubt about that. But where a Cherry Quartz keeps her opinions
+  behind your back, a Citrine will say them straight to your face. Most of the Citrines out there tend to act this way,
+  though a friendlier one shows up here and there. Most of the time these brutes go out of their way to trip you up or
+  make you look foolish in front of higher ranks, which can be pretty embarrassing to deal with.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

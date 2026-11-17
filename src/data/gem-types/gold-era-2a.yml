@@ -1,0 +1,51 @@
+name: Gold
+slug: gold-era-2a
+rank: '2.2'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 2A
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 32
+  atk: 4
+  def: 6
+  spd: 5
+  int: 7
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Solar Manipulation
+    tags: []
+    cost: null
+    text: Gold can generate solar energy and shape it into solar SPELLs.
+    moves:
+      - name: Sunbeam
+        tags:
+          - 2 SP
+        cost: 2
+        text: A beam of sunlight strikes one target for 2d4 + MAG Light damage.
+  - section: Signature Ability
+    name: Corrosion Resistance
+    tags:
+      - PASSIVE
+    cost: null
+    text: Gold takes half damage from Corrosive attacks.
+    moves: []
+role: >-
+  Golds of Era 2A are the result of Theta Gold Diamond creating them primarily of his essence. Serving as
+  Authoritatives. They serve as the Administrators & Sergeants for lower ranked metals. Often being seen as less pure
+  versions of their Era 0-1 Counterparts, however are still highly valued.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

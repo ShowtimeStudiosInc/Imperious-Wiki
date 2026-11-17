@@ -1,0 +1,46 @@
+name: Diamond Spinel
+slug: diamond-spinel
+rank: '1.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: spinel
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'5"
+stats:
+  hp: 34
+  atk: 7
+  def: 7
+  spd: 7
+  int: 5
+  mag: 7
+abilities:
+  - section: Signature Ability
+    name: Cartoon Physics
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Diamond Spinel's body doesn't follow the normal laws of physics. It runs on the whimsical, exaggerated rules of
+      animated worlds, where humor, creativity, and absurdity replace reality. She can stretch to
+      <:Fight:1568035371974135940>FIGHT targets who are Far as if they were Near. Once per battle, a hit that would make
+      her <:Flickering:1568050917310468238>Flicker flattens her instead. It deals no damage, and she pops back into
+      shape on her next turn.
+    moves: []
+role: >-
+  Diamond Spinels are the highest ranking Spinel sub-type, serving directly under the Diamonds themselves. Like Diamond
+  Pearls, they carry a faint trace of their Diamond's essence. Where a normal Spinel is a performer for the masses, and
+  or perhaps for their sole owner, a Diamond Spinel is a performer for their Diamond alone, kept close for private
+  entertainment.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

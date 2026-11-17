@@ -1,0 +1,43 @@
+name: Graphene
+slug: graphene
+rank: '4.3'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 1'0"
+stats:
+  hp: 38
+  atk: 2
+  def: 9
+  spd: 6
+  int: 4
+  mag: 1
+abilities:
+  - section: Signature Ability
+    name: Size Reduction
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      Graphene shrinks her body way down, small enough to fit into tight spots or get a close look at things. While
+      shrunk, attacks need +2 to hit her, but her <:Fight:1568035371974135940>FIGHTs deal half damage. Growing back is
+      free. Her gemstone stays the same size, which limits how small she can get.
+    moves: []
+role: >-
+  Graphenes are built for shapeshifting. They are mainly used for science, being able to shrink down to tiny
+  proportions, get into small spots, and get a good view for observation. They are also sometimes used as meat shields
+  because of their tankiness. Her gemstone is a small gray torus, about the size of a sesame seed.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

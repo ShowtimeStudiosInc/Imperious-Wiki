@@ -1,0 +1,49 @@
+name: Blue Quartz
+slug: blue-quartz
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 7
+  def: 6
+  spd: 5
+  int: 5
+  mag: 5
+abilities:
+  - section: ACT Bonus
+    name: Steady
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that calm a panicking ally or shake off fear are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Cryokinesis
+    tags: []
+    cost: null
+    text: >-
+      Blue Quartz may learn a light touch over water and ice, letting her swim with ease and form small ice shards to
+      throw. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Blue Quartz soldiers are honestly really chill, both in mood and in nature. These soldiers seem to be in tune with
+  water and ice. They pair nicely with Aventurines, who know a lot about a planet's earthly matter and plant life. If
+  you're ever tense and worked up, a Blue Quartz knows just how to calm you down. If these Quartzes were assigned to a
+  planet with lots of water, they would be the best soldiers for that kind of environment, since they swim well and move
+  easily through water. It's no wonder Lapises fuse with Blue Quartzes so often, their interests in water just line up.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

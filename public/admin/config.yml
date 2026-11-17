@@ -1,0 +1,77 @@
+# Decap CMS: the form-based editor at /admin.
+# Admins log in with GitHub. With editorial_workflow on, their edits become drafts
+# that the owner approves before they go live.
+backend:
+  name: github
+  repo: showtimestudiosinc/imperious-wiki   # change if the repo name differs
+  branch: main
+  # GitHub login needs a small OAuth helper. See README "Turning on the editor".
+  # base_url: https://your-oauth-helper.example.com
+publish_mode: editorial_workflow
+media_folder: public/images/gem-types
+public_folder: /images/gem-types
+
+collections:
+  - name: gemTypes
+    label: Gem-Types
+    label_singular: Gem-Type
+    folder: src/data/gem-types
+    extension: yml
+    format: yml
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: name
+    summary: "{{name}} · Rank {{rank}}"
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: slug, label: "URL name (lowercase, dashes)", widget: string, pattern: ['^[a-z0-9-]+$', 'Lowercase letters, numbers, and dashes only'] }
+      - { name: rank, label: Rank, widget: select, required: false, options: ['1.2', '2.1', '2.2', '2.3', '3.1', '3.2', '3.3', '4.1', '4.2', '4.3', '5.1', '5.2'] }
+      - { name: side, label: "Side (Rank 2 only)", widget: select, required: false, options: [Aristocratic, Authoritative] }
+      - { name: faction, label: Faction, widget: select, default: gempire, options: [{ label: Gempire, value: gempire }, { label: United Frontier, value: united-frontier }, { label: Lost Light, value: lost }, { label: Rogue, value: rogue }] }
+      - { name: kind, label: Kind, widget: select, default: standard, options: [standard, sub-type, fusion, geode, alloy, group] }
+      - { name: parent, label: "Parent type slug (sub-types only)", widget: string, required: false }
+      - { name: components, label: "Fusion halves (slugs)", widget: list, required: false }
+      - { name: variant, label: "Variant (e.g. Pyrope)", widget: string, required: false }
+      - { name: era, label: "Era (e.g. Era 0-1)", widget: string, required: false }
+      - { name: species, label: Species, widget: select, default: gem, options: [gem, metal] }
+      - { name: status, label: Status, widget: select, multiple: true, required: false, options: [Legacy, Discontinued, Geode, Sole Essence] }
+      - { name: traits, label: Traits, widget: list, required: false, hint: "Bioluminescent, Flight, ..." }
+      - { name: court, label: Court, widget: string, required: false }
+      - { name: threatClass, label: "Threat Class (fusions)", widget: select, required: false, options: [Minion, Standard, Elite, Champion, Titan, Leviathan, Colossus, Apocalypse, Extinction] }
+      - { name: height, label: "Height (e.g. 8'0\")", widget: string, required: false }
+      - name: stats
+        label: "Base Stats (leave empty for fusions)"
+        widget: object
+        required: false
+        fields:
+          - { name: hp, label: HP, widget: number, value_type: int }
+          - { name: atk, label: ATK, widget: number, value_type: int }
+          - { name: def, label: DEF, widget: number, value_type: int }
+          - { name: spd, label: SPD, widget: number, value_type: int }
+          - { name: int, label: INT, widget: number, value_type: int }
+          - { name: mag, label: MAG, widget: number, value_type: int }
+      - name: abilities
+        label: Abilities
+        widget: list
+        summary: "{{section}}: {{name}}"
+        fields:
+          - { name: section, label: Section, widget: select, options: [Signature Ability, ACT Bonus, Fusion Ability, Latent Ability] }
+          - { name: name, label: Name, widget: string, required: false }
+          - { name: tags, label: "Tags (PASSIVE, 2 SP, REACTION, Minor...)", widget: list, required: false }
+          - { name: cost, label: "SP cost", widget: number, value_type: int, required: false }
+          - { name: text, label: Text, widget: text }
+          - name: moves
+            label: Moves
+            widget: list
+            required: false
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: tags, label: Tags, widget: list, required: false }
+              - { name: cost, label: "SP cost", widget: number, value_type: int, required: false }
+              - { name: text, label: Text, widget: text }
+      - { name: role, label: "Role (Job Lore)", widget: text }
+      - { name: interactions, label: Interactions, widget: text, required: false }
+      - { name: description, label: "Description (gemstone and looks)", widget: text, required: false }
+      - { name: image, label: "Art or gemstone vector", widget: image, required: false }
+      - { name: credit, label: "Design credit", widget: string, required: false }
+      - { name: updated, label: "Last updated", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }

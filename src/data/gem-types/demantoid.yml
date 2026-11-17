@@ -1,0 +1,43 @@
+name: Demantoid
+slug: demantoid
+rank: '2.1'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 34
+  atk: 8
+  def: 7
+  spd: 5
+  int: 10
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Oversee
+    tags: []
+    cost: null
+    text: >-
+      When she spends an <:Act:1568035453842751618>ACT directing an ally's task, that ally's next
+      <:Act:1568035453842751618>ACT is especially effective.
+    moves: []
+role: >-
+  Demantoids are technical supervisors who run technical tasks and oversee material and gem production sites. They can
+  usually be found wandering technically involved locations, often falling under Kandy Innovations, or handling
+  technical tasks across the Empire. Demantoids are known for being dedicated to their work and deep into their studies,
+  no problem is too big or too small for a Demantoid. Daily tasks may include organizing Peridot deployment, overseeing
+  material and gem production, helping with colony construction, and general technical work.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

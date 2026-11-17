@@ -1,0 +1,50 @@
+name: Lapis
+slug: lapis
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 34
+  atk: 2
+  def: 7
+  spd: 4
+  int: 3
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Hydrokinesis
+    tags: []
+    cost: null
+    text: >-
+      Lapis can move and shape large amounts of water, strong enough to carve canyons, redirect rivers, or call up a
+      tidal wave. She needs a source of water nearby.
+    moves:
+      - name: Water Lash
+        tags:
+          - 2 SP
+        cost: 2
+        text: A whip of water strikes one target for 2d4 + MAG damage.
+role: >-
+  Lapis Lazulis are the pride of the Empire's terraforming forces, used mostly for large, destructive projects. Work
+  such as carving the canyons for kindergartens, redirecting water, and emptying or creating bodies of water generally
+  goes to a Lapis. On smaller jobs, they slice through terrain with water and move the land so construction workers can
+  build facilities and spires. They are also very capable of defending themselves despite not being physically strong.
+  No number of soldiers is going to easily power through a tidal wave.
+interactions: >-
+  Lapis Lazulis usually work alone. On bigger projects they join other terraformers, including other Lapises, with each
+  one taking a stretch of the land.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

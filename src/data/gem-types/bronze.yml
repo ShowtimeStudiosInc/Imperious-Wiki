@@ -1,0 +1,40 @@
+name: Bronze
+slug: bronze
+rank: '4.3'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'2"
+stats:
+  hp: 38
+  atk: 4
+  def: 9
+  spd: 3
+  int: 6
+  mag: 1
+abilities:
+  - section: ACT Bonus
+    name: Survey
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that study a structure or the battlefield, like finding cover, a weak wall, or a
+      way out, are especially effective for her.
+    moves: []
+role: >-
+  Bronzes assist with construction. They're able to help design blueprints for architectural structures and interior
+  decoration.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

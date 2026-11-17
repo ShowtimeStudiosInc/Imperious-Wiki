@@ -1,0 +1,42 @@
+name: Shattuckite
+slug: shattuckite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 32
+  atk: 3
+  def: 6
+  spd: 4
+  int: 9
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: De-escalate
+    tags: []
+    cost: null
+    text: >-
+      Shattuckite talks one enemy down. The target resists with INT against a DC of 10 + half her INT. If they fail,
+      they can't attack for 2 turns, which leaves room for conversation.
+    moves: []
+role: >-
+  Shattuckite cannot be found very often, not being made in bulk as the rest of the gempire is. When it is made however,
+  its primary purpose is to enhance intellect and communication with gems, almost like speech therapy. They are great
+  with talking with gems and pair well with Sunstones and bear similar therapeutic responses as Epsilon Blue Diamond.
+  They also are well-versed in self motivation and emotional wellness.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

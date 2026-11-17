@@ -1,0 +1,35 @@
+---
+import GemIcon from './GemIcon.astro';
+import { url, fullName, RANKS, KIND_LABEL, FACTION_LABEL, hasPower, type Gem } from '../lib/gems';
+interface Props { gem: Gem }
+const { gem: g } = Astro.props;
+const chips = [
+  g.rank ? `Rank ${g.rank}` : null,
+  g.era,
+  g.kind !== 'standard' ? KIND_LABEL[g.kind] : null,
+  g.species === 'metal' ? 'Metal' : null,
+  ...g.status,
+  ...g.traits,
+].filter(Boolean) as string[];
+const s = g.stats;
+---
+<a class="card" href={url(`/gem-types/${g.slug}/`)}
+  data-name={fullName(g).toLowerCase()} data-rank={g.rank ?? ''} data-side={g.side ?? ''} data-era={g.era ?? ''}
+  data-kind={g.kind} data-species={g.species} data-faction={g.faction} data-status={g.status.join('|')}
+  data-trait={g.traits.join('|')} data-threat={g.threatClass ?? ''} data-court={g.court ?? ''} data-power={hasPower(g) ? 'yes' : 'no'}
+  data-hp={s?.hp ?? ''} data-atk={s?.atk ?? ''} data-def={s?.def ?? ''} data-spd={s?.spd ?? ''} data-int={s?.int ?? ''} data-mag={s?.mag ?? ''}>
+  <div class="top">
+    <GemIcon name={g.name} fusion={g.kind === 'fusion'} image={g.image} class="gem-mini" />
+    <div>
+      <div class="name">{fullName(g)}</div>
+      <div class="sub">{g.rank ? RANKS[g.rank]?.name : FACTION_LABEL[g.faction]}</div>
+    </div>
+  </div>
+  {chips.length > 0 && <div class="chips">{chips.map((c) => <span class="chip">{c}</span>)}</div>}
+  {s ? (
+    <div class="statline">
+      <span><b>{s.hp}</b>HP</span><span><b>{s.atk}</b>ATK</span><span><b>{s.def}</b>DEF</span>
+      <span><b>{s.spd}</b>SPD</span><span><b>{s.int}</b>INT</span><span><b>{s.mag}</b>MAG</span>
+    </div>
+  ) : <div class="sub">Stats come from its two halves</div>}
+</a>

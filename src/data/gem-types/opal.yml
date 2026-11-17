@@ -1,0 +1,48 @@
+name: Opal
+slug: opal
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'0"
+stats:
+  hp: 32
+  atk: 5
+  def: 6
+  spd: 4
+  int: 8
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Eidetic Memory
+    tags: []
+    cost: null
+    text: >-
+      Opal can hold an unlimited amount of knowledge and create holo books to store it, which are kept in libraries and
+      sanctuaries across the galaxy. If Opal is shattered, all her holo books disappear too.
+    moves:
+      - name: Look It Up
+        tags:
+          - 1 SP
+        cost: 1
+        text: >-
+          Once per battle, Opal searches her library for one enemy. The party learns one of its Abilities and one of its
+          weaknesses.
+role: >-
+  Opals serve as librarians on Homeworld and several of their colonies. They are known for being able to store infinite
+  knowledge. Many Opals have an ability to create holo books, which are stored in libraries and sanctuaries all across
+  the galaxy. It is important to note that if the Opal is shattered, all the holo books will dissipate as well.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

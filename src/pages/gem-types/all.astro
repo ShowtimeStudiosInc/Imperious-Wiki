@@ -1,0 +1,112 @@
+---
+import Site from '../../layouts/Site.astro';
+import GemCard from '../../components/GemCard.astro';
+import { getGems, url, RANKS, FACTION_LABEL, KIND_LABEL } from '../../lib/gems';
+const all = await getGems();
+const uniq = (xs: (string | null | undefined)[]) => [...new Set(xs.filter(Boolean))].sort() as string[];
+const groups = [
+  { key: 'faction', label: 'Faction', values: uniq(all.map((g) => g.faction)), show: (v: string) => FACTION_LABEL[v] },
+  { key: 'rank', label: 'Rank', values: Object.keys(RANKS).filter((r) => all.some((g) => g.rank === r)), show: (v: string) => v },
+  { key: 'side', label: 'Side', values: uniq(all.map((g) => g.side)), show: (v: string) => v },
+  { key: 'kind', label: 'Kind', values: uniq(all.map((g) => g.kind)), show: (v: string) => KIND_LABEL[v] },
+  { key: 'era', label: 'Era', values: uniq(all.map((g) => g.era)), show: (v: string) => v },
+  { key: 'species', label: 'Species', values: ['gem', 'metal'], show: (v: string) => (v === 'gem' ? 'Gem' : 'Metal') },
+  { key: 'status', label: 'Status', values: uniq(all.flatMap((g) => g.status)), show: (v: string) => v },
+  { key: 'trait', label: 'Traits', values: uniq(all.flatMap((g) => g.traits)), show: (v: string) => v },
+  { key: 'threat', label: 'Threat Class', values: uniq(all.map((g) => g.threatClass)), show: (v: string) => v },
+  { key: 'power', label: 'Has a power', values: ['yes', 'no'], show: (v: string) => (v === 'yes' ? 'Yes' : 'No') },
+];
+---
+<Site title="All Gem-Types" description="Every Gem-Type in the Imperious Authorities setting, with filters." current="gem-types">
+  <main class="wrap">
+    <p class="crumbs"><a href={url('/gem-types/')}>Gem-Types</a> / All</p>
+    <h1>All Gem-Types</h1>
+    <div class="controls panel">
+      <div class="body">
+        <input id="q" type="search" placeholder="Search by name…" autocomplete="off" />
+        <label class="sort">Sort
+          <select id="sort">
+            <option value="name">Name</option>
+            <option value="rank">Rank</option>
+            <option value="hp">Highest HP</option><option value="atk">Highest ATK</option><option value="def">Highest DEF</option>
+            <option value="spd">Highest SPD</option><option value="int">Highest INT</option><option value="mag">Highest MAG</option>
+          </select>
+        </label>
+        <button class="btn" id="clear" type="button">Clear filters</button>
+        {groups.filter((g) => g.values.length).map((grp) => (
+          <div class="fgroup">
+            <span class="flabel">{grp.label}</span>
+            <div class="chips">{grp.values.map((v) => <button type="button" class="chip fchip" data-key={grp.key} data-value={v} aria-pressed="false">{grp.show(v)}</button>)}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <p class="count"><span id="count">{all.length}</span> of {all.length} Gem-Types</p>
+    <div class="grid" id="grid">{all.map((g) => <GemCard gem={g} />)}</div>
+  </main>
+</Site>
+<script>
+  const grid = document.getElementById('grid')!;
+  const cards = [...grid.querySelectorAll<HTMLElement>('.card')];
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('.fchip')];
+  const q = document.getElementById('q') as HTMLInputElement;
+  const sort = document.getElementById('sort') as HTMLSelectElement;
+  const params = new URLSearchParams(location.search);
+  const active = new Map<string, Set<string>>();
+  for (const [k, v] of params) if (k !== 'q' && k !== 'sort') { if (!active.has(k)) active.set(k, new Set()); active.get(k)!.add(v); }
+  q.value = params.get('q') ?? '';
+  sort.value = params.get('sort') ?? 'name';
+  const multi = new Set(['status', 'trait']);
+  function apply() {
+    chips.forEach((c) => c.setAttribute('aria-pressed', String(!!active.get(c.dataset.key!)?.has(c.dataset.value!))));
+    const term = q.value.trim().toLowerCase();
+    let n = 0;
+    for (const c of cards) {
+      let ok = !term || c.dataset.name!.includes(term);
+      for (const [k, vals] of active) {
+        if (!vals.size) continue;
+        const have = multi.has(k) ? (c.dataset[k] || '').split('|') : [c.dataset[k] || ''];
+        if (![...vals].some((v) => have.includes(v))) ok = false;
+      }
+      c.style.display = ok ? '' : 'none';
+      if (ok) n++;
+    }
+    document.getElementById('count')!.textContent = String(n);
+    const key = sort.value;
+    const sorted = [...cards].sort((a, b) => {
+      if (key === 'name') return a.dataset.name!.localeCompare(b.dataset.name!);
+      if (key === 'rank') return (a.dataset.rank || 'z').localeCompare(b.dataset.rank || 'z') || a.dataset.name!.localeCompare(b.dataset.name!);
+      return Number(b.dataset[key] || -1) - Number(a.dataset[key] || -1);
+    });
+    sorted.forEach((c) => grid.appendChild(c));
+    const p = new URLSearchParams();
+    if (q.value) p.set('q', q.value);
+    if (sort.value !== 'name') p.set('sort', sort.value);
+    for (const [k, vals] of active) vals.forEach((v) => p.append(k, v));
+    history.replaceState(null, '', p.toString() ? `?${p}` : location.pathname);
+  }
+  chips.forEach((c) => c.addEventListener('click', () => {
+    const k = c.dataset.key!, v = c.dataset.value!;
+    if (!active.has(k)) active.set(k, new Set());
+    const s = active.get(k)!; s.has(v) ? s.delete(v) : s.add(v);
+    apply();
+  }));
+  q.addEventListener('input', apply);
+  sort.addEventListener('change', apply);
+  document.getElementById('clear')!.addEventListener('click', () => { active.clear(); q.value = ''; apply(); });
+  apply();
+</script>
+<style>
+  .crumbs { color: var(--muted); font-size: 0.8rem; }
+  h1 { font-size: 2.2rem; margin: 0.2rem 0 1rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .controls .body { display: flex; flex-wrap: wrap; gap: 0.7rem 1rem; align-items: center; }
+  #q { flex: 1 1 260px; font: inherit; padding: 0.55rem 0.8rem; background: rgba(7, 5, 13, 0.7); color: var(--text); border: 1px solid var(--line-strong); border-radius: var(--radius); }
+  .sort { display: flex; gap: 0.4rem; align-items: center; color: var(--muted); font-size: 0.82rem; }
+  select { font: inherit; background: rgba(7, 5, 13, 0.7); color: var(--text); border: 1px solid var(--line); padding: 0.4rem; }
+  .fgroup { flex: 1 1 100%; display: flex; gap: 0.6rem; align-items: baseline; }
+  .flabel { flex: none; width: 7.5rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .fchip { cursor: pointer; font: inherit; font-size: 0.74rem; }
+  .fchip[aria-pressed='true'] { background: rgba(124, 77, 255, 0.55); color: #fff; border-color: var(--lav); }
+  .count { color: var(--muted); font-size: 0.82rem; }
+  @media (max-width: 640px) { .fgroup { flex-direction: column; gap: 0.3rem; } }
+</style>

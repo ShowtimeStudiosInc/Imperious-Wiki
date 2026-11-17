@@ -1,0 +1,80 @@
+name: Sardonyx
+slug: sardonyx-pyrope-variant
+rank: '2.1'
+side: Aristocratic
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - pyrope
+  - pearl
+variant: Pyrope
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Elite
+height: 13'10"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Silence Inducement
+    tags: []
+    cost: null
+    text: From her Pyrope half.
+    moves:
+      - name: Hush
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          One target resists with INT. If they fail, they can't speak, sing, or use <:Act:1568035453842751618>ACTs for 2
+          turns.
+  - section: Signature Ability
+    name: Levitation
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Pyrope half. Ground traps and anything that targets the ground can't touch her.
+    moves: []
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Pearl half. Equipping an item from her pocket space doesn't use her turn.
+    moves: []
+  - section: Signature Ability
+    name: Hologram Projection
+    tags:
+      - 1 SP
+    cost: 1
+    text: From her Pearl half. One enemy who doesn't see through the image attacks it instead of its real target.
+    moves: []
+  - section: ACT Bonus
+    name: Showstopper
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that make people laugh are especially effective for her, and raise the
+      <:Mercy:1568035723469127771>Mercy of everyone watching.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: '`Self-Duplication` and `Elemental Affinity` - Any Latent Ability either half has unlocked carries into the fusion.'
+    moves: []
+role: >-
+  Sardonyxes serve the Gempire as comedians, show hosts, and general entertainers in recreational spots like Club
+  Imperious. They are a fusion between Pyropes and Pearls, and fall under the aristocratic ranking. They stand tall in
+  suits, top hats, visors, and shoulder pads, dressed for the stage at all times. Using their comedy and entertainer
+  skills, Sardonyxes help lift spirits when things get stressful across the Gempire.
+interactions: >-
+  A Sardonyx can carry a whole show by herself, but she's just as happy sharing the stage with other entertainers or
+  another Sardonyx. Like Spinels, her whole job is getting gems to laugh, and she'll be as loud and flashy as it takes.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

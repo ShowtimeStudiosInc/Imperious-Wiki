@@ -1,0 +1,64 @@
+name: Sapphire
+slug: sapphire
+rank: '2.1'
+side: Aristocratic
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 3'10"
+stats:
+  hp: 28
+  atk: 5
+  def: 4
+  spd: 5
+  int: 9
+  mag: 7
+abilities:
+  - section: Signature Ability
+    name: Clairvoyance
+    tags: []
+    cost: null
+    text: >-
+      Sapphire can see glimpses of the future and report what she sees. She has even predicted resistance group attacks
+      before they happened.
+    moves:
+      - name: Foresight
+        tags:
+          - 2 SP
+          - REACTION
+        cost: 2
+        text: >-
+          When an attack targets her, she saw it coming. The attack has disadvantage, and if it misses, she can
+          <:Fight:1568035371974135940>FIGHT the attacker right away.
+  - section: Signature Ability
+    name: Cryokinesis
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Sapphire has a small amount of ice control, enough to add a chill to her strikes. Each hit of her
+      <:Fight:1568035371974135940>FIGHTs deals +1 Ice damage.
+    moves: []
+role: >-
+  Sapphires are elite aristocratic gems who work under various Diamonds with the sole purpose of predicting the future.
+  They can usually be found wandering diplomatic locations or other tightly guarded Gempire sites. Their powerful eyes
+  can catch even the smallest shift in the future, and they are always ready to report it. A Sapphire doesn't just warn
+  gems about what's coming. She advises them on how to prepare for it and get through it. Sapphires have even accurately
+  predicted resistance group attacks. Daily tasks may include touring new locations, reporting upcoming predictions, and
+  assessing other gems.
+interactions: >-
+  Sapphires usually work alone, but they're rarely left unguarded. Rubies, Eucryptites, or other foot soldiers are
+  assigned to protect them. A Sapphire's gemstone is hard, but Sapphires are rare and their sight is worth too much to
+  risk, so the empire would rather send a squad than lose one.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

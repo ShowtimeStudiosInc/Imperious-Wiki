@@ -1,0 +1,66 @@
+name: Amber
+slug: amber
+rank: '2.3'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 3'0"
+stats:
+  hp: 32
+  atk: 4
+  def: 6
+  spd: 8
+  int: 4
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Sap Manipulation
+    tags: []
+    cost: null
+    text: Amber can generate and control sap, drawn out of whatever weapon she has in her weapon slot.
+    moves:
+      - name: Sap Snare
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          A glob of sap from her weapon hits one target. They resist with SPD. If they fail, they are
+          <:Stuck:1569710918638510141> Stuck until the end of their next turn.
+  - section: Signature Ability
+    name: Flight
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Amber can manifest bee wings made of sap from her gemstone. While flying, she counts as Far to anyone on the
+      ground.
+    moves: []
+  - section: Latent Ability
+    name: Honey Manipulation
+    tags: []
+    cost: null
+    text: >-
+      Though not typical, most Ambers can learn to generate, control, and shape honey. Its moves and SP costs are set
+      when it's unlocked.
+    moves: []
+role: >-
+  Ambers are authoritative gems operating under Court Saturn tasked with travelling from planet to planet to retrieve
+  items or gems. When not hunting down their target they can be found wandering District 4 of Homeworld or any other
+  Gempire owned location. Their speed and strength is something every gem wants to see, but not experience. Known for
+  hunting down their target until they are finished, Ambers are extremely determined to complete their mission. Daily
+  Amber tasks may include completing cargo runs, tracking down elusive gems, ordering troops around, organizing prison
+  operations and so on. It's never a boring time when an Amber is around.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

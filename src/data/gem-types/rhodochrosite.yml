@@ -1,0 +1,52 @@
+name: Rhodochrosite
+slug: rhodochrosite
+rank: '2.2'
+side: Aristocratic
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'4"
+stats:
+  hp: 32
+  atk: 4
+  def: 6
+  spd: 6
+  int: 8
+  mag: 7
+abilities:
+  - section: Signature Ability
+    name: Hologram Projection
+    tags: []
+    cost: null
+    text: >-
+      Rhodochrosite can create holographic outfits, mannequins of any gem-type to design on, and analyze a gem's look to
+      suggest new uniforms, styles, or accessories.
+    moves:
+      - name: Disguise
+        tags:
+          - 1 SP
+        cost: 1
+        text: >-
+          Rhodochrosite dresses herself or an ally in a holographic uniform of any court. ACTs that rely on the disguise
+          have advantage until someone sees through it.
+role: >-
+  Rhodochrosites serve as seamstresses, taking the lead in designing the uniforms and clothing worn by gems throughout
+  the empire, and the armor some of them wear into battle. They also help with gem reformation, giving gems suggestions
+  on new uniform styling and accessorizing to help them stand out. A Rhodochrosite is never underdressed. Most wear
+  large hats and pink, and treat their own outfit as an example for everyone else.
+interactions: >-
+  Rhodochrosites work alone or with other Rhodochrosites and fashion icons. Most of their day is spent with clients,
+  sketching on a holographic mannequin until a design fits. For many gems, a Rhodochrosite is the first one to help them
+  look like themselves instead of like their type.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

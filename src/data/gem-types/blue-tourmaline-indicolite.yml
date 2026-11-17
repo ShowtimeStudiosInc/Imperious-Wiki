@@ -1,0 +1,49 @@
+name: Blue Tourmaline (Indicolite)
+slug: blue-tourmaline-indicolite
+rank: '4.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: tourmaline
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 26
+  atk: 6
+  def: 3
+  spd: 6
+  int: 4
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Electrokinesis
+    tags: []
+    cost: null
+    text: >-
+      Indicolite can't make her own electricity like Silver can, but she can pull current out of one source and move it
+      into another, acting as a living relay between power grids, machines, and teleportation hubs.
+    moves:
+      - name: Discharge
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Indicolite releases stored charge through a target she's touching, dealing 2d4 + MAG Electric damage. She must
+          have drawn power from something since her last Discharge, like a machine, an ally such as a Silver or Copper,
+          or an Electric attack.
+role: >-
+  Indicolites are durable and speedy gems, deployed near generators and teleportation hubs where their toughness makes
+  them ideal for conducting and producing the electricity needed to keep the machines running. Male presenting
+  Indicolites carry a medium square prism on their chest, while female presenting ones carry it on their forehead.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

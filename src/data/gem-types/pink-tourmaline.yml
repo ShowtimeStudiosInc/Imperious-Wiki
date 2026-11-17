@@ -1,0 +1,51 @@
+name: Pink Tourmaline
+slug: pink-tourmaline
+rank: '2.2'
+side: Aristocratic
+faction: gempire
+kind: sub-type
+parent: tourmaline
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 32
+  atk: 4
+  def: 6
+  spd: 6
+  int: 9
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Set the Scene
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Pink Tourmaline can wrap a room in holographic decor, turning a plain hall into something dripping with expensive
+      taste for the length of an event. In a room she has dressed, <:Act:1568035453842751618>ACTs to hide or blend in
+      have advantage.
+    moves: []
+  - section: ACT Bonus
+    name: Scandal
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that use someone's secrets or reputation against them are especially effective for
+      her.
+    moves: []
+role: >-
+  Pink Tourmaline is the go to gem when a high ranking gem wants their gala, palace, or show to look like money was no
+  object. Between jobs she moonlights as a freelance gossip columnist, which conveniently keeps her in the loop on who's
+  throwing what and why.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

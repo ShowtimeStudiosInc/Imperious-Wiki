@@ -1,0 +1,42 @@
+name: Chromium
+slug: chromium
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'4"
+stats:
+  hp: 38
+  atk: 6
+  def: 9
+  spd: 3
+  int: 3
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Durability Bestowal
+    tags:
+      - 2 SP
+    cost: 2
+    text: >-
+      Chromium hardens anything she touches, including walls, gear, and another gem's form. For 2 turns, every physical
+      hit on the target is reduced by 2 more.
+    moves: []
+role: >-
+  Chromium is a fortification and protective plating specialist. They can harden and reinforce surfaces they touches,
+  including structures, equipment, and temporarily other gems' forms. Their essential for building durable installations
+  and keeping valuable infrastructure safe from damage and corrosion.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

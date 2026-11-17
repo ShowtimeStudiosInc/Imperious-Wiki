@@ -1,0 +1,40 @@
+name: Jasper
+slug: jasper
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 38
+  atk: 10
+  def: 9
+  spd: 4
+  int: 3
+  mag: 2
+abilities:
+  - section: ACT Bonus
+    name: Intimidate
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that threaten or scare an enemy are especially effective for her.
+    moves: []
+role: >-
+  Jaspers are the ultimate brute soldiers. They are rough, tough, and will pick on you just for the fun of it. They are
+  a lot like Amethysts and Smoky Quartzes, just with a harder edge. Under that brash attitude, there is a soft side to
+  Jaspers too. They might not say it out loud, but they do care about you. They want to see you succeed and grow
+  stronger.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

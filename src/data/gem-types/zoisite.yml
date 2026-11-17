@@ -1,0 +1,54 @@
+name: Zoisite
+slug: zoisite
+rank: '2.1'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 34
+  atk: 6
+  def: 7
+  spd: 5
+  int: 10
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Essence Manipulation
+    tags: []
+    cost: null
+    text: >-
+      Zoisite can combine gem essence in different ways, letting her create gem types and study how kindergarten
+      environments and materials affect gem growth.
+    moves:
+      - name: Essence Disruption
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          One target resists with INT. If they fail, the Special from their Era, Sole Essence, or Analogous Mix stops
+          working for 2 turns.
+role: >-
+  Zoisites are authoritative scientists. They serve the empire by working out the combinations of gem essence used in
+  kindergartens. They have deep knowledge in their field, capable of creating gem types and studying how different
+  kindergarten environments and materials shape gem growth. Most carry large chemical tanks on their backs full of raw
+  essence, which they take straight to test sites. They dress in lab coats, visors, and work gloves, and their colors
+  run from purple to green, with some showing patches of both. They are key members of Court Emerald, along with other
+  groups like Court Theta, leading the Gempire's research efforts.
+interactions: >-
+  Zoisites sit over the empire's technical gems, especially anything to do with making new gems. Demantoids run
+  kindergarten production day to day, but they report to Zoisites on how it's going and whether the injectors are
+  working.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

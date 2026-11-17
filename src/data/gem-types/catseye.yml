@@ -1,0 +1,52 @@
+name: Catseye
+slug: catseye
+rank: '2.3'
+side: Aristocratic
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 38
+  atk: 5
+  def: 9
+  spd: 8
+  int: 3
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Feline Agility
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Catseyes are naturally agile and extremely flexible, bending and twisting their hard light forms in unusual ways.
+      They always land on their feet, can't be knocked down, and can slip free of being
+      <:Stuck:1569710918638510141>Stuck at the start of their turn.
+    moves: []
+  - section: Latent Ability
+    name: Liquidation
+    tags: []
+    cost: null
+    text: >-
+      Catseye may learn to touch a surface or an opposing gem and turn its texture into wet clay, mud, soaked sand, or
+      loose dirt for a short time. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Catseyes serve as acrobatic performers and courtiers. Known throughout the Gempire for their striking chatoyancy and
+  captivating stage presence, Catseyes are frequently deployed at high-ranking galas, balls, and entertainment districts
+  to perform intricate physical showcases, though their innate agility and fluidic combat capabilities make them
+  surprisingly formidable security assets when provoked.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

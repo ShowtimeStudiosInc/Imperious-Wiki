@@ -1,0 +1,45 @@
+name: Cubic Zirconia
+slug: cubic-zirconia
+rank: '1.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 44
+  atk: 11
+  def: 12
+  spd: 4
+  int: 7
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Sub-Domain
+    tags: []
+    cost: null
+    text: >-
+      Cubic Zirconia carries a fragment of her Diamond sibling's essence. It gives her a lesser version of that
+      Diamond's powers, or her own set of abilities drawn from a Sub-Domain of her Diamond's Domains. The umbrella has
+      no SP cost. Each move built under it does, and is set on her own sheet.
+    moves: []
+role: >-
+  Cubic Zirconias are Diamond-like transcendent gems, created as regional managers who oversee specific territories
+  within the Empire. Though not true Diamonds, they carry a fragment of their sibling's essence, giving them powers that
+  resemble, but never fully match, the abilities of the Diamond they emerged alongside. Their authority stays local,
+  making sure each region stays loyal, efficient, and lined up with the bigger goals of their ruling Diamond. Diamonds
+  and their Zirconias share a sibling bond. When not working, they can usually be found at Club Imperious or other high
+  ranking locations.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

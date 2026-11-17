@@ -1,0 +1,45 @@
+name: Zircon
+slug: zircon
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'1"
+stats:
+  hp: 28
+  atk: 5
+  def: 4
+  spd: 5
+  int: 10
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Argue
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that debate, point out a contradiction, or build a case against someone are
+      especially effective for her.
+    moves: []
+role: >-
+  Zircons serve as prosecutors and defense in Trials hosted by a Kyanite or the Supreme Judge. Some take on cases
+  themselves, and others are assigned to a gem by a higher-up. Not every Zircon stays in the courtroom. Some become
+  Detectives under Court Nightshade, using the same skill for building a case to track down what really happened before
+  a trial ever starts.
+interactions: >-
+  Zircons work with other gems in court roles. In a trial, they take the prosecuting or defending side and work with
+  their clients, witnesses, the authorities, and the Kyanite judging the case. A Detective Zircon's case often ends up
+  in front of another Zircon in court.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

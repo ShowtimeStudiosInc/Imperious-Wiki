@@ -1,0 +1,44 @@
+name: Turquoise
+slug: turquoise
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'8"
+stats:
+  hp: 32
+  atk: 7
+  def: 6
+  spd: 4
+  int: 6
+  mag: 2
+abilities:
+  - section: ACT Bonus
+    name: Armorer
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that repair, sharpen, or adjust weapons and armor in the middle of a battle are
+      especially effective for her.
+    moves: []
+role: >-
+  Turquoises have long been made to craft weapons for the Gempire, bringing a long lineage of forge masterwork and
+  armaments production. They run heavy foundries, weapons bays, and field armories, turning raw ores and alloys into
+  reliable gear for frontline forces. They treat weapon crafting as a serious, hands-on discipline rather than simple
+  assembly line work. A Turquoise takes personal pride in the balance, durability, and edge of every piece that leaves
+  their forge, often testing their creations directly to ensure they hold up under real combat conditions. Practical and
+  sharp-minded, they are the backbone of supply lines, making sure anyone heading into danger has gear they can trust.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

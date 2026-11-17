@@ -1,0 +1,16 @@
+/* Matches the Starlight docs pages to the rest of the wiki. */
+:root, ::backdrop {
+  --sl-font: 'Inter', system-ui, sans-serif;
+  --sl-color-accent-low: #2a1650;
+  --sl-color-accent: #7c4dff;
+  --sl-color-accent-high: #d9ceff;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #ece6ff;
+  --sl-color-gray-2: #c9bfe8;
+  --sl-color-gray-3: #a99fc7;
+  --sl-color-gray-4: #6f6690;
+  --sl-color-gray-5: #3a2f5c;
+  --sl-color-gray-6: #1c1230;
+  --sl-color-black: #0b0814;
+}
+h1, h2, h3, .site-title { font-family: 'Libre Baskerville', Georgia, serif !important; font-weight: 400 !important; letter-spacing: 0.02em; }

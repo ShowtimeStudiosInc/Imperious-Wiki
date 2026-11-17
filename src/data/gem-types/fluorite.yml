@@ -1,0 +1,66 @@
+name: Fluorite
+slug: fluorite
+rank: '2.3'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits:
+  - Bioluminescent
+court: null
+threatClass: null
+height: 8'4"
+stats:
+  hp: 34
+  atk: 8
+  def: 7
+  spd: 5
+  int: 6
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Bioluminescence
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Fluorite is one of the few gem-types whose body makes its own light. While she's in the party, total darkness
+      counts as dim for the Star Gauge, so her party still gains marks at the start of each round.
+    moves: []
+  - section: ACT Bonus
+    name: Call the Shot
+    tags: []
+    cost: null
+    text: >-
+      When she spends an <:Act:1568035453842751618>ACT marking an enemy, the next ally to attack that enemy has
+      advantage.
+    moves: []
+  - section: Latent Ability
+    name: Extrasensory Perception
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Fluorite may learn to pick up on things she shouldn't normally know. In battle, once per battle, when an attack
+      targets her or an ally Near her, she senses it coming and the attack is made with disadvantage. Outside of battle,
+      once per scene, she can ask staff one yes or no question about her surroundings. The answer is always true, but
+      may be a gut feeling rather than a clear fact.
+    moves: []
+role: >-
+  Fluorites serve the empire as administrators and fleet admirals. They direct troops in battle under the instruction of
+  higher ups such as Hessonites, and they don't mind joining the fight directly in melee combat. Off the battlefield,
+  they handle the paperwork side of running a fleet, from troop counts to supply lists. They're one of the few
+  bioluminescent gem-types, so a Fluorite is easy to find on a dark ship deck.
+interactions: >-
+  Fluorites usually travel alone or in pairs on transport vessels and scouting ships. They work closely with the
+  militia, which makes them the link between the gems giving orders and the soldiers carrying them out. Like Emeralds,
+  they leave the flying to Nephrites so they can keep their attention on the fight ahead.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

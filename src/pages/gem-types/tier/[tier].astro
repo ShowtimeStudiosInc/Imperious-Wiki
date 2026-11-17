@@ -1,0 +1,53 @@
+---
+import Site from '../../../layouts/Site.astro';
+import GemCard from '../../../components/GemCard.astro';
+import { getGems, TIERS, RANKS, url, type Gem } from '../../../lib/gems';
+
+export async function getStaticPaths() {
+  const all = await getGems();
+  return TIERS.map((t) => ({ params: { tier: t.slug }, props: { tier: t.slug, gems: all.filter(t.match) } }));
+}
+const { tier, gems } = Astro.props as { tier: string; gems: Gem[] };
+const t = TIERS.find((x) => x.slug === tier)!;
+const ranks = [...new Set(gems.map((g) => g.rank).filter(Boolean))].sort() as string[];
+const order = (g: Gem) => (g.kind === 'fusion' ? 2 : g.kind === 'sub-type' ? 1 : 0);
+const sorted = [...gems].sort((a, b) => (a.rank ?? '').localeCompare(b.rank ?? '') || order(a) - order(b) || a.name.localeCompare(b.name));
+---
+<Site title={t.name} description={t.blurb} current="gem-types">
+  <main class="wrap">
+    <p class="crumbs"><a href={url('/gem-types/')}>Gem-Types</a> / {t.name}</p>
+    <h1 class="tier-title" data-tier={tier}>{t.name}</h1>
+    <p class="lede">{t.blurb}</p>
+    {ranks.length > 1 && (
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-rank="">All</button>
+        {ranks.map((r) => <button class="tab" role="tab" aria-selected="false" data-rank={r}>{RANKS[r].level} · {r}</button>)}
+      </div>
+    )}
+    {sorted.length ? (
+      <div class="grid" id="grid">{sorted.map((g) => <GemCard gem={g} />)}</div>
+    ) : (
+      <div class="empty">No Gem-Types are catalogued here yet. They'll show up as soon as they're added to the data files.</div>
+    )}
+  </main>
+</Site>
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tab');
+  const cards = document.querySelectorAll<HTMLElement>('#grid .card');
+  const pick = (r: string) => {
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.rank === r)));
+    cards.forEach((c) => (c.style.display = !r || c.dataset.rank === r ? '' : 'none'));
+    history.replaceState(null, '', r ? `#${r}` : location.pathname);
+  };
+  tabs.forEach((t) => t.addEventListener('click', () => pick(t.dataset.rank || '')));
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (h && [...tabs].some((t) => t.dataset.rank === h)) pick(h);
+</script>
+<style>
+  .crumbs { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.06em; }
+  .tier-title { font-size: 2.4rem; margin: 0.2rem 0; text-transform: uppercase; letter-spacing: 0.1em; }
+  .tier-title[data-tier='lost'] { color: var(--lost); opacity: 0.85; }
+  .tier-title[data-tier='united-frontier'] { color: var(--uf); }
+  .tier-title[data-tier='rogues'] { color: var(--rogue); }
+  .lede { color: var(--muted); max-width: 60ch; }
+</style>

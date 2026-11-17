@@ -1,0 +1,62 @@
+name: Malachite
+slug: malachite-fusion
+rank: '3.2'
+side: null
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - lapis
+  - quartz
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Champion
+height: 13'10"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Hydrokinesis
+    tags:
+      - Base
+      - Elements
+    cost: null
+    text: >-
+      From her Lapis half. Malachite can move and shape large amounts of water, strong enough to carve canyons, redirect
+      rivers, or call up a tidal wave. She needs a source of water nearby.
+    moves:
+      - name: Water Lash
+        tags:
+          - 2 SP
+        cost: 2
+        text: A whip of water strikes one target for 2d4 + MAG damage.
+  - section: ACT Bonus
+    name: null
+    tags: []
+    cost: null
+    text: >-
+      From her Quartz half. Malachite keeps the <:Act:1568035453842751618>ACT Bonus of whichever Quartz type she is
+      fused from.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: Any Latent Ability either half has unlocked carries into the fusion.
+    moves: []
+role: >-
+  Malachites are heavy hitting soldiers and brutes, a fusion between any type of Quartz and a Lapis Lazuli. A Malachite
+  holds the same rank as her Quartz half, keeps whatever special ability that Quartz has, and gains Water Control from
+  her Lapis half. Once fused, they are known as strong soldiers in battle, fighting with a trident for both attack and
+  defense, backed by their command over water.
+interactions: >-
+  Malachites work alone or with each other, assigned to combat duty on the battlefield. Thanks to her Lapis half, a
+  Malachite can help with terraforming when it's truly needed, but it isn't her job, and the non-fusion Malachites who
+  do it full time will tell her so.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

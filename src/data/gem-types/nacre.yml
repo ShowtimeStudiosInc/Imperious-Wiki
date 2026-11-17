@@ -1,0 +1,64 @@
+name: Nacre
+slug: nacre
+rank: '2.2'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 9'2"
+stats:
+  hp: 30
+  atk: 3
+  def: 5
+  spd: 5
+  int: 7
+  mag: 8
+abilities:
+  - section: Signature Ability
+    name: Life Creation
+    tags: []
+    cost: null
+    text: >-
+      Nacre can create Pearls, one of the only gems besides a Diamond who can make new life. This happens in the Reef,
+      never in battle.
+    moves: []
+  - section: Signature Ability
+    name: Pearl Restoration
+    tags: []
+    cost: null
+    text: >-
+      Nacre can repair the Pearls she has created, along with Pearls other Nacre have made, on the go. As a last resort,
+      she can also rejuvenate a Pearl she made herself.
+    moves:
+      - name: Repair
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Heals one Pearl, or a fusion with a Pearl half, for 2d4 + MAG. Unlike other healing, it can also mend a
+          Pearl's cracks.
+role: >-
+  Nacres are the only gem type capable of creating life besides the Diamonds, and gems often call them the Mother of
+  Pearls. While they do not hold much authority compared to other high ranking figures, they have full control within
+  the Reef, where they create Pearls and send them out to gems and places that need help with small tasks. A Nacre can
+  rejuvenate a Pearl she made, but most see it as the hardest part of the job and only do it when nothing else can help.
+  This gem type was created by Alpha Black Diamond, making it one of the few Legacy Gem Types that exist, and an even
+  rarer Era 0 Legacy on top of that. Most Nacres near Homeworld are Era 0 gems, with Era 1 Nacres showing up further
+  out, and Era 2 Nacres being the rarest of all.
+interactions: >-
+  Nacres work alone or in pairs, and a Reef rarely has more than two. They keep new Pearls on standby until they're
+  chosen, and give each one etiquette training suited to the kind of higher-up she's likely to serve.
+notes:
+  - 'Staff note: rejuvenating a player''s Pearl always needs that player''s agreement out of character first.'
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,66 @@
+name: Prasiolite-Goshenite
+slug: prasiolite-goshenite
+rank: '3.3'
+side: null
+faction: gempire
+kind: geode
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'1"
+stats:
+  hp: 30
+  atk: 4
+  def: 5
+  spd: 4
+  int: 5
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Cryophrenia
+    tags: []
+    cost: null
+    text: >-
+      Prasgoshenite can generate and shape her own psychic energy in two ways. Compressed, it forms crystal like
+      constructs such as barriers, projectiles, or restraints that bend light as they take shape. In its natural state,
+      she can wrap it around beings or objects to move them, or press extra force onto a target, making them feel
+      heavier the longer they are exposed. Her telekinesis is more precise than an Almandine's psionics, but she can
+      lift and move far less weight.
+    moves:
+      - name: Crystal Shards
+        tags:
+          - 2 SP
+        cost: 2
+        text: Compressed psychic crystal strikes one target for 2d4 + MAG Psychic damage.
+      - name: Pressure
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          One target resists with INT. If they fail, they act last in the round, and their party's abilities cost 1 more
+          SP while they're affected, for 2 turns. It can stack up to 3 times.
+  - section: Latent Ability
+    name: Technopathy
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Prasgoshenite may come to trust the gut feeling she gets when something is wrong with a machine. Most never
+      realize it's a real ability and just think of it as intuition.
+    moves: []
+role: >-
+  Prasgoshenites are stationed at research facilities and high value locations, working as both the guard at the door
+  and a helping hand in the lab. Its to be made aware there are a limited few of them these days due to their Gem-Type
+  being discontinued since ERA 1A, partly due to Theta Gold's dislike of how many resources Geodes take to create, and
+  also due to the new non-geode gem-types that have taken their role.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

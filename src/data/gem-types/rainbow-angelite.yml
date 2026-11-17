@@ -1,0 +1,48 @@
+name: Rainbow Angelite
+slug: rainbow-angelite
+rank: null
+side: null
+faction: lost
+kind: sub-type
+parent: angelite
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 32
+  atk: 2
+  def: 6
+  spd: 5
+  int: 5
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Healing
+    tags: []
+    cost: null
+    text: >-
+      Rainbow Angelite's body is particularly suited to restorative light. Beyond what a standard Angelite can do, she
+      can also purify. She can't mend cracks, reverse corruption, or undo a shattering.
+    moves:
+      - name: Restorative Light
+        tags:
+          - 2 SP
+        cost: 2
+        text: Heals one ally, who can be Near or Far, for 2d4 + MAG, and removes one negative status from them.
+role: >-
+  Rainbow Angelites were a specialized medical subtype produced within Omega White Diamond's empire. Their bodies were
+  particularly suited to restorative abilities, allowing them to provide medical support to injured Gems in the field.
+  They were not frontline combatants and instead served as dedicated medical personnel. Their unusual coloration,
+  appearance and medical abilities are believed to have influenced the design philosophy behind some of the Angelites
+  later produced by the United Frontier.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

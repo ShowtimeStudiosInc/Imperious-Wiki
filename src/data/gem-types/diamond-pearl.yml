@@ -1,0 +1,60 @@
+name: Diamond Pearl
+slug: diamond-pearl
+rank: '1.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: pearl
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'2"
+stats:
+  hp: 34
+  atk: 5
+  def: 7
+  spd: 5
+  int: 8
+  mag: 8
+abilities:
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      A Diamond Pearl can tuck items into a pocket space inside her gemstone and pull them back out. Equipping an item
+      from it doesn't use her turn.
+    moves: []
+  - section: Signature Ability
+    name: Hologram Projection
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      A Diamond Pearl makes a harmless image of light appear. One enemy who doesn't see through it attacks the image
+      instead of its real target.
+    moves: []
+  - section: Signature Ability
+    name: Fragment
+    tags: []
+    cost: null
+    text: >-
+      A Diamond Pearl carries the lowest ranked ability under her Diamond's Domain, in a limited form. It has one move,
+      set on her own sheet.
+    moves: []
+role: >-
+  Diamond Pearls are the highest ranking Pearl sub-type, placed above all other Pearls thanks to their direct service to
+  the Diamonds themselves. Their standing puts them just below Cubic Zirconias in the hierarchy, making them both
+  attendants and symbols of the Imperious Authority. Unlike standard Pearls, Diamond Pearls wear a crown-like crest on
+  their head that marks their status.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

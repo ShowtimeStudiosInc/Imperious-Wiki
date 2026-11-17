@@ -1,0 +1,39 @@
+name: Serpentine
+slug: serpentine
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'6"
+stats:
+  hp: 30
+  atk: 4
+  def: 5
+  spd: 5
+  int: 10
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Examine
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that study a sample, substance, or wound up close are especially effective for her.
+    moves: []
+role: >-
+  Serpentines work as scientists and researchers across the Gempire. Their goggles help them study small, delicate, or
+  hazardous details up close, whether that's examining gem essence, running experiments, or breaking down data other
+  gems would struggle to read. Careful and precise, a Serpentine rarely misses the small stuff.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

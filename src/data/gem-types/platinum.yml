@@ -1,0 +1,43 @@
+name: Platinum
+slug: platinum
+rank: '2.2'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'4"
+stats:
+  hp: 44
+  atk: 6
+  def: 12
+  spd: 4
+  int: 7
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Formation
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that arrange allies into a defensive formation are especially effective for her.
+      Until her next turn, every ally Near her takes 1 less damage from each hit.
+    moves: []
+role: >-
+  Platinums are authoritative metals ranked as generals, overseeing soldiers. They specialize in tank tactics,
+  supervising and controlling teams of Titaniums to defend other, less durable soldiers. Most float a short distance off
+  the ground, which makes them look a little taller than they are.
+interactions: >-
+  Platinums usually work alone, though some run in pairs or small teams with other Platinums. Each one oversees her own
+  Titaniums and leads them into battle.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

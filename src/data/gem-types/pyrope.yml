@@ -1,0 +1,60 @@
+name: Pyrope
+slug: pyrope
+rank: '2.1'
+side: Aristocratic
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'10"
+stats:
+  hp: 34
+  atk: 7
+  def: 7
+  spd: 5
+  int: 8
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Silence Inducement
+    tags: []
+    cost: null
+    text: Pyrope can force an area or a person to go silent.
+    moves:
+      - name: Hush
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          One target resists with INT. If they fail, they can't speak, sing, or use <:Act:1568035453842751618>ACTs for 2
+          turns.
+  - section: Signature Ability
+    name: Levitation
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Pyrope can float a few feet off the ground with her dress, so ground traps and anything that targets the ground
+      can't touch her.
+    moves: []
+role: >-
+  Pyropes were created to organize gatherings, and most host the events they plan, usually for high-ranked gems. They
+  can be found wandering high ranking locations and keeping an eye on the venues that make up the Empire's entertainment
+  side. Pyropes are known for being quite formal in their work, so formal that they may throw a small tantrum over the
+  tiniest thing going wrong. Daily tasks may include touring possible event locations, organizing invites, setting up
+  celebration supplies, and general planning.
+interactions: >-
+  Pyropes host alone or in groups, depending on how big the event is. Hosting takes real social skill, so a Pyrope
+  spends as much of an event talking to guests as running it. For anything large, she brings Pezzottaites along to keep
+  things on schedule while she oversees the room.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

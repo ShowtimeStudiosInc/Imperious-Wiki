@@ -1,0 +1,41 @@
+name: Jade
+slug: jade
+rank: '2.3'
+side: Aristocratic
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'0"
+stats:
+  hp: 32
+  atk: 6
+  def: 6
+  spd: 6
+  int: 7
+  mag: 5
+abilities:
+  - section: ACT Bonus
+    name: Mingle
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that blend into a crowd or gather gossip are especially effective for her.
+    moves: []
+role: >-
+  Jades are aristocrats and partygoers, seen at social events, balls, and high-ranking gatherings. They dance together
+  and fill a room with their light and their outfits. Few gem-types vary as much in looks: short Jades tend to wear
+  flowing gowns, medium Jades wear cog-styled dresses, and tall, slim Jades wear sharp uniform patterns.
+interactions: >-
+  Spotting a Jade alone is considered pretty unusual. They dance in pairs at the very least, and for a big dance they
+  gather in large groups, sometimes enough to fill the floor on their own.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

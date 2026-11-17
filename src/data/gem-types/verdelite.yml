@@ -1,0 +1,36 @@
+name: Verdelite
+slug: verdelite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 32
+  atk: 8
+  def: 6
+  spd: 4
+  int: 4
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Demolish
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that break structures, cover, or barriers are especially effective for her.
+    moves: []
+role: Verdelites are gems that are made to demolish structures.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

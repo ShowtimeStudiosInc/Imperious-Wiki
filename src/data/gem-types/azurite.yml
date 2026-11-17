@@ -1,0 +1,49 @@
+name: Azurite
+slug: azurite
+rank: '2.3'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 30
+  atk: 4
+  def: 5
+  spd: 5
+  int: 11
+  mag: 5
+abilities:
+  - section: ACT Bonus
+    name: Cite the Rules
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that use records, laws, or paperwork to stop or stall someone are especially
+      effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Water Constructs
+    tags: []
+    cost: null
+    text: Azurite may learn to form constructs out of water. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Azurites handle the administrative and clerical work in court settings. They manage records and documents tied to
+  trials and hearings, process legal forms, and schedule cases and hearings, making sure files stay complete and
+  accurate. For trials, an Azurite puts together the documents and materials needed for the case, and reviews everything
+  to make sure procedures are described correctly. During busy case periods, Azurites can often be seen working with
+  specialized Opals to gather the information they need.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

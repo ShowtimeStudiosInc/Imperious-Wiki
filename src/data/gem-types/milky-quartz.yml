@@ -1,0 +1,49 @@
+name: Milky Quartz
+slug: milky-quartz
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 34
+  atk: 7
+  def: 7
+  spd: 4
+  int: 5
+  mag: 5
+abilities:
+  - section: ACT Bonus
+    name: Unwind
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that help an ally shake off stress or exhaustion are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Sleep Inducement
+    tags: []
+    cost: null
+    text: >-
+      Milky Quartz may learn to make others feel drowsy or fall <:Asleep:1569712124043857941>Asleep a little easier. Its
+      moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Milky Quartz soldiers are the bubbliest and kindest Quartz soldiers you will ever meet. They are compassionate and
+  understanding, and they tend to goof off a lot, which has earned them a reputation for slacking off. If you have never
+  rested or slept before, a Milky Quartz would be the one to teach you how. They are incredible sleepers, some of the
+  best out there. It can take a very long time to wake one up from a deep sleep, which raises the question of why they
+  need so much rest in the first place.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

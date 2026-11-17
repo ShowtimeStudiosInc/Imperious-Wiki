@@ -1,0 +1,66 @@
+name: Peridot
+slug: peridot-era-0
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 0
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'6"
+stats:
+  hp: 30
+  atk: 5
+  def: 5
+  spd: 4
+  int: 7
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Technopathy
+    tags: []
+    cost: null
+    text: Peridot can talk to, control, and interact with technology.
+    moves:
+      - name: Override
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Peridot takes control of one machine, drone, turret, or construct for 2 turns. If a gem is controlling it,
+          that gem resists with INT.
+  - section: Signature Ability
+    name: Ferrokinesis
+    tags: []
+    cost: null
+    text: Peridot can move and shape metal.
+    moves:
+      - name: Scrap Toss
+        tags:
+          - 1 SP
+        cost: 1
+        text: Peridot flings a nearby piece of metal at one target for 1d6 + MAG damage.
+  - section: Latent Ability
+    name: Electrical Transportation
+    tags:
+      - 2 SP
+    cost: 2
+    text: >-
+      Peridot may learn to turn herself into electricity and travel through a power grid, reforming anywhere along it.
+      In battle, she can move to Near, Far, or Behind anyone standing by a powered machine.
+    moves: []
+role: >-
+  Era 0 Peridots are often lent out to other courts to manage projects that involve some kind of technology. In Alpha
+  Black's Court, they keep the court's complex systems running. If you were lucky, you could find many of them working
+  in Mint Diamond's sectors of the Gempire, since they used to be hired often for Peridot managerial jobs.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

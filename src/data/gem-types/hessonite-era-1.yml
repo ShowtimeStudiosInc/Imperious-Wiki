@@ -1,0 +1,54 @@
+name: Hessonite
+slug: hessonite-era-1
+rank: '2.1'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 1
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'8"
+stats:
+  hp: 38
+  atk: 9
+  def: 9
+  spd: 5
+  int: 7
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Strategy
+    tags: []
+    cost: null
+    text: >-
+      When she spends an <:Act:1568035453842751618>ACT planning the fight, she chooses the order her party acts in for
+      the rest of the round.
+    moves: []
+  - section: Latent Ability
+    name: Commanding Aura
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Hessonite may grow a presence that makes troops fall in line around her. Allies Near her have advantage on
+      resisting effects on the mind.
+    moves: []
+role: >-
+  Hessonites command the empire's ground troops. Where an Emerald runs a fleet from the bridge, a Hessonite is down on
+  the field with her soldiers, sword in hand. She uses it to cut a path open as often as to hold one, and a Hessonite
+  who hasn't drawn her sword by the end of a battle usually counts it as a bad one. Off the field, they keep combat
+  installations in working order, check weapons and supply counts, and report to higher ups.
+interactions: >-
+  Hessonites usually work alone, with a unit of lower-ranked militia under them. They look after their own court's
+  militia first, but in a crisis a Hessonite will take command of any soldiers in reach, whatever court they belong to.
+  Most soldiers have learned it's easier to follow her than to argue.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

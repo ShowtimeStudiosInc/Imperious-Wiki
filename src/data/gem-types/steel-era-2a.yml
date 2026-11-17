@@ -1,0 +1,65 @@
+name: Steel
+slug: steel-era-2a
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 2A
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'1"
+stats:
+  hp: 38
+  atk: 6
+  def: 9
+  spd: 4
+  int: 4
+  mag: 1
+abilities:
+  - section: Signature Ability
+    name: Restraint Lines
+    tags: []
+    cost: null
+    text: Steel can draw elastic metal lines out of her own body to bind, drag, or hold anything that fights back.
+    moves:
+      - name: Bind
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Metal lines lash around one target who is Near. They resist with SPD. If they fail, they are
+          <:Stuck:1569710918638510141>Stuck for 2 turns.
+  - section: ACT Bonus
+    name: Secure
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that lock down an area, search a scene, or keep a captured target from escaping are
+      especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Containment Field
+    tags: []
+    cost: null
+    text: >-
+      Steel may learn to create a barrier that holds and moves a captured gem. Its moves and SP costs are set when it's
+      unlocked.
+    moves: []
+role: >-
+  Era 2A Steels serve the empire as security and containment agents. They respond to calls about rebel attacks, enemy
+  forces, and anything else that puts the empire's gems in danger. When a threat needs to be held, a Steel restrains it
+  and brings it to a containment cell for questioning.
+interactions: >-
+  Era 2A Steels work with the Era 0-1 Steels who handle organics. When a call involves something dangerous, like a beast
+  that won't calm down or a rebel hiding among the wildlife, an Era 2A Steel goes in first and holds it in place so the
+  older Steels can work safely.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

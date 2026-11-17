@@ -1,0 +1,54 @@
+name: Bronze
+slug: bronze-era-0-1
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 0-1
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'2"
+stats:
+  hp: 40
+  atk: 5
+  def: 10
+  spd: 3
+  int: 8
+  mag: 1
+abilities:
+  - section: ACT Bonus
+    name: Survey
+    tags: []
+    cost: null
+    text: >-
+      ACTs that study a structure or the battlefield, like finding cover, a weak wall, or a way out, are especially
+      effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Structural Analysis
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Bronze may learn to see the failure point of any structure at a glance. Once she has, her party's hits on
+      structures, barriers, and constructs ignore their DEF.
+    moves: []
+role: >-
+  Era 0-1 Bronzes are master architects and structural engineers from the original metal society. Unlike their mass
+  produced Era 2A+ counterparts who assist with construction, these ancient Bronzes design and oversee entire
+  architectural projects from start to finish. They have a deep, natural grasp of load bearing math, aesthetic balance,
+  and material stress points, built up over an enormous stretch of time. These Bronzes created the foundational
+  architecture of the metal society before it joined the Gempire, and now serve as senior consultants on the most
+  ambitious construction projects. As they are not mass produced by the Gempire, only the original Era 0-1 Bronzes of
+  this kind exist.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

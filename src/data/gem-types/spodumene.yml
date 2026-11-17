@@ -1,0 +1,62 @@
+name: Spodumene
+slug: spodumene
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits:
+  - Bioluminescent
+court: null
+threatClass: null
+height: 5'9"
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 7
+  int: 4
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Bioluminescence
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Spodumene is one of the few gem-types whose body makes its own light, mostly from the bulbs on her head. While
+      she's in the party, total darkness counts as dim for the Star Gauge, so her party still gains marks at the start
+      of each round.
+    moves: []
+  - section: ACT Bonus
+    name: Dance
+    tags: []
+    cost: null
+    text: ACTs that dance to distract, charm, or draw attention are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Pleochroism
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Spodumene may learn to make her colors change with every angle she's seen from, which makes her hard to track
+      while she moves. The first attack made against her each round needs +1 to hit.
+    moves: []
+role: >-
+  Spodumenes are performers, made to fill the stage behind the main act at balls, festivals, and places like Club
+  Imperious. They work in lines of five or more, and most of their day is spent learning routines, rehearsing them until
+  every Spodumene in the line moves the same way, and setting up the stage before a show. They're one of the few
+  bioluminescent gem-types, so a line of Spodumenes can light a small stage on their own, and a show in a dark room is
+  where they're at their best. Their colors run from green to pink to blue to purple, but a lead performer is rarely
+  picked for her looks. It's picked for who keeps time the best.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,49 @@
+name: Prasiolite
+slug: prasiolite
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 7
+  def: 6
+  spd: 5
+  int: 7
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Tinker
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that work with machines, like shutting one down, rewiring it, or finding its weak
+      point, are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Technopathy
+    tags: []
+    cost: null
+    text: >-
+      Prasiolite may learn a very limited control of technology, letting her sense and interact with gem tech. Its moves
+      and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Prasiolite soldiers are no doubt Court Emerald's finest. A lot of them wear visors and know their way around gem tech
+  well enough to help out any technical gems who need a hand. Outside of missions and tasks, they are pretty nerdy. They
+  are always talking about the latest gem technology or how fast someone could fix up a broken down ship.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

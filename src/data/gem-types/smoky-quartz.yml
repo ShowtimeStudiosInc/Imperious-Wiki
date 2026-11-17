@@ -1,0 +1,48 @@
+name: Smoky Quartz
+slug: smoky-quartz
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 9
+  def: 6
+  spd: 4
+  int: 5
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Distract
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that use humor to throw an enemy off their game are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Vibrokinesis
+    tags: []
+    cost: null
+    text: >-
+      Smoky Quartz may learn to create a small vibration or rumble, which can grow stronger over time. Its moves and SP
+      costs are set when it's unlocked.
+    moves: []
+role: >-
+  Smoky Quartzes are the most down to earth soldiers you could meet. They are hilarious and can lift your spirits at any
+  given moment. They serve the empire as brute soldiers in the militia, but even in the most serious moments, they can
+  make any gem feel a lot more confident and at ease. They pair well with Amethyst soldiers too. You will often find
+  both Smoky Quartzes and Amethysts in the same room, bouncing jokes and personalities off each other.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,53 @@
+name: Steel
+slug: steel-era-0-1
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 0-1
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 38
+  atk: 6
+  def: 9
+  spd: 5
+  int: 4
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Wrangle
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that herd, restrain, or move an organic without harming them are especially
+      effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Containment Field
+    tags: []
+    cost: null
+    text: >-
+      Steel may learn to create a barrier that safely holds and moves an organic being. Its moves and SP costs are set
+      when it's unlocked.
+    moves: []
+role: >-
+  Era 0-1 Steels are wranglers and organic rehabilitators. They respond to calls about organic beings that need to be
+  moved elsewhere, gently keeping the organic safe the whole time, and bring them to rehabilitation facilities to see to
+  their upkeep under Epsilon Blue's order. They did the same work for the Metal Society long before it joined the
+  Gempire. As they are not mass produced by the Gempire, only the original Era 0-1 Steels of this kind exist, and each
+  one goes by her real name.
+interactions: >-
+  An Era 0-1 Steel usually works with a team of Era 2A Steels. She handles the organics, and they handle anything that
+  fights back. Many of the younger Steels picked up their sense of patience from watching one work.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,71 @@
+name: Specialty Pearl
+slug: specialty-pearl
+rank: '5.1'
+side: null
+faction: gempire
+kind: sub-type
+parent: pearl
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 5
+  int: 6
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      A Specialty Pearl can tuck items away into a pocket space inside her gemstone and pull them back out later.
+      Equipping an item from her pocket space doesn't use her turn.
+    moves: []
+  - section: Signature Ability
+    name: Symbiosis
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Each Specialty Pearl is born resembling one existing gem-type, and carries a unique support ability built for gems
+      of that type, written on her own sheet. On top of that, while she is Near an ally of the gem-type she resembles,
+      that ally's active Signature Ability costs 1 less SP, down to a minimum of 1.
+    moves: []
+  - section: Latent Ability
+    name: Self-Duplication
+    tags:
+      - 2 SP
+    cost: 2
+    text: >-
+      In rare cases, a Specialty Pearl can make a short lived copy of herself out of light. It lasts 3 turns and can
+      <:Fight:1568035371974135940>FIGHT on her turn.
+    moves: []
+  - section: Latent Ability
+    name: Elemental Affinity
+    tags: []
+    cost: null
+    text: >-
+      Depending on her coloration, a Specialty Pearl may carry a power over one element tied to her color. Its moves and
+      SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Specialty Pearls are a rare Pearl variant exclusive to Era 0 Reefs and their Nacre. Unlike standard Pearls, they
+  cannot simply be gifted or assigned, they're won through Auction Events, making each one a genuine prize rather than a
+  guaranteed companion. Every Specialty Pearl is born resembling the look of an existing gem-type, and carries an
+  ability meant to complement or boost that same type's work, which makes her value at auction depend heavily on who's
+  bidding and whether her resemblance actually lines up with their own.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

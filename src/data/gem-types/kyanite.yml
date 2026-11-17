@@ -1,0 +1,46 @@
+name: Kyanite
+slug: kyanite
+rank: '2.2'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'2"
+stats:
+  hp: 34
+  atk: 6
+  def: 7
+  spd: 4
+  int: 9
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Lie Detection
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Kyanite can naturally tell when a gem is lying or telling the truth. <:Act:1568035453842751618>ACTs that try to
+      deceive her always fail.
+    moves: []
+role: >-
+  Kyanites serve the gempire as elites within Epsilon Blue's entourage, taking on the role of judge in trials, though
+  not the highest ranking kind. They sit at the head of the stand in court to oversee cases and decide the fate of a
+  Zircon's client. They are known for their sharp intuition, shown by how easily they can tell when a gem is lying or
+  telling the truth, which makes them very well suited to the role.
+interactions: >-
+  From the high seat, a Kyanite runs everything that happens inside a case. She works with the Zircons arguing it, their
+  clients, witnesses, the authorities who brought the case in, and other judges when a case is too big for one. Azurites
+  keep her paperwork in order.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

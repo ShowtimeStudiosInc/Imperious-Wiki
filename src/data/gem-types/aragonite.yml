@@ -1,0 +1,43 @@
+name: Aragonite
+slug: aragonite
+rank: '3.3'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'2"
+stats:
+  hp: 28
+  atk: 6
+  def: 4
+  spd: 8
+  int: 5
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Dogfight
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that outmaneuver, chase, or shake off an enemy while flying or piloting are
+      especially effective for her.
+    moves: []
+role: >-
+  Aragonites are simple fodder, though their skill in navigation should not be overlooked. Though not as good as a
+  Rutile's, they are good enough to pilot a ship all the same, with instincts better suited for stellar combat and
+  dogfighting. Because of this, they are often deployed as space pirates. Aragonites tend to have light builds. Since
+  they are mass produced, many end up with uneven gemstone placement, which can cut their limbs short. Those without
+  this problem are seen as a cut above their peers, even if they are not a Perfect Cut.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

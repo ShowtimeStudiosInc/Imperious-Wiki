@@ -1,0 +1,51 @@
+name: Carnelian
+slug: carnelian
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 34
+  atk: 8
+  def: 7
+  spd: 5
+  int: 4
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Dig In
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that dig, burrow, or take cover in sand or loose ground are especially effective
+      for her.
+    moves: []
+  - section: Latent Ability
+    name: Psammokinesis
+    tags: []
+    cost: null
+    text: >-
+      Carnelian may learn a light touch over sand, letting her shift and shape it a bit, or shield herself from it. Its
+      moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Carnelians do really well in desert like biomes. These soldiers are often assigned to guard facilities on organic
+  planets with a lot of sand. They come from the Omicron Kindergarten, which produces gems that can handle some of the
+  hottest temperatures around. Not every Quartz soldier has a soft spot for organic planet life, but more than a few
+  Carnelians have been caught rolling around in the sand while off duty, making little structures out of it for fun.
+  They are no match for the empire's actual terraformers, but it is a cute hobby all the same.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

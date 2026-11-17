@@ -1,0 +1,54 @@
+name: Green Tourmaline (Chrome)
+slug: green-tourmaline-chrome
+rank: '4.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: tourmaline
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 30
+  atk: 3
+  def: 5
+  spd: 5
+  int: 5
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Chlorokinesis
+    tags: []
+    cost: null
+    text: >-
+      Green Tourmaline can grow and shape flowers and greenery on the spot, building an entire garden display out of
+      nothing in minutes.
+    moves:
+      - name: Overgrowth
+        tags:
+          - 1 SP
+        cost: 1
+        text: >-
+          Vines tangle one enemy who is Near. The target resists with SPD. If they fail, they are
+          <:Stuck:1569710918638510141>Stuck until the end of their next turn.
+  - section: Latent Ability
+    name: Ecological Empathy
+    tags:
+      - PASSIVE
+    cost: null
+    text: Green Tourmaline may learn to tell how healthy soil or plant life is just by touching it.
+    moves: []
+role: >-
+  Green Tourmaline handles the living decor for palaces and estates, growing and arranging gardens for events Pink
+  Tourmaline is dressing up. The two are often hired as a pair.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

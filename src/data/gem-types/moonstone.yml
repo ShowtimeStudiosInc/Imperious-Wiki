@@ -1,0 +1,63 @@
+name: Moonstone
+slug: moonstone
+rank: '3.3'
+side: null
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - lapis
+  - pearl
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Elite
+height: 14'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Hydrokinesis
+    tags: []
+    cost: null
+    text: >-
+      From her Lapis half. Moonstone can move and shape large amounts of water, strong enough to carve canyons, redirect
+      rivers, or call up a tidal wave. She needs a source of water nearby.
+    moves:
+      - name: Water Lash
+        tags:
+          - 2 SP
+        cost: 2
+        text: A whip of water strikes one target for 2d4 + MAG damage.
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      From her Pearl half. Moonstone can tuck items into a pocket space and pull them back out. Equipping an item from
+      it doesn't use her turn.
+    moves: []
+  - section: Signature Ability
+    name: Hologram Projection
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      From her Pearl half. Moonstone makes a harmless image of light appear. One enemy who doesn't see through it
+      attacks the image instead of its real target.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: '`Self-Duplication` and `Elemental Affinity` - Any Latent Ability either half has unlocked carries into the fusion.'
+    moves: []
+role: Moonstones are often deployed when a fight is needed on a planet during terraforming. It's rare to see a Moonstone.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

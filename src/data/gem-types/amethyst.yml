@@ -1,0 +1,46 @@
+name: Amethyst
+slug: amethyst
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 8
+  def: 6
+  spd: 5
+  int: 4
+  mag: 5
+abilities:
+  - section: ACT Bonus
+    name: Lift Spirits
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that boost an ally's morale or break the tension are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Fire Generation
+    tags: []
+    cost: null
+    text: Amethyst may learn to create a small amount of purple fire. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Amethysts are some of the rowdiest and most down to earth soldiers you could ever meet. They always seem to know how
+  to lighten the mood, even in a serious situation. Despite being under a lot of pressure to perform well as a Quartz
+  soldier, they know how to keep everyone's spirits up. Amethysts are the kind of soldier people rely on to keep their
+  head in the game, especially when things get tense or start to go wrong on a mission.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

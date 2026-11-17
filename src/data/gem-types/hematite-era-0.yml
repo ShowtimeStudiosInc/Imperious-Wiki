@@ -1,0 +1,53 @@
+name: Hematite
+slug: hematite-era-0
+rank: '2.1'
+side: Aristocratic
+faction: gempire
+kind: sub-type
+parent: hematite
+components: null
+variant: null
+era: Era 0
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'11"
+stats:
+  hp: 32
+  atk: 6
+  def: 6
+  spd: 5
+  int: 7
+  mag: 9
+abilities:
+  - section: Signature Ability
+    name: Push Broadcast
+    tags: []
+    cost: null
+    text: >-
+      Hematite can summon cameras, show lights, holoscreens, and holoprops, and broadcast what they record to anyone
+      across the galaxy cluster, keeping gems updated on things like rebel breakouts, space storms, and dangerous
+      weather.
+    moves:
+      - name: Spotlight
+        tags:
+          - 1 SP
+        cost: 1
+        text: >-
+          Hematite turns a blinding show light on one target. They resist with SPD. If they fail, they are
+          <:Blinded:1568081577429176350>Blinded for 1 turn.
+role: >-
+  Hematites of this line serve the empire as news anchors and reporters, covering serious events and weather seen across
+  the empire. Their main job is keeping gems informed on the latest news, whether it is rebel breakouts, space storms,
+  or chaotic weather on other planets. They work out of the Sagittarius Dwarf Station, where they aim to deliver the
+  next big story. This class of Hematite is a Legacy from Era 0 and the only news reporting Gem-Type in the empire. Only
+  a handful were ever made, all purely from Luminous Alpha Black Diamond's essence.
+interactions: >-
+  Hematites cover stories alone or in small crews with other Hematites. They take the job of keeping gems informed very
+  seriously, but many of them have the charm to keep viewers hooked from the first line of a story to the last.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

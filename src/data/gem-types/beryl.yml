@@ -1,0 +1,77 @@
+name: Beryl
+slug: beryl
+rank: '2.3'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 28
+  atk: 5
+  def: 4
+  spd: 8
+  int: 5
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Crystallokinesis
+    tags: []
+    cost: null
+    text: Beryl can generate and control sharp crystal formations, drawn out of whatever weapon she has in her weapon slot.
+    moves:
+      - name: Prism Shot
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          A crystal bolt fired from her weapon hits one target for 2d4 + MAG damage. The target's SPD doesn't make it
+          any harder to hit.
+  - section: Signature Ability
+    name: Flight
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Beryl can manifest wings of hard light crystal from her gemstone. While flying, she counts as Far to anyone on the
+      ground.
+    moves: []
+  - section: Signature Ability
+    name: Encapsulation
+    tags:
+      - 2 SP
+    cost: 2
+    text: >-
+      Using her wand, Beryl traps one item or one enemy who is ready to be spared inside a solid bubble, holding them
+      secure until she can bring them in. This counts as the Bubble option under <:Mercy:1568035723469127771>MERCY.
+    moves: []
+  - section: Latent Ability
+    name: Petrokinesis
+    tags: []
+    cost: null
+    text: >-
+      Though not typical or easy to learn, most Beryls can learn to generate, control, and shape stone. Its moves and SP
+      costs are set when it's unlocked.
+    moves: []
+role: >-
+  Beryls are authoritative bounty hunter gems operating under Court Emerald, tasked with traveling from planet to planet
+  to retrieve items or gems. When they are not hunting down a target, they can be found wandering District 3 of
+  Homeworld or any other Gempire owned location. Their speed and precision are something every gem wants to see, but not
+  experience firsthand. Known for hunting down a target until the job is done, Beryls are extremely determined to finish
+  their mission. Daily tasks may include cargo runs, tracking down elusive gems, ordering Topazes around, and organizing
+  scouting operations. Most Beryls are small in height and wear square shaped hairstyles, sticking to standard Gempire
+  uniforms rather than anything decorative. They usually work with a Topaz alongside them, who handles guarding and
+  provides extra blunt force if a job turns physical.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,69 @@
+name: Rhodonite
+slug: rhodonite
+rank: '3.2'
+side: null
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - ruby
+  - pearl
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Elite
+height: 9'10"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Thermal Manipulation
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Ruby half. Each hit of her <:Fight:1568035371974135940>FIGHTs deals +1 Fire damage.
+    moves: []
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      From her Pearl half. Rhodonite can tuck items into a pocket space and pull them back out. Equipping an item from
+      it doesn't use her turn.
+    moves: []
+  - section: Signature Ability
+    name: Hologram Projection
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      From her Pearl half. Rhodonite makes a harmless image of light appear. One enemy who doesn't see through it
+      attacks the image instead of its real target.
+    moves: []
+  - section: Fusion Ability
+    name: Fireball
+    tags:
+      - 2 SP
+    cost: 2
+    text: Rhodonite launches a ball of fire at one target for 2d4 + MAG Fire damage.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: '`Self-Duplication` and `Elemental Affinity` - Any Latent Ability either half has unlocked carries into the fusion.'
+    moves: []
+role: >-
+  Rhodonites are not much more than souped up Rubies, their biggest edge being higher health. They usually show up mid
+  battle when a Pearl joins a squad of Rubies, and serve as support soldiers and guards. Most fight with a dagger-staff,
+  used for both attack and defense. Court Maroon is where they show up most, though they can appear in any court.
+interactions: >-
+  Because of her Ruby half, a Rhodonite often fights with the rest of that Ruby's squad. If her Pearl half serves a
+  higher-up, the fusion works alone instead, guarding that gem, often a Sapphire or another aristocrat.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

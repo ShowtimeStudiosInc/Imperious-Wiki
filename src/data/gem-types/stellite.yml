@@ -1,0 +1,57 @@
+name: Stellite
+slug: stellite
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'2"
+stats:
+  hp: 38
+  atk: 5
+  def: 9
+  spd: 3
+  int: 5
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Technology Augmentation
+    tags: []
+    cost: null
+    text: >-
+      Stellite creates nanites made of hard light to upgrade weapons, tech, and vehicles. Her upgrades only work on gear
+      she has studied before.
+    moves:
+      - name: Upgrade
+        tags:
+          - 2 SP
+        cost: 2
+        text: Stellite applies nanites to an ally's weapon. For 3 turns, it gains +2 ATK.
+      - name: Merge
+        tags:
+          - 4 SP
+        cost: 4
+        text: >-
+          Stellite dissolves into nanites and merges with a vehicle or machine for up to 5 turns, then rolls 1d20. On a
+          1 to 4, the merge backfires and she takes 3d3 Electric damage. On a 5 to 8, it fails. On a 9 or higher, the
+          machine goes in her weapon slot with +3 ATK, or +6 ATK on a natural 20. Damage to the machine hurts her.
+role: >-
+  Stellite is an advanced technology integrator and field enhancement specialist. She researches, builds, and directly
+  installs upgrades on imperial equipment, vehicles, and weapons. When regular maintenance and upgrades are not enough,
+  Stellite can merge directly with ships, war machines, or key infrastructure to give maximum performance and direct
+  control during important missions. Her abilities depend entirely on how much she has studied, which makes her a
+  valuable but constantly learning researcher. Only 12 of this gem exist, since a 3 component geode and alloy this rare
+  is exceptionally hard to come by naturally in the Gempire.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

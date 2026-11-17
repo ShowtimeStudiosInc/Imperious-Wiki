@@ -1,0 +1,39 @@
+name: Copper
+slug: copper
+rank: '4.3'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 4'3"
+stats:
+  hp: 36
+  atk: 5
+  def: 8
+  spd: 4
+  int: 4
+  mag: 1
+abilities:
+  - section: Signature Ability
+    name: Electrical Conduction
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Copper can pass electricity through her body without harm, letting her power up dead or inactive gem tech by
+      touch. She takes half damage from Electric attacks.
+    moves: []
+role: Coppers specialize in assisting technical gems with conducting electricity and powering inactive gem technology.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

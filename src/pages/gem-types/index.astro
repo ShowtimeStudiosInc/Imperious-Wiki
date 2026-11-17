@@ -1,0 +1,293 @@
+---
+import Site from '../../layouts/Site.astro';
+import { getGems, TIERS, url, fullName, FACTION_LABEL, KIND_LABEL, RANKS } from '../../lib/gems';
+
+const all = await getGems();
+const count = (slug: string) => all.filter(TIERS.find((t) => t.slug === slug)!.match).length;
+const index = all.map((g) => ({ n: fullName(g), s: g.slug, r: g.rank, f: FACTION_LABEL[g.faction], k: g.kind }));
+
+// Pyramid geometry: apex at (300, 24), base at y 470, half-width 286 at the base.
+const AX = 300, AY = 24, BY = 470, HW = 286;
+const half = (y: number) => ((y - AY) / (BY - AY)) * HW;
+const GAP = 7, SPLIT = 5;
+const rows = [AY, 136, 248, 360, BY];
+const pt = (x: number, y: number) => `${x.toFixed(1)},${y.toFixed(1)}`;
+function trap(y1: number, y2: number, side: 'left' | 'right' | 'full') {
+  const a = half(y1), b = half(y2);
+  if (side === 'full') return [pt(AX - a, y1), pt(AX + a, y1), pt(AX + b, y2), pt(AX - b, y2)].join(' ');
+  const s = side === 'left' ? -1 : 1;
+  return [pt(AX + s * SPLIT, y1), pt(AX + s * a, y1), pt(AX + s * b, y2), pt(AX + s * SPLIT, y2)].join(' ');
+}
+const tip = [pt(AX, rows[0]), pt(AX + half(rows[1] - GAP), rows[1] - GAP), pt(AX - half(rows[1] - GAP), rows[1] - GAP)].join(' ');
+const segs = [
+  { key: 'diamonds', label: 'Diamonds', sub: 'Transcendent', href: '/gem-types/tier/transcendent/', points: tip, tx: AX, ty: 100, n: count('transcendent') },
+  { key: 'aristocrats', label: 'Aristocrats', sub: 'Rank 2', href: '/gem-types/tier/aristocrats/', points: trap(rows[1], rows[2] - GAP, 'left'), tx: AX - 80, ty: 200, n: count('aristocrats') },
+  { key: 'authoritatives', label: 'Authoritatives', sub: 'Rank 2', href: '/gem-types/tier/authoritatives/', points: trap(rows[1], rows[2] - GAP, 'right'), tx: AX + 82, ty: 200, n: count('authoritatives') },
+  { key: 'militia', label: 'Militia', sub: 'Rank 3', href: '/gem-types/tier/militia/', points: trap(rows[2], rows[3] - GAP, 'left'), tx: AX - 92, ty: 312, n: count('militia') },
+  { key: 'service', label: 'Service Trade', sub: 'Rank 4', href: '/gem-types/tier/service-trade/', points: trap(rows[2], rows[3] - GAP, 'right'), tx: AX + 92, ty: 312, n: count('service-trade') },
+  { key: 'servants', label: 'Servants', sub: 'Rank 5', href: '/gem-types/tier/servants/', points: trap(rows[3], rows[4], 'full'), tx: AX, ty: 424, n: count('servants') },
+];
+---
+<Site title="Gem-Types" description="Every Gem-Type in the empire, from Servants to Transcendents." current="gem-types">
+  <main class="scene" id="scene">
+    <!-- HUD: the only element that doesn't move -->
+    <div class="hud">
+      <div class="search">
+        <span class="glyph" aria-hidden="true">⟡</span>
+        <input id="hud-q" type="search" placeholder="Search Gem-Types…" autocomplete="off" aria-label="Search Gem-Types" aria-controls="hud-results" />
+        <button id="hud-filter" class="ftoggle" type="button" aria-expanded="false" aria-controls="hud-filters">Filters</button>
+      </div>
+      <ul id="hud-results" class="results" role="listbox" hidden></ul>
+      <div id="hud-filters" class="filters" hidden>
+        <div class="frow"><span>Faction</span>{['gempire', 'united-frontier', 'lost', 'rogue'].map((f) => <button type="button" class="chip" data-key="faction" data-value={f} aria-pressed="false">{FACTION_LABEL[f]}</button>)}</div>
+        <div class="frow"><span>Rank</span>{Object.keys(RANKS).map((r) => <button type="button" class="chip" data-key="rank" data-value={r} aria-pressed="false">{r}</button>)}</div>
+        <div class="frow"><span>Kind</span>{['standard', 'sub-type', 'fusion', 'geode', 'alloy'].map((k) => <button type="button" class="chip" data-key="kind" data-value={k} aria-pressed="false">{KIND_LABEL[k]}</button>)}</div>
+        <div class="frow"><span>Power</span><button type="button" class="chip" data-key="power" data-value="yes" aria-pressed="false">Has a power</button><button type="button" class="chip" data-key="power" data-value="no" aria-pressed="false">ACT Bonus only</button></div>
+        <div class="frow end"><a class="btn" id="hud-go" href={url('/gem-types/all/')}>Show results</a></div>
+      </div>
+    </div>
+
+    <h1 class="title layer" data-depth="0.6">Gem-Types<span>{all.length} catalogued</span></h1>
+
+    <!-- United Frontier: half-hidden in a fold of space -->
+    <a class="side uf layer" data-depth="1.6" href={url('/gem-types/tier/united-frontier/')}>
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <defs><linearGradient id="ufg" x1="0" x2="1"><stop offset="0" stop-color="#7fd6c9" /><stop offset="1" stop-color="#4b7bd6" /></linearGradient></defs>
+        <circle cx="60" cy="60" r="26" fill="none" stroke="url(#ufg)" stroke-width="3" />
+        <path d="M14 70 Q 40 52 60 60 Q 80 68 106 50" fill="none" stroke="#7fd6c9" stroke-width="3" />
+        <path d="M14 70 Q 34 80 52 74" fill="none" stroke="#7fd6c9" stroke-width="3" opacity=".45" />
+        <path d="M60 60 L 72 47 L 82 58 Z" fill="#7fd6c9" opacity=".35" />
+      </svg>
+      <span class="slabel">United Frontier</span><span class="ssub">Hidden in a fold of space</span>
+    </a>
+
+    <!-- Lost Lights: dim and ghostly -->
+    <a class="side lost layer" data-depth="1.6" href={url('/gem-types/tier/lost/')}>
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <polygon points="60,16 92,42 80,98 40,98 28,42" fill="rgba(255,255,255,.06)" stroke="#f2efff" stroke-width="3" stroke-linejoin="round" />
+        <polyline points="28,42 92,42" fill="none" stroke="#f2efff" stroke-width="2" opacity=".6" />
+        <polyline points="58,18 66,40 54,58 68,80 60,98" fill="none" stroke="#120b20" stroke-width="4" />
+        <polyline points="58,18 66,40 54,58 68,80 60,98" fill="none" stroke="#f2efff" stroke-width="1" opacity=".5" />
+      </svg>
+      <span class="slabel">Lost Lights</span><span class="ssub">{count('lost')} types remembered</span>
+    </a>
+
+    <!-- The pyramid -->
+    <div class="pyramid layer" data-depth="1">
+      <svg viewBox="0 0 600 490" role="img" aria-label="The Gempire hierarchy">
+        <defs>
+          <linearGradient id="segfill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#9d86e9" stop-opacity=".34" />
+            <stop offset="1" stop-color="#3d2a7a" stop-opacity=".22" />
+          </linearGradient>
+          <linearGradient id="tipfill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity=".55" />
+            <stop offset="1" stop-color="#c9b8ff" stop-opacity=".2" />
+          </linearGradient>
+          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+        </defs>
+        {segs.map((s) => (
+          <a href={url(s.href)} class={`seg seg-${s.key}`} aria-label={`${s.label}, ${s.n} Gem-Types`}>
+            <polygon points={s.points} fill={s.key === 'diamonds' ? 'url(#tipfill)' : 'url(#segfill)'} filter="url(#glow)" />
+            <text x={s.tx} y={s.ty} class="seg-label" text-anchor="middle">{s.label}</text>
+            <text x={s.tx} y={s.ty + 18} class="seg-sub" text-anchor="middle">{s.sub} · {s.n}</text>
+          </a>
+        ))}
+      </svg>
+    </div>
+
+    <!-- Rogues: outside the pyramid, near the bottom edge -->
+    <a class="side rogue layer" data-depth="2.2" href={url('/gem-types/tier/rogues/')}>
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <polygon points="60,18 90,44 78,96 42,96 30,44" fill="rgba(255,122,138,.08)" stroke="#ff7a8a" stroke-width="3" stroke-linejoin="round" />
+        <text x="60" y="70" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#ff7a8a" opacity=".55">4M21O</text>
+        <path d="M36 62 L 86 74 M 38 72 L 84 60" stroke="#ff7a8a" stroke-width="3" />
+      </svg>
+      <span class="slabel">Rogues</span><span class="ssub">Outside the empire</span>
+    </a>
+
+    <!-- Sea of light: the light every Gem is made of -->
+    <canvas id="sea" class="sea" aria-hidden="true"></canvas>
+    <a class="browse layer" data-depth="0.4" href={url('/gem-types/all/')}>Browse all {all.length} ◈</a>
+  </main>
+</Site>
+
+<script define:vars={{ index, base: url('/') }}>
+  // ---------- HUD search ----------
+  const q = document.getElementById('hud-q');
+  const list = document.getElementById('hud-results');
+  let sel = -1;
+  function render() {
+    const term = q.value.trim().toLowerCase();
+    if (!term) { list.hidden = true; list.innerHTML = ''; return; }
+    const hits = index.filter((g) => g.n.toLowerCase().includes(term))
+      .sort((a, b) => a.n.toLowerCase().indexOf(term) - b.n.toLowerCase().indexOf(term) || a.n.localeCompare(b.n)).slice(0, 8);
+    sel = -1;
+    list.innerHTML = hits.length
+      ? hits.map((g, i) => `<li role="option" data-i="${i}"><a href="${base}gem-types/${g.s}/"><span>${g.n}</span><small>${g.r ? 'Rank ' + g.r : ''}${g.r ? ' · ' : ''}${g.f}</small></a></li>`).join('')
+      : `<li class="none">No Gem-Type matches "${term.replace(/</g, '&lt;')}"</li>`;
+    list.hidden = false;
+  }
+  q.addEventListener('input', render);
+  q.addEventListener('keydown', (e) => {
+    const items = [...list.querySelectorAll('li[role=option]')];
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      sel = (sel + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
+      items.forEach((li, i) => li.setAttribute('aria-selected', String(i === sel)));
+    } else if (e.key === 'Enter') {
+      const target = items[sel >= 0 ? sel : 0]?.querySelector('a');
+      if (target) location.href = target.href;
+      else location.href = `${base}gem-types/all/?q=${encodeURIComponent(q.value)}`;
+    } else if (e.key === 'Escape') { list.hidden = true; }
+  });
+  document.addEventListener('click', (e) => { if (!e.target.closest('.hud')) { list.hidden = true; } });
+
+  // ---------- HUD filters ----------
+  const ft = document.getElementById('hud-filter');
+  const fp = document.getElementById('hud-filters');
+  const go = document.getElementById('hud-go');
+  ft.addEventListener('click', () => { fp.hidden = !fp.hidden; ft.setAttribute('aria-expanded', String(!fp.hidden)); });
+  const picked = new Set();
+  fp.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => {
+    const k = `${c.dataset.key}=${encodeURIComponent(c.dataset.value)}`;
+    picked.has(k) ? picked.delete(k) : picked.add(k);
+    c.setAttribute('aria-pressed', String(picked.has(k)));
+    go.href = `${base}gem-types/all/${picked.size ? '?' + [...picked].join('&') : ''}`;
+  }));
+
+  // ---------- Parallax: everything but the HUD follows the mouse ----------
+  const scene = document.getElementById('scene');
+  const layers = [...scene.querySelectorAll('.layer')];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && matchMedia('(hover: hover)').matches) {
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    scene.addEventListener('mousemove', (e) => {
+      const r = scene.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width - 0.5;
+      ty = (e.clientY - r.top) / r.height - 0.5;
+    });
+    scene.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+    (function loop() {
+      cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+      for (const l of layers) {
+        const d = Number(l.dataset.depth || 1);
+        l.style.setProperty('--px', `${(-cx * 22 * d).toFixed(2)}px`);
+        l.style.setProperty('--py', `${(-cy * 16 * d).toFixed(2)}px`);
+      }
+      requestAnimationFrame(loop);
+    })();
+  } else if (!reduce) {
+    scene.classList.add('float');
+  }
+
+  // ---------- Sea of light ----------
+  const cv = document.getElementById('sea');
+  const ctx = cv.getContext('2d');
+  let W = 0, H = 0, motes = [];
+  function size() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    motes = Array.from({ length: Math.round(W / 14) }, () => ({ x: Math.random() * W, y: H * (0.3 + Math.random() * 0.7), r: Math.random() * 1.8 + 0.4, v: Math.random() * 0.35 + 0.08, p: Math.random() * 6.28 }));
+  }
+  size(); addEventListener('resize', size);
+  const waves = [
+    { a: 9, l: 0.010, s: 0.6, o: 0.62, c: '157,134,233' },
+    { a: 13, l: 0.007, s: -0.4, o: 0.5, c: '124,77,255' },
+    { a: 7, l: 0.015, s: 0.9, o: 0.72, c: '201,184,255' },
+  ];
+  function frame(t) {
+    ctx.clearRect(0, 0, W, H);
+    for (const w of waves) {
+      const g = ctx.createLinearGradient(0, H * w.o - 20, 0, H);
+      g.addColorStop(0, `rgba(${w.c},0.38)`); g.addColorStop(1, `rgba(${w.c},0)`);
+      ctx.beginPath(); ctx.moveTo(0, H);
+      for (let x = 0; x <= W; x += 8) ctx.lineTo(x, H * w.o + Math.sin(x * w.l + (t / 1000) * w.s) * w.a + Math.sin(x * w.l * 2.3 - t / 1700) * w.a * 0.4);
+      ctx.lineTo(W, H); ctx.closePath(); ctx.fillStyle = g; ctx.fill();
+    }
+    for (const m of motes) {
+      if (!reduce) { m.y -= m.v; m.x += Math.sin(t / 1400 + m.p) * 0.2; }
+      if (m.y < 0) { m.y = H; m.x = Math.random() * W; }
+      const a = 0.35 + 0.35 * Math.sin(t / 600 + m.p);
+      ctx.beginPath(); ctx.arc(m.x, m.y, m.r, 0, 6.28); ctx.fillStyle = `rgba(236,230,255,${a})`; ctx.fill();
+    }
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+</script>
+
+<style>
+  .scene { position: relative; min-height: calc(100vh - 52px); overflow: hidden; display: grid;
+    grid-template-columns: 1fr minmax(320px, 640px) 1fr; grid-template-rows: auto auto 1fr auto; align-items: center; padding: 0 1rem; }
+  .layer { transform: translate3d(var(--px, 0), var(--py, 0), 0); will-change: transform; }
+  .scene.float .pyramid { animation: float 7s ease-in-out infinite; }
+  .scene.float .side { animation: float 9s ease-in-out infinite reverse; }
+  @keyframes float { 50% { translate: 0 -8px; } }
+
+  [hidden] { display: none !important; }
+  .hud { grid-column: 1 / -1; grid-row: 1; justify-self: center; width: min(620px, 100%); position: relative; z-index: 20; margin-top: 1rem; }
+  .search { display: flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.4rem 0.35rem 0.9rem; background: rgba(7, 5, 13, 0.82);
+    border: 1px solid var(--line-strong); box-shadow: 0 0 24px rgba(124, 77, 255, 0.25); }
+  .glyph { color: var(--lav); }
+  #hud-q { flex: 1; font: inherit; font-size: 1rem; background: transparent; border: 0; color: var(--text); padding: 0.45rem 0; outline: none; }
+  .ftoggle { font: inherit; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lav); background: rgba(124, 77, 255, 0.15);
+    border: 1px solid var(--line); padding: 0.45rem 0.7rem; cursor: pointer; }
+  .results { position: absolute; left: 0; right: 0; margin: 0; padding: 0; list-style: none; background: rgba(12, 8, 22, 0.97); border: 1px solid var(--line-strong); border-top: 0; }
+  .results a { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0.9rem; color: var(--text); }
+  .results small { color: var(--muted); }
+  .results li[aria-selected='true'] a, .results a:hover { background: rgba(124, 77, 255, 0.28); }
+  .results .none { padding: 0.6rem 0.9rem; color: var(--muted); }
+  .filters { position: absolute; left: 0; right: 0; background: rgba(12, 8, 22, 0.97); border: 1px solid var(--line-strong); border-top: 0; padding: 0.8rem; display: grid; gap: 0.55rem; }
+  .frow { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+  .frow > span { width: 4.5rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .frow .chip { cursor: pointer; font: inherit; font-size: 0.72rem; }
+  .frow .chip[aria-pressed='true'] { background: rgba(124, 77, 255, 0.55); color: #fff; }
+  .frow.end { justify-content: flex-end; }
+
+  .title { grid-column: 1 / -1; grid-row: 2; text-align: center; margin: 1.4rem 0 0.2rem; font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: 0.24em; text-transform: uppercase; }
+  .title span { display: block; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.3em; color: var(--muted); margin-top: 0.4rem; }
+
+  .pyramid { grid-column: 2; grid-row: 3; z-index: 5; }
+  .pyramid svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .seg polygon { stroke: rgba(201, 184, 255, 0.75); stroke-width: 1.4; transition: fill-opacity 0.2s; }
+  .seg { transform-box: fill-box; transform-origin: center; transition: transform 0.25s cubic-bezier(.2, .8, .2, 1); cursor: pointer; }
+  .seg:hover, .seg:focus-visible { transform: scale(1.07); outline: none; }
+  .seg:hover polygon, .seg:focus-visible polygon { stroke: #fff; stroke-width: 2; }
+  .seg-label { font-family: var(--serif); font-size: 16px; fill: #f4f0ff; letter-spacing: 0.06em; pointer-events: none; }
+  .seg-sub { font-family: var(--sans); font-size: 10px; fill: #c9b8ff; letter-spacing: 0.16em; text-transform: uppercase; pointer-events: none; }
+  .seg-diamonds .seg-label { fill: #fff; font-size: 15px; }
+  .seg-diamonds .seg-sub { font-size: 9px; }
+
+  .side { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.15rem; color: var(--text); z-index: 4; }
+  .side svg { width: 96px; height: 96px; transition: transform 0.25s; }
+  .side:hover svg { transform: scale(1.1); }
+  .slabel { font-family: var(--serif); letter-spacing: 0.08em; }
+  .ssub { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .uf { grid-column: 1; grid-row: 3; justify-self: center; align-self: start; margin-top: 3rem; opacity: 0.5; filter: blur(0.4px); transition: opacity 0.3s, filter 0.3s; }
+  .uf svg { clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%); }
+  .uf .slabel { color: var(--uf); }
+  .uf:hover { opacity: 0.95; filter: none; }
+  .lost { grid-column: 3; grid-row: 3; justify-self: center; opacity: 0.4; animation: ghost 5s ease-in-out infinite; }
+  .lost .slabel { color: var(--lost); }
+  .lost:hover { opacity: 0.95; animation: none; }
+  @keyframes ghost { 0%, 100% { opacity: 0.38; } 45% { opacity: 0.55; } 50% { opacity: 0.28; } 55% { opacity: 0.5; } }
+  .rogue { grid-column: 1; grid-row: 3; justify-self: end; align-self: end; margin: 0 0.5rem 12% 0; opacity: 0.75; }
+  .rogue svg { rotate: -10deg; }
+  .rogue svg { width: 72px; height: 72px; }
+  .rogue .slabel { color: var(--rogue); }
+
+  .sea { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; width: 100%; z-index: 1; pointer-events: none; }
+  .browse { grid-column: 3; grid-row: 4; justify-self: end; z-index: 6; margin: 0 1rem 1.2rem 0; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.55rem 0.9rem; border: 1px solid var(--line-strong); background: rgba(7, 5, 13, 0.6); color: var(--text); }
+
+  @media (max-width: 860px) {
+    .scene { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto auto auto; }
+    .pyramid { grid-column: 1 / -1; grid-row: 3; }
+    .uf { grid-column: 1; grid-row: 4; }
+    .lost { grid-column: 2; grid-row: 4; }
+    .rogue { grid-column: 1 / -1; grid-row: 5; justify-self: center; margin: 0.5rem 0 1rem; }
+    .browse { grid-column: 1 / -1; grid-row: 6; justify-self: center; margin-bottom: 7rem; }
+    .side svg { width: 72px; height: 72px; }
+  }
+</style>

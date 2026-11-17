@@ -1,0 +1,50 @@
+name: Black Tourmaline (Schorl)
+slug: black-tourmaline-schorl
+rank: '3.1'
+side: null
+faction: gempire
+kind: sub-type
+parent: tourmaline
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 42
+  atk: 8
+  def: 11
+  spd: 4
+  int: 3
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Damage Transferal
+    tags:
+      - 2 SP
+    cost: 2
+    text: >-
+      Black Tourmaline throws up an invisible barrier around one ally. For 2 turns, the next hit aimed at that ally
+      lands on her instead, reduced by 2 more.
+    moves: []
+  - section: Latent Ability
+    name: Fear Immunity
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Black Tourmaline may learn to fill nearby allies with hope just by standing close. Allies Near her can't be
+      <:Frightened:1568074311229644951>Frightened.
+    moves: []
+role: >-
+  Black Tourmaline works as a personal bodyguard, usually assigned to a single high value target rather than a squad.
+  Their the wall between their charge and whatever's trying to get to them.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

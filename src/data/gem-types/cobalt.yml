@@ -1,0 +1,48 @@
+name: Cobalt
+slug: cobalt
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'6"
+stats:
+  hp: 38
+  atk: 4
+  def: 9
+  spd: 3
+  int: 2
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Magnetism Manipulation
+    tags: []
+    cost: null
+    text: >-
+      Cobalt can create a magnetic pull around herself and nearby metal, letting her steady structures, hold heavy loads
+      in place, and move metal debris during construction or terraforming work.
+    moves:
+      - name: Magnetic Pull
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Cobalt yanks a metal weapon out of a target's hands. The target resists with DEF. If they fail, they're
+          disarmed until they spend a turn getting their weapon back.
+role: >-
+  Cobalt handles high strength structural work and reinforcement jobs. Their capable of generates magnetic fields around
+  themself and nearby metallic objects, which lets them stabilize structures, hold heavy loads in place, and move metal
+  debris during construction and terraforming. Their essential for extreme condition work where standard gems fail.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

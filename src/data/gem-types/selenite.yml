@@ -1,0 +1,51 @@
+name: Selenite
+slug: selenite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 11'0"
+stats:
+  hp: 28
+  atk: 2
+  def: 4
+  spd: 4
+  int: 7
+  mag: 7
+abilities:
+  - section: Signature Ability
+    name: Empathy
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      By touching another gem's gemstone, Selenite can sense their stress and hard feelings. She always knows the
+      <:Mercy:1568035723469127771>Mercy of anyone whose gemstone she has touched.
+    moves: []
+  - section: ACT Bonus
+    name: Counsel
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that talk someone down or raise their <:Mercy:1568035723469127771>Mercy are
+      especially effective for her.
+    moves: []
+role: >-
+  Selenites work as counsellors and have empathy powers, which means that they can feel the stressful feelings of their
+  clients when touching their gem. They use these powers to build a sense of empathy and grow closer to their clients to
+  create a sense of security within them. They cannot automatically solve a gem's psychological damage, but can help to
+  soothe them.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

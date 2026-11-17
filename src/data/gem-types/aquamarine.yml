@@ -1,0 +1,64 @@
+name: Aquamarine
+slug: aquamarine
+rank: '2.3'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 3'0"
+stats:
+  hp: 28
+  atk: 7
+  def: 4
+  spd: 8
+  int: 4
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Hydrokinesis
+    tags: []
+    cost: null
+    text: Aquamarine can generate and control water, drawn out of whatever weapon she has in her weapon slot.
+    moves:
+      - name: Tidal Edge
+        tags:
+          - 2 SP
+        cost: 2
+        text: Her weapon lashes a jet of water at one target, even one who is Far, for 2d4 + MAG damage.
+  - section: Signature Ability
+    name: Fairy Wings
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Aquamarine can manifest pixie wings made of water from her gemstone. While flying, she counts as Far to anyone on
+      the ground.
+    moves: []
+  - section: Latent Ability
+    name: Cryokinesis
+    tags: []
+    cost: null
+    text: >-
+      Though not typical or easy to learn, most Aquamarines can learn to generate, control, and shape ice. Its moves and
+      SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Aquamarines are bounty hunter gems operating under Court Epsilon, tasked with traveling from planet to planet to
+  retrieve items or gems. When they are not hunting down a target, they can be found wandering the Canis Major station
+  or any other imperial location. Their speed and strength are something every gem wants to see, but not experience
+  firsthand. Known for hunting down a target until the job is done, Aquamarines are extremely determined to finish their
+  mission. Daily tasks may include cargo runs, tracking down elusive gems, ordering troops around, and organizing trial
+  operations. They are quite bossy little things.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

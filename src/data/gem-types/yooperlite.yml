@@ -1,0 +1,57 @@
+name: Yooperlite
+slug: yooperlite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits:
+  - Bioluminescent
+court: null
+threatClass: null
+height: 5'11"
+stats:
+  hp: 30
+  atk: 2
+  def: 5
+  spd: 4
+  int: 3
+  mag: 7
+abilities:
+  - section: Signature Ability
+    name: Lava Manipulation
+    tags: []
+    cost: null
+    text: Yooperlite can call up and shape lava, powerful enough to reshape land on a large scale for terraforming work.
+    moves:
+      - name: Magma Spill
+        tags:
+          - 3 SP
+        cost: 3
+        text: Lava floods the ground in front of her, dealing 2d4 + MAG Fire damage to every enemy who is Near.
+  - section: Signature Ability
+    name: Bioluminescence
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Yooperlite's body makes its own light. While she's in the party, total darkness counts as dim for the Star Gauge,
+      so her party still gains marks at the start of each round.
+    moves: []
+role: >-
+  Similarly to Clinohumites, Yooperlites work with heat. Contrary to them, Yooperlites are not as physically strong or
+  resilient, but appear to be more capable of large scale destruction solely with their lava terraforming abilities
+  rather than fire. On smaller jobs, they slice through terrain with lava so construction workers can build facilities
+  and spires.
+interactions: >-
+  Yooperlites usually work alone, but join other terraformers, including other Yooperlites, on bigger jobs. They check
+  with the rest of the crew before they start, since lava is hard to take back once it's poured.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

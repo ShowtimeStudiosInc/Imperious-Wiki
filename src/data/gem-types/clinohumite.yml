@@ -1,0 +1,55 @@
+name: Clinohumite
+slug: clinohumite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 32
+  atk: 5
+  def: 6
+  spd: 4
+  int: 2
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Pyrokinesis
+    tags: []
+    cost: null
+    text: >-
+      Clinohumite can manipulate flames to clear out obstacles, and can shape rocky land from lava, working in an
+      opposite way to how Lapis shapes water.
+    moves:
+      - name: Flame Burst
+        tags:
+          - 2 SP
+        cost: 2
+        text: A burst of fire hits one target for 2d4 + MAG Fire damage.
+  - section: Signature Ability
+    name: Heat Resistance
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Clinohumite can handle extreme heat with ease, letting her work on boiling hot planets that would kill most
+      others. She takes half damage from Fire.
+    moves: []
+role: >-
+  Clinohumites serve as fire terraformers, manipulating flames at their will to clear out obstacles. They have
+  incredible heat tolerances, sent to boiling planets that most would perish in. Their abilities can be used in the
+  opposite sense of Lapis Lazuli's, forming and changing rocky land from the lava they control.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

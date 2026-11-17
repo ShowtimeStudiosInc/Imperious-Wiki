@@ -1,0 +1,43 @@
+name: Titanium Aura Quartz
+slug: titanium-aura-quartz
+rank: null
+side: null
+faction: lost
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 40
+  atk: 8
+  def: 10
+  spd: 3
+  int: 3
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Titanium Frame
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Titanium Aura Quartz's body is reinforced beyond that of an ordinary Quartz. Every physical hit on her is reduced
+      by 1 more.
+    moves: []
+role: >-
+  Titanium Aura Quartz were an unusually durable Quartz subtype created during Omega White Diamond's reign. Their bodies
+  were reinforced beyond those of ordinary Quartz soldiers, allowing them to absorb punishment while maintaining the
+  physical strength expected from their Gem-type. They were considered superior frontline soldiers during their era,
+  although their heavier construction made them slower than many modern Quartz variants.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

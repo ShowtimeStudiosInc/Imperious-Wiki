@@ -1,0 +1,45 @@
+name: Quartz
+slug: quartz
+rank: '3.2'
+side: null
+faction: gempire
+kind: group
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 34
+  atk: 9
+  def: 7
+  spd: 5
+  int: 4
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Muscle
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that use raw strength, like lifting, pushing, holding a door, or breaking free, are
+      especially effective for her.
+    moves: []
+role: >-
+  Quartzes make up most of the militia and come in several different types and courts. They are known for being tall and
+  strong compared to other gems. Quartzes are usually used as facility guards, bodyguards, extra muscle on missions, or
+  soldiers on the battlefield. They form with a wide range of weapons, used for both attack and defense. Agates are the
+  ones who keep Quartzes in line. They are normally found in stations and take breaks in Quartz cubby holes.
+interactions: >-
+  A Quartz may be assigned alone as a bodyguard, or in a group to guard a facility or fight on the battlefield. They
+  fight beside other militia gems, rank below Agates, and follow orders from Agates and any authoritative gem above
+  them.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

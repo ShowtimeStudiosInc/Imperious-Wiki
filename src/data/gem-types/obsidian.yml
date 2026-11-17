@@ -1,0 +1,46 @@
+name: Obsidian
+slug: obsidian
+rank: '3.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 0-2A
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 9
+  def: 6
+  spd: 5
+  int: 4
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Escort
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that move an ally out of danger or keep a charge out of reach are especially
+      effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Lava Manipulation
+    tags: []
+    cost: null
+    text: Obsidian may learn to control and shape lava. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Obsidians serve as escorts for gems ranked higher on the military ladder. They are front line soldiers, sitting as the
+  bridge between Topaz and Ruby in terms of role.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

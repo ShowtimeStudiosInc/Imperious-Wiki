@@ -1,0 +1,53 @@
+name: Hessonite
+slug: hessonite-era-0
+rank: '2.1'
+side: Authoritative
+faction: gempire
+kind: sub-type
+parent: hessonite
+components: null
+variant: null
+era: Era 0
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 9'2"
+stats:
+  hp: 34
+  atk: 8
+  def: 7
+  spd: 6
+  int: 6
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Umbrakinesis
+    tags:
+      - Base
+      - Elements
+    cost: null
+    text: >-
+      Hessonite can create and control darkness around herself, useful for stealth, sneaking past guards, and staying
+      hidden during long assignments.
+    moves:
+      - name: Shroud
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Darkness wraps around her. She is hidden until she attacks or her next turn ends, and her next attack has
+          advantage. While the Shroud lasts, the area around her counts as dim.
+role: >-
+  Hessonites of this line serve Court Alpha as elite intelligence operatives, infiltrating rebel cells and the courts of
+  other Diamonds for assignments that can last decades. Their main job involves gathering classified intelligence,
+  removing security threats, and keeping watch over surveillance networks across the empire. They work out of Court
+  Alpha's black sites, reporting directly to classified handlers on matters of imperial security. Made from Luminous
+  Alpha Black Diamond's pure essence, a decent number of them exist, though they are still rare within Court Alpha's
+  ranks, each one running intelligence work alongside others on the same assignment.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,46 @@
+name: Polyhedroid Agate
+slug: polyhedroid-agate
+rank: '2.3'
+side: Authoritative
+faction: gempire
+kind: sub-type
+parent: agate
+components: null
+variant: null
+era: null
+species: gem
+status:
+  - Geode
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 4
+  def: 6
+  spd: 5
+  int: 6
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Healing
+    tags: []
+    cost: null
+    text: >-
+      Polyhedroid Agate can heal wounds and injuries on other gems. She can't mend cracks, reverse corruption, or undo a
+      shattering.
+    moves:
+      - name: Field Restoration
+        tags:
+          - 3 SP
+        cost: 3
+        text: Heals every ally who is Near for 1d6 + MAG.
+role: >-
+  Polyhedroid Agates mostly work as co heads for stations, taking charge of healing Quartz soldiers, or as an extra
+  healer for ship fleets.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

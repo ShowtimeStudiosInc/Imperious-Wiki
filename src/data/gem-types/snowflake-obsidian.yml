@@ -1,0 +1,54 @@
+name: Snowflake Obsidian
+slug: snowflake-obsidian
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 34
+  atk: 5
+  def: 7
+  spd: 3
+  int: 3
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Ore Shaping
+    tags: []
+    cost: null
+    text: >-
+      Snowflake Obsidian can loosen, pull apart, and move soil packed with metal and ore, digging holes and trenches
+      that would take other gems far longer.
+    moves:
+      - name: Ore Burst
+        tags:
+          - 2 SP
+        cost: 2
+        text: Chunks of metal-heavy rock burst out of the ground at one target for 2d4 + MAG damage.
+  - section: ACT Bonus
+    name: Dig
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that dig, tunnel, or uncover something buried are especially effective for her.
+    moves: []
+role: >-
+  Snowflake Obsidians serve the empire as terraformers for metal-rich land, which makes them a perfect fit for
+  construction and building sites. They're natural excavators, able to dig through soil full of metal with ease and
+  carve out holes and trenches wherever the empire needs them. Most are medium to tall, with large shoulder pads.
+interactions: >-
+  Snowflake Obsidians work in teams, digging and terraforming land with heavy metal deposits. They often work with
+  Bismuths and other construction gems. The Snowflake Obsidians clear the ground, and the Bismuths build on it.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,57 @@
+name: Morganite
+slug: morganite
+rank: '2.3'
+side: Aristocratic
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 3'11"
+stats:
+  hp: 30
+  atk: 5
+  def: 5
+  spd: 5
+  int: 6
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Bubble Generation
+    tags: []
+    cost: null
+    text: >-
+      Morganite can create and maintain bubbles that safely hold gems, even ones that have been bubbled for a very long
+      time. She can use the Bubble option under <:Mercy:1568035723469127771>MERCY.
+    moves:
+      - name: Bubble
+        tags:
+          - 2 SP
+        cost: 2
+        text: Morganite bubbles one enemy who is ready to be spared, capturing them.
+      - name: Safekeeping
+        tags:
+          - 2 SP
+        cost: 2
+        text: Morganite bubbles a Poofed ally's gemstone. It can't be Cracked or Shattered until the bubble is popped.
+role: >-
+  Morganites are one of the many aristocrats of Homeworld. They serve the gempire as bubble keepers and maintainers,
+  making sure gems are properly bubbled and that ones already bubbled stay safe, especially over long periods of time. A
+  bubble left unkept for too long can pop, and the gem inside reforms without anyone knowing. Making sure that never
+  happens is the whole reason Morganites exist. They are commonly found at the Cosmic Mausoleum, where most of their
+  work takes place.
+interactions: >-
+  It only takes one Morganite to check, restore, or maintain a bubble, so most of their work is done alone. For large
+  bubble fields, they call on each other and split the field up. Since the work is delicate, and unbubbling a gem
+  stronger than them can go badly, Morganites are usually guarded by small groups of foot soldiers like Rubies or
+  Eucryptites, who protect both the Morganite and the bubbles.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

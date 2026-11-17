@@ -1,0 +1,63 @@
+name: Orange Spodumene
+slug: orange-spodumene
+rank: '4.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: spodumene
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'9"
+stats:
+  hp: 26
+  atk: 2
+  def: 3
+  spd: 5
+  int: 7
+  mag: 7
+abilities:
+  - section: Signature Ability
+    name: pH Reader
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Orange Spodumene eats plant life to read the soil it grew in, giving her a better idea of the environment she's
+      in. Her inner body then changes color to match the soil's pH.
+    moves:
+      - name: Camouflage
+        tags:
+          - 1 SP
+        cost: 1
+        text: >-
+          Only after eating plant life, she changes her color to match her surroundings. The next attack against her has
+          disadvantage.
+  - section: Latent Ability
+    name: Acid Spit
+    tags:
+      - 2 SP
+    cost: 2
+    text: >-
+      Orange Spodumene may learn to spray the acid she uses to digest plants, dealing 2d4 + MAG Corrosive damage to one
+      target, who resists with DEF or gets Corrosion for 2 turns. She takes 1d5 damage herself.
+    moves: []
+role: >-
+  Orange Spodumenes monitor the pH levels of new colonies, eating native plant life to predict which places would be
+  best for kindergartens. They can do this thanks to a tube-like pocket in their abdomen that holds a light-based acid.
+  The acid breaks down the plants and projects what it finds over the Orange Spodumene's inner body, turning it Red,
+  Orange, Yellow, or Green, while her glossy outer shell stays the same and keeps the acid contained. They're usually
+  found on the ground of recently colonized planets, in thick plant life like forests, jungles, or coral reefs, and once
+  they have a finished report for an area, they hand their findings to their supervisors. Most of them are part of Theta
+  Gold's court, since they're so good at finding the best conditions for kindergartens, but they can be found in any
+  court, because expansion can't happen without them.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

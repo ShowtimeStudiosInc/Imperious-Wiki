@@ -1,0 +1,49 @@
+name: Watermelon Tourmaline
+slug: watermelon-tourmaline
+rank: '5.1'
+side: null
+faction: gempire
+kind: sub-type
+parent: tourmaline
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 26
+  atk: 3
+  def: 3
+  spd: 5
+  int: 7
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Relationship Perception
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Watermelon Tourmaline can sense the emotional strain or harmony between two gems, helping her judge whether a
+      fusion or marriage bond is likely to hold. She can always see how full any pair's fusion bond is.
+    moves: []
+  - section: ACT Bonus
+    name: Mediate
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that calm an argument between two characters are especially effective when she uses
+      them.
+    moves: []
+role: >-
+  Watermelon Tourmaline works alongside Kandy's Kyanites, testing compatibility for fusion and marriage license
+  approvals. She's partially a counselor, partially a relationship screening test.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

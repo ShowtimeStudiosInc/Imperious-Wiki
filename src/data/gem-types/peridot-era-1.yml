@@ -1,0 +1,56 @@
+name: Peridot
+slug: peridot-era-1
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 1
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 30
+  atk: 4
+  def: 5
+  spd: 4
+  int: 8
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Ferrokinesis
+    tags: []
+    cost: null
+    text: Peridot can move and shape metal.
+    moves:
+      - name: Scrap Toss
+        tags:
+          - 1 SP
+        cost: 1
+        text: Peridot flings a nearby piece of metal at one target for 1d6 + MAG damage.
+  - section: ACT Bonus
+    name: Tinker
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that work with machines are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Technopathy
+    tags: []
+    cost: null
+    text: Peridot may learn to talk to and interact with technology. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  In Era 1, Peridots were made far more often, specifically as kindergarten managers. Some remaining Era 1 Peridots kept
+  these jobs into Era 2, while most others transferred to Court Mint for technological work. Since all of them have
+  strong technical know how, many today are working using that skill.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

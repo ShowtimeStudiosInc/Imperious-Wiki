@@ -1,0 +1,50 @@
+name: Larimar
+slug: larimar
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 30
+  atk: 3
+  def: 5
+  spd: 4
+  int: 4
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Cryokinesis
+    tags: []
+    cost: null
+    text: >-
+      Larimar can shape and control ice with fine precision, building detailed sculptures and structures. She can also
+      spread ice across large areas, cold enough to freeze over land or water for terraforming work.
+    moves:
+      - name: Frost Lance
+        tags:
+          - 2 SP
+        cost: 2
+        text: A lance of ice strikes one target for 2d4 + MAG Ice damage.
+role: >-
+  Larimars split their time between two kinds of work. Some are sent out with terraforming crews to freeze over land or
+  water on planets that call for it. Others are commissioned by higher ranked gems to carve ice sculptures and
+  structures for events, used as decor at balls, galas, and other gatherings across the empire. The Diamonds are among
+  their favorite clients, and a Larimar who carves for a Diamond's event will be talked about for a long time. Which
+  path a Larimar ends up on usually comes down to which side of the job she shows the most talent for.
+interactions: >-
+  Larimars can work alone, but they're usually found in groups with other Larimars, splitting a large sculpture into
+  pieces that each one carves.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,50 @@
+name: Rose Quartz
+slug: rose-quartz
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 8
+  def: 6
+  spd: 5
+  int: 5
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Rally
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that bring the whole party together or lift the group's morale are especially
+      effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Empathy
+    tags: []
+    cost: null
+    text: >-
+      Rose Quartz may learn to pick up on the feelings of gems around her. Its moves and SP costs are set when it's
+      unlocked.
+    moves: []
+role: >-
+  Rose Quartz soldiers are pretty rowdy and fun to be around. They crack jokes a lot and are caring toward the gems they
+  are close to. Rose Quartz soldiers hate being alone and really like company, so they are often assigned with other
+  Quartz groups to guard and defend facilities or structures. They tend to get in trouble with Agates a lot though. This
+  Quartz type seems to rebel every so often, just to grab a little freedom, take a break, and have some fun.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

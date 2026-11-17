@@ -1,0 +1,33 @@
+---
+// Line-art gemstone placeholder. Fusions show two stones overlapping.
+// When a type gets a real vector or art, set `image` in its data file and it replaces this.
+interface Props { name: string; fusion?: boolean; size?: number; image?: string | null; class?: string; question?: boolean }
+const { name, fusion = false, size = 42, image = null, class: cls = '', question = true } = Astro.props;
+const HUES: Record<string, string> = {
+  ruby: '#ff5a6e', sapphire: '#6f9bff', pearl: '#f3e6ff', emerald: '#3ddc84', topaz: '#ffd166', amethyst: '#b48cff',
+  quartz: '#e6dcff', jasper: '#ff8a3d', lapis: '#4f7bff', peridot: '#a6e35b', agate: '#9b8cff', hessonite: '#ff9d4d',
+  pyrope: '#ff4f7b', zircon: '#7aa6ff', nephrite: '#58c98f', fluorite: '#9be7d8', morganite: '#ff9fc6', jade: '#5fd3a0',
+  spinel: '#ff6fb2', gold: '#ffcf4a', silver: '#d6dbe6', platinum: '#e9eef7', steel: '#b8c2d1', iron: '#9aa3ad',
+  copper: '#e08a5b', bronze: '#c98b4a', titanium: '#cdd5e3', tungsten: '#8d96a3', coal: '#6b6b7a', aquamarine: '#7fe0ff',
+  amber: '#ffb23e', beryl: '#7ff0c8', hematite: '#a86a7a', kyanite: '#4a7cff', scapolite: '#ffe28a', rhodochrosite: '#ff7aa8',
+  garnet: '#d6406a', opal: '#f0e8ff', larimar: '#8fe4ff', sodalite: '#5a7dff', sugilite: '#a05cff', obsidian: '#5c4f78',
+  tanzanite: '#6d5cff', sardonyx: '#ff7f63', malachite: '#3fc78a', rhodonite: '#ff7f9e', sphene: '#cde860', moonstone: '#d9e6ff',
+  uranium: '#9cff5a', angelite: '#a9c9ff', willemite: '#6ff0b8', yooperlite: '#ff9b3d', demantoid: '#64d86a', zoisite: '#9c6cff',
+};
+const key = name.toLowerCase().split(' ').pop() ?? '';
+const hue = HUES[key] ?? HUES[name.toLowerCase().split(' ')[0]] ?? '#c9b8ff';
+const gem = (dx: number, color: string) => `
+  <g transform="translate(${dx} 0)">
+    <polygon points="20,4 33,14 28,34 12,34 7,14" fill="${color}1f" stroke="${color}" stroke-width="1.6" stroke-linejoin="round"/>
+    <polyline points="7,14 33,14" fill="none" stroke="${color}" stroke-width="1" opacity=".7"/>
+    <polyline points="14,14 20,4 26,14 20,34 14,14" fill="none" stroke="${color}" stroke-width="1" opacity=".55"/>
+  </g>`;
+---
+{image ? (
+  <img class={cls} src={image} alt="" width={size} height={size} style={`width:${size}px;height:${size}px;object-fit:contain`} />
+) : (
+  <svg class={cls} viewBox={fusion ? '0 0 52 38' : '0 0 40 38'} width={size} height={size} aria-hidden="true">
+    <Fragment set:html={fusion ? gem(0, hue) + gem(12, '#f3e6ff') : gem(0, hue)} />
+    {question && !fusion && <text x="20" y="27" text-anchor="middle" font-family="Libre Baskerville, serif" font-size="11" fill={hue} opacity=".9">?</text>}
+  </svg>
+)}

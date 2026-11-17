@@ -1,0 +1,40 @@
+name: Tektite
+slug: tektite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'11"
+stats:
+  hp: 28
+  atk: 5
+  def: 4
+  spd: 7
+  int: 7
+  mag: 2
+abilities:
+  - section: ACT Bonus
+    name: Scout
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that read terrain, find a route, or spot an ambush are especially effective for
+      her.
+    moves: []
+role: >-
+  Gems that help Saturn Light Diamond with scouting out potential colonies for Homeworld, they are often seen working
+  with Nephrites.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

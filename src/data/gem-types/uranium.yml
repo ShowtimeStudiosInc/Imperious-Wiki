@@ -1,0 +1,70 @@
+name: Uranium
+slug: uranium
+rank: '5.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 8
+  atk: 5
+  def: 3
+  spd: 3
+  int: 3
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Radiation
+    tags:
+      - PASSIVE
+      - Minor
+      - Elements
+    cost: null
+    text: >-
+      Uranium give off radiation that sickens every Gem and Metal around them. In battle, at the start of each of their
+      turns, every Gem and Metal Near them, Uranium included, takes 1d4 damage. Outside of battle, it affects others,
+      but not Uranium themselves.
+    moves: []
+  - section: Signature Ability
+    name: Color Shift
+    tags:
+      - PASSIVE
+    cost: null
+    text: Uranium look gray in most light, but glow neon green in the dark or under ultraviolet light.
+    moves: []
+  - section: Latent Ability
+    name: Radiogoop
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Some Uranium have radioactive fluids, a neon green slime that sticks to whatever it hits. A target it sticks to
+      takes 1d4 damage at the start of each of their turns for 2 turns, even once they're no longer Near. Many Uranium
+      don't know they can do this.
+    moves: []
+  - section: Latent Ability
+    name: Nuclear Power
+    tags: []
+    cost: null
+    text: >-
+      Some Uranium can power machines just by touching them, for as long as they keep contact or until the battery is
+      full. Many don't know they can do this.
+    moves: []
+role: >-
+  Uranium have no real job on Homeworld. Their radiation makes anyone who spends long around them sick, including
+  themselves. Most end up as test subjects in Kandy Diamond's labs, or wired into generators to keep the power running,
+  and neither is much of a life. Left alone, the radiation wears them down too, and most eventually crack under it.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

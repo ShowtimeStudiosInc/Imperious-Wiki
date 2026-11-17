@@ -1,0 +1,45 @@
+name: Charoite
+slug: charoite
+rank: '2.2'
+side: Aristocratic
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'0"
+stats:
+  hp: 32
+  atk: 4
+  def: 6
+  spd: 5
+  int: 6
+  mag: 8
+abilities:
+  - section: Signature Ability
+    name: Power Amplification
+    tags: []
+    cost: null
+    text: >-
+      Charoite can amplify the aura and abilities of other gems, helping allies reach their full potential in both
+      ceremonies and combat.
+    moves:
+      - name: Empower
+        tags:
+          - 2 SP
+        cost: 2
+        text: The next ability one ally uses this round deals or heals 1d6 more.
+role: >-
+  Charoites are respected for their ability to boost the aura and powers of other gems. They serve as enhancers within
+  the Empire, making sure allies reach their full potential in both ceremonial and combat settings.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

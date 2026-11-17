@@ -1,0 +1,38 @@
+name: Calcite
+slug: calcite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'6"
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 5
+  int: 8
+  mag: 5
+abilities:
+  - section: ACT Bonus
+    name: Soothe
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that calm animals, beasts, and corrupted gems are especially effective for her.
+    moves: []
+role: >-
+  Calcites strengthen intellect, especially in the science field. In duality, they assist with researching flora and
+  fauna, often achieving close proximity to wildlife due to their calming and nurturing nature!
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

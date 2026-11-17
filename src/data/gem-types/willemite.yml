@@ -1,0 +1,55 @@
+name: Willemite
+slug: willemite
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits:
+  - Bioluminescent
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 28
+  atk: 5
+  def: 4
+  spd: 6
+  int: 6
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Radar Sense
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Willemite picks up activity and threats over a large area. She always knows where every character on the
+      battlefield is, and enemies can't gain advantage from hiding against her party.
+    moves: []
+  - section: Signature Ability
+    name: Bioluminescence
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Willemite's body makes its own light. While she's in the party, total darkness counts as dim for the Star Gauge,
+      so her party still gains marks at the start of each round.
+    moves: []
+role: >-
+  Willemites work in the Empire as aerial surveillance and overwatch, monitoring surrounding areas with radar to make
+  sure they're clear of threats or anything else that needs reporting. They usually ride along with Nephrites or on
+  larger ships, where someone else does the flying and they can keep their eyes on the radar. New Willemites will
+  typically be under Court Maroon, while those of Era 1 and Era 0 will typically be seen in Alpha Black's Court.
+interactions: >-
+  Willemites work with militia gems, watching their routes from inside a ship, especially in the air. When a combat site
+  gets rough, the Willemite is the one telling the soldiers what's coming and where it is.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

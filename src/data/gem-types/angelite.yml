@@ -1,0 +1,47 @@
+name: Angelite
+slug: angelite
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'11"
+stats:
+  hp: 30
+  atk: 2
+  def: 5
+  spd: 5
+  int: 5
+  mag: 7
+abilities:
+  - section: Signature Ability
+    name: Healing
+    tags: []
+    cost: null
+    text: >-
+      Angelite can mend wounds and injuries on other gems, in a Med Bay or out on the battlefield. She can't mend
+      cracks, reverse corruption, or undo a shattering.
+    moves:
+      - name: Mend
+        tags:
+          - 2 SP
+        cost: 2
+        text: Heals one ally for 2d4 + MAG. A Poofed ally healed above 0 HP reforms right away.
+role: >-
+  Created to serve the Empire as healers and combat medics, Angelites will always help those in need! Angelites may be
+  assigned to a Med Bay or take part on the battlefield in aid of those they fight alongside with. Even if they are
+  incredibly skillful and have a lot of knowledge regarding their line of work, they do not have the ability to reverse
+  corruption or fatal blows that result in shattering.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

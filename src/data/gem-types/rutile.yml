@@ -1,0 +1,45 @@
+name: Rutile
+slug: rutile
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'11"
+stats:
+  hp: 28
+  atk: 5
+  def: 4
+  spd: 6
+  int: 9
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Read the Land
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that judge whether ground, air, or weather is safe, or about to give way, are
+      especially effective for her.
+    moves: []
+role: >-
+  Rutiles are skilled navigators and explorers. They are a must have for any planetary exploration mission, and are
+  usually the first ones into unknown terrain, leading the rest of the crew behind them. They are the gem to go to when
+  it comes to deciding where to build gem colonies. They are responsible for making sure that the planet's environments
+  and conditions are suitable enough for construction. Without Rutiles, a lot of colonies would collapse or fail over
+  time.
+interactions: >-
+  Rutiles usually work in teams but can work alone. They're very good at finding their way in places no one has mapped.
+  Once they've scouted an area, they sit down with the terraformers to agree on where the empire should build next.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

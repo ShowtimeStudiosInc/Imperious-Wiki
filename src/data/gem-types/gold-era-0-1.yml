@@ -1,0 +1,58 @@
+name: Gold
+slug: gold-era-0-1
+rank: '2.2'
+side: Aristocratic
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 0-1
+species: metal
+status:
+  - Legacy
+traits: []
+court: null
+threatClass: null
+height: 7'1"
+stats:
+  hp: 36
+  atk: 7
+  def: 8
+  spd: 4
+  int: 5
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Gold Manipulation
+    tags: []
+    cost: null
+    text: Gold can melt, move, and shape gold, drawing it from her own body.
+    moves:
+      - name: Gilded Edge
+        tags:
+          - 2 SP
+        cost: 2
+        text: Gold shapes a blade or spike of gold and strikes one target for 2d4 + MAG damage.
+  - section: Signature Ability
+    name: Corrosion Immunity
+    tags:
+      - PASSIVE
+    cost: null
+    text: Gold takes no damage from Corrosive attacks and can't be affected by corrosion.
+    moves: []
+role: >-
+  Golds are metals that serve the gempire as both aristocrats and mercenaries. They take on combat work only when they
+  see fit or when paid. Since the empire has no standard currency, payment is whatever the Gold values most: an
+  invitation to a high-profile ball, a useful connection, or a rare valuable. Their work varies, but usually involves
+  combat tasks for gems who need their services. This is also a Legacy Metal Type from the Metal Society, and Golds have
+  most recently gone into service with the Mercenary Guild.
+interactions: >-
+  A Gold doesn't lift a finger without a contract, and the Mercenary Guild is where those contracts are made and kept.
+  She'll take work from a gem of any rank as long as the price is right, which makes her one of the few ways a
+  low-ranked gem can hire real muscle. Every contract is signed with the Gold's own name, something no Era 2 gem can do.
+  To a Gold, a broken contract isn't just a lost job. It's her name on something she didn't follow through on.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

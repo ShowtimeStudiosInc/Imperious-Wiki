@@ -1,0 +1,57 @@
+name: Malachite
+slug: malachite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'10"
+stats:
+  hp: 32
+  atk: 3
+  def: 6
+  spd: 4
+  int: 3
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Geokinesis
+    tags: []
+    cost: null
+    text: >-
+      Malachite can control and shape dirt, stone, and rock, letting her build up land for kindergartens and other
+      structures.
+    moves:
+      - name: Stone Spike
+        tags:
+          - 2 SP
+        cost: 2
+        text: A spike of rock bursts up under one target for 2d4 + MAG damage.
+  - section: Signature Ability
+    name: Toxin Absorption
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      Malachite pulls poison or corrosion out of the air, the ground, or an ally, ending that effect. She can't be
+      poisoned herself.
+    moves: []
+role: >-
+  Malachites have a dual purpose. Firstly they're terraformer gems with the ability to control and shape dirt, and
+  stones and rocks. They use this ability to work with Yooperlites and Clinohumites to create and shape a landscape
+  suitable for kindergartens and other structures. They are also sent into toxic planets to absorb toxic materials from
+  the atmosphere and the land below. Once that job is complete, their secondary purpose is in effect, and that's to
+  guard the other terraformers on the planet.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

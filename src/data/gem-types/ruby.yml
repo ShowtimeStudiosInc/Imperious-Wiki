@@ -1,0 +1,45 @@
+name: Ruby
+slug: ruby
+rank: '3.3'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 3'10"
+stats:
+  hp: 26
+  atk: 10
+  def: 3
+  spd: 5
+  int: 4
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Thermal Manipulation
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Ruby has a small amount of heat control, enough to add a burn to her strikes. Each hit of her
+      <:Fight:1568035371974135940>FIGHTs deals +1 Fire damage.
+    moves: []
+role: >-
+  Rubies are some of the most common militia gems in the empire. They serve as both foot soldiers and personal escorts
+  to high ranking gems, often Morganites or Sapphires. Most form with small daggers, used for both attack and defense.
+  Rubies are typically assigned in groups of three, five, or more to boost their efficiency. While mostly focused on
+  combat, they can also pilot roaming eyes and handle other small technical tasks needed to complete a mission.
+interactions: >-
+  Rubies work in groups, and are often paired with a Eucryptite cohort of the same size, with both squads answering to
+  the same commander. Their most common posting is guarding aristocrats like Sapphires and Morganites.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

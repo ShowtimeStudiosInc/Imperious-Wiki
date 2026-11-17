@@ -1,0 +1,130 @@
+:root {
+  --bg-0: #07050d;
+  --bg-1: #120b20;
+  --bg-2: #1c1230;
+  --panel: rgba(28, 18, 48, 0.72);
+  --panel-solid: #1b1230;
+  --line: rgba(201, 184, 255, 0.28);
+  --line-strong: rgba(201, 184, 255, 0.6);
+  --lav: #c9b8ff;
+  --lav-2: #9d86e9;
+  --violet: #7c4dff;
+  --text: #ece6ff;
+  --muted: #a99fc7;
+  --dim: #6f6690;
+  --gold: #e8c46a;
+  --uf: #7fd6c9;
+  --lost: #e9e6f2;
+  --rogue: #ff7a8a;
+  --serif: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius: 4px;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg-0); color-scheme: dark; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+  background: radial-gradient(1200px 700px at 70% -10%, #2a1650 0%, transparent 60%),
+    radial-gradient(900px 600px at 0% 100%, #1d0f3a 0%, transparent 60%), var(--bg-0);
+}
+a { color: var(--lav); text-decoration: none; }
+a:hover { color: #fff; }
+code {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 0.86em;
+  background: rgba(157, 134, 233, 0.16);
+  border: 1px solid rgba(157, 134, 233, 0.22);
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+  color: #e4dbff;
+}
+.demoji { width: 1.15em; height: 1.15em; vertical-align: -0.22em; margin-right: 0.15em; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* Stars */
+.stars { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.7;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 12%, #d8ccff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 42% 68%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 52%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 88%, #cbbdff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 58% 34%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 58%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 94% 82%, #e5dcff 50%, transparent 51%);
+  background-size: 420px 420px; }
+
+/* Top bar */
+.topbar { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 1.25rem;
+  padding: 0.7rem 1.25rem; background: rgba(7, 5, 13, 0.82); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line); }
+.brand { font-family: var(--serif); font-size: 1.02rem; letter-spacing: 0.04em; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+.brand .mark { color: var(--lav); }
+.topbar nav { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.86rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.topbar nav a { color: var(--muted); }
+.topbar nav a:hover, .topbar nav a[aria-current] { color: var(--text); }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+.divider { text-align: center; color: var(--lav-2); letter-spacing: 0.4em; margin: 1.5rem 0; font-size: 0.8rem; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: 0.02em; }
+
+/* Codex panels, modeled on the Gem Galaxies reference */
+.bar { background: linear-gradient(90deg, #8f6fe0 0%, #5c4aa8 60%, #3d3478 100%); color: #fff;
+  font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.55rem 0.8rem; font-weight: 500; }
+.panel { background: var(--panel); border: 1px solid var(--line); backdrop-filter: blur(6px); }
+.panel > .body { padding: 0.9rem 1rem; }
+.panel + .panel { margin-top: 0.9rem; }
+
+/* Chips */
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.74rem; letter-spacing: 0.05em;
+  padding: 0.18rem 0.55rem; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--lav);
+  background: rgba(124, 77, 255, 0.1); white-space: nowrap; }
+a.chip:hover { background: rgba(124, 77, 255, 0.28); color: #fff; }
+.chip[data-group='rank'] { border-color: #e8c46a99; color: var(--gold); background: rgba(232, 196, 106, 0.08); }
+.chip[data-group='era'] { border-color: #8ab4ff88; color: #b9d0ff; background: rgba(138, 180, 255, 0.08); }
+.chip[data-group='kind'] { border-color: #f3a6ff88; color: #f6c9ff; background: rgba(243, 166, 255, 0.08); }
+.chip[data-group='status'] { border-color: #ffffff55; color: #eee; background: rgba(255, 255, 255, 0.06); }
+.chip[data-group='trait'] { border-color: #9cf3d688; color: #b8f7e1; background: rgba(156, 243, 214, 0.07); }
+.chip[data-group='threat'] { border-color: #ff8a8a88; color: #ffc2c2; background: rgba(255, 138, 138, 0.07); }
+.chip[data-tone='united-frontier'] { border-color: #7fd6c999; color: var(--uf); }
+.chip[data-tone='lost'] { border-color: #ffffff77; color: var(--lost); }
+.chip[data-tone='rogue'] { border-color: #ff7a8a99; color: var(--rogue); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.45rem; font: inherit; font-size: 0.82rem; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.55rem 0.9rem; color: var(--text); background: rgba(124, 77, 255, 0.18);
+  border: 1px solid var(--line-strong); cursor: pointer; border-radius: var(--radius); }
+.btn:hover { background: rgba(124, 77, 255, 0.36); color: #fff; }
+
+/* Gem cards in catalogs */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.8rem; }
+.card { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.85rem; background: var(--panel);
+  border: 1px solid var(--line); color: var(--text); transition: border-color 0.15s, transform 0.15s; }
+.card:hover { border-color: var(--line-strong); transform: translateY(-2px); color: var(--text); }
+.card .top { display: flex; gap: 0.7rem; align-items: center; }
+.card .name { font-family: var(--serif); font-size: 1.05rem; line-height: 1.2; }
+.card .sub { color: var(--muted); font-size: 0.78rem; }
+.card .statline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.2rem; font-size: 0.7rem; color: var(--muted); text-align: center; }
+.card .statline b { display: block; color: var(--text); font-size: 0.9rem; font-weight: 500; }
+.card .chips { gap: 0.25rem; }
+.card .chip { font-size: 0.66rem; padding: 0.1rem 0.45rem; }
+.gem-mini { width: 42px; height: 42px; flex: none; }
+
+.tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 1rem 0; }
+.tab { font: inherit; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.45rem 0.85rem;
+  border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
+.tab[aria-selected='true'] { color: #fff; background: rgba(124, 77, 255, 0.3); border-color: var(--line-strong); }
+.empty { color: var(--muted); padding: 2rem; text-align: center; border: 1px dashed var(--line); }
+
+footer.site { border-top: 1px solid var(--line); color: var(--dim); font-size: 0.78rem; padding: 1.2rem; text-align: center; }
+
+@media (max-width: 560px) {
+  .topbar { flex-wrap: wrap; gap: 0.4rem 1rem; padding: 0.6rem 0.9rem; }
+  .topbar nav { gap: 0.8rem; font-size: 0.74rem; }
+}

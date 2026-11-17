@@ -1,0 +1,47 @@
+name: Eucryptite
+slug: eucryptite
+rank: '3.3'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits:
+  - Bioluminescent
+court: null
+threatClass: null
+height: 4'3"
+stats:
+  hp: 30
+  atk: 7
+  def: 5
+  spd: 7
+  int: 4
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Luminescence
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Eucryptite's body glows, which helps her see and be seen in almost any environment. Darkness never blinds her or
+      dulls her senses, but she can't hide while she glows.
+    moves: []
+role: >-
+  Eucryptites are small but mighty grunt soldiers and scouts. They work as bodyguards and escorts, and back up other
+  soldiers in battle. Their glow and natural versatility make them a great choice for any environment. Each one is
+  issued a pair of daggers, one for striking and one for blocking, and is trained to guard whatever gem she's assigned
+  to.
+interactions: >-
+  Eucryptites deploy in cohorts of 3 to 5, and are often paired with Ruby cohorts of the same size. The Rubies bring the
+  brute strength, and the Eucryptites bring speed and light. Both answer to high-ranking militia like commanders and
+  lieutenants.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

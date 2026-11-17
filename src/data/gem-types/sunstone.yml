@@ -1,0 +1,58 @@
+name: Sunstone
+slug: sunstone
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 1B
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 26
+  atk: 4
+  def: 3
+  spd: 4
+  int: 6
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Pyrokinesis
+    tags: []
+    cost: null
+    text: >-
+      Sunstone has strong fire abilities she can use to fend off threats, though using them too much risks burning her
+      out.
+    moves:
+      - name: Solar Flare
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          A flare of fire hits one target for 2d4 + MAG Fire damage. Using it two turns in a row burns Sunstone for 1d4
+          damage.
+  - section: ACT Bonus
+    name: Advise
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that offer someone wisdom or read a situation clearly are especially effective for
+      her.
+    moves: []
+role: >-
+  The purpose of a Sunstone is to offer not just deep wisdom and insight to those who ask for it, but real, useful
+  advice as well. While Sunstones cannot see into the future like a Sapphire, they can use their natural intuition and
+  sharp perception to help whoever needs their guidance. Sunstones are far from defenseless too, using their strong fire
+  abilities to fend off threats when needed, though they have to be careful not to overuse that power, since it can burn
+  them out.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

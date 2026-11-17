@@ -1,0 +1,45 @@
+name: Iron
+slug: iron
+rank: '4.3'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 4'1"
+stats:
+  hp: 42
+  atk: 5
+  def: 11
+  spd: 3
+  int: 2
+  mag: 1
+abilities:
+  - section: Signature Ability
+    name: Enhanced Durability
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Iron can take hit after hit without going down. Once per battle, when a hit would make her
+      <:Flickering:1568050917310468238>Flicker, she stays at 1 HP instead.
+    moves: []
+role: >-
+  Irons are training assistants, capable of training gems to be better fighters in service of the Gempire. This
+  typically applies to militia, but they can also assist any gem with some combative ability. They're small, but they
+  hit a lot harder than they look, and they can take many hits before poofing.
+interactions: >-
+  Irons spar with militia gems and with each other. During a session, an Iron watches for the spot where a gem slips up,
+  like a dropped guard or a slow step back, and tells her how to fix it. A soldier who has trained with an Iron usually
+  has the bruises to prove she learned something.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

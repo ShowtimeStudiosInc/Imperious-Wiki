@@ -1,0 +1,43 @@
+name: Cherry Quartz
+slug: cherry-quartz
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 30
+  atk: 9
+  def: 5
+  spd: 6
+  int: 6
+  mag: 2
+abilities:
+  - section: ACT Bonus
+    name: Nitpick
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that point out a flaw in someone's stance, form, or argument are especially
+      effective for her.
+    moves: []
+role: >-
+  Cherry Quartz soldiers are pretty interesting when it comes to personality. They can be hard to get close to. They act
+  nice on the outside, but there is always a chance they are talking about you behind your back, picking apart small
+  things like your posture or your tone. Despite being both sour and sweet, Cherry Quartzes are known to be solid,
+  reliable guards in Court Crimson. They do their job well, even if some of them seem to hold a bit of a grudge against
+  everyone around them.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

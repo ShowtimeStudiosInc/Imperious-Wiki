@@ -1,0 +1,63 @@
+name: Sugilite
+slug: sugilite
+rank: '2.3'
+side: Authoritative
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - ruby
+  - quartz
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Champion
+height: null
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Thermal Manipulation
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Ruby half. Each hit of her <:Fight:1568035371974135940>FIGHTs deals +1 Fire damage.
+    moves: []
+  - section: ACT Bonus
+    name: null
+    tags: []
+    cost: null
+    text: >-
+      From her Quartz half. Sugilite keeps the <:Act:1568035453842751618>ACT Bonus of whichever Quartz type she is fused
+      from.
+    moves: []
+  - section: Fusion Ability
+    name: Demolition Strike
+    tags:
+      - 3 SP
+    cost: 3
+    text: >-
+      Sugilite brings her axe down on one target for 2d6 + MAG damage. Any barrier, construct, or cover the strike hits
+      is destroyed.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: Any Latent Ability either half has unlocked carries into the fusion.
+    moves: []
+role: >-
+  Sugilites are fusions between a Ruby and any Quartz, serving the empire as demolition supervisors. Their job is making
+  sure the right structures come down, not just anything in reach, and helping the crews doing the work finish it. They
+  swing large demolition axes, used to tear down old structures the empire no longer needs. Unlike most fusions, a
+  Sugilite doesn't take her Quartz half's rank. Two militia gems fusing into a supervisor is rare enough that the empire
+  ranks Sugilite as Authoritative, so she can give orders on site.
+interactions: >-
+  Sugilites usually work alone, overseeing the demolition side of construction. Verdelites and other demolition gems
+  take their orders from her, and she decides what comes down and in what order.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,46 @@
+name: Tungsten
+slug: tungsten
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 9'0"
+stats:
+  hp: 44
+  atk: 8
+  def: 12
+  spd: 2
+  int: 2
+  mag: 1
+abilities:
+  - section: Signature Ability
+    name: Heat Immunity
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Tungsten can work near volcanic activity, stellar bodies, and high energy construction sites without harm. She
+      takes no damage from Fire.
+    moves: []
+role: >-
+  Tungsten handles heavy debris movement and extreme temperature operations. She moves massive loads during colonization
+  and terraforming in environments with extreme heat, and can work near volcanic activity, stellar bodies, and high
+  energy construction without getting hurt. She is the densest and most heat resistant metal type.
+interactions: >-
+  Tungstens work in teams, usually with the fire and lava terraformers. A Clinohumite or Yooperlite melts and reshapes
+  the land, and the Tungstens haul away what's left while it's still too hot for anyone else to touch. They're slow, so
+  they're rarely the first ones on a site, but they're often the last ones still working when the heat gets too high for
+  everyone else.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

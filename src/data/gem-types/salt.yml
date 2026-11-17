@@ -1,0 +1,42 @@
+name: Salt
+slug: salt
+rank: '5.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 3'0"
+stats:
+  hp: 26
+  atk: 2
+  def: 3
+  spd: 5
+  int: 4
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Power Augmentation
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      When Salt fuses with another gem, the fusion's Signature Ability goes up one Rating step, on top of the usual
+      combined stats. The fusion stays the same Gem-Type.
+    moves: []
+role: >-
+  Salts are only ever used for their fusion boosting ability, deployed alongside groups of other gems for work or
+  combat. Uniquely, they never change what gem type a fusion becomes, a Demantoid and a Salt will always make a bigger
+  Demantoid, for example.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

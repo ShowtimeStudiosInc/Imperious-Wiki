@@ -1,0 +1,44 @@
+name: Titanium
+slug: titanium
+rank: '3.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 9'0"
+stats:
+  hp: 42
+  atk: 9
+  def: 11
+  spd: 4
+  int: 3
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Barrier Generation
+    tags:
+      - 2 SP
+      - REACTION
+    cost: 2
+    text: Titanium calls up a shield to block one hit aimed at herself or an ally Near her. That hit deals no damage.
+    moves: []
+role: >-
+  Titaniums are powerhouses of a gem, seen on the battlefield as high ranked soldiers. Being strong metals, they can
+  take a lot of hits before poofing, and they're among the hardest gems in the empire to shatter. That's why they're
+  sent to the front, pushing through enemy lines with a large battle hammer and a light shield. Combined with their
+  ability to summon shields, this makes them a dangerous foe, often taking the lead in combat.
+interactions: >-
+  Titaniums work in teams, taking orders from the Platinums who oversee them. On the front line, they stand side by side
+  and line up their shields into one wall against incoming fire.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

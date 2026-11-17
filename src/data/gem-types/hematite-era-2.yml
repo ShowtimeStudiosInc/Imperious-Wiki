@@ -1,0 +1,48 @@
+name: Hematite
+slug: hematite-era-2
+rank: '2.2'
+side: Aristocratic
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 2
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'2"
+stats:
+  hp: 34
+  atk: 6
+  def: 7
+  spd: 5
+  int: 5
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Memory Manipulation
+    tags: []
+    cost: null
+    text: Hematite can remove memories and emotions from a gem when needed.
+    moves:
+      - name: Forget
+        tags:
+          - 3 SP
+        cost: 3
+        text: >-
+          One target resists with INT. If they fail, they forget how to use one of their Abilities, chosen by Hematite,
+          for 2 turns.
+role: >-
+  Hematites are dark, aristocratic gems originating from Court Crimson, though they travel across all courts to do their
+  job. When needed, they can remove memories and emotions from a gem. Some think of them as a walking rejuvenator,
+  though a normal cut can't remove memories instantly the way the weapon does. Technically they count as healers,
+  similar to Selenites. If a gem's trauma is too severe for a Selenite's therapy to help, or the job needs to be done
+  fast, a Hematite is the best option to spare them from a full rejuvenation.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

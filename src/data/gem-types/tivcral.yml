@@ -1,0 +1,53 @@
+name: Tivcral
+slug: tivcral
+rank: '4.2'
+side: null
+faction: gempire
+kind: alloy
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 4'7"
+stats:
+  hp: 26
+  atk: 1
+  def: 3
+  spd: 12
+  int: 4
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Supernatural Speed
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Tivcral can stop almost instantly no matter how fast she was going, and air resistance never slows her down. Since
+      her power comes from speed and not muscle, her <:Fight:1568035371974135940>FIGHTs add half her SPD to their damage
+      instead of her ATK.
+    moves: []
+  - section: Latent Ability
+    name: Gearshift
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      Once per battle, Tivcral can trade durability for speed. She loses half her current HP, and her SPD doubles for 3
+      turns.
+    moves: []
+role: >-
+  Tivcral is an alloy metal made of titanium, vanadium, chromium, and aluminum, the same blend used on the outside of
+  the SR-71 Blackbird. She is the fastest gem or alloy out there, built for jobs where speed matters more than anything
+  else, like moving unstable or time sensitive cargo across the galaxy fast enough to matter. Her job is a lot like a
+  Nephrite's, but where a Nephrite flies cargo, Tivcral runs it.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

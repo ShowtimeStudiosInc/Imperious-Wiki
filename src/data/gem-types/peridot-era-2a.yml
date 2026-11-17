@@ -1,0 +1,50 @@
+name: Peridot
+slug: peridot-era-2a
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 2A
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 4'4"
+stats:
+  hp: 30
+  atk: 4
+  def: 5
+  spd: 5
+  int: 8
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Tinker
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that work with machines, like shutting one down, rewiring it, or finding its weak
+      point, are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Ferrokinesis
+    tags: []
+    cost: null
+    text: Peridot may learn to move and shape metal. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Peridots take on the role of Kindergarten Workers and Technicians. They monitor Kindergartens, maintain injectors, and
+  make sure that the gem creation process goes smoothly. Because of their role as tech gems, they have knowledge of both
+  simple and advanced technology. Era 2A Peridots are small on their own, so most are issued limb enhancers that add to
+  their height and let them handle heavier work.
+interactions: >-
+  Peridots work alone for inspections and quick checks, but managing a large kindergarten takes a group. They take
+  orders from higher-ups, most often Demantoids, who organize where Peridots are sent.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

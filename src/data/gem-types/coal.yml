@@ -1,0 +1,42 @@
+name: Coal
+slug: coal
+rank: '5.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'0"
+stats:
+  hp: 32
+  atk: 5
+  def: 6
+  spd: 4
+  int: 3
+  mag: 1
+abilities:
+  - section: Signature Ability
+    name: Heat Generation
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      Coal can warm parts of her body until they glow, giving off light and heat. She can't throw or shape it, only
+      produce it from herself.
+    moves: []
+role: >-
+  Coals are constructive gems who aid Bismuths as assistants by different means such as providing light, encouragement
+  or transporting building materials. They are said to resemble pearls as they were made to retrieve and follow
+  commands, but are bulkier and stronger than them.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

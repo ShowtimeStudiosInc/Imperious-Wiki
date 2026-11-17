@@ -1,0 +1,50 @@
+name: Aventurine
+slug: aventurine
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 7
+  def: 6
+  spd: 6
+  int: 5
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Explore
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that search an area for hidden paths, plants, or resources are especially effective
+      for her.
+    moves: []
+  - section: Latent Ability
+    name: Chlorokinesis
+    tags: []
+    cost: null
+    text: >-
+      Aventurine may learn to influence and grow plant life a small amount. Many never realize they can. Its moves and
+      SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Aventurines are some of the sweetest Quartz soldiers you will ever meet. They seem drawn to organic life and planets,
+  and they get really excited when assigned to guard a facility on an organic planet. Some say they must get that
+  passion from their Diamond. If they were not serving the empire as Quartz soldiers, many think they would have made
+  great planetary explorers.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

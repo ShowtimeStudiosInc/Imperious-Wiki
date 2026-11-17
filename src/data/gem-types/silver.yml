@@ -1,0 +1,48 @@
+name: Silver
+slug: silver
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: metal
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 32
+  atk: 4
+  def: 6
+  spd: 5
+  int: 4
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Electricity Generation
+    tags: []
+    cost: null
+    text: >-
+      Silver can make her own electricity, letting her generate and conduct power without needing an outside source. She
+      can only release it through touch.
+    moves:
+      - name: Static
+        tags:
+          - 1 SP
+        cost: 1
+        text: Silver shocks a target she's touching for 1d6 + MAG Electric damage.
+role: >-
+  Silvers are one of the many technical gems in the Empire. These guys serve the Empire as electrical generators and
+  conductors. They can generate their own electricity, making their work a whole lot easier. Most wear electrical
+  equipment on their backs to store and route the power they make.
+interactions: >-
+  Silvers work with Coppers and other technical gem-types. A Silver makes the power, and a Copper carries it to the
+  panels and ports that need it. Between the two of them, the empire's facilities and tech stay running.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

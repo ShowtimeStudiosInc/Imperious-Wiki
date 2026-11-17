@@ -1,0 +1,70 @@
+name: Sodalite
+slug: sodalite
+rank: '4.2'
+side: null
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - larimar
+  - lapis
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Elite
+height: null
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Cryokinesis
+    tags: []
+    cost: null
+    text: From her Larimar half. Sodalite can shape and control ice with fine precision, and spread it across large areas.
+    moves:
+      - name: Frost Lance
+        tags:
+          - 2 SP
+        cost: 2
+        text: A lance of ice strikes one target for 2d4 + MAG Ice damage.
+  - section: Signature Ability
+    name: Hydrokinesis
+    tags: []
+    cost: null
+    text: From her Lapis half. Sodalite can move and shape large amounts of water. She needs a source of water nearby.
+    moves:
+      - name: Water Lash
+        tags:
+          - 2 SP
+        cost: 2
+        text: A whip of water strikes one target for 2d4 + MAG damage.
+  - section: Fusion Ability
+    name: Frozen Spire
+    tags:
+      - 3 SP
+    cost: 3
+    text: >-
+      Sodalite pulls up a column of water and freezes it into a spire. Every enemy who is Near resists with SPD. Those
+      who fail are <:Stuck:1569710918638510141>Stuck until the end of their next turn.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: Any Latent Ability either half has unlocked carries into the fusion.
+    moves: []
+role: >-
+  Sodalites are fusions between Larimars and Lapis Lazulis, serving the empire as ice terraformers and builders. With
+  water from one half and ice from the other, a Sodalite can pull water up out of the land and freeze it in place, which
+  makes her one of the best gems for raising spires and shaping land out of whatever her environment has to offer. Most
+  wear baggy pants and loincloths, with structural details that show both halves.
+interactions: >-
+  Sodalites work alone or in teams with other Sodalites, depending on the size of the job. They work closely with other
+  terraformers to agree on where to build and how much land to reshape. With both halves able to work water and ice, a
+  Sodalite gets more done than her two halves would apart.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,59 @@
+name: Garnet
+slug: garnet-sapphire-variant
+rank: '2.2'
+side: Aristocratic
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - ruby
+  - sapphire
+variant: Sapphire
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Champion
+height: 7'8"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Clairvoyance
+    tags: []
+    cost: null
+    text: >-
+      From her Sapphire half. Garnet sees glimpses of the future, helping her predict an opponent's next move in a
+      fight.
+    moves:
+      - name: Foresight
+        tags:
+          - 2 SP
+          - REACTION
+        cost: 2
+        text: >-
+          When an attack targets her, she saw it coming. The attack has disadvantage, and if it misses, she can
+          <:Fight:1568035371974135940>FIGHT the attacker right away.
+  - section: Signature Ability
+    name: Thermal Manipulation
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Merged from both halves: Ruby's heat and Sapphire's cold. Each hit of her <:Fight:1568035371974135940>FIGHTs deals
+      +1 Fire and +1 Ice damage.
+    moves: []
+role: >-
+  Garnets are fusions between Rubies and Sapphires. They serve the Gempire as brawlers, fortune tellers, and boxers.
+  Working both offense and defense, they are very good at predicting an opponent's next move and reacting fast in a
+  brawl or boxing match to win their fights. These fusions are usually formed out of a real need to survive a dangerous
+  situation.
+interactions: >-
+  Other gems come to a Garnet for one of two things: a look at their future, or someone to throw punches in a fight.
+  Both come straight from her halves, with the foresight from her Sapphire and the fighting from her Ruby, so a Garnet
+  is only as good as the two gems inside her get along. A Ruby and Sapphire in sync can hold a Garnet for a long time. A
+  pair that argues will lose the fusion fast, which is why most Garnets only last as long as the danger that made them.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

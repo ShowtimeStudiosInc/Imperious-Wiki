@@ -1,0 +1,47 @@
+name: Zebra Jasper
+slug: zebra-jasper
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 34
+  atk: 9
+  def: 7
+  spd: 5
+  int: 4
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Herd
+    tags: []
+    cost: null
+    text: When she joins a group <:Act:1568035453842751618>ACT, it counts as having one more participant than it does.
+    moves: []
+  - section: Latent Ability
+    name: Echolocation
+    tags:
+      - PASSIVE
+    cost: null
+    text: Zebra Jasper may learn to sense her surroundings through sound, even without seeing them clearly.
+    moves: []
+role: >-
+  Zebra Jaspers are mysterious. They stick together like a herd and do not speak much. They take their orders without
+  question and go straight to work fulfilling their purpose. Once you get past their shyness and break the ice, they
+  make for really good friends. They have your back no matter what. Many would say Zebra Jaspers are some of the most
+  loyal Quartz soldiers you could meet.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,39 @@
+name: Richterite
+slug: richterite
+rank: '5.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 3'11"
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 5
+  int: 3
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Light Solidification
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      Richterite can form temporary tools and objects out of solid light. She can't make weapons, and her creations fade
+      after the task is done or the scene ends.
+    moves: []
+role: Richterites are able to summon items temporarily made out of spectral light to help aid with another gem's role.
+interactions: null
+description: null
+image: null
+credit: null
+updated: '2026-11-17'

@@ -1,0 +1,50 @@
+name: Topaz
+slug: topaz
+rank: '3.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'10"
+stats:
+  hp: 40
+  atk: 10
+  def: 10
+  spd: 4
+  int: 3
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Guard
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that block a doorway, hold a position, or stop enemies from reaching someone are
+      especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Shockwave Generation
+    tags: []
+    cost: null
+    text: Topaz may learn to send out a burst of force from her body. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Topazes are high ranking soldiers within the Gempire. Their duties often take place on battlefields or in high class
+  facilities as guards, using their strength to protect other gems from threats or danger. They fight with a pugil, used
+  for both attack and defense. Topazes often fuse with each other to get stronger, and a guard post with one tall Topaz
+  on it may really have two.
+interactions: >-
+  Topazes guard facilities and fight alongside other militia, usually hand to hand. Higher-ups like Aquamarines assign
+  them their tasks, and a Topaz often travels with an Aquamarine, Amber, or Beryl on duty.
+description: null
+image: null
+credit: null
+updated: '2026-11-17'
