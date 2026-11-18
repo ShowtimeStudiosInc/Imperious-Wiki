@@ -174,7 +174,7 @@ types:
   blue-tourmaline-indicolite-era-1: { image: /images/gem-types/blue-tourmaline-indicolite-era-1.webp, credit: Lexariix }
   crocoite: { image: /images/gem-types/crocoite.webp, credit: Lexariix }
   amazonite: { components: [peridot-era-2a, lapis], threatClass: Elite, image: /images/gem-types/amazonite.webp, credit: Lexariix, alsoFactions: [rogue] }
-  green-serpentine: { components: [lapis, scapolite], threatClass: Champion, image: /images/gemstones/green-serpentine.svg }
+  green-serpentine: { components: [lapis, scapolite], threatClass: Champion }
   malachite-fusion: { components: [lapis, quartz], threatClass: Champion, image: /images/gem-types/malachite-fusion.webp }
   rhodonite: { components: [ruby, pearl], threatClass: Elite, image: /images/gem-types/rhodonite.webp }
   opal-fusion: { components: [quartz, pearl], threatClass: Elite, image: /images/gem-types/opal-fusion.webp }
@@ -199,7 +199,6 @@ types:
   hematite-era-2: { image: /images/gem-types/hematite-era-2.webp }
   scapolite: { image: /images/gem-types/scapolite.webp }
   gold-era-0-1: { image: /images/gem-types/gold-era-0-1.webp }
-  charoite: { image: /images/gemstones/charoite.svg }
   emerald: { image: /images/gem-types/emerald.webp }
   platinum: { image: /images/gem-types/platinum.webp }
   rhodochrosite: { image: /images/gem-types/rhodochrosite.webp }
@@ -247,7 +246,6 @@ types:
   yooperlite: { image: /images/gem-types/yooperlite.webp }
   malachite: { image: /images/gem-types/malachite.webp }
   lapis: { image: /images/gem-types/lapis.webp }
-  serpentine: { image: /images/gemstones/serpentine.svg }
   tungsten: { image: /images/gem-types/tungsten.webp }
   bronze-era-0-1: { image: /images/gem-types/bronze-era-0-1.webp }
   steel-era-2a: { image: /images/gem-types/steel-era-2a.webp }
