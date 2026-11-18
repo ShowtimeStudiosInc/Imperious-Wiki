@@ -3,9 +3,10 @@
 <circle cx="100" cy="100" r="88" fill="#2c0f4e"/>
 <circle cx="100" cy="100" r="78" fill="#7d40cc"/>
 <circle cx="92" cy="92" r="64" fill="#a66ce6"/>
-<path d="M50,120 C68,104 90,120 112,104 C128,92 140,96 150,90" stroke="#7d40cc" stroke-width="7" fill="none" stroke-linecap="round"/>
-<path d="M64,144 C84,130 104,142 126,128" stroke="#6a34b4" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M54,88 C54,66 68,50 90,44" stroke="#d9c0fb" stroke-width="11" fill="none" stroke-linecap="round"/>
+<path d="M40,106 C60,88 84,104 108,88 C126,76 144,80 158,72" stroke="#cfaaf7" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M46,132 C68,116 92,132 116,116 C134,104 150,108 162,100" stroke="#c49cf2" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M66,156 C86,144 106,154 130,140" stroke="#b685ee" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M54,80 C56,62 68,50 88,44" stroke="#e6d4fd" stroke-width="10" fill="none" stroke-linecap="round"/>
 <circle cx="114" cy="50" r="6" fill="#ffffff"/>
 </svg>
 </svg>
