@@ -1,0 +1,83 @@
+name: Tanzanite
+slug: tanzanite-fusion
+rank: '2.1'
+side: Aristocratic
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - sapphire
+  - pearl
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Elite
+height: 9'10"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Clairvoyance
+    tags: []
+    cost: null
+    text: From her Sapphire half. Tanzanite can see glimpses of the future.
+    moves:
+      - name: Foresight
+        tags:
+          - 2 SP
+          - REACTION
+        cost: 2
+        text: >-
+          When an attack targets her, she saw it coming. The attack has disadvantage, and if it misses, she can
+          <:Fight:1568035371974135940>FIGHT the attacker right away.
+  - section: Signature Ability
+    name: Cryokinesis
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Sapphire half. Each hit of her <:Fight:1568035371974135940>FIGHTs deals +1 Ice damage.
+    moves: []
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Pearl half. Equipping an item from her pocket space doesn't use her turn.
+    moves: []
+  - section: Signature Ability
+    name: Hologram Projection
+    tags:
+      - 1 SP
+    cost: 1
+    text: From her Pearl half. One enemy who doesn't see through the image attacks it instead of its real target.
+    moves: []
+  - section: Fusion Ability
+    name: Vision Cast
+    tags:
+      - 3 SP
+    cost: 3
+    text: >-
+      Tanzanite projects her vision of the future out of her gemstone so the party can see what's coming. Until her next
+      turn, the first attack against each ally has disadvantage.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: '`Self-Duplication` and `Elemental Affinity` - Any Latent Ability either half has unlocked carries into the fusion.'
+    moves: []
+role: >-
+  Tanzanites don't hold a real purpose in the actual hierarchy of the Gempire, beyond the normal duties of a Sapphire.
+  They aren't very common, and are most likely to show up as the result of a sudden, emotional moment between a Pearl
+  and a Sapphire.
+interactions: >-
+  A Tanzanite takes on the same work her Sapphire half does, giving predictions and advice, usually to whoever her Pearl
+  half served. Most come from a sudden, emotional moment between the two, so few last long, and higher-ups rarely plan
+  around one. She shares a name with the shrine guardian Tanzanites, but the two have nothing to do with each other.
+description: null
+image: null
+gemstone: /images/gemstones/tanzanite-fusion.svg
+credit: null
+updated: '2026-11-18'

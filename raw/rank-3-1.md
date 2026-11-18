@@ -66,3 +66,22 @@ _``Latent Ability:``_
 `Heat Perception [PASSIVE]` - Fire Opal may learn to feel heat sources and flame nearby, even with her eyes closed.
 
 ``Fire Opals are shock troops built for scorched earth tactics, deployed wherever the Gempire needs a line burned through fast. They serve alongside Quartz soldiers as heavy hitters, often leading a charge rather than holding a line, since they hit far harder than they defend.``
+
+
+# TANZANITE [NON-FUSION]
+**``BASE STATS``**
+_``HP:``_ 42
+_``ATK:``_ 9
+_``DEF:``_ 11
+_``SPD:``_ 4
+_``INT:``_ 3
+_``MAG:``_ 3
+_``ACT Bonus:``_ 
+`Sentry` - <:Act:1568035453842751618>ACTs that spot intruders, turn someone away, or keep order on guarded ground are especially effective for her.
+_``Latent Ability:``_ 
+`Crystal Blade` - Tanzanite may learn to grow her sword out of crystal from her own gemstone. Its moves and SP costs are set when it's unlocked.
+
+``Tanzanites serve the empire as guardians for the Indigium Shrine and other shrines like it. Quartzes and Topazes can handle guard work, but shrines needed gems made for it, so Tanzanites were created as a specialty and are rarely sent anywhere else. Most are tall and stocky, with helmets that cover their eyes and large shoulder pads. They fight with large swords, used for both attack and defense.``
+
+_``Interactions:``_
+``Tanzanites work alongside each other and serve under shrine keepers like the Era 1 Indicolites. They guard parts of a shrine directly, protecting its statues, figures, and remnants. They can be assigned to war duties, but most are kept at the shrines.``

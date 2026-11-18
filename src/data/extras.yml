@@ -12,7 +12,7 @@ sides:
   hematite-era-0: Aristocratic
   hessonite-era-0: Authoritative
   sardonyx-hessonite-variant: Aristocratic
-  tanzanite: Aristocratic
+  tanzanite-fusion: Aristocratic
   nacre: Authoritative
   kyanite: Authoritative
   hematite-era-2: Aristocratic
@@ -162,7 +162,7 @@ heights:
   sapphire: 3'10"
   sardonyx-hessonite-variant: 13'8"
   sardonyx-pyrope-variant: 13'10"
-  tanzanite: 9'10"
+  tanzanite-fusion: 9'10"
   zoisite: 8'0"
   diamond-pearl: 6'2"
   diamond-spinel: 5'5"
@@ -180,7 +180,7 @@ types:
   opal-fusion: { components: [quartz, pearl], threatClass: Elite, image: /images/gem-types/opal-fusion.webp }
   sardonyx-pyrope-variant: { components: [pyrope, pearl], threatClass: Elite, image: /images/gem-types/sardonyx-pyrope-variant.webp }
   sardonyx-hessonite-variant: { components: [hessonite-era-1, pearl], threatClass: Champion }
-  tanzanite: { components: [sapphire, pearl], threatClass: Elite }
+  tanzanite-fusion: { components: [sapphire, pearl], threatClass: Elite }
   moonstone: { components: [lapis, pearl], threatClass: Elite }
   sphene: { components: [peridot-era-2a, pearl], threatClass: Standard, image: /images/gem-types/sphene.webp }
   sodalite: { components: [larimar, lapis], threatClass: Elite, image: /images/gem-types/sodalite.webp }

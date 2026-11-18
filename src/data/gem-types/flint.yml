@@ -1,0 +1,49 @@
+name: Flint
+slug: flint
+rank: '4.1'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 32
+  atk: 5
+  def: 6
+  spd: 5
+  int: 8
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Call It In
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that report, track, or call in a threat are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Spark Generation
+    tags: []
+    cost: null
+    text: Flint may learn to strike sparks from her own body. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Flints serve the empire as dispatchers for security and containment. They watch over sectors, log threats like rebel
+  attacks and enemy forces as reports come in, and decide where the empire's Steels are sent. A Flint keeps a record of
+  every call, from the first report to the moment the threat reaches a containment cell.
+interactions: >-
+  Flints and Era 2A Steels work as a pair. When a Flint logs a threat, she sends the closest Steels to detain it and
+  bring it to a containment cell for questioning. A Steel who shows up to a call usually knows what she's walking into,
+  because her Flint already told her.
+description: null
+image: null
+gemstone: /images/gemstones/flint.svg
+credit: null
+updated: '2026-11-18'

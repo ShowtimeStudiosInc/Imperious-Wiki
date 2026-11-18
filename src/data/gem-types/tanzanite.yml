@@ -1,82 +1,52 @@
 name: Tanzanite
 slug: tanzanite
-rank: '2.1'
-side: Aristocratic
+rank: '3.1'
+side: null
 faction: gempire
-kind: fusion
+kind: standard
 parent: null
-components:
-  - sapphire
-  - pearl
+components: null
 variant: null
 era: null
 species: gem
 status: []
 traits: []
 court: null
-threatClass: Elite
-height: 9'10"
-stats: null
+threatClass: null
+height: null
+stats:
+  hp: 42
+  atk: 9
+  def: 11
+  spd: 4
+  int: 3
+  mag: 3
 abilities:
-  - section: Signature Ability
-    name: Clairvoyance
+  - section: ACT Bonus
+    name: Sentry
     tags: []
     cost: null
-    text: From her Sapphire half. Tanzanite can see glimpses of the future.
-    moves:
-      - name: Foresight
-        tags:
-          - 2 SP
-          - REACTION
-        cost: 2
-        text: >-
-          When an attack targets her, she saw it coming. The attack has disadvantage, and if it misses, she can
-          <:Fight:1568035371974135940>FIGHT the attacker right away.
-  - section: Signature Ability
-    name: Cryokinesis
-    tags:
-      - PASSIVE
-    cost: null
-    text: From her Sapphire half. Each hit of her <:Fight:1568035371974135940>FIGHTs deals +1 Ice damage.
-    moves: []
-  - section: Signature Ability
-    name: Hammerspace
-    tags:
-      - PASSIVE
-    cost: null
-    text: From her Pearl half. Equipping an item from her pocket space doesn't use her turn.
-    moves: []
-  - section: Signature Ability
-    name: Hologram Projection
-    tags:
-      - 1 SP
-    cost: 1
-    text: From her Pearl half. One enemy who doesn't see through the image attacks it instead of its real target.
-    moves: []
-  - section: Fusion Ability
-    name: Vision Cast
-    tags:
-      - 3 SP
-    cost: 3
     text: >-
-      Tanzanite projects her vision of the future out of her gemstone so the party can see what's coming. Until her next
-      turn, the first attack against each ally has disadvantage.
+      <:Act:1568035453842751618>ACTs that spot intruders, turn someone away, or keep order on guarded ground are
+      especially effective for her.
     moves: []
   - section: Latent Ability
-    name: null
+    name: Crystal Blade
     tags: []
     cost: null
-    text: '`Self-Duplication` and `Elemental Affinity` - Any Latent Ability either half has unlocked carries into the fusion.'
+    text: >-
+      Tanzanite may learn to grow her sword out of crystal from her own gemstone. Its moves and SP costs are set when
+      it's unlocked.
     moves: []
 role: >-
-  Tanzanites don't hold a real purpose in the actual hierarchy of the Gempire, beyond the normal duties of a Sapphire.
-  They aren't very common, and are most likely to show up as the result of a sudden, emotional moment between a Pearl
-  and a Sapphire.
+  Tanzanites serve the empire as guardians for the Indigium Shrine and other shrines like it. Quartzes and Topazes can
+  handle guard work, but shrines needed gems made for it, so Tanzanites were created as a specialty and are rarely sent
+  anywhere else. Most are tall and stocky, with helmets that cover their eyes and large shoulder pads. They fight with
+  large swords, used for both attack and defense.
 interactions: >-
-  Since a Tanzanite has no set post of her own, many end up guarding shrines like the Indigium Shrine, working alongside
-  each other under the command of the Indicolites who keep them. They stand watch over the statues, remnants, and halls
-  of the shrine, and a Sapphire's sight makes them hard to catch off guard. They can be sent to war duties when needed,
-  but most stay at the shrines.
+  Tanzanites work alongside each other and serve under shrine keepers like the Era 1 Indicolites. They guard parts of a
+  shrine directly, protecting its statues, figures, and remnants. They can be assigned to war duties, but most are kept
+  at the shrines.
 description: null
 image: null
 gemstone: /images/gemstones/tanzanite.svg

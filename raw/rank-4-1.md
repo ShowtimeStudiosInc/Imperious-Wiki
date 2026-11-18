@@ -105,7 +105,7 @@ _``Latent Ability:``_
 ``Era 2A Steels serve the empire as security and containment agents. They respond to calls about rebel attacks, enemy forces, and anything else that puts the empire's gems in danger. When a threat needs to be held, a Steel restrains it and brings it to a containment cell for questioning.``
 
 _``Interactions:``_
-``Era 2A Steels work with the Era 0-1 Steels who handle organics. When a call involves something dangerous, like a beast that won't calm down or a rebel hiding among the wildlife, an Era 2A Steel goes in first and holds it in place so the older Steels can work safely.``
+``Era 2A Steels work with the Era 0-1 Steels who handle organics. When a call involves something dangerous, like a beast that won't calm down or a rebel hiding among the wildlife, an Era 2A Steel goes in first and holds it in place so the older Steels can work safely. Most of their calls come through a Flint, who logs the threat and sends them in.``
 
 
 # STEEL [ERA 0-1]
@@ -125,6 +125,25 @@ _``Latent Ability:``_
 
 _``Interactions:``_
 ``An Era 0-1 Steel usually works with a team of Era 2A Steels. She handles the organics, and they handle anything that fights back. Many of the younger Steels picked up their sense of patience from watching one work. Out in the field she's often paired with a Crocoite, who tracks the creature down so she can move it safely.``
+
+
+# FLINT
+**``BASE STATS``**
+_``HP:``_ 32
+_``ATK:``_ 5
+_``DEF:``_ 6
+_``SPD:``_ 5
+_``INT:``_ 8
+_``MAG:``_ 3
+_``ACT Bonus:``_ 
+`Call It In` - <:Act:1568035453842751618>ACTs that report, track, or call in a threat are especially effective for her.
+_``Latent Ability:``_ 
+`Spark Generation` - Flint may learn to strike sparks from her own body. Its moves and SP costs are set when it's unlocked.
+
+``Flints serve the empire as dispatchers for security and containment. They watch over sectors, log threats like rebel attacks and enemy forces as reports come in, and decide where the empire's Steels are sent. A Flint keeps a record of every call, from the first report to the moment the threat reaches a containment cell.``
+
+_``Interactions:``_
+``Flints and Era 2A Steels work as a pair. When a Flint logs a threat, she sends the closest Steels to detain it and bring it to a containment cell for questioning. A Steel who shows up to a call usually knows what she's walking into, because her Flint already told her.``
 
 
 # BRONZE [ERA 0-1]

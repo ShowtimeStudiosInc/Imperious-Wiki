@@ -170,7 +170,7 @@ function slugFor(g) {
   let base = g.displayName;
   if (g.variant) base += ' ' + g.variant + ' variant';
   else if (g.era && ['Hessonite', 'Hematite', 'Peridot', 'Gold', 'Steel', 'Bronze', 'Blue Tourmaline (Indicolite)'].includes(g.displayName)) base += ' ' + g.era;
-  else if (g.kind === 'fusion' && ['Malachite', 'Opal'].includes(g.displayName)) base += ' fusion';
+  else if (g.kind === 'fusion' && ['Malachite', 'Opal', 'Tanzanite'].includes(g.displayName)) base += ' fusion';
   else if (g.faction === 'united-frontier' && g.quartzGroup && g.displayName !== 'Clear Quartz') base += ' uf';
   return slugify(base);
 }

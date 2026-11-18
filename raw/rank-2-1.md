@@ -170,7 +170,7 @@ _``Latent Ability:``_
 ``Sardonyxes serve the Gempire as comedians, show hosts, and general entertainers in places like Club Imperious. This variant is a fusion between a Hessonite and a Pearl. Just as funny as any other Sardonyx type but with a deep understanding of the battlefield's tragedies, she helps lift the spirits of militia gems and the Gempire alike. This sub-type exists because of years of service from a Hessonite to Crimson Red Diamond. After many sessions with Court Crimson's Hematites, she became immune to the memory erasure effect and retired to serve a new purpose instead, a well earned retirement from the battlefield, celebrated with her own ceremony.``
 
 _``Interactions:``_
-``This Sardonyx can carry a show alone, but she's most at home performing for the militia, at bases, stations, and after hard battles. Having fought beside soldiers herself, she knows what they've been through and how to get a laugh out of them anyway. She often shares the stage with other entertainers, and plenty of Hessonites still treat her like one of their own.``
+``Unlike the Pyrope variant, who hosts for high society, this Sardonyx performs mostly for the militia, at bases, stations, and after hard battles. Her comedy comes from what she lived through, which lands with soldiers but can go over badly at a gala, so aristocratic hosts tend to book a Pyrope variant instead. Since Hematites can't take her memories, she carries every battle she fought, and Selenites sometimes check in on her between shows. Plenty of Hessonites still treat her like one of their own.``
 
 
 # TANZANITE [FUSION]
@@ -195,4 +195,4 @@ _``Latent Ability:``_
 ``Tanzanites don't hold a real purpose in the actual hierarchy of the Gempire, beyond the normal duties of a Sapphire. They aren't very common, and are most likely to show up as the result of a sudden, emotional moment between a Pearl and a Sapphire.``
 
 _``Interactions:``_
-``Since a Tanzanite has no set post of her own, many end up guarding shrines like the Indigium Shrine, working alongside each other under the command of the Indicolites who keep them. They stand watch over the statues, remnants, and halls of the shrine, and a Sapphire's sight makes them hard to catch off guard. They can be sent to war duties when needed, but most stay at the shrines.``
+``A Tanzanite takes on the same work her Sapphire half does, giving predictions and advice, usually to whoever her Pearl half served. Most come from a sudden, emotional moment between the two, so few last long, and higher-ups rarely plan around one. She shares a name with the shrine guardian Tanzanites, but the two have nothing to do with each other.``
