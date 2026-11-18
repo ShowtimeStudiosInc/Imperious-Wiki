@@ -226,20 +226,16 @@ types:
   coal: { image: /images/gem-types/coal.webp }
   spinel: { image: /images/gem-types/spinel.webp }
   pearl: { image: /images/gem-types/pearl.webp }
-  graphene: { image: /images/gem-types/graphene.webp }
   bronze-era-2: { image: /images/gem-types/bronze-era-2.webp }
   copper: { image: /images/gem-types/copper.webp }
   iron: { image: /images/gem-types/iron.webp }
-  cavansite: { image: /images/gem-types/cavansite.webp }
   snowflake-obsidian: { image: /images/gem-types/snowflake-obsidian.webp }
   pezzottaite: { image: /images/gem-types/pezzottaite.webp }
-  tivcral: { image: /images/gem-types/tivcral.webp }
   orange-spodumene: { image: /images/gem-types/orange-spodumene.webp }
   spodumene: { image: /images/gem-types/spodumene.webp }
   larimar: { image: /images/gem-types/larimar.webp }
   goshenite: { image: /images/gem-types/goshenite.webp }
   sunstone: { image: /images/gem-types/sunstone.webp }
-  peridot-era-1: { image: /images/gem-types/peridot-era-1.webp }
   nephrite: { image: /images/gem-types/nephrite.webp }
   tektite: { image: /images/gem-types/tektite.webp }
   silver: { image: /images/gem-types/silver.webp }
@@ -247,7 +243,6 @@ types:
   bismuth: { image: /images/gem-types/bismuth.webp }
   selenite: { image: /images/gem-types/selenite.webp, discontinued: true }
   peridot-era-2a: { image: /images/gem-types/peridot-era-2a.webp }
-  calcite: { image: /images/gem-types/calcite.webp }
   clinohumite: { image: /images/gem-types/clinohumite.webp }
   yooperlite: { image: /images/gem-types/yooperlite.webp }
   malachite: { image: /images/gem-types/malachite.webp }
@@ -257,7 +252,7 @@ types:
   bronze-era-0-1: { image: /images/gem-types/bronze-era-0-1.webp }
   steel-era-2a: { image: /images/gem-types/steel-era-2a.webp }
   steel-era-0-1: { image: /images/gem-types/steel-era-0-1.webp }
-  willemite: { image: /images/gem-types/willemite.webp }
+  willemite: { image: /images/gem-types/willemite-art.webp }
   rutile: { image: /images/gem-types/rutile.webp }
   angelite: { image: /images/gem-types/angelite.webp }
   zircon: { image: /images/gem-types/zircon.webp }
