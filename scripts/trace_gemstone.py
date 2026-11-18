@@ -18,7 +18,8 @@ if max(im.shape[:2]) < 300:
     f = 300 / max(im.shape[:2])
     im = cv2.resize(im, None, fx=f, fy=f, interpolation=cv2.INTER_CUBIC)
 im = cv2.copyMakeBorder(im, 8, 8, 8, 8, cv2.BORDER_CONSTANT, value=(0, 0, 0, 0))
-rgb = im[..., :3][..., ::-1].astype(int)
+# A median blur removes dither and noise textures before the colors are counted.
+rgb = cv2.medianBlur(np.ascontiguousarray(im[..., :3]), 5)[..., ::-1].astype(int)
 alpha = im[..., 3]
 opaque = alpha >= 128
 

@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<polygon points="100.0,18.0 184.0,164.0 16.0,164.0" fill="#8d846c"/>
-<polygon points="100.0,18.0 184.0,164.0 142.0,139.7 100.0,66.7" fill="#c0b68b"/>
-<polygon points="184.0,164.0 16.0,164.0 58.0,139.7 142.0,139.7" fill="#8d846c"/>
-<polygon points="16.0,164.0 100.0,18.0 100.0,66.7 58.0,139.7" fill="#f5eec4"/>
-<polygon points="100.0,66.7 142.0,139.7 58.0,139.7" fill="#f0e6a8"/>
-<polygon points="100.0,66.7 142.0,139.7 100.0,93.4" fill="#faf8e5" opacity="0.9"/>
-<polygon points="100.0,18.0 184.0,164.0 16.0,164.0" fill="none" stroke="#7a725f" stroke-width="7" stroke-linejoin="round"/>
+<svg viewBox="-1 0 316 316" width="200" height="200">
+<path d="M70,8 L8,71 L8,244 L70,307 L243,307 L305,244 L305,71 L243,8 Z" fill="#271515" fill-rule="evenodd"/>
+<path d="M75,21 L21,77 L22,240 L76,294 L238,293 L292,238 L291,75 L236,20 Z" fill="#511527" fill-rule="evenodd"/>
+<path d="M52,50 L47,50 L21,77 L21,238 L43,261 L52,259 L78,235 L77,82 L79,73 Z M261,49 L234,73 L235,235 L259,258 L264,261 L270,261 L292,238 L292,77 L265,49 Z" fill="#db2d5d" fill-rule="evenodd"/>
+<path d="M268,258 L247,241 L238,231 L233,231 L230,234 L82,234 L75,232 L52,253 L45,257 L45,263 L76,294 L236,294 L268,263 Z" fill="#871b2d" fill-rule="evenodd"/>
+<path d="M48,48 L49,54 L75,76 L238,76 L264,52 L264,48 L236,20 L77,20 Z" fill="#e781b7" fill-rule="evenodd"/>
+<path d="M70,8 L8,71 L8,244 L70,307 L243,307 L305,244 L305,71 L243,8 Z M77,22 L234,21 L290,77 L291,236 L236,292 L78,293 L23,238 L22,79 Z" fill="#271515" fill-rule="evenodd"/>
+</svg>
 </svg>
