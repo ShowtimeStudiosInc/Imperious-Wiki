@@ -1,4 +1,4 @@
-# WITTICHENITE [LOST GEM-TYPE]
+# WITTICHENITE [DISCONTINUED GEM-TYPE]
 **``BASE STATS``**
 _``HP:``_ 44
 _``ATK:``_ 10
@@ -55,7 +55,7 @@ _``Signature Ability:``_
 `Rainbow Quartz were a highly specialized Quartz subtype from Omega White Diamond's original empire. Rather than being designed around raw physical strength, they were produced with unusually strong energy-channeling capabilities. This allowed them to adapt their existing abilities to different elemental properties, giving them a degree of versatility uncommon among Quartz. They were considered exceptionally advanced for their time, with surviving examples remaining rare.`
 
 
-# RAINBOW OBSIDIAN [LOST GEM-TYPE]
+# RAINBOW OBSIDIAN [DISCONTINUED GEM-TYPE]
 **``BASE STATS``**
 _``HP:``_ 38
 _``ATK:``_ 9

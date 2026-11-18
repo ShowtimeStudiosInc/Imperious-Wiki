@@ -9,7 +9,8 @@ components: null
 variant: null
 era: null
 species: gem
-status: []
+status:
+  - Discontinued
 traits: []
 court: null
 threatClass: null

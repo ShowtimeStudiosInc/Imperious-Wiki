@@ -2,14 +2,15 @@ name: Prasiolite-Goshenite
 slug: prasiolite-goshenite
 rank: '3.3'
 side: null
-faction: gempire
+faction: lost
 kind: geode
 parent: null
 components: null
 variant: null
 era: null
 species: gem
-status: []
+status:
+  - Discontinued
 traits: []
 court: null
 threatClass: null

@@ -206,6 +206,7 @@ types:
   topaz: { image: /images/gem-types/topaz.webp }
   eucryptite: { image: /images/gem-types/eucryptite.webp }
   ruby: { image: /images/gem-types/ruby.webp }
+  prasiolite-goshenite: { discontinued: true }
   celestite: { image: /images/gem-types/celestite.webp, descendedFrom: celestine }
   celestine: { image: /images/gem-types/celestine.webp }
   almandine: { image: /images/gem-types/almandine.webp }
@@ -238,7 +239,7 @@ types:
   silver: { image: /images/gem-types/silver.webp }
   verdelite: { image: /images/gem-types/verdelite.webp }
   bismuth: { image: /images/gem-types/bismuth.webp }
-  selenite: { image: /images/gem-types/selenite.webp, faction: lost }
+  selenite: { image: /images/gem-types/selenite.webp, discontinued: true }
   peridot-era-2a: { image: /images/gem-types/peridot-era-2a.webp }
   calcite: { image: /images/gem-types/calcite.webp }
   clinohumite: { image: /images/gem-types/clinohumite.webp }

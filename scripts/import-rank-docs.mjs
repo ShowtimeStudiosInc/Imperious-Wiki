@@ -14,7 +14,7 @@ const FILE_RANK = {
   'rank-1-2.md': '1.2', 'rank-2-1.md': '2.1', 'rank-2-2.md': '2.2', 'rank-2-3.md': '2.3',
   'rank-3-1.md': '3.1', 'rank-3-2.md': '3.2', 'rank-3-3.md': '3.3',
   'rank-4-1.md': '4.1', 'rank-4-2.md': '4.2', 'rank-4-3.md': '4.3',
-  'rank-5-1.md': '5.1', 'rank-5-2.md': '5.2', 'lost-lights.md': null, 'united-frontier.md': null, 'rogues.md': null,
+  'rank-5-1.md': '5.1', 'rank-5-2.md': '5.2', 'discontinued.md': null, 'united-frontier.md': null, 'rogues.md': null,
 };
 
 const METALS = new Set(['gold', 'silver', 'platinum', 'steel', 'iron', 'tungsten', 'copper', 'bronze', 'brass',
@@ -238,6 +238,8 @@ for (const g of all) {
     updated: new Date().toISOString().slice(0, 10),
   };
   if (g.geode) doc.status = [...doc.status, 'Geode'];
+  if (ex.discontinued && !doc.status.includes('Discontinued')) doc.status = [...doc.status, 'Discontinued'];
+  if (doc.status.includes('Discontinued') && !ex.faction) doc.faction = 'lost';
   if (g.unparsed) console.warn('Unparsed lines in', g.slug, g.unparsed);
   if (g.unknownTags) console.warn('Unknown tags in', g.slug, g.unknownTags);
   for (const k of Object.keys(doc)) if (doc[k] === undefined) delete doc[k];
