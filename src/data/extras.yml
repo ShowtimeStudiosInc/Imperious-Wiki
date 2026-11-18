@@ -180,3 +180,4 @@ types:
   morganite: { image: /images/gem-types/morganite.webp }
   amber: { image: /images/gem-types/amber.webp }
   titanium: { image: /images/gem-types/titanium.webp }
+  topaz: { image: /images/gem-types/topaz.webp }
