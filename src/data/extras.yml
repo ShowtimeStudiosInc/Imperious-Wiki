@@ -174,3 +174,4 @@ types:
   rhodochrosite: { image: /images/gem-types/rhodochrosite.webp }
   azurite: { image: /images/gem-types/azurite.webp }
   agate: { image: /images/gem-types/agate.webp }
+  aquamarine: { image: /images/gem-types/aquamarine.webp }
