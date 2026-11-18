@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<defs><clipPath id="cl-charoite"><ellipse cx="100" cy="100" rx="64" ry="84"/></clipPath></defs>
-<ellipse cx="100" cy="100" rx="64" ry="84" fill="#8b4fc9"/>
-<g clip-path="url(#cl-charoite)">
-<path d="M30,120 C 60,80 90,140 120,100 S 170,70 180,96" fill="none" stroke="#c9a6f2" stroke-width="6" stroke-linecap="round"/>
-<path d="M40,150 C 80,130 110,160 150,136" fill="none" stroke="#c9a6f2" stroke-width="4" stroke-linecap="round" opacity=".8"/>
-<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#541e8a" opacity="0.28"/>
-</g>
-<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#d9d5ef" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
-<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#2b0c4b" stroke-width="9"/>
+<svg viewBox="0 0 200 200" width="200" height="200">
+<circle cx="100" cy="100" r="88" fill="#2c0f4e"/>
+<circle cx="100" cy="100" r="78" fill="#7d40cc"/>
+<circle cx="92" cy="92" r="64" fill="#a66ce6"/>
+<path d="M50,120 C68,104 90,120 112,104 C128,92 140,96 150,90" stroke="#7d40cc" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M64,144 C84,130 104,142 126,128" stroke="#6a34b4" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M54,88 C54,66 68,50 90,44" stroke="#d9c0fb" stroke-width="11" fill="none" stroke-linecap="round"/>
+<circle cx="114" cy="50" r="6" fill="#ffffff"/>
+</svg>
 </svg>

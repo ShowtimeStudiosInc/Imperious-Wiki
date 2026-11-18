@@ -168,3 +168,4 @@ types:
   hematite-era-2: { image: /images/gem-types/hematite-era-2.webp }
   scapolite: { image: /images/gem-types/scapolite.webp }
   gold-era-0-1: { image: /images/gem-types/gold-era-0-1.webp }
+  charoite: { image: /images/gemstones/charoite.svg }
