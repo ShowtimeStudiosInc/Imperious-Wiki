@@ -17,8 +17,8 @@ On their turn, each character picks one option.
 
 | Option | What it does |
 | --- | --- |
-| **FIGHT** | Attack with a weapon or bare hands. How it rolls depends on the weapon type. See [Items](../items/). |
-| **ACT** | Do something that isn't an attack: talk, taunt, distract, throw something, calm someone down. Most ACTs are free. |
+| <img class="ia-ico" src="../../images/statuses/fight.png" alt="" />**FIGHT** | Attack with a weapon or bare hands. How it rolls depends on the weapon type. See [Items](../items/). |
+| <img class="ia-ico" src="../../images/statuses/act.png" alt="" />**ACT** | Do something that isn't an attack: talk, taunt, distract, throw something, calm someone down. Most ACTs are free. |
 | **INVENTORY** | Use or equip something you carry. One item per character per round. Items never cost Star Points. |
 | **SKILL / SPELL** | Use a move listed under one of your Abilities. A SKILL is something you learned. A SPELL comes from your gemstone or essence. Most cost Star Points. |
 | **MERCY** | Spare, Bubble, Defend, or Protect. |
@@ -28,7 +28,7 @@ An Umbrella Ability with no SPELLs listed under it can't be used in battle yet, 
 ## Mercy
 
 - **Spare:** Every enemy who is ready to be spared leaves the battle peacefully, all at once.
-- **Bubble:** Captures one enemy gemstone instead of letting them go. Needs a bubbling Ability or item.
+- <img class="ia-ico" src="../../images/statuses/bubbled.png" alt="" />**Bubble:** Captures one enemy gemstone instead of letting them go. Needs a bubbling Ability or item.
 - **Defend:** Brace for the enemy's turn. Until your next turn you take half damage from every hit, and you add a mark to the Star Gauge. A shield makes this stronger. See [Items](../items/#shields-and-defend).
 - **Protect:** Stand over a poofed or cracked ally. Every hit aimed at them hits you instead. Protect gives no damage reduction, but it fills the gauge more than Defend does.
 
@@ -66,7 +66,7 @@ Star Points, or SP, are shared by the whole party and come from the Star Gauge.
 
 ### Light and darkness
 
-Gems are made of light, and darkness weakens them.
+<img class="ia-ico dark" src="../../images/statuses/darkness.png" alt="" />Gems are made of light, and darkness weakens them.
 
 - **Dark areas:** the gauge only gains its start-of-round marks.
 - **Total darkness:** the gauge gains nothing at all.
@@ -77,9 +77,9 @@ Some gems, like those of Nightshade Violet's court, are not affected. Their Gem-
 
 A gem's body is hard light held around their gemstone. When it takes more damage than it can hold, it starts to break down. Each step below follows from the one before.
 
-1. **Flickering.** At 0 HP or below, a gem's form starts to flicker. They stay in the battle and can still act. At the start of their next turn they poof, unless they are healed above 0 HP or the battle ends first. Defending while Flickering holds the form together for one more turn.
+1. <img class="ia-ico" src="../../images/statuses/flickering.png" alt="" />**Flickering.** At 0 HP or below, a gem's form starts to flicker. They stay in the battle and can still act. At the start of their next turn they poof, unless they are healed above 0 HP or the battle ends first. Defending while Flickering holds the form together for one more turn.
 2. **Poofed.** The gem retreats into their gemstone and can't act. Their HP drops to minus half their max. Each party turn they recover 1/6 of their max HP, rounded up. Metals recover 1/8 instead, since they reform slower. Once above 0 HP, they reform with 1/8 of their max HP. Healing reforms them with whatever HP the heal brings them to.
-3. **Cracked.** A Flickering or Poofed gem who takes another hit is Cracked. So is a gem knocked down to minus their full max HP in one hit. Cracked gems don't recover on their own. Only Abilities that mend cracks can help.
+3. <img class="ia-ico" src="../../images/statuses/cracked.png" alt="" />**Cracked.** A Flickering or Poofed gem who takes another hit is Cracked. So is a gem knocked down to minus their full max HP in one hit. Cracked gems don't recover on their own. Only Abilities that mend cracks can help.
 4. **Shattered.** Any damage to a Cracked gem shatters them. Protect is the only way to stop it.
 
 Organics collapse instead of poofing and follow the same steps. A Cracked organic is critically wounded.
