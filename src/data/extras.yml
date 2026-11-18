@@ -171,3 +171,4 @@ types:
   charoite: { image: /images/gemstones/charoite.svg }
   emerald: { image: /images/gem-types/emerald.webp }
   platinum: { image: /images/gem-types/platinum.webp }
+  rhodochrosite: { image: /images/gem-types/rhodochrosite.webp }
