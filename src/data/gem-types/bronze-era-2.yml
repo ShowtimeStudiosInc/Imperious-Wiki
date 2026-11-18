@@ -1,5 +1,5 @@
 name: Bronze
-slug: bronze
+slug: bronze-era-2
 rank: '4.3'
 side: null
 faction: gempire
@@ -7,7 +7,7 @@ kind: standard
 parent: null
 components: null
 variant: null
-era: null
+era: Era 2
 species: metal
 status: []
 traits: []
@@ -35,7 +35,7 @@ role: >-
   decoration.
 interactions: null
 description: null
-image: null
-gemstone: /images/gemstones/bronze.svg
+image: /images/gem-types/bronze-era-2.webp
+gemstone: /images/gemstones/bronze-era-2.svg
 credit: null
 updated: '2026-11-18'

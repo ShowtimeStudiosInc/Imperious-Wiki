@@ -125,7 +125,7 @@ GEMS = {
     'verdelite': ('emerald-long', '#2f9f4f', {}),
     'yooperlite': ('cabochon', '#7a7480', {'flecks': '#ff9b3d'}),
     # 4.3
-    'bronze': ('ingot', '#c98b4a', {}),
+    'bronze-era-2': ('ingot', '#c98b4a', {}),
     'brown-tourmaline-dravite': ('emerald-long', '#8a5a2f', {}),
     'cavansite': ('round', '#2f7fff', {}),
     'copper': ('ingot', '#d9784a', {}),

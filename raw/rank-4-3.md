@@ -43,7 +43,7 @@ _``Signature Ability:``_
 ``Coppers specialize in assisting technical gems with conducting electricity and powering inactive gem technology.``
 
 
-# BRONZE
+# BRONZE [ERA 2]
 **``BASE STATS``**
 _``HP:``_ 38
 _``ATK:``_ 4

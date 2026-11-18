@@ -46,7 +46,7 @@ heights:
   salt: 3'0"
   pearl: 6'0"
   spinel: 5'3"
-  bronze: 6'2"
+  bronze-era-2: 6'2"
   cavansite: 3'9"
   copper: 4'3"
   graphene: 1'0"
@@ -183,6 +183,11 @@ types:
   topaz: { image: /images/gem-types/topaz.webp }
   eucryptite: { image: /images/gem-types/eucryptite.webp }
   ruby: { image: /images/gem-types/ruby.webp }
+  graphene: { image: /images/gem-types/graphene.webp }
+  bronze-era-2: { image: /images/gem-types/bronze-era-2.webp }
+  copper: { image: /images/gem-types/copper.webp }
+  iron: { image: /images/gem-types/iron.webp }
+  cavansite: { image: /images/gem-types/cavansite.webp }
   snowflake-obsidian: { image: /images/gem-types/snowflake-obsidian.webp }
   pezzottaite: { image: /images/gem-types/pezzottaite.webp }
   tivcral: { image: /images/gem-types/tivcral.webp }

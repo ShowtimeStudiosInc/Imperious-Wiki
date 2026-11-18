@@ -34,7 +34,7 @@ abilities:
 role: Coppers specialize in assisting technical gems with conducting electricity and powering inactive gem technology.
 interactions: null
 description: null
-image: null
+image: /images/gem-types/copper.webp
 gemstone: /images/gemstones/copper.svg
 credit: null
 updated: '2026-11-18'
