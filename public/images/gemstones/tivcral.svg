@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
 <polygon points="36.0,98.0 164.0,98.0 164.0,140.0 36.0,140.0" fill="#5a6170"/>
-<polygon points="58.0,58.0 142.0,58.0 164.0,98.0 36.0,98.0" fill="#8f949e"/>
-<polygon points="142.0,58.0 176.0,82.0 176.0,124.0 164.0,140.0 164.0,98.0" fill="#4c5060"/>
-<polygon points="70,66 112,66 104,80 64,80" fill="#ced0d4"/>
-<line x1="48" y1="120" x2="152" y2="120" stroke="#4c5060" stroke-width="4"/>
-<polygon points="58.0,58.0 142.0,58.0 176.0,82.0 176.0,124.0 164.0,140.0 36.0,140.0 36.0,98.0" fill="none" stroke="#2c2a39" stroke-width="7" stroke-linejoin="round"/>
-<polyline points="36,98 164,98 176,82" fill="none" stroke="#2c2a39" stroke-width="3"/>
-<line x1="164" y1="98" x2="164" y2="140" stroke="#2c2a39" stroke-width="3"/>
+<polygon points="58.0,58.0 142.0,58.0 164.0,98.0 36.0,98.0" fill="#959faa"/>
+<polygon points="142.0,58.0 176.0,82.0 176.0,124.0 164.0,140.0 164.0,98.0" fill="#484c5a"/>
+<polygon points="70,66 112,66 104,80 64,80" fill="#d4dadd"/>
+<line x1="48" y1="120" x2="152" y2="120" stroke="#484c5a" stroke-width="4"/>
+<polygon points="58.0,58.0 142.0,58.0 176.0,82.0 176.0,124.0 164.0,140.0 36.0,140.0 36.0,98.0" fill="none" stroke="#282730" stroke-width="9" stroke-linejoin="round"/>
+<polyline points="36,98 164,98 176,82" fill="none" stroke="#282730" stroke-width="3"/>
+<line x1="164" y1="98" x2="164" y2="140" stroke="#282730" stroke-width="3"/>
 </svg>

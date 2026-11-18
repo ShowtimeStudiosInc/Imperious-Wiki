@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<ellipse cx="100" cy="100" rx="66" ry="86" fill="#9c5f55"/>
-<polygon points="161.0,132.9 125.3,179.5 112.6,139.7 130.5,116.5" fill="#9c5f55"/>
-<polygon points="125.3,179.5 74.7,179.5 87.4,139.7 112.6,139.7" fill="#9c5f55"/>
-<polygon points="74.7,179.5 39.0,132.9 69.5,116.5 87.4,139.7" fill="#d07e68"/>
-<polygon points="39.0,132.9 39.0,67.1 69.5,83.5 69.5,116.5" fill="#ffbaa5"/>
-<polygon points="39.0,67.1 74.7,20.5 87.4,60.3 69.5,83.5" fill="#ffbaa5"/>
-<polygon points="74.7,20.5 125.3,20.5 112.6,60.3 87.4,60.3" fill="#ffbaa5"/>
+<ellipse cx="100" cy="100" rx="66" ry="86" fill="#e20900"/>
+<polygon points="161.0,132.9 125.3,179.5 112.6,139.7 130.5,116.5" fill="#e20900"/>
+<polygon points="125.3,179.5 74.7,179.5 87.4,139.7 112.6,139.7" fill="#e20900"/>
+<polygon points="74.7,179.5 39.0,132.9 69.5,116.5 87.4,139.7" fill="#ff4c2f"/>
+<polygon points="39.0,132.9 39.0,67.1 69.5,83.5 69.5,116.5" fill="#fecead"/>
+<polygon points="39.0,67.1 74.7,20.5 87.4,60.3 69.5,83.5" fill="#fecead"/>
+<polygon points="74.7,20.5 125.3,20.5 112.6,60.3 87.4,60.3" fill="#fecead"/>
 <polygon points="125.3,20.5 161.0,67.1 130.5,83.5 112.6,60.3" fill="#ff9a7a"/>
-<polygon points="161.0,67.1 161.0,132.9 130.5,116.5 130.5,83.5" fill="#9c5f55"/>
+<polygon points="161.0,67.1 161.0,132.9 130.5,116.5 130.5,83.5" fill="#e20900"/>
 <polygon points="130.5,116.5 112.6,139.7 87.4,139.7 69.5,116.5 69.5,83.5 87.4,60.3 112.6,60.3 130.5,83.5" fill="#ff9a7a"/>
-<polygon points="87.4,60.3 112.6,60.3 94.3,82.1" fill="#ffe1d7" opacity="0.9"/>
-<ellipse cx="100" cy="100" rx="66" ry="86" fill="none" stroke="#5a3a3c" stroke-width="7" stroke-linejoin="round"/>
+<polygon points="87.4,60.3 112.6,60.3 94.3,82.1" fill="#fdf1e0" opacity="0.9"/>
+<ellipse cx="100" cy="100" rx="66" ry="86" fill="none" stroke="#57000f" stroke-width="9" stroke-linejoin="round"/>
 </svg>

@@ -11,8 +11,8 @@
 <polygon points="105.2,88.0 110.2,93.0 105.2,97.9 100.3,93.0" fill="#ffd34a"/>
 <polygon points="69.2,121.2 72.4,124.4 69.2,127.6 65.9,124.4" fill="#ffd34a"/>
 <polygon points="75.8,70.7 79.1,74.0 75.8,77.3 72.5,74.0" fill="#ffd34a"/>
-<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#9c3a27" opacity="0.28"/>
+<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#b20500" opacity="0.28"/>
 </g>
-<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#ffcebf" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
-<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#5a2826" stroke-width="7"/>
+<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#fbe9ce" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
+<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#570011" stroke-width="9"/>
 </svg>

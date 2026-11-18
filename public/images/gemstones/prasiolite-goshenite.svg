@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<ellipse cx="100" cy="100" rx="84" ry="84" fill="#72895e"/>
-<polygon points="177.6,132.1 132.1,177.6 116.1,138.8 138.8,116.1" fill="#72895e"/>
-<polygon points="132.1,177.6 67.9,177.6 83.9,138.8 116.1,138.8" fill="#72895e"/>
-<polygon points="67.9,177.6 22.4,132.1 61.2,116.1 83.9,138.8" fill="#96b875"/>
-<polygon points="22.4,132.1 22.4,67.9 61.2,83.9 61.2,116.1" fill="#cdecaf"/>
-<polygon points="22.4,67.9 67.9,22.4 83.9,61.2 61.2,83.9" fill="#cdecaf"/>
-<polygon points="67.9,22.4 132.1,22.4 116.1,61.2 83.9,61.2" fill="#cdecaf"/>
+<ellipse cx="100" cy="100" rx="84" ry="84" fill="#4dbd1e"/>
+<polygon points="177.6,132.1 132.1,177.6 116.1,138.8 138.8,116.1" fill="#4dbd1e"/>
+<polygon points="132.1,177.6 67.9,177.6 83.9,138.8 116.1,138.8" fill="#4dbd1e"/>
+<polygon points="67.9,177.6 22.4,132.1 61.2,116.1 83.9,138.8" fill="#83db49"/>
+<polygon points="22.4,132.1 22.4,67.9 61.2,83.9 61.2,116.1" fill="#dbedb7"/>
+<polygon points="22.4,67.9 67.9,22.4 83.9,61.2 61.2,83.9" fill="#dbedb7"/>
+<polygon points="67.9,22.4 132.1,22.4 116.1,61.2 83.9,61.2" fill="#dbedb7"/>
 <polygon points="132.1,22.4 177.6,67.9 138.8,83.9 116.1,61.2" fill="#b6e38a"/>
-<polygon points="177.6,67.9 177.6,132.1 138.8,116.1 138.8,83.9" fill="#72895e"/>
+<polygon points="177.6,67.9 177.6,132.1 138.8,116.1 138.8,83.9" fill="#4dbd1e"/>
 <polygon points="138.8,116.1 116.1,138.8 83.9,138.8 61.2,116.1 61.2,83.9 83.9,61.2 116.1,61.2 138.8,83.9" fill="#b6e38a"/>
 <polygon points="116.1,61.2 138.8,83.9 138.8,116.1 116.1,138.8" fill="#eef2f6"/>
-<polygon points="83.9,61.2 116.1,61.2 92.8,82.5" fill="#e9f7dc" opacity="0.9"/>
-<ellipse cx="100" cy="100" rx="84" ry="84" fill="none" stroke="#464e41" stroke-width="7" stroke-linejoin="round"/>
+<polygon points="83.9,61.2 116.1,61.2 92.8,82.5" fill="#f4f6e3" opacity="0.9"/>
+<ellipse cx="100" cy="100" rx="84" ry="84" fill="none" stroke="#0d4f08" stroke-width="9" stroke-linejoin="round"/>
 </svg>

@@ -9,8 +9,8 @@
 <path d="M0,86 C 50,64 110,106 200,76" fill="none" stroke="#ffb3e0" stroke-width="6"/>
 <path d="M0,118 C 50,96 110,138 200,108" fill="none" stroke="#ffb3e0" stroke-width="9"/>
 <path d="M0,150 C 50,128 110,170 200,140" fill="none" stroke="#ffb3e0" stroke-width="6"/>
-<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#6257a2" opacity="0.28"/>
+<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#4e00ed" opacity="0.28"/>
 </g>
-<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#e1dcff" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
-<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#3e3661" stroke-width="7"/>
+<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#e4eafd" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
+<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#2b0057" stroke-width="9"/>
 </svg>

@@ -13,9 +13,9 @@
 <g clip-path="url(#cl-larimar)">
 <path d="M30,120 C 60,80 90,140 120,100 S 170,70 180,96" fill="none" stroke="#f2fcff" stroke-width="6" stroke-linecap="round"/>
 <path d="M40,150 C 80,130 110,160 150,136" fill="none" stroke="#f2fcff" stroke-width="4" stroke-linecap="round" opacity=".8"/>
-<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#5285a2" opacity="0.28"/>
+<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#0079e5" opacity="0.28"/>
 </g>
-<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#d9f4ff" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
-<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#364c61" stroke-width="7"/>
+<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#e1f6fd" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#001b57" stroke-width="9"/>
 </g>
 </svg>

@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<polygon points="68.0,34.0 132.0,34.0 172.0,76.0 100.0,176.0 28.0,76.0" fill="#8b8599"/>
-<polygon points="68.0,34.0 132.0,34.0 116.0,56.6 84.0,56.6" fill="#f2effc"/>
-<polygon points="132.0,34.0 172.0,76.0 136.0,77.6 116.0,56.6" fill="#bcb8cb"/>
-<polygon points="172.0,76.0 100.0,176.0 100.0,127.6 136.0,77.6" fill="#8b8599"/>
-<polygon points="100.0,176.0 28.0,76.0 64.0,77.6 100.0,127.6" fill="#bcb8cb"/>
-<polygon points="28.0,76.0 68.0,34.0 84.0,56.6 64.0,77.6" fill="#f2effc"/>
+<polygon points="68.0,34.0 132.0,34.0 172.0,76.0 100.0,176.0 28.0,76.0" fill="#ac9fde"/>
+<polygon points="68.0,34.0 132.0,34.0 116.0,56.6 84.0,56.6" fill="#f4f2fd"/>
+<polygon points="132.0,34.0 172.0,76.0 136.0,77.6 116.0,56.6" fill="#cbc2ee"/>
+<polygon points="172.0,76.0 100.0,176.0 100.0,127.6 136.0,77.6" fill="#ac9fde"/>
+<polygon points="100.0,176.0 28.0,76.0 64.0,77.6 100.0,127.6" fill="#cbc2ee"/>
+<polygon points="28.0,76.0 68.0,34.0 84.0,56.6 64.0,77.6" fill="#f4f2fd"/>
 <polygon points="84.0,56.6 116.0,56.6 136.0,77.6 100.0,127.6 64.0,77.6" fill="#ece8fb"/>
-<polygon points="84.0,56.6 116.0,56.6 92.8,69.0" fill="#f9f8fe" opacity="0.9"/>
-<polygon points="68.0,34.0 132.0,34.0 172.0,76.0 100.0,176.0 28.0,76.0" fill="none" stroke="#787385" stroke-width="7" stroke-linejoin="round"/>
+<polygon points="84.0,56.6 116.0,56.6 92.8,69.0" fill="#ffffff" opacity="0.9"/>
+<polygon points="68.0,34.0 132.0,34.0 172.0,76.0 100.0,176.0 28.0,76.0" fill="none" stroke="#341f84" stroke-width="9" stroke-linejoin="round"/>
 </svg>

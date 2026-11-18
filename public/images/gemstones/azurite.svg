@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<polygon points="100.0,18.0 184.0,164.0 16.0,164.0" fill="#213383"/>
-<polygon points="100.0,18.0 184.0,164.0 142.0,139.7 100.0,66.7" fill="#2642a8"/>
-<polygon points="184.0,164.0 16.0,164.0 58.0,139.7 142.0,139.7" fill="#213383"/>
-<polygon points="16.0,164.0 100.0,18.0 100.0,66.7 58.0,139.7" fill="#6f87da"/>
+<polygon points="100.0,18.0 184.0,164.0 16.0,164.0" fill="#121581"/>
+<polygon points="100.0,18.0 184.0,164.0 142.0,139.7 100.0,66.7" fill="#1d2fa6"/>
+<polygon points="184.0,164.0 16.0,164.0 58.0,139.7 142.0,139.7" fill="#121581"/>
+<polygon points="16.0,164.0 100.0,18.0 100.0,66.7 58.0,139.7" fill="#78a2e1"/>
 <polygon points="100.0,66.7 142.0,139.7 58.0,139.7" fill="#2b4fc9"/>
-<polygon points="100.0,66.7 142.0,139.7 100.0,93.4" fill="#bfcaef" opacity="0.9"/>
-<polygon points="100.0,18.0 184.0,164.0 16.0,164.0" fill="none" stroke="#1f2552" stroke-width="7" stroke-linejoin="round"/>
+<polygon points="100.0,66.7 142.0,139.7 100.0,93.4" fill="#cbe1f0" opacity="0.9"/>
+<polygon points="100.0,18.0 184.0,164.0 16.0,164.0" fill="none" stroke="#140651" stroke-width="9" stroke-linejoin="round"/>
 </svg>

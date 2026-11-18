@@ -2,8 +2,8 @@
 <defs><clipPath id="cl-diamond-pearl"><ellipse cx="100" cy="100" rx="76" ry="76"/></clipPath></defs>
 <ellipse cx="100" cy="100" rx="76" ry="76" fill="#efe6f6"/>
 <g clip-path="url(#cl-diamond-pearl)">
-<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#8c8497" opacity="0.28"/>
+<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#bea5d1" opacity="0.28"/>
 </g>
-<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#faf8fc" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
-<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#7a7282" stroke-width="7"/>
+<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#ffffff" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#572a79" stroke-width="9"/>
 </svg>

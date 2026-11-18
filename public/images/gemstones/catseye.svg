@@ -2,9 +2,9 @@
 <defs><clipPath id="cl-catseye"><ellipse cx="100" cy="100" rx="64" ry="84"/></clipPath></defs>
 <ellipse cx="100" cy="100" rx="64" ry="84" fill="#c9a43b"/>
 <g clip-path="url(#cl-catseye)">
-<path d="M100,22 C 112,80 112,120 100,178 C 106,120 106,80 100,22 Z" fill="#efe4c4"/>
-<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#7d6530" opacity="0.28"/>
+<path d="M100,22 C 112,80 112,120 100,178 C 106,120 106,80 100,22 Z" fill="#efefd1"/>
+<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#835219" opacity="0.28"/>
 </g>
-<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#efe4c4" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
-<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#4b3c2a" stroke-width="7"/>
+<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#efefd1" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
+<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#4d1f0a" stroke-width="9"/>
 </svg>

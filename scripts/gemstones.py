@@ -158,17 +158,46 @@ def mix(c, other, t):
     a, b = hx(c), hx(other); return to_hex(tuple(a[i] + (b[i] - a[i]) * t for i in range(3)))
 def lum(c):
     r, g, b = hx(c); return (0.299 * r + 0.587 * g + 0.114 * b) / 255
+import colorsys
+
+def _hsl(c):
+    r, g, b = (v / 255 for v in hx(c))
+    h, l, s = colorsys.rgb_to_hls(r, g, b)
+    return h * 360, s, l
+
+def _hex(h, s, l):
+    r, g, b = colorsys.hls_to_rgb((h % 360) / 360, max(0, min(1, l)), max(0, min(1, s)))
+    return to_hex((r * 255, g * 255, b * 255))
+
+def _toward(h, target, amount):
+    d = ((target - h + 540) % 360) - 180
+    return h + max(-abs(d), min(abs(d), amount)) * (1 if d >= 0 else -1)
+
 def tones(c):
-    """outline, dark, mid-dark, base, light, highlight. Very light gems get a tinted outline so they stay readable."""
-    light_gem = lum(c) > 0.82
-    outline = mix(c, '#1a1424', 0.55 if light_gem else 0.72)
+    """The same shading recipe as the hand-made gemstones: shadows get darker, richer, and lean
+    toward violet; lights get brighter and lean warm (reds, yellows, greens) or cool (blues, purples);
+    the outline is a deep, saturated version of the gem's own color."""
+    h, s, l = _hsl(c)
+    warm = h < 150 or h >= 300
+    lit = 60 if warm else 195
+    grey = s < 0.12
+    sat = (lambda x: s) if grey else (lambda x: min(1, x))
+    if l > 0.85:   # pale gems (white, pearl-like): soft shadows, no heavy color push
+        return {
+            'outline': _hex(h, min(1, s * 0.6 + 0.2), 0.32),
+            'dark': _hex(h, s * 0.7, l - 0.2),
+            'mdark': _hex(h, s * 0.8, l - 0.1),
+            'base': c,
+            'light': _hex(h, s, min(0.97, l + 0.05)),
+            'hi': '#ffffff',
+        }
     return {
-        'outline': outline,
-        'dark': mix(c, '#140d22', 0.45 if light_gem else 0.42),
-        'mdark': mix(c, '#140d22', 0.22 if light_gem else 0.2),
+        'outline': _hex(_toward(h, 270, 25), sat(s * 1.1 + 0.15), 0.17 if l < 0.8 else 0.3),
+        'dark': _hex(_toward(h, 270, 12), sat(s * 1.05 + 0.08), l * 0.6),
+        'mdark': _hex(_toward(h, 270, 6), sat(s * 1.02 + 0.04), l * 0.8),
         'base': c,
-        'light': mix(c, '#ffffff', 0.32),
-        'hi': mix(c, '#ffffff', 0.7),
+        'light': _hex(_toward(h, lit, 10), sat(s * 0.98), l + (1 - l) * 0.38),
+        'hi': _hex(_toward(h, lit, 22), sat(s * 0.85), l + (1 - l) * 0.75),
     }
 
 # ---------- shape outlines (200 x 200 box) ----------
@@ -264,7 +293,7 @@ def faceted(cut, base, ex):
     if ex.get('flecks'):
         out += fleck_marks(ex['flecks'], tbl)
     stroke = (f'<ellipse cx="100" cy="100" rx="{curve[1]}" ry="{curve[2]}"' if curve else f'<polygon points="{pts(P)}"')
-    out.append(stroke + f' fill="none" stroke="{T["outline"]}" stroke-width="7" stroke-linejoin="round"/>')
+    out.append(stroke + f' fill="none" stroke="{T["outline"]}" stroke-width="9" stroke-linejoin="round"/>')
     return out
 
 def fleck_marks(color, area=None, seed=7):
@@ -306,7 +335,7 @@ def cabochon(cut, base, ex):
     g.append('</g>')
     out += g
     out.append(f'<ellipse cx="{100 - rx * 0.35:.1f}" cy="{100 - ry * 0.42:.1f}" rx="{rx * 0.26:.1f}" ry="{ry * 0.16:.1f}" fill="{T["hi"]}" opacity="0.85" transform="rotate(-24 {100 - rx * 0.35:.1f} {100 - ry * 0.42:.1f})"/>')
-    out.append(f'<ellipse cx="100" cy="100" rx="{rx}" ry="{ry}" fill="none" stroke="{T["outline"]}" stroke-width="7"/>')
+    out.append(f'<ellipse cx="100" cy="100" rx="{rx}" ry="{ry}" fill="none" stroke="{T["outline"]}" stroke-width="9"/>')
     return out
 
 def ingot(base, ex):
@@ -320,7 +349,7 @@ def ingot(base, ex):
            f'<polygon points="70,66 112,66 104,80 64,80" fill="{T["hi"]}"/>',
            f'<line x1="48" y1="120" x2="152" y2="120" stroke="{T["mdark"]}" stroke-width="4"/>']
     whole = [(58, 58), (142, 58), (176, 82), (176, 124), (164, 140), (36, 140), (36, 98)]
-    out.append(f'<polygon points="{pts(whole)}" fill="none" stroke="{T["outline"]}" stroke-width="7" stroke-linejoin="round"/>')
+    out.append(f'<polygon points="{pts(whole)}" fill="none" stroke="{T["outline"]}" stroke-width="9" stroke-linejoin="round"/>')
     out.append(f'<polyline points="36,98 164,98 176,82" fill="none" stroke="{T["outline"]}" stroke-width="3"/>')
     out.append(f'<line x1="164" y1="98" x2="164" y2="140" stroke="{T["outline"]}" stroke-width="3"/>')
     return out
@@ -332,7 +361,7 @@ def torus(base, ex):
             f'<ellipse cx="100" cy="100" rx="30" ry="16" fill="{T["dark"]}"/>',
             f'<ellipse cx="74" cy="78" rx="18" ry="7" fill="{T["hi"]}" transform="rotate(-14 74 78)"/>',
             f'<ellipse cx="100" cy="100" rx="30" ry="16" fill="none" stroke="{T["outline"]}" stroke-width="5"/>',
-            f'<ellipse cx="100" cy="104" rx="80" ry="58" fill="none" stroke="{T["outline"]}" stroke-width="7"/>']
+            f'<ellipse cx="100" cy="104" rx="80" ry="58" fill="none" stroke="{T["outline"]}" stroke-width="9"/>']
 
 OVERRIDES = os.path.join(ROOT, 'scripts/gemstone-overrides')
 
