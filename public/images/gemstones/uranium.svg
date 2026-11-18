@@ -1,10 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<polygon points="36.0,98.0 164.0,98.0 164.0,140.0 36.0,140.0" fill="#7d8a72"/>
-<polygon points="58.0,58.0 142.0,58.0 164.0,98.0 36.0,98.0" fill="#b1b7a7"/>
-<polygon points="142.0,58.0 176.0,82.0 176.0,124.0 164.0,140.0 164.0,98.0" fill="#626e5b"/>
-<polygon points="70,66 112,66 104,80 64,80" fill="#e1e2dc"/>
-<line x1="48" y1="120" x2="152" y2="120" stroke="#626e5b" stroke-width="4"/>
-<polygon points="58.0,58.0 142.0,58.0 176.0,82.0 176.0,124.0 164.0,140.0 36.0,140.0 36.0,98.0" fill="none" stroke="#282f27" stroke-width="9" stroke-linejoin="round"/>
-<polyline points="36,98 164,98 176,82" fill="none" stroke="#282f27" stroke-width="3"/>
-<line x1="164" y1="98" x2="164" y2="140" stroke="#282f27" stroke-width="3"/>
+<svg viewBox="0 0 200 200" width="200" height="200">
+<defs><clipPath id="t"><rect x="76" y="26" width="48" height="148"/></clipPath></defs>
+<rect x="56" y="5" width="88" height="190" rx="3" fill="#10161a" stroke="#10161a" stroke-width="14" stroke-linejoin="round"/>
+<polygon points="56,5 144,5 124,26 76,26" fill="#c3cbc6"/>
+<polygon points="56,5 76,26 76,174 56,195" fill="#9aa49e"/>
+<polygon points="144,5 144,195 124,174 124,26" fill="#69726d"/>
+<polygon points="56,195 76,174 124,174 144,195" fill="#4c5551"/>
+<rect x="76" y="26" width="48" height="148" fill="#7f8a84"/>
+<g clip-path="url(#t)">
+<polygon points="76,96 124,40 124,62 76,118" fill="#7dff5a"/>
+<polygon points="76,126 124,70 124,78 76,134" fill="#5ef03c"/>
+<polygon points="76,174 124,118 124,174" fill="#6f7a74"/>
+</g>
+<g fill="none" stroke="#10161a" stroke-width="3" stroke-linejoin="round">
+<rect x="76" y="26" width="48" height="148"/>
+<line x1="56" y1="5" x2="76" y2="26"/><line x1="144" y1="5" x2="124" y2="26"/>
+<line x1="56" y1="195" x2="76" y2="174"/><line x1="144" y1="195" x2="124" y2="174"/>
+</g>
+<polygon points="64,11 86,11 80,17 70,17" fill="#ffffff"/>
+<rect x="76" y="26" width="48" height="148" fill="none" stroke="#7dff5a" stroke-width="3" opacity=".9"/>
+</svg>
 </svg>

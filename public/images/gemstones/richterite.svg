@@ -1,14 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<polygon points="100.0,10.0 138.0,40.0 156.0,100.0 138.0,160.0 100.0,190.0 62.0,160.0 44.0,100.0 62.0,40.0" fill="#592926"/>
-<polygon points="100.0,10.0 138.0,40.0 119.0,70.0 100.0,55.0" fill="#be9e87"/>
-<polygon points="138.0,40.0 156.0,100.0 128.0,100.0 119.0,70.0" fill="#724037"/>
-<polygon points="156.0,100.0 138.0,160.0 119.0,130.0 128.0,100.0" fill="#592926"/>
-<polygon points="138.0,160.0 100.0,190.0 100.0,145.0 119.0,130.0" fill="#592926"/>
-<polygon points="100.0,190.0 62.0,160.0 81.0,130.0 100.0,145.0" fill="#592926"/>
-<polygon points="62.0,160.0 44.0,100.0 72.0,100.0 81.0,130.0" fill="#8a5a4a"/>
-<polygon points="44.0,100.0 62.0,40.0 81.0,70.0 72.0,100.0" fill="#be9e87"/>
-<polygon points="62.0,40.0 100.0,10.0 100.0,55.0 81.0,70.0" fill="#be9e87"/>
-<polygon points="100.0,55.0 119.0,70.0 128.0,100.0 119.0,130.0 100.0,145.0 81.0,130.0 72.0,100.0 81.0,70.0" fill="#8a5a4a"/>
-<polygon points="81.0,70.0 100.0,55.0 91.5,86.5" fill="#e3dcd0" opacity="0.9"/>
-<polygon points="100.0,10.0 138.0,40.0 156.0,100.0 138.0,160.0 100.0,190.0 62.0,160.0 44.0,100.0 62.0,40.0" fill="none" stroke="#40161d" stroke-width="9" stroke-linejoin="round"/>
+<svg viewBox="0 0 200 200" width="200" height="200">
+<defs><clipPath id="c"><circle cx="100" cy="100" r="78"/></clipPath></defs>
+<circle cx="100" cy="100" r="88" fill="#180c2e"/>
+<circle cx="100" cy="100" r="78" fill="#3a1f78"/>
+<g clip-path="url(#c)">
+<circle cx="92" cy="92" r="70" fill="#5a34b0"/>
+<circle cx="84" cy="84" r="48" fill="#7a52d6"/>
+<path d="M60,140 C88,150 128,138 146,104 C140,134 112,160 80,156 Z" fill="#b89cff"/>
+<path d="M70,148 C96,154 124,142 140,118" stroke="#e4d8ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+</g>
+<path d="M44,86 C48,62 64,44 88,36" stroke="#efe6ff" stroke-width="9" fill="none" stroke-linecap="round"/>
+<circle cx="108" cy="34" r="5" fill="#ffffff"/>
+</svg>
 </svg>

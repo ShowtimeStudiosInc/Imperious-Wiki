@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<polygon points="64.0,30.0 116.0,22.0 160.0,50.0 178.0,104.0 150.0,160.0 96.0,180.0 46.0,158.0 22.0,104.0 34.0,58.0" fill="#0b0a0d" stroke="#0b0a0d" stroke-width="16" stroke-linejoin="round"/>
+<polygon points="100.0,102.0 64.0,30.0 116.0,22.0" fill="#4a4650"/><polygon points="100.0,102.0 116.0,22.0 160.0,50.0" fill="#3a3640"/><polygon points="100.0,102.0 160.0,50.0 178.0,104.0" fill="#2c2930"/><polygon points="100.0,102.0 178.0,104.0 150.0,160.0" fill="#1f1d23"/><polygon points="100.0,102.0 150.0,160.0 96.0,180.0" fill="#18161b"/><polygon points="100.0,102.0 96.0,180.0 46.0,158.0" fill="#2a2730"/><polygon points="100.0,102.0 46.0,158.0 22.0,104.0" fill="#36323c"/><polygon points="100.0,102.0 22.0,104.0 34.0,58.0" fill="#423e48"/><polygon points="100.0,102.0 34.0,58.0 64.0,30.0" fill="#55515c"/>
+<polygon points="100.0,102.0 64.0,30.0 116.0,22.0 104.0,70.0" fill="#5f5b68"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round"><g stroke="#ff7a1c" stroke-width="5"><path d="M100,102 L118,86 L134,90 L150,74"/><path d="M100,102 L88,124 L94,146"/><path d="M118,86 L112,60"/></g><g stroke="#ffd36a" stroke-width="2"><path d="M100,102 L118,86 L134,90 L150,74"/><path d="M100,102 L88,124 L94,146"/><path d="M118,86 L112,60"/></g></g>
+<polygon points="64.0,30.0 116.0,22.0 160.0,50.0 178.0,104.0 150.0,160.0 96.0,180.0 46.0,158.0 22.0,104.0 34.0,58.0" fill="none" stroke="#0b0a0d" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="72,38 92,32 84,44" fill="#c9c6d2"/>
+</svg>
