@@ -176,3 +176,4 @@ types:
   agate: { image: /images/gem-types/agate.webp }
   aquamarine: { image: /images/gem-types/aquamarine.webp }
   jade: { image: /images/gem-types/jade.webp }
+  fluorite: { image: /images/gem-types/fluorite.webp }
