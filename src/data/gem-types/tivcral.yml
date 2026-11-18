@@ -48,7 +48,7 @@ role: >-
   Nephrite's, but where a Nephrite flies cargo, Tivcral runs it.
 interactions: null
 description: null
-image: null
+image: /images/gem-types/tivcral.webp
 gemstone: /images/gemstones/tivcral.svg
 credit: null
 updated: '2026-11-18'
