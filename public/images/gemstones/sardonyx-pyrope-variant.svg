@@ -1,17 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
 <g transform="translate(2 36) scale(0.64)">
-<ellipse cx="100" cy="100" rx="66" ry="86" fill="#7c1933"/>
-<polygon points="161.0,132.9 125.3,179.5 112.6,139.7 130.5,116.5" fill="#7c1933"/>
-<polygon points="125.3,179.5 74.7,179.5 87.4,139.7 112.6,139.7" fill="#7c1933"/>
-<polygon points="74.7,179.5 39.0,132.9 69.5,116.5 87.4,139.7" fill="#a41d39"/>
-<polygon points="39.0,132.9 39.0,67.1 69.5,83.5 69.5,116.5" fill="#da687c"/>
-<polygon points="39.0,67.1 74.7,20.5 87.4,60.3 69.5,83.5" fill="#da687c"/>
-<polygon points="74.7,20.5 125.3,20.5 112.6,60.3 87.4,60.3" fill="#da687c"/>
-<polygon points="125.3,20.5 161.0,67.1 130.5,83.5 112.6,60.3" fill="#c8213f"/>
-<polygon points="161.0,67.1 161.0,132.9 130.5,116.5 130.5,83.5" fill="#7c1933"/>
-<polygon points="130.5,116.5 112.6,139.7 87.4,139.7 69.5,116.5 69.5,83.5 87.4,60.3 112.6,60.3 130.5,83.5" fill="#c8213f"/>
-<polygon points="87.4,60.3 112.6,60.3 94.3,82.1" fill="#eebcc5" opacity="0.9"/>
-<ellipse cx="100" cy="100" rx="66" ry="86" fill="none" stroke="#4b182c" stroke-width="7" stroke-linejoin="round"/>
+<svg viewBox="0 0 316 316" width="200" height="200">
+<path d="M76,24 L69,30 L69,285 L75,291 L250,291 L256,285 L255,29 L250,24 Z" fill="#2d151b" fill-rule="evenodd"/>
+<path d="M75,29 L73,284 L75,286 L162,286 L163,291 L167,291 L168,286 L250,286 L251,31 L249,29 Z" fill="#e16369" fill-rule="evenodd"/>
+<path d="M75,30 L74,281 L78,281 L109,246 L110,73 L95,55 L81,32 Z" fill="#7b1b2d" fill-rule="evenodd"/>
+<path d="M75,29 L77,37 L106,76 L115,74 L214,74 L222,76 L230,69 L250,37 L249,29 Z" fill="#b7212d" fill-rule="evenodd"/>
+<path d="M247,32 L227,65 L219,73 L219,246 L242,279 L246,282 L250,282 L251,32 Z" fill="#d52727" fill-rule="evenodd"/>
+<path d="M73,279 L75,286 L248,285 L248,278 L223,243 L106,242 Z" fill="#edc3db" fill-rule="evenodd"/>
+<path d="M76,24 L69,30 L69,285 L75,291 L251,290 L256,285 L255,29 L250,24 Z M77,30 L247,30 L250,33 L250,283 L248,285 L77,285 L74,282 L75,32 Z" fill="#2d151b" fill-rule="evenodd"/>
+</svg>
 </g>
 <g transform="translate(70 36) scale(0.64)">
 <defs><clipPath id="cl-pearl"><ellipse cx="100" cy="100" rx="76" ry="76"/></clipPath></defs>

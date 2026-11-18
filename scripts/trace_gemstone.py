@@ -8,6 +8,7 @@ import sys, os
 import cv2, numpy as np
 
 src, slug = sys.argv[1], sys.argv[2]
+MERGE = float(sys.argv[3]) if len(sys.argv) > 3 else 30  # lower = keep colors that are close together apart
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 im = cv2.imread(src, cv2.IMREAD_UNCHANGED)
 if im.shape[2] == 3:
@@ -31,7 +32,7 @@ for i in order:
     if counts[i] < len(px) * 0.004:
         break
     c = vals[i] + 3
-    if all(((c - p) ** 2).sum() > 30 ** 2 for p in palette):
+    if all(((c - p) ** 2).sum() > MERGE ** 2 for p in palette):
         palette.append(c)
 palette = np.array(palette)
 dist = ((rgb[..., None, :] - palette[None, None, :, :]) ** 2).sum(-1)
