@@ -49,7 +49,9 @@ role: >-
   In Era 1, Peridots were made far more often, specifically as kindergarten managers. Some remaining Era 1 Peridots kept
   these jobs into Era 2, while most others transferred to Court Mint for technological work. Since all of them have
   strong technical know how, many today are working using that skill.
-interactions: null
+interactions: >-
+  Era 1 Peridots who stayed in kindergartens often lead groups of Era 2A Peridots. The ones who moved to Court Mint work
+  with other technical gems, and take orders from Demantoids and Zoisites on bigger projects.
 description: null
 image: /images/gem-types/peridot-era-1.webp
 gemstone: /images/gemstones/peridot-era-1.svg

@@ -46,7 +46,10 @@ role: >-
   Alpha's black sites, reporting directly to classified handlers on matters of imperial security. Made from Luminous
   Alpha Black Diamond's pure essence, a decent number of them exist, though they are still rare within Court Alpha's
   ranks, each one running intelligence work alongside others on the same assignment.
-interactions: null
+interactions: >-
+  Era 0 Hessonites work in small cells with others on the same assignment, and answer only to their classified handlers
+  in Court Alpha. Most gems who meet one never find out what she really is, and an Era 0 Hessonite can spend years
+  beside the same soldiers without any of them knowing.
 description: null
 image: null
 gemstone: /images/gemstones/hessonite-era-0.svg

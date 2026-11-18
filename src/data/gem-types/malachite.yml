@@ -50,7 +50,10 @@ role: >-
   suitable for kindergartens and other structures. They are also sent into toxic planets to absorb toxic materials from
   the atmosphere and the land below. Once that job is complete, their secondary purpose is in effect, and that's to
   guard the other terraformers on the planet.
-interactions: null
+interactions: >-
+  Malachites work with Yooperlites and Clinohumites to shape land for kindergartens and buildings. On toxic planets they
+  go in first to clear the air and ground for everyone else, then stay on as guards for the rest of the terraforming
+  crew.
 description: null
 image: /images/gem-types/malachite.webp
 gemstone: /images/gemstones/malachite.svg

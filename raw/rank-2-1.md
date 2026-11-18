@@ -147,6 +147,9 @@ _``Signature Ability:``_
 
 ``Hessonites of this line serve Court Alpha as elite intelligence operatives, infiltrating rebel cells and the courts of other Diamonds for assignments that can last decades. Their main job involves gathering classified intelligence, removing security threats, and keeping watch over surveillance networks across the empire. They work out of Court Alpha's black sites, reporting directly to classified handlers on matters of imperial security. Made from Luminous Alpha Black Diamond's pure essence, a decent number of them exist, though they are still rare within Court Alpha's ranks, each one running intelligence work alongside others on the same assignment.``
 
+_``Interactions:``_
+``Era 0 Hessonites work in small cells with others on the same assignment, and answer only to their classified handlers in Court Alpha. Most gems who meet one never find out what she really is, and an Era 0 Hessonite can spend years beside the same soldiers without any of them knowing.``
+
 
 # SARDONYX [HESSONITE VARIANT FUSION] [SUB-TYPE SARDONYX FUSION]
 **``BASE STATS``**

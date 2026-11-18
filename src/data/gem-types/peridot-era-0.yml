@@ -59,7 +59,9 @@ role: >-
   Era 0 Peridots are often lent out to other courts to manage projects that involve some kind of technology. In Alpha
   Black's Court, they keep the court's complex systems running. If you were lucky, you could find many of them working
   in Mint Diamond's sectors of the Gempire, since they used to be hired often for Peridot managerial jobs.
-interactions: null
+interactions: >-
+  Era 0 Peridots work alone or in small teams, lent out from Alpha Black's Court to whoever has a tech project that
+  needs running. Younger Peridots tend to treat them as the ones who actually know how the old systems work.
 description: null
 image: null
 gemstone: /images/gemstones/peridot-era-0.svg

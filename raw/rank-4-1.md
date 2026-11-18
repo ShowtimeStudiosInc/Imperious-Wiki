@@ -82,6 +82,9 @@ _``Signature Ability:``_
 
 ``Opals serve as librarians on Homeworld and several of their colonies. They are known for being able to store infinite knowledge. Many Opals have an ability to create holo books, which are stored in libraries and sanctuaries all across the galaxy. It is important to note that if the Opal is shattered, all the holo books will dissipate as well.``
 
+_``Interactions:``_
+``Opals usually work alone in their libraries, but they're rarely short on visitors. Azurites lean on them during busy case periods, and any gem who needs an answer knows where to find one. Since an Opal's holo books vanish if she's shattered, the bigger libraries keep guards close by.``
+
 
 # STEEL [ERA 2A]
 **``BASE STATS``**
@@ -193,6 +196,9 @@ _``Latent Ability:``_
 `Electrical Transportation [2 SP]` - Peridot may learn to turn herself into electricity and travel through a power grid, reforming anywhere along it. In battle, she can move to Near, Far, or Behind anyone standing by a powered machine.
 
 ``Era 0 Peridots are often lent out to other courts to manage projects that involve some kind of technology. In Alpha Black's Court, they keep the court's complex systems running. If you were lucky, you could find many of them working in Mint Diamond's sectors of the Gempire, since they used to be hired often for Peridot managerial jobs.``
+
+_``Interactions:``_
+``Era 0 Peridots work alone or in small teams, lent out from Alpha Black's Court to whoever has a tech project that needs running. Younger Peridots tend to treat them as the ones who actually know how the old systems work.``
 
 
 # SERPENTINE [NON-FUSION]

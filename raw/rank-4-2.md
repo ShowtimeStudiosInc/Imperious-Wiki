@@ -31,6 +31,9 @@ _``Signature Ability:``_
 
 ``Malachites have a dual purpose. Firstly they're terraformer gems with the ability to control and shape dirt, and stones and rocks. They use this ability to work with Yooperlites and Clinohumites to create and shape a landscape suitable for kindergartens and other structures. They are also sent into toxic planets to absorb toxic materials from the atmosphere and the land below. Once that job is complete, their secondary purpose is in effect, and that's to guard the other terraformers on the planet.``
 
+_``Interactions:``_
+``Malachites work with Yooperlites and Clinohumites to shape land for kindergartens and buildings. On toxic planets they go in first to clear the air and ground for everyone else, then stay on as guards for the rest of the terraforming crew.``
+
 
 # YOOPERLITE
 **``BASE STATS``**
@@ -280,6 +283,9 @@ _``Latent Ability:``_
 `Technopathy` - Peridot may learn to talk to and interact with technology. Its moves and SP costs are set when it's unlocked.
 
 ``In Era 1, Peridots were made far more often, specifically as kindergarten managers. Some remaining Era 1 Peridots kept these jobs into Era 2, while most others transferred to Court Mint for technological work. Since all of them have strong technical know how, many today are working using that skill.``
+
+_``Interactions:``_
+``Era 1 Peridots who stayed in kindergartens often lead groups of Era 2A Peridots. The ones who moved to Court Mint work with other technical gems, and take orders from Demantoids and Zoisites on bigger projects.``
 
 
 # SUNSTONE [NON-FUSION] [ERA 1B]
