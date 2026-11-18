@@ -6,7 +6,7 @@ type Group = { group: string; items: Status[] };
 const groups = yamlLoad(fs.readFileSync('src/data/statuses.yml', 'utf8')) as Group[];
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 // Local files first; an all-digit id is a Discord emoji not yet saved to the repo.
-const icon = (id: string) => (/^\d+$/.test(id) ? `https://cdn.discordapp.com/emojis/${id}.webp?size=48` : `${base}images/statuses/${id}.png`);
+const icon = (id: string) => (/^\d+$/.test(id) ? `https://cdn.discordapp.com/emojis/${id}.webp?size=48` : `${base}images/statuses/${id.includes('.') ? id : id + '.png'}`);
 const DARK = new Set(['blinded', 'darkness', 'hush', 'trapped']);
 ---
 <div class="not-content ia-status">

@@ -1,6 +1,6 @@
 # Status effects. Source: STATUS EFFECT CATALOG BATCH #1 (2026-11-17).
 # astrid: enforced (Astrid applies the effect) | recorded (Astrid tracks it, the battle runner applies it)
-# icon: a file name in public/images/statuses/ (no extension), a Discord emoji id (all digits, loaded from Discord), or null.
+# icon: a file in public/images/statuses/ (no extension means .png; .svg files are Claude-drawn vectors), a Discord emoji id (all digits, loaded from Discord), or null.
 
 - group: Wounds That Linger
   items:
@@ -48,7 +48,7 @@
       astrid: enforced
       text: The Gem can't change position.
     - name: Knocked Down
-      icon: null
+      icon: knocked-down.svg
       astrid: enforced
       text: The Gem can't FIGHT, change position, or use SKILLs. They can still Defend, or spend a turn getting back up.
     - name: Trapped
@@ -67,7 +67,7 @@
       astrid: enforced
       text: The Gem's turn is skipped entirely. Taking any damage wakes them.
     - name: Charm
-      icon: null
+      icon: charm.svg
       astrid: enforced
       text: Most ACTs have a 1 in 3 chance to fail.
     - name: Hush
@@ -79,7 +79,7 @@
       astrid: recorded
       text: The Gem can't move Near whatever frightened them, and their attacks against it are made with disadvantage.
     - name: Confused
-      icon: null
+      icon: confused.svg
       astrid: recorded
       text: The Gem's next attack or spell hits a random target, ally or enemy.
     - name: Blinded
@@ -90,15 +90,15 @@
 - group: Worn Down
   items:
     - name: Attack Down
-      icon: null
+      icon: attack-down.svg
       astrid: enforced
       text: Damage from the Gem's attacks drops to 75%, rounded up.
     - name: Defense Broken
-      icon: null
+      icon: defense-broken.svg
       astrid: enforced
       text: Attacks treat the Gem's DEF as 0.
     - name: Speed Down
-      icon: null
+      icon: speed-down.svg
       astrid: recorded
       text: The Gem's SPD gives them no protection. Attackers need only the weapon's normal roll to hit them.
     - name: Pressure
@@ -106,7 +106,7 @@
       astrid: enforced
       text: The Gem's side acts later in the turn order, and every ability their side uses costs 1 extra shared SP for each stack, up to 3.
     - name: Essence Disrupted
-      icon: null
+      icon: essence-disrupted.svg
       astrid: enforced
       text: The Gem's modifier specials are suppressed, including the damage bonus from Charged.
 
