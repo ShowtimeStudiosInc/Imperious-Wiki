@@ -73,7 +73,7 @@ function parseHeader(line, fileRank) {
     else if (u === 'METAL SOCIETY') { g.species = 'metal'; g.status.push('Legacy'); }
     else if (u === 'GENERAL GROUP') g.kind = 'group';
     else if (u === 'DISCONTINUED GEM-TYPE') g.status.push('Discontinued');
-    else if (u === 'LOST GEM-TYPE') g.faction = 'lost';
+    else if (u === 'LOST GEM-TYPE' || u === 'LOST LIGHT') { g.faction = 'lost'; g.status.push('Lost Light'); }
     else if (u === 'UNITED FRONTIER GEM-TYPE' || u === 'UNITED FRONTIER') g.faction = 'united-frontier';
     else if (u === 'THE QUARTZ GROUP') g.quartzGroup = true;
     else if (u === 'ROGUE GEM-TYPE' || u === 'ROGUE') g.faction = 'rogue';

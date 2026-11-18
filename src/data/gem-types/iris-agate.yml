@@ -9,7 +9,8 @@ components: null
 variant: null
 era: null
 species: gem
-status: []
+status:
+  - Lost Light
 traits: []
 court: null
 threatClass: null

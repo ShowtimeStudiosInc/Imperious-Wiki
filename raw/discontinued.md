@@ -1,4 +1,4 @@
-# WITTICHENITE [DISCONTINUED GEM-TYPE]
+# WITTICHENITE [LOST LIGHT]
 **``BASE STATS``**
 _``HP:``_ 44
 _``ATK:``_ 10
@@ -12,7 +12,7 @@ _``Signature Ability:``_
 `Wittichenites were enormous Gems produced during Omega White Diamond's original empire, with surviving specimens remembered as some of the largest individual Gems ever created. Their size came with considerable physical mass and durability, but also made them slower and less agile than most modern Gems. Wittichenites were primarily used for heavy labor and physically demanding assignments, with some being assigned to combat roles where their immense bodies could be put to use.`
 
 
-# IRIS AGATE [SUB-TYPE OF AGATE]
+# IRIS AGATE [SUB-TYPE OF AGATE] [LOST LIGHT]
 **``BASE STATS``**
 _``HP:``_ 36
 _``ATK:``_ 6
@@ -26,7 +26,7 @@ _``Signature Ability:``_
 `Iris Agates were a specialized Agate subtype produced within Omega White Diamond's empire. Rather than focusing entirely on supervising and organizing other Gems, Iris Agates were designed to function as battlefield commanders. Their greatest strength was their ability to keep nearby Gems organized and coordinated, making them valuable leaders despite lacking the overwhelming physical strength of many military Gem-types.`
 
 
-# TITANIUM AURA QUARTZ [SUB-TYPE OF QUARTZ]
+# TITANIUM AURA QUARTZ [SUB-TYPE OF QUARTZ] [LOST LIGHT]
 **``BASE STATS``**
 _``HP:``_ 40
 _``ATK:``_ 8
@@ -40,7 +40,7 @@ _``Signature Ability:``_
 `Titanium Aura Quartz were an unusually durable Quartz subtype created during Omega White Diamond's reign. Their bodies were reinforced beyond those of ordinary Quartz soldiers, allowing them to absorb punishment while maintaining the physical strength expected from their Gem-type. They were considered superior frontline soldiers during their era, although their heavier construction made them slower than many modern Quartz variants.`
 
 
-# RAINBOW QUARTZ [SUB-TYPE OF QUARTZ]
+# RAINBOW QUARTZ [SUB-TYPE OF QUARTZ] [LOST LIGHT]
 **``BASE STATS``**
 _``HP:``_ 30
 _``ATK:``_ 7
@@ -55,7 +55,7 @@ _``Signature Ability:``_
 `Rainbow Quartz were a highly specialized Quartz subtype from Omega White Diamond's original empire. Rather than being designed around raw physical strength, they were produced with unusually strong energy-channeling capabilities. This allowed them to adapt their existing abilities to different elemental properties, giving them a degree of versatility uncommon among Quartz. They were considered exceptionally advanced for their time, with surviving examples remaining rare.`
 
 
-# RAINBOW OBSIDIAN [DISCONTINUED GEM-TYPE]
+# RAINBOW OBSIDIAN [LOST LIGHT]
 **``BASE STATS``**
 _``HP:``_ 38
 _``ATK:``_ 9
@@ -69,7 +69,7 @@ _``Signature Ability:``_
 `Rainbow Obsidian was a rare Obsidian variant produced within Omega White Diamond's empire. They retained the immense physical strength and durability expected from Obsidian while possessing unusual elemental properties not found in modern Obsidian. Their bodies were large, heavy, and difficult to damage, but their physical size limited their speed. Very few Rainbow Obsidians were ever produced, making surviving members exceptionally uncommon in the modern Gempire.`
 
 
-# RAINBOW ANGELITE [SUB-TYPE OF ANGELITE]
+# RAINBOW ANGELITE [SUB-TYPE OF ANGELITE] [LOST LIGHT]
 **``BASE STATS``**
 _``HP:``_ 32
 _``ATK:``_ 2
