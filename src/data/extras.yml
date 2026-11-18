@@ -170,3 +170,4 @@ types:
   gold-era-0-1: { image: /images/gem-types/gold-era-0-1.webp }
   charoite: { image: /images/gemstones/charoite.svg }
   emerald: { image: /images/gem-types/emerald.webp }
+  platinum: { image: /images/gem-types/platinum.webp }
