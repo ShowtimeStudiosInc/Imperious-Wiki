@@ -12,6 +12,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 im = cv2.imread(src, cv2.IMREAD_UNCHANGED)
 if im.shape[2] == 3:
     im = np.dstack([im, np.full(im.shape[:2], 255, np.uint8)])
+im = cv2.copyMakeBorder(im, 8, 8, 8, 8, cv2.BORDER_CONSTANT, value=(0, 0, 0, 0))
 rgb = im[..., :3][..., ::-1].astype(int)
 alpha = im[..., 3]
 opaque = alpha >= 128
@@ -39,7 +40,10 @@ hexc = lambda c: '#%02x%02x%02x' % tuple(int(v) for v in c)
 
 def polys(mask, color, holes=False):
     m = mask.astype(np.uint8) * 255
-    m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
+    # smooth the edges so pixel steps and tiny crop flats at the image border don't show as bumps
+    m = cv2.GaussianBlur(m, (7, 7), 0)
+    m = ((m > 127) * 255).astype(np.uint8)
+    m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
     mode = cv2.RETR_CCOMP if holes else cv2.RETR_EXTERNAL
     cs, _ = cv2.findContours(m, mode, cv2.CHAIN_APPROX_NONE)
     d = ''
@@ -51,9 +55,13 @@ def polys(mask, color, holes=False):
     return f'<path d="{d.strip()}" fill="{color}" fill-rule="evenodd"/>' if d else ''
 
 fills = sorted((i for i in range(len(palette)) if i != outline), key=lambda i: -(lab == i).sum())
-# 1) the whole gem in its main color, 2) each other flat color on top, 3) the outline ring last so nothing covers it
-shapes = [polys(opaque, hexc(palette[fills[0]]))]
-shapes += [polys(lab == i, hexc(palette[i])) for i in fills[1:]]
+# 1) the whole silhouette in the outline color, so the outer edge is never lighter than the outline,
+# 2) the inside in the main color (slightly grown so no seams show), 3) each other flat color,
+# 4) the outline ring again on top so nothing covers it.
+inside = cv2.dilate(((lab >= 0) & (lab != outline)).astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool) & opaque
+shapes = [polys(opaque, hexc(palette[outline])), polys(inside, hexc(palette[fills[0]]))]
+grow = lambda m: cv2.dilate(m.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool) & opaque
+shapes += [polys(grow(lab == i), hexc(palette[i])) for i in fills[1:]]
 shapes.append(polys(lab == outline, hexc(palette[outline]), holes=True))
 shapes = [x for x in shapes if x]
 
