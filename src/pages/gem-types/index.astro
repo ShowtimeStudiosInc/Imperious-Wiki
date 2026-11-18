@@ -61,13 +61,33 @@ const segs = [
       <span class="slabel">United Frontier</span><span class="ssub">{count('united-frontier')} types · hidden in a fold of space</span>
     </a>
 
-    <!-- Discontinued Types: dim and ghostly -->
+    <!-- Discontinued Types: a gem whose light is going out, shards drifting off -->
     <a class="side lost layer" data-depth="1.6" href={url('/gem-types/tier/discontinued/')}>
       <svg viewBox="0 0 120 120" aria-hidden="true">
-        <polygon points="60,16 92,42 80,98 40,98 28,42" fill="rgba(255,255,255,.06)" stroke="#f2efff" stroke-width="3" stroke-linejoin="round" />
-        <polyline points="28,42 92,42" fill="none" stroke="#f2efff" stroke-width="2" opacity=".6" />
-        <polyline points="58,18 66,40 54,58 68,80 60,98" fill="none" stroke="#120b20" stroke-width="4" />
-        <polyline points="58,18 66,40 54,58 68,80 60,98" fill="none" stroke="#f2efff" stroke-width="1" opacity=".5" />
+        <defs>
+          <linearGradient id="lostfade" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#f2efff" stop-opacity=".9" />
+            <stop offset=".55" stop-color="#cfc8ea" stop-opacity=".55" />
+            <stop offset="1" stop-color="#cfc8ea" stop-opacity="0" />
+          </linearGradient>
+          <radialGradient id="lostglow" cx=".5" cy=".62" r=".5"><stop offset="0" stop-color="#e9e6f2" stop-opacity=".35" /><stop offset="1" stop-color="#e9e6f2" stop-opacity="0" /></radialGradient>
+          <mask id="lostmask"><rect width="120" height="120" fill="url(#lostfade)" /></mask>
+        </defs>
+        <circle cx="60" cy="74" r="40" fill="url(#lostglow)" class="lost-pulse" />
+        <g mask="url(#lostmask)" stroke="#f2efff" stroke-linejoin="round">
+          <polygon points="60,30 88,48 80,100 40,100 32,48" fill="rgba(242,239,255,.07)" stroke-width="2.5" />
+          <polygon points="32,48 46,58 60,30 74,58 88,48" fill="rgba(242,239,255,.12)" stroke-width="1.4" />
+          <polyline points="46,58 52,100 M74,58 68,100 M46,58 74,58" fill="none" stroke-width="1.2" opacity=".7" />
+          <polygon points="52,66 68,66 64,86 56,86" fill="rgba(242,239,255,.18)" stroke-width="1" />
+        </g>
+        <polyline points="62,52 57,64 64,74 58,90" fill="none" stroke="#120b20" stroke-width="3" />
+        <polyline points="62,52 57,64 64,74 58,90" fill="none" stroke="#f2efff" stroke-width=".8" opacity=".55" />
+        <g fill="#f2efff" class="lost-shards">
+          <polygon points="56,18 61,14 63,20" opacity=".5" />
+          <polygon points="70,10 74,8 74,13" opacity=".35" />
+          <polygon points="44,12 47,9 49,13" opacity=".28" />
+          <polygon points="64,2 66,1 67,4" opacity=".2" />
+        </g>
       </svg>
       <span class="slabel">Discontinued Types</span><span class="ssub">{count('discontinued')} no longer made</span>
     </a>
@@ -96,12 +116,26 @@ const segs = [
       </svg>
     </div>
 
-    <!-- Rogues: outside the pyramid, near the bottom edge -->
+    <!-- Rogues: a chipped gem that broke its chain to the empire -->
     <a class="side rogue layer" data-depth="2.2" href={url('/gem-types/tier/rogues/')}>
       <svg viewBox="0 0 120 120" aria-hidden="true">
-        <polygon points="60,18 90,44 78,96 42,96 30,44" fill="rgba(255,122,138,.08)" stroke="#ff7a8a" stroke-width="3" stroke-linejoin="round" />
-        <text x="60" y="70" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#ff7a8a" opacity=".55">4M21O</text>
-        <path d="M36 62 L 86 74 M 38 72 L 84 60" stroke="#ff7a8a" stroke-width="3" />
+        <defs>
+          <linearGradient id="roguefill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9aa6" stop-opacity=".35" /><stop offset="1" stop-color="#b8263b" stop-opacity=".2" /></linearGradient>
+          <radialGradient id="rogueglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff7a8a" stop-opacity=".3" /><stop offset="1" stop-color="#ff7a8a" stop-opacity="0" /></radialGradient>
+        </defs>
+        <circle cx="62" cy="62" r="44" fill="url(#rogueglow)" class="rogue-flicker" />
+        <g stroke="#ff7a8a" stroke-linejoin="round" stroke-linecap="round">
+          <polygon points="62,22 90,40 84,72 66,98 40,90 30,54 44,30" fill="url(#roguefill)" stroke-width="2.5" />
+          <path d="M44,30 L54,48 L62,22 M54,48 L74,52 L90,40 M74,52 L84,72 M54,48 L46,70 L30,54 M46,70 L66,98 M46,70 L74,52" fill="none" stroke-width="1.3" opacity=".75" />
+          <polygon points="54,48 74,52 46,70" fill="rgba(255,154,166,.22)" stroke="none" />
+          <polygon points="84,72 92,66 96,80 86,84" fill="rgba(255,122,138,.15)" stroke-width="1.6" transform="translate(6 6)" />
+        </g>
+        <g fill="none" stroke="#ff7a8a" stroke-width="2.6" stroke-linecap="round" opacity=".9">
+          <rect x="11" y="9" width="11" height="17" rx="5.5" transform="rotate(-40 16.5 17.5)" />
+          <path d="M26 22 a 5.5 5.5 0 0 1 9 -2 l 4 6" />
+          <path d="M44 31 l -3 -4" />
+        </g>
+        <g fill="#ff7a8a" opacity=".7"><circle cx="38" cy="18" r="1.3" /><circle cx="44" cy="22" r="1" /></g>
       </svg>
       <span class="slabel">Rogues</span><span class="ssub">Outside the empire</span>
     </a>
@@ -273,8 +307,15 @@ const segs = [
   .lost:hover { opacity: 0.95; animation: none; }
   @keyframes ghost { 0%, 100% { opacity: 0.38; } 45% { opacity: 0.55; } 50% { opacity: 0.28; } 55% { opacity: 0.5; } }
   .rogue { grid-column: 1; grid-row: 3; justify-self: end; align-self: end; margin: 0 0.5rem 12% 0; opacity: 0.75; }
-  .rogue svg { rotate: -10deg; }
-  .rogue svg { width: 72px; height: 72px; }
+  .rogue svg { rotate: -8deg; margin-bottom: 0.35rem; }
+  .rogue svg { width: 92px; height: 92px; }
+  .lost-shards { animation: drift 6s ease-in-out infinite; }
+  .lost-pulse { animation: fadeglow 5s ease-in-out infinite; }
+  .rogue-flicker { animation: flicker 3.2s steps(1, end) infinite; }
+  @keyframes drift { 0%, 100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(-5px); opacity: .5; } }
+  @keyframes fadeglow { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
+  @keyframes flicker { 0%, 100% { opacity: 1; } 8% { opacity: .55; } 10% { opacity: 1; } 62% { opacity: .7; } 64% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .lost-shards, .lost-pulse, .rogue-flicker { animation: none; } }
   .rogue .slabel { color: var(--rogue); }
 
   .sea { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; width: 100%; z-index: 1; pointer-events: none; }
