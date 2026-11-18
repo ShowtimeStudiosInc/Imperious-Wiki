@@ -33,6 +33,11 @@ palette = np.array(palette)
 dist = ((rgb[..., None, :] - palette[None, None, :, :]) ** 2).sum(-1)
 lab = dist.argmin(-1)
 lab[~opaque] = -1
+# Majority filter: anti-aliased pixels between two colors often land on a third color and
+# leave thin slivers along edges. Each pixel takes the label most common around it.
+votes = np.stack([cv2.blur((lab == i).astype(np.float32), (7, 7)) for i in range(len(palette))])
+lab = votes.argmax(0)
+lab[~opaque] = -1
 
 lum = palette @ np.array([0.299, 0.587, 0.114])
 outline = int(np.argmin(lum))
