@@ -152,7 +152,7 @@ types:
   tanzanite: { components: [sapphire, pearl], threatClass: Elite }
   moonstone: { components: [lapis, pearl], threatClass: Elite }
   sphene: { components: [peridot-era-2a, pearl], threatClass: Standard, image: /images/gem-types/sphene.webp }
-  sodalite: { components: [larimar, lapis], threatClass: Elite }
+  sodalite: { components: [larimar, lapis], threatClass: Elite, image: /images/gem-types/sodalite.webp }
   sugilite: { components: [ruby, quartz], threatClass: Champion, image: /images/gem-types/sugilite.webp }
   diamond-pearl: { image: /images/gem-types/diamond-pearl.webp }
   diamond-spinel: { image: /images/gem-types/diamond-spinel.webp }
