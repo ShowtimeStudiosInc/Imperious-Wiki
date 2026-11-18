@@ -218,6 +218,7 @@ for (const g of all) {
     image: ex.image ?? null,
     gemstone: fs.existsSync(path.join(ROOT, 'public/images/gemstones', g.slug + '.svg')) ? `/images/gemstones/${g.slug}.svg` : null,
     credit: ex.credit ?? null,
+    attachments: ex.attachments ?? undefined,
     updated: new Date().toISOString().slice(0, 10),
   };
   if (g.geode) doc.status = [...doc.status, 'Geode'];

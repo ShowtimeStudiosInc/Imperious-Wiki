@@ -40,7 +40,22 @@ interactions: >-
   fight beside other militia gems, rank below Agates, and follow orders from Agates and any authoritative gem above
   them.
 description: null
-image: null
+image: /images/gem-types/quartz.webp
 gemstone: /images/gemstones/quartz.svg
 credit: null
+attachments:
+  - amethyst
+  - aventurine
+  - blue-quartz
+  - carnelian
+  - cherry-quartz
+  - citrine
+  - jasper
+  - milky-quartz
+  - prasiolite
+  - rose-quartz
+  - smoky-quartz
+  - zebra-jasper
+  - rainbow-quartz
+  - titanium-aura-quartz
 updated: '2026-11-18'

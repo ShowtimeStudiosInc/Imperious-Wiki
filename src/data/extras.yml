@@ -181,6 +181,7 @@ types:
   amber: { image: /images/gem-types/amber.webp }
   titanium: { image: /images/gem-types/titanium.webp }
   topaz: { image: /images/gem-types/topaz.webp }
+  quartz: { image: /images/gem-types/quartz.webp, attachments: [amethyst, aventurine, blue-quartz, carnelian, cherry-quartz, citrine, jasper, milky-quartz, prasiolite, rose-quartz, smoky-quartz, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
   zebra-jasper: { image: /images/gem-types/zebra-jasper.webp }
   smoky-quartz: { image: /images/gem-types/smoky-quartz.webp }
   rose-quartz: { image: /images/gem-types/rose-quartz.webp }

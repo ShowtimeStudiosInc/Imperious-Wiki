@@ -34,6 +34,7 @@ const related = [
   ...(partOf.length ? [{ label: 'Fuses into', items: partOf }] : []),
   ...(siblings.length ? [{ label: 'Other versions', items: siblings }] : []),
 ];
+const attached = (g.attachments ?? []).map((a) => resolveSlug(all, a)).filter(Boolean) as Gem[];
 const builder = `https://showtimestudiosinc.github.io/Imperious-Gem-Builder/?type=${encodeURIComponent(g.slug)}`;
 const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
 ---
@@ -147,6 +148,20 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
           <div class="body prose">{g.interactions ? <p set:html={rich(g.interactions)} /> : <p class="muted">Not written yet.</p>}</div>
         </section>
 
+        {attached.length > 0 && (
+          <section class="panel">
+            <div class="bar">Attachments</div>
+            <div class="body attach">
+              {attached.map((x) => (
+                <a class="att" href={url(`/gem-types/${x.slug}/`)}>
+                  <GemIcon name={x.name} fusion={x.kind === 'fusion'} gemstone={x.gemstone} size={44} />
+                  <span>{fullName(x)}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
         {related.length > 0 && (
           <section class="panel">
             <div class="bar">Related</div>
@@ -234,6 +249,10 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
   .meter i { display: block; height: 100%; background: linear-gradient(90deg, var(--lav-2), var(--lav)); }
   .statnote { color: var(--muted); font-size: 0.8rem; margin: 0.6rem 0 0; }
   .related > div + div { margin-top: 0.6rem; }
+  .attach { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 0.5rem; }
+  .att { display: flex; align-items: center; gap: 0.55rem; padding: 0.4rem 0.55rem; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; text-decoration: none; color: inherit; background: rgba(255,255,255,.03); }
+  .att:hover { border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.07); }
+  .att span { font-size: .9rem; line-height: 1.2; }
   .rlabel { display: block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
   .note { color: var(--muted); font-size: 0.82rem; margin: 0.8rem 0 0; }
   .codex-foot { margin-top: 0.9rem; }
