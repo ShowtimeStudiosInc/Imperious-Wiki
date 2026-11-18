@@ -34,7 +34,10 @@ role: >-
   Bismuths are constructive gems who help build colonies, towers, and tools for Diamonds and elite gems. They are known
   to finish construction quickly and for their teamwork. Bismuths work with Coals, who aid them in building. When not
   assigned to make towers or colonies, they are found at the Forge.
-interactions: null
+interactions: >-
+  Bismuths work alone or with other Bismuths, with Coals helping them on almost every job. They often deal straight with
+  the gems who asked for a new tool or weapon, so they can get the details right. On a build site, Snowflake Obsidians
+  clear the ground first and a Brown Tourmaline makes sure nothing collapses.
 description: null
 image: /images/gem-types/bismuth.webp
 gemstone: /images/gemstones/bismuth.svg

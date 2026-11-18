@@ -1,0 +1,67 @@
+name: Crocoite
+slug: crocoite
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 32
+  atk: 6
+  def: 6
+  spd: 6
+  int: 3
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Tracking Perception
+    tags:
+      - PASSIVE
+      - Minor
+      - Physical
+    cost: null
+    text: >-
+      Crocoite picks up tracks, scent trails, and signs of passage that most gems walk right past. Outside of battle,
+      she can follow any creature's trail that's less than a day old. In battle, hidden or camouflaged enemies can't
+      hide from her, and wild creatures can never catch her party by surprise.
+    moves: []
+  - section: ACT Bonus
+    name: Round Up
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that track, corner, or lure a creature out into the open are especially effective
+      for her.
+    moves: []
+  - section: Latent Ability
+    name: Zoolingualism
+    tags: []
+    cost: null
+    text: >-
+      Crocoite may learn to understand wildlife and make herself understood by it. Its moves and SP costs are set when
+      it's unlocked.
+    moves: []
+role: >-
+  Crocoites serve the empire as wranglers and outback rangers. They track down, round up, and move dangerous wildlife
+  out of sectors where it shouldn't be. Armed with capture tools and a sharp eye for tracks, they keep colony building
+  sites and active facilities clear of threats, whether those threats are wild creatures or stray gems. Most Crocoites
+  come in deep reds and oranges, and wear rugged uniforms made for rough terrain.
+interactions: >-
+  Crocoites patrol border zones alone or in pairs, and sweep a site with construction crews and other geoformers before
+  any building starts. They are the gem side of the work Era 0-1 Steels do. A Crocoite tracks down and corners a
+  creature like a Crystal Crab or Crystal Crocodile, and the Steel moves it safely to a containment sector or one of
+  Epsilon Blue's rehabilitation facilities.
+description: null
+image: null
+gemstone: /images/gemstones/crocoite.svg
+credit: Lexariix
+updated: '2026-11-18'

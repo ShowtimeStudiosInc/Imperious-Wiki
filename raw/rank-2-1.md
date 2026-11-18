@@ -49,6 +49,9 @@ _``ACT Bonus:``_
 
 ``Demantoids are technical supervisors who run technical tasks and oversee material and gem production sites. They can usually be found wandering technically involved locations, often falling under Kandy Innovations, or handling technical tasks across the Empire. Demantoids are known for being dedicated to their work and deep into their studies, no problem is too big or too small for a Demantoid. Daily tasks may include organizing Peridot deployment, overseeing material and gem production, helping with colony construction, and general technical work.``
 
+_``Interactions:``_
+``Demantoids usually work alone, but team up with other Demantoids to run large kindergartens. They oversee Peridots and teach them the right procedures for kindergarten and gem production work.``
+
 
 # ZOISITE
 **``BASE STATS``**

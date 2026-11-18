@@ -34,7 +34,9 @@ role: >-
   Agates work as managers of facilities and Quartz, making sure both stay in top condition. This means instructing,
   training, and assigning work and guard shifts to Quartz, as well as overseeing the daily goings on of a station. They
   make sure everything runs smoothly and everyone stays on their best behavior.
-interactions: null
+interactions: >-
+  Agates work alone, in pairs, or in very small groups. A station or a Quartz facility rarely needs more than two. As
+  the gems in charge, they give Quartzes their daily tasks and assign them to guard shifts or combat.
 description: null
 image: /images/gem-types/agate.webp
 gemstone: /images/gemstones/agate.svg

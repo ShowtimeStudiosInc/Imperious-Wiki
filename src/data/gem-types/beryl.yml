@@ -68,9 +68,10 @@ role: >-
   experience firsthand. Known for hunting down a target until the job is done, Beryls are extremely determined to finish
   their mission. Daily tasks may include cargo runs, tracking down elusive gems, ordering Topazes around, and organizing
   scouting operations. Most Beryls are small in height and wear square shaped hairstyles, sticking to standard Gempire
-  uniforms rather than anything decorative. They usually work with a Topaz alongside them, who handles guarding and
-  provides extra blunt force if a job turns physical.
-interactions: null
+  uniforms rather than anything decorative.
+interactions: >-
+  Beryls usually work alone, but can assign a Topaz to join them on scouting missions. The Topaz guards the Beryl and
+  brings extra blunt force if a job turns physical.
 description: null
 image: null
 gemstone: /images/gemstones/beryl.svg

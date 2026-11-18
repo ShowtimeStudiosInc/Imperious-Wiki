@@ -40,7 +40,10 @@ role: >-
   assigned to a Med Bay or take part on the battlefield in aid of those they fight alongside with. Even if they are
   incredibly skillful and have a lot of knowledge regarding their line of work, they do not have the ability to reverse
   corruption or fatal blows that result in shattering.
-interactions: null
+interactions: >-
+  Angelites work alongside each other and with other gems, mostly the militia. They're assigned to both the Med Bay and
+  the battlefield, giving first aid to gems hurt in a fight. An Arch-Angelite leads each ward, and a Celestite decides
+  which patients each Angelite takes.
 description: null
 image: /images/gem-types/angelite.webp
 gemstone: /images/gemstones/angelite.svg

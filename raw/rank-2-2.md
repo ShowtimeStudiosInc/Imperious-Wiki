@@ -50,6 +50,9 @@ _``Signature Ability:``_
 
 ``Hematites are dark, aristocratic gems originating from Court Crimson, though they travel across all courts to do their job. When needed, they can remove memories and emotions from a gem. Some think of them as a walking rejuvenator, though a normal cut can't remove memories instantly the way the weapon does. Technically they count as healers, similar to Selenites. If a gem's trauma is too severe for a Selenite's therapy to help, or the job needs to be done fast, a Hematite is the best option to spare them from a full rejuvenation.``
 
+_``Interactions:``_
+``Hematites travel between courts wherever they're called. Most of their cases come from Celestites, who send a patient to a Hematite when the trauma is too severe for a Selenite's therapy, or when it can't wait. Since a Hematite can take away what a gem remembers, other gems tend to be careful around them.``
+
 
 # SCAPOLITE
 **``BASE STATS``**
@@ -226,7 +229,10 @@ _``Signature Ability:``_
 > - `Sunbeam [2 SP]` - A beam of sunlight strikes one target for 2d4 + MAG Light damage.
 `Corrosion Resistance [PASSIVE]` - Gold takes half damage from Corrosive attacks.
 
-`Golds of Era 2A are the result of Theta Gold Diamond creating them primarily of his essence. Serving as Authoritatives. They serve as the Administrators & Sergeants for lower ranked metals. Often being seen as less pure versions of their Era 0-1 Counterparts, however are still highly valued.`
+``Golds of Era 2A are the result of Theta Gold Diamond creating them primarily of his essence. Serving as Authoritatives. They serve as the Administrators & Sergeants for lower ranked metals. Often being seen as less pure versions of their Era 0-1 Counterparts, however are still highly valued.``
+
+_``Interactions:``_
+``Era 2A Golds give orders to lower ranked metals like Bronzes, Coppers, and Silvers. Era 0-1 Golds tend to see them as less pure copies, but the empire still counts on them to keep its metal workers in line.``
 
 
 

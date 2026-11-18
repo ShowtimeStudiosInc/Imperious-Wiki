@@ -151,6 +151,9 @@ _``ACT Bonus:``_
 
 ``Bismuths are constructive gems who help build colonies, towers, and tools for Diamonds and elite gems. They are known to finish construction quickly and for their teamwork. Bismuths work with Coals, who aid them in building. When not assigned to make towers or colonies, they are found at the Forge.``
 
+_``Interactions:``_
+``Bismuths work alone or with other Bismuths, with Coals helping them on almost every job. They often deal straight with the gems who asked for a new tool or weapon, so they can get the details right. On a build site, Snowflake Obsidians clear the ground first and a Brown Tourmaline makes sure nothing collapses.``
+
 
 # VERDELITE
 **``BASE STATS``**
@@ -530,3 +533,24 @@ Any Latent Ability either half has unlocked carries into the fusion.
 
 _``Interactions:``_
 ``Amazonites usually work on their own, but often spend time with other Amazonites or with technical and terraforming gems. With a Lapis half and a Peridot half, they can handle terraforming and tech work alike.``
+
+
+# CROCOITE
+**``BASE STATS``**
+_``HP:``_ 32
+_``ATK:``_ 6
+_``DEF:``_ 6
+_``SPD:``_ 6
+_``INT:``_ 3
+_``MAG:``_ 2
+_``Signature Ability:``_ 
+`Tracking Perception [PASSIVE]` [Minor] [Physical] - Crocoite picks up tracks, scent trails, and signs of passage that most gems walk right past. Outside of battle, she can follow any creature's trail that's less than a day old. In battle, hidden or camouflaged enemies can't hide from her, and wild creatures can never catch her party by surprise.
+_``ACT Bonus:``_ 
+`Round Up` - <:Act:1568035453842751618>ACTs that track, corner, or lure a creature out into the open are especially effective for her.
+_``Latent Ability:``_ 
+`Zoolingualism` - Crocoite may learn to understand wildlife and make herself understood by it. Its moves and SP costs are set when it's unlocked.
+
+``Crocoites serve the empire as wranglers and outback rangers. They track down, round up, and move dangerous wildlife out of sectors where it shouldn't be. Armed with capture tools and a sharp eye for tracks, they keep colony building sites and active facilities clear of threats, whether those threats are wild creatures or stray gems. Most Crocoites come in deep reds and oranges, and wear rugged uniforms made for rough terrain.``
+
+_``Interactions:``_
+``Crocoites patrol border zones alone or in pairs, and sweep a site with construction crews and other geoformers before any building starts. They are the gem side of the work Era 0-1 Steels do. A Crocoite tracks down and corners a creature like a Crystal Crab or Crystal Crocodile, and the Steel moves it safely to a containment sector or one of Epsilon Blue's rehabilitation facilities.``

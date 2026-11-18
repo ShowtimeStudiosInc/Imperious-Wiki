@@ -42,7 +42,10 @@ role: >-
   accurate. For trials, an Azurite puts together the documents and materials needed for the case, and reviews everything
   to make sure procedures are described correctly. During busy case periods, Azurites can often be seen working with
   specialized Opals to gather the information they need.
-interactions: null
+interactions: >-
+  Azurites work in court offices, often teaming up with other Azurites when the case list gets long. During busy periods
+  they lean on specialized Opals, who dig up the information an Azurite needs for a case file. The gems running a trial
+  count on an Azurite's paperwork being right the first time.
 description: null
 image: /images/gem-types/azurite.webp
 gemstone: /images/gemstones/azurite.svg

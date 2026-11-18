@@ -41,7 +41,10 @@ role: >-
   though a normal cut can't remove memories instantly the way the weapon does. Technically they count as healers,
   similar to Selenites. If a gem's trauma is too severe for a Selenite's therapy to help, or the job needs to be done
   fast, a Hematite is the best option to spare them from a full rejuvenation.
-interactions: null
+interactions: >-
+  Hematites travel between courts wherever they're called. Most of their cases come from Celestites, who send a patient
+  to a Hematite when the trauma is too severe for a Selenite's therapy, or when it can't wait. Since a Hematite can take
+  away what a gem remembers, other gems tend to be careful around them.
 description: null
 image: /images/gem-types/hematite-era-2.webp
 gemstone: /images/gemstones/hematite-era-2.svg

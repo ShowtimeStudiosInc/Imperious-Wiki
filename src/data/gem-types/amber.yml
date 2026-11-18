@@ -59,7 +59,9 @@ role: >-
   hunting down their target until they are finished, Ambers are extremely determined to complete their mission. Daily
   Amber tasks may include completing cargo runs, tracking down elusive gems, ordering troops around, organizing prison
   operations and so on. It's never a boring time when an Amber is around.
-interactions: null
+interactions: >-
+  Ambers usually hunt alone, but can bring a Topaz along for a mission. The Topaz keeps the Amber safe and adds extra
+  blunt force if a job turns physical, which leaves the Amber free to focus on the target.
 description: null
 image: /images/gem-types/amber.webp
 gemstone: /images/gemstones/amber.svg

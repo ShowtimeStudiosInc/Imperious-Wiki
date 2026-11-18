@@ -47,7 +47,11 @@ role: >-
   architecture of the metal society before it joined the Gempire, and now serve as senior consultants on the most
   ambitious construction projects. As they are not mass produced by the Gempire, only the original Era 0-1 Bronzes of
   this kind exist.
-interactions: null
+interactions: >-
+  These Bronzes work alone or lead teams, especially when coming up with new designs for buildings and their interiors.
+  They are very artistic and always push to make something new that gems across the empire can use. They work with other
+  geoformers to make sure their ideas can actually be built, and Era 2 Bronzes often carry out the finer details of
+  their plans.
 description: null
 image: /images/gem-types/bronze-era-0-1.webp
 gemstone: /images/gemstones/bronze-era-0-1.svg

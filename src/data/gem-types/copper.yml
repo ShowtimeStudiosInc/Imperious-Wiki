@@ -32,7 +32,10 @@ abilities:
       touch. She takes half damage from Electric attacks.
     moves: []
 role: Coppers specialize in assisting technical gems with conducting electricity and powering inactive gem technology.
-interactions: null
+interactions: >-
+  Coppers work with Silvers and other technical gems. A Silver makes the power, and a Copper carries it to the panels
+  and ports that need it. As a Copper ages, it slowly turns green. Other gems don't see this as a flaw. They treat a
+  greener Copper as the one with more experience.
 description: null
 image: /images/gem-types/copper.webp
 gemstone: /images/gemstones/copper.svg

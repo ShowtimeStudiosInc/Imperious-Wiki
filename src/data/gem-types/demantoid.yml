@@ -36,7 +36,9 @@ role: >-
   technical tasks across the Empire. Demantoids are known for being dedicated to their work and deep into their studies,
   no problem is too big or too small for a Demantoid. Daily tasks may include organizing Peridot deployment, overseeing
   material and gem production, helping with colony construction, and general technical work.
-interactions: null
+interactions: >-
+  Demantoids usually work alone, but team up with other Demantoids to run large kindergartens. They oversee Peridots and
+  teach them the right procedures for kindergarten and gem production work.
 description: null
 image: /images/gem-types/demantoid.webp
 gemstone: /images/gemstones/demantoid.svg

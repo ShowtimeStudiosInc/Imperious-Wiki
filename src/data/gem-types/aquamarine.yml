@@ -57,7 +57,10 @@ role: >-
   firsthand. Known for hunting down a target until the job is done, Aquamarines are extremely determined to finish their
   mission. Daily tasks may include cargo runs, tracking down elusive gems, ordering troops around, and organizing trial
   operations. They are quite bossy little things.
-interactions: null
+interactions: >-
+  Aquamarines usually hunt alone, but they're quick to put Topazes to work. A Topaz assigned to an Aquamarine guards her
+  and does the heavy hitting, while the Aquamarine gives the orders. Most Topazes learn fast that an Aquamarine expects
+  them to keep up.
 description: null
 image: /images/gem-types/aquamarine.webp
 gemstone: /images/gemstones/aquamarine.svg

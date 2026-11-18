@@ -13,6 +13,9 @@ _``Latent Ability:``_
 
 ``Azurites handle the administrative and clerical work in court settings. They manage records and documents tied to trials and hearings, process legal forms, and schedule cases and hearings, making sure files stay complete and accurate. For trials, an Azurite puts together the documents and materials needed for the case, and reviews everything to make sure procedures are described correctly. During busy case periods, Azurites can often be seen working with specialized Opals to gather the information they need.``
 
+_``Interactions:``_
+``Azurites work in court offices, often teaming up with other Azurites when the case list gets long. During busy periods they lean on specialized Opals, who dig up the information an Azurite needs for a case file. The gems running a trial count on an Azurite's paperwork being right the first time.``
+
 
 # AGATE
 **``BASE STATS``**
@@ -26,6 +29,9 @@ _``ACT Bonus:``_
 `Command` - <:Act:1568035453842751618>ACTs that give orders are especially effective for her. A Quartz who follows her order has advantage on their next roll.
 
 ``Agates work as managers of facilities and Quartz, making sure both stay in top condition. This means instructing, training, and assigning work and guard shifts to Quartz, as well as overseeing the daily goings on of a station. They make sure everything runs smoothly and everyone stays on their best behavior.``
+
+_``Interactions:``_
+``Agates work alone, in pairs, or in very small groups. A station or a Quartz facility rarely needs more than two. As the gems in charge, they give Quartzes their daily tasks and assign them to guard shifts or combat.``
 
 
 # AQUAMARINE
@@ -44,6 +50,9 @@ _``Latent Ability:``_
 `Cryokinesis` - Though not typical or easy to learn, most Aquamarines can learn to generate, control, and shape ice. Its moves and SP costs are set when it's unlocked.
 
 ``Aquamarines are bounty hunter gems operating under Court Epsilon, tasked with traveling from planet to planet to retrieve items or gems. When they are not hunting down a target, they can be found wandering the Canis Major station or any other imperial location. Their speed and strength are something every gem wants to see, but not experience firsthand. Known for hunting down a target until the job is done, Aquamarines are extremely determined to finish their mission. Daily tasks may include cargo runs, tracking down elusive gems, ordering troops around, and organizing trial operations. They are quite bossy little things.``
+
+_``Interactions:``_
+``Aquamarines usually hunt alone, but they're quick to put Topazes to work. A Topaz assigned to an Aquamarine guards her and does the heavy hitting, while the Aquamarine gives the orders. Most Topazes learn fast that an Aquamarine expects them to keep up.``
 
 
 # JADE
@@ -120,6 +129,9 @@ _``Latent Ability:``_
 
 ``Ambers are authoritative gems operating under Court Saturn tasked with travelling from planet to planet to retrieve items or gems. When not hunting down their target they can be found wandering District 4 of Homeworld or any other Gempire owned location. Their speed and strength is something every gem wants to see, but not experience. Known for hunting down their target until they are finished, Ambers are extremely determined to complete their mission. Daily Amber tasks may include completing cargo runs, tracking down elusive gems, ordering troops around, organizing prison operations and so on. It's never a boring time when an Amber is around.``
 
+_``Interactions:``_
+``Ambers usually hunt alone, but can bring a Topaz along for a mission. The Topaz keeps the Amber safe and adds extra blunt force if a job turns physical, which leaves the Amber free to focus on the target.``
+
 
 # ONYX [SUB-TYPE OF AGATE]
 **``BASE STATS``**
@@ -184,7 +196,10 @@ _``Signature Ability:``_
 _``Latent Ability:``_ 
 `Petrokinesis` - Though not typical or easy to learn, most Beryls can learn to generate, control, and shape stone. Its moves and SP costs are set when it's unlocked.
 
-``Beryls are authoritative bounty hunter gems operating under Court Emerald, tasked with traveling from planet to planet to retrieve items or gems. When they are not hunting down a target, they can be found wandering District 3 of Homeworld or any other Gempire owned location. Their speed and precision are something every gem wants to see, but not experience firsthand. Known for hunting down a target until the job is done, Beryls are extremely determined to finish their mission. Daily tasks may include cargo runs, tracking down elusive gems, ordering Topazes around, and organizing scouting operations. Most Beryls are small in height and wear square shaped hairstyles, sticking to standard Gempire uniforms rather than anything decorative. They usually work with a Topaz alongside them, who handles guarding and provides extra blunt force if a job turns physical.``
+``Beryls are authoritative bounty hunter gems operating under Court Emerald, tasked with traveling from planet to planet to retrieve items or gems. When they are not hunting down a target, they can be found wandering District 3 of Homeworld or any other Gempire owned location. Their speed and precision are something every gem wants to see, but not experience firsthand. Known for hunting down a target until the job is done, Beryls are extremely determined to finish their mission. Daily tasks may include cargo runs, tracking down elusive gems, ordering Topazes around, and organizing scouting operations. Most Beryls are small in height and wear square shaped hairstyles, sticking to standard Gempire uniforms rather than anything decorative.``
+
+_``Interactions:``_
+``Beryls usually work alone, but can assign a Topaz to join them on scouting missions. The Topaz guards the Beryl and brings extra blunt force if a job turns physical.``
 
 
 # SUGILITE [FUSION]

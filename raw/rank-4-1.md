@@ -29,6 +29,9 @@ _``Signature Ability:``_
 
 ``Created to serve the Empire as healers and combat medics, Angelites will always help those in need! Angelites may be assigned to a Med Bay or take part on the battlefield in aid of those they fight alongside with. Even if they are incredibly skillful and have a lot of knowledge regarding their line of work, they do not have the ability to reverse corruption or fatal blows that result in shattering.``
 
+_``Interactions:``_
+``Angelites work alongside each other and with other gems, mostly the militia. They're assigned to both the Med Bay and the battlefield, giving first aid to gems hurt in a fight. An Arch-Angelite leads each ward, and a Celestite decides which patients each Angelite takes.``
+
 
 # RUTILE
 **``BASE STATS``**
@@ -118,7 +121,7 @@ _``Latent Ability:``_
 ``Era 0-1 Steels are wranglers and organic rehabilitators. They respond to calls about organic beings that need to be moved elsewhere, gently keeping the organic safe the whole time, and bring them to rehabilitation facilities to see to their upkeep under Epsilon Blue's order. They did the same work for the Metal Society long before it joined the Gempire. As they are not mass produced by the Gempire, only the original Era 0-1 Steels of this kind exist, and each one goes by her real name.``
 
 _``Interactions:``_
-``An Era 0-1 Steel usually works with a team of Era 2A Steels. She handles the organics, and they handle anything that fights back. Many of the younger Steels picked up their sense of patience from watching one work.``
+``An Era 0-1 Steel usually works with a team of Era 2A Steels. She handles the organics, and they handle anything that fights back. Many of the younger Steels picked up their sense of patience from watching one work. Out in the field she's often paired with a Crocoite, who tracks the creature down so she can move it safely.``
 
 
 # BRONZE [ERA 0-1]
@@ -135,6 +138,9 @@ _``Latent Ability:``_
 `Structural Analysis [PASSIVE]` - Bronze may learn to see the failure point of any structure at a glance. Once she has, her party's hits on structures, barriers, and constructs ignore their DEF.
 
 ``Era 0-1 Bronzes are master architects and structural engineers from the original metal society. Unlike their mass produced Era 2A+ counterparts who assist with construction, these ancient Bronzes design and oversee entire architectural projects from start to finish. They have a deep, natural grasp of load bearing math, aesthetic balance, and material stress points, built up over an enormous stretch of time. These Bronzes created the foundational architecture of the metal society before it joined the Gempire, and now serve as senior consultants on the most ambitious construction projects. As they are not mass produced by the Gempire, only the original Era 0-1 Bronzes of this kind exist.``
+
+_``Interactions:``_
+``These Bronzes work alone or lead teams, especially when coming up with new designs for buildings and their interiors. They are very artistic and always push to make something new that gems across the empire can use. They work with other geoformers to make sure their ideas can actually be built, and Era 2 Bronzes often carry out the finer details of their plans.``
 
 
 # TUNGSTEN [ERA 2]

@@ -33,7 +33,9 @@ abilities:
 role: >-
   Bronzes assist with construction. They're able to help design blueprints for architectural structures and interior
   decoration.
-interactions: null
+interactions: >-
+  Era 2 Bronzes work in teams, turning blueprints into real buildings and handling interior decoration. They often take
+  direction from the original Era 0-1 Bronzes, and check with other geoformers to make sure a design will hold up.
 description: null
 image: /images/gem-types/bronze-era-2.webp
 gemstone: /images/gemstones/bronze-era-2.svg

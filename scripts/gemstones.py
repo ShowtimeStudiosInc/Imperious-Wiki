@@ -50,6 +50,7 @@ GEMS = {
     'rhodochrosite': ('cab-oval', '#e8507a', {'bands': '#f7a8bf'}),
     'scapolite': ('square', '#f2cf5b', {}),
     # 2.3
+    'crocoite': ('emerald-long', '#e0501f', {}),
     'agate': ('cab-oval', '#7b8fe0', {'bands': '#c4ceff'}),
     'amber': ('cab-oval', '#f5a623', {}),
     'aquamarine': ('pear', '#6fdcec', {}),

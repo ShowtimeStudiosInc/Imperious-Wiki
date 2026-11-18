@@ -170,6 +170,7 @@ heights:
 types:
   garnet-sapphire-variant: { components: [ruby, sapphire], threatClass: Champion, image: /images/gem-types/garnet-sapphire-variant.webp }
   alexandrite: { components: [sapphire, quartz], threatClass: Champion, image: /images/gem-types/alexandrite.webp, credit: 'Canon + Lexariix', alsoFactions: [rogue] }
+  crocoite: { credit: Lexariix }
   amazonite: { components: [peridot-era-2a, lapis], threatClass: Elite, image: /images/gem-types/amazonite.webp, credit: Lexariix, alsoFactions: [rogue] }
   green-serpentine: { components: [lapis, scapolite], threatClass: Champion, image: /images/gemstones/green-serpentine.svg }
   malachite-fusion: { components: [lapis, quartz], threatClass: Champion, image: /images/gem-types/malachite-fusion.webp }

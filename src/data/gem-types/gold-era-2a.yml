@@ -44,7 +44,9 @@ role: >-
   Golds of Era 2A are the result of Theta Gold Diamond creating them primarily of his essence. Serving as
   Authoritatives. They serve as the Administrators & Sergeants for lower ranked metals. Often being seen as less pure
   versions of their Era 0-1 Counterparts, however are still highly valued.
-interactions: null
+interactions: >-
+  Era 2A Golds give orders to lower ranked metals like Bronzes, Coppers, and Silvers. Era 0-1 Golds tend to see them as
+  less pure copies, but the empire still counts on them to keep its metal workers in line.
 description: null
 image: null
 gemstone: /images/gemstones/gold-era-2a.svg

@@ -42,6 +42,9 @@ _``Signature Ability:``_
 
 ``Coppers specialize in assisting technical gems with conducting electricity and powering inactive gem technology.``
 
+_``Interactions:``_
+``Coppers work with Silvers and other technical gems. A Silver makes the power, and a Copper carries it to the panels and ports that need it. As a Copper ages, it slowly turns green. Other gems don't see this as a flaw. They treat a greener Copper as the one with more experience.``
+
 
 # BRONZE [ERA 2]
 **``BASE STATS``**
@@ -55,6 +58,9 @@ _``ACT Bonus:``_
 `Survey` - <:Act:1568035453842751618>ACTs that study a structure or the battlefield, like finding cover, a weak wall, or a way out, are especially effective for her.
 
 ``Bronzes assist with construction. They're able to help design blueprints for architectural structures and interior decoration.``
+
+_``Interactions:``_
+``Era 2 Bronzes work in teams, turning blueprints into real buildings and handling interior decoration. They often take direction from the original Era 0-1 Bronzes, and check with other geoformers to make sure a design will hold up.``
 
 
 # GRAPHENE
