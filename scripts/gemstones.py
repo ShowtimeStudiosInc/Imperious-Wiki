@@ -334,7 +334,22 @@ def torus(base, ex):
             f'<ellipse cx="100" cy="100" rx="30" ry="16" fill="none" stroke="{T["outline"]}" stroke-width="5"/>',
             f'<ellipse cx="100" cy="104" rx="80" ry="58" fill="none" stroke="{T["outline"]}" stroke-width="7"/>']
 
+OVERRIDES = os.path.join(ROOT, 'scripts/gemstone-overrides')
+
+def override_body(slug):
+    """A hand-made gemstone in scripts/gemstone-overrides/<slug>.svg replaces the generated one."""
+    f = os.path.join(OVERRIDES, slug + '.svg')
+    if not os.path.exists(f):
+        return None
+    src = open(f).read()
+    view = re.search(r'viewBox="([^"]+)"', src).group(1)
+    inner = re.sub(r'^.*?<svg[^>]*>|</svg>\s*$', '', src, flags=re.S)
+    return f'<svg viewBox="{view}" width="200" height="200">{inner}</svg>'
+
 def gem_svg_body(slug):
+    ov = override_body(slug)
+    if ov:
+        return ov
     cut, base, ex = GEMS[slug]
     if cut in ('cabochon', 'cab-oval', 'pearl'):
         body = cabochon(cut, base, ex)
@@ -370,7 +385,7 @@ def main():
     for slug, d in data.items():
         if d['kind'] == 'fusion':
             continue
-        if slug not in GEMS:
+        if slug not in GEMS and not override_body(slug):
             missing.append(slug); continue
         write(slug, gem_svg_body(slug)); made += 1
     for slug, d in data.items():
