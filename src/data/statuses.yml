@@ -5,7 +5,7 @@
 - group: Wounds That Linger
   items:
     - name: Poison
-      icon: "1569755788761894983"
+      icon: poison
       astrid: enforced
       text: At the end of the affected Gem's turn, they take 5 damage, then the condition counts down by one. Damage reduction can still lower it.
     - name: Burn
@@ -28,11 +28,11 @@
 - group: Losing Control
   items:
     - name: Stunned
-      icon: "1569757302968426627"
+      icon: stunned
       astrid: enforced
       text: FIGHT and most ACTs have a 1 in 3 chance to fail, wasting the turn. The Gem also can't change position, use items, or take some MERCY actions.
     - name: Paralysis
-      icon: "1569758846547665320"
+      icon: paralysis
       astrid: enforced
       text: FIGHT and most ACTs have a 1 in 3 chance to fail, wasting the turn. The Gem also can't change position, use items, or take some MERCY actions.
     - name: Freeze
@@ -44,7 +44,7 @@
       astrid: enforced
       text: The Gem can't change position, and FIGHT and most ACTs have a 1 in 3 chance to fail.
     - name: Stuck
-      icon: "1569762356269944933"
+      icon: stuck
       astrid: enforced
       text: The Gem can't change position.
     - name: Knocked Down
@@ -52,7 +52,7 @@
       astrid: enforced
       text: The Gem can't FIGHT, change position, or use SKILLs. They can still Defend, or spend a turn getting back up.
     - name: Trapped
-      icon: "1569762621324922951"
+      icon: trapped
       astrid: recorded
       text: The Gem can't change position or leave the battle until it ends.
     - name: Disarmed
@@ -71,7 +71,7 @@
       astrid: enforced
       text: Most ACTs have a 1 in 3 chance to fail.
     - name: Hush
-      icon: "1569764995049463870"
+      icon: hush
       astrid: enforced
       text: The Gem can't use any ACT except CHECK.
     - name: Frightened
@@ -102,7 +102,7 @@
       astrid: recorded
       text: The Gem's SPD gives them no protection. Attackers need only the weapon's normal roll to hit them.
     - name: Pressure
-      icon: null
+      icon: pressure
       astrid: enforced
       text: The Gem's side acts later in the turn order, and every ability their side uses costs 1 extra shared SP for each stack, up to 3.
     - name: Essence Disrupted
@@ -117,7 +117,7 @@
       astrid: enforced
       text: The Gem's attacks and damaging SPELLs deal +3 damage, once per target, but they can't Defend. Era 2A Gems become Charged for 3 turns when their Driving Emotion takes hold.
     - name: Mangled
-      icon: "1569728837011636335"
+      icon: mangled
       astrid: recorded
       text: A tree of darkness grows through the Gem's light form. They don't poof. They can't act or move, and their allies can't heal them while the tree holds. At the start of each of their turns, they lose 1/8 of their max HP. Only Alpha Black can remove it, or the end of the battle.
 

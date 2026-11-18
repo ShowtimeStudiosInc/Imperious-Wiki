@@ -31,7 +31,8 @@ h1, h2, h3, .site-title { font-family: 'Libre Baskerville', Georgia, serif !impo
 .ia-status-icon { position: relative; display: grid; place-items: center; align-self: start; width: 2.2rem; height: 2.2rem; color: var(--sl-color-gray-4); }
 .ia-status-icon::before { content: '◈'; }
 .ia-status-icon img { position: absolute; inset: 0.15rem; width: 1.9rem; height: 1.9rem; object-fit: contain; background: #140c24; image-rendering: pixelated; }
-.ia-status-icon img.dark, img.ia-ico.dark { filter: drop-shadow(0 0 1px #d9ceff) drop-shadow(0 0 1px #d9ceff); }
+.ia-status-icon img.dark, img.ia-ico.dark { background: #c9bfe8; border-radius: 4px; padding: 2px; box-sizing: border-box; }
+td:has(> .ia-ico) { white-space: nowrap; }
 img.ia-ico { display: inline-block; width: 1.25em; height: 1.25em; vertical-align: -0.25em; margin: 0 0.3em 0 0; image-rendering: pixelated; }
 .ia-status-row:target { border-color: var(--sl-color-accent); }
 

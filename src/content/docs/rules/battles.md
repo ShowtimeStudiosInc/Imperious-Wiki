@@ -19,9 +19,9 @@ On their turn, each character picks one option.
 | --- | --- |
 | <img class="ia-ico" src="../../images/statuses/fight.png" alt="" />**FIGHT** | Attack with a weapon or bare hands. How it rolls depends on the weapon type. See [Items](../items/). |
 | <img class="ia-ico" src="../../images/statuses/act.png" alt="" />**ACT** | Do something that isn't an attack: talk, taunt, distract, throw something, calm someone down. Most ACTs are free. |
-| **INVENTORY** | Use or equip something you carry. One item per character per round. Items never cost Star Points. |
-| **SKILL / SPELL** | Use a move listed under one of your Abilities. A SKILL is something you learned. A SPELL comes from your gemstone or essence. Most cost Star Points. |
-| **MERCY** | Spare, Bubble, Defend, or Protect. |
+| <img class="ia-ico" src="../../images/statuses/inventory.png" alt="" />**INVENTORY** | Use or equip something you carry. One item per character per round. Items never cost Star Points. |
+| <img class="ia-ico" src="../../images/statuses/skill.png" alt="" /><img class="ia-ico" src="../../images/statuses/spell.png" alt="" />**SKILL / SPELL** | Use a move listed under one of your Abilities. A SKILL is something you learned. A SPELL comes from your gemstone or essence. Most cost Star Points. |
+| <img class="ia-ico" src="../../images/statuses/mercy.png" alt="" />**MERCY** | Spare, Bubble, Defend, or Protect. |
 
 An Umbrella Ability with no SPELLs listed under it can't be used in battle yet, since the character hasn't learned any spells for it. See [Abilities](../abilities/).
 
@@ -78,7 +78,7 @@ Some gems, like those of Nightshade Violet's court, are not affected. Their Gem-
 A gem's body is hard light held around their gemstone. When it takes more damage than it can hold, it starts to break down. Each step below follows from the one before.
 
 1. <img class="ia-ico" src="../../images/statuses/flickering.png" alt="" />**Flickering.** At 0 HP or below, a gem's form starts to flicker. They stay in the battle and can still act. At the start of their next turn they poof, unless they are healed above 0 HP or the battle ends first. Defending while Flickering holds the form together for one more turn.
-2. **Poofed.** The gem retreats into their gemstone and can't act. Their HP drops to minus half their max. Each party turn they recover 1/6 of their max HP, rounded up. Metals recover 1/8 instead, since they reform slower. Once above 0 HP, they reform with 1/8 of their max HP. Healing reforms them with whatever HP the heal brings them to.
+2. <img class="ia-ico" src="../../images/statuses/poofed.png" alt="" />**Poofed.** The gem retreats into their gemstone and can't act. Their HP drops to minus half their max. Each party turn they recover 1/6 of their max HP, rounded up. Metals recover 1/8 instead, since they reform slower. Once above 0 HP, they reform with 1/8 of their max HP. Healing reforms them with whatever HP the heal brings them to.
 3. <img class="ia-ico" src="../../images/statuses/cracked.png" alt="" />**Cracked.** A Flickering or Poofed gem who takes another hit is Cracked. So is a gem knocked down to minus their full max HP in one hit. Cracked gems don't recover on their own. Only Abilities that mend cracks can help.
 4. **Shattered.** Any damage to a Cracked gem shatters them. Protect is the only way to stop it.
 
