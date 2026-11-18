@@ -1,8 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<ellipse cx="100" cy="104" rx="80" ry="58" fill="#6b6f78"/>
-<ellipse cx="100" cy="92" rx="70" ry="40" fill="#a2a7ac"/>
-<ellipse cx="100" cy="100" rx="30" ry="16" fill="#404148"/>
-<ellipse cx="74" cy="78" rx="18" ry="7" fill="#dadcde" transform="rotate(-14 74 78)"/>
-<ellipse cx="100" cy="100" rx="30" ry="16" fill="none" stroke="#29292e" stroke-width="5"/>
-<ellipse cx="100" cy="104" rx="80" ry="58" fill="none" stroke="#29292e" stroke-width="9"/>
+<svg viewBox="0 0 200 200" width="200" height="200">
+<defs><mask id="h" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="100" cy="100" r="30" fill="#000"/></mask>
+<mask id="sh" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><circle cx="92" cy="92" r="76" fill="#000"/><circle cx="108" cy="108" r="30" fill="#fff"/></mask></defs>
+<circle cx="100" cy="100" r="86" fill="#15171c" mask="url(#h)"/>
+<g mask="url(#h)">
+<circle cx="100" cy="100" r="76" fill="#8d939d"/>
+<circle cx="100" cy="100" r="76" fill="#545a64" mask="url(#sh)"/>
+<path d="M44,78 C50,58 64,42 84,34" stroke="#d4d8de" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M128,116 C124,124 118,128 112,130" stroke="#c0c5cc" stroke-width="7" fill="none" stroke-linecap="round"/>
+</g>
+<circle cx="100" cy="100" r="34" fill="none" stroke="#15171c" stroke-width="8"/>
+<circle cx="104" cy="32" r="5" fill="#ffffff"/>
+</svg>
 </svg>
