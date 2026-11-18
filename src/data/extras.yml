@@ -142,7 +142,7 @@ heights:
 
 # Per-type extras: fusion halves, threat class, faction overrides, art, credits.
 types:
-  garnet-sapphire-variant: { components: [ruby, sapphire], threatClass: Champion }
+  garnet-sapphire-variant: { components: [ruby, sapphire], threatClass: Champion, image: /images/gem-types/garnet-sapphire-variant.webp }
   green-serpentine: { components: [lapis, scapolite], threatClass: Champion }
   malachite-fusion: { components: [lapis, quartz], threatClass: Champion }
   rhodonite: { components: [ruby, pearl], threatClass: Elite }
