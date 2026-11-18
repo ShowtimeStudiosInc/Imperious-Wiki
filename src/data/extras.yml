@@ -183,6 +183,15 @@ types:
   topaz: { image: /images/gem-types/topaz.webp }
   eucryptite: { image: /images/gem-types/eucryptite.webp }
   ruby: { image: /images/gem-types/ruby.webp }
+  serpentine: { image: /images/gemstones/serpentine.svg }
+  tungsten: { image: /images/gem-types/tungsten.webp }
+  bronze-era-0-1: { image: /images/gem-types/bronze-era-0-1.webp }
+  steel-era-2a: { image: /images/gem-types/steel-era-2a.webp }
+  steel-era-0-1: { image: /images/gem-types/steel-era-0-1.webp }
+  willemite: { image: /images/gem-types/willemite.webp }
+  rutile: { image: /images/gem-types/rutile.webp }
+  angelite: { image: /images/gem-types/angelite.webp }
+  zircon: { image: /images/gem-types/zircon.webp }
   quartz: { image: /images/gem-types/quartz.webp, attachments: [amethyst, aventurine, blue-quartz, carnelian, cherry-quartz, citrine, jasper, milky-quartz, prasiolite, rose-quartz, smoky-quartz, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
   zebra-jasper: { image: /images/gem-types/zebra-jasper.webp }
   smoky-quartz: { image: /images/gem-types/smoky-quartz.webp }

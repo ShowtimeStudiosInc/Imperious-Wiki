@@ -42,7 +42,7 @@ role: >-
   corruption or fatal blows that result in shattering.
 interactions: null
 description: null
-image: null
+image: /images/gem-types/angelite.webp
 gemstone: /images/gemstones/angelite.svg
 credit: null
 updated: '2026-11-18'

@@ -137,7 +137,7 @@ _``Latent Ability:``_
 ``Era 0-1 Bronzes are master architects and structural engineers from the original metal society. Unlike their mass produced Era 2A+ counterparts who assist with construction, these ancient Bronzes design and oversee entire architectural projects from start to finish. They have a deep, natural grasp of load bearing math, aesthetic balance, and material stress points, built up over an enormous stretch of time. These Bronzes created the foundational architecture of the metal society before it joined the Gempire, and now serve as senior consultants on the most ambitious construction projects. As they are not mass produced by the Gempire, only the original Era 0-1 Bronzes of this kind exist.``
 
 
-# TUNGSTEN
+# TUNGSTEN [ERA 2]
 **``BASE STATS``**
 _``HP:``_ 44
 _``ATK:``_ 8

@@ -7,7 +7,7 @@ kind: standard
 parent: null
 components: null
 variant: null
-era: null
+era: Era 2
 species: metal
 status: []
 traits: []
@@ -41,7 +41,7 @@ interactions: >-
   they're rarely the first ones on a site, but they're often the last ones still working when the heat gets too high for
   everyone else.
 description: null
-image: null
+image: /images/gem-types/tungsten.webp
 gemstone: /images/gemstones/tungsten.svg
 credit: null
 updated: '2026-11-18'

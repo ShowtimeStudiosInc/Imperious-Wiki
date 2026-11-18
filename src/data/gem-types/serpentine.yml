@@ -34,7 +34,7 @@ role: >-
   gems would struggle to read. Careful and precise, a Serpentine rarely misses the small stuff.
 interactions: null
 description: null
-image: null
+image: /images/gemstones/serpentine.svg
 gemstone: /images/gemstones/serpentine.svg
 credit: null
 updated: '2026-11-18'

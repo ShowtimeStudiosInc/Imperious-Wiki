@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<defs><clipPath id="g"><polygon points="46,10 154,10 176,46 108,190 90,190 24,46"/></clipPath></defs>
+<polygon points="46,10 154,10 176,46 108,190 90,190 24,46" fill="#1e7c6e" stroke="#1e7c6e" stroke-width="16" stroke-linejoin="round"/>
+<g clip-path="url(#g)">
+<rect width="200" height="200" fill="#fdf3c8"/>
+<!-- left face bands -->
+<path d="M0,96 C40,84 70,104 100,92 L100,112 C70,124 40,104 0,116 Z" fill="#b5e67a"/>
+<path d="M0,140 C40,128 70,150 100,138 L100,156 C70,168 40,148 0,160 Z" fill="#b5e67a"/>
+<circle cx="52" cy="66" r="9" fill="#b5e67a"/>
+<circle cx="72" cy="78" r="5" fill="#b5e67a"/>
+<circle cx="60" cy="122" r="6" fill="#fdf3c8"/>
+<!-- right face -->
+<polygon points="100,52 200,40 200,200 98,200" fill="#3ca97a"/>
+<path d="M100,84 C130,72 160,90 200,76 L200,96 C160,110 130,92 100,104 Z" fill="#8fd67a"/>
+<path d="M100,132 C130,122 160,138 200,126 L200,144 C160,156 130,140 100,150 Z" fill="#8fd67a"/>
+<circle cx="150" cy="62" r="7" fill="#8fd67a"/>
+<circle cx="132" cy="114" r="5" fill="#fdf3c8"/>
+<!-- top face -->
+<polygon points="0,0 200,0 200,40 100,52 0,40" fill="#fdf3c8"/>
+<circle cx="56" cy="12" r="12" fill="#b5e67a"/>
+<circle cx="150" cy="10" r="15" fill="#b5e67a"/>
+<circle cx="104" cy="30" r="4" fill="#b5e67a"/>
+<path d="M0,40 L100,52 L200,40" fill="none" stroke="#2f9670" stroke-width="2"/>
+<line x1="100" y1="52" x2="98" y2="200" stroke="#2f9670" stroke-width="2"/>
+</g>
+</svg>
