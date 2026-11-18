@@ -3,7 +3,7 @@
 # that the owner approves before they go live.
 backend:
   name: github
-  repo: showtimestudiosinc/imperious-wiki   # change if the repo name differs
+  repo: ShowtimeStudiosInc/Imperious-Wiki   # change if the repo name differs
   branch: main
   # GitHub login needs a small OAuth helper. See README "Turning on the editor".
   # base_url: https://your-oauth-helper.example.com

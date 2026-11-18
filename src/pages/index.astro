@@ -2,7 +2,7 @@
 import Site from '../layouts/Site.astro';
 import { getGems, url } from '../lib/gems';
 const all = await getGems();
-const repo = import.meta.env.PUBLIC_REPO || 'showtimestudiosinc/imperious-wiki';
+const repo = import.meta.env.PUBLIC_REPO || 'ShowtimeStudiosInc/Imperious-Wiki';
 const sections = [
   { href: '/gem-types/', title: 'Gem-Types', text: `Every type in the empire, from Servants to Transcendents. ${all.length} catalogued.`, glyph: '◈' },
   { href: '/start-here/welcome/', title: 'Start Here', text: 'New to the server? What the setting is, and how to build your first Gem.', glyph: '⟡' },
