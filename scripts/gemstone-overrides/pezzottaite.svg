@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 22 476 476" width="200" height="200">
+<defs>
+<clipPath id="c"><circle cx="262" cy="132" r="80"/>
+<ellipse cx="158" cy="246" rx="82" ry="74"/>
+<ellipse cx="366" cy="246" rx="82" ry="74"/>
+<polygon points="168,300 262,470 356,300 262,200"/></clipPath>
+</defs>
+<g fill="#2a0d1a" stroke="#2a0d1a" stroke-width="28" stroke-linejoin="round"><circle cx="262" cy="132" r="80"/>
+<ellipse cx="158" cy="246" rx="82" ry="74"/>
+<ellipse cx="366" cy="246" rx="82" ry="74"/>
+<polygon points="168,300 262,470 356,300 262,200"/></g>
+<g clip-path="url(#c)">
+<polygon points="0,0 262,0 262,240 0,240" fill="#f064a6"/>
+<polygon points="262,0 600,0 600,240 262,240" fill="#8a1e52"/>
+<polygon points="0,240 262,240 262,600 0,600" fill="#8c2a5c"/>
+<polygon points="262,240 600,240 600,600 262,600" fill="#3e1428"/>
+<polygon points="262,0 262,240 182,240 182,0" fill="#f7a3dc"/>
+<polygon points="262,0 262,240 342,240 342,0" fill="#5e1838"/>
+<polygon points="182,240 262,240 262,600 150,330" fill="#ee6fdd"/>
+<polygon points="262,240 342,240 374,330 262,600" fill="#b83070"/>
+<polygon points="262,140 278,224 362,240 278,256 262,340 246,256 162,240 246,224" fill="#fdd8f7"/>
+</g>
+<polygon points="210,82 244,66 236,92" fill="#ffffff"/>
+</svg>

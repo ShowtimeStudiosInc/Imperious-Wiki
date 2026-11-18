@@ -183,6 +183,7 @@ types:
   topaz: { image: /images/gem-types/topaz.webp }
   eucryptite: { image: /images/gem-types/eucryptite.webp }
   ruby: { image: /images/gem-types/ruby.webp }
+  pezzottaite: { image: /images/gem-types/pezzottaite.webp }
   tivcral: { image: /images/gem-types/tivcral.webp }
   orange-spodumene: { image: /images/gem-types/orange-spodumene.webp }
   spodumene: { image: /images/gem-types/spodumene.webp }
