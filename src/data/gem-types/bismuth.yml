@@ -36,7 +36,7 @@ role: >-
   assigned to make towers or colonies, they are found at the Forge.
 interactions: null
 description: null
-image: null
+image: /images/gem-types/bismuth.webp
 gemstone: /images/gemstones/bismuth.svg
 credit: null
 updated: '2026-11-18'

@@ -43,7 +43,7 @@ interactions: >-
   Silvers work with Coppers and other technical gem-types. A Silver makes the power, and a Copper carries it to the
   panels and ports that need it. Between the two of them, the empire's facilities and tech stay running.
 description: null
-image: null
+image: /images/gem-types/silver.webp
 gemstone: /images/gemstones/silver.svg
 credit: null
 updated: '2026-11-18'

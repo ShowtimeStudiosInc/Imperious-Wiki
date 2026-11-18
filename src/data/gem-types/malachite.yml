@@ -52,7 +52,7 @@ role: >-
   guard the other terraformers on the planet.
 interactions: null
 description: null
-image: null
+image: /images/gem-types/malachite.webp
 gemstone: /images/gemstones/malachite.svg
 credit: null
 updated: '2026-11-18'

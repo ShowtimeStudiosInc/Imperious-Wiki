@@ -31,7 +31,7 @@ abilities:
 role: Verdelites are gems that are made to demolish structures.
 interactions: null
 description: null
-image: null
+image: /images/gem-types/verdelite.webp
 gemstone: /images/gemstones/verdelite.svg
 credit: null
 updated: '2026-11-18'

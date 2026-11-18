@@ -53,7 +53,7 @@ role: >-
   them out.
 interactions: null
 description: null
-image: null
+image: /images/gem-types/sunstone.webp
 gemstone: /images/gemstones/sunstone.svg
 credit: null
 updated: '2026-11-18'

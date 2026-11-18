@@ -151,7 +151,7 @@ types:
   sardonyx-hessonite-variant: { components: [hessonite-era-1, pearl], threatClass: Champion }
   tanzanite: { components: [sapphire, pearl], threatClass: Elite }
   moonstone: { components: [lapis, pearl], threatClass: Elite }
-  sphene: { components: [peridot-era-2a, pearl], threatClass: Standard }
+  sphene: { components: [peridot-era-2a, pearl], threatClass: Standard, image: /images/gem-types/sphene.webp }
   sodalite: { components: [larimar, lapis], threatClass: Elite }
   sugilite: { components: [ruby, quartz], threatClass: Champion, image: /images/gem-types/sugilite.webp }
   diamond-pearl: { image: /images/gem-types/diamond-pearl.webp }
@@ -183,6 +183,24 @@ types:
   topaz: { image: /images/gem-types/topaz.webp }
   eucryptite: { image: /images/gem-types/eucryptite.webp }
   ruby: { image: /images/gem-types/ruby.webp }
+  orange-spodumene: { image: /images/gem-types/orange-spodumene.webp }
+  spodumene: { image: /images/gem-types/spodumene.webp }
+  larimar: { image: /images/gem-types/larimar.webp }
+  goshenite: { image: /images/gem-types/goshenite.webp }
+  sunstone: { image: /images/gem-types/sunstone.webp }
+  peridot-era-1: { image: /images/gem-types/peridot-era-1.webp }
+  nephrite: { image: /images/gem-types/nephrite.webp }
+  tektite: { image: /images/gem-types/tektite.webp }
+  silver: { image: /images/gem-types/silver.webp }
+  verdelite: { image: /images/gem-types/verdelite.webp }
+  bismuth: { image: /images/gem-types/bismuth.webp }
+  selenite: { image: /images/gem-types/selenite.webp }
+  peridot-era-2a: { image: /images/gem-types/peridot-era-2a.webp }
+  calcite: { image: /images/gem-types/calcite.webp }
+  clinohumite: { image: /images/gem-types/clinohumite.webp }
+  yooperlite: { image: /images/gem-types/yooperlite.webp }
+  malachite: { image: /images/gem-types/malachite.webp }
+  lapis: { image: /images/gem-types/lapis.webp }
   serpentine: { image: /images/gemstones/serpentine.svg }
   tungsten: { image: /images/gem-types/tungsten.webp }
   bronze-era-0-1: { image: /images/gem-types/bronze-era-0-1.webp }
