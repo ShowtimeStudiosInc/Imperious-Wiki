@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<defs><clipPath id="t"><rect x="76" y="26" width="48" height="148"/></clipPath></defs>
+<rect x="56" y="5" width="88" height="190" rx="3" fill="#0a1238" stroke="#0a1238" stroke-width="14" stroke-linejoin="round"/>
+<polygon points="56,5 144,5 124,26 76,26" fill="#9fb6ff"/>
+<polygon points="56,5 76,26 76,174 56,195" fill="#5f7fe8"/>
+<polygon points="144,5 144,195 124,174 124,26" fill="#1f3aa8"/>
+<polygon points="56,195 76,174 124,174 144,195" fill="#16287a"/>
+<rect x="76" y="26" width="48" height="148" fill="#3556cc"/>
+<g clip-path="url(#t)">
+<polygon points="76,96 124,40 124,62 76,118" fill="#7d98f4"/>
+<polygon points="76,126 124,70 124,78 76,134" fill="#6a88ee"/>
+<polygon points="76,174 124,118 124,174" fill="#2a46b8"/>
+</g>
+<g fill="none" stroke="#0a1238" stroke-width="3" stroke-linejoin="round">
+<rect x="76" y="26" width="48" height="148"/>
+<line x1="56" y1="5" x2="76" y2="26"/><line x1="144" y1="5" x2="124" y2="26"/>
+<line x1="56" y1="195" x2="76" y2="174"/><line x1="144" y1="195" x2="124" y2="174"/>
+</g>
+<polygon points="64,11 86,11 80,17 70,17" fill="#ffffff"/>
+</svg>
