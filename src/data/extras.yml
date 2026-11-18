@@ -183,6 +183,12 @@ types:
   topaz: { image: /images/gem-types/topaz.webp }
   eucryptite: { image: /images/gem-types/eucryptite.webp }
   ruby: { image: /images/gem-types/ruby.webp }
+  rainbow-angelite: { image: /images/gem-types/rainbow-angelite.webp }
+  rainbow-obsidian: { image: /images/gem-types/rainbow-obsidian.webp }
+  rainbow-quartz: { image: /images/gem-types/rainbow-quartz.webp }
+  titanium-aura-quartz: { image: /images/gem-types/titanium-aura-quartz.webp }
+  iris-agate: { image: /images/gem-types/iris-agate.webp }
+  wittichenite: { image: /images/gem-types/wittichenite.webp }
   richterite: { image: /images/gem-types/richterite.webp }
   coal: { image: /images/gem-types/coal.webp }
   spinel: { image: /images/gem-types/spinel.webp }
