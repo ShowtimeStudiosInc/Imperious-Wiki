@@ -401,16 +401,19 @@ def write(slug, inner, view='0 0 200 200'):
     with open(os.path.join(OUT, slug + '.svg'), 'w') as f:
         f.write(svg)
 
-# Fusion layouts: (x, y, scale) for the two halves inside a 200 box.
-# Fusion layouts: (x, y, scale) for the two halves inside a 200 box.
-# The two stones always sit apart, shifted away from each other, so only an edge or corner overlaps
-# and both gemstones stay readable. Both stones are always drawn at the same size.
-LAYOUTS = [
-    [(0, 44, 0.56), (88, 44, 0.56)],       # side by side
-    [(2, 2, 0.56), (86, 86, 0.56)],        # diagonal
-    [(86, 2, 0.56), (2, 86, 0.56)],        # reverse diagonal
-    [(44, 0, 0.56), (44, 88, 0.56)],       # stacked
-]
+# Fusion layouts, from Oliver's examples: two stones at the same size, about 62% of the box,
+# offset diagonally so roughly a third of each overlaps. One stone sits in front.
+# Each entry: (gem slug, x, y, scale), drawn in order, so the last one is in front.
+S = 0.65
+DEFAULT_LAYOUT = lambda a, b: [(b, 0, 68, S), (a, 68, 0, S)]   # first half in front, top right
+FUSION_LAYOUTS = {
+    'rhodonite': [('pearl', 0, 68, S), ('ruby', 68, 0, S)],
+    'opal-fusion': [('pearl', 0, 68, S), ('amethyst', 68, 0, S)],
+    'garnet-sapphire-variant': [('ruby', 68, 0, S), ('sapphire', 0, 68, S)],
+    'sugilite': [('ruby', 68, 68, S), ('amethyst', 0, 0, S)],
+    'malachite-fusion': [('lapis', 68, 68, S), ('jasper', 0, 0, S)],
+    'sphene': [('pearl', 36, 70, S), ('peridot-era-2a', 34, 0, S)],
+}
 
 def main():
     data = {}
@@ -427,13 +430,16 @@ def main():
     for slug, d in data.items():
         if d['kind'] != 'fusion':
             continue
-        comps = d.get('components') or []
-        comps = [c if c in GEMS else next((k for k in GEMS if k.startswith(c + '-')), None) for c in comps]
-        if len(comps) != 2 or None in comps:
-            missing.append(slug + ' (fusion halves)'); continue
-        layout = LAYOUTS[int(hashlib.md5(slug.encode()).hexdigest(), 16) % len(LAYOUTS)]
+        if slug in FUSION_LAYOUTS:
+            layout = FUSION_LAYOUTS[slug]
+        else:
+            comps = d.get('components') or []
+            comps = [c if c in GEMS else next((k for k in GEMS if k.startswith(c + '-')), None) for c in comps]
+            if len(comps) != 2 or None in comps:
+                missing.append(slug + ' (fusion halves)'); continue
+            layout = DEFAULT_LAYOUT(*comps)
         parts = []
-        for c, (x, y, s) in zip(comps, layout):
+        for c, x, y, s in layout:
             parts.append(f'<g transform="translate({x} {y}) scale({s})">\n{gem_svg_body(c)}\n</g>')
         write(slug, '\n'.join(parts))
         made += 1
