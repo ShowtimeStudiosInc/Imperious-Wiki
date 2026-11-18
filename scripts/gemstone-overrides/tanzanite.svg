@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 632 632" width="200" height="200">
+<defs><linearGradient id="cy" gradientUnits="userSpaceOnUse" x1="414.9" y1="285.9" x2="320.3" y2="574.0"><stop offset="0" stop-color="#4dd8ff"/><stop offset="1" stop-color="#43c4fb"/></linearGradient></defs>
+<polygon points="316.0,53.7 604.1,195.6 320.3,574.0 23.6,187.0" fill="#0c0d24" stroke="#0c0d24" stroke-width="20" stroke-linejoin="round"/>
+<polygon points="23.6,187.0 316.0,53.7 316.0,113.9 178.4,178.4" fill="#161a44" stroke="#161a44" stroke-width="1"/>
+<polygon points="316.0,53.7 604.1,195.6 466.5,182.7 316.0,113.9" fill="#121538" stroke="#121538" stroke-width="1"/>
+<polygon points="23.6,187.0 178.4,178.4 230.0,281.6 126.8,367.6" fill="#2049b0" stroke="#2049b0" stroke-width="1"/>
+<polygon points="126.8,367.6 230.0,281.6 320.3,380.5 320.3,574.0" fill="#193178" stroke="#193178" stroke-width="1"/>
+<polygon points="466.5,182.7 604.1,195.6 505.2,389.1 414.9,285.9" fill="#1d3e99" stroke="#1d3e99" stroke-width="1"/>
+<polygon points="414.9,285.9 505.2,389.1 320.3,574.0 320.3,380.5" fill="url(#cy)" stroke="url(#cy)" stroke-width="1"/>
+<polygon points="178.4,178.4 316.0,113.9 466.5,182.7 414.9,285.9 320.3,380.5 230.0,281.6" fill="#347efc" stroke="#347efc" stroke-width="1"/>
+</svg>
