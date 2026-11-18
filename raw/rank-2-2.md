@@ -227,3 +227,29 @@ _``Signature Ability:``_
 `Corrosion Resistance [PASSIVE]` - Gold takes half damage from Corrosive attacks.
 
 `Golds of Era 2A are the result of Theta Gold Diamond creating them primarily of his essence. Serving as Authoritatives. They serve as the Administrators & Sergeants for lower ranked metals. Often being seen as less pure versions of their Era 0-1 Counterparts, however are still highly valued.`
+
+
+
+# ALEXANDRITE [FUSION]
+**``BASE STATS``**
+_``HP:``_ [Look at the two components]
+_``ATK:``_ [Look at the two components]
+_``DEF:``_ [Look at the two components]
+_``SPD:``_ [Look at the two components]
+_``INT:``_ [Look at the two components]
+_``MAG:``_ [Look at the two components]
+_``Signature Ability:``_ 
+`Clairvoyance` - From her Sapphire half. Alexandrite can see possible futures, which she uses to plan a battle before it starts.
+> - `Foresight [2 SP]` - Works the same as her Sapphire half's Foresight.
+`Cryokinesis` - From her Sapphire half.
+_``ACT Bonus:``_ 
+From her Quartz half. Alexandrite keeps the <:Act:1568035453842751618>ACT Bonus of whichever Quartz type she is fused from.
+_``Fusion Ability:``_ 
+`Levitation [PASSIVE]` - Alexandrite floats a little above the ground at all times. She can't be knocked down, and ground hazards don't touch her.
+_``Latent Ability:``_ 
+Any Latent Ability either half has unlocked carries into the fusion.
+
+``Alexandrites are fusions between Sapphires and any Quartzes, serving the empire as elite advisors and strategists. Their Sapphire half lets them see the future, and their Quartz half knows combat, so together they make excellent tactical advisors. Most Alexandrites are tall, and look even taller than they are, since they float some height off the ground.``
+
+_``Interactions:``_
+``Alexandrites usually operate on their own as far as their own Gem-Type goes, but often check in with other Alexandrites when it comes to tactics and battle plans. They work closely with militia gems, making sure they're advised on the best course of action.``

@@ -28,6 +28,7 @@ sides:
   gold-era-2a: Authoritative
   azurite: Authoritative
   agate: Authoritative
+  alexandrite: Authoritative
   celestite: Authoritative
   aquamarine: Authoritative
   jade: Aristocratic
@@ -42,6 +43,8 @@ sides:
 
 # Standard heights from Nugget #10 (plus newer types once they get one).
 heights:
+  alexandrite: 12'0"
+  amazonite: 10'6"
   celestite: 7'0"
   melanite: 7'0"
   zebra-jasper-uf: 8'0"
@@ -166,6 +169,8 @@ heights:
 # Per-type extras: fusion halves, threat class, faction overrides, art, credits.
 types:
   garnet-sapphire-variant: { components: [ruby, sapphire], threatClass: Champion, image: /images/gem-types/garnet-sapphire-variant.webp }
+  alexandrite: { components: [sapphire, quartz], threatClass: Champion, image: /images/gem-types/alexandrite.webp, credit: 'Canon + Lexariix', alsoFactions: [rogue] }
+  amazonite: { components: [peridot-era-2a, lapis], threatClass: Elite, image: /images/gem-types/amazonite.webp, credit: Lexariix, alsoFactions: [rogue] }
   green-serpentine: { components: [lapis, scapolite], threatClass: Champion, image: /images/gemstones/green-serpentine.svg }
   malachite-fusion: { components: [lapis, quartz], threatClass: Champion, image: /images/gem-types/malachite-fusion.webp }
   rhodonite: { components: [ruby, pearl], threatClass: Elite, image: /images/gem-types/rhodonite.webp }

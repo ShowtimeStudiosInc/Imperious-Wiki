@@ -1,0 +1,82 @@
+name: Amazonite
+slug: amazonite
+rank: '4.2'
+side: null
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - peridot-era-2a
+  - lapis
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Elite
+height: 10'6"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Hydrokinesis
+    tags: []
+    cost: null
+    text: From her Lapis half. Amazonite can move and shape large amounts of water. She needs a source of water nearby.
+    moves:
+      - name: Water Lash
+        tags:
+          - 2 SP
+        cost: 2
+        text: A whip of water strikes one target for 2d4 + MAG damage.
+  - section: Signature Ability
+    name: Ferrokinesis
+    tags: []
+    cost: null
+    text: >-
+      From her Peridot half. In a fusion, the Peridot's latent metal control comes through on its own, so Amazonite can
+      move and shape metal from the start.
+    moves: []
+  - section: ACT Bonus
+    name: Tinker
+    tags: []
+    cost: null
+    text: From her Peridot half.
+    moves: []
+  - section: Fusion Ability
+    name: Weather Manipulation
+    tags: []
+    cost: null
+    text: >-
+      With water from one half and metal from the other, Amazonite can call up and steer weather, drawing moisture into
+      clouds and charging them through metal. She flies on two sets of wings, and while flying she counts as Far to
+      anyone on the ground.
+    moves:
+      - name: Squall
+        tags:
+          - 3 SP
+        cost: 3
+        text: >-
+          A sudden storm hits the battlefield. Every enemy who is Near resists with SPD. Those who fail take 1d6 + MAG
+          damage and are knocked Far.
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: Any Latent Ability either half has unlocked carries into the fusion.
+    moves: []
+role: >-
+  Amazonites are fusions between Peridots and Lapis Lazulis, serving the empire as weather modifiers and strong
+  terraformers. Since they can work both metal and water, they're good at changing weather patterns, which helps
+  construction go ahead when the weather would otherwise be too dangerous to build in. Most Amazonites are medium to
+  tall, wearing basic empire uniforms with baggy pants or shorts. They have two sets of wings, four in total.
+interactions: >-
+  Amazonites usually work on their own, but often spend time with other Amazonites or with technical and terraforming
+  gems. With a Lapis half and a Peridot half, they can handle terraforming and tech work alike.
+description: null
+image: /images/gem-types/amazonite.webp
+gemstone: /images/gemstones/amazonite.svg
+credit: Lexariix
+alsoFactions:
+  - rogue
+updated: '2026-11-18'

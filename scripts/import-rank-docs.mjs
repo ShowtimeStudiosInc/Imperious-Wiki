@@ -233,6 +233,7 @@ for (const g of all) {
     credit: ex.credit ?? null,
     modifiers: g.modifiers ?? undefined,
     descendedFrom: ex.descendedFrom ?? undefined,
+    alsoFactions: ex.alsoFactions ?? undefined,
     shiftOf: g.faction === 'united-frontier' && g.quartzGroup && g.displayName !== 'Clear Quartz' ? 'clear-quartz' : undefined,
     attachments: ex.attachments ?? undefined,
     updated: new Date().toISOString().slice(0, 10),

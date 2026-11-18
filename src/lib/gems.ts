@@ -31,7 +31,7 @@ export const TIERS: { slug: string; name: string; blurb: string; match: (g: Gem)
   { slug: 'service-trade', name: 'Service Trade', blurb: 'Rank 4. Builders, terraformers, technicians, healers, and pilots.', match: (g) => !!g.rank?.startsWith('4.') && g.faction === 'gempire' },
   { slug: 'servants', name: 'Servants', blurb: 'Rank 5. Pearls, Spinels, and the helpers who keep everyone else working.', match: (g) => !!g.rank?.startsWith('5.') && g.faction === 'gempire' },
   { slug: 'discontinued', name: 'Discontinued Types', blurb: 'Gem-Types the empire no longer makes. Discontinued ones were stopped on purpose. Lost Lights are ones it can no longer make, because the formula is gone or can\'t be found.', match: (g) => g.faction === 'lost' },
-  { slug: 'rogues', name: 'Rogues', blurb: 'Gem-Types rarely found inside the empire, outside of marriage.', match: (g) => g.faction === 'rogue' },
+  { slug: 'rogues', name: 'Rogues', blurb: 'Gem-Types rarely found inside the empire, outside of marriage.', match: (g) => g.faction === 'rogue' || !!g.alsoFactions?.includes('rogue') },
   { slug: 'united-frontier', name: 'United Frontier', blurb: 'Gem-Types of Hades 9, hidden in a fold of space.', match: (g) => g.faction === 'united-frontier' },
 ];
 
@@ -74,6 +74,7 @@ export function tagsFor(g: Gem, all: Gem[]): Tag[] {
   }
   t.push({ label: g.species === 'metal' ? 'Metal' : 'Gem', group: 'species', href: f('species', g.species) });
   t.push({ label: FACTION_LABEL[g.faction], group: 'faction', href: f('faction', g.faction), tone: g.faction });
+  for (const x of g.alsoFactions ?? []) t.push({ label: FACTION_LABEL[x], group: 'faction', href: url(`/gem-types/tier/${x === 'rogue' ? 'rogues' : x}/`), tone: x });
   for (const s of g.status) t.push({ label: s, group: 'status', href: f('status', s) });
   for (const s of g.traits) t.push({ label: s, group: 'trait', href: f('trait', s) });
   if (g.court) t.push({ label: `Court ${g.court}`, group: 'court', href: f('court', g.court) });

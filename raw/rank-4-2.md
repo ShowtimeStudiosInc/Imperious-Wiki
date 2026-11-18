@@ -503,3 +503,30 @@ Any Latent Ability either half has unlocked carries into the fusion.
 
 _``Interactions:``_
 ``Sodalites work alone or in teams with other Sodalites, depending on the size of the job. They work closely with other terraformers to agree on where to build and how much land to reshape. With both halves able to work water and ice, a Sodalite gets more done than her two halves would apart.``
+
+
+
+# AMAZONITE [FUSION]
+**``BASE STATS``**
+_``HP:``_ [Look at the two components]
+_``ATK:``_ [Look at the two components]
+_``DEF:``_ [Look at the two components]
+_``SPD:``_ [Look at the two components]
+_``INT:``_ [Look at the two components]
+_``MAG:``_ [Look at the two components]
+_``Signature Ability:``_ 
+`Hydrokinesis` - From her Lapis half. Amazonite can move and shape large amounts of water. She needs a source of water nearby.
+> - `Water Lash [2 SP]` - A whip of water strikes one target for 2d4 + MAG damage.
+`Ferrokinesis` - From her Peridot half. In a fusion, the Peridot's latent metal control comes through on its own, so Amazonite can move and shape metal from the start.
+_``ACT Bonus:``_ 
+`Tinker` - From her Peridot half.
+_``Fusion Ability:``_ 
+`Weather Manipulation` - With water from one half and metal from the other, Amazonite can call up and steer weather, drawing moisture into clouds and charging them through metal. She flies on two sets of wings, and while flying she counts as Far to anyone on the ground.
+> - `Squall [3 SP]` - A sudden storm hits the battlefield. Every enemy who is Near resists with SPD. Those who fail take 1d6 + MAG damage and are knocked Far.
+_``Latent Ability:``_ 
+Any Latent Ability either half has unlocked carries into the fusion.
+
+``Amazonites are fusions between Peridots and Lapis Lazulis, serving the empire as weather modifiers and strong terraformers. Since they can work both metal and water, they're good at changing weather patterns, which helps construction go ahead when the weather would otherwise be too dangerous to build in. Most Amazonites are medium to tall, wearing basic empire uniforms with baggy pants or shorts. They have two sets of wings, four in total.``
+
+_``Interactions:``_
+``Amazonites usually work on their own, but often spend time with other Amazonites or with technical and terraforming gems. With a Lapis half and a Peridot half, they can handle terraforming and tech work alike.``

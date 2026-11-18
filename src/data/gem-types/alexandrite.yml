@@ -1,0 +1,76 @@
+name: Alexandrite
+slug: alexandrite
+rank: '2.2'
+side: Authoritative
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - sapphire
+  - quartz
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Champion
+height: 12'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Clairvoyance
+    tags: []
+    cost: null
+    text: From her Sapphire half. Alexandrite can see possible futures, which she uses to plan a battle before it starts.
+    moves:
+      - name: Foresight
+        tags:
+          - 2 SP
+        cost: 2
+        text: Works the same as her Sapphire half's Foresight.
+  - section: Signature Ability
+    name: Cryokinesis
+    tags: []
+    cost: null
+    text: From her Sapphire half.
+    moves: []
+  - section: ACT Bonus
+    name: null
+    tags: []
+    cost: null
+    text: >-
+      From her Quartz half. Alexandrite keeps the <:Act:1568035453842751618>ACT Bonus of whichever Quartz type she is
+      fused from.
+    moves: []
+  - section: Fusion Ability
+    name: Levitation
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Alexandrite floats a little above the ground at all times. She can't be knocked down, and ground hazards don't
+      touch her.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: Any Latent Ability either half has unlocked carries into the fusion.
+    moves: []
+role: >-
+  Alexandrites are fusions between Sapphires and any Quartzes, serving the empire as elite advisors and strategists.
+  Their Sapphire half lets them see the future, and their Quartz half knows combat, so together they make excellent
+  tactical advisors. Most Alexandrites are tall, and look even taller than they are, since they float some height off
+  the ground.
+interactions: >-
+  Alexandrites usually operate on their own as far as their own Gem-Type goes, but often check in with other
+  Alexandrites when it comes to tactics and battle plans. They work closely with militia gems, making sure they're
+  advised on the best course of action.
+description: null
+image: /images/gem-types/alexandrite.webp
+gemstone: /images/gemstones/alexandrite.svg
+credit: Canon + Lexariix
+alsoFactions:
+  - rogue
+updated: '2026-11-18'

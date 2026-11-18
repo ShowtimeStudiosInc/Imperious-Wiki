@@ -50,6 +50,7 @@ export const collections = {
       modifiers: z.record(z.string(), z.number()).optional(),
       shiftOf: z.string().optional(),
       descendedFrom: z.string().optional(),
+      alsoFactions: z.array(z.string()).optional(),
       updated: z.string().optional(),
     }),
   }),
