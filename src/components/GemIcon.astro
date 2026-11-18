@@ -2,6 +2,7 @@
 // Line-art gemstone placeholder. Fusions show two stones overlapping.
 // When a type gets a real vector or art, set `image` in its data file and it replaces this.
 interface Props { name: string; fusion?: boolean; size?: number; image?: string | null; class?: string; question?: boolean }
+import { url } from '../lib/gems';
 const { name, fusion = false, size = 42, image = null, class: cls = '', question = true } = Astro.props;
 const HUES: Record<string, string> = {
   ruby: '#ff5a6e', sapphire: '#6f9bff', pearl: '#f3e6ff', emerald: '#3ddc84', topaz: '#ffd166', amethyst: '#b48cff',
@@ -24,7 +25,7 @@ const gem = (dx: number, color: string) => `
   </g>`;
 ---
 {image ? (
-  <img class={cls} src={image} alt="" width={size} height={size} style={`width:${size}px;height:${size}px;object-fit:contain`} />
+  <img class={cls} src={image.startsWith('/') ? url(image) : image} alt="" width={size} height={size} style={`width:${size}px;height:${size}px;object-fit:contain`} />
 ) : (
   <svg class={cls} viewBox={fusion ? '0 0 52 38' : '0 0 40 38'} width={size} height={size} aria-hidden="true">
     <Fragment set:html={fusion ? gem(0, hue) + gem(12, '#f3e6ff') : gem(0, hue)} />

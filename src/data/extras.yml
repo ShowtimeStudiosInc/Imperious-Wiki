@@ -147,10 +147,18 @@ types:
   malachite-fusion: { components: [lapis, quartz], threatClass: Champion }
   rhodonite: { components: [ruby, pearl], threatClass: Elite }
   opal-fusion: { components: [quartz, pearl], threatClass: Elite }
-  sardonyx-pyrope-variant: { components: [pyrope, pearl], threatClass: Elite }
+  sardonyx-pyrope-variant: { components: [pyrope, pearl], threatClass: Elite, image: /images/gem-types/sardonyx-pyrope-variant.webp }
   sardonyx-hessonite-variant: { components: [hessonite-era-1, pearl], threatClass: Champion }
   tanzanite: { components: [sapphire, pearl], threatClass: Elite }
   moonstone: { components: [lapis, pearl], threatClass: Elite }
   sphene: { components: [peridot-era-2a, pearl], threatClass: Standard }
   sodalite: { components: [larimar, lapis], threatClass: Elite }
   sugilite: { components: [ruby, quartz], threatClass: Champion }
+  diamond-pearl: { image: /images/gem-types/diamond-pearl.webp }
+  diamond-spinel: { image: /images/gem-types/diamond-spinel.webp }
+  hessonite-era-1: { image: /images/gem-types/hessonite-era-1.webp }
+  pyrope: { image: /images/gem-types/pyrope.webp }
+  demantoid: { image: /images/gem-types/demantoid.webp }
+  zoisite: { image: /images/gem-types/zoisite.webp }
+  sapphire: { image: /images/gem-types/sapphire.webp }
+  hematite-era-0: { image: /images/gem-types/hematite-era-0.webp }

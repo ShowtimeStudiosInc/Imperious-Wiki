@@ -115,6 +115,7 @@ a.chip:hover { background: rgba(124, 77, 255, 0.28); color: #fff; }
 .card .chips { gap: 0.25rem; }
 .card .chip { font-size: 0.66rem; padding: 0.1rem 0.45rem; }
 .gem-mini { width: 42px; height: 42px; flex: none; }
+.card .thumb { display: block; width: calc(100% + 1.7rem); margin: -0.85rem -0.85rem 0.1rem; aspect-ratio: 16 / 7; object-fit: cover; object-position: center 35%; border-bottom: 1px solid var(--line); }
 
 .tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 1rem 0; }
 .tab { font: inherit; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.45rem 0.85rem;

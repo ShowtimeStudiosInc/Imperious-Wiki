@@ -18,8 +18,9 @@ const s = g.stats;
   data-kind={g.kind} data-species={g.species} data-faction={g.faction} data-status={g.status.join('|')}
   data-trait={g.traits.join('|')} data-threat={g.threatClass ?? ''} data-court={g.court ?? ''} data-power={hasPower(g) ? 'yes' : 'no'}
   data-hp={s?.hp ?? ''} data-atk={s?.atk ?? ''} data-def={s?.def ?? ''} data-spd={s?.spd ?? ''} data-int={s?.int ?? ''} data-mag={s?.mag ?? ''}>
+  {g.image && <img class="thumb" src={g.image.startsWith('/') ? url(g.image) : g.image} alt="" loading="lazy" />}
   <div class="top">
-    <GemIcon name={g.name} fusion={g.kind === 'fusion'} image={g.image} class="gem-mini" />
+    {!g.image && <GemIcon name={g.name} fusion={g.kind === 'fusion'} class="gem-mini" />}
     <div>
       <div class="name">{fullName(g)}</div>
       <div class="sub">{g.rank ? RANKS[g.rank]?.name : FACTION_LABEL[g.faction]}</div>
