@@ -49,6 +49,7 @@ export const collections = {
       attachments: z.array(z.string()).optional(),
       modifiers: z.record(z.string(), z.number()).optional(),
       shiftOf: z.string().optional(),
+      descendedFrom: z.string().optional(),
       updated: z.string().optional(),
     }),
   }),

@@ -29,9 +29,13 @@ const halves = (g.components ?? []).map((c) => resolveSlug(all, c) ?? { name: c,
 const siblings = all.filter((x) => x.slug !== g.slug && x.name === g.name);
 const shiftFrom = g.shiftOf ? resolveSlug(all, g.shiftOf) : null;
 const shifts = all.filter((x) => x.shiftOf === g.slug);
+const ancestor = g.descendedFrom ? resolveSlug(all, g.descendedFrom) : null;
+const descendants = all.filter((x) => x.descendedFrom === g.slug);
 const related = [
   ...(shiftFrom ? [{ label: 'Shifts from', items: [shiftFrom] }] : []),
   ...(shifts.length ? [{ label: 'Prism shifts', items: shifts }] : []),
+  ...(ancestor ? [{ label: 'Descended from', items: [ancestor] }] : []),
+  ...(descendants.length ? [{ label: 'Descendants', items: descendants }] : []),
   ...(parent ? [{ label: 'Parent type', items: [parent] }] : []),
   ...(halves.length ? [{ label: 'Fusion of', items: halves }] : []),
   ...(children.length ? [{ label: 'Sub-types', items: children }] : []),

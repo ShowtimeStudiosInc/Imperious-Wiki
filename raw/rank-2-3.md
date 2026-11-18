@@ -208,3 +208,26 @@ Any Latent Ability either half has unlocked carries into the fusion.
 
 _``Interactions:``_
 ``Sugilites usually work alone, overseeing the demolition side of construction. Verdelites and other demolition gems take their orders from her, and she decides what comes down and in what order.``
+
+
+
+# CELESTITE
+**``BASE STATS``**
+_``HP:``_ 32
+_``ATK:``_ 2
+_``DEF:``_ 6
+_``SPD:``_ 4
+_``INT:``_ 9
+_``MAG:``_ 6
+_``Signature Ability:``_ 
+`Healing` [Base] [Alteration] - Celestite can heal wounds and injuries on other gems. She can't fully mend a crack, but she can seal one so it stops spreading until it can be properly repaired.
+> - `Stabilize [3 SP]` - Heals one ally for 2d4 + MAG. If they're Cracked, the crack can't get any worse for the rest of the battle.
+_``ACT Bonus:``_ 
+`Diagnose` - <:Act:1568035453842751618>ACTs that examine a wound, crack, or illness to find out what caused it are especially effective for her.
+_``Latent Ability:``_ 
+`Flight [PASSIVE]` - Celestite may learn to fly without wings, like the Celestines she was modeled on. While flying, she counts as Far to anyone on the ground.
+
+``Celestites run the Gempire's med bays and medical wards. They were made in Era 1 from Era 0 records of the Celestine, since the empire could never produce a true Celestine of its own. The copy came out close, but not quite there. A Celestite can seal a crack, but not mend it, and most never learn to fly. They make up for it in knowledge. A Celestite assigns Angelites to their patients, sets the Arch-Angelites over each ward, and decides which cases get sent on to a Selenite or a Hematite. They serve every court, and you'll find at least one wherever the empire keeps a med bay.``
+
+_``Interactions:``_
+``Celestites work over Arch-Angelites and Angelites, and next to Polyhedroid Agates on stations where Quartz soldiers need healing. When a patient's trouble is in their mind, not their body, a Celestite hands the case to a Selenite, or to a Hematite if it can't wait. They tend to keep a short list of the cracks they've sealed, and check on each one until it's been properly mended.``

@@ -28,6 +28,7 @@ sides:
   gold-era-2a: Authoritative
   azurite: Authoritative
   agate: Authoritative
+  celestite: Authoritative
   aquamarine: Authoritative
   jade: Aristocratic
   fluorite: Authoritative
@@ -41,6 +42,7 @@ sides:
 
 # Standard heights from Nugget #10 (plus newer types once they get one).
 heights:
+  celestite: 7'0"
   melanite: 7'0"
   zebra-jasper-uf: 8'0"
   smoky-quartz-uf: 8'0"
@@ -204,6 +206,7 @@ types:
   topaz: { image: /images/gem-types/topaz.webp }
   eucryptite: { image: /images/gem-types/eucryptite.webp }
   ruby: { image: /images/gem-types/ruby.webp }
+  celestite: { image: /images/gem-types/celestite.webp, descendedFrom: celestine }
   celestine: { image: /images/gem-types/celestine.webp }
   almandine: { image: /images/gem-types/almandine.webp }
   rainbow-angelite: { image: /images/gem-types/rainbow-angelite.webp }

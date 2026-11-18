@@ -1,0 +1,74 @@
+name: Celestite
+slug: celestite
+rank: '2.3'
+side: Authoritative
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'0"
+stats:
+  hp: 32
+  atk: 2
+  def: 6
+  spd: 4
+  int: 9
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Healing
+    tags:
+      - Base
+      - Alteration
+    cost: null
+    text: >-
+      Celestite can heal wounds and injuries on other gems. She can't fully mend a crack, but she can seal one so it
+      stops spreading until it can be properly repaired.
+    moves:
+      - name: Stabilize
+        tags:
+          - 3 SP
+        cost: 3
+        text: Heals one ally for 2d4 + MAG. If they're Cracked, the crack can't get any worse for the rest of the battle.
+  - section: ACT Bonus
+    name: Diagnose
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that examine a wound, crack, or illness to find out what caused it are especially
+      effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Flight
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Celestite may learn to fly without wings, like the Celestines she was modeled on. While flying, she counts as Far
+      to anyone on the ground.
+    moves: []
+role: >-
+  Celestites run the Gempire's med bays and medical wards. They were made in Era 1 from Era 0 records of the Celestine,
+  since the empire could never produce a true Celestine of its own. The copy came out close, but not quite there. A
+  Celestite can seal a crack, but not mend it, and most never learn to fly. They make up for it in knowledge. A
+  Celestite assigns Angelites to their patients, sets the Arch-Angelites over each ward, and decides which cases get
+  sent on to a Selenite or a Hematite. They serve every court, and you'll find at least one wherever the empire keeps a
+  med bay.
+interactions: >-
+  Celestites work over Arch-Angelites and Angelites, and next to Polyhedroid Agates on stations where Quartz soldiers
+  need healing. When a patient's trouble is in their mind, not their body, a Celestite hands the case to a Selenite, or
+  to a Hematite if it can't wait. They tend to keep a short list of the cracks they've sealed, and check on each one
+  until it's been properly mended.
+description: null
+image: /images/gem-types/celestite.webp
+gemstone: /images/gemstones/celestite.svg
+credit: null
+descendedFrom: celestine
+updated: '2026-11-18'

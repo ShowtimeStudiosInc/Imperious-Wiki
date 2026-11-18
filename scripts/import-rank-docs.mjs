@@ -232,6 +232,7 @@ for (const g of all) {
     gemstone: fs.existsSync(path.join(ROOT, 'public/images/gemstones', g.slug + '.svg')) ? `/images/gemstones/${g.slug}.svg` : null,
     credit: ex.credit ?? null,
     modifiers: g.modifiers ?? undefined,
+    descendedFrom: ex.descendedFrom ?? undefined,
     shiftOf: g.faction === 'united-frontier' && g.quartzGroup && g.displayName !== 'Clear Quartz' ? 'clear-quartz' : undefined,
     attachments: ex.attachments ?? undefined,
     updated: new Date().toISOString().slice(0, 10),
