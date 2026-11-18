@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 632 632" width="200" height="200">
+<defs>
+<clipPath id="az"><path d="M120,96 Q330,60 540,120 Q560,140 548,170 Q470,380 330,560 Q300,592 272,560 Q140,380 96,150 Q92,110 120,96 Z"/></clipPath>
+<radialGradient id="azg" cx="0.35" cy="0.25" r="0.9"><stop offset="0" stop-color="#1f2f8f"/><stop offset="1" stop-color="#0b1240"/></radialGradient>
+</defs>
+<path d="M120,96 Q330,60 540,120 Q560,140 548,170 Q470,380 330,560 Q300,592 272,560 Q140,380 96,150 Q92,110 120,96 Z" fill="#070a24" stroke="#070a24" stroke-width="24" stroke-linejoin="round"/>
+<g clip-path="url(#az)">
+<rect x="0" y="0" width="632" height="632" fill="url(#azg)"/>
+<path d="M60,70 Q220,40 300,90 Q420,60 600,100 L600,130 Q420,96 300,128 Q200,80 60,110 Z" fill="#1f9e78"/>
+<path d="M60,118 Q200,90 300,138 Q420,108 600,140 L600,152 Q420,120 300,150 Q200,104 60,132 Z" fill="#c9d65a" opacity="0.8"/>
+<path d="M60,180 Q160,150 260,190 Q380,160 600,200 L600,214 Q380,176 260,206 Q160,168 60,196 Z" fill="#2a63e0"/>
+<path d="M40,330 Q120,250 230,262 Q330,230 420,262 Q520,290 600,280 L600,420 Q470,370 330,400 Q180,430 40,380 Z" fill="#2fd39a"/>
+<path d="M80,330 Q160,282 240,290 Q330,262 410,292 Q480,312 560,306 L560,340 Q470,330 400,320 Q320,300 240,322 Q160,320 80,350 Z" fill="#7cf0c0" opacity="0.6"/>
+<path d="M120,352 Q200,320 260,340 Q330,318 400,340 Q470,356 520,350 L520,366 Q460,372 400,358 Q330,338 262,356 Q200,340 120,370 Z" fill="#19a774" opacity="0.8"/>
+<circle cx="262" cy="248" r="40" fill="#2f5ff0"/><circle cx="244" cy="236" r="16" fill="#5b86ff"/><circle cx="282" cy="262" r="12" fill="#5b86ff"/><circle cx="268" cy="232" r="7" fill="#c9d65a"/>
+<path d="M40,440 Q180,410 300,452 Q430,416 600,446 L600,640 L40,640 Z" fill="#163fc4"/>
+<path d="M40,458 Q180,430 300,470 Q430,436 600,464" fill="none" stroke="#3f8cff" stroke-width="6"/>
+<path d="M150,130 Q240,108 300,140" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity="0.35"/>
+</g>
+</svg>

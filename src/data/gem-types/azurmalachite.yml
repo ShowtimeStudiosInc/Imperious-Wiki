@@ -1,0 +1,67 @@
+name: Azurmalachite
+slug: azurmalachite
+rank: '4.1'
+side: null
+faction: gempire
+kind: geode
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'10"
+stats:
+  hp: 32
+  atk: 3
+  def: 6
+  spd: 3
+  int: 6
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Edaphokinesis
+    tags:
+      - Enhanced
+      - Elements
+    cost: null
+    text: >-
+      Azurmalachite can reshape the land around herself and the water in it: raising short walls, digging trenches,
+      flooding a room, or collapsing a stretch of ground under someone's feet.
+    moves:
+      - name: Pitfall
+        tags:
+          - 2 SP
+        cost: 2
+        text: The ground drops out from under one target. The target resists with SPD. If they fail, they're Knocked Down.
+      - name: Upheaval
+        tags:
+          - 3 SP
+        cost: 3
+        text: The ground buckles under every enemy who is Near, dealing [1d6 + MAG] EARTH damage to each.
+  - section: Signature Ability
+    name: Flight
+    tags:
+      - PASSIVE
+      - Limited
+    cost: null
+    text: Azurmalachite can fly without wings. While flying, she counts as Far to anyone on the ground.
+    moves: []
+role: >-
+  Azurmalachite are a new Geode, and the Gempire hasn't settled on a job for them yet. For now, most are being tried out
+  on terraforming crews, where they drain flooded kindergarten land, water dry ground, and dig the trenches and walls a
+  new site needs before anything can be built. A few have been loaned to military engineers for the same work under
+  fire.
+interactions: >-
+  Since they're still being tried out, Azurmalachites move from crew to crew, working beside Lapises, Malachites, and
+  Snowflake Obsidians, who each handle one part of what an Azurmalachite can do alone. Rutiles and Demantoids watch how
+  they do and report back to the Zoisites deciding whether the type is worth keeping. Theta Gold isn't fond of how much
+  Geodes cost to make, so every Azurmalachite knows her crew's opinion of her could decide the future of her whole type.
+description: null
+image: null
+gemstone: /images/gemstones/azurmalachite.svg
+credit: null
+updated: '2026-11-18'

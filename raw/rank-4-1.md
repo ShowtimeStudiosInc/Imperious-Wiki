@@ -280,3 +280,23 @@ _``Signature Ability:``_
 
 _``Interactions:``_
 ``Padparadschas read for gems of every rank, though most of their regulars are low-ranked gems who could never book a Sapphire. Sapphires tend to look down on them, while Sunstones see them as fellow advisors with a different method. Rubies and Quartzes are some of their most loyal customers, coming back for a new reading before every deployment.``
+
+
+# AZURMALACHITE [GEODE]
+**``BASE STATS``**
+_``HP:``_ 32
+_``ATK:``_ 3
+_``DEF:``_ 6
+_``SPD:``_ 3
+_``INT:``_ 6
+_``MAG:``_ 5
+_``Signature Ability:``_ 
+`Edaphokinesis` [Enhanced] [Elements] - Azurmalachite can reshape the land around herself and the water in it: raising short walls, digging trenches, flooding a room, or collapsing a stretch of ground under someone's feet.
+> - `Pitfall [2 SP]` - The ground drops out from under one target. The target resists with SPD. If they fail, they're Knocked Down.
+> - `Upheaval [3 SP]` - The ground buckles under every enemy who is Near, dealing [1d6 + MAG] EARTH damage to each.
+`Flight [PASSIVE]` [Limited] - Azurmalachite can fly without wings. While flying, she counts as Far to anyone on the ground.
+
+``Azurmalachite are a new Geode, and the Gempire hasn't settled on a job for them yet. For now, most are being tried out on terraforming crews, where they drain flooded kindergarten land, water dry ground, and dig the trenches and walls a new site needs before anything can be built. A few have been loaned to military engineers for the same work under fire.``
+
+_``Interactions:``_
+``Since they're still being tried out, Azurmalachites move from crew to crew, working beside Lapises, Malachites, and Snowflake Obsidians, who each handle one part of what an Azurmalachite can do alone. Rutiles and Demantoids watch how they do and report back to the Zoisites deciding whether the type is worth keeping. Theta Gold isn't fond of how much Geodes cost to make, so every Azurmalachite knows her crew's opinion of her could decide the future of her whole type.``
