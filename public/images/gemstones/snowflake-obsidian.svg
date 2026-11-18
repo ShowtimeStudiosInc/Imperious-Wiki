@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<defs><clipPath id="cl-snowflake-obsidian"><ellipse cx="100" cy="100" rx="76" ry="76"/></clipPath></defs>
-<ellipse cx="100" cy="100" rx="76" ry="76" fill="#2a2730"/>
-<g clip-path="url(#cl-snowflake-obsidian)">
-<polygon points="88.0,72.1 92.1,76.3 88.0,80.4 83.9,76.3" fill="#f2f0f6"/>
-<polygon points="70.9,99.0 74.3,102.4 70.9,105.9 67.5,102.4" fill="#f2f0f6"/>
-<polygon points="69.9,97.9 72.5,100.5 69.9,103.1 67.4,100.5" fill="#f2f0f6"/>
-<polygon points="95.5,68.0 98.2,70.8 95.5,73.5 92.8,70.8" fill="#f2f0f6"/>
-<polygon points="94.9,119.4 97.7,122.2 94.9,125.0 92.1,122.2" fill="#f2f0f6"/>
-<polygon points="81.2,103.8 86.0,108.7 81.2,113.5 76.3,108.7" fill="#f2f0f6"/>
-<polygon points="105.2,88.0 110.2,93.0 105.2,97.9 100.3,93.0" fill="#f2f0f6"/>
-<polygon points="69.2,121.2 72.4,124.4 69.2,127.6 65.9,124.4" fill="#f2f0f6"/>
-<polygon points="75.8,70.7 79.1,74.0 75.8,77.3 72.5,74.0" fill="#f2f0f6"/>
-<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#1a171d" opacity="0.28"/>
+<svg viewBox="0 0 200 200" width="200" height="200">
+<defs><clipPath id="c"><circle cx="100" cy="100" r="80"/></clipPath></defs>
+<circle cx="100" cy="100" r="90" fill="#121020"/>
+<circle cx="100" cy="100" r="80" fill="#2a2742"/>
+<g clip-path="url(#c)">
+<circle cx="112" cy="112" r="80" fill="#1d1b30"/>
+<circle cx="94" cy="94" r="66" fill="#2a2742"/>
+<polygon points="28.6,73.3 35.3,53.3 56.6,36.6 80.7,28.6 83.3,56.6 74.0,83.3 56.6,90.0 36.6,88.7" fill="#9d9ac6"/>
+<polygon points="80.7,28.6 110.0,23.3 120.7,35.3 104.7,56.6 90.0,76.7 74.0,83.3 83.3,56.6" fill="#dddbf7"/>
+<polygon points="28.6,126.7 43.3,116.7 66.7,113.3 80.7,123.3 86.7,150.0 83.3,168.7 56.6,160.0 36.6,146.7" fill="#9d9ac6"/>
+<polygon points="80.7,123.3 100.0,140.0 120.0,162.0 107.3,174.0 83.3,168.7 86.7,150.0" fill="#dddbf7"/>
+<polygon points="131.3,73.3 147.4,62.0 171.4,68.7 180.7,98.0 174.0,126.7 151.4,135.4 134.0,124.7 127.3,99.3" fill="#dddbf7"/>
+<polygon points="150.0,123.3 174.0,126.7 151.4,135.4 134.0,124.7" fill="#b9b6e0"/>
 </g>
-<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#c5c5d0" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
-<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#2b2730" stroke-width="9"/>
+<circle cx="104" cy="28" r="4" fill="#ffffff"/>
+</svg>
 </svg>
