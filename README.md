@@ -55,7 +55,7 @@ For a custom domain, set `SITE` to the domain and `BASE` to `/` in the workflow,
 
 ## Turning on the editor (`/admin`)
 
-Decap needs a small OAuth helper so admins can log in with GitHub. The simplest free option is a Cloudflare Worker such as [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) or [decap-proxy](https://github.com/sterlingwes/decap-proxy). Deploy one, create a GitHub OAuth App that points to it, then set `base_url` in `public/admin/config.yml`. Each admin also needs write access to the repo.
+Decap needs a small OAuth helper so you can log in with GitHub. The simplest free option is a Cloudflare Worker such as [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) or [decap-proxy](https://github.com/sterlingwes/decap-proxy). Deploy one, create a GitHub OAuth App that points to it, then set `base_url` in `public/admin/config.yml`. Only the owner uses the editor, so no one else needs write access to the repo.
 
 ## Hooking up the Gem Builder
 

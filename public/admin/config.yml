@@ -1,6 +1,6 @@
 # Decap CMS: the form-based editor at /admin.
-# Admins log in with GitHub. With editorial_workflow on, their edits become drafts
-# that the owner approves before they go live.
+# Only the owner (Oliver) uses it. He logs in with GitHub. With editorial_workflow on,
+# an edit is saved as a draft first and goes live when he publishes it.
 backend:
   name: github
   repo: ShowtimeStudiosInc/Imperious-Wiki   # change if the repo name differs
