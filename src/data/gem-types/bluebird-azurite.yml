@@ -1,0 +1,65 @@
+name: Bluebird Azurite
+slug: bluebird-azurite
+rank: null
+side: null
+faction: rogue
+kind: fusion
+parent: null
+components:
+  - ruby
+  - aquamarine
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Elite
+height: 5'4"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Hydrokinesis
+    tags: []
+    cost: null
+    text: >-
+      From her Aquamarine half. Bluebird Azurite can generate and control water, drawn out of whatever weapon she has in
+      her weapon slot.
+    moves:
+      - name: Tidal Edge
+        tags:
+          - 2 SP
+        cost: 2
+        text: Works the same as her Aquamarine half's Tidal Edge.
+  - section: Signature Ability
+    name: Fairy Wings
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Aquamarine half. While flying, she counts as Far to anyone on the ground.
+    moves: []
+  - section: Signature Ability
+    name: Thermal Manipulation
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Ruby half. Each hit of her <:Fight:1568035371974135940>FIGHTs deals +1 Fire damage.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: Any Latent Ability either half has unlocked carries into the fusion.
+    moves: []
+role: >-
+  Bluebird Azurite is a fusion of a Ruby and an Aquamarine, and is only found among the Rogues. She is not related to
+  the Azurites who work as court clerks; the two just share a name. She keeps her Aquamarine half's water wings and her
+  Ruby half's heat.
+interactions: >-
+  A Bluebird Azurite has good reason to stay clear of Gempire Aquamarines, since tracking down gems who have gone
+  missing is an Aquamarine's job, and a Bluebird is half of one.
+description: null
+image: /images/gem-types/bluebird-azurite.webp
+gemstone: /images/gemstones/bluebird-azurite.svg
+credit: null
+updated: '2026-11-18'

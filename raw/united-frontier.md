@@ -372,7 +372,7 @@ _``INT:``_ 4
 _``MAG:``_ 4
 _``Signature Ability:``_
 `Life-Force Absorption` - Melanite can draw the life out of anything they touch, leaving plants grey, stone brittle, and gems weaker. What they take, they can keep for themself or pass on to someone else.
-- `Withering Touch [3 SP]` - Melanite grips one target who is Near and drains them, dealing [1d6 + MAG] WITHER damage. they heals for half the damage dealt, rounded up.
+- `Withering Touch [3 SP]` - Melanite grips one target who is Near and drains them, dealing [1d6 + MAG] WITHER damage. They heal for half the damage dealt, rounded up.
 - `Life Siphon [2 SP]` - Melanite makes a <:Fight:1568035371974135940>FIGHT against one target. If it lands, one ally heals for half the damage dealt, rounded up.
 _``Latent Ability:``_
 `Death Sense [PASSIVE]` [Limited] [Visions] - Melanite may learn to feel when a gem's end is near. They always know the HP of anyone they have touched.

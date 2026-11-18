@@ -35,7 +35,7 @@ abilities:
           - 3 SP
         cost: 3
         text: >-
-          Melanite grips one target who is Near and drains them, dealing [1d6 + MAG] WITHER damage. they heals for half
+          Melanite grips one target who is Near and drains them, dealing [1d6 + MAG] WITHER damage. They heal for half
           the damage dealt, rounded up.
       - name: Life Siphon
         tags:

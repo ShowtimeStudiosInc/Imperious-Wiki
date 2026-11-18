@@ -65,7 +65,7 @@ _``Signature Ability:``_
 ``Willemites work in the Empire as aerial surveillance and overwatch, monitoring surrounding areas with radar to make sure they're clear of threats or anything else that needs reporting. They usually ride along with Nephrites or on larger ships, where someone else does the flying and they can keep their eyes on the radar. New Willemites will typically be under Court Maroon, while those of Era 1 and Era 0 will typically be seen in Alpha Black's Court.``
 
 _``Interactions:``_
-``Willemites work with militia gems, watching their routes from inside a ship, especially in the air. When a combat site gets rough, the Willemite is the one telling the soldiers what's coming and where it is.``
+``Willemites work with militia gems, watching their routes from inside a ship, especially in the air. When a combat site gets rough, the Willemite is the one telling the soldiers what's coming and where it is. Threats she spots away from a battle usually go to a Flint, who sends in the Steels.``
 
 
 # OPAL [NON-FUSION]
@@ -138,12 +138,12 @@ _``MAG:``_ 3
 _``ACT Bonus:``_ 
 `Call It In` - <:Act:1568035453842751618>ACTs that report, track, or call in a threat are especially effective for her.
 _``Latent Ability:``_ 
-`Spark Generation` - Flint may learn to strike sparks from her own body. Its moves and SP costs are set when it's unlocked.
+`Spark Generation` - Flint may learn to strike sparks from her own body, bright enough to signal Steels across a sector when its comms go down. Its moves and SP costs are set when it's unlocked.
 
-``Flints serve the empire as dispatchers for security and containment. They watch over sectors, log threats like rebel attacks and enemy forces as reports come in, and decide where the empire's Steels are sent. A Flint keeps a record of every call, from the first report to the moment the threat reaches a containment cell.``
+``Flints serve the empire as dispatchers for security and containment. Each one watches over a sector, logs threats like rebel attacks and enemy forces as reports come in, and decides where the sector's Steels are sent. A Flint keeps a record of every call, from the first report to the moment the threat reaches a containment cell. Her job is to sort the calls, not to fight them. When a threat is bigger than a Steel team can hold, like an organized rebel force, she passes it up to the militia instead.``
 
 _``Interactions:``_
-``Flints and Era 2A Steels work as a pair. When a Flint logs a threat, she sends the closest Steels to detain it and bring it to a containment cell for questioning. A Steel who shows up to a call usually knows what she's walking into, because her Flint already told her.``
+``Flints and Era 2A Steels work as a pair. When a Flint logs a threat, she sends the closest Steels to detain it and bring it to a containment cell for questioning. A Steel who shows up to a call usually knows what she's walking into, because her Flint already told her. Many of a Flint's reports come from Willemites flying overwatch. If a call turns out to be wildlife, she sends a Crocoite and an Era 0-1 Steel instead.``
 
 
 # BRONZE [ERA 0-1]

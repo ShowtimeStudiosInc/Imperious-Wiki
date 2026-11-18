@@ -21,8 +21,8 @@ function trap(y1: number, y2: number, side: 'left' | 'right' | 'full') {
 const tip = [pt(AX, rows[0]), pt(AX + half(rows[1] - GAP), rows[1] - GAP), pt(AX - half(rows[1] - GAP), rows[1] - GAP)].join(' ');
 const segs = [
   { key: 'diamonds', label: 'Diamonds', sub: 'Transcendent', href: '/gem-types/tier/transcendent/', points: tip, tx: AX, ty: 100, n: count('transcendent') },
-  { key: 'aristocrats', label: 'Aristocrats', sub: 'Rank 2', href: '/gem-types/tier/aristocrats/', points: trap(rows[1], rows[2] - GAP, 'left'), tx: AX - 80, ty: 200, n: count('aristocrats') },
-  { key: 'authoritatives', label: 'Authoritatives', sub: 'Rank 2', href: '/gem-types/tier/authoritatives/', points: trap(rows[1], rows[2] - GAP, 'right'), tx: AX + 82, ty: 200, n: count('authoritatives') },
+  { key: 'authoritatives', label: 'Authoritatives', sub: 'Rank 2', href: '/gem-types/tier/authoritatives/', points: trap(rows[1], rows[2] - GAP, 'left'), tx: AX - 82, ty: 200, n: count('authoritatives') },
+  { key: 'aristocrats', label: 'Aristocrats', sub: 'Rank 2', href: '/gem-types/tier/aristocrats/', points: trap(rows[1], rows[2] - GAP, 'right'), tx: AX + 80, ty: 200, n: count('aristocrats') },
   { key: 'militia', label: 'Militia', sub: 'Rank 3', href: '/gem-types/tier/militia/', points: trap(rows[2], rows[3] - GAP, 'left'), tx: AX - 92, ty: 312, n: count('militia') },
   { key: 'service', label: 'Service Trade', sub: 'Rank 4', href: '/gem-types/tier/service-trade/', points: trap(rows[2], rows[3] - GAP, 'right'), tx: AX + 92, ty: 312, n: count('service-trade') },
   { key: 'servants', label: 'Servants', sub: 'Rank 5', href: '/gem-types/tier/servants/', points: trap(rows[3], rows[4], 'full'), tx: AX, ty: 424, n: count('servants') },

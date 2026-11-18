@@ -194,16 +194,16 @@ _``Signature Ability:``_
 `Hydrokinesis` [Base] [Elements] - From her Lapis half. Green Serpentine can move and shape large amounts of water. She needs a source of water nearby.
 > - `Water Lash [2 SP]` - A whip of water strikes one target for 2d4 + MAG damage.
 _``ACT Bonus:``_ 
-`Examine` - From her Serpentine half. <:Act:1568035453842751618>ACTs that study a sample, substance, or wound up close are especially effective for her.
+`Serenade` - From her Scapolite half. <:Act:1568035453842751618>ACTs that sing to calm or charm are especially effective for her, and can reach every enemy at once instead of one.
 _``Fusion Ability:``_ 
 `Hypnotic Lullaby [3 SP]` - Green Serpentine sings a lullaby. Every enemy who is Near resists with INT. Those who fail fall Asleep for 1 turn, and any damage wakes them.
 _``Latent Ability:``_ 
 `Serpent Shift`, `Voice Mimicry`, and `Voice Stealing` - Green Serpentine may learn to change into a large serpent, copy another gem's voice, or take another gem's voice away for a time. Their moves and SP costs are set when unlocked.
 
-``A Green Serpentine's job isn't much different from a Scapolite's. She acts as a change of pace for when a Scapolite's voice starts to feel dull. By fusing with a Lapis Lazuli, her singing voice grows even stronger and gains more range. Gems say listening to a Green Serpentine sing feels like a lullaby, and while her soft voice is calming, it can also pull listeners in without them meaning to be drawn.``
+``Green Serpentine is a fusion of a Scapolite and a Lapis Lazuli. Her job isn't much different from a Scapolite's, and venues book her as a change of pace for when a Scapolite's voice starts to feel dull. The Lapis half makes her singing voice even stronger and gives it more range. Gems say listening to a Green Serpentine sing feels like a lullaby, and while her soft voice is calming, it can also pull listeners in without them meaning to be drawn.``
 
 _``Interactions:``_
-``Green Serpentines are booked the same way Scapolites are, usually for a quieter set later in the evening. Venue hosts keep them away from guards on duty, since a lullaby meant for the guests can put a whole security detail to sleep. Lapises sometimes come to hear one sing between terraforming jobs.``
+``Green Serpentines are booked the same way Scapolites are, usually for a quieter set later in the evening. Venue hosts keep them away from guards on duty, since a lullaby meant for the guests can put a whole security detail to sleep. A Scapolite who wants to sing a Green Serpentine set has to find a Lapis free between terraforming jobs, so these shows tend to happen when a Lapis is already in town.``
 
 
 # PINK TOURMALINE [SUB-TYPE OF TOURMALINE]

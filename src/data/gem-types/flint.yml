@@ -32,16 +32,21 @@ abilities:
     name: Spark Generation
     tags: []
     cost: null
-    text: Flint may learn to strike sparks from her own body. Its moves and SP costs are set when it's unlocked.
+    text: >-
+      Flint may learn to strike sparks from her own body, bright enough to signal Steels across a sector when its comms
+      go down. Its moves and SP costs are set when it's unlocked.
     moves: []
 role: >-
-  Flints serve the empire as dispatchers for security and containment. They watch over sectors, log threats like rebel
-  attacks and enemy forces as reports come in, and decide where the empire's Steels are sent. A Flint keeps a record of
-  every call, from the first report to the moment the threat reaches a containment cell.
+  Flints serve the empire as dispatchers for security and containment. Each one watches over a sector, logs threats like
+  rebel attacks and enemy forces as reports come in, and decides where the sector's Steels are sent. A Flint keeps a
+  record of every call, from the first report to the moment the threat reaches a containment cell. Her job is to sort
+  the calls, not to fight them. When a threat is bigger than a Steel team can hold, like an organized rebel force, she
+  passes it up to the militia instead.
 interactions: >-
   Flints and Era 2A Steels work as a pair. When a Flint logs a threat, she sends the closest Steels to detain it and
   bring it to a containment cell for questioning. A Steel who shows up to a call usually knows what she's walking into,
-  because her Flint already told her.
+  because her Flint already told her. Many of a Flint's reports come from Willemites flying overwatch. If a call turns
+  out to be wildlife, she sends a Crocoite and an Era 0-1 Steel instead.
 description: null
 image: null
 gemstone: /images/gemstones/flint.svg
