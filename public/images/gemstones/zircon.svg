@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<polygon points="68.0,34.0 132.0,34.0 172.0,76.0 100.0,176.0 28.0,76.0" fill="#3d56a2"/>
-<polygon points="68.0,34.0 132.0,34.0 116.0,56.6 84.0,56.6" fill="#8fb0ff"/>
-<polygon points="132.0,34.0 172.0,76.0 136.0,77.6 116.0,56.6" fill="#4c72d3"/>
-<polygon points="172.0,76.0 100.0,176.0 100.0,127.6 136.0,77.6" fill="#3d56a2"/>
-<polygon points="100.0,176.0 28.0,76.0 64.0,77.6 100.0,127.6" fill="#4c72d3"/>
-<polygon points="28.0,76.0 68.0,34.0 84.0,56.6 64.0,77.6" fill="#8fb0ff"/>
-<polygon points="84.0,56.6 116.0,56.6 136.0,77.6 100.0,127.6 64.0,77.6" fill="#5a8bff"/>
-<polygon points="84.0,56.6 116.0,56.6 92.8,69.0" fill="#cedcff" opacity="0.9"/>
-<polygon points="68.0,34.0 132.0,34.0 172.0,76.0 100.0,176.0 28.0,76.0" fill="none" stroke="#2c3561" stroke-width="7" stroke-linejoin="round"/>
+<svg viewBox="0 -34.5 316 316" width="200" height="200">
+<path d="M42,36 L43,211 L272,211 L274,209 L274,37 L272,35 Z" fill="#030363" fill-rule="evenodd"/>
+<path d="M45,40 L45,206 L47,208 L269,208 L271,206 L271,40 L269,38 L47,38 Z" fill="#0f2187" fill-rule="evenodd"/>
+<path d="M46,207 L266,208 L270,204 L270,199 L265,199 L239,173 L230,176 L85,176 L76,173 L46,202 Z" fill="#3957d5" fill-rule="evenodd"/>
+<path d="M47,39 L47,44 L76,72 L85,70 L230,70 L239,72 L267,45 L266,38 Z" fill="#2745c3" fill-rule="evenodd"/>
+<path d="M264,42 L236,68 L236,177 L262,203 L269,203 L271,201 L271,44 Z" fill="#8193ed" fill-rule="evenodd"/>
+<path d="M46,41 L45,204 L50,205 L79,177 L79,68 L51,41 Z" fill="#6f81e7" fill-rule="evenodd"/>
+<path d="M266,201 L265,208 L269,208 L271,201 Z M265,38 L264,44 L270,46 L271,40 Z" fill="#0f157b" fill-rule="evenodd"/>
+<path d="M42,36 L43,211 L272,211 L274,209 L274,37 L272,35 Z M46,42 L49,39 L267,39 L270,42 L270,204 L267,207 L49,207 L46,204 Z" fill="#030363" fill-rule="evenodd"/>
+</svg>
 </svg>

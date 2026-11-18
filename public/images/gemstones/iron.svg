@@ -1,10 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<polygon points="36.0,98.0 164.0,98.0 164.0,140.0 36.0,140.0" fill="#8d939c"/>
-<polygon points="58.0,58.0 142.0,58.0 164.0,98.0 36.0,98.0" fill="#b1b6bc"/>
-<polygon points="142.0,58.0 176.0,82.0 176.0,124.0 164.0,140.0 164.0,98.0" fill="#757884"/>
-<polygon points="70,66 112,66 104,80 64,80" fill="#dddfe1"/>
-<line x1="48" y1="120" x2="152" y2="120" stroke="#757884" stroke-width="4"/>
-<polygon points="58.0,58.0 142.0,58.0 176.0,82.0 176.0,124.0 164.0,140.0 36.0,140.0 36.0,98.0" fill="none" stroke="#3a3846" stroke-width="7" stroke-linejoin="round"/>
-<polyline points="36,98 164,98 176,82" fill="none" stroke="#3a3846" stroke-width="3"/>
-<line x1="164" y1="98" x2="164" y2="140" stroke="#3a3846" stroke-width="3"/>
+<svg viewBox="-31.5 0 263 263" width="200" height="200">
+<rect x="0" y="0" width="200" height="263" rx="8" fill="#252527"/>
+<polygon points="9,9 191,9 176,27 24,27" fill="#9e9ea4"/>
+<polygon points="9,9 24,27 24,236 9,254" fill="#37393f"/>
+<polygon points="191,9 176,27 176,236 191,254" fill="#37393f"/>
+<polygon points="24,236 176,236 191,254 9,254" fill="#686b73"/>
+<rect x="24" y="27" width="152" height="209" fill="#dee1e9"/>
+<rect x="35" y="38" width="130" height="187" fill="#d2d5dd"/>
+<polygon points="35,82 35,225 165,225 165,222" fill="#afadb5"/>
+</svg>
 </svg>

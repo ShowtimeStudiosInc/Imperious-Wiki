@@ -42,8 +42,9 @@ lab[~opaque] = -1
 # Majority filter: anti-aliased pixels between two colors often land on a third color and
 # leave thin slivers along edges. Each pixel takes the label most common around it.
 # The outline is left alone so thin outlines survive.
-_lum = palette @ np.array([0.299, 0.587, 0.114])
-_out = int(np.argmin(_lum))
+# The outline is the color that runs along the outer edge of the gem.
+_edge = opaque & ~cv2.erode(opaque.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
+_out = int(np.bincount(lab[_edge], minlength=len(palette)).argmax())
 was_outline = lab == _out
 votes = np.stack([cv2.blur((lab == i).astype(np.float32), (7, 7)) for i in range(len(palette))])
 votes[_out] = 0
@@ -51,8 +52,7 @@ lab = votes.argmax(0)
 lab[was_outline] = _out
 lab[~opaque] = -1
 
-lum = palette @ np.array([0.299, 0.587, 0.114])
-outline = int(np.argmin(lum))
+outline = _out
 hexc = lambda c: '#%02x%02x%02x' % tuple(int(v) for v in c)
 
 def polys(mask, color, holes=False, open_k=5):
@@ -78,7 +78,7 @@ fills = sorted((i for i in range(len(palette)) if i != outline), key=lambda i: -
 inside = cv2.dilate(((lab >= 0) & (lab != outline)).astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool) & opaque
 shapes = [polys(opaque, hexc(palette[outline])), polys(inside, hexc(palette[fills[0]]))]
 grow = lambda m: cv2.dilate(m.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool) & opaque
-shapes += [polys(grow(lab == i), hexc(palette[i])) for i in fills[1:]]
+shapes += [polys(grow(lab == i), hexc(palette[i]), holes=True) for i in fills[1:]]
 shapes.append(polys(lab == outline, hexc(palette[outline]), holes=True, open_k=1))
 shapes = [x for x in shapes if x]
 

@@ -63,19 +63,19 @@ GEMS = {
     'topaz': ('square', '#f6c443', {}),
     # 3.2
     'quartz': ('pentagon', '#e6dcff', {}),
-    'amethyst': ('pentagon', '#9b59d6', {}),
-    'aventurine': ('cabochon', '#4fbf7a', {'flecks': '#c9f7da'}),
-    'blue-quartz': ('pentagon', '#7fa8ff', {}),
-    'carnelian': ('cab-oval', '#e2552c', {}),
-    'cherry-quartz': ('round', '#ff4f6e', {}),
-    'citrine': ('pear', '#f2b632', {}),
-    'jasper': ('diamond', '#d9662d', {}),
-    'milky-quartz': ('pentagon', '#f2eef7', {}),
+    'amethyst': ('quartz', '#9b59d6', {}),
+    'aventurine': ('quartz', '#4fbf7a', {}),
+    'blue-quartz': ('quartz', '#5f8fff', {}),
+    'carnelian': ('quartz', '#e2552c', {}),
+    'cherry-quartz': ('quartz', '#ff4f6e', {}),
+    'citrine': ('quartz', '#f2b632', {}),
+    'jasper': ('quartz', '#e0662d', {}),
+    'milky-quartz': ('quartz', '#e8e2f0', {}),
     'obsidian': ('triangle', '#43355a', {}),
-    'prasiolite': ('pentagon', '#b6e38a', {}),
-    'rose-quartz': ('pentagon', '#ff9ec4', {}),
-    'smoky-quartz': ('pentagon', '#8a7a6b', {}),
-    'zebra-jasper': ('cab-oval', '#ece8df', {'bands': '#2a2730'}),
+    'prasiolite': ('quartz', '#9fd66a', {}),
+    'rose-quartz': ('quartz', '#ff9ec4', {}),
+    'smoky-quartz': ('quartz', '#8a7a6b', {}),
+    'zebra-jasper': ('quartz', '#ece8df', {'bands': '#2a2730'}),
     # 3.3
     'aragonite': ('hexagon', '#e8a66a', {}),
     'eucryptite': ('triangle', '#f0e6a8', {}),
@@ -145,8 +145,8 @@ GEMS = {
     'iris-agate': ('cab-oval', '#9b8cff', {'bands': '#ffb3e0', 'multi': ['#9b8cff', '#7fe0ff', '#ffd27f']}),
     'rainbow-angelite': ('oval', '#ff8fb0', {'multi': ['#ff8fb0', '#ffd27f', '#7fe0b0', '#7fb0ff', '#c08fff']}),
     'rainbow-obsidian': ('triangle', '#43355a', {'multi': ['#43355a', '#6a3f8a', '#2f6a7a', '#7a5a2f']}),
-    'rainbow-quartz': ('pentagon', '#ff8fb0', {'multi': ['#ff8fb0', '#ffd27f', '#7fe0b0', '#7fb0ff', '#c08fff']}),
-    'titanium-aura-quartz': ('pentagon', '#5a7fff', {'multi': ['#5a7fff', '#c95aff', '#5affd0', '#ffd25a']}),
+    'rainbow-quartz': ('quartz', '#ff8fb0', {'multi': ['#ff8fb0', '#ffd27f', '#7fe0b0', '#7fb0ff', '#c08fff', '#ff9f7f']}),
+    'titanium-aura-quartz': ('quartz', '#5a7fff', {'multi': ['#5a7fff', '#c95aff', '#5affd0', '#ffd25a', '#ff7ab0', '#7ad0ff']}),
     'wittichenite': ('hexagon', '#5a6a8a', {}),
 }
 
@@ -346,12 +346,46 @@ def override_body(slug):
     inner = re.sub(r'^.*?<svg[^>]*>|</svg>\s*$', '', src, flags=re.S)
     return f'<svg viewBox="{view}" width="200" height="200">{inner}</svg>'
 
+QUARTZ_SHADE = [(0, 0.0), (60, 0.30), (120, 0.45), (180, -0.45), (240, 0.15), (300, -0.25)]  # angle (deg, y down): + lighter, - darker
+
+def quartz_shade(deg):
+    deg %= 360
+    pts_ = QUARTZ_SHADE + [(360, QUARTZ_SHADE[0][1])]
+    for (a0, v0), (a1, v1) in zip(pts_, pts_[1:]):
+        if a0 <= deg <= a1:
+            return v0 + (v1 - v0) * (deg - a0) / (a1 - a0)
+    return 0
+
+def quartz_cut(base, ex):
+    n = ex.get('sides', 6)
+    T = tones(base)
+    outline = mix(base, '#1a0040', 0.62)
+    R, r_in = 88, 49
+    out = [f'<circle cx="100" cy="100" r="{R}" fill="{outline}"/>']
+    vert = [(100 + r_in * math.cos(-math.pi / 2 + 2 * math.pi * i / n), 100 + r_in * math.sin(-math.pi / 2 + 2 * math.pi * i / n)) for i in range(n)]
+    multi = ex.get('multi')
+    for i in range(n):
+        a0 = -math.pi / 2 + 2 * math.pi * i / n
+        a1 = a0 + 2 * math.pi / n
+        arc = [(100 + (R - 7) * math.cos(a0 + (a1 - a0) * k / 12), 100 + (R - 7) * math.sin(a0 + (a1 - a0) * k / 12)) for k in range(13)]
+        q = [vert[i]] + arc + [vert[(i + 1) % n]]
+        c = multi[i % len(multi)] if multi else base
+        v = quartz_shade(math.degrees((a0 + a1) / 2))
+        fill = mix(c, '#ffffff', v) if v >= 0 else mix(c, '#0a0420', -v)
+        out.append(f'<polygon points="{pts(q)}" fill="{fill}"/>')
+    out.append(f'<polygon points="{pts(vert)}" fill="{mix(base, "#ffffff", 0.78)}"/>')
+    if ex.get('bands'):
+        out.append(f'<path d="M30,92 C 70,70 120,118 170,86 M38,128 C 80,108 120,146 164,120" fill="none" stroke="{ex["bands"]}" stroke-width="8" opacity=".85"/>')
+    return out
+
 def gem_svg_body(slug):
     ov = override_body(slug)
     if ov:
         return ov
     cut, base, ex = GEMS[slug]
-    if cut in ('cabochon', 'cab-oval', 'pearl'):
+    if cut == 'quartz':
+        body = quartz_cut(base, ex)
+    elif cut in ('cabochon', 'cab-oval', 'pearl'):
         body = cabochon(cut, base, ex)
     elif cut == 'ingot':
         body = ingot(base, ex)
