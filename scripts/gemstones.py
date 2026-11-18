@@ -402,12 +402,15 @@ def write(slug, inner, view='0 0 200 200'):
         f.write(svg)
 
 # Fusion layouts: (x, y, scale) for the two halves inside a 200 box.
+# Fusion layouts: (x, y, scale) for the two halves inside a 200 box.
+# The two stones always sit apart, shifted away from each other, so only an edge or corner overlaps
+# and both gemstones stay readable.
 LAYOUTS = [
-    [(2, 36, 0.64), (70, 36, 0.64)],       # side by side, overlapping
-    [(4, 4, 0.64), (68, 68, 0.64)],        # diagonal
-    [(0, 0, 0.74), (86, 86, 0.56)],        # big one behind, small one in front
-    [(68, 4, 0.64), (4, 68, 0.64)],        # reverse diagonal
-    [(36, 2, 0.64), (36, 70, 0.64)],       # stacked
+    [(0, 44, 0.56), (88, 44, 0.56)],       # side by side
+    [(2, 2, 0.56), (86, 86, 0.56)],        # diagonal
+    [(86, 2, 0.56), (2, 86, 0.56)],        # reverse diagonal
+    [(44, 0, 0.56), (44, 88, 0.56)],       # stacked
+    [(0, 8, 0.64), (96, 92, 0.52)],        # larger one top-left, smaller one bottom-right
 ]
 
 def main():
