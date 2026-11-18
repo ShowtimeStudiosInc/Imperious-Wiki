@@ -13,13 +13,15 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 im = cv2.imread(src, cv2.IMREAD_UNCHANGED)
 if im.shape[2] == 3:
     im = np.dstack([im, np.full(im.shape[:2], 255, np.uint8)])
-# Small images get scaled up first so the smoothing doesn't eat thin outlines.
-if max(im.shape[:2]) < 300:
-    f = 300 / max(im.shape[:2])
-    im = cv2.resize(im, None, fx=f, fy=f, interpolation=cv2.INTER_CUBIC)
-im = cv2.copyMakeBorder(im, 8, 8, 8, 8, cv2.BORDER_CONSTANT, value=(0, 0, 0, 0))
+# Every image is worked at the same size (600 px on its long side), so edges come out equally smooth
+# whether the source was small or large. K scales the clean-up sizes, which were tuned at 300 px.
+f = 600 / max(im.shape[:2])
+im = cv2.resize(im, None, fx=f, fy=f, interpolation=cv2.INTER_CUBIC if f > 1 else cv2.INTER_AREA)
+K = 2
+odd = lambda n: int(n * K) | 1
+im = cv2.copyMakeBorder(im, 16, 16, 16, 16, cv2.BORDER_CONSTANT, value=(0, 0, 0, 0))
 # A median blur removes dither and noise textures before the colors are counted.
-rgb = cv2.medianBlur(np.ascontiguousarray(im[..., :3]), 5)[..., ::-1].astype(int)
+rgb = cv2.medianBlur(np.ascontiguousarray(im[..., :3]), odd(5))[..., ::-1].astype(int)
 alpha = im[..., 3]
 opaque = alpha >= 128
 
@@ -43,10 +45,10 @@ lab[~opaque] = -1
 # leave thin slivers along edges. Each pixel takes the label most common around it.
 # The outline is left alone so thin outlines survive.
 # The outline is the color that runs along the outer edge of the gem.
-_edge = opaque & ~cv2.erode(opaque.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
+_edge = opaque & ~cv2.erode(opaque.astype(np.uint8), np.ones((odd(3), odd(3)), np.uint8)).astype(bool)
 _out = int(np.bincount(lab[_edge], minlength=len(palette)).argmax())
 was_outline = lab == _out
-votes = np.stack([cv2.blur((lab == i).astype(np.float32), (7, 7)) for i in range(len(palette))])
+votes = np.stack([cv2.blur((lab == i).astype(np.float32), (odd(7), odd(7))) for i in range(len(palette))])
 votes[_out] = 0
 lab = votes.argmax(0)
 lab[was_outline] = _out
@@ -55,7 +57,53 @@ lab[~opaque] = -1
 outline = _out
 hexc = lambda c: '#%02x%02x%02x' % tuple(int(v) for v in c)
 
+def smooth_run(p, closed, sigma=5.0):
+    """Gaussian-smooths a run of contour points. Open runs keep their two end points fixed."""
+    n = len(p)
+    if n < 5:
+        return p
+    r = int(sigma * 2.5)
+    k = np.exp(-0.5 * (np.arange(-r, r + 1) / sigma) ** 2); k /= k.sum()
+    if closed:
+        pad = np.concatenate([p[-r:], p, p[:r]])
+        return np.stack([np.convolve(pad[:, j], k, 'valid') for j in range(2)], 1)
+    pad = np.concatenate([np.repeat(p[:1], r, 0), p, np.repeat(p[-1:], r, 0)])
+    out = np.stack([np.convolve(pad[:, j], k, 'valid') for j in range(2)], 1)
+    w = np.minimum(np.arange(n), np.arange(n)[::-1]) / max(1, r)
+    w = np.clip(w, 0, 1)[:, None]          # ease back to the true points near each corner
+    return p * (1 - w) + out * w
+
+def refine(c):
+    """Turns a pixel contour into a clean shape: straight edges stay straight, sharp corners stay
+    sharp, and curves are smoothed so no pixel steps or wobbles show."""
+    pts = c[:, 0, :].astype(float)
+    n = len(pts)
+    key = cv2.approxPolyDP(c, 3.0 * K, True)[:, 0, :].astype(float)
+    corners = []
+    if len(key) >= 3:
+        for i in range(len(key)):
+            a, b, cc = key[i - 1], key[i], key[(i + 1) % len(key)]
+            v1, v2 = a - b, cc - b
+            cos = (v1 @ v2) / (np.linalg.norm(v1) * np.linalg.norm(v2) + 1e-9)
+            if cos > -0.82:  # the edge turns by more than about 35 degrees here
+                corners.append(int(np.argmin(((pts - b) ** 2).sum(1))))
+    corners = sorted(set(corners))
+    if len(corners) < 2:
+        sm = smooth_run(pts, True, 3.0 * K)
+        ap = cv2.approxPolyDP(sm.astype(np.float32).reshape(-1, 1, 2), 0.35 * K, True)[:, 0, :]
+    else:
+        out = []
+        for j, i0 in enumerate(corners):
+            i1 = corners[(j + 1) % len(corners)]
+            run = pts[i0:i1 + 1] if i1 > i0 else np.concatenate([pts[i0:], pts[:i1 + 1]])
+            run = smooth_run(run, False, 3.0 * K)
+            ap_run = cv2.approxPolyDP(run.astype(np.float32).reshape(-1, 1, 2), 0.35 * K, False)[:, 0, :]
+            out.extend(ap_run[:-1])
+        ap = np.array(out)
+    return 'M' + ' L'.join(f'{x:.1f},{y:.1f}' for x, y in ap) + ' Z '
+
 def polys(mask, color, holes=False, open_k=5, blur=9):
+    open_k, blur = odd(open_k) if open_k > 1 else 1, odd(blur)
     m = mask.astype(np.uint8) * 255
     # smooth the edges so pixel steps and tiny crop flats at the image border don't show as bumps
     m = cv2.GaussianBlur(m, (blur, blur), 0)
@@ -65,19 +113,18 @@ def polys(mask, color, holes=False, open_k=5, blur=9):
     cs, _ = cv2.findContours(m, mode, cv2.CHAIN_APPROX_NONE)
     d = ''
     for c in cs:
-        if cv2.contourArea(c) < 25:
+        if cv2.contourArea(c) < 25 * K * K:
             continue
-        ap = cv2.approxPolyDP(c, 1.4, True)
-        d += 'M' + ' L'.join(f'{p[0][0]},{p[0][1]}' for p in ap) + ' Z '
+        d += refine(c)
     return f'<path d="{d.strip()}" fill="{color}" fill-rule="evenodd"/>' if d else ''
 
 fills = sorted((i for i in range(len(palette)) if i != outline), key=lambda i: -(lab == i).sum())
 # 1) the whole silhouette in the outline color, so the outer edge is never lighter than the outline,
 # 2) the inside in the main color (slightly grown so no seams show), 3) each other flat color,
 # 4) the outline ring again on top so nothing covers it.
-inside = cv2.dilate(((lab >= 0) & (lab != outline)).astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool) & opaque
+inside = cv2.dilate(((lab >= 0) & (lab != outline)).astype(np.uint8), np.ones((odd(5), odd(5)), np.uint8)).astype(bool) & opaque
 shapes = [polys(opaque, hexc(palette[outline])), polys(inside, hexc(palette[fills[0]]))]
-grow = lambda m: cv2.dilate(m.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool) & opaque
+grow = lambda m: cv2.dilate(m.astype(np.uint8), np.ones((odd(5), odd(5)), np.uint8)).astype(bool) & opaque
 shapes += [polys(grow(lab == i), hexc(palette[i]), holes=True) for i in fills[1:]]
 shapes.append(polys(lab == outline, hexc(palette[outline]), holes=True, open_k=1, blur=5))
 shapes = [x for x in shapes if x]
