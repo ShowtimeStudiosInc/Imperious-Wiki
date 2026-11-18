@@ -1,0 +1,47 @@
+name: Cherry Quartz
+slug: cherry-quartz-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: ACT Bonus
+    name: Spot the Flaw
+    tags: []
+    cost: null
+    text: Cherry Quartz studies one enemy or structure for a weak point. The next hit an ally lands on it deals +3 damage.
+    moves: []
+role: >-
+  A Clear Quartz shifts into a Cherry Quartz when they show a sharp mind for catching small mistakes, flaws, and errors
+  before anyone else notices. They handle quality assurance, safety inspections, and final reviews across Frontier
+  shipyards, factories, and construction sites. Nothing gets put into service or handed over for public use until a
+  Cherry Quartz has gone over it with a fine-tooth comb. They are direct, blunt, and don't bother sugarcoating their
+  findings when pointing out a bad weld or flawed blueprint. Because of their strict standards, people can sometimes
+  find them tough to deal with at first. However, crew members know that a Cherry Quartz's honest critique is what keeps
+  everyone safe, and those who earn their respect have a reliable teammate who will always catch a problem before it
+  turns into a disaster.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/cherry-quartz-uf.svg
+credit: null
+modifiers:
+  atk: -1
+  def: -1
+  hp: -2
+  spd: 0
+  int: 3
+  mag: -1
+shiftOf: clear-quartz
+updated: '2026-11-18'

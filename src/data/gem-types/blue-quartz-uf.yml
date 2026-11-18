@@ -1,0 +1,53 @@
+name: Blue Quartz
+slug: blue-quartz-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Hydrokinesis
+    tags: []
+    cost: null
+    text: >-
+      Blue Quartz has a light pull over water, letting her draw it toward her, push it away, or shift its flow. She can
+      also chill water or moisture in the air down to ice, enough to freeze a puddle, coat a surface for grip, or form a
+      small shard of ice to use as a tool.
+    moves:
+      - name: Ice Shard
+        tags:
+          - 1 SP
+        cost: 1
+        text: Blue Quartz throws a shard of ice at one target for 1d6 + MAG Ice damage.
+role: >-
+  A Clear Quartz shifts into a Blue Quartz when drawn to water systems, coastal towns, dive rescue, and planets with
+  large oceans or rivers. They manage water lines, clear out clogged drainage channels, and keep water moving smoothly
+  through frontier colonies. Most Blue Quartzes spend their time near open water or sub-surface plumbing rigs, feeling
+  right at home in high-moisture environments. Their easygoing nature makes them a calming presence in tense situations.
+  During severe rainstorms, pipe breaks, or rescue ops, a Blue Quartz can hold back rising water, patch leaks on the fly
+  with ice seals, and pull trapped gems out of deep currents.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/blue-quartz-uf.svg
+credit: null
+modifiers:
+  atk: -1
+  def: -1
+  hp: -2
+  spd: 1
+  int: -1
+  mag: 0
+shiftOf: clear-quartz
+updated: '2026-11-18'

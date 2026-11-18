@@ -1,0 +1,60 @@
+name: Seraphinite
+slug: seraphinite
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 0
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'10"
+stats:
+  hp: 34
+  atk: 3
+  def: 7
+  spd: 5
+  int: 6
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Healing
+    tags: []
+    cost: null
+    text: >-
+      Seraphinite can heal wounds, repair severe physical trauma, and reverse light-form instability at an absolute
+      masterclass level, surpassing even Celestines.
+    moves:
+      - name: Restore
+        tags:
+          - 3 SP
+        cost: 3
+        text: Heals one ally for 3d6 + MAG, and mends their cracks.
+      - name: Mass Restore
+        tags:
+          - 4 SP
+        cost: 4
+        text: Heals every ally who is Near for 2d6 + MAG, and mends their cracks.
+  - section: Signature Ability
+    name: Flight
+    tags:
+      - PASSIVE
+    cost: null
+    text: Seraphinite can fly. While flying, she counts as Far to anyone on the ground.
+    moves: []
+role: >-
+  Seraphinites hold the absolute highest medical authority across the United Frontier, functioning as hospital chief
+  administrators. They manage the overarching hospital facility, handle medical administration, coordinate systemic
+  healthcare policy, and oversee diagnostic leads like Celestines, who in turn direct teams of Doctors. Like Celestines,
+  they were never produced in the Gempire past Era 0.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/seraphinite.svg
+credit: null
+updated: '2026-11-18'

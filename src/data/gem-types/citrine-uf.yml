@@ -1,0 +1,55 @@
+name: Citrine
+slug: citrine-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Acid Generation
+    tags: []
+    cost: null
+    text: >-
+      Citrine's body produces a mild acid that eats through metal on contact, weakening support beams, hull plates, or
+      wreckage fast enough to tear them apart by hand.
+    moves:
+      - name: Acid Touch
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Citrine burns a target she's touching for 2d4 + MAG Corrosive damage. Their DEF drops by 1 for 2 turns,
+          stacking up to 3 times.
+role: >-
+  A Clear Quartz shifts into a Citrine when they gravitate toward demolition and salvage work. They specialize in
+  tearing down old structures, breaking apart wreckage, and stripping usable metal out of scrap piles that would
+  otherwise take a full crew days to clear using heavy machinery. The Prism shift gives them the exact tools for the
+  job, letting their body produce an acid sharp enough to dissolve worked metal on the spot. Citrines are blunt, direct,
+  and say exactly what they think without filtering it. That no-nonsense attitude works well on demolition sites, where
+  their entire day consists of deciding a structure needs to come down and physically making sure it does. Off the job,
+  their straightforward honesty makes them easy to read and reliable teammates who never beat around the bush.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/citrine-uf.svg
+credit: null
+modifiers:
+  atk: 1
+  def: -1
+  hp: -2
+  spd: 0
+  int: -1
+  mag: -1
+shiftOf: clear-quartz
+updated: '2026-11-18'

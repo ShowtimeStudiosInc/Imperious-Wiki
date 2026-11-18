@@ -1,0 +1,55 @@
+name: Milky Quartz
+slug: milky-quartz-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Sleep Inducement
+    tags: []
+    cost: null
+    text: Milky Quartz can breathe out a soft, pale mist that pulls others toward sleep.
+    moves:
+      - name: Milky Mist
+        tags:
+          - 4 SP
+        cost: 4
+        text: >-
+          Mist spreads across the battlefield. Every enemy resists with INT. Those who fail fall
+          <:Asleep:1569712124043857941>Asleep for 2 turns, and any damage wakes them. Allies in the mist don't fall
+          asleep unless they choose to, and heal 1d4 instead.
+role: >-
+  A Clear Quartz shifts into a Milky Quartz when they gravitate toward caretaking, field recovery, and post-shift rest
+  management. They run recovery wards, quiet quarters, and field clinics across frontier settlements, specializing in
+  helping overworked crews wind down and recover from physical exhaustion. Easygoing, patient, and deeply gentle, a
+  Milky Quartz treats proper rest as a serious skill, often taking the time to guide gems who don't know how to turn
+  their minds off after a rough shift. They are legendary sleepers themselves, famous for taking nap breaks in the
+  middle of quiet work hours and sleeping through background noise that would keep anyone else awake. Once a Milky
+  Quartz goes out for the night, waking them up takes serious effort, leaving most crews to wonder why a gem built for
+  restoration needs so much downtime of their own.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/milky-quartz-uf.svg
+credit: null
+modifiers:
+  atk: -2
+  def: 1
+  hp: 2
+  spd: -2
+  int: 0
+  mag: 0
+shiftOf: clear-quartz
+updated: '2026-11-18'

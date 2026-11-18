@@ -1,0 +1,53 @@
+name: Rose Quartz
+slug: rose-quartz-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Empathy
+    tags: []
+    cost: null
+    text: Rose Quartz can sense and influence the emotional states of gems and organics around her.
+    moves:
+      - name: Calm Heart
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Rose Quartz ends one emotion-based status, like <:Frightened:1568074311229644951>Frightened or
+          <:Charged:1568077100014112898>Charged, on anyone, ally or enemy.
+role: >-
+  A Clear Quartz shifts into a Rose Quartz when she gravitates toward community-focused work, social support, and
+  frontline morale management. She spends her time where people gather, working in settlement hubs, active mess halls,
+  or housing quarters, any job that keeps her right in the middle of the group. Rose Quartzes hate being alone and
+  thrive on group energy, making them the heart of whatever community or crew they land in. She is rowdy, open, and
+  intensely warm, bringing a loud, welcoming presence that brings people together. Because she is constantly tuned into
+  the emotions of those around her, she catches personal stress, hidden worries, or rising arguments long before they
+  turn into actual problems. She is usually the first person to step in with a harsh reality check or a loud laugh to
+  clear the tension, keeping the crew close and making sure no one gets left to struggle on their own.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/rose-quartz-uf.svg
+credit: null
+modifiers:
+  atk: -2
+  def: 0
+  spd: 0
+  int: 0
+  mag: 0
+shiftOf: clear-quartz
+updated: '2026-11-18'

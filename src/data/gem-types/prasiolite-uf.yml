@@ -1,0 +1,48 @@
+name: Prasiolite
+slug: prasiolite-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: ACT Bonus
+    name: Assemble
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that build or put together tech from parts on hand are especially effective for
+      her. She never needs a manual or blueprint.
+    moves: []
+role: >-
+  A Clear Quartz shifts into a Prasiolite when she gravitates toward hands-on technical construction and assembling gem
+  tech across the United Frontier. Instead of spending time studying schematics or measuring layouts, she works by raw
+  instinct, assembling complex machinery straight out of the box or off the scrap pile. She is the builder crews call
+  when an entire installation needs its tech systems put together from scratch on a tight deadline. Prasiolites are
+  hardware enthusiasts through and through, taking clear pride in going from a mess of loose gears and wiring to a fully
+  operational machine in record time. On breaks, she is the type to talk your ear off about new tech releases, lab
+  prototypes, and hardware design. Her knack for seeing how individual components fit into the big picture makes her a
+  huge asset on any job site where building things quickly and correctly matters.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/prasiolite-uf.svg
+credit: null
+modifiers:
+  atk: -1
+  def: 0
+  spd: 0
+  int: 2
+  mag: -1
+shiftOf: clear-quartz
+updated: '2026-11-18'

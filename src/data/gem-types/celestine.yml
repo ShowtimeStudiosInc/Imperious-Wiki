@@ -1,0 +1,53 @@
+name: Celestine
+slug: celestine
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 0
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'2"
+stats:
+  hp: 34
+  atk: 2
+  def: 7
+  spd: 5
+  int: 7
+  mag: 6
+abilities:
+  - section: Signature Ability
+    name: Healing
+    tags: []
+    cost: null
+    text: Celestine can heal wounds and injuries at a stronger level than a standard Angelite, including cracks.
+    moves:
+      - name: Restore
+        tags:
+          - 3 SP
+        cost: 3
+        text: Heals one ally for 2d6 + MAG, and mends their cracks.
+  - section: Signature Ability
+    name: Flight
+    tags:
+      - PASSIVE
+    cost: null
+    text: Celestine can fly without needing wings. While flying, she counts as Far to anyone on the ground.
+    moves: []
+role: >-
+  Celestines are one of the primary medical authorities within each department of hospitals across the United Frontier.
+  They manage multiple medical teams, overseeing a structure where an Arch-Angelite leads a specific team and standard
+  Angelites make up its members. They hold one of the two highest medical ranks in each hospital, and have never been
+  produced in the Gempire past Era 0.
+interactions: null
+description: null
+image: /images/gem-types/celestine.webp
+gemstone: /images/gemstones/celestine.svg
+credit: null
+updated: '2026-11-18'

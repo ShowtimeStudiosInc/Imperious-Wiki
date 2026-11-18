@@ -1,0 +1,57 @@
+name: Zebra Jasper
+slug: zebra-jasper-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Ergokinesis
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Zebra Jasper channels kinetic energy into her limbs, putting far more force behind a strike, most often a kick.
+      Each hit of her FIGHTs deals +1 damage.
+    moves: []
+  - section: Signature Ability
+    name: Herd Bond
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      As long as Zebra Jasper travels and fights alongside a bonded group, she gains +1 ATK for each ally Near her, up
+      to +2. The bonus drops the moment the group splits up or she's left on her own.
+    moves: []
+role: >-
+  A Clear Quartz shifts into a Zebra Jasper when they are drawn toward working as wilderness guides, leading crews
+  through caves, storms, unmapped terrain, and disorienting badlands, and open-plains trek leaders. Whenever a crew
+  needs to cross exposed badlands, sprawling savannahs, or unmapped frontier territory where hostile wildlife or sudden
+  weather poses a threat, a Zebra Jasper leads the way. They generally like jobs where they can spend their days
+  outdoors navigating rough country with a crew. They thrive on the open trail, matching their high physical stamina
+  with a keen eye for terrain hazards. A Zebra Jasper stays aware of the whole group's pace, making sure nobody lags
+  behind or gets separated in blinding dust or tall brush.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/zebra-jasper-uf.svg
+credit: null
+modifiers:
+  atk: 2
+  def: 0
+  spd: 0
+  int: -2
+  mag: -2
+shiftOf: clear-quartz
+updated: '2026-11-18'

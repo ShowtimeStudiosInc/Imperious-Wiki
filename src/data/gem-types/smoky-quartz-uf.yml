@@ -1,0 +1,54 @@
+name: Smoky Quartz
+slug: smoky-quartz-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Vibrokinesis
+    tags: []
+    cost: null
+    text: >-
+      Smoky Quartz can create, shape, and control vibrations from her body or through direct contact with a surface or
+      object.
+    moves:
+      - name: Tremor
+        tags:
+          - 3 SP
+        cost: 3
+        text: Smoky Quartz shakes the ground, dealing 1d6 + MAG damage to every enemy who is Near.
+role: >-
+  A Clear Quartz shifts into a Smoky Quartz when she gravitates toward heavy, grounded labor like excavation, demolition
+  prep, and foundation work. She handles tasks that require a direct feel for the terrain, using her vibrations to check
+  stone stability, loosen packed earth, or crack stubborn rock layers before heavy equipment moves in. Smoky Quartzes
+  are right at home in deep soil, dusty worksites, and underground shafts. She is down-to-earth, relaxed, and easy to
+  laugh with on the job. No matter how tough, dusty, or miserable a shift gets, a Smoky Quartz keeps her balance and
+  uses her quick humor to keep everyone's spirits up. Her steady nature and physical connection to the ground make her a
+  reliable presence on any crew, keeping the work moving without letting the stress get to her or the people working
+  beside her.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/smoky-quartz-uf.svg
+credit: null
+modifiers:
+  atk: 0
+  def: 1
+  hp: 2
+  spd: -1
+  int: -1
+  mag: -1
+shiftOf: clear-quartz
+updated: '2026-11-18'

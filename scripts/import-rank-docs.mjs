@@ -14,7 +14,7 @@ const FILE_RANK = {
   'rank-1-2.md': '1.2', 'rank-2-1.md': '2.1', 'rank-2-2.md': '2.2', 'rank-2-3.md': '2.3',
   'rank-3-1.md': '3.1', 'rank-3-2.md': '3.2', 'rank-3-3.md': '3.3',
   'rank-4-1.md': '4.1', 'rank-4-2.md': '4.2', 'rank-4-3.md': '4.3',
-  'rank-5-1.md': '5.1', 'rank-5-2.md': '5.2', 'lost-lights.md': null,
+  'rank-5-1.md': '5.1', 'rank-5-2.md': '5.2', 'lost-lights.md': null, 'united-frontier.md': null, 'rogues.md': null,
 };
 
 const METALS = new Set(['gold', 'silver', 'platinum', 'steel', 'iron', 'tungsten', 'copper', 'bronze', 'brass',
@@ -74,6 +74,9 @@ function parseHeader(line, fileRank) {
     else if (u === 'GENERAL GROUP') g.kind = 'group';
     else if (u === 'DISCONTINUED GEM-TYPE') g.status.push('Discontinued');
     else if (u === 'LOST GEM-TYPE') g.faction = 'lost';
+    else if (u === 'UNITED FRONTIER GEM-TYPE' || u === 'UNITED FRONTIER') g.faction = 'united-frontier';
+    else if (u === 'THE QUARTZ GROUP') g.quartzGroup = true;
+    else if (u === 'ROGUE GEM-TYPE' || u === 'ROGUE') g.faction = 'rogue';
     else if ((mm = t.match(/^ERA\s+(.+)$/i))) g.era = 'Era ' + mm[1].replace(/side-b/i, 'Side-B');
     else g.unknownTags = [...(g.unknownTags || []), t];
   }
@@ -93,10 +96,18 @@ function parseBlock(lines, fileRank) {
   let current = null;
   let after = null; // 'role' | 'interactions'
   let extra = null;
+  let modMode = false;
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].replace(/\s+$/, '');
     if (!line.trim()) { current = null; continue; }
     let m;
+    if (/STAT MODIFIER/.test(line)) { modMode = true; continue; }
+    if (modMode && (m = line.match(/^_``(HP|ATK|DEF|SPD|INT|MAG):``_\s*([+-]?\d+)\s*(?:\(HP\s*([+-]?\d+)\))?/))) {
+      gem.modifiers = gem.modifiers || {};
+      gem.modifiers[m[1].toLowerCase()] = Number(m[2]);
+      if (m[3] !== undefined) gem.modifiers.hp = Number(m[3]);
+      continue;
+    }
     if ((m = line.match(/^_``(HP|ATK|DEF|SPD|INT|MAG):``_\s*(.*)$/))) {
       const v = m[2].trim();
       stats[m[1].toLowerCase()] = /^\d+$/.test(v) ? Number(v) : null;
@@ -159,6 +170,7 @@ function slugFor(g) {
   if (g.variant) base += ' ' + g.variant + ' variant';
   else if (g.era && ['Hessonite', 'Hematite', 'Peridot', 'Gold', 'Steel', 'Bronze'].includes(g.displayName)) base += ' ' + g.era;
   else if (g.kind === 'fusion' && ['Malachite', 'Opal'].includes(g.displayName)) base += ' fusion';
+  else if (g.faction === 'united-frontier' && g.quartzGroup && g.displayName !== 'Clear Quartz') base += ' uf';
   return slugify(base);
 }
 
@@ -218,6 +230,8 @@ for (const g of all) {
     image: ex.image ?? null,
     gemstone: fs.existsSync(path.join(ROOT, 'public/images/gemstones', g.slug + '.svg')) ? `/images/gemstones/${g.slug}.svg` : null,
     credit: ex.credit ?? null,
+    modifiers: g.modifiers ?? undefined,
+    shiftOf: g.faction === 'united-frontier' && g.quartzGroup && g.displayName !== 'Clear Quartz' ? 'clear-quartz' : undefined,
     attachments: ex.attachments ?? undefined,
     updated: new Date().toISOString().slice(0, 10),
   };

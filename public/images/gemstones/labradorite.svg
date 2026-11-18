@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<defs><clipPath id="cl-labradorite"><ellipse cx="100" cy="100" rx="64" ry="84"/></clipPath></defs>
+<ellipse cx="100" cy="100" rx="64" ry="84" fill="#3a4a5a"/>
+<g clip-path="url(#cl-labradorite)">
+<path d="M0,54 C 50,32 110,74 200,44" fill="none" stroke="#4fd0e0" stroke-width="9"/>
+<path d="M0,86 C 50,64 110,106 200,76" fill="none" stroke="#4fd0e0" stroke-width="6"/>
+<path d="M0,118 C 50,96 110,138 200,108" fill="none" stroke="#4fd0e0" stroke-width="9"/>
+<path d="M0,150 C 50,128 110,170 200,140" fill="none" stroke="#4fd0e0" stroke-width="6"/>
+<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#1f273a" opacity="0.28"/>
+</g>
+<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#c9d6da" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
+<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#1b1d3c" stroke-width="9"/>
+</svg>

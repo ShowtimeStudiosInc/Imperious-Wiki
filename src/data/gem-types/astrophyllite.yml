@@ -1,0 +1,48 @@
+name: Astrophyllite
+slug: astrophyllite
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'0"
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 5
+  int: 8
+  mag: 5
+abilities:
+  - section: ACT Bonus
+    name: Insight
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that read someone's strengths or weaknesses are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Serene Presence
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Astrophyllite may learn to give off an aura that eases the nerves of those around her.
+      <:Frightened:1568074311229644951>Frightened allies Near her shake it off at the start of their turn.
+    moves: []
+role: >-
+  Astrophyllite work as career counselors across the United Frontier, meeting with young gems as they approach adulthood
+  to help them choose which school and trade path fits them best.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/astrophyllite.svg
+credit: null
+updated: '2026-11-18'

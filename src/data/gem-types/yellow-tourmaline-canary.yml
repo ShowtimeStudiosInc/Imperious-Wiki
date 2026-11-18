@@ -1,0 +1,41 @@
+name: Yellow Tourmaline (Canary)
+slug: yellow-tourmaline-canary
+rank: null
+side: null
+faction: united-frontier
+kind: sub-type
+parent: tourmaline
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'8"
+stats:
+  hp: 28
+  atk: 4
+  def: 4
+  spd: 5
+  int: 8
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Bargain
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that negotiate, haggle, or spot a fake, including holograms and disguises, are
+      especially effective for her.
+    moves: []
+role: >-
+  Yellow Tourmaline works as a broker and auctioneer, handling high value trades and appraisals for gems who don't trust
+  anyone else with the math.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/yellow-tourmaline-canary.svg
+credit: null
+updated: '2026-11-18'

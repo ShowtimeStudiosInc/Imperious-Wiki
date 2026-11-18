@@ -1,0 +1,47 @@
+name: Clear Quartz
+slug: clear-quartz
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 30
+  atk: 6
+  def: 5
+  spd: 5
+  int: 5
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Prism
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Every Quartz in the United Frontier starts out as a Clear Quartz, colorless and unshaped. As she grows and settles
+      into what she wants to become, her coloration shifts to match the Quartz type suited to that path. When the shift
+      completes, she gains that type's stat modifiers and abilities. A shift never adds stats overall: any power she
+      gains is paid for with stats, so every Quartz stays on equal footing. A Clear Quartz who hasn't found her path
+      keeps her base stats.
+    moves: []
+role: >-
+  None yet. A Clear Quartz's job is not decided until their Prism shift settles on a type. Because that shift is tied to
+  what they actually choose to pursue, Quartz gems get the widest range of freedom in the United Frontier's school
+  system. The tradeoff is that Quartz gems do not get a fallback job the way other gem types do. If the path they
+  shifted for falls through, they are on their own to find the next one, same as anyone starting over.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/clear-quartz.svg
+credit: null
+updated: '2026-11-18'

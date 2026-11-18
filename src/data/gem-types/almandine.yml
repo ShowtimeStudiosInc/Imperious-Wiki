@@ -1,0 +1,60 @@
+name: Almandine
+slug: almandine
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: Era 0
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 9'0"
+stats:
+  hp: 30
+  atk: 7
+  def: 5
+  spd: 6
+  int: 6
+  mag: 5
+abilities:
+  - section: Signature Ability
+    name: Psychokinesis
+    tags: []
+    cost: null
+    text: >-
+      Almandine can move debris and shift her surroundings with her mind, sense where survivors are and how they are
+      doing from a distance, and calm down panicked gems in an emergency. She always knows the HP and statuses of her
+      allies. These abilities grow stronger with training and time on the job.
+    moves:
+      - name: Pull Clear
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Almandine lifts one ally out of danger, moving them Behind or Far and freeing them if they're
+          <:Stuck:1569710918638510141>Stuck.
+  - section: Latent Ability
+    name: Fire Generation
+    tags: []
+    cost: null
+    text: >-
+      Almandine may learn to create and control small fires with focus, or reignite a dying one, mostly to stop fires
+      from spreading, clear a path, or provide heat in an emergency. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Almandines serve as first responders within the United Frontier's emergency services. They arrive at disaster sites,
+  collapsed structures, and other crisis situations to rescue trapped gems and manage the chaos around them. Despite
+  doing life saving work, Almandines are one of the less recognized garnet types, quietly handling emergencies while
+  flashier gems get the public attention. They are a humble garnet type and don't care for recognition beyond thanks
+  from the gems they save.
+interactions: null
+description: null
+image: /images/gem-types/almandine.webp
+gemstone: /images/gemstones/almandine.svg
+credit: null
+updated: '2026-11-18'

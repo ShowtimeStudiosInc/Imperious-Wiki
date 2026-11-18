@@ -1,0 +1,50 @@
+name: Carnelian
+slug: carnelian-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Heat Resistance
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Carnelian's outer form hardens under heat instead of breaking down from it. She takes half damage from Fire, and
+      extreme heat never wears down her stats, no matter how long she works in it.
+    moves: []
+role: >-
+  A Clear Quartz shifts into a Carnelian when drawn toward work in deserts, arid badlands, and scorched planet surfaces.
+  They take on the outdoor labor jobs that would wear down almost any other gem, handling heavy clearing, surface
+  drilling, and road building under harsh suns and heatwaves. While other crews have to rotate out to avoid overheating,
+  Carnelians can stay on-site all day without losing their footing or slowing down. They tend to be tough, stubborn, and
+  relaxed about harsh living conditions. Most Carnelians enjoy the wide-open space of desert colonies and prefer the dry
+  heat over indoor work stations. Off the clock, many of them stick around the sand dunes to build detailed sand
+  structures and small sculptures, taking time to carve out little temporary landmarks around their campsites just for
+  fun.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/carnelian-uf.svg
+credit: null
+modifiers:
+  atk: 1
+  def: 1
+  hp: 2
+  spd: 0
+  int: -1
+  mag: -2
+shiftOf: clear-quartz
+updated: '2026-11-18'

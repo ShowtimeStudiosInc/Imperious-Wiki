@@ -47,6 +47,8 @@ export const collections = {
       gemstone: z.string().nullable().optional(),
       credit: z.string().nullable().optional(),
       attachments: z.array(z.string()).optional(),
+      modifiers: z.record(z.string(), z.number()).optional(),
+      shiftOf: z.string().optional(),
       updated: z.string().optional(),
     }),
   }),

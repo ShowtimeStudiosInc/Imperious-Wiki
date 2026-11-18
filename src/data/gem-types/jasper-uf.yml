@@ -1,0 +1,50 @@
+name: Jasper
+slug: jasper-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Body Hardening
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Jasper's form thickens and toughens, becoming dense and hard to crack. Every physical hit on her is reduced by 2
+      more. This doesn't apply to magic or elemental damage.
+    moves: []
+role: >-
+  A Clear Quartz shifts into a Jasper when they gravitate toward heavy physical labor, site security, and frontline
+  protection work. They take on jobs that require raw durability and staying power, from guarding remote outposts to
+  clearing heavy collapse hazards on dangerous worksites. Jaspers are built to take a beating and keep moving forward,
+  serving as the physical shield for whatever crew they join. On the surface, Jaspers come across as loud, brash, and
+  aggressive about getting the job done. Beneath that rough exterior, they carry a deep sense of responsibility for
+  their teammates, actively putting themselves in harm's way so others don't have to take the hit. They are the ones who
+  hold the line when an overhang gives way or a site security breach happens, ensuring everyone else makes it home in
+  one piece.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/jasper-uf.svg
+credit: null
+modifiers:
+  atk: 2
+  def: 1
+  hp: 2
+  spd: -1
+  int: -2
+  mag: -2
+shiftOf: clear-quartz
+updated: '2026-11-18'

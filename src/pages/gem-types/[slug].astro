@@ -27,7 +27,11 @@ const children = all.filter((x) => x.kind === 'sub-type' && resolveSlug(all, x.p
 const partOf = all.filter((x) => x.components?.some((c) => c === g.slug || resolveSlug(all, c)?.slug === g.slug));
 const halves = (g.components ?? []).map((c) => resolveSlug(all, c) ?? { name: c, slug: null });
 const siblings = all.filter((x) => x.slug !== g.slug && x.name === g.name);
+const shiftFrom = g.shiftOf ? resolveSlug(all, g.shiftOf) : null;
+const shifts = all.filter((x) => x.shiftOf === g.slug);
 const related = [
+  ...(shiftFrom ? [{ label: 'Shifts from', items: [shiftFrom] }] : []),
+  ...(shifts.length ? [{ label: 'Prism shifts', items: shifts }] : []),
   ...(parent ? [{ label: 'Parent type', items: [parent] }] : []),
   ...(halves.length ? [{ label: 'Fusion of', items: halves }] : []),
   ...(children.length ? [{ label: 'Sub-types', items: children }] : []),
@@ -40,7 +44,7 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
 ---
 <Site title={fullName(g)} description={desc} current="gem-types">
   <main class="wrap codex">
-    <p class="crumbs"><a href={url('/gem-types/')}>Gem-Types</a> <span>/</span> {rank ? <span>Rank {g.rank} · {rank.name}</span> : <span>{g.faction === 'lost' ? 'Lost Lights' : ''}</span>}</p>
+    <p class="crumbs"><a href={url('/gem-types/')}>Gem-Types</a> <span>/</span> {rank ? <span>Rank {g.rank} · {rank.name}</span> : <span>{g.faction === 'lost' ? 'Lost Lights' : g.faction === 'united-frontier' ? 'United Frontier' : g.faction === 'rogue' ? 'Rogues' : ''}</span>}</p>
 
     <section class="panel namebar">
       <div class="bar">&nbsp;</div>
@@ -124,7 +128,7 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
         </section>
 
         <section class="panel">
-          <div class="bar">Base Stats</div>
+          <div class="bar">{g.modifiers ? 'Stat Modifiers' : 'Base Stats'}</div>
           <div class="body">
             {s ? (
               <>
@@ -138,6 +142,16 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
                 <p class="statnote">
                   Stat points {statTotal}{rank?.budget ? ` of a ${rank.budget} budget, the rest pays for abilities` : ''}. HP ceiling {hpCeiling} (20 + DEF × 2).
                 </p>
+              </>
+            ) : g.modifiers ? (
+              <>
+                <div class="statgrid">
+                  {(['hp', 'atk', 'def', 'spd', 'int', 'mag'] as const).map((k) => {
+                    const v = g.modifiers?.[k] ?? 0;
+                    return <div class="stat"><span class="k">{k.toUpperCase()}</span><span class="v">{v > 0 ? `+${v}` : v}</span></div>;
+                  })}
+                </div>
+                <p class="statnote">Stat modifiers. Add these to a Clear Quartz's base stats when her Prism shift settles on this type.</p>
               </>
             ) : <p class="muted">A fusion's stats come from its two halves. Add them together on the fusion's sheet.</p>}
           </div>

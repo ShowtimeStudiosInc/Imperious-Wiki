@@ -1,0 +1,56 @@
+name: Aventurine
+slug: aventurine-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Chlorokinesis
+    tags: []
+    cost: null
+    text: >-
+      Aventurine can grow and shape plant life with her hands, coaxing crops, vines, and root systems to grow faster and
+      stronger than they would on their own.
+    moves:
+      - name: Bramble Field
+        tags:
+          - 3 SP
+        cost: 3
+        text: >-
+          Thorny vines burst up around her. Every enemy who is Near resists with SPD. Those who fail are
+          <:Stuck:1569710918638510141>Stuck until the end of their next turn.
+role: >-
+  A Clear Quartz shifts into an Aventurine when they get drawn toward farming, crop management, and land care. They
+  handle most of the food growth and green space maintenance across frontier settlements, spending their days working
+  directly with crops, trees, and soil. Most Aventurines prefer working outside with their hands in the dirt over
+  staying indoors or handling heavy machinery. They tend to be patient and easygoing, usually keeping a steady pace that
+  fits the slow process of growing food. On farming settlements, they use their plant control to speed up harvest
+  cycles, save dying crops, or weave heavy root walls to protect fields from bad weather and wild animals. If a
+  settlement gets attacked, an Aventurine can turn thick vines and sharp thorns into quick barrier walls to keep trouble
+  out until help arrives.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/aventurine-uf.svg
+credit: null
+modifiers:
+  atk: -2
+  def: 1
+  hp: 2
+  spd: 0
+  int: -1
+  mag: 0
+shiftOf: clear-quartz
+updated: '2026-11-18'

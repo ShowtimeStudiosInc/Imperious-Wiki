@@ -41,6 +41,26 @@ sides:
 
 # Standard heights from Nugget #10 (plus newer types once they get one).
 heights:
+  zebra-jasper-uf: 8'0"
+  smoky-quartz-uf: 8'0"
+  rose-quartz-uf: 8'0"
+  prasiolite-uf: 8'0"
+  milky-quartz-uf: 8'0"
+  jasper-uf: 8'0"
+  citrine-uf: 8'0"
+  cherry-quartz-uf: 8'0"
+  carnelian-uf: 8'0"
+  blue-quartz-uf: 8'0"
+  aventurine-uf: 8'0"
+  amethyst-uf: 8'0"
+  clear-quartz: 8'0"
+  labradorite: 6'2"
+  astrophyllite: 6'0"
+  iolite: 5'10"
+  seraphinite: 7'10"
+  yellow-tourmaline-canary: 5'8"
+  celestine: 7'2"
+  almandine: 9'0"
   coal: 6'0"
   richterite: 3'11"
   salt: 3'0"
@@ -183,6 +203,8 @@ types:
   topaz: { image: /images/gem-types/topaz.webp }
   eucryptite: { image: /images/gem-types/eucryptite.webp }
   ruby: { image: /images/gem-types/ruby.webp }
+  celestine: { image: /images/gem-types/celestine.webp }
+  almandine: { image: /images/gem-types/almandine.webp }
   rainbow-angelite: { image: /images/gem-types/rainbow-angelite.webp }
   rainbow-obsidian: { image: /images/gem-types/rainbow-obsidian.webp }
   rainbow-quartz: { image: /images/gem-types/rainbow-quartz.webp }
@@ -228,7 +250,7 @@ types:
   rutile: { image: /images/gem-types/rutile.webp }
   angelite: { image: /images/gem-types/angelite.webp }
   zircon: { image: /images/gem-types/zircon.webp }
-  quartz: { image: /images/gem-types/quartz.webp, attachments: [amethyst, aventurine, blue-quartz, carnelian, cherry-quartz, citrine, jasper, milky-quartz, prasiolite, rose-quartz, smoky-quartz, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
+  quartz: { image: /images/gem-types/quartz.webp, attachments: [clear-quartz, amethyst, aventurine, blue-quartz, carnelian, cherry-quartz, citrine, jasper, milky-quartz, prasiolite, rose-quartz, smoky-quartz, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
   zebra-jasper: { image: /images/gem-types/zebra-jasper.webp }
   smoky-quartz: { image: /images/gem-types/smoky-quartz.webp }
   rose-quartz: { image: /images/gem-types/rose-quartz.webp }

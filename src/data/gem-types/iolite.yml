@@ -1,0 +1,49 @@
+name: Iolite
+slug: iolite
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'10"
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 5
+  int: 9
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Teach
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that explain a plan or an enemy's weakness to allies are especially effective for
+      her. Those allies have advantage on their next roll against that enemy.
+    moves: []
+  - section: Latent Ability
+    name: Memory Anchoring
+    tags: []
+    cost: null
+    text: >-
+      Iolite may learn to plant a strong mental cue in someone's mind that helps them recall a lesson later. Its moves
+      and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Iolite work as teachers and tutors across the United Frontier's school system, guiding gem children through their
+  education as they grow toward adulthood.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/iolite.svg
+credit: null
+updated: '2026-11-18'

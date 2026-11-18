@@ -1,0 +1,56 @@
+name: Amethyst
+slug: amethyst-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Plasma Generation
+    tags: []
+    cost: null
+    text: >-
+      Amethyst can create small streams of superheated plasma from her hands, hot enough to cut through metal cleanly or
+      fuse two pieces back together. Outside of combat, this lets her weld, cut, or reshape metal on the spot, no tools
+      needed.
+    moves:
+      - name: Plasma Torch
+        tags:
+          - 1 SP
+        cost: 1
+        text: >-
+          Amethyst cuts into a target she's touching for 1d6 + MAG Fire damage. She can also cut straight through a
+          metal barrier.
+role: >-
+  A Clear Quartz shifts into an Amethyst when they take a liking to welding, metalworking, and construction. They make
+  up most of the workers in shipyards and building sites across the frontier. They take a lot of pride in what they
+  build, often using their plasma to burn their name or a personal mark into metal beams before sealing them into walls.
+  They are known for being loud, friendly, and easy to talk to. Work sites with Amethysts usually have music playing,
+  people joking around, and high energy that makes long, hard shifts go by much faster. They are usually the first ones
+  called when a ship hull breaks open or a support beam snaps, since they can patch up structural damage using just
+  their hands on short notice.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/amethyst-uf.svg
+credit: null
+modifiers:
+  atk: 2
+  def: -1
+  hp: -2
+  spd: 0
+  int: -1
+  mag: -1
+shiftOf: clear-quartz
+updated: '2026-11-18'
