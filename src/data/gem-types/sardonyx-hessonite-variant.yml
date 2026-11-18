@@ -61,7 +61,11 @@ role: >-
   sub-type exists because of years of service from a Hessonite to Crimson Red Diamond. After many sessions with Court
   Crimson's Hematites, she became immune to the memory erasure effect and retired to serve a new purpose instead, a well
   earned retirement from the battlefield, celebrated with her own ceremony.
-interactions: null
+interactions: >-
+  This Sardonyx can carry a show alone, but she's most at home performing for the militia, at bases, stations, and after
+  hard battles. Having fought beside soldiers herself, she knows what they've been through and how to get a laugh out of
+  them anyway. She often shares the stage with other entertainers, and plenty of Hessonites still treat her like one of
+  their own.
 description: null
 image: null
 gemstone: /images/gemstones/sardonyx-hessonite-variant.svg

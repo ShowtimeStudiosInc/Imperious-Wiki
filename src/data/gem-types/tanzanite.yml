@@ -72,7 +72,11 @@ role: >-
   Tanzanites don't hold a real purpose in the actual hierarchy of the Gempire, beyond the normal duties of a Sapphire.
   They aren't very common, and are most likely to show up as the result of a sudden, emotional moment between a Pearl
   and a Sapphire.
-interactions: null
+interactions: >-
+  Since a Tanzanite has no set post of her own, many end up guarding shrines like the Indigium Shrine, working alongside
+  each other under the command of the Indicolites who keep them. They stand watch over the statues, remnants, and halls
+  of the shrine, and a Sapphire's sight makes them hard to catch off guard. They can be sent to war duties when needed,
+  but most stay at the shrines.
 description: null
 image: null
 gemstone: /images/gemstones/tanzanite.svg
