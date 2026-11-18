@@ -246,3 +246,23 @@ _``Latent Ability:``_
 
 _``Interactions:``_
 ``Celestites work over Arch-Angelites and Angelites, and next to Polyhedroid Agates on stations where Quartz soldiers need healing. When a patient's trouble is in their mind, not their body, a Celestite hands the case to a Selenite, or to a Hematite if it can't wait. They tend to keep a short list of the cracks they've sealed, and check on each one until it's been properly mended.``
+
+
+# BLUE TOURMALINE (INDICOLITE) [SUB-TYPE OF TOURMALINE] [ERA 1]
+**``BASE STATS``**
+_``HP:``_ 34
+_``ATK:``_ 5
+_``DEF:``_ 7
+_``SPD:``_ 4
+_``INT:``_ 8
+_``MAG:``_ 6
+_``Signature Ability:``_ 
+`Bubble Generation` [Minor] [Summoning] - Indicolite can bubble the fallen, keeping cracked gems and the shards of shattered ones safe on shrine grounds.
+> - `Lay to Rest [2 SP]` - Indicolite bubbles one Cracked ally, taking her out of the fight. She can't be Shattered while the bubble holds, and the bubble can only be popped once the battle is over.
+_``ACT Bonus:``_ 
+`Reverence` - <:Act:1568035453842751618>ACTs that call for respect, silence, or order are especially effective for her.
+
+``Era 1 Indicolites serve the empire as shrine keepers, looking after sacred places like the Indigium Shrine where fallen gems are laid to rest. They keep order on the grounds and won't tolerate any disrespect toward the fallen. Like Morganites, they can bubble gems, though an Indicolite's work is with the cracked and the shattered, not the captured. Most are small, and wear high collars and long sleeves. When the empire needed power relays in Era 2A, it remade Indicolite for that job, so the shrine keepers are the older line, and few new ones are made.``
+
+_``Interactions:``_
+``Indicolites keep a shrine in small groups, staying in close contact to keep its upkeep and duties running. They work alongside Tanzanites, and command guards to protect the shrine and themselves. A gem who comes to the shrine to grieve is welcome. A gem who comes to cause trouble deals with an Indicolite first.``

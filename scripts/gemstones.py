@@ -103,7 +103,8 @@ GEMS = {
     'zircon': ('diamond', '#5a8bff', {}),
     # 4.2
     'bismuth': ('square', '#ff8fd0', {'multi': ['#ff8fd0', '#7fd6ff', '#ffd27f']}),
-    'blue-tourmaline-indicolite': ('emerald-long', '#3f7fe0', {}),
+    'blue-tourmaline-indicolite-era-2a': ('emerald-long', '#3f7fe0', {}),
+    'blue-tourmaline-indicolite-era-1': ('emerald-long', '#3f7fe0', {}),
     'calcite': ('diamond', '#f2e6c4', {}),
     'chromium': ('ingot', '#c0c7d4', {}),
     'chrysoberyl': ('oval', '#e6d24a', {}),

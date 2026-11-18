@@ -329,7 +329,7 @@ _``Signature Ability:``_
 ``Goshenites are researchers and energy analysts. They study and get close to things that would destroy most other gems, like plasma storms, unstable ionic fields, and other high energy environments. Within the Northstar Research Institute [Part of the United Frontier], they handle energy based research and collect data in places too dangerous for most gems to work in. Within Court Emerald, most of their old work has been taken over by Peridots and Serpentine, so the ones still active serve as energy analysts spread across the empire, making sure power sources in colonies stay properly monitored. Goshenite is a Legacy Gem Type, first made under Omega White Diamond and later recreated by Alpha Black Diamond near the end of Era 0. They were most active early in Era 1A before newer gem types like Peridot and Serpentine took over most of their work. Only a handful remain today, and few gems across the empire know of them.``
 
 
-# BLUE TOURMALINE (INDICOLITE) [SUB-TYPE OF TOURMALINE]
+# BLUE TOURMALINE (INDICOLITE) [SUB-TYPE OF TOURMALINE] [ERA 2A]
 **``BASE STATS``**
 _``HP:``_ 26
 _``ATK:``_ 6
@@ -341,7 +341,10 @@ _``Signature Ability:``_
 `Electrokinesis` - Indicolite can't make her own electricity like Silver can, but she can pull current out of one source and move it into another, acting as a living relay between power grids, machines, and teleportation hubs.
 > - `Discharge [2 SP]` - Indicolite releases stored charge through a target she's touching, dealing 2d4 + MAG Electric damage. She must have drawn power from something since her last Discharge, like a machine, an ally such as a Silver or Copper, or an Electric attack.
 
-``Indicolites are durable and speedy gems, deployed near generators and teleportation hubs where their toughness makes them ideal for conducting and producing the electricity needed to keep the machines running. Male presenting Indicolites carry a medium square prism on their chest, while female presenting ones carry it on their forehead.``
+``Indicolites are durable and speedy gems, deployed near generators and teleportation hubs where their toughness makes them ideal for conducting and producing the electricity needed to keep the machines running. Male presenting Indicolites carry a medium square prism on their chest, while female presenting ones carry it on their forehead. This line was made in Era 2A for power work. The original Era 1 Indicolites are shrine keepers, and still serve in that role.``
+
+_``Interactions:``_
+``Indicolites work near generators and teleportation hubs, usually in pairs or small crews. They pull power from Silvers and pass it along to wherever it's needed, often handing it to Coppers to carry the rest of the way. When a hub goes down, an Indicolite is usually the first gem called in.``
 
 
 # GREEN TOURMALINE (CHROME) [SUB-TYPE OF TOURMALINE]

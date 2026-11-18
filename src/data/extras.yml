@@ -30,6 +30,7 @@ sides:
   agate: Authoritative
   alexandrite: Authoritative
   celestite: Authoritative
+  blue-tourmaline-indicolite-era-1: Authoritative
   aquamarine: Authoritative
   jade: Aristocratic
   fluorite: Authoritative
@@ -170,6 +171,7 @@ heights:
 types:
   garnet-sapphire-variant: { components: [ruby, sapphire], threatClass: Champion, image: /images/gem-types/garnet-sapphire-variant.webp }
   alexandrite: { components: [sapphire, quartz], threatClass: Champion, image: /images/gem-types/alexandrite.webp, credit: 'Canon + Lexariix', alsoFactions: [rogue] }
+  blue-tourmaline-indicolite-era-1: { image: /images/gem-types/blue-tourmaline-indicolite-era-1.webp, credit: Lexariix }
   crocoite: { image: /images/gem-types/crocoite.webp, credit: Lexariix }
   amazonite: { components: [peridot-era-2a, lapis], threatClass: Elite, image: /images/gem-types/amazonite.webp, credit: Lexariix, alsoFactions: [rogue] }
   green-serpentine: { components: [lapis, scapolite], threatClass: Champion, image: /images/gemstones/green-serpentine.svg }

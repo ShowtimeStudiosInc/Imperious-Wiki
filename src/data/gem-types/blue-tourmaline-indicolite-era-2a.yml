@@ -1,5 +1,5 @@
 name: Blue Tourmaline (Indicolite)
-slug: blue-tourmaline-indicolite
+slug: blue-tourmaline-indicolite-era-2a
 rank: '4.2'
 side: null
 faction: gempire
@@ -7,7 +7,7 @@ kind: sub-type
 parent: tourmaline
 components: null
 variant: null
-era: null
+era: Era 2A
 species: gem
 status: []
 traits: []
@@ -41,10 +41,15 @@ abilities:
 role: >-
   Indicolites are durable and speedy gems, deployed near generators and teleportation hubs where their toughness makes
   them ideal for conducting and producing the electricity needed to keep the machines running. Male presenting
-  Indicolites carry a medium square prism on their chest, while female presenting ones carry it on their forehead.
-interactions: null
+  Indicolites carry a medium square prism on their chest, while female presenting ones carry it on their forehead. This
+  line was made in Era 2A for power work. The original Era 1 Indicolites are shrine keepers, and still serve in that
+  role.
+interactions: >-
+  Indicolites work near generators and teleportation hubs, usually in pairs or small crews. They pull power from Silvers
+  and pass it along to wherever it's needed, often handing it to Coppers to carry the rest of the way. When a hub goes
+  down, an Indicolite is usually the first gem called in.
 description: null
 image: null
-gemstone: /images/gemstones/blue-tourmaline-indicolite.svg
+gemstone: /images/gemstones/blue-tourmaline-indicolite-era-2a.svg
 credit: null
 updated: '2026-11-18'
