@@ -120,7 +120,7 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
             {g.description && <p set:html={rich(g.description)} />}
             <dl class="facts">
               <dt>Height</dt><dd>{g.height ?? 'Not set yet'}</dd>
-              <dt>Rank</dt><dd>{rank ? `${g.rank} · ${rank.name}` : 'None'}</dd>
+              <dt>Rank</dt><dd>{rank ? `${g.rank} · ${rank.name}` : g.faction === 'united-frontier' ? 'United Frontier (no ranks)' : 'None'}</dd>
               {g.side && <><dt>Side</dt><dd>{g.side}</dd></>}
               {g.threatClass && <><dt>Threat Class</dt><dd>{g.threatClass}</dd></>}
             </dl>
