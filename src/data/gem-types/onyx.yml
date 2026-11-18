@@ -42,7 +42,10 @@ abilities:
 role: >-
   Onyxes specialize in training other gems in group combat techniques. They are uniquely suited to teach gems the use of
   weaponry, thanks to an unusually calm demeanor.
-interactions: null
+interactions: >-
+  Onyxes train Quartzes in groups, usually on stations run by Agates, who send them the soldiers who need it most. Where
+  an Iron teaches one gem to take a hit and fix her stance, an Onyx teaches a whole squad to fight together with any
+  weapon it's handed. Even rowdy Jaspers settle down under an Onyx, mostly because she never raises her voice.
 description: null
 image: null
 gemstone: /images/gemstones/onyx.svg

@@ -39,7 +39,10 @@ role: >-
   what they actually choose to pursue, Quartz gems get the widest range of freedom in the United Frontier's school
   system. The tradeoff is that Quartz gems do not get a fallback job the way other gem types do. If the path they
   shifted for falls through, they are on their own to find the next one, same as anyone starting over.
-interactions: null
+interactions: >-
+  Young Clear Quartzes spend their school years with Iolites and Astrophyllites, trying out paths before their Prism
+  settles. Many follow older Quartzes around worksites to see each job up close. A Clear Quartz whose path falls through
+  starts over like anyone else, often back in an Astrophyllite's office.
 description: null
 image: null
 gemstone: /images/gemstones/clear-quartz.svg

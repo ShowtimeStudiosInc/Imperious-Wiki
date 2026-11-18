@@ -35,7 +35,10 @@ role: >-
   Salts are only ever used for their fusion boosting ability, deployed alongside groups of other gems for work or
   combat. Uniquely, they never change what gem type a fusion becomes, a Demantoid and a Salt will always make a bigger
   Demantoid, for example.
-interactions: null
+interactions: >-
+  Salts travel with groups of other gems so they can fuse with one when extra power is needed. A Topaz and a Salt make a
+  bigger Topaz, which guards rarely mind. Gems tend to forget a Salt is there until the moment they need her, and most
+  Salts are used to that.
 description: null
 image: null
 gemstone: /images/gemstones/salt.svg

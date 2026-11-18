@@ -42,7 +42,10 @@ role: >-
   outdoors navigating rough country with a crew. They thrive on the open trail, matching their high physical stamina
   with a keen eye for terrain hazards. A Zebra Jasper stays aware of the whole group's pace, making sure nobody lags
   behind or gets separated in blinding dust or tall brush.
-interactions: null
+interactions: >-
+  Zebra Jaspers guide crews through storms, caves, and unmapped land, with Jaspers protecting the group and Carnelians
+  handling the heat. Labradorites rely on their trail notes to map new territory. Once a crew has crossed the badlands
+  with a Zebra Jasper, they usually ask for the same one next time.
 description: null
 image: null
 gemstone: /images/gemstones/zebra-jasper-uf.svg

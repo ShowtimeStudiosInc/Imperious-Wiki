@@ -39,7 +39,10 @@ abilities:
 role: >-
   Polyhedroid Agates mostly work as co heads for stations, taking charge of healing Quartz soldiers, or as an extra
   healer for ship fleets.
-interactions: null
+interactions: >-
+  Polyhedroid Agates share command of a station with its Agate, who runs the soldiers while the Polyhedroid Agate keeps
+  them healthy. When a soldier is hurt worse than she can fix, she sends them on to a Celestite's med bay. Geodes are
+  rarely made now, so Quartzes tend to look after the one on their station.
 description: null
 image: null
 gemstone: /images/gemstones/polyhedroid-agate.svg

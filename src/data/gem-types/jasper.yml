@@ -33,7 +33,10 @@ role: >-
   a lot like Amethysts and Smoky Quartzes, just with a harder edge. Under that brash attitude, there is a soft side to
   Jaspers too. They might not say it out loud, but they do care about you. They want to see you succeed and grow
   stronger.
-interactions: null
+interactions: >-
+  Jaspers serve with Amethysts and Smoky Quartzes as the hard edge of a Quartz squad, and Lapises fuse with them to make
+  Malachites. A Jasper will pick on the newest soldier in her unit for weeks, then be the first to step in front of her
+  in a real fight.
 description: null
 image: /images/gem-types/jasper.webp
 gemstone: /images/gemstones/jasper.svg

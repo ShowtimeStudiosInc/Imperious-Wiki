@@ -31,7 +31,10 @@ abilities:
 role: >-
   Calcites strengthen intellect, especially in the science field. In duality, they assist with researching flora and
   fauna, often achieving close proximity to wildlife due to their calming and nurturing nature!
-interactions: null
+interactions: >-
+  Calcites work with Serpentines in the lab and Aventurines in the field, and get closer to wildlife than almost any
+  other gem. Crocoites often call one in before cornering a creature, since a calm animal is much easier for an Era 0-1
+  Steel to move. Calcites and Crocoites do argue about which creatures need moving at all.
 description: null
 image: null
 gemstone: /images/gemstones/calcite.svg

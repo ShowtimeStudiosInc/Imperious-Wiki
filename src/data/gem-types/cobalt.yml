@@ -41,7 +41,11 @@ role: >-
   Cobalt handles high strength structural work and reinforcement jobs. Their capable of generates magnetic fields around
   themself and nearby metallic objects, which lets them stabilize structures, hold heavy loads in place, and move metal
   debris during construction and terraforming. Their essential for extreme condition work where standard gems fail.
-interactions: null
+interactions: >-
+  Cobalts hold heavy loads in place while Bismuths and Brown Tourmalines build around them, and clear metal debris for
+  Tungstens and Snowflake Obsidians. They pair closely with Chromiums, one holding a structure in place and the other
+  making it last. Soldiers with metal weapons keep their distance, since a Cobalt can pull a blade out of anyone's
+  hands.
 description: null
 image: null
 gemstone: /images/gemstones/cobalt.svg

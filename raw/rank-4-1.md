@@ -197,6 +197,9 @@ _``Signature Ability:``_
 
 ``Stellite is an advanced technology integrator and field enhancement specialist. She researches, builds, and directly installs upgrades on imperial equipment, vehicles, and weapons. When regular maintenance and upgrades are not enough, Stellite can merge directly with ships, war machines, or key infrastructure to give maximum performance and direct control during important missions. Her abilities depend entirely on how much she has studied, which makes her a valuable but constantly learning researcher. Only 12 of this gem exist, since a 3 component geode and alloy this rare is exceptionally hard to come by naturally in the Gempire.``
 
+_``Interactions:``_
+``With only 12 in existence, a Stellite is assigned to the empire's most important ships and war machines, working with the Peridots, Sphenes, and Nephrites who keep them running. Turquoises trade notes with her often, since a Turquoise builds the weapon and a Stellite makes it better. Her upgrades only work on gear she has studied, so every crew wants their equipment in front of her first.``
+
 
 # PERIDOT [ERA 0]
 **``BASE STATS``**
@@ -232,6 +235,9 @@ _``ACT Bonus:``_
 `Examine` - <:Act:1568035453842751618>ACTs that study a sample, substance, or wound up close are especially effective for her.
 
 ``Serpentines work as scientists and researchers across the Gempire. Their goggles help them study small, delicate, or hazardous details up close, whether that's examining gem essence, running experiments, or breaking down data other gems would struggle to read. Careful and precise, a Serpentine rarely misses the small stuff.``
+
+_``Interactions:``_
+``Serpentines work in labs under Zoisites, breaking down the essence samples and data for the experiments Zoisites design. Graphenes assist by shrinking down to see what even goggles can't, and Calcites bring in samples from the field. A Serpentine is usually the one who catches the small mistake before a Zoisite's test goes wrong.``
 
 
 # PADPARADSCHA SAPPHIRE [SUB-TYPE OF SAPPHIRE]
@@ -271,3 +277,6 @@ _``Signature Ability:``_
 `18 - The Sun:` +2 ATK for 2 turns.
 `19 - Judgement:` Cleanses all negative statuses from herself and up to 2 allies.
 `20 - The World:` +2 ATK and +2 MAG, and every hit on her is reduced by 2 more, for 2 turns.
+
+_``Interactions:``_
+``Padparadschas read for gems of every rank, though most of their regulars are low-ranked gems who could never book a Sapphire. Sapphires tend to look down on them, while Sunstones see them as fellow advisors with a different method. Rubies and Quartzes are some of their most loyal customers, coming back for a new reading before every deployment.``

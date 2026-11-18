@@ -42,7 +42,10 @@ role: >-
   They were not frontline combatants and instead served as dedicated medical personnel. Their unusual coloration,
   appearance and medical abilities are believed to have influenced the design philosophy behind some of the Angelites
   later produced by the United Frontier.
-interactions: null
+interactions: >-
+  Rainbow Angelites still work in med bays beside modern Angelites, who bring them the patients nothing else has helped.
+  United Frontier Angelites who meet one notice the resemblance right away, which makes it a sore subject in some
+  Gempire wards.
 description: null
 image: /images/gem-types/rainbow-angelite.webp
 gemstone: /images/gemstones/rainbow-angelite.svg

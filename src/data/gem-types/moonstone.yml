@@ -56,7 +56,10 @@ abilities:
     text: '`Self-Duplication` and `Elemental Affinity` - Any Latent Ability either half has unlocked carries into the fusion.'
     moves: []
 role: Moonstones are often deployed when a fight is needed on a planet during terraforming. It's rare to see a Moonstone.
-interactions: null
+interactions: >-
+  Moonstones are called in when a terraforming crew of Lapises, Malachites, and other geoformers runs into a fight it
+  can't avoid. Since her Pearl half often belonged to a terraformer, a Moonstone usually knows the crew she's
+  protecting. Most terraformers only see one once or twice in their careers.
 description: null
 image: null
 gemstone: /images/gemstones/moonstone.svg

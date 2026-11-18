@@ -60,7 +60,10 @@ role: >-
   and a helping hand in the lab. Its to be made aware there are a limited few of them these days due to their Gem-Type
   being discontinued since ERA 1A, partly due to Theta Gold's dislike of how many resources Geodes take to create, and
   also due to the new non-geode gem-types that have taken their role.
-interactions: null
+interactions: >-
+  Prasgoshenites guard labs and help inside them, working beside Serpentines, Peridots, and Prasiolites. Since they're
+  Discontinued and few remain, Zoisites keep the ones left on their most important sites. Goshenites treat them as
+  distant family, since both are leftovers from older eras.
 description: null
 image: null
 gemstone: /images/gemstones/prasiolite-goshenite.svg

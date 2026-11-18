@@ -42,7 +42,10 @@ role: >-
   you're ever tense and worked up, a Blue Quartz knows just how to calm you down. If these Quartzes were assigned to a
   planet with lots of water, they would be the best soldiers for that kind of environment, since they swim well and move
   easily through water. It's no wonder Lapises fuse with Blue Quartzes so often, their interests in water just line up.
-interactions: null
+interactions: >-
+  Blue Quartzes pair with Aventurines on organic planets and with each other on ocean worlds. Lapises fuse with them
+  more than with almost any other Quartz, since their love of water lines up. When a squad is wound up before a fight,
+  an Agate often sends a Blue Quartz in to calm it down.
 description: null
 image: /images/gem-types/blue-quartz.webp
 gemstone: /images/gemstones/blue-quartz.svg

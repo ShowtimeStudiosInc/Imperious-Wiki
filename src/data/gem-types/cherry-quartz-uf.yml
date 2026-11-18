@@ -31,7 +31,10 @@ role: >-
   find them tough to deal with at first. However, crew members know that a Cherry Quartz's honest critique is what keeps
   everyone safe, and those who earn their respect have a reliable teammate who will always catch a problem before it
   turns into a disaster.
-interactions: null
+interactions: >-
+  Cherry Quartzes inspect the work of nearly every other Quartz, from Amethyst welds to Prasiolite wiring. Plenty of
+  crews dread seeing one walk onto a site, but buildings rarely fail after she signs off. Cherry Quartzes and Citrines
+  get along better than most expect, since both say exactly what they think.
 description: null
 image: null
 gemstone: /images/gemstones/cherry-quartz-uf.svg

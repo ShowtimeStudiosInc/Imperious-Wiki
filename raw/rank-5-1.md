@@ -53,6 +53,9 @@ _``ACT Bonus:``_
 
 ``Watermelon Tourmaline works alongside Kandy's Kyanites, testing compatibility for fusion and marriage license approvals. She's partially a counselor, partially a relationship screening test.``
 
+_``Interactions:``_
+``Watermelon Tourmalines work for Kandy's Kyanites, screening gems who want to fuse for work or get married. A Ruby and Sapphire hoping to form a Garnet, or a Peridot and Lapis hoping to form an Amazonite, may pass through her office first. Her reports can make or break a request, so couples tend to be on their best behavior around her.``
+
 
 # SPECIALTY PEARL [SUB-TYPE OF PEARL]
 **``BASE STATS``**
@@ -70,3 +73,6 @@ _``Latent Ability:``_
 `Elemental Affinity` - Depending on her coloration, a Specialty Pearl may carry a power over one element tied to her color. Its moves and SP costs are set when it's unlocked.
 
 ``Specialty Pearls are a rare Pearl variant exclusive to Era 0 Reefs and their Nacre. Unlike standard Pearls, they cannot simply be gifted or assigned, they're won through Auction Events, making each one a genuine prize rather than a guaranteed companion. Every Specialty Pearl is born resembling the look of an existing gem-type, and carries an ability meant to complement or boost that same type's work, which makes her value at auction depend heavily on who's bidding and whether her resemblance actually lines up with their own.``
+
+_``Interactions:``_
+``A Specialty Pearl is won at auction from an Era 0 Nacre, usually by a gem of the type she resembles. Regular Pearls tend to see her as a show-off, while the gem who won her treats her as a prize. Bidding gets fierce when two gems of the same type want the same Pearl.``

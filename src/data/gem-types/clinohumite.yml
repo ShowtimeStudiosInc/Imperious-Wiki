@@ -48,7 +48,10 @@ role: >-
   Clinohumites serve as fire terraformers, manipulating flames at their will to clear out obstacles. They have
   incredible heat tolerances, sent to boiling planets that most would perish in. Their abilities can be used in the
   opposite sense of Lapis Lazuli's, forming and changing rocky land from the lava they control.
-interactions: null
+interactions: >-
+  Clinohumites work with Malachites and Yooperlites, clearing obstacles with fire while the others shape the land, and
+  Tungstens follow behind to haul off what's too hot to touch. Lapises and Clinohumites get along better than most
+  expect, since one works the land with water and the other with lava.
 description: null
 image: /images/gem-types/clinohumite.webp
 gemstone: /images/gemstones/clinohumite.svg

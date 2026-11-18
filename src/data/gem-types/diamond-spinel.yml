@@ -39,7 +39,10 @@ role: >-
   Pearls, they carry a faint trace of their Diamond's essence. Where a normal Spinel is a performer for the masses, and
   or perhaps for their sole owner, a Diamond Spinel is a performer for their Diamond alone, kept close for private
   entertainment.
-interactions: null
+interactions: >-
+  A Diamond Spinel performs for one audience, her Diamond, so other gems rarely see her act at all. Regular Spinels and
+  Sardonyxes see her as the top of their field, though she has more in common with a Diamond Pearl, since both live at
+  their Diamond's side.
 description: null
 image: /images/gem-types/diamond-spinel.webp
 gemstone: /images/gemstones/diamond-spinel.svg

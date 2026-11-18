@@ -68,7 +68,10 @@ role: >-
   Melanites are also called to med bays when a gem is badly cracked and not expected to recover, so they can sit with
   them and prepare their family for what comes next. Because their work puts them close to every shattering in the
   Frontier, Melanites are often the first to notice when too many gems are being lost in one place.
-interactions: null
+interactions: >-
+  Melanites work with Seraphinites and Celestines when a patient can't be saved, and with Labradorites, who keep the
+  records they write. Most gems feel uneasy around one, since their touch leaves things grey and they can tell when a
+  gem's end is near. Families who have lost someone tend to see them very differently.
 description: null
 image: null
 gemstone: /images/gemstones/melanite.svg

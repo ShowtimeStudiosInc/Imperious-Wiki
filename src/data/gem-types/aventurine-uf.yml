@@ -40,7 +40,10 @@ role: >-
   cycles, save dying crops, or weave heavy root walls to protect fields from bad weather and wild animals. If a
   settlement gets attacked, an Aventurine can turn thick vines and sharp thorns into quick barrier walls to keep trouble
   out until help arrives.
-interactions: null
+interactions: >-
+  Aventurines grow the Frontier's food and keep its green spaces, working with Blue Quartzes who manage the water lines.
+  They supply the mess halls where Rose Quartzes gather crews. Milky Quartzes often send overworked gems to spend a
+  quiet day on an Aventurine's farm.
 description: null
 image: null
 gemstone: /images/gemstones/aventurine-uf.svg

@@ -37,7 +37,10 @@ role: >-
   assembly line work. A Turquoise takes personal pride in the balance, durability, and edge of every piece that leaves
   their forge, often testing their creations directly to ensure they hold up under real combat conditions. Practical and
   sharp-minded, they are the backbone of supply lines, making sure anyone heading into danger has gear they can trust.
-interactions: null
+interactions: >-
+  Turquoises forge weapons for the militia and test each piece themselves, often by sparring with Irons and Onyxes.
+  Bismuths work the Forge beside them, and the two argue over whose work is harder. When a weapon breaks in battle, the
+  Turquoise who made it usually hears about it from a Hessonite first.
 description: null
 image: null
 gemstone: /images/gemstones/turquoise.svg

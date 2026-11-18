@@ -42,7 +42,10 @@ role: >-
   Prasiolite soldiers are no doubt Court Emerald's finest. A lot of them wear visors and know their way around gem tech
   well enough to help out any technical gems who need a hand. Outside of missions and tasks, they are pretty nerdy. They
   are always talking about the latest gem technology or how fast someone could fix up a broken down ship.
-interactions: null
+interactions: >-
+  Prasiolites guard Court Emerald's research and tech sites, and spend their breaks helping Peridots, Sphenes, and
+  Nephrites with repairs. Zoisites trust them around sensitive equipment more than any other Quartz. Put a Prasiolite
+  and a Prasiolite-Goshenite on the same post and they will talk tech until their watch ends.
 description: null
 image: /images/gem-types/prasiolite.webp
 gemstone: /images/gemstones/prasiolite.svg

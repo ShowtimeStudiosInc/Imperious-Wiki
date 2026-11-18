@@ -50,7 +50,11 @@ role: >-
   control during important missions. Her abilities depend entirely on how much she has studied, which makes her a
   valuable but constantly learning researcher. Only 12 of this gem exist, since a 3 component geode and alloy this rare
   is exceptionally hard to come by naturally in the Gempire.
-interactions: null
+interactions: >-
+  With only 12 in existence, a Stellite is assigned to the empire's most important ships and war machines, working with
+  the Peridots, Sphenes, and Nephrites who keep them running. Turquoises trade notes with her often, since a Turquoise
+  builds the weapon and a Stellite makes it better. Her upgrades only work on gear she has studied, so every crew wants
+  their equipment in front of her first.
 description: null
 image: null
 gemstone: /images/gemstones/stellite.svg

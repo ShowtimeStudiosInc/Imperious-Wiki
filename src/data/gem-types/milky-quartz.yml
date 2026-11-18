@@ -42,7 +42,10 @@ role: >-
   rested or slept before, a Milky Quartz would be the one to teach you how. They are incredible sleepers, some of the
   best out there. It can take a very long time to wake one up from a deep sleep, which raises the question of why they
   need so much rest in the first place.
-interactions: null
+interactions: >-
+  Milky Quartzes are known for slacking off, which keeps them in trouble with Agates, and Rose Quartzes are usually the
+  ones covering for them. Hessonites who know better post them on overnight watch, since a Milky Quartz who has finally
+  had a good rest is one of the most alert soldiers on a station.
 description: null
 image: /images/gem-types/milky-quartz.webp
 gemstone: /images/gemstones/milky-quartz.svg

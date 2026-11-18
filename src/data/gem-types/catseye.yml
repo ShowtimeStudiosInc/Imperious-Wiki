@@ -45,7 +45,10 @@ role: >-
   captivating stage presence, Catseyes are frequently deployed at high-ranking galas, balls, and entertainment districts
   to perform intricate physical showcases, though their innate agility and fluidic combat capabilities make them
   surprisingly formidable security assets when provoked.
-interactions: null
+interactions: >-
+  Catseyes perform alongside Spodumene lines and Scapolites at galas, and Pyropes book them for the moment a show needs
+  something that makes the guests gasp. Since a Catseye already moves through the crowd and the rafters, hosts quietly
+  count her as part of the security. More than one gatecrasher has learned this from the floor.
 description: null
 image: null
 gemstone: /images/gemstones/catseye.svg

@@ -36,7 +36,10 @@ role: >-
   dogfighting. Because of this, they are often deployed as space pirates. Aragonites tend to have light builds. Since
   they are mass produced, many end up with uneven gemstone placement, which can cut their limbs short. Those without
   this problem are seen as a cut above their peers, even if they are not a Perfect Cut.
-interactions: null
+interactions: >-
+  Aragonites fly in small, fast wings, either raiding enemy supply lines as space pirates or flying escort for Emerald
+  and Fluorite fleets. Rutiles look down on their navigation and Nephrites look down on their piloting, but neither can
+  match an Aragonite in a dogfight. The Aragonites whose limbs came out full length usually end up leading the rest.
 description: null
 image: null
 gemstone: /images/gemstones/aragonite.svg

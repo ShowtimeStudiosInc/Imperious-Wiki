@@ -63,7 +63,10 @@ role: >-
   Uranium have no real job on Homeworld. Their radiation makes anyone who spends long around them sick, including
   themselves. Most end up as test subjects in Kandy Diamond's labs, or wired into generators to keep the power running,
   and neither is much of a life. Left alone, the radiation wears them down too, and most eventually crack under it.
-interactions: null
+interactions: >-
+  Most gems keep their distance from a Uranium, since even a short time close to one makes them sick. Kandy Diamond's
+  lab staff and the Silvers and Coppers who work generators beside them are the exceptions, and they rotate out often. A
+  Malachite can pull some of the poison out of the air, so a Uranium with a Malachite friend is a lucky one.
 description: null
 image: null
 gemstone: /images/gemstones/uranium.svg

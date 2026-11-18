@@ -36,7 +36,10 @@ role: >-
   Graphenes are built for shapeshifting. They are mainly used for science, being able to shrink down to tiny
   proportions, get into small spots, and get a good view for observation. They are also sometimes used as meat shields
   because of their tankiness. Her gemstone is a small gray torus, about the size of a sesame seed.
-interactions: null
+interactions: >-
+  Graphenes assist Serpentines in the lab, shrinking down to see what goggles can't. On colonies they help Peridots by
+  crawling inside broken machines. Since they're tanky, Steels and Topazes sometimes use one as a meat shield, which
+  most Graphenes put up with better than they should.
 description: null
 image: null
 gemstone: /images/gemstones/graphene.svg

@@ -32,7 +32,10 @@ role: >-
   Serpentines work as scientists and researchers across the Gempire. Their goggles help them study small, delicate, or
   hazardous details up close, whether that's examining gem essence, running experiments, or breaking down data other
   gems would struggle to read. Careful and precise, a Serpentine rarely misses the small stuff.
-interactions: null
+interactions: >-
+  Serpentines work in labs under Zoisites, breaking down the essence samples and data for the experiments Zoisites
+  design. Graphenes assist by shrinking down to see what even goggles can't, and Calcites bring in samples from the
+  field. A Serpentine is usually the one who catches the small mistake before a Zoisite's test goes wrong.
 description: null
 image: null
 gemstone: /images/gemstones/serpentine.svg

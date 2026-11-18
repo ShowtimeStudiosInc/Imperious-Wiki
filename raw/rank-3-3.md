@@ -45,6 +45,9 @@ _``ACT Bonus:``_
 
 ``Aragonites are simple fodder, though their skill in navigation should not be overlooked. Though not as good as a Rutile's, they are good enough to pilot a ship all the same, with instincts better suited for stellar combat and dogfighting. Because of this, they are often deployed as space pirates. Aragonites tend to have light builds. Since they are mass produced, many end up with uneven gemstone placement, which can cut their limbs short. Those without this problem are seen as a cut above their peers, even if they are not a Perfect Cut.``
 
+_``Interactions:``_
+``Aragonites fly in small, fast wings, either raiding enemy supply lines as space pirates or flying escort for Emerald and Fluorite fleets. Rutiles look down on their navigation and Nephrites look down on their piloting, but neither can match an Aragonite in a dogfight. The Aragonites whose limbs came out full length usually end up leading the rest.``
+
 
 # MOONSTONE [FUSION]
 **``BASE STATS``**
@@ -64,6 +67,9 @@ _``Latent Ability:``_
 
 ``Moonstones are often deployed when a fight is needed on a planet during terraforming. It's rare to see a Moonstone.``
 
+_``Interactions:``_
+``Moonstones are called in when a terraforming crew of Lapises, Malachites, and other geoformers runs into a fight it can't avoid. Since her Pearl half often belonged to a terraformer, a Moonstone usually knows the crew she's protecting. Most terraformers only see one once or twice in their careers.``
+
 
 # PRASIOLITE-GOSHENITE [GEODE]
 **``BASE STATS``**
@@ -81,3 +87,6 @@ _``Latent Ability:``_
 `Technopathy [PASSIVE]` - Prasgoshenite may come to trust the gut feeling she gets when something is wrong with a machine. Most never realize it's a real ability and just think of it as intuition.
 
 ``Prasgoshenites are stationed at research facilities and high value locations, working as both the guard at the door and a helping hand in the lab. Its to be made aware there are a limited few of them these days due to their Gem-Type being discontinued since ERA 1A, partly due to Theta Gold's dislike of how many resources Geodes take to create, and also due to the new non-geode gem-types that have taken their role.``
+
+_``Interactions:``_
+``Prasgoshenites guard labs and help inside them, working beside Serpentines, Peridots, and Prasiolites. Since they're Discontinued and few remain, Zoisites keep the ones left on their most important sites. Goshenites treat them as distant family, since both are leftovers from older eras.``

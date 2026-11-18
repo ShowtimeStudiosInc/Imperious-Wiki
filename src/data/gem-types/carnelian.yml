@@ -44,7 +44,10 @@ role: >-
   hottest temperatures around. Not every Quartz soldier has a soft spot for organic planet life, but more than a few
   Carnelians have been caught rolling around in the sand while off duty, making little structures out of it for fun.
   They are no match for the empire's actual terraformers, but it is a cute hobby all the same.
-interactions: null
+interactions: >-
+  Carnelians guard facilities on desert planets, usually in crews from the Omicron Kindergarten. Off duty they wander
+  over to watch Malachites and Clinohumites shape the land, then go try it themselves in the sand. Most Agates let it
+  slide.
 description: null
 image: /images/gem-types/carnelian.webp
 gemstone: /images/gemstones/carnelian.svg

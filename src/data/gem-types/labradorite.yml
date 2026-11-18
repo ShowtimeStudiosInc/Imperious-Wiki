@@ -42,7 +42,10 @@ abilities:
 role: >-
   Labradorite works as an archivist and record keeper, tracking family lines, adoptions, and community history across
   the United Frontier as new generations grow up and start their own lives.
-interactions: null
+interactions: >-
+  Labradorites keep the Frontier's family and community records, working with Iolites on school records and
+  Astrophyllites on career paths. Melanites send them the record of every gem laid to rest, and Yellow Tourmalines rely
+  on them to trace ownership before a trade.
 description: null
 image: null
 gemstone: /images/gemstones/labradorite.svg

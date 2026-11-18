@@ -53,7 +53,11 @@ role: >-
   the Diamonds themselves. Their standing puts them just below Cubic Zirconias in the hierarchy, making them both
   attendants and symbols of the Imperious Authority. Unlike standard Pearls, Diamond Pearls wear a crown-like crest on
   their head that marks their status.
-interactions: null
+interactions: >-
+  Diamond Pearls rank over every other Pearl, and Nacres treat one as the finest work a Reef can send out. She keeps her
+  Diamond's schedule, messages, and belongings, so Cubic Zirconias and high Authoritatives often go through her first. A
+  Diamond Pearl and a Diamond Spinel rarely share a room without some friendly rivalry over who their Diamond trusts
+  more.
 description: null
 image: /images/gem-types/diamond-pearl.webp
 gemstone: /images/gemstones/diamond-pearl.svg

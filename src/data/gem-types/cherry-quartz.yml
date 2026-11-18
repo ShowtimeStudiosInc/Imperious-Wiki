@@ -36,7 +36,10 @@ role: >-
   things like your posture or your tone. Despite being both sour and sweet, Cherry Quartzes are known to be solid,
   reliable guards in Court Crimson. They do their job well, even if some of them seem to hold a bit of a grudge against
   everyone around them.
-interactions: null
+interactions: >-
+  Cherry Quartzes guard for Court Crimson, often in mixed squads with Citrines. A Citrine will tell you what's wrong
+  with you to your face and a Cherry Quartz will tell everyone else, so nobody's mistakes stay secret for long. Agates
+  find this oddly useful when they need to know who's slipping.
 description: null
 image: /images/gem-types/cherry-quartz.webp
 gemstone: /images/gemstones/cherry-quartz.svg

@@ -37,7 +37,10 @@ role: >-
   were reinforced beyond those of ordinary Quartz soldiers, allowing them to absorb punishment while maintaining the
   physical strength expected from their Gem-type. They were considered superior frontline soldiers during their era,
   although their heavier construction made them slower than many modern Quartz variants.
-interactions: null
+interactions: >-
+  Titanium Aura Quartzes still end up on the front line, often in the shield wall beside Titaniums, who see them as the
+  closest thing to one of their own. Younger Quartzes like to bet on how hard they can hit one, and they lose that bet
+  every time.
 description: null
 image: /images/gem-types/titanium-aura-quartz.webp
 gemstone: /images/gemstones/titanium-aura-quartz.svg

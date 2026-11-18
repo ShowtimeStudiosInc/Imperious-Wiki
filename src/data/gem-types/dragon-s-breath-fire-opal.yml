@@ -55,7 +55,10 @@ role: >-
   Fire Opals are shock troops built for scorched earth tactics, deployed wherever the Gempire needs a line burned
   through fast. They serve alongside Quartz soldiers as heavy hitters, often leading a charge rather than holding a
   line, since they hit far harder than they defend.
-interactions: null
+interactions: >-
+  Fire Opals lead the charge for Quartz squads, with Agates and Hessonites deciding where to point them. They work well
+  with Clinohumites and Tungstens, who can stand the heat they leave behind, and badly with anyone else caught in the
+  blast. Most soldiers learn to stay behind a Fire Opal, never next to her.
 description: null
 image: null
 gemstone: /images/gemstones/dragon-s-breath-fire-opal.svg

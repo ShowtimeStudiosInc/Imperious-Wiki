@@ -56,7 +56,10 @@ role: >-
   they have a finished report for an area, they hand their findings to their supervisors. Most of them are part of Theta
   Gold's court, since they're so good at finding the best conditions for kindergartens, but they can be found in any
   court, because expansion can't happen without them.
-interactions: null
+interactions: >-
+  Orange Spodumenes report their findings to Demantoids and Rutiles, who decide where kindergartens go. They work beside
+  Aventurines and Green Tourmalines in thick plant life, though gardeners don't love watching them eat the samples.
+  Regular Spodumenes see them as distant cousins with a very strange job.
 description: null
 image: /images/gem-types/orange-spodumene.webp
 gemstone: /images/gemstones/orange-spodumene.svg

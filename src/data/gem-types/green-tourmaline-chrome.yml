@@ -47,7 +47,10 @@ abilities:
 role: >-
   Green Tourmaline handles the living decor for palaces and estates, growing and arranging gardens for events Pink
   Tourmaline is dressing up. The two are often hired as a pair.
-interactions: null
+interactions: >-
+  Green Tourmaline is nearly always hired with Pink Tourmaline, who dresses the room while she grows the garden. She
+  gets along with Aventurines and Calcites, who share her love of living things. Larimars sometimes work her events too,
+  carving ice that sits among her flowers.
 description: null
 image: null
 gemstone: /images/gemstones/green-tourmaline-chrome.svg

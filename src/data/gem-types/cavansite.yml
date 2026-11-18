@@ -32,7 +32,10 @@ abilities:
       Behind, and <:Act:1568035453842751618>ACTs that lift or throw heavy objects are especially effective for her.
     moves: []
 role: Cargo transporters, capable of lifting material up to ten times their size to carry them to their destinations.
-interactions: null
+interactions: >-
+  Cavansites move cargo for anyone who needs it, from Bismuth crews to Turquoise foundries. They load and unload at both
+  ends for Nephrites, who fly the cargo, and Tivcrals, who rush it. A small Cavansite carrying a load ten times her size
+  is one of the most common sights at any port.
 description: null
 image: null
 gemstone: /images/gemstones/cavansite.svg

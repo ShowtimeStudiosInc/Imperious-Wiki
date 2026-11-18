@@ -64,7 +64,10 @@ role: >-
   voice starts to feel dull. By fusing with a Lapis Lazuli, her singing voice grows even stronger and gains more range.
   Gems say listening to a Green Serpentine sing feels like a lullaby, and while her soft voice is calming, it can also
   pull listeners in without them meaning to be drawn.
-interactions: null
+interactions: >-
+  Green Serpentines are booked the same way Scapolites are, usually for a quieter set later in the evening. Venue hosts
+  keep them away from guards on duty, since a lullaby meant for the guests can put a whole security detail to sleep.
+  Lapises sometimes come to hear one sing between terraforming jobs.
 description: null
 image: null
 gemstone: /images/gemstones/green-serpentine.svg

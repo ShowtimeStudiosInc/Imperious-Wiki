@@ -45,7 +45,11 @@ role: >-
   They manage multiple medical teams, overseeing a structure where an Arch-Angelite leads a specific team and standard
   Angelites make up its members. They hold one of the two highest medical ranks in each hospital, and have never been
   produced in the Gempire past Era 0.
-interactions: null
+interactions: >-
+  Celestines answer to Seraphinites and run teams led by Arch-Angelites, with standard Angelites as members. They work
+  with Almandines, who bring patients in from disaster sites, and Milky Quartzes, who take over recovery once the
+  healing is done. Gempire Celestites are copies of them, which some Celestines find flattering and others find a little
+  strange.
 description: null
 image: null
 gemstone: /images/gemstones/celestine.svg

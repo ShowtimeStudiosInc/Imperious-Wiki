@@ -51,7 +51,11 @@ role: >-
   sharp perception to help whoever needs their guidance. Sunstones are far from defenseless too, using their strong fire
   abilities to fend off threats when needed, though they have to be careful not to overuse that power, since it can burn
   them out.
-interactions: null
+interactions: >-
+  Sunstones give advice to gems of every rank and pair well with Shattuckites, who help gems talk through what a
+  Sunstone tells them. They see Padparadschas as fellow advisors who use cards instead of instinct, and Sapphires as
+  ones who use sight. Since overusing her fire can burn her out, a Sunstone usually lets guards like Topazes handle
+  trouble first.
 description: null
 image: /images/gem-types/sunstone.webp
 gemstone: /images/gemstones/sunstone.svg

@@ -34,7 +34,10 @@ role: >-
   heat over indoor work stations. Off the clock, many of them stick around the sand dunes to build detailed sand
   structures and small sculptures, taking time to carve out little temporary landmarks around their campsites just for
   fun.
-interactions: null
+interactions: >-
+  Carnelians work the desert jobs other crews have to rotate out of, often beside Smoky Quartzes on drilling sites and
+  Zebra Jaspers who guide them across the badlands. Milky Quartzes worry about them, since a Carnelian rarely admits she
+  needs a break. Most would rather finish the road first.
 description: null
 image: null
 gemstone: /images/gemstones/carnelian-uf.svg

@@ -29,7 +29,10 @@ abilities:
     text: <:Act:1568035453842751618>ACTs that break structures, cover, or barriers are especially effective for her.
     moves: []
 role: Verdelites are gems that are made to demolish structures.
-interactions: null
+interactions: >-
+  Verdelites take their orders from Sugilites, who decide what comes down and in what order. They work with Citrines and
+  Smoky Quartzes on bigger jobs, and a Brown Tourmaline keeps them from knocking out anything still holding something
+  up. Once the dust settles, Snowflake Obsidians and Bismuths move in to build on what's left.
 description: null
 image: /images/gem-types/verdelite.webp
 gemstone: /images/gemstones/verdelite.svg

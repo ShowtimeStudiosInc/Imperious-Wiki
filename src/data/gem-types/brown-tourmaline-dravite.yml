@@ -34,7 +34,11 @@ abilities:
 role: >-
   Brown Tourmaline serves as a construction foreman, often working alongside Bismuth and Coal crews. She's the one
   making sure nothing collapses mid build.
-interactions: null
+interactions: >-
+  Brown Tourmalines run Bismuth and Coal crews on a build site and decide when something is safe to stand on. Cobalts
+  and Chromiums take her direction on where to hold and plate, and Verdelites check with her before knocking anything
+  down near a working structure. She and the Era 0-1 Bronzes often disagree, since a Bronze designs for beauty and a
+  Brown Tourmaline builds for what won't fall.
 description: null
 image: null
 gemstone: /images/gemstones/brown-tourmaline-dravite.svg

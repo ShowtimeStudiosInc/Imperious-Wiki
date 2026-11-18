@@ -40,7 +40,11 @@ role: >-
   people joking around, and high energy that makes long, hard shifts go by much faster. They are usually the first ones
   called when a ship hull breaks open or a support beam snaps, since they can patch up structural damage using just
   their hands on short notice.
-interactions: null
+interactions: >-
+  Amethysts make up most of the crews in Frontier shipyards and building sites, working beside Prasiolites who install
+  the tech and Cherry Quartzes who inspect the welds. When a hull breaks or a beam snaps, they're the first called,
+  often alongside Almandines. A Cherry Quartz finding fault with an Amethyst's weld is the most common argument on any
+  site.
 description: null
 image: null
 gemstone: /images/gemstones/amethyst-uf.svg

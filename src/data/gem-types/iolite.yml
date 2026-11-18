@@ -41,7 +41,10 @@ abilities:
 role: >-
   Iolite work as teachers and tutors across the United Frontier's school system, guiding gem children through their
   education as they grow toward adulthood.
-interactions: null
+interactions: >-
+  Iolites teach young gems through their school years, then hand them to Astrophyllites as they near adulthood. Clear
+  Quartz students keep them busiest, since a young Quartz may change direction more than once before settling on a type.
+  Labradorites keep the records of every class an Iolite teaches.
 description: null
 image: null
 gemstone: /images/gemstones/iolite.svg

@@ -69,6 +69,9 @@ _``Signature Ability:``_
 
 ``Clinohumites serve as fire terraformers, manipulating flames at their will to clear out obstacles. They have incredible heat tolerances, sent to boiling planets that most would perish in. Their abilities can be used in the opposite sense of Lapis Lazuli's, forming and changing rocky land from the lava they control.``
 
+_``Interactions:``_
+``Clinohumites work with Malachites and Yooperlites, clearing obstacles with fire while the others shape the land, and Tungstens follow behind to haul off what's too hot to touch. Lapises and Clinohumites get along better than most expect, since one works the land with water and the other with lava.``
+
 
 # CALCITE
 **``BASE STATS``**
@@ -82,6 +85,9 @@ _``ACT Bonus:``_
 `Soothe` - <:Act:1568035453842751618>ACTs that calm animals, beasts, and corrupted gems are especially effective for her.
 
 ``Calcites strengthen intellect, especially in the science field. In duality, they assist with researching flora and fauna, often achieving close proximity to wildlife due to their calming and nurturing nature!``
+
+_``Interactions:``_
+``Calcites work with Serpentines in the lab and Aventurines in the field, and get closer to wildlife than almost any other gem. Crocoites often call one in before cornering a creature, since a calm animal is much easier for an Era 0-1 Steel to move. Calcites and Crocoites do argue about which creatures need moving at all.``
 
 
 # PERIDOT [ERA 2A]
@@ -140,6 +146,9 @@ _``ACT Bonus:``_
 
 ``Selenites work as counsellors and have empathy powers, which means that they can feel the stressful feelings of their clients when touching their gem. They use these powers to build a sense of empathy and grow closer to their clients to create a sense of security within them. They cannot automatically solve a gem's psychological damage, but can help to soothe them.``
 
+_``Interactions:``_
+``Selenites work out of Celestite med bays, taking the patients whose trouble is in their mind, not their body. When the trauma is too severe or the case can't wait, they pass it to a Hematite, which most Selenites see as a last resort. Shattuckites and Sunstones often help with their clients, and many Selenites check in on the Hessonite-variant Sardonyx between shows.``
+
 
 # BISMUTH
 **``BASE STATS``**
@@ -170,6 +179,9 @@ _``ACT Bonus:``_
 `Demolish` - <:Act:1568035453842751618>ACTs that break structures, cover, or barriers are especially effective for her.
 
 ``Verdelites are gems that are made to demolish structures.``
+
+_``Interactions:``_
+``Verdelites take their orders from Sugilites, who decide what comes down and in what order. They work with Citrines and Smoky Quartzes on bigger jobs, and a Brown Tourmaline keeps them from knocking out anything still holding something up. Once the dust settles, Snowflake Obsidians and Bismuths move in to build on what's left.``
 
 
 # SILVER
@@ -203,6 +215,9 @@ _``ACT Bonus:``_
 
 ``Gems that help Saturn Light Diamond with scouting out potential colonies for Homeworld, they are often seen working with Nephrites.``
 
+_``Interactions:``_
+``Tektites scout possible colonies for Saturn Light Diamond, flying out with Nephrites and walking the land once they arrive. When a site looks promising, they hand it to Rutiles, who judge whether the land can hold a colony. Tektites and Willemites often ride the same ship, one watching the land and the other the radar.``
+
 
 # TIVCRAL [ALLOY]
 **``BASE STATS``**
@@ -219,6 +234,9 @@ _``Latent Ability:``_
 
 ``Tivcral is an alloy metal made of titanium, vanadium, chromium, and aluminum, the same blend used on the outside of the SR-71 Blackbird. She is the fastest gem or alloy out there, built for jobs where speed matters more than anything else, like moving unstable or time sensitive cargo across the galaxy fast enough to matter. Her job is a lot like a Nephrite's, but where a Nephrite flies cargo, Tivcral runs it.``
 
+_``Interactions:``_
+``Tivcral runs the cargo that can't wait for a Nephrite's ship to be ready, carrying it on foot across stations and planets. She and the Nephrites have a running rivalry over who gets cargo there faster. Flints sometimes send her ahead of the Steels with a warning, since she'll arrive long before anyone else.``
+
 
 # CHROMIUM
 **``BASE STATS``**
@@ -232,6 +250,9 @@ _``Signature Ability:``_
 `Durability Bestowal [2 SP]` - Chromium hardens anything she touches, including walls, gear, and another gem's form. For 2 turns, every physical hit on the target is reduced by 2 more.
 
 ``Chromium is a fortification and protective plating specialist. They can harden and reinforce surfaces they touches, including structures, equipment, and temporarily other gems' forms. Their essential for building durable installations and keeping valuable infrastructure safe from damage and corrosion.``
+
+_``Interactions:``_
+``Chromiums work with Bismuths and Cobalts on any build that has to last, plating it once it's up. Before a fight, Titaniums and Black Tourmalines line up to have a Chromium harden them, and Turquoises send their best pieces over to be plated before they go to the front.``
 
 
 # COBALT
@@ -247,6 +268,9 @@ _``Signature Ability:``_
 > - `Magnetic Pull [2 SP]` - Cobalt yanks a metal weapon out of a target's hands. The target resists with DEF. If they fail, they're disarmed until they spend a turn getting their weapon back.
 
 ``Cobalt handles high strength structural work and reinforcement jobs. Their capable of generates magnetic fields around themself and nearby metallic objects, which lets them stabilize structures, hold heavy loads in place, and move metal debris during construction and terraforming. Their essential for extreme condition work where standard gems fail.``
+
+_``Interactions:``_
+``Cobalts hold heavy loads in place while Bismuths and Brown Tourmalines build around them, and clear metal debris for Tungstens and Snowflake Obsidians. They pair closely with Chromiums, one holding a structure in place and the other making it last. Soldiers with metal weapons keep their distance, since a Cobalt can pull a blade out of anyone's hands.``
 
 
 # NEPHRITE
@@ -304,6 +328,9 @@ _``ACT Bonus:``_
 
 ``The purpose of a Sunstone is to offer not just deep wisdom and insight to those who ask for it, but real, useful advice as well. While Sunstones cannot see into the future like a Sapphire, they can use their natural intuition and sharp perception to help whoever needs their guidance. Sunstones are far from defenseless too, using their strong fire abilities to fend off threats when needed, though they have to be careful not to overuse that power, since it can burn them out.``
 
+_``Interactions:``_
+``Sunstones give advice to gems of every rank and pair well with Shattuckites, who help gems talk through what a Sunstone tells them. They see Padparadschas as fellow advisors who use cards instead of instinct, and Sapphires as ones who use sight. Since overusing her fire can burn her out, a Sunstone usually lets guards like Topazes handle trouble first.``
+
 
 # TURQUOISE
 **``BASE STATS``**
@@ -317,6 +344,9 @@ _``ACT Bonus:``_
 `Armorer` - <:Act:1568035453842751618>ACTs that repair, sharpen, or adjust weapons and armor in the middle of a battle are especially effective for her.
 
 ``Turquoises have long been made to craft weapons for the Gempire, bringing a long lineage of forge masterwork and armaments production. They run heavy foundries, weapons bays, and field armories, turning raw ores and alloys into reliable gear for frontline forces. They treat weapon crafting as a serious, hands-on discipline rather than simple assembly line work. A Turquoise takes personal pride in the balance, durability, and edge of every piece that leaves their forge, often testing their creations directly to ensure they hold up under real combat conditions. Practical and sharp-minded, they are the backbone of supply lines, making sure anyone heading into danger has gear they can trust.``
+
+_``Interactions:``_
+``Turquoises forge weapons for the militia and test each piece themselves, often by sparring with Irons and Onyxes. Bismuths work the Forge beside them, and the two argue over whose work is harder. When a weapon breaks in battle, the Turquoise who made it usually hears about it from a Hessonite first.``
 
 
 # GOSHENITE [ERA 0 Side-B] [DISCONTINUED GEM-TYPE]
@@ -333,6 +363,9 @@ _``Signature Ability:``_
 `Energy Perception [PASSIVE]` - Through her goggles, Goshenite reads the energy signatures of gems, tech, and structures in sight. She can always tell holograms and light constructs from the real thing. Without her goggles, she loses this, and her plasma attacks need +2 to hit.
 
 ``Goshenites are researchers and energy analysts. They study and get close to things that would destroy most other gems, like plasma storms, unstable ionic fields, and other high energy environments. Within the Northstar Research Institute [Part of the United Frontier], they handle energy based research and collect data in places too dangerous for most gems to work in. Within Court Emerald, most of their old work has been taken over by Peridots and Serpentine, so the ones still active serve as energy analysts spread across the empire, making sure power sources in colonies stay properly monitored. Goshenite is a Legacy Gem Type, first made under Omega White Diamond and later recreated by Alpha Black Diamond near the end of Era 0. They were most active early in Era 1A before newer gem types like Peridot and Serpentine took over most of their work. Only a handful remain today, and few gems across the empire know of them.``
+
+_``Interactions:``_
+``The few Goshenites still active in the Gempire watch over colony power sources, working with Silvers, Coppers, and Era 2A Indicolites to keep the energy flowing. Peridots and Serpentines took over most of their old work, which some Goshenites still find hard to watch. The Northstar Research Institute in the United Frontier treats them far better.``
 
 
 # BLUE TOURMALINE (INDICOLITE) [SUB-TYPE OF TOURMALINE] [ERA 2A]
@@ -369,6 +402,9 @@ _``Latent Ability:``_
 
 ``Green Tourmaline handles the living decor for palaces and estates, growing and arranging gardens for events Pink Tourmaline is dressing up. The two are often hired as a pair.``
 
+_``Interactions:``_
+``Green Tourmaline is nearly always hired with Pink Tourmaline, who dresses the room while she grows the garden. She gets along with Aventurines and Calcites, who share her love of living things. Larimars sometimes work her events too, carving ice that sits among her flowers.``
+
 
 # SHATTUCKITE [NON-FUSION]
 **``BASE STATS``**
@@ -382,6 +418,9 @@ _``ACT Bonus:``_
 `De-escalate` - Shattuckite talks one enemy down. The target resists with INT against a DC of 10 + half her INT. If they fail, they can't attack for 2 turns, which leaves room for conversation.
 
 ``Shattuckite cannot be found very often, not being made in bulk as the rest of the gempire is. When it is made however, its primary purpose is to enhance intellect and communication with gems, almost like speech therapy. They are great with talking with gems and pair well with Sunstones and bear similar therapeutic responses as Epsilon Blue Diamond. They also are well-versed in self motivation and emotional wellness.``
+
+_``Interactions:``_
+``Shattuckites work alongside Sunstones and Selenites, helping gems put what they feel into words. Few are made, so most are kept close to Epsilon Blue's court. Steels and Flints sometimes bring one in to talk down a gem they'd rather not have to restrain.``
 
 
 # CHRYSOBERYL
@@ -398,6 +437,9 @@ _``Latent Ability:``_
 `Heat Generation` - Chrysoberyl may learn to heat her hands enough to cook or warm food on contact. Its moves and SP costs are set when it's unlocked.
 
 ``Chrysoberyl run kitchens, restaurants, and community meals across the Gempire.``
+
+_``Interactions:``_
+``Chrysoberyls feed every gem who eats, from Quartzes on leave to guests at a Pyrope's gala. They work with Aventurines, who grow the food, and borrow Coals to haul supplies when their kitchens get busy. Selenites sometimes send a struggling client to a Chrysoberyl's table before a session.``
 
 
 # LARIMAR
@@ -435,6 +477,9 @@ _``Latent Ability:``_
 
 ``Spodumenes are performers, made to fill the stage behind the main act at balls, festivals, and places like Club Imperious. They work in lines of five or more, and most of their day is spent learning routines, rehearsing them until every Spodumene in the line moves the same way, and setting up the stage before a show. They're one of the few bioluminescent gem-types, so a line of Spodumenes can light a small stage on their own, and a show in a dark room is where they're at their best. Their colors run from green to pink to blue to purple, but a lead performer is rarely picked for her looks. It's picked for who keeps time the best.``
 
+_``Interactions:``_
+``Spodumenes perform in lines of five or more behind lead acts like Scapolites, Catseyes, and Sardonyxes. Pyropes book them for any show that needs a stage filled and lit, and Pezzottaites keep them on schedule. Each line picks its own lead, and an outside gem who tries to pick one for them finds the line simply won't move.``
+
 
 # ORANGE SPODUMENE [SUB-TYPE OF SPODUMENE]
 **``BASE STATS``**
@@ -451,6 +496,9 @@ _``Latent Ability:``_
 `Acid Spit [2 SP]` - Orange Spodumene may learn to spray the acid she uses to digest plants, dealing 2d4 + MAG Corrosive damage to one target, who resists with DEF or gets Corrosion for 2 turns. She takes 1d5 damage herself.
 
 ``Orange Spodumenes monitor the pH levels of new colonies, eating native plant life to predict which places would be best for kindergartens. They can do this thanks to a tube-like pocket in their abdomen that holds a light-based acid. The acid breaks down the plants and projects what it finds over the Orange Spodumene's inner body, turning it Red, Orange, Yellow, or Green, while her glossy outer shell stays the same and keeps the acid contained. They're usually found on the ground of recently colonized planets, in thick plant life like forests, jungles, or coral reefs, and once they have a finished report for an area, they hand their findings to their supervisors. Most of them are part of Theta Gold's court, since they're so good at finding the best conditions for kindergartens, but they can be found in any court, because expansion can't happen without them.``
+
+_``Interactions:``_
+``Orange Spodumenes report their findings to Demantoids and Rutiles, who decide where kindergartens go. They work beside Aventurines and Green Tourmalines in thick plant life, though gardeners don't love watching them eat the samples. Regular Spodumenes see them as distant cousins with a very strange job.``
 
 
 # PEZZOTTAITE

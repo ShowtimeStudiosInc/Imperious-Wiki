@@ -40,7 +40,10 @@ role: >-
   question and go straight to work fulfilling their purpose. Once you get past their shyness and break the ice, they
   make for really good friends. They have your back no matter what. Many would say Zebra Jaspers are some of the most
   loyal Quartz soldiers you could meet.
-interactions: null
+interactions: >-
+  Zebra Jaspers stick to their own herd and rarely talk to other gems on duty. They take orders from Agates and
+  Hessonites without arguing, which makes them some of the easiest Quartzes to command. A gem who earns one Zebra
+  Jasper's trust gets the whole herd's loyalty along with it.
 description: null
 image: /images/gem-types/zebra-jasper.webp
 gemstone: /images/gemstones/zebra-jasper.svg

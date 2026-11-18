@@ -34,7 +34,10 @@ role: >-
   their teammates, actively putting themselves in harm's way so others don't have to take the hit. They are the ones who
   hold the line when an overhang gives way or a site security breach happens, ensuring everyone else makes it home in
   one piece.
-interactions: null
+interactions: >-
+  Jaspers guard remote outposts and dangerous worksites, standing between the crew and whatever might go wrong. They
+  work beside Almandines in collapses and protect Zebra Jasper treks through hostile land. Rose Quartzes are usually the
+  only ones who can get a Jasper to admit she's tired.
 description: null
 image: null
 gemstone: /images/gemstones/jasper-uf.svg

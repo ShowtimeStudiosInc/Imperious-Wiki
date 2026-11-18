@@ -148,6 +148,9 @@ _``Latent Ability:``_
 
 ``Onyxes specialize in training other gems in group combat techniques. They are uniquely suited to teach gems the use of weaponry, thanks to an unusually calm demeanor.``
 
+_``Interactions:``_
+``Onyxes train Quartzes in groups, usually on stations run by Agates, who send them the soldiers who need it most. Where an Iron teaches one gem to take a hit and fix her stance, an Onyx teaches a whole squad to fight together with any weapon it's handed. Even rowdy Jaspers settle down under an Onyx, mostly because she never raises her voice.``
+
 
 # POLYHEDROID AGATE [SUB-TYPE AGATE] [GEODE]
 **``BASE STATS``**
@@ -162,6 +165,9 @@ _``Signature Ability:``_
 > - `Field Restoration [3 SP]` - Heals every ally who is Near for 1d6 + MAG.
 
 ``Polyhedroid Agates mostly work as co heads for stations, taking charge of healing Quartz soldiers, or as an extra healer for ship fleets.``
+
+_``Interactions:``_
+``Polyhedroid Agates share command of a station with its Agate, who runs the soldiers while the Polyhedroid Agate keeps them healthy. When a soldier is hurt worse than she can fix, she sends them on to a Celestite's med bay. Geodes are rarely made now, so Quartzes tend to look after the one on their station.``
 
 
 # CATSEYE
@@ -178,6 +184,9 @@ _``Latent Ability:``_
 `Liquidation` - Catseye may learn to touch a surface or an opposing gem and turn its texture into wet clay, mud, soaked sand, or loose dirt for a short time. Its moves and SP costs are set when it's unlocked.
 
 ``Catseyes serve as acrobatic performers and courtiers. Known throughout the Gempire for their striking chatoyancy and captivating stage presence, Catseyes are frequently deployed at high-ranking galas, balls, and entertainment districts to perform intricate physical showcases, though their innate agility and fluidic combat capabilities make them surprisingly formidable security assets when provoked.``
+
+_``Interactions:``_
+``Catseyes perform alongside Spodumene lines and Scapolites at galas, and Pyropes book them for the moment a show needs something that makes the guests gasp. Since a Catseye already moves through the crowd and the rafters, hosts quietly count her as part of the security. More than one gatecrasher has learned this from the floor.``
 
 
 # BERYL

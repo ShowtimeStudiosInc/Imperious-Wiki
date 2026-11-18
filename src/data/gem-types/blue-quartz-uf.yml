@@ -37,7 +37,10 @@ role: >-
   right at home in high-moisture environments. Their easygoing nature makes them a calming presence in tense situations.
   During severe rainstorms, pipe breaks, or rescue ops, a Blue Quartz can hold back rising water, patch leaks on the fly
   with ice seals, and pull trapped gems out of deep currents.
-interactions: null
+interactions: >-
+  Blue Quartzes manage water systems and lead dive rescues, often working floods beside Almandines. They keep water
+  flowing to Aventurine farms and every settlement around them. In a tense rescue, the rest of the crew tends to watch
+  the Blue Quartz to see how worried they should be.
 description: null
 image: null
 gemstone: /images/gemstones/blue-quartz-uf.svg

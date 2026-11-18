@@ -106,6 +106,9 @@ _``Signature Ability:``_
 
 ``Charoites are respected for their ability to boost the aura and powers of other gems. They serve as enhancers within the Empire, making sure allies reach their full potential in both ceremonial and combat settings.``
 
+_``Interactions:``_
+``Charoites are booked for ceremonies and battles alike, standing behind performers like Scapolites or behind soldiers on the front line. A Hessonite with a Charoite at her back gets more out of her troops, so militia commanders put in requests for one long before a fight starts. Charoites rarely get the credit, since the gem they boosted is the one everyone saw.``
+
 
 # EMERALD
 **``BASE STATS``**
@@ -199,6 +202,9 @@ _``Latent Ability:``_
 
 ``A Green Serpentine's job isn't much different from a Scapolite's. She acts as a change of pace for when a Scapolite's voice starts to feel dull. By fusing with a Lapis Lazuli, her singing voice grows even stronger and gains more range. Gems say listening to a Green Serpentine sing feels like a lullaby, and while her soft voice is calming, it can also pull listeners in without them meaning to be drawn.``
 
+_``Interactions:``_
+``Green Serpentines are booked the same way Scapolites are, usually for a quieter set later in the evening. Venue hosts keep them away from guards on duty, since a lullaby meant for the guests can put a whole security detail to sleep. Lapises sometimes come to hear one sing between terraforming jobs.``
+
 
 # PINK TOURMALINE [SUB-TYPE OF TOURMALINE]
 **``BASE STATS``**
@@ -214,6 +220,9 @@ _``ACT Bonus:``_
 `Scandal` - <:Act:1568035453842751618>ACTs that use someone's secrets or reputation against them are especially effective for her.
 
 `Pink Tourmaline is the go to gem when a high ranking gem wants their gala, palace, or show to look like money was no object. Between jobs she moonlights as a freelance gossip columnist, which conveniently keeps her in the loop on who's throwing what and why.`
+
+_``Interactions:``_
+``Pink Tourmaline is usually hired as a pair with Green Tourmaline, one dressing the room while the other grows the garden. Pyropes book her for their biggest events, but they keep an eye on her, since anything that goes wrong at a party may turn up in her gossip column the next day. Catseyes and Pezzottaites are some of her best sources.``
 
 
 # GOLD [ERA 2A]

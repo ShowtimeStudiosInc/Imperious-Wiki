@@ -35,7 +35,10 @@ role: >-
   its primary purpose is to enhance intellect and communication with gems, almost like speech therapy. They are great
   with talking with gems and pair well with Sunstones and bear similar therapeutic responses as Epsilon Blue Diamond.
   They also are well-versed in self motivation and emotional wellness.
-interactions: null
+interactions: >-
+  Shattuckites work alongside Sunstones and Selenites, helping gems put what they feel into words. Few are made, so most
+  are kept close to Epsilon Blue's court. Steels and Flints sometimes bring one in to talk down a gem they'd rather not
+  have to restrain.
 description: null
 image: null
 gemstone: /images/gemstones/shattuckite.svg

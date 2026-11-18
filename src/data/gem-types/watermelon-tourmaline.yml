@@ -42,7 +42,10 @@ abilities:
 role: >-
   Watermelon Tourmaline works alongside Kandy's Kyanites, testing compatibility for fusion and marriage license
   approvals. She's partially a counselor, partially a relationship screening test.
-interactions: null
+interactions: >-
+  Watermelon Tourmalines work for Kandy's Kyanites, screening gems who want to fuse for work or get married. A Ruby and
+  Sapphire hoping to form a Garnet, or a Peridot and Lapis hoping to form an Amazonite, may pass through her office
+  first. Her reports can make or break a request, so couples tend to be on their best behavior around her.
 description: null
 image: null
 gemstone: /images/gemstones/watermelon-tourmaline.svg

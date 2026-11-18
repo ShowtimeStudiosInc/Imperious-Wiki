@@ -41,7 +41,10 @@ role: >-
   given moment. They serve the empire as brute soldiers in the militia, but even in the most serious moments, they can
   make any gem feel a lot more confident and at ease. They pair well with Amethyst soldiers too. You will often find
   both Smoky Quartzes and Amethysts in the same room, bouncing jokes and personalities off each other.
-interactions: null
+interactions: >-
+  Smoky Quartzes and Amethysts are rarely apart, bouncing jokes off each other in the barracks and on duty. A nervous
+  Ruby or Eucryptite who ends up next to a Smoky Quartz before a fight usually walks into it calmer than she would have
+  alone.
 description: null
 image: /images/gem-types/smoky-quartz.webp
 gemstone: /images/gemstones/smoky-quartz.svg

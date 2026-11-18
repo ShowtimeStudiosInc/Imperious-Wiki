@@ -35,7 +35,10 @@ role: >-
   Coals are constructive gems who aid Bismuths as assistants by different means such as providing light, encouragement
   or transporting building materials. They are said to resemble pearls as they were made to retrieve and follow
   commands, but are bulkier and stronger than them.
-interactions: null
+interactions: >-
+  Coals work under Bismuths, bringing light, encouragement, and materials on almost every build. They take orders from
+  Brown Tourmalines too, and Chrysoberyls borrow them to haul kitchen supplies. A Bismuth crew without a Coal tends to
+  finish later and in worse moods.
 description: null
 image: /images/gem-types/coal.webp
 gemstone: /images/gemstones/coal.svg

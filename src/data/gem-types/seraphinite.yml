@@ -52,7 +52,10 @@ role: >-
   administrators. They manage the overarching hospital facility, handle medical administration, coordinate systemic
   healthcare policy, and oversee diagnostic leads like Celestines, who in turn direct teams of Doctors. Like Celestines,
   they were never produced in the Gempire past Era 0.
-interactions: null
+interactions: >-
+  Seraphinites oversee whole hospitals, setting the policy that Celestines carry out and Arch-Angelites put into
+  practice. They work with Almandines on how disaster cases come in, and with Melanites when a patient can't be saved.
+  Like Celestines, they're Era 0 gems the Gempire can no longer make.
 description: null
 image: null
 gemstone: /images/gemstones/seraphinite.svg

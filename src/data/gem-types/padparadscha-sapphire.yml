@@ -81,7 +81,10 @@ role: >-
   Because their sight comes through cards instead of a direct vision, Padparadschas are seen as less reliable than
   standard Sapphires, which is also why they rank lower. That lower rank opens them up to a much wider range of clients
   than a standard Sapphire gets, and low ranked gems make up a good chunk of who comes to them for a daily reading.
-interactions: null
+interactions: >-
+  Padparadschas read for gems of every rank, though most of their regulars are low-ranked gems who could never book a
+  Sapphire. Sapphires tend to look down on them, while Sunstones see them as fellow advisors with a different method.
+  Rubies and Quartzes are some of their most loyal customers, coming back for a new reading before every deployment.
 description: null
 image: null
 gemstone: /images/gemstones/padparadscha-sapphire.svg

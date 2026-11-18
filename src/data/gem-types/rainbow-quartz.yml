@@ -40,7 +40,10 @@ role: >-
   allowed them to adapt their existing abilities to different elemental properties, giving them a degree of versatility
   uncommon among Quartz. They were considered exceptionally advanced for their time, with surviving examples remaining
   rare.
-interactions: null
+interactions: >-
+  Most Quartzes have never met a Rainbow Quartz and assume the stories are made up. Serpentines and Zoisites would give
+  a lot to study one, since no one has managed to make another, so a Rainbow Quartz learns early to be careful about who
+  she lets run tests on her.
 description: null
 image: /images/gem-types/rainbow-quartz.webp
 gemstone: /images/gemstones/rainbow-quartz.svg

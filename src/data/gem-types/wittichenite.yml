@@ -38,7 +38,10 @@ role: >-
   durability, but also made them slower and less agile than most modern Gems. Wittichenites were primarily used for
   heavy labor and physically demanding assignments, with some being assigned to combat roles where their immense bodies
   could be put to use.
-interactions: null
+interactions: >-
+  The few Wittichenites left are slow to answer to gems made after their era, and most modern gems have never stood next
+  to one. Builders still borrow them for loads no crew can lift, and Tungstens tend to treat them as the elders of heavy
+  work. Ask a Wittichenite to hurry and she will keep going at her own pace anyway.
 description: null
 image: /images/gem-types/wittichenite.webp
 gemstone: /images/gemstones/wittichenite.svg

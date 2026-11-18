@@ -39,7 +39,10 @@ role: >-
   middle of quiet work hours and sleeping through background noise that would keep anyone else awake. Once a Milky
   Quartz goes out for the night, waking them up takes serious effort, leaving most crews to wonder why a gem built for
   restoration needs so much downtime of their own.
-interactions: null
+interactions: >-
+  Milky Quartzes run recovery wards and quiet quarters, taking in overworked crews once Celestines are done healing
+  them. Carnelians and Amethysts are their most stubborn patients, since neither likes admitting they need rest. Rose
+  Quartzes often help, keeping things friendly while the Milky Quartz keeps things quiet.
 description: null
 image: null
 gemstone: /images/gemstones/milky-quartz-uf.svg

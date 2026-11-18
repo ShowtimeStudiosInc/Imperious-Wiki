@@ -43,7 +43,10 @@ role: >-
   and they get really excited when assigned to guard a facility on an organic planet. Some say they must get that
   passion from their Diamond. If they were not serving the empire as Quartz soldiers, many think they would have made
   great planetary explorers.
-interactions: null
+interactions: >-
+  Aventurines are often paired with Blue Quartzes, who handle the water while the Aventurines learn everything about a
+  planet's plants and soil. They get along well with Calcites and Orange Spodumenes, and will spend a whole break asking
+  either one what they've found. Agates have learned to post them on organic planets, where they work the hardest.
 description: null
 image: /images/gem-types/aventurine.webp
 gemstone: /images/gemstones/aventurine.svg

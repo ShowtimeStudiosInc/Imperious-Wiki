@@ -55,7 +55,10 @@ role: >-
   bioluminescent gem-types, so a line of Spodumenes can light a small stage on their own, and a show in a dark room is
   where they're at their best. Their colors run from green to pink to blue to purple, but a lead performer is rarely
   picked for her looks. It's picked for who keeps time the best.
-interactions: null
+interactions: >-
+  Spodumenes perform in lines of five or more behind lead acts like Scapolites, Catseyes, and Sardonyxes. Pyropes book
+  them for any show that needs a stage filled and lit, and Pezzottaites keep them on schedule. Each line picks its own
+  lead, and an outside gem who tries to pick one for them finds the line simply won't move.
 description: null
 image: /images/gem-types/spodumene.webp
 gemstone: /images/gemstones/spodumene.svg

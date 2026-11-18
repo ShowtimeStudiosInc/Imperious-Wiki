@@ -43,7 +43,10 @@ abilities:
 role: >-
   Black Tourmaline works as a personal bodyguard, usually assigned to a single high value target rather than a squad.
   Their the wall between their charge and whatever's trying to get to them.
-interactions: null
+interactions: >-
+  A Black Tourmaline is assigned to one gem and stays with her, often a Sapphire, a Diamond Pearl, or a high
+  Authoritative. She works beside guards like Rubies and Topazes, but where they hold a door, she holds a person. Most
+  high-ranking gems never learn her name, which is how a good Black Tourmaline prefers it.
 description: null
 image: null
 gemstone: /images/gemstones/black-tourmaline-schorl.svg

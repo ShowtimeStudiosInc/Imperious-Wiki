@@ -33,7 +33,10 @@ abilities:
 role: >-
   Gems that help Saturn Light Diamond with scouting out potential colonies for Homeworld, they are often seen working
   with Nephrites.
-interactions: null
+interactions: >-
+  Tektites scout possible colonies for Saturn Light Diamond, flying out with Nephrites and walking the land once they
+  arrive. When a site looks promising, they hand it to Rutiles, who judge whether the land can hold a colony. Tektites
+  and Willemites often ride the same ship, one watching the land and the other the radar.
 description: null
 image: /images/gem-types/tektite.webp
 gemstone: /images/gemstones/tektite.svg

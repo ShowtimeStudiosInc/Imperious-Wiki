@@ -32,7 +32,10 @@ abilities:
       after the task is done or the scene ends.
     moves: []
 role: Richterites are able to summon items temporarily made out of spectral light to help aid with another gem's role.
-interactions: null
+interactions: >-
+  Richterites are lent out to any gem who needs a tool for a moment, summoning items of light to help with that gem's
+  work. Bismuths, Peridots, and Rhodochrosites ask for them most. Since the items fade, a Richterite usually stays until
+  the job is finished.
 description: null
 image: /images/gem-types/richterite.webp
 gemstone: /images/gemstones/richterite.svg

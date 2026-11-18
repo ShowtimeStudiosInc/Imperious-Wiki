@@ -39,7 +39,10 @@ role: >-
   and say exactly what they think without filtering it. That no-nonsense attitude works well on demolition sites, where
   their entire day consists of deciding a structure needs to come down and physically making sure it does. Off the job,
   their straightforward honesty makes them easy to read and reliable teammates who never beat around the bush.
-interactions: null
+interactions: >-
+  Citrines tear down and salvage what other crews leave behind, handing usable metal to Amethysts for new builds. Smoky
+  Quartzes usually prep a site before a Citrine moves in. Their bluntness clashes with Rose Quartzes, but Cherry
+  Quartzes find it refreshing.
 description: null
 image: null
 gemstone: /images/gemstones/citrine-uf.svg

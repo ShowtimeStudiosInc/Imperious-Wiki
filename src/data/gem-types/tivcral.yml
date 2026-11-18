@@ -46,7 +46,10 @@ role: >-
   the SR-71 Blackbird. She is the fastest gem or alloy out there, built for jobs where speed matters more than anything
   else, like moving unstable or time sensitive cargo across the galaxy fast enough to matter. Her job is a lot like a
   Nephrite's, but where a Nephrite flies cargo, Tivcral runs it.
-interactions: null
+interactions: >-
+  Tivcral runs the cargo that can't wait for a Nephrite's ship to be ready, carrying it on foot across stations and
+  planets. She and the Nephrites have a running rivalry over who gets cargo there faster. Flints sometimes send her
+  ahead of the Steels with a warning, since she'll arrive long before anyone else.
 description: null
 image: null
 gemstone: /images/gemstones/tivcral.svg

@@ -37,7 +37,10 @@ role: >-
   physical strength and durability expected from Obsidian while possessing unusual elemental properties not found in
   modern Obsidian. Their bodies were large, heavy, and difficult to damage, but their physical size limited their speed.
   Very few Rainbow Obsidians were ever produced, making surviving members exceptionally uncommon in the modern Gempire.
-interactions: null
+interactions: >-
+  Modern Obsidians look up to the few Rainbow Obsidians still around, in more ways than one. A Rainbow Obsidian assigned
+  as an escort draws more attention than the gem she's guarding, which some high-ranking gems enjoy and others very much
+  don't.
 description: null
 image: /images/gem-types/rainbow-obsidian.webp
 gemstone: /images/gemstones/rainbow-obsidian.svg

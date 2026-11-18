@@ -43,7 +43,10 @@ role: >-
   behind your back, a Citrine will say them straight to your face. Most of the Citrines out there tend to act this way,
   though a friendlier one shows up here and there. Most of the time these brutes go out of their way to trip you up or
   make you look foolish in front of higher ranks, which can be pretty embarrassing to deal with.
-interactions: null
+interactions: >-
+  Citrines run with Cherry Quartzes and like to pick on gems who are newer or lower ranked, like Rubies and Eucryptites.
+  Tripping someone up in front of an Agate or a Hessonite is their favorite move, which makes them hard to have in a
+  squad and harder to get rid of. Jaspers are about the only Quartzes who give it right back.
 description: null
 image: /images/gem-types/citrine.webp
 gemstone: /images/gemstones/citrine.svg

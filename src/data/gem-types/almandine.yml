@@ -52,7 +52,10 @@ role: >-
   doing life saving work, Almandines are one of the less recognized garnet types, quietly handling emergencies while
   flashier gems get the public attention. They are a humble garnet type and don't care for recognition beyond thanks
   from the gems they save.
-interactions: null
+interactions: >-
+  Almandines bring rescued gems to Celestine-run hospitals and work disaster sites beside Blue Quartzes in floods and
+  Jaspers in collapses. They rarely get thanked in public, since the Seraphinites and Celestines who heal the gems get
+  the attention. Almandines are fine with that.
 description: null
 image: null
 gemstone: /images/gemstones/almandine.svg

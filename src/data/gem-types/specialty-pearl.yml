@@ -64,7 +64,10 @@ role: >-
   guaranteed companion. Every Specialty Pearl is born resembling the look of an existing gem-type, and carries an
   ability meant to complement or boost that same type's work, which makes her value at auction depend heavily on who's
   bidding and whether her resemblance actually lines up with their own.
-interactions: null
+interactions: >-
+  A Specialty Pearl is won at auction from an Era 0 Nacre, usually by a gem of the type she resembles. Regular Pearls
+  tend to see her as a show-off, while the gem who won her treats her as a prize. Bidding gets fierce when two gems of
+  the same type want the same Pearl.
 description: null
 image: null
 gemstone: /images/gemstones/specialty-pearl.svg

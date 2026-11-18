@@ -35,7 +35,10 @@ role: >-
   Chromium is a fortification and protective plating specialist. They can harden and reinforce surfaces they touches,
   including structures, equipment, and temporarily other gems' forms. Their essential for building durable installations
   and keeping valuable infrastructure safe from damage and corrosion.
-interactions: null
+interactions: >-
+  Chromiums work with Bismuths and Cobalts on any build that has to last, plating it once it's up. Before a fight,
+  Titaniums and Black Tourmalines line up to have a Chromium harden them, and Turquoises send their best pieces over to
+  be plated before they go to the front.
 description: null
 image: null
 gemstone: /images/gemstones/chromium.svg

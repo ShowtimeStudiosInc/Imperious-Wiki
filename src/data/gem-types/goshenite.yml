@@ -55,7 +55,10 @@ role: >-
   properly monitored. Goshenite is a Legacy Gem Type, first made under Omega White Diamond and later recreated by Alpha
   Black Diamond near the end of Era 0. They were most active early in Era 1A before newer gem types like Peridot and
   Serpentine took over most of their work. Only a handful remain today, and few gems across the empire know of them.
-interactions: null
+interactions: >-
+  The few Goshenites still active in the Gempire watch over colony power sources, working with Silvers, Coppers, and Era
+  2A Indicolites to keep the energy flowing. Peridots and Serpentines took over most of their old work, which some
+  Goshenites still find hard to watch. The Northstar Research Institute in the United Frontier treats them far better.
 description: null
 image: /images/gem-types/goshenite.webp
 gemstone: /images/gemstones/goshenite.svg

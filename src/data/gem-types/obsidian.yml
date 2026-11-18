@@ -39,7 +39,10 @@ abilities:
 role: >-
   Obsidians serve as escorts for gems ranked higher on the military ladder. They are front line soldiers, sitting as the
   bridge between Topaz and Ruby in terms of role.
-interactions: null
+interactions: >-
+  Obsidians escort higher-ups on the military ladder, like Hessonites and Fluorites. When a Topaz is too slow for the
+  job and a Ruby squad is too small, an Obsidian gets sent. Their lava can cut off a whole path, so Clinohumites and
+  Yooperlites sometimes borrow one on a terraforming job.
 description: null
 image: null
 gemstone: /images/gemstones/obsidian.svg

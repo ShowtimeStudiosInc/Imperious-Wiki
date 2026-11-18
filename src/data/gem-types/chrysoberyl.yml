@@ -39,7 +39,10 @@ abilities:
       when it's unlocked.
     moves: []
 role: Chrysoberyl run kitchens, restaurants, and community meals across the Gempire.
-interactions: null
+interactions: >-
+  Chrysoberyls feed every gem who eats, from Quartzes on leave to guests at a Pyrope's gala. They work with Aventurines,
+  who grow the food, and borrow Coals to haul supplies when their kitchens get busy. Selenites sometimes send a
+  struggling client to a Chrysoberyl's table before a session.
 description: null
 image: null
 gemstone: /images/gemstones/chrysoberyl.svg

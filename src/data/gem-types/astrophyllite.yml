@@ -40,7 +40,10 @@ abilities:
 role: >-
   Astrophyllite work as career counselors across the United Frontier, meeting with young gems as they approach adulthood
   to help them choose which school and trade path fits them best.
-interactions: null
+interactions: >-
+  Astrophyllites take students from Iolites as they near adulthood and help them choose a school and trade. They spend
+  more time with young Clear Quartzes than with anyone else, since a Quartz's job depends on the path she picks. When a
+  path falls through, many gems end up back in an Astrophyllite's office.
 description: null
 image: null
 gemstone: /images/gemstones/astrophyllite.svg

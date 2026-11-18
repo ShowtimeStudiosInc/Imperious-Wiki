@@ -11,6 +11,9 @@ _``Signature Ability:``_
 
 ``Cargo transporters, capable of lifting material up to ten times their size to carry them to their destinations.``
 
+_``Interactions:``_
+``Cavansites move cargo for anyone who needs it, from Bismuth crews to Turquoise foundries. They load and unload at both ends for Nephrites, who fly the cargo, and Tivcrals, who rush it. A small Cavansite carrying a load ten times her size is one of the most common sights at any port.``
+
 
 # IRON
 **``BASE STATS``**
@@ -76,6 +79,9 @@ _``Signature Ability:``_
 
 ``Graphenes are built for shapeshifting. They are mainly used for science, being able to shrink down to tiny proportions, get into small spots, and get a good view for observation. They are also sometimes used as meat shields because of their tankiness. Her gemstone is a small gray torus, about the size of a sesame seed.``
 
+_``Interactions:``_
+``Graphenes assist Serpentines in the lab, shrinking down to see what goggles can't. On colonies they help Peridots by crawling inside broken machines. Since they're tanky, Steels and Topazes sometimes use one as a meat shield, which most Graphenes put up with better than they should.``
+
 
 # BROWN TOURMALINE (DRAVITE) [SUB-TYPE OF TOURMALINE]
 **``BASE STATS``**
@@ -89,3 +95,6 @@ _``Signature Ability:``_
 `Anchoring [1 SP]` - Brown Tourmaline anchors a structure or an ally firmly to the ground. For 2 turns, they can't be knocked back or moved against their will.
 
 ``Brown Tourmaline serves as a construction foreman, often working alongside Bismuth and Coal crews. She's the one making sure nothing collapses mid build.``
+
+_``Interactions:``_
+``Brown Tourmalines run Bismuth and Coal crews on a build site and decide when something is safe to stand on. Cobalts and Chromiums take her direction on where to hold and plate, and Verdelites check with her before knocking anything down near a working structure. She and the Era 0-1 Bronzes often disagree, since a Bronze designs for beauty and a Brown Tourmaline builds for what won't fall.``

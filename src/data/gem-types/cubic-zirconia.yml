@@ -38,7 +38,11 @@ role: >-
   making sure each region stays loyal, efficient, and lined up with the bigger goals of their ruling Diamond. Diamonds
   and their Zirconias share a sibling bond. When not working, they can usually be found at Club Imperious or other high
   ranking locations.
-interactions: null
+interactions: >-
+  A Cubic Zirconia answers only to their Diamond and gives orders to every rank below them within their region. They
+  work most closely with the Authoritatives who run that territory day to day, like Emeralds, Hessonites, and Zoisites.
+  Because of the sibling bond, a Zirconia can be the easiest way to get a Diamond's ear, or the hardest wall to get
+  past.
 description: null
 image: /images/gem-types/cubic-zirconia.webp
 gemstone: /images/gemstones/cubic-zirconia.svg

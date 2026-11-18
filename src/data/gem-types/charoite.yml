@@ -38,7 +38,11 @@ abilities:
 role: >-
   Charoites are respected for their ability to boost the aura and powers of other gems. They serve as enhancers within
   the Empire, making sure allies reach their full potential in both ceremonial and combat settings.
-interactions: null
+interactions: >-
+  Charoites are booked for ceremonies and battles alike, standing behind performers like Scapolites or behind soldiers
+  on the front line. A Hessonite with a Charoite at her back gets more out of her troops, so militia commanders put in
+  requests for one long before a fight starts. Charoites rarely get the credit, since the gem they boosted is the one
+  everyone saw.
 description: null
 image: null
 gemstone: /images/gemstones/charoite.svg

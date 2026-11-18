@@ -33,7 +33,10 @@ abilities:
 role: >-
   Yellow Tourmaline works as a broker and auctioneer, handling high value trades and appraisals for gems who don't trust
   anyone else with the math.
-interactions: null
+interactions: >-
+  Yellow Tourmalines handle trades and appraisals for gems who don't trust anyone else with the math. Labradorites help
+  them trace who owns what, and Cherry Quartzes check the goods before a big sale. Most large trades in the Frontier
+  pass through one at some point.
 description: null
 image: null
 gemstone: /images/gemstones/yellow-tourmaline-canary.svg

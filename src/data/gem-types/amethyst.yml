@@ -39,7 +39,10 @@ role: >-
   to lighten the mood, even in a serious situation. Despite being under a lot of pressure to perform well as a Quartz
   soldier, they know how to keep everyone's spirits up. Amethysts are the kind of soldier people rely on to keep their
   head in the game, especially when things get tense or start to go wrong on a mission.
-interactions: null
+interactions: >-
+  Amethysts are almost always found with Smoky Quartzes, trading jokes in the barracks and on the field. They take
+  orders from Agates and train under Onyxes, but they're the first to lighten things up when a mission goes wrong. A
+  squad with an Amethyst in it rarely breaks, even when it should.
 description: null
 image: /images/gem-types/amethyst.webp
 gemstone: /images/gemstones/amethyst.svg

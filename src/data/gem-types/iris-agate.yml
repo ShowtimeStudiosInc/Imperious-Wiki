@@ -37,7 +37,10 @@ role: >-
   entirely on supervising and organizing other Gems, Iris Agates were designed to function as battlefield commanders.
   Their greatest strength was their ability to keep nearby Gems organized and coordinated, making them valuable leaders
   despite lacking the overwhelming physical strength of many military Gem-types.
-interactions: null
+interactions: >-
+  Modern Agates and Onyxes treat a surviving Iris Agate with a mix of respect and unease, since she leads soldiers in
+  the field where they only manage or train them. Quartzes under her tend to fight in better order than they ever did
+  under their own Agate, which doesn't always sit well with that Agate.
 description: null
 image: /images/gem-types/iris-agate.webp
 gemstone: /images/gemstones/iris-agate.svg

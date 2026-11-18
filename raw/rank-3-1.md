@@ -49,6 +49,9 @@ _``Latent Ability:``_
 
 ``Black Tourmaline works as a personal bodyguard, usually assigned to a single high value target rather than a squad. Their the wall between their charge and whatever's trying to get to them.``
 
+_``Interactions:``_
+``A Black Tourmaline is assigned to one gem and stays with her, often a Sapphire, a Diamond Pearl, or a high Authoritative. She works beside guards like Rubies and Topazes, but where they hold a door, she holds a person. Most high-ranking gems never learn her name, which is how a good Black Tourmaline prefers it.``
+
 
 # DRAGON'S BREATH FIRE OPAL [SUB-TYPE OF OPAL]
 **``BASE STATS``**
@@ -66,6 +69,9 @@ _``Latent Ability:``_
 `Heat Perception [PASSIVE]` - Fire Opal may learn to feel heat sources and flame nearby, even with her eyes closed.
 
 ``Fire Opals are shock troops built for scorched earth tactics, deployed wherever the Gempire needs a line burned through fast. They serve alongside Quartz soldiers as heavy hitters, often leading a charge rather than holding a line, since they hit far harder than they defend.``
+
+_``Interactions:``_
+``Fire Opals lead the charge for Quartz squads, with Agates and Hessonites deciding where to point them. They work well with Clinohumites and Tungstens, who can stand the heat they leave behind, and badly with anyone else caught in the blast. Most soldiers learn to stay behind a Fire Opal, never next to her.``
 
 
 # TANZANITE [NON-FUSION]

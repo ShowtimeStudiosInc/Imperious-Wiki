@@ -45,7 +45,11 @@ role: >-
   clients when touching their gem. They use these powers to build a sense of empathy and grow closer to their clients to
   create a sense of security within them. They cannot automatically solve a gem's psychological damage, but can help to
   soothe them.
-interactions: null
+interactions: >-
+  Selenites work out of Celestite med bays, taking the patients whose trouble is in their mind, not their body. When the
+  trauma is too severe or the case can't wait, they pass it to a Hematite, which most Selenites see as a last resort.
+  Shattuckites and Sunstones often help with their clients, and many Selenites check in on the Hessonite-variant
+  Sardonyx between shows.
 description: null
 image: /images/gem-types/selenite.webp
 gemstone: /images/gemstones/selenite.svg
