@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<g stroke="#3a1606" stroke-width="12" stroke-linejoin="round">
+<g transform="rotate(-32 100 150)"><polygon points="100,30 122,44 122,150 78,150 78,44" fill="#3a1606"/></g>
+<g transform="rotate(30 100 150)"><polygon points="100,30 122,44 122,150 78,150 78,44" fill="#3a1606"/></g>
+<polygon points="100,16 126,32 126,160 74,160 74,32" fill="#3a1606"/>
+</g>
+<g transform="rotate(-32 100 150)">
+<polygon points="78,44 100,30 100,150 78,150" fill="#f0a65a"/><polygon points="100,30 122,44 122,150 100,150" fill="#c4631f"/><polygon points="78,44 100,30 122,44 100,56" fill="#ffd6a0"/></g>
+<g transform="rotate(30 100 150)">
+<polygon points="78,44 100,30 100,150 78,150" fill="#e8913f"/><polygon points="100,30 122,44 122,150 100,150" fill="#a84f16"/><polygon points="78,44 100,30 122,44 100,56" fill="#ffc88a"/></g>
+<polygon points="74,32 100,16 100,160 74,160" fill="#f7b46a"/>
+<polygon points="100,16 126,32 126,160 100,160" fill="#d8762a"/>
+<polygon points="74,32 100,16 126,32 100,48" fill="#ffe2b8"/>
+<rect x="82" y="60" width="5" height="80" rx="2.5" fill="#ffd9a8"/>
+<rect x="112" y="64" width="4" height="70" rx="2" fill="#b65a1c"/>
+<polygon points="84,30 98,22 104,26 90,34" fill="#ffffff"/>
+<rect x="60" y="150" width="80" height="18" rx="9" fill="#3a1606"/>
+</svg>
