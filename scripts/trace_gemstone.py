@@ -58,7 +58,7 @@ hexc = lambda c: '#%02x%02x%02x' % tuple(int(v) for v in c)
 def polys(mask, color, holes=False, open_k=5):
     m = mask.astype(np.uint8) * 255
     # smooth the edges so pixel steps and tiny crop flats at the image border don't show as bumps
-    m = cv2.GaussianBlur(m, (7, 7), 0)
+    m = cv2.GaussianBlur(m, (9, 9), 0)
     m = ((m > 127) * 255).astype(np.uint8)
     m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((open_k, open_k), np.uint8))
     mode = cv2.RETR_CCOMP if holes else cv2.RETR_EXTERNAL
