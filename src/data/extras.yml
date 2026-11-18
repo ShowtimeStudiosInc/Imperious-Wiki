@@ -169,7 +169,7 @@ heights:
 
 # Per-type extras: fusion halves, threat class, faction overrides, art, credits.
 types:
-  garnet-sapphire-variant: { components: [ruby, sapphire], threatClass: Champion, image: /images/gem-types/garnet-sapphire-variant.webp }
+  garnet-sapphire-variant: { components: [ruby, sapphire], threatClass: Champion, image: /images/gem-types/garnet-sapphire-variant.webp, credit: 'Lexariix + Lexicrista' }
   alexandrite: { components: [sapphire, quartz], threatClass: Champion, image: /images/gem-types/alexandrite.webp, credit: 'Canon + Lexariix', alsoFactions: [rogue] }
   blue-tourmaline-indicolite-era-1: { image: /images/gem-types/blue-tourmaline-indicolite-era-1.webp, credit: Lexariix }
   crocoite: { image: /images/gem-types/crocoite.webp, credit: Lexariix }
