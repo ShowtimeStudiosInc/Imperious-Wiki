@@ -178,3 +178,4 @@ types:
   jade: { image: /images/gem-types/jade.webp }
   fluorite: { image: /images/gem-types/fluorite.webp }
   morganite: { image: /images/gem-types/morganite.webp }
+  amber: { image: /images/gem-types/amber.webp }
