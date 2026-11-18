@@ -166,3 +166,4 @@ types:
   nacre: { image: /images/gem-types/nacre.webp }
   kyanite: { image: /images/gem-types/kyanite.webp }
   hematite-era-2: { image: /images/gem-types/hematite-era-2.webp }
+  scapolite: { image: /images/gem-types/scapolite.webp }
