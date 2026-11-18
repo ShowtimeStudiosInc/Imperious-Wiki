@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<defs><clipPath id="cl-amber"><ellipse cx="100" cy="100" rx="64" ry="84"/></clipPath></defs>
+<ellipse cx="100" cy="100" rx="64" ry="84" fill="#f5a623"/>
+<g clip-path="url(#cl-amber)">
+<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#966623" opacity="0.28"/>
+</g>
+<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#fce4bd" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
+<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#573d24" stroke-width="7"/>
+</svg>

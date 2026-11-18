@@ -44,6 +44,7 @@ export const collections = {
       notes: z.array(z.string()).optional(),
       description: z.string().nullable().optional(),
       image: z.string().nullable().optional(),
+      gemstone: z.string().nullable().optional(),
       credit: z.string().nullable().optional(),
       updated: z.string().optional(),
     }),

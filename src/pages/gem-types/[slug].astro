@@ -57,9 +57,9 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
           {g.image ? (
             <img class="banner-img" src={g.image.startsWith('/') ? url(g.image) : g.image} alt={`${fullName(g)} art`} />
           ) : (
-            <div class="art"><GemIcon name={g.name} fusion={g.kind === 'fusion'} size={150} /></div>
+            <div class="art"><GemIcon name={g.name} fusion={g.kind === 'fusion'} gemstone={g.gemstone} size={170} /></div>
           )}
-          {!g.image && <p class="art-note">No art yet. Commissioned art or a gemstone vector goes here.</p>}
+          {!g.image && <p class="art-note">{g.gemstone ? 'Gemstone shown until art is added.' : 'No art yet.'}</p>}
         </section>
 
         <section class="panel">
@@ -110,7 +110,8 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
       <div class="col">
         <section class="panel">
           <div class="bar">Description</div>
-          <div class="body">
+          <div class="body desc">
+            {g.gemstone && <img class="stone" src={url(g.gemstone)} alt={`${fullName(g)} gemstone`} width="96" height="96" />}
             {g.description && <p set:html={rich(g.description)} />}
             <dl class="facts">
               <dt>Height</dt><dd>{g.height ?? 'Not set yet'}</dd>
@@ -220,6 +221,8 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
   .mname { font-weight: 600; color: #fff; margin-right: 0.2rem; }
   .table-list { margin: 0; padding: 0; list-style: none; font-size: 0.9rem; }
   .table-list li { padding: 0.25rem 0; border-bottom: 1px solid rgba(201, 184, 255, 0.1); }
+  .desc { display: flow-root; }
+  .stone { float: right; width: 96px; height: 96px; margin: 0 0 0.5rem 1rem; filter: drop-shadow(0 0 10px rgba(201, 184, 255, 0.25)); }
   .facts { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem; margin: 0; }
   .facts dt { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
   .facts dd { margin: 0; }

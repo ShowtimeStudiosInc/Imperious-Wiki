@@ -216,6 +216,7 @@ for (const g of all) {
     notes: g.notes.length ? g.notes : undefined,
     description: ex.description ?? null,
     image: ex.image ?? null,
+    gemstone: fs.existsSync(path.join(ROOT, 'public/images/gemstones', g.slug + '.svg')) ? `/images/gemstones/${g.slug}.svg` : null,
     credit: ex.credit ?? null,
     updated: new Date().toISOString().slice(0, 10),
   };

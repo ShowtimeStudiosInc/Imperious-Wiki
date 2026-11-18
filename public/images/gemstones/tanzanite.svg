@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<g transform="translate(68 4) scale(0.64)">
+<ellipse cx="100" cy="100" rx="84" ry="84" fill="#2b4699"/>
+<polygon points="177.6,132.1 132.1,177.6 116.1,138.8 138.8,116.1" fill="#2b4699"/>
+<polygon points="132.1,177.6 67.9,177.6 83.9,138.8 116.1,138.8" fill="#2b4699"/>
+<polygon points="67.9,177.6 22.4,132.1 61.2,116.1 83.9,138.8" fill="#335bc7"/>
+<polygon points="22.4,132.1 22.4,67.9 61.2,83.9 61.2,116.1" fill="#7a9df5"/>
+<polygon points="22.4,67.9 67.9,22.4 83.9,61.2 61.2,83.9" fill="#7a9df5"/>
+<polygon points="67.9,22.4 132.1,22.4 116.1,61.2 83.9,61.2" fill="#7a9df5"/>
+<polygon points="132.1,22.4 177.6,67.9 138.8,83.9 116.1,61.2" fill="#3b6ff0"/>
+<polygon points="177.6,67.9 177.6,132.1 138.8,116.1 138.8,83.9" fill="#2b4699"/>
+<polygon points="138.8,116.1 116.1,138.8 83.9,138.8 61.2,116.1 61.2,83.9 83.9,61.2 116.1,61.2 138.8,83.9" fill="#3b6ff0"/>
+<polygon points="83.9,61.2 116.1,61.2 92.8,82.5" fill="#c4d4fa" opacity="0.9"/>
+<ellipse cx="100" cy="100" rx="84" ry="84" fill="none" stroke="#232d5d" stroke-width="7" stroke-linejoin="round"/>
+</g>
+<g transform="translate(4 68) scale(0.64)">
+<defs><clipPath id="cl-pearl"><ellipse cx="100" cy="100" rx="76" ry="76"/></clipPath></defs>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="#f3e9ef"/>
+<g clip-path="url(#cl-pearl)">
+<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#8f8693" opacity="0.28"/>
+</g>
+<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#fbf8fa" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#7c747f" stroke-width="7"/>
+</g>
+</svg>

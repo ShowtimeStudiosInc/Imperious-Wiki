@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<defs><clipPath id="cl-specialty-pearl"><ellipse cx="100" cy="100" rx="76" ry="76"/></clipPath></defs>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="#f6dff0"/>
+<g clip-path="url(#cl-specialty-pearl)">
+<rect x="0" y="24.0" width="200" height="77.0" fill="#f6dff0"/>
+<rect x="0" y="100.0" width="200" height="77.0" fill="#dff0f6"/>
+<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#908093" opacity="0.28"/>
+</g>
+<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#fcf5fa" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#7d6f80" stroke-width="7"/>
+</svg>

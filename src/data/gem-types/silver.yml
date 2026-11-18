@@ -44,5 +44,6 @@ interactions: >-
   panels and ports that need it. Between the two of them, the empire's facilities and tech stay running.
 description: null
 image: null
+gemstone: /images/gemstones/silver.svg
 credit: null
 updated: '2026-11-18'

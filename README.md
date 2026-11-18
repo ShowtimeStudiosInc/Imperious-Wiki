@@ -9,6 +9,7 @@ The rulebook and setting wiki for the Imperious Authorities roleplay, built with
 | `src/data/gem-types/*.yml` | **One file per Gem-Type.** This is the source of truth. Every page, catalog, and `gem-types.json` is built from these. |
 | `src/data/extras.yml` | Rank 2 sides, heights, fusion halves, and threat classes that the rank posts don't hold in a fixed place. Only used by the importer. |
 | `raw/*.md` | The Discord rank posts the data was first imported from. |
+| `scripts/gemstones.py` | Builds a flat gemstone vector for every type into `public/images/gemstones/`. Fusions are made from their two halves. Edit a type's cut or color in its `GEMS` line and re-run. |
 | `scripts/import-rank-docs.mjs` | Turns the raw posts into YAML files (`npm run import`). |
 | `src/pages/gem-types/` | The pyramid landing page, the tier catalogs, the filterable catalog, and the codex entry pages. |
 | `src/content/docs/` | Starlight pages for Start Here, Rules, and Lore. |

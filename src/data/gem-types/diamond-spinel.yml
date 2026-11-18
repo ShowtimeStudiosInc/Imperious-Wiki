@@ -42,5 +42,6 @@ role: >-
 interactions: null
 description: null
 image: /images/gem-types/diamond-spinel.webp
+gemstone: /images/gemstones/diamond-spinel.svg
 credit: null
 updated: '2026-11-18'

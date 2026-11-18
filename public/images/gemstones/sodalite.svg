@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<g transform="translate(68 4) scale(0.64)">
+<defs><clipPath id="cl-larimar"><ellipse cx="100" cy="100" rx="76" ry="76"/></clipPath></defs>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="#7fdcff"/>
+<g clip-path="url(#cl-larimar)">
+<path d="M30,120 C 60,80 90,140 120,100 S 170,70 180,96" fill="none" stroke="#f2fcff" stroke-width="6" stroke-linecap="round"/>
+<path d="M40,150 C 80,130 110,160 150,136" fill="none" stroke="#f2fcff" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#5285a2" opacity="0.28"/>
+</g>
+<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#d9f4ff" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#364c61" stroke-width="7"/>
+</g>
+<g transform="translate(4 68) scale(0.64)">
+<polygon points="100.0,16.0 116.2,28.9 138.9,64.0 162.0,112.0 153.7,154.0 131.0,184.7 100.0,196.0 69.0,184.7 46.3,154.0 38.0,112.0 61.1,64.0 83.8,28.9" fill="#24338a"/>
+<polygon points="100.0,16.0 116.2,28.9 108.1,68.6 100.0,62.1" fill="#7287e3"/>
+<polygon points="116.2,28.9 138.9,64.0 119.5,86.1 108.1,68.6" fill="#7287e3"/>
+<polygon points="138.9,64.0 162.0,112.0 131.0,110.1 119.5,86.1" fill="#2a42b2"/>
+<polygon points="162.0,112.0 153.7,154.0 126.8,131.1 131.0,110.1" fill="#24338a"/>
+<polygon points="153.7,154.0 131.0,184.7 115.5,146.5 126.8,131.1" fill="#24338a"/>
+<polygon points="131.0,184.7 100.0,196.0 100.0,152.1 115.5,146.5" fill="#24338a"/>
+<polygon points="100.0,196.0 69.0,184.7 84.5,146.5 100.0,152.1" fill="#24338a"/>
+<polygon points="69.0,184.7 46.3,154.0 73.2,131.1 84.5,146.5" fill="#2a42b2"/>
+<polygon points="46.3,154.0 38.0,112.0 69.0,110.1 73.2,131.1" fill="#2f4fd6"/>
+<polygon points="38.0,112.0 61.1,64.0 80.5,86.1 69.0,110.1" fill="#7287e3"/>
+<polygon points="61.1,64.0 83.8,28.9 91.9,68.6 80.5,86.1" fill="#7287e3"/>
+<polygon points="83.8,28.9 100.0,16.0 100.0,62.1 91.9,68.6" fill="#7287e3"/>
+<polygon points="100.0,62.1 108.1,68.6 119.5,86.1 131.0,110.1 126.8,131.1 115.5,146.5 100.0,152.1 84.5,146.5 73.2,131.1 69.0,110.1 80.5,86.1 91.9,68.6" fill="#2f4fd6"/>
+<polygon points="91.9,68.6 100.0,62.1 96.3,90.4" fill="#c1caf3" opacity="0.9"/>
+<polygon points="100.0,16.0 116.2,28.9 138.9,64.0 162.0,112.0 153.7,154.0 131.0,184.7 100.0,196.0 69.0,184.7 46.3,154.0 38.0,112.0 61.1,64.0 83.8,28.9" fill="none" stroke="#202556" stroke-width="7" stroke-linejoin="round"/>
+</g>
+</svg>

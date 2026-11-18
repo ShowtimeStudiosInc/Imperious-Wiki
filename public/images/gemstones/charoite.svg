@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<defs><clipPath id="cl-charoite"><ellipse cx="100" cy="100" rx="64" ry="84"/></clipPath></defs>
+<ellipse cx="100" cy="100" rx="64" ry="84" fill="#8b4fc9"/>
+<g clip-path="url(#cl-charoite)">
+<path d="M30,120 C 60,80 90,140 120,100 S 170,70 180,96" fill="none" stroke="#c9a6f2" stroke-width="6" stroke-linecap="round"/>
+<path d="M40,150 C 80,130 110,160 150,136" fill="none" stroke="#c9a6f2" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#593383" opacity="0.28"/>
+</g>
+<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#dccaef" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
+<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#3a2552" stroke-width="7"/>
+</svg>

@@ -1,9 +1,10 @@
 ---
 // Line-art gemstone placeholder. Fusions show two stones overlapping.
 // When a type gets a real vector or art, set `image` in its data file and it replaces this.
-interface Props { name: string; fusion?: boolean; size?: number; image?: string | null; class?: string; question?: boolean }
+interface Props { name: string; fusion?: boolean; size?: number; image?: string | null; gemstone?: string | null; class?: string; question?: boolean }
 import { url } from '../lib/gems';
-const { name, fusion = false, size = 42, image = null, class: cls = '', question = true } = Astro.props;
+const { name, fusion = false, size = 42, image: img = null, gemstone = null, class: cls = '', question = true } = Astro.props;
+const image = img ?? gemstone;
 const HUES: Record<string, string> = {
   ruby: '#ff5a6e', sapphire: '#6f9bff', pearl: '#f3e6ff', emerald: '#3ddc84', topaz: '#ffd166', amethyst: '#b48cff',
   quartz: '#e6dcff', jasper: '#ff8a3d', lapis: '#4f7bff', peridot: '#a6e35b', agate: '#9b8cff', hessonite: '#ff9d4d',

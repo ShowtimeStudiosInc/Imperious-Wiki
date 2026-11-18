@@ -39,5 +39,6 @@ role: >-
 interactions: null
 description: null
 image: /images/gem-types/demantoid.webp
+gemstone: /images/gemstones/demantoid.svg
 credit: null
 updated: '2026-11-18'
