@@ -34,7 +34,7 @@ abilities:
 role: Richterites are able to summon items temporarily made out of spectral light to help aid with another gem's role.
 interactions: null
 description: null
-image: null
+image: /images/gem-types/richterite.webp
 gemstone: /images/gemstones/richterite.svg
 credit: null
 updated: '2026-11-18'

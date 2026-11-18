@@ -183,6 +183,8 @@ types:
   topaz: { image: /images/gem-types/topaz.webp }
   eucryptite: { image: /images/gem-types/eucryptite.webp }
   ruby: { image: /images/gem-types/ruby.webp }
+  richterite: { image: /images/gem-types/richterite.webp }
+  coal: { image: /images/gem-types/coal.webp }
   spinel: { image: /images/gem-types/spinel.webp }
   pearl: { image: /images/gem-types/pearl.webp }
   graphene: { image: /images/gem-types/graphene.webp }

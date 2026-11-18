@@ -37,7 +37,7 @@ role: >-
   commands, but are bulkier and stronger than them.
 interactions: null
 description: null
-image: null
+image: /images/gem-types/coal.webp
 gemstone: /images/gemstones/coal.svg
 credit: null
 updated: '2026-11-18'
