@@ -164,3 +164,4 @@ types:
   hematite-era-0: { image: /images/gem-types/hematite-era-0.webp }
   cubic-zirconia: { image: /images/gem-types/cubic-zirconia.webp }
   nacre: { image: /images/gem-types/nacre.webp }
+  kyanite: { image: /images/gem-types/kyanite.webp }
