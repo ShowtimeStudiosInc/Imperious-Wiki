@@ -216,8 +216,6 @@ types:
   ruby: { image: /images/gem-types/ruby.webp }
   prasiolite-goshenite: { discontinued: true }
   celestite: { image: /images/gem-types/celestite.webp, descendedFrom: celestine }
-  celestine: { image: /images/gem-types/celestine.webp }
-  almandine: { image: /images/gem-types/almandine.webp }
   rainbow-angelite: { image: /images/gem-types/rainbow-angelite.webp }
   rainbow-obsidian: { image: /images/gem-types/rainbow-obsidian.webp }
   rainbow-quartz: { image: /images/gem-types/rainbow-quartz.webp }

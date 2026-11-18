@@ -54,7 +54,7 @@ role: >-
   from the gems they save.
 interactions: null
 description: null
-image: /images/gem-types/almandine.webp
+image: null
 gemstone: /images/gemstones/almandine.svg
 credit: null
 updated: '2026-11-18'
