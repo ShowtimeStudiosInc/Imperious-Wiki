@@ -1,17 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
 <g transform="translate(0 0) scale(0.74)">
-<polygon points="47.0,25.0 153.0,25.0 175.0,47.0 175.0,153.0 153.0,175.0 47.0,175.0 25.0,153.0 25.0,47.0" fill="#945631"/>
-<polygon points="47.0,25.0 153.0,25.0 132.9,53.5 67.1,53.5" fill="#f5af7a"/>
-<polygon points="153.0,25.0 175.0,47.0 146.5,67.1 132.9,53.5" fill="#f08a3c"/>
-<polygon points="175.0,47.0 175.0,153.0 146.5,132.9 146.5,67.1" fill="#945631"/>
-<polygon points="175.0,153.0 153.0,175.0 132.9,146.5 146.5,132.9" fill="#945631"/>
-<polygon points="153.0,175.0 47.0,175.0 67.1,146.5 132.9,146.5" fill="#945631"/>
-<polygon points="47.0,175.0 25.0,153.0 53.5,132.9 67.1,146.5" fill="#c47137"/>
-<polygon points="25.0,153.0 25.0,47.0 53.5,67.1 53.5,132.9" fill="#f5af7a"/>
-<polygon points="25.0,47.0 47.0,25.0 67.1,53.5 53.5,67.1" fill="#f5af7a"/>
-<polygon points="67.1,53.5 132.9,53.5 146.5,67.1 146.5,132.9 132.9,146.5 67.1,146.5 53.5,132.9 53.5,67.1" fill="#f08a3c"/>
-<polygon points="67.1,53.5 132.9,53.5 85.2,79.1" fill="#fadcc4" opacity="0.9"/>
-<polygon points="47.0,25.0 153.0,25.0 175.0,47.0 175.0,153.0 153.0,175.0 47.0,175.0 25.0,153.0 25.0,47.0" fill="none" stroke="#56352b" stroke-width="7" stroke-linejoin="round"/>
+<svg viewBox="-37 0 316 316" width="200" height="200">
+<path d="M36,31 L32,40 L32,275 L34,281 L45,290 L198,289 L205,283 L208,277 L207,35 L201,28 L195,25 L45,25 Z" fill="#691503" fill-rule="evenodd"/>
+<path d="M43,30 L37,37 L37,278 L46,286 L197,285 L204,276 L203,36 L195,29 Z" fill="#ab2715" fill-rule="evenodd"/>
+<path d="M196,36 L163,67 L163,248 L196,279 L202,279 L204,276 L204,39 L202,36 Z" fill="#d5391b" fill-rule="evenodd"/>
+<path d="M39,35 L37,37 L37,278 L44,280 L77,248 L76,77 L78,68 L46,37 Z" fill="#cf6f03" fill-rule="evenodd"/>
+<path d="M39,34 L39,38 L73,70 L79,70 L85,66 L156,66 L162,70 L167,70 L201,38 L201,33 L195,29 L46,29 Z" fill="#ffd5ab" fill-rule="evenodd"/>
+<path d="M40,277 L40,282 L46,286 L194,286 L201,281 L201,277 L166,245 L162,245 L156,249 L85,249 L79,245 L73,245 Z" fill="#cf6351" fill-rule="evenodd"/>
+<path d="M36,31 L32,40 L32,275 L34,281 L45,290 L198,289 L205,283 L208,277 L207,35 L201,28 L195,25 L45,25 Z M45,31 L193,30 L202,38 L203,274 L200,280 L195,284 L48,285 L38,276 L38,39 Z" fill="#691503" fill-rule="evenodd"/>
+</svg>
 </g>
 <g transform="translate(86 86) scale(0.56)">
 <defs><clipPath id="cl-pearl"><ellipse cx="100" cy="100" rx="76" ry="76"/></clipPath></defs>

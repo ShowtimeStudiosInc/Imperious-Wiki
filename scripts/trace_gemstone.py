@@ -12,6 +12,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 im = cv2.imread(src, cv2.IMREAD_UNCHANGED)
 if im.shape[2] == 3:
     im = np.dstack([im, np.full(im.shape[:2], 255, np.uint8)])
+# Small images get scaled up first so the smoothing doesn't eat thin outlines.
+if max(im.shape[:2]) < 300:
+    f = 300 / max(im.shape[:2])
+    im = cv2.resize(im, None, fx=f, fy=f, interpolation=cv2.INTER_CUBIC)
 im = cv2.copyMakeBorder(im, 8, 8, 8, 8, cv2.BORDER_CONSTANT, value=(0, 0, 0, 0))
 rgb = im[..., :3][..., ::-1].astype(int)
 alpha = im[..., 3]
@@ -35,27 +39,33 @@ lab = dist.argmin(-1)
 lab[~opaque] = -1
 # Majority filter: anti-aliased pixels between two colors often land on a third color and
 # leave thin slivers along edges. Each pixel takes the label most common around it.
+# The outline is left alone so thin outlines survive.
+_lum = palette @ np.array([0.299, 0.587, 0.114])
+_out = int(np.argmin(_lum))
+was_outline = lab == _out
 votes = np.stack([cv2.blur((lab == i).astype(np.float32), (7, 7)) for i in range(len(palette))])
+votes[_out] = 0
 lab = votes.argmax(0)
+lab[was_outline] = _out
 lab[~opaque] = -1
 
 lum = palette @ np.array([0.299, 0.587, 0.114])
 outline = int(np.argmin(lum))
 hexc = lambda c: '#%02x%02x%02x' % tuple(int(v) for v in c)
 
-def polys(mask, color, holes=False):
+def polys(mask, color, holes=False, open_k=5):
     m = mask.astype(np.uint8) * 255
     # smooth the edges so pixel steps and tiny crop flats at the image border don't show as bumps
     m = cv2.GaussianBlur(m, (7, 7), 0)
     m = ((m > 127) * 255).astype(np.uint8)
-    m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+    m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((open_k, open_k), np.uint8))
     mode = cv2.RETR_CCOMP if holes else cv2.RETR_EXTERNAL
     cs, _ = cv2.findContours(m, mode, cv2.CHAIN_APPROX_NONE)
     d = ''
     for c in cs:
         if cv2.contourArea(c) < 25:
             continue
-        ap = cv2.approxPolyDP(c, 1.0, True)
+        ap = cv2.approxPolyDP(c, 1.4, True)
         d += 'M' + ' L'.join(f'{p[0][0]},{p[0][1]}' for p in ap) + ' Z '
     return f'<path d="{d.strip()}" fill="{color}" fill-rule="evenodd"/>' if d else ''
 
@@ -67,7 +77,7 @@ inside = cv2.dilate(((lab >= 0) & (lab != outline)).astype(np.uint8), np.ones((5
 shapes = [polys(opaque, hexc(palette[outline])), polys(inside, hexc(palette[fills[0]]))]
 grow = lambda m: cv2.dilate(m.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool) & opaque
 shapes += [polys(grow(lab == i), hexc(palette[i])) for i in fills[1:]]
-shapes.append(polys(lab == outline, hexc(palette[outline]), holes=True))
+shapes.append(polys(lab == outline, hexc(palette[outline]), holes=True, open_k=1))
 shapes = [x for x in shapes if x]
 
 h, w = lab.shape
