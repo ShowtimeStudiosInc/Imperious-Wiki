@@ -299,3 +299,23 @@ _``Signature Ability:``_
 `Herd Bond [PASSIVE]` - As long as Zebra Jasper travels and fights alongside a bonded group, she gains +1 ATK for each ally Near her, up to +2. The bonus drops the moment the group splits up or she's left on her own.
 
 ``A Clear Quartz shifts into a Zebra Jasper when they are drawn toward working as wilderness guides, leading crews through caves, storms, unmapped terrain, and disorienting badlands, and open-plains trek leaders. Whenever a crew needs to cross exposed badlands, sprawling savannahs, or unmapped frontier territory where hostile wildlife or sudden weather poses a threat, a Zebra Jasper leads the way. They generally like jobs where they can spend their days outdoors navigating rough country with a crew. They thrive on the open trail, matching their high physical stamina with a keen eye for terrain hazards. A Zebra Jasper stays aware of the whole group's pace, making sure nobody lags behind or gets separated in blinding dust or tall brush.``
+
+
+# MELANITE [UNITED FRONTIER GEM-TYPE]
+_``Rank:``_ [ NONE ]
+**``BASE STATS``**
+_``HP:``_ 30
+_``ATK:``_ 5
+_``DEF:``_ 5
+_``SPD:``_ 4
+_``INT:``_ 4
+_``MAG:``_ 4
+_``Signature Ability:``_
+`Life-Force Absorption` - Melanite can draw the life out of anything they touch, leaving plants grey, stone brittle, and gems weaker. What they take, they can keep for themself or pass on to someone else.
+- `Withering Touch [3 SP]` - Melanite grips one target who is Near and drains them, dealing [1d6 + MAG] WITHER damage. they heals for half the damage dealt, rounded up.
+- `Life Siphon [2 SP]` - Melanite makes a <:Fight:1568035371974135940>FIGHT against one target. If it lands, one ally heals for half the damage dealt, rounded up.
+_``Latent Ability:``_
+`Death Sense [PASSIVE]` [Limited] [Visions] - Melanite may learn to feel when a gem's end is near. They always know the HP of anyone they have touched.
+`Selective Invisibility` [Limited] [Alteration] - Melanite may learn to go invisible outside of combat. Gems that are close to shattering can still see them.
+
+``Melanites serve as funeral directors in the United Frontier. When a gem is shattered, a Melanite is called in to collect the shards, keep them safe, and plan the service with the gem's family and friends. They keep a record of every gem they've laid to rest, and those records are often the only full account of a gem's life once they're gone. Melanites are also called to med bays when a gem is badly cracked and not expected to recover, so they can sit with them and prepare their family for what comes next. Because their work puts them close to every shattering in the Frontier, Melanites are often the first to notice when too many gems are being lost in one place.``

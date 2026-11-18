@@ -1,0 +1,76 @@
+name: Melanite
+slug: melanite
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'0"
+stats:
+  hp: 30
+  atk: 5
+  def: 5
+  spd: 4
+  int: 4
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Life-Force Absorption
+    tags: []
+    cost: null
+    text: >-
+      Melanite can draw the life out of anything they touch, leaving plants grey, stone brittle, and gems weaker. What
+      they take, they can keep for themself or pass on to someone else.
+    moves:
+      - name: Withering Touch
+        tags:
+          - 3 SP
+        cost: 3
+        text: >-
+          Melanite grips one target who is Near and drains them, dealing [1d6 + MAG] WITHER damage. they heals for half
+          the damage dealt, rounded up.
+      - name: Life Siphon
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Melanite makes a <:Fight:1568035371974135940>FIGHT against one target. If it lands, one ally heals for half
+          the damage dealt, rounded up.
+  - section: Latent Ability
+    name: Death Sense
+    tags:
+      - PASSIVE
+      - Limited
+      - Visions
+    cost: null
+    text: Melanite may learn to feel when a gem's end is near. They always know the HP of anyone they have touched.
+    moves: []
+  - section: Latent Ability
+    name: Selective Invisibility
+    tags:
+      - Limited
+      - Alteration
+    cost: null
+    text: Melanite may learn to go invisible outside of combat. Gems that are close to shattering can still see them.
+    moves: []
+role: >-
+  Melanites serve as funeral directors in the United Frontier. When a gem is shattered, a Melanite is called in to
+  collect the shards, keep them safe, and plan the service with the gem's family and friends. They keep a record of
+  every gem they've laid to rest, and those records are often the only full account of a gem's life once they're gone.
+  Melanites are also called to med bays when a gem is badly cracked and not expected to recover, so they can sit with
+  them and prepare their family for what comes next. Because their work puts them close to every shattering in the
+  Frontier, Melanites are often the first to notice when too many gems are being lost in one place.
+interactions: null
+description: null
+image: null
+gemstone: /images/gemstones/melanite.svg
+credit: null
+updated: '2026-11-18'

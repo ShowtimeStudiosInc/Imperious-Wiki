@@ -114,6 +114,7 @@ function parseBlock(lines, fileRank) {
       continue;
     }
     if (/BASE STATS/.test(line)) continue;
+    if (/^_``(Rank|Gemstone Appearance):``_/.test(line)) { section = null; continue; }
     if ((m = line.match(/^\*\*``(.+?)``\*\*$/))) { extra = { title: title(m[1]), lines: [] }; gem.extraBlocks.push(extra); section = null; continue; }
     if (extra && /^`\d+\s*-/.test(line)) { extra.lines.push(line.replace(/^`|`/g, (x) => x).trim()); continue; }
     if ((m = line.match(SECTION))) {
