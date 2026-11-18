@@ -1,8 +1,9 @@
 ---
 import '../styles/site.css';
 import { url } from '../lib/gems';
-interface Props { title: string; description?: string; current?: string; bare?: boolean }
-const { title, description = 'The rulebook and setting wiki for the Imperious Authorities roleplay.', current, bare = false } = Astro.props;
+interface Props { title: string; description?: string; current?: string; bare?: boolean; image?: string }
+const { title, description = 'The rulebook and setting wiki for the Imperious Authorities roleplay.', current, bare = false, image } = Astro.props;
+const ogImage = new URL(url(image || '/images/brand/og-logo.png'), Astro.site).href;
 const fullTitle = title === 'Imperious Authorities' ? title : `${title} | Imperious Authorities`;
 const nav = [
   { href: '/gem-types/', label: 'Gem-Types', key: 'gem-types' },
@@ -21,8 +22,9 @@ const nav = [
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
     <meta name="theme-color" content="#7c4dff" />
-    <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={url('/favicon.png')} type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" />
     <slot name="head" />
@@ -31,7 +33,7 @@ const nav = [
     <div class="stars" aria-hidden="true"></div>
     {!bare && (
       <header class="topbar">
-        <a class="brand" href={url('/')}><span class="mark">⟡</span> Imperious Authorities</a>
+        <a class="brand" href={url('/')}><img class="mark-logo" src={url('/images/brand/logo-white.png')} alt="" width="22" height="27" /> Imperious Authorities</a>
         <nav aria-label="Main">
           {nav.map((n) => <a href={url(n.href)} aria-current={current === n.key ? 'page' : undefined}>{n.label}</a>)}
         </nav>

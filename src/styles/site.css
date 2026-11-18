@@ -65,6 +65,7 @@ code {
   border-bottom: 1px solid var(--line); }
 .brand { font-family: var(--serif); font-size: 1.02rem; letter-spacing: 0.04em; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
 .brand .mark { color: var(--lav); }
+.brand .mark-logo { height: 1.6rem; width: auto; display: block; }
 .topbar nav { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.86rem; letter-spacing: 0.06em; text-transform: uppercase; }
 .topbar nav a { color: var(--muted); }
 .topbar nav a:hover, .topbar nav a[aria-current] { color: var(--text); }

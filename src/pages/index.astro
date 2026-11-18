@@ -13,6 +13,7 @@ const sections = [
 <Site title="Imperious Authorities">
   <main class="wrap home">
     <header class="hero">
+      <img class="hero-logo" src={url('/images/brand/logo-white.png')} alt="Imperious Authorities logo" width="134" height="162" />
       <p class="eyebrow">⟡ The Imperious Authorities Wiki ⟡</p>
       <h1>Imperious Authorities</h1>
       <p class="tag">The rulebook and the setting, in one place.</p>
@@ -50,6 +51,7 @@ const sections = [
 </script>
 <style>
   .hero { text-align: center; padding: 3rem 0 2rem; }
+  .hero-logo { display: block; margin: 0 auto 1rem; height: clamp(90px, 16vw, 150px); width: auto; filter: drop-shadow(0 0 18px rgba(124, 77, 255, 0.45)); }
   .eyebrow { color: var(--lav-2); letter-spacing: 0.3em; font-size: 0.75rem; text-transform: uppercase; }
   .hero h1 { font-size: clamp(2rem, 6vw, 3.6rem); margin: 0.3rem 0; letter-spacing: 0.12em; text-transform: uppercase; }
   .tag { color: var(--muted); }

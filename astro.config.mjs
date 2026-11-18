@@ -15,8 +15,11 @@ export default defineConfig({
     starlight({
       title: 'Imperious Authorities',
       description: 'The rulebook and setting wiki for the Imperious Authorities roleplay.',
+      logo: { light: './src/assets/logo-dark.png', dark: './src/assets/logo-white.png', alt: 'Imperious Authorities logo' },
+      favicon: '/favicon.png',
       customCss: ['./src/styles/starlight.css'],
       head: [
+        { tag: 'meta', attrs: { property: 'og:image', content: new URL((base.endsWith('/') ? base : base + '/') + 'images/brand/og-logo.png', site).href } },
         { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
         { tag: 'link', attrs: { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap' } },
       ],
