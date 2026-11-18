@@ -146,7 +146,7 @@ types:
   green-serpentine: { components: [lapis, scapolite], threatClass: Champion, image: /images/gemstones/green-serpentine.svg }
   malachite-fusion: { components: [lapis, quartz], threatClass: Champion, image: /images/gem-types/malachite-fusion.webp }
   rhodonite: { components: [ruby, pearl], threatClass: Elite, image: /images/gem-types/rhodonite.webp }
-  opal-fusion: { components: [quartz, pearl], threatClass: Elite }
+  opal-fusion: { components: [quartz, pearl], threatClass: Elite, image: /images/gem-types/opal-fusion.webp }
   sardonyx-pyrope-variant: { components: [pyrope, pearl], threatClass: Elite, image: /images/gem-types/sardonyx-pyrope-variant.webp }
   sardonyx-hessonite-variant: { components: [hessonite-era-1, pearl], threatClass: Champion }
   tanzanite: { components: [sapphire, pearl], threatClass: Elite }
