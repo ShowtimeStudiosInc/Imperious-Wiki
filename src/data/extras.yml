@@ -172,3 +172,4 @@ types:
   emerald: { image: /images/gem-types/emerald.webp }
   platinum: { image: /images/gem-types/platinum.webp }
   rhodochrosite: { image: /images/gem-types/rhodochrosite.webp }
+  azurite: { image: /images/gem-types/azurite.webp }
