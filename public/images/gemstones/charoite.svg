@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
 <svg viewBox="0 0 200 200" width="200" height="200">
-<circle cx="100" cy="100" r="88" fill="#2c0f4e"/>
-<circle cx="100" cy="100" r="78" fill="#7d40cc"/>
-<circle cx="92" cy="92" r="64" fill="#a66ce6"/>
-<path d="M40,106 C60,88 84,104 108,88 C126,76 144,80 158,72" stroke="#cfaaf7" stroke-width="7" fill="none" stroke-linecap="round"/>
-<path d="M46,132 C68,116 92,132 116,116 C134,104 150,108 162,100" stroke="#c49cf2" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M66,156 C86,144 106,154 130,140" stroke="#b685ee" stroke-width="5" fill="none" stroke-linecap="round"/>
-<path d="M54,80 C56,62 68,50 88,44" stroke="#e6d4fd" stroke-width="10" fill="none" stroke-linecap="round"/>
-<circle cx="114" cy="50" r="6" fill="#ffffff"/>
+<defs><clipPath id="in"><circle cx="100" cy="100" r="78"/></clipPath><mask id="m0" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><circle cx="30" cy="170" r="120" fill="#fff"/><circle cx="10" cy="188" r="120" fill="#000"/></mask><mask id="m1" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><circle cx="20" cy="180" r="80" fill="#fff"/><circle cx="4" cy="194" r="80" fill="#000"/></mask><mask id="m2" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><circle cx="180" cy="10" r="70" fill="#fff"/><circle cx="194" cy="-4" r="70" fill="#000"/></mask></defs>
+<circle cx="100" cy="100" r="90" fill="#24103e"/>
+<circle cx="100" cy="100" r="78" fill="#7a3fc8"/>
+<circle cx="90" cy="90" r="66" fill="#9b5fe0" clip-path="url(#in)"/>
+<g clip-path="url(#in)"><circle cx="30" cy="170" r="120" fill="#d2b0f8" mask="url(#m0)"/><circle cx="20" cy="180" r="80" fill="#c59ef4" mask="url(#m1)"/><circle cx="180" cy="10" r="70" fill="#c9a4f5" mask="url(#m2)"/></g>
+<circle cx="78" cy="44" r="5" fill="#ffffff"/>
 </svg>
 </svg>
