@@ -173,3 +173,4 @@ types:
   platinum: { image: /images/gem-types/platinum.webp }
   rhodochrosite: { image: /images/gem-types/rhodochrosite.webp }
   azurite: { image: /images/gem-types/azurite.webp }
+  agate: { image: /images/gem-types/agate.webp }
