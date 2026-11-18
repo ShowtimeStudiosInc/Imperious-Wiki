@@ -162,3 +162,4 @@ types:
   zoisite: { image: /images/gem-types/zoisite.webp }
   sapphire: { image: /images/gem-types/sapphire.webp }
   hematite-era-0: { image: /images/gem-types/hematite-era-0.webp }
+  cubic-zirconia: { image: /images/gem-types/cubic-zirconia.webp }
