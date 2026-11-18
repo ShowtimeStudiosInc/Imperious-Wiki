@@ -48,7 +48,7 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
 ---
 <Site title={fullName(g)} description={desc} current="gem-types">
   <main class="wrap codex">
-    <p class="crumbs"><a href={url('/gem-types/')}>Gem-Types</a> <span>/</span> {rank ? <span>Rank {g.rank} · {rank.name}</span> : <span>{g.faction === 'lost' ? 'Lost Lights' : g.faction === 'united-frontier' ? 'United Frontier' : g.faction === 'rogue' ? 'Rogues' : ''}</span>}</p>
+    <p class="crumbs"><a href={url('/gem-types/')}>Gem-Types</a> <span>/</span> {rank && g.faction !== 'lost' ? <span>Rank {g.rank} · {rank.name}</span> : <span>{g.faction === 'lost' ? 'Discontinued Types' : g.faction === 'united-frontier' ? 'United Frontier' : g.faction === 'rogue' ? 'Rogues' : ''}</span>}</p>
 
     <section class="panel namebar">
       <div class="bar">&nbsp;</div>

@@ -238,7 +238,7 @@ types:
   silver: { image: /images/gem-types/silver.webp }
   verdelite: { image: /images/gem-types/verdelite.webp }
   bismuth: { image: /images/gem-types/bismuth.webp }
-  selenite: { image: /images/gem-types/selenite.webp }
+  selenite: { image: /images/gem-types/selenite.webp, faction: lost }
   peridot-era-2a: { image: /images/gem-types/peridot-era-2a.webp }
   calcite: { image: /images/gem-types/calcite.webp }
   clinohumite: { image: /images/gem-types/clinohumite.webp }

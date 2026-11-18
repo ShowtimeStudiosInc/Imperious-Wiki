@@ -30,13 +30,13 @@ export const TIERS: { slug: string; name: string; blurb: string; match: (g: Gem)
   { slug: 'militia', name: 'Militia', blurb: 'Rank 3. Soldiers, guards, escorts, and the fusions that fight beside them.', match: (g) => !!g.rank?.startsWith('3.') && g.faction === 'gempire' },
   { slug: 'service-trade', name: 'Service Trade', blurb: 'Rank 4. Builders, terraformers, technicians, healers, and pilots.', match: (g) => !!g.rank?.startsWith('4.') && g.faction === 'gempire' },
   { slug: 'servants', name: 'Servants', blurb: 'Rank 5. Pearls, Spinels, and the helpers who keep everyone else working.', match: (g) => !!g.rank?.startsWith('5.') && g.faction === 'gempire' },
-  { slug: 'lost', name: 'Lost Lights', blurb: 'Gem-Types from Omega White Diamond\'s empire. Few, if any, are left.', match: (g) => g.faction === 'lost' },
+  { slug: 'discontinued', name: 'Discontinued Types', blurb: 'Gem-Types the empire no longer makes. Few, if any, are left.', match: (g) => g.faction === 'lost' },
   { slug: 'rogues', name: 'Rogues', blurb: 'Gem-Types rarely found inside the empire, outside of marriage.', match: (g) => g.faction === 'rogue' },
   { slug: 'united-frontier', name: 'United Frontier', blurb: 'Gem-Types of Hades 9, hidden in a fold of space.', match: (g) => g.faction === 'united-frontier' },
 ];
 
 export const FACTION_LABEL: Record<string, string> = {
-  gempire: 'Gempire', 'united-frontier': 'United Frontier', lost: 'Lost Light', rogue: 'Rogue',
+  gempire: 'Gempire', 'united-frontier': 'United Frontier', lost: 'Discontinued', rogue: 'Rogue',
 };
 export const KIND_LABEL: Record<string, string> = {
   standard: 'Standard', 'sub-type': 'Sub-type', fusion: 'Fusion', geode: 'Geode', alloy: 'Alloy', group: 'General Group',
