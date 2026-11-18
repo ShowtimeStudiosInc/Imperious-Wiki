@@ -55,10 +55,10 @@ lab[~opaque] = -1
 outline = _out
 hexc = lambda c: '#%02x%02x%02x' % tuple(int(v) for v in c)
 
-def polys(mask, color, holes=False, open_k=5):
+def polys(mask, color, holes=False, open_k=5, blur=9):
     m = mask.astype(np.uint8) * 255
     # smooth the edges so pixel steps and tiny crop flats at the image border don't show as bumps
-    m = cv2.GaussianBlur(m, (9, 9), 0)
+    m = cv2.GaussianBlur(m, (blur, blur), 0)
     m = ((m > 127) * 255).astype(np.uint8)
     m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((open_k, open_k), np.uint8))
     mode = cv2.RETR_CCOMP if holes else cv2.RETR_EXTERNAL
@@ -79,7 +79,7 @@ inside = cv2.dilate(((lab >= 0) & (lab != outline)).astype(np.uint8), np.ones((5
 shapes = [polys(opaque, hexc(palette[outline])), polys(inside, hexc(palette[fills[0]]))]
 grow = lambda m: cv2.dilate(m.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool) & opaque
 shapes += [polys(grow(lab == i), hexc(palette[i]), holes=True) for i in fills[1:]]
-shapes.append(polys(lab == outline, hexc(palette[outline]), holes=True, open_k=1))
+shapes.append(polys(lab == outline, hexc(palette[outline]), holes=True, open_k=1, blur=5))
 shapes = [x for x in shapes if x]
 
 h, w = lab.shape
