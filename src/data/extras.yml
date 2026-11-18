@@ -144,7 +144,7 @@ heights:
 types:
   garnet-sapphire-variant: { components: [ruby, sapphire], threatClass: Champion, image: /images/gem-types/garnet-sapphire-variant.webp }
   green-serpentine: { components: [lapis, scapolite], threatClass: Champion, image: /images/gemstones/green-serpentine.svg }
-  malachite-fusion: { components: [lapis, quartz], threatClass: Champion }
+  malachite-fusion: { components: [lapis, quartz], threatClass: Champion, image: /images/gem-types/malachite-fusion.webp }
   rhodonite: { components: [ruby, pearl], threatClass: Elite }
   opal-fusion: { components: [quartz, pearl], threatClass: Elite }
   sardonyx-pyrope-variant: { components: [pyrope, pearl], threatClass: Elite, image: /images/gem-types/sardonyx-pyrope-variant.webp }
@@ -181,3 +181,15 @@ types:
   amber: { image: /images/gem-types/amber.webp }
   titanium: { image: /images/gem-types/titanium.webp }
   topaz: { image: /images/gem-types/topaz.webp }
+  zebra-jasper: { image: /images/gem-types/zebra-jasper.webp }
+  smoky-quartz: { image: /images/gem-types/smoky-quartz.webp }
+  rose-quartz: { image: /images/gem-types/rose-quartz.webp }
+  prasiolite: { image: /images/gem-types/prasiolite.webp }
+  milky-quartz: { image: /images/gem-types/milky-quartz.webp }
+  jasper: { image: /images/gem-types/jasper.webp }
+  citrine: { image: /images/gem-types/citrine.webp }
+  cherry-quartz: { image: /images/gem-types/cherry-quartz.webp }
+  carnelian: { image: /images/gem-types/carnelian.webp }
+  blue-quartz: { image: /images/gem-types/blue-quartz.webp }
+  aventurine: { image: /images/gem-types/aventurine.webp }
+  amethyst: { image: /images/gem-types/amethyst.webp }
