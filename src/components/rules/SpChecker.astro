@@ -1,0 +1,138 @@
+---
+// SP Cost Checker. Follows the pricing in the SKILL Submissions post.
+---
+<div class="not-content ia-sp">
+  <div class="ia-sp-grid">
+    <fieldset>
+      <legend>Damage and healing</legend>
+      <label>Damage
+        <select name="dmg">
+          <option value="0">None</option>
+          <option value="1">Small (+1)</option>
+          <option value="2">Medium (+2)</option>
+          <option value="3">Heavy (+3)</option>
+        </select>
+      </label>
+      <label>Healing
+        <select name="heal">
+          <option value="0">None</option>
+          <option value="1">Small (+1)</option>
+          <option value="2">Medium (+2)</option>
+          <option value="3">Heavy (+3)</option>
+        </select>
+      </label>
+      <div class="ia-dice">
+        <label>Dice size helper <input name="dice" type="text" placeholder="2d6" autocomplete="off" /></label>
+        <output name="diceOut">Type dice like 2d6 or 3d5.</output>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Reach and effects</legend>
+      <label>Targets
+        <select name="targets">
+          <option value="0">One target</option>
+          <option value="1">2 or 3 targets (+1)</option>
+          <option value="1">Every enemy who is Near (+1)</option>
+          <option value="2">Every enemy (+2)</option>
+        </select>
+      </label>
+      <label>Control effects <span class="hint">Stuck, Blinded, Asleep, Frightened, cancelling a move, skipping a turn</span>
+        <input name="control" type="number" min="0" max="6" value="0" /> <span class="hint">+2 each</span>
+      </label>
+      <label class="tick"><input name="take" type="checkbox" /> Takes control of a target or machine (+3)</label>
+      <label class="tick"><input name="info" type="checkbox" /> Reveals all of a target's stats or Abilities (+1)</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Buffs and reliability</legend>
+      <label>Stat points given or taken, or extra damage per hit
+        <input name="buff" type="number" min="0" max="20" value="0" /> <span class="hint">+1 for every 2, rounded up</span>
+      </label>
+      <label class="tick"><input name="nomiss" type="checkbox" /> Can't miss (+1)</label>
+      <label class="tick"><input name="nodef" type="checkbox" /> Ignores DEF (+1)</label>
+      <label>Lasts
+        <select name="dur">
+          <option value="0">1 turn or instant</option>
+          <option value="1">2 or 3 turns (+1)</option>
+          <option value="2">4 or more turns (+2)</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Discounts</legend>
+      <label class="tick"><input name="setup" type="checkbox" /> Needs a setup first (-1)</label>
+      <label class="tick"><input name="resist" type="checkbox" /> Target gets a resist roll, or the move can fail (-1)</label>
+      <label class="tick"><input name="drawback" type="checkbox" /> A real drawback, like self damage or losing a turn (-1)</label>
+      <label class="tick"><input name="rolling" type="checkbox" /> Rolling damage, half now and half next turn (-1)</label>
+      <label class="tick"><input name="cooldown" type="checkbox" /> Has a cooldown of 2 turns or more</label>
+      <p class="hint">Discounts never take off more than half the cost.</p>
+    </fieldset>
+  </div>
+
+  <div class="ia-sp-result" aria-live="polite">
+    <div class="total"><span data-total>1</span><small>SP</small></div>
+    <ul data-lines></ul>
+    <p data-free class="free" hidden></p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.ia-sp').forEach((root) => {
+    const q = <T extends HTMLElement>(n: string) => root.querySelector<T>(`[name="${n}"]`)!;
+    const num = (n: string) => Number((q<HTMLInputElement>(n)).value) || 0;
+    const on = (n: string) => q<HTMLInputElement>(n).checked;
+    const size = ['', 'small', 'medium', 'heavy'];
+
+    const dice = () => {
+      const out = q<HTMLOutputElement>('diceOut');
+      const m = q<HTMLInputElement>('dice').value.trim().match(/^(\d+)\s*d\s*(\d+)$/i);
+      if (!m) { out.textContent = 'Type dice like 2d6 or 3d5.'; return; }
+      const avg = (Number(m[1]) * (Number(m[2]) + 1)) / 2;
+      const s = avg <= 6 ? 1 : avg <= 10 ? 2 : 3;
+      out.textContent = `Averages ${avg}, so it's ${size[s]} (+${s}).`;
+    };
+
+    const calc = () => {
+      const lines: string[] = ['Base: 1'];
+      let cost = 1;
+      const add = (v: number, label: string) => { if (v) { cost += v; lines.push(`${label}: +${v}`); } };
+      add(num('dmg'), `${size[num('dmg')]} damage`.replace(/^./, (c) => c.toUpperCase()));
+      add(num('heal'), `${size[num('heal')]} healing`.replace(/^./, (c) => c.toUpperCase()));
+      const t = q<HTMLSelectElement>('targets');
+      add(Number(t.value), t.selectedOptions[0].text.replace(/ \(\+\d\)/, ''));
+      add(num('control') * 2, `${num('control')} control effect${num('control') === 1 ? '' : 's'}`);
+      add(on('take') ? 3 : 0, 'Takes control');
+      add(on('info') ? 1 : 0, 'Full information');
+      add(Math.ceil(num('buff') / 2), `${num('buff')} stat points or damage per hit`);
+      add(on('nomiss') ? 1 : 0, "Can't miss");
+      add(on('nodef') ? 1 : 0, 'Ignores DEF');
+      const d = q<HTMLSelectElement>('dur');
+      add(Number(d.value), d.selectedOptions[0].text.replace(/ \(\+\d\)/, ''));
+
+      const before = cost;
+      const disc = ['setup', 'resist', 'drawback', 'rolling'].filter(on).length;
+      const cap = Math.floor(before / 2);
+      const off = Math.min(disc, cap);
+      if (disc) {
+        cost -= off;
+        lines.push(off === 0 ? `Discounts: none, a ${before} SP move is too cheap to discount` : `Discounts: -${off}${off < disc ? ` (capped at half of ${before})` : ''}`);
+      }
+
+      root.querySelector('[data-total]')!.textContent = String(cost);
+      root.querySelector('[data-lines]')!.innerHTML = lines.map((l) => `<li>${l}</li>`).join('');
+      const free = root.querySelector<HTMLElement>('[data-free]')!;
+      if (on('cooldown')) {
+        free.hidden = false;
+        free.textContent = cost <= 2
+          ? 'With its cooldown, this move can be free (0 SP).'
+          : 'Too strong to be free. A free move must be no stronger than a 2 SP move.';
+      } else free.hidden = true;
+    };
+
+    root.addEventListener('input', () => { dice(); calc(); });
+    root.addEventListener('change', calc);
+    calc();
+  });
+</script>

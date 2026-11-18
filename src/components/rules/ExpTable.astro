@@ -1,0 +1,20 @@
+---
+// Level 2 needs 100 EXP, each level after needs 25 more than the last. EXP is a running total. Cap 30.
+const rows: { lvl: number; step: number; total: number }[] = [];
+let step = 0, total = 0;
+for (let lvl = 2; lvl <= 30; lvl++) {
+  step = lvl === 2 ? 100 : step + 25;
+  total += step;
+  rows.push({ lvl, step, total });
+}
+const fmt = (n: number) => n.toLocaleString('en-US');
+---
+<div class="not-content ia-exp">
+  <table>
+    <thead><tr><th>Level</th><th>EXP for this level</th><th>Total EXP</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>0</td><td>0</td></tr>
+      {rows.map((r) => <tr><td>{r.lvl}</td><td>{fmt(r.step)}</td><td>{fmt(r.total)}</td></tr>)}
+    </tbody>
+  </table>
+</div>

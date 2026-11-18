@@ -1,0 +1,49 @@
+---
+import { load as yamlLoad } from 'js-yaml';
+import fs from 'node:fs';
+type Special = { name: string; cost: number | null; text: string };
+type Mod = {
+  slug: string; name: string; title?: string; symbol?: string; kind: 'era' | 'sole' | 'mix' | 'cut';
+  parents?: string[]; accent?: string; note?: string; lore?: string;
+  stats: Record<string, number> | null; statsText?: string; specials: Special[];
+};
+interface Props { kind: Mod['kind'] }
+const { kind } = Astro.props;
+const mods = (yamlLoad(fs.readFileSync('src/data/modifiers.yml', 'utf8')) as Mod[]).filter((m) => m.kind === kind);
+const KEYS = ['hp', 'atk', 'def', 'spd', 'int', 'mag'];
+const fmt = (n: number) => (n > 0 ? `+${n}` : String(n));
+---
+<div class="not-content ia-mods">
+  {mods.map((m) => (
+    <article class="ia-mod" id={m.slug} style={m.accent ? `--accent:${m.accent}` : ''}>
+      <header>
+        <h3>{m.symbol && <span class="sym">{m.symbol}</span>}{m.name}</h3>
+        {m.title && <span class="sub">{m.title}</span>}
+        {m.parents && <span class="sub">{m.parents.join(' + ')}</span>}
+      </header>
+      {m.stats ? (
+        <div class="ia-modstats">
+          {KEYS.map((k) => (
+            <div class={`s ${m.stats![k] > 0 ? 'up' : m.stats![k] < 0 ? 'down' : ''}`}>
+              <span>{k.toUpperCase()}</span><b>{m.stats![k] === 0 ? '0' : fmt(m.stats![k])}</b>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p class="ia-modtext">{m.statsText}</p>
+      )}
+      <div class="ia-specials">
+        {m.specials.map((s) => (
+          <div class="ia-spell">
+            <div class="h"><strong>{s.name}</strong><span class={`ia-chip ${s.cost === null ? 'passive' : 'cost'}`}>{s.cost === null ? 'PASSIVE' : `${s.cost} SP`}</span></div>
+            <p>{s.text}</p>
+          </div>
+        ))}
+      </div>
+      {m.note && <p class="ia-modnote">{m.note}</p>}
+      {m.lore && (
+        <details class="ia-lore"><summary>Lore</summary><p>{m.lore}</p></details>
+      )}
+    </article>
+  ))}
+</div>

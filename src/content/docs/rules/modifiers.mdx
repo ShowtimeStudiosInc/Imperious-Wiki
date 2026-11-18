@@ -1,0 +1,70 @@
+---
+title: Modifiers
+description: Eras, Sole Essences, Analogous Mixes, and Cut Quality, with a side-by-side compare.
+sidebar:
+  order: 8
+---
+import Modifiers from '../../../components/rules/Modifiers.astro';
+import ModifierCompare from '../../../components/rules/ModifierCompare.astro';
+
+<span class="ia-label">Rules · out of character</span>
+
+Every gem carries one modifier, set by the Diamond essence they were made from. It changes their starting stats and gives them a Special. A gem only ever has one. Sole Essences and Analogous Mixes replace the Era modifier, since every Era is an essence mix too. **Cut Quality** is separate and stacks on top.
+
+A modifier's strength depends on how well its essences blend, not on how rare it is. Colors that sit next to each other on the wheel blend well. Colors that don't pull against each other, which is why Era 1A, a blend of Alpha Black and Theta Gold, came out weaker. Every modifier lowers at least one stat.
+
+## Compare two modifiers
+
+<ModifierCompare />
+
+## Eras
+
+Eras are open to everyone, as long as the Gem-Type existed in that Era.
+
+:::note[Pearls]
+A Pearl uses the same modifier as the Nacre who made her, not the Era she emerged in. Era 0 Nacre give Era 0. Era 1 Nacre give Era 0 Side-B, Skinwalker included. Era 2 Nacre give Era 2A.
+:::
+
+<Modifiers kind="era" />
+
+## Sole Essences
+
+These belong to gems made from a single Diamond's essence and nothing else. They're kept extremely rare: for now, only Transcendent ranked gems and gems who are extremely close to the Diamonds may use one, with admin approval. Everyone else uses their Era. Transcendent Gem-Types, like Cubic Zirconias, use their own Diamond's Sole Essence.
+
+Alpha Black has no separate entry. Her Sole Essence is the Era 0 modifier.
+
+<Modifiers kind="sole" />
+
+## Analogous Mixes
+
+These belong to gems made by blending two Diamond essences that sit next to each other. They replace the Era modifier entirely, and need staff approval and a reason in the character's lore.
+
+| Part | Diamonds |
+| --- | --- |
+| **The wheel** | Red (Maroon Red), Orange (Saturn Light), Yellow (Theta Gold), Blue (Epsilon Blue), Purple (Nightshade Violet), then back to Red |
+| **The grayscale** | Black (Alpha Black) and White (Omega White), apart from the wheel |
+| **The bridge** | Pink and Blue (Bi-Colored Kandy), apart from the wheel. Kandy's essence blends with Blue, Purple, and Red. |
+
+Each pair below sits side by side on the wheel, sits together in the grayscale, or crosses the bridge.
+
+<Modifiers kind="mix" />
+
+:::caution[Coming soon]
+With Emerald gone, Yellow and Blue are now neighbors, so a **Yellow-Blue Mix** (Theta Gold + Epsilon Blue) exists. Its entry hasn't been written yet.
+:::
+
+## Cut Quality
+
+Every gem emerges with a cut quality: Standard, Perfect, or Defective. Most gems are **Standard** and get no changes. Cut Quality stacks with a gem's Era, Sole Essence, or Analogous Mix.
+
+**Perfect Cut** (and **Perfect Polish** for Metals) needs staff approval. **Defective** gems need their defect explained in their lore. **Off-Color** isn't a cut quality at all, just a look: a gem who isn't a color their type normally comes in. Off-Color doesn't mean Defective.
+
+<Modifiers kind="cut" />
+
+## Adding it to a sheet
+
+Every stat on a character sheet is the Gem-Type's base, plus the Modifier, plus the Cut Quality. Show the math beside each stat so staff can check it.
+
+:::note[Example: Ruby, Era 2A, Standard Cut]
+HP 26 (base 26 + 0) · ATK 10 (base 10 + 0) · DEF 2 (base 3 - 1) · SPD 6 (base 5 + 1) · INT 5 (base 4 + 1) · MAG 6 (base 3 + 3)
+:::

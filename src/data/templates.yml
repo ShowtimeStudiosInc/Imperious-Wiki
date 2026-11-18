@@ -1,0 +1,139 @@
+# Discord-ready templates. Copied exactly from the server posts (2026-11-17).
+character: |
+  ## Gem Information
+  - _`Name:`_
+  - _`Facet & Cut:`_
+  - _`Era:`_
+  - _`Nicknames:`_
+  - _`Pronouns:`_
+  - _`Affiliation:`_
+  ## Behavior
+  - _`Personality:`_
+  - _`Likes:`_
+  - _`Dislikes:`_
+  - _`Attraction towards(Male Presenting or Female Presenting Gems?):`_
+  - _`Relationships:`_
+  - _`Fear:`_
+  - _`Alignment:`_
+  ## Capabilities
+  - _`Gem Type:`_
+  - _`Gem Placement:`_
+  - _`Place of Birth:`_
+  - _`Powers & Abilities:`_
+  ## Stats
+  - _`HP:`_
+  - _`ATK:`_
+    - _`Weapon 1 (Optional):`_
+    - _`Weapon 2 (Optional):`_
+  - _`DEF:`_
+    - _`Armor (Optional):`_
+    - _`Accessories 1 (Optional):`_
+    - _`Accessories 2 (Optional):`_
+  - _`SPD:`_
+  - _`INT:`_
+  - _`MAG:`_
+  - _`LVL:`_ 1
+    - _`EXP:`_ 0
+  ## Appearance
+  - _`Natural Height:`_
+  - _`Appearance (Image/Description):`_
+
+gemType: |
+  # GEM NAME [TAGS]
+  _``Rank:``_
+  **``BASE STATS``**
+  _``HP:``_
+  _``ATK:``_
+  _``DEF:``_
+  _``SPD:``_
+  _``INT:``_
+  _``MAG:``_
+  _``Signature Ability:``_
+  `Name [SP cost or PASSIVE]` - What it does. (Optional)
+  - `Move Name [SP cost]` - What the move does. (For umbrella abilities)
+  _``Latent Ability:``_
+  `Name` [Rating] [Class] - A power this Gem-Type may unlock later. (Optional)
+  _``ACT Bonus:``_
+  `Name` - An ACT this Gem-Type is especially good at. (Required if there's no Signature Ability)
+  _``Fusion Ability:``_
+  (Fusions only, optional)
+  _``Gemstone Appearance:``_
+
+  ``Job Lore Paragraph.``
+
+skill: |
+  # *Information*
+  - _`Name:`_
+  - _`Parent Ability:`_
+  - _`Kind:`_
+  - _`Complexity:`_
+  - _`Origin:`_
+  - _`Description:`_
+  - _`Passives:`_
+  - _`Moves:`_
+  > - Move Name (Expertise needed)
+  - _`Stat Changes:`_
+  - _`Weaknesses:`_
+
+  ## *Move Name*
+  > `[Type]` What the move does.
+  `Costs X SP.`
+
+weapon: |
+  **WEAPON / SHIELD**
+  - *`Name:`*
+  - *`Abbreviated Name:`*
+  - *`Owner:`* (Signature items only)
+  - *`Type:`*
+  - *`ATK:`* (Weapons) / *`DEF:`* (Shields)
+  - *`Weight:`* (Optional)
+  - *`Extra Effects:`* (Optional)
+  - *`Description/Flavor Text:`*
+  - *`Appearance:`* (Optional)
+
+armor: |
+  **ARMOR / ACCESSORY**
+  - *`Name:`*
+  - *`Abbreviated Name:`*
+  - *`Owner:`* (Signature items only)
+  - *`Slot:`* Armor or Accessory
+  - *`Stats:`*
+  - *`Weight:`* (Optional)
+  - *`Extra Effects:`* (Optional)
+  - *`Description/Flavor Text:`*
+  - *`Appearance:`* (Optional)
+
+consumable: |
+  **CONSUMABLE**
+  - *`Name:`*
+  - *`Abbreviated Name:`*
+  - *`Usage:`*
+  - *`Description/Flavor Text:`*
+  - *`Appearance:`* (Optional)
+
+diamond: |
+  # Name
+  ━━━━━━━━━ ⟡ ━━━━━━━━━
+  - ``Pronouns:``
+  - ``Height:``
+  - ``Color:``
+  - ``Pillar of:`` (Deity Diamonds only)
+  - ``Domains:`` (One or two)
+  - ``Sub-Domain:``
+  - ``Court:``
+  ━━━━━━━━━ ⟡ ━━━━━━━━━
+  - ``Personality:``
+  >
+  - ``Purpose:``
+  > **(A Full Description From The One You Selected Of The Ones Presented In Character Availability. [I Want You To Personalize It])**
+  - ``Powers:``
+  > **(Must Be In Relation To Purpose)**
+  > ``Domain Power:`` What it is.
+  > - ``Spell Name [X SP]`` [Type] - What it does.
+  > ``Second Domain Power:`` (Only if your Diamond has two Domains)
+  > - ``Spell Name [X SP]`` [Type] - What it does.
+  - ``Weaknesses:``
+  >
+  - ``Quote:``
+  >
+  ━━━━━━━━━ ⟡ ━━━━━━━━━

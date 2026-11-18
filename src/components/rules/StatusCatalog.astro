@@ -1,0 +1,35 @@
+---
+import { load as yamlLoad } from 'js-yaml';
+import fs from 'node:fs';
+type Status = { name: string; icon: string | null; astrid: 'enforced' | 'recorded'; text: string };
+type Group = { group: string; items: Status[] };
+const groups = yamlLoad(fs.readFileSync('src/data/statuses.yml', 'utf8')) as Group[];
+const icon = (id: string) => `https://cdn.discordapp.com/emojis/${id}.webp?size=48`;
+---
+<div class="not-content ia-status">
+  <div class="ia-legend">
+    <span class="ia-chip enforced">Astrid applies it</span>
+    <span class="ia-chip recorded">Astrid tracks it, the battle runner applies it</span>
+  </div>
+  {groups.map((g) => (
+    <section class="ia-status-group">
+      <h3 id={g.group.toLowerCase().replace(/[^a-z]+/g, '-')}>{g.group}</h3>
+      <div class="ia-status-list">
+        {g.items.map((s) => (
+          <article class="ia-status-row" id={`status-${s.name.toLowerCase().replace(/[^a-z]+/g, '-')}`}>
+            <div class="ia-status-icon">
+              {s.icon && <img src={icon(s.icon)} alt="" width="28" height="28" loading="lazy" onerror="this.remove()" />}
+            </div>
+            <div>
+              <header>
+                <strong>{s.name}</strong>
+                <span class={`ia-chip ${s.astrid}`}>{s.astrid === 'enforced' ? 'Astrid' : 'Runner'}</span>
+              </header>
+              <p>{s.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+</div>

@@ -1,0 +1,133 @@
+# Status effects. Source: STATUS EFFECT CATALOG BATCH #1 (2026-11-17).
+# astrid: enforced (Astrid applies the effect) | recorded (Astrid tracks it, the battle runner applies it)
+# icon: Discord emoji id from the server, or null.
+
+- group: Wounds That Linger
+  items:
+    - name: Poison
+      icon: "1569755788761894983"
+      astrid: enforced
+      text: At the end of the affected Gem's turn, they take 5 damage, then the condition counts down by one. Damage reduction can still lower it.
+    - name: Burn
+      icon: "1569755746588037201"
+      astrid: enforced
+      text: At the end of the affected Gem's turn, they take 5 damage, then the condition counts down by one. Damage reduction can still lower it.
+    - name: Bleed
+      icon: "1569755889911603292"
+      astrid: enforced
+      text: At the end of the affected Gem's turn, they take 5 damage, then the condition counts down by one. Damage reduction can still lower it.
+    - name: Corrosion
+      icon: "1569756096137134214"
+      astrid: recorded
+      text: Eats away at a Gem's protection. Each turn it lasts, their DEF drops by 1, until it ends. Gems with corrosion immunity, like Era 2A Golds, ignore it.
+    - name: Chilled
+      icon: "1569756204547313714"
+      astrid: recorded
+      text: Cold slows the body down. A Chilled Gem acts later in the turn order.
+
+- group: Losing Control
+  items:
+    - name: Stunned
+      icon: "1569757302968426627"
+      astrid: enforced
+      text: FIGHT and most ACTs have a 1 in 3 chance to fail, wasting the turn. The Gem also can't change position, use items, or take some MERCY actions.
+    - name: Paralysis
+      icon: "1569758846547665320"
+      astrid: enforced
+      text: FIGHT and most ACTs have a 1 in 3 chance to fail, wasting the turn. The Gem also can't change position, use items, or take some MERCY actions.
+    - name: Freeze
+      icon: "1569760470309670912"
+      astrid: enforced
+      text: FIGHT and most ACTs have a 1 in 3 chance to fail, wasting the turn. The Gem also can't change position, use items, or take some MERCY actions.
+    - name: Entangle
+      icon: "1569761309614932049"
+      astrid: enforced
+      text: The Gem can't change position, and FIGHT and most ACTs have a 1 in 3 chance to fail.
+    - name: Stuck
+      icon: "1569762356269944933"
+      astrid: enforced
+      text: The Gem can't change position.
+    - name: Knocked Down
+      icon: null
+      astrid: enforced
+      text: The Gem can't FIGHT, change position, or use SKILLs. They can still Defend, or spend a turn getting back up.
+    - name: Trapped
+      icon: "1569762621324922951"
+      astrid: recorded
+      text: The Gem can't change position or leave the battle until it ends.
+    - name: Disarmed
+      icon: "1569764733085679677"
+      astrid: enforced
+      text: The Gem can't use their equipped weapon or any weapon moves. Spending a turn to retrieve it ends the condition.
+
+- group: A Clouded Mind
+  items:
+    - name: Asleep
+      icon: "1569712124043857941"
+      astrid: enforced
+      text: The Gem's turn is skipped entirely. Taking any damage wakes them.
+    - name: Charm
+      icon: null
+      astrid: enforced
+      text: Most ACTs have a 1 in 3 chance to fail.
+    - name: Hush
+      icon: "1569764995049463870"
+      astrid: enforced
+      text: The Gem can't use any ACT except CHECK.
+    - name: Frightened
+      icon: "1568074311229644951"
+      astrid: recorded
+      text: The Gem can't move Near whatever frightened them, and their attacks against it are made with disadvantage.
+    - name: Confused
+      icon: null
+      astrid: recorded
+      text: The Gem's next attack or spell hits a random target, ally or enemy.
+    - name: Blinded
+      icon: "1568081577429176350"
+      astrid: recorded
+      text: The Gem's attacks are made with disadvantage.
+
+- group: Worn Down
+  items:
+    - name: Attack Down
+      icon: null
+      astrid: enforced
+      text: Damage from the Gem's attacks drops to 75%, rounded up.
+    - name: Defense Broken
+      icon: null
+      astrid: enforced
+      text: Attacks treat the Gem's DEF as 0.
+    - name: Speed Down
+      icon: null
+      astrid: recorded
+      text: The Gem's SPD gives them no protection. Attackers need only the weapon's normal roll to hit them.
+    - name: Pressure
+      icon: null
+      astrid: enforced
+      text: The Gem's side acts later in the turn order, and every ability their side uses costs 1 extra shared SP for each stack, up to 3.
+    - name: Essence Disrupted
+      icon: null
+      astrid: enforced
+      text: The Gem's modifier specials are suppressed, including the damage bonus from Charged.
+
+- group: On the Edge
+  items:
+    - name: Charged
+      icon: "1568077100014112898"
+      astrid: enforced
+      text: The Gem's attacks and damaging SPELLs deal +3 damage, once per target, but they can't Defend. Era 2A Gems become Charged for 3 turns when their Driving Emotion takes hold.
+    - name: Mangled
+      icon: "1569728837011636335"
+      astrid: recorded
+      text: A tree of darkness grows through the Gem's light form. They don't poof. They can't act or move, and their allies can't heal them while the tree holds. At the start of each of their turns, they lose 1/8 of their max HP. Only Alpha Black can remove it, or the end of the battle.
+
+- group: Rolling Twice
+  items:
+    - name: Advantage
+      icon: "1569757411752026112"
+      astrid: enforced
+      text: Roll two d20s and keep the higher.
+    - name: Disadvantage
+      icon: "1569757437005799477"
+      astrid: enforced
+      text: Roll two d20s and keep the lower. Advantage and disadvantage never stack. If a Gem has both, they cancel out.

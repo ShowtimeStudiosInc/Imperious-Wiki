@@ -1,0 +1,15 @@
+---
+title: Status Effects
+description: Every status a gem can be hit with, and whether Astrid applies it for you.
+sidebar:
+  order: 4
+---
+import StatusCatalog from '../../../components/rules/StatusCatalog.astro';
+
+<span class="ia-label">Rules · out of character</span>
+
+Statuses come from SKILLs, SPELLs, items, and Modifier Specials. Each one below is marked by who applies it. **Astrid**, the server's combat bot, handles the ones marked Astrid on her own. She still keeps track of the ones marked **Runner**, but whoever runs the battle applies their effect.
+
+A status is resisted with the stat that fits it: DEF for the body, SPD for anything dodgeable, INT for the mind. See [Resisting effects](../stats/#resisting-effects). Consumable cures remove one status each. See [Items](../items/#consumables).
+
+<StatusCatalog />

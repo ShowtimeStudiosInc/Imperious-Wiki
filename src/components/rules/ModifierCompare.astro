@@ -1,0 +1,59 @@
+---
+import { load as yamlLoad } from 'js-yaml';
+import fs from 'node:fs';
+type Mod = { slug: string; name: string; kind: string; stats: Record<string, number> | null; specials: { name: string; cost: number | null }[] };
+const mods = (yamlLoad(fs.readFileSync('src/data/modifiers.yml', 'utf8')) as Mod[]).filter((m) => m.stats);
+const groups: [string, string][] = [['era', 'Eras'], ['sole', 'Sole Essences'], ['mix', 'Analogous Mixes'], ['cut', 'Cut Quality']];
+const data = Object.fromEntries(mods.map((m) => [m.slug, { name: m.name, stats: m.stats, specials: m.specials.map((s) => s.name + (s.cost === null ? '' : ` [${s.cost} SP]`)) }]));
+---
+<div class="not-content ia-compare" data-mods={JSON.stringify(data)}>
+  <div class="ia-compare-pick">
+    {['a', 'b'].map((side, i) => (
+      <label>
+        <span>{i === 0 ? 'First' : 'Second'}</span>
+        <select data-side={side}>
+          {groups.map(([k, label]) => (
+            <optgroup label={label}>
+              {mods.filter((m) => m.kind === k).map((m) => (
+                <option value={m.slug} selected={i === 0 ? m.slug === 'era-0' : m.slug === 'era-2a'}>{m.name}</option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+      </label>
+    ))}
+  </div>
+  <table class="ia-compare-table">
+    <thead><tr><th>Stat</th><th data-head="a"></th><th data-head="b"></th><th>Gap</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <div class="ia-compare-specials"><div data-sp="a"></div><div data-sp="b"></div></div>
+</div>
+
+<script>
+  const KEYS = ['hp', 'atk', 'def', 'spd', 'int', 'mag'];
+  const fmt = (n: number) => (n > 0 ? `+${n}` : String(n));
+  document.querySelectorAll<HTMLElement>('.ia-compare').forEach((root) => {
+    const mods = JSON.parse(root.dataset.mods!);
+    const sel = (s: string) => root.querySelector<HTMLSelectElement>(`select[data-side="${s}"]`)!;
+    const render = () => {
+      const a = mods[sel('a').value], b = mods[sel('b').value];
+      root.querySelector('[data-head="a"]')!.textContent = a.name;
+      root.querySelector('[data-head="b"]')!.textContent = b.name;
+      const rows = KEYS.map((k) => {
+        const d = a.stats[k] - b.stats[k];
+        const win = d > 0 ? 'a' : d < 0 ? 'b' : '';
+        return `<tr><td>${k.toUpperCase()}</td><td class="${win === 'a' ? 'win' : ''}">${fmt(a.stats[k])}</td><td class="${win === 'b' ? 'win' : ''}">${fmt(b.stats[k])}</td><td>${d === 0 ? 'even' : (d > 0 ? a.name : b.name) + ' +' + Math.abs(d)}</td></tr>`;
+      });
+      const total = (m: any) => KEYS.slice(1).reduce((s, k) => s + m.stats[k], 0);
+      rows.push(`<tr class="total"><td>Total (no HP)</td><td>${fmt(total(a))}</td><td>${fmt(total(b))}</td><td></td></tr>`);
+      root.querySelector('tbody')!.innerHTML = rows.join('');
+      const sp = (m: any) => `<strong>${m.name}</strong><ul>${m.specials.map((s: string) => `<li>${s}</li>`).join('')}</ul>`;
+      root.querySelector('[data-sp="a"]')!.innerHTML = sp(a);
+      root.querySelector('[data-sp="b"]')!.innerHTML = sp(b);
+    };
+    sel('a').addEventListener('change', render);
+    sel('b').addEventListener('change', render);
+    render();
+  });
+</script>

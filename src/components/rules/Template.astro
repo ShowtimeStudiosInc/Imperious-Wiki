@@ -1,0 +1,10 @@
+---
+import { load as yamlLoad } from 'js-yaml';
+import fs from 'node:fs';
+import CopyBlock from './CopyBlock.astro';
+interface Props { id: string; title: string; note?: string }
+const { id, title, note } = Astro.props;
+const all = yamlLoad(fs.readFileSync('src/data/templates.yml', 'utf8')) as Record<string, string>;
+const text = (all[id] ?? '').replace(/\n+$/, '');
+---
+<CopyBlock title={title} text={text} note={note} />

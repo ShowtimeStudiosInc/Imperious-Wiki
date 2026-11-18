@@ -1,0 +1,95 @@
+---
+title: Templates
+description: Copy-ready templates for characters, Gem-Types, SKILLs, items, and Diamonds, with what each one needs.
+sidebar:
+  order: 9
+---
+import Template from '../../../components/rules/Template.astro';
+
+<span class="ia-label">Rules · out of character</span>
+
+Every template here is formatted for Discord. Press **Copy**, paste it into the right submission channel, and fill it in. Staff review every submission before it's used.
+
+## Character
+
+To start with your Gem-Type's stats already filled in, open its page in [Gem-Types](../../gem-types/) and press **Copy Character Template** there instead.
+
+<Template id="character" title="Character Sheet" />
+
+### Filling it in
+
+1. **Choose a Gem-Type** from [Gem-Types](../../gem-types/). If the one you want doesn't exist yet, submit it first with the Gem-Type template below.
+2. **Choose a modifier.** Every gem has exactly one. Eras are open to everyone as long as the Gem-Type existed in that Era. Sole Essences and Analogous Mixes need staff approval. Pearls use the Era of the Nacre who made them. See [Modifiers](../modifiers/).
+3. **Choose a Cut Quality.** Most gems are Standard. Perfect Cut needs staff approval, and a Defective gem needs their defect explained in their lore.
+4. **Add up your stats.** Each stat is the Gem-Type's base, plus your Modifier, plus your Cut. Show the math beside each one. HP works the same way, and DEF from your Modifier or Cut doesn't raise HP a second time.
+5. **Fill in your abilities.** Copy Signature Abilities and the ACT Bonus from your Gem-Type, your Modifier Special from your modifier, and list each Learned Ability (SKILL) with your Expertise in it. List the active spells and moves your character can use. See [Abilities](../abilities/).
+6. **Choose your gear.** Up to two weapons, one armor, and two accessories. See [Items](../items/).
+7. **Give them a real weakness.** Something that makes them struggle: a bad matchup, a fear that gets in the way, a gap in their skills.
+8. **Start at Level 1 with 0 EXP**, even if your character is very old.
+
+**Cubic Zirconias** and **United Frontier** gems leave Facet & Cut blank, since they don't have one. United Frontier gems go by given names of their own.
+
+### Organic characters
+
+Organics use the same sheet with a few changes:
+
+- Replace Facet & Cut, Era, Gem Type, and Gem Placement with **Species** and **Age**.
+- Stats come from your species instead of a Gem-Type. An adult human averages ATK 4, DEF 4, SPD 5, INT 5, MAG 0.
+- **HP is at most Age x 2**, and often lower depending on health.
+- Most organics have no Signature Abilities. Their strength comes from SKILLs, gear, and ACTs.
+
+## Gem-Type
+
+<Template id="gemType" title="Gem-Type Submission" />
+
+### Stat budget
+
+ATK, DEF, SPD, INT, and MAG must add up to exactly the budget for the rank, minus the Rating cost of any Signature Ability. HP isn't counted, since it comes from DEF.
+
+| Rank | Median budget | High (+2) | Low (-2) |
+| --- | --- | --- | --- |
+| Rank 5, Servant | 22 | 24 | 20 |
+| Rank 4, Service Trade | 25 | 27 | 23 |
+| Rank 3, Militia | 28 | 30 | 26 |
+| Rank 2, Authoritative / Aristocratic | 32 | 34 | 30 |
+| Rank 1.2, Transcendent | 44 for Cubic Zirconias, 36 for Diamond attendants | | |
+| United Frontier | 25, or 32 for Era 0 legacy types | | |
+
+Signature Abilities cost **Limited 1, Minor 2, Base 3, Enhanced 4, Advanced 5, Perfect 6**. HP is **20 + (DEF x 2)**, or lower with a reason in the lore.
+
+### Before you submit
+
+- [ ] Stats add up to the budget, minus any Signature Ability cost
+- [ ] One clear strong stat and one clear weak stat, both matching the lore
+- [ ] HP is 20 + (DEF x 2), or lower with a reason
+- [ ] Every power passes the "is it the job?" test, and has a Rating and a Class
+- [ ] Every active ability or spell has an SP cost, and passives are marked PASSIVE
+- [ ] No Signature Ability means there's an ACT Bonus
+- [ ] Nothing copies an existing Gem-Type's power in name or effect
+- [ ] The Job Lore Paragraph covers the job, the court, and where they're found
+
+**Special cases.** Tag sub-types with [SUB-TYPE OF X]; they use their own rank's budget. Tag fusions with [FUSION] and see [Fusion](../fusion/#building-a-fusions-sheet) for their stats. Geodes and Alloys are their own types with their own stats. Only tag an Era, like [ERA 0], if the type exists in that Era alone. United Frontier Quartz types are built from Clear Quartz with stat modifiers that add up to 0, minus the cost of any power.
+
+## SKILL
+
+<Template id="skill" title="SKILL Submission" note="Repeat the Move Name block for each move, up to six." />
+
+What each section means, and how to price moves, is on the [SKILLs](../skills/) page.
+
+## Items
+
+Only items with special effects, or items used in combat, need a card. See [Items](../items/).
+
+<Template id="weapon" title="Weapon or Shield" />
+
+<Template id="armor" title="Armor or Accessory" />
+
+<Template id="consumable" title="Consumable" />
+
+Key Items are for staff only.
+
+## Diamond
+
+<Template id="diamond" title="Diamond" note="Every Diamond is being resubmitted for the rework. Pillar of is for the four Deity Diamonds only." />
+
+A **Domain** is a major part of reality the Diamond's powers represent, like Fire, Death, or War. A Diamond holds one or two. A **Sub-Domain** is a smaller authority inside a Domain, the kind a Cubic Zirconia inherits. It should be recognizable right away, big enough to matter to a culture, able to carry a full set of powers, and smaller than its Domain. Every spell must clearly come from the Domain Power, and the Domain Power from the Diamond's Purpose. Every Diamond needs at least one real weakness.

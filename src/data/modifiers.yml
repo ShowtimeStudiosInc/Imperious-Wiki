@@ -1,0 +1,351 @@
+# Modifiers. Source: ERA MODIFIERS and CUT QUALITY posts (2026-11-17), Analogous Mixes from the rebuild doc.
+# kind: era | sole | mix | cut
+# stats order: hp, atk, def, spd, int, mag
+# Specials: name, cost (null for passive), text.
+
+- slug: era-0
+  name: Era 0
+  title: The Age of the Primordial
+  symbol: "Ø"
+  kind: era
+  stats: { hp: 2, atk: 2, def: 1, spd: -1, int: 2, mag: 1 }
+  specials:
+    - name: Perfect Shapeshifting
+      cost: null
+      text: Era 0 gems can reshape their body into any form and move their gemstone anywhere on it, limited only by size. Once per battle, as a Reaction, they can move their gemstone away from a hit. That hit can't Crack them.
+  lore: >-
+    Era 0 Gems are the oldest gems in existence, predating the rise of the Diamond of Life and the Diamond of Judgement,
+    along with the 4 New Diamonds who came into being in Era 2A, and originating directly under Court Alpha. They are the
+    only gems, aside from the Diamond of Life and the Diamond of Judgement, who have ever seen Alpha Black Diamond before
+    her withdrawal from gem society, and the only ones still permitted to visit her without a set appointment. Each Era 0
+    gem type is a kind of prototype, the progenitor of its modern gem type, often bearing little resemblance to the uniform
+    gems seen later. They are living relics of a bygone age, each one a unique masterpiece. To this day they still serve
+    Court Alpha, working undercover and monitoring other courts and groups of interest, and they remain deeply loyal to
+    Alpha Black Diamond.
+
+- slug: era-0-side-b
+  name: Era 0 Side-B
+  title: The Age of the Hive Queen
+  symbol: "Ø"
+  kind: era
+  stats: { hp: 2, atk: 1, def: 1, spd: -1, int: 1, mag: 3 }
+  specials:
+    - name: Skinwalker
+      cost: null
+      text: Era 0 Side-B gems can perfectly copy any voice or sound they've heard. ACTs that deceive with a copied voice have advantage. They feed on fear, gaining +1 ATK for each enemy who is Frightened, up to +3.
+  note: Pearls made by an Era 1 Nacre also use this modifier, whatever Era they emerged in.
+  lore: >-
+    Era 0 Side-B Gems are the surviving remnants of Omega White Diamond's original empire, crafted on the far side of
+    existence during the same timeframe as Alpha Black's Era 0. However, while Era 0 represents limitless variance, Era 0
+    Side-B represents terrifying uniformity. These gems were manufactured under the rigid guidelines set by the Radiant
+    Omega White Diamond, meaning every Era 0 Side-B Ruby is exactly 3.5 feet tall, every Pearl exactly 6 feet, with zero
+    deviation in form or function. They possess almost no quirks, no sense for rebellion, and view individuality as a
+    defect. After Omega White was defeated and absorbed, Alpha Black took these surviving gems into her own empire. Today,
+    they stand in stark contrast to the rest of the Gempire: pristine, eerily synchronized, often speaking in plural terms
+    ("we"), and undeniably loyal.
+
+- slug: era-1a
+  name: Era 1A
+  title: The Age of New Light
+  symbol: "🜁"
+  kind: era
+  stats: { hp: 2, atk: 2, def: 2, spd: 0, int: 0, mag: -1 }
+  specials:
+    - name: Essence Buster
+      cost: 2
+      text: The gem presses essence into their weapon and sends out an aerial slash, dealing 2d4 + MAG damage. It takes the element of the gem's elemental ability, or Kinetic if they have none. Against Diamonds and Cubic Zirconias, it deals 2d6 + MAG instead.
+    - name: Enhanced Shapeshifting
+      cost: null
+      text: Era 1A gems can make complex, stable changes to their form, but can't change their colors or move their gemstone.
+  lore: >-
+    Era 1A Gems mark the first generation created using a Diamond Essence outside of Alpha Black's, even if a small portion
+    of her essence carried over, formed primarily under Theta Gold Diamond's oversight during the Age of New Light. As the
+    earliest gems of the post primordial era, they represent the beginning of standardized gemkind: structured, orderly,
+    and crafted with precision, especially since Theta Gold was a fairly new Diamond at the time, and a meticulous workaholic
+    even then. Era 1A Gems lack the wild diversity of Era 0, and this is where the look of modern gem types comes from, but
+    they make up for it with reliability and loyalty. Though not as powerful as their predecessors, Era 1A Gems became the
+    foundation modern gem society was built on, serving as the first true workforce of the new age.
+
+- slug: era-1b
+  name: Era 1B
+  title: The Age of the Judge
+  symbol: "🜁"
+  kind: era
+  stats: { hp: 1, atk: -1, def: 0, spd: 1, int: 3, mag: 1 }
+  specials:
+    - name: Enhanced Senses
+      cost: null
+      text: Era 1B gems have advantage on perception checks. While an Era 1B gem is conscious, their party can't be ambushed.
+    - name: Weak Essence Buster
+      cost: 1
+      text: A lighter version of Essence Buster, dealing 1d6 + MAG damage, or 2d4 + MAG against Diamonds and Cubic Zirconias.
+  lore: >-
+    Era 1B Gems emerged during the Age of the Judge, the era in which Epsilon Blue Diamond joined Theta Gold in the creation
+    process. These gems were the first shaped by a proper dual Diamond influence. As a result, Era 1B Gems are sharper,
+    quicker, and more perceptive than their Era 1A predecessors, capable of reading situations, patterns, and the emotions
+    of others with uncanny accuracy. Their forms are lighter and less rigid due to the fading presence of Alpha Black's
+    essence, but their minds lean much more toward diplomacy, analysis, and high level reasoning. Many Era 1B Gems became
+    the diplomats, advisors, and administrative backbone of later Homeworld society.
+
+- slug: era-2a
+  name: Era 2A
+  title: The Age of the Five
+  symbol: "🜂"
+  kind: era
+  stats: { hp: 0, atk: 0, def: -1, spd: 1, int: 1, mag: 3 }
+  specials:
+    - name: Emotion Fuels Power
+      cost: null
+      text: Every Era 2A gem has one emotion that drives them, chosen when the character is made. Once per battle, when something stirs that emotion, they become Charged for 3 turns. While Charged, their attacks and SPELLs deal +3 damage, but they can't Defend.
+  lore: >-
+    Era 2A Gems emerged during the Age of the Five, the first era shaped by the combined essences of Nightshade Violet
+    Diamond, Maroon Red Diamond, Bi-Colored Kandy Diamond, Saturn Light Diamond, and the faint remnants of Theta Gold and
+    Epsilon Blue, but none of Alpha Black's essence. This convergence created a generation unlike any before it: brilliant,
+    expressive, emotionally charged, and wildly diverse in both form and function. Their bodies are lighter and more
+    fragile due to the complete absence of Alpha Black's essence, but their minds and abilities burn brighter than any
+    previous era. Though Era 2A Gems lack the toughness of earlier generations, they are the most social, creatively
+    gifted, and emotionally complex gems ever produced, embodying both the beauty and volatility of the empire as it was
+    reshaped by its four new leaders.
+
+- slug: era-0-1
+  name: Era 0-1
+  title: The Metal Society
+  symbol: "⚙"
+  kind: era
+  stats: { hp: 2, atk: 1, def: 3, spd: 0, int: 1, mag: -1 }
+  specials:
+    - name: Material Conductivity
+      cost: null
+      text: Era 0-1 Metals take half damage from Fire and Electric. Once per battle, as a Reaction to taking Fire or Electric damage, they can hold that energy and add the damage they took to their next FIGHT.
+  lore: >-
+    Era 0-1 Metals predate the Gempire's assimilation of Metals and were never formed through Diamond Essence or
+    kindergarten processes. Instead, they emerged from their own civilization's metallurgical foundries, through processes
+    involving heat, pressure, and elemental fusion that their society developed on its own. These Metals bear actual names
+    rather than designations, a remnant of their society's individualistic culture before joining the Gempire. Their forms
+    are denser and more utilitarian than gems, built for endurance rather than elegance. While they lack the brilliant
+    abilities common to gemkind, their physical resilience is unmatched. Because they remember the Metal Society before it
+    was taken from them, many still carry the philosophies and work ethics of that earlier time. To this day they form the
+    backbone of the Gempire's infrastructure, and they tend to question the caste system more openly than their Era 2A+
+    mass produced counterparts, who were born already knowing their place in the imperial order.
+
+- slug: theta-gold-sole-essence
+  name: Theta Gold Sole Essence
+  kind: sole
+  accent: "#e8b923"
+  stats: { hp: 0, atk: 2, def: 1, spd: -1, int: 1, mag: 2 }
+  specials:
+    - name: True Essence Buster
+      cost: 3
+      text: Undiluted Theta Gold essence makes the strongest Essence Buster of all. The gem sends out an aerial slash dealing 2d6 + MAG damage, or 2d8 + MAG against Diamonds and Cubic Zirconias. It takes the element of the gem's elemental ability, or Kinetic if they have none.
+
+- slug: epsilon-blue-sole-essence
+  name: Epsilon Blue Sole Essence
+  kind: sole
+  accent: "#3b7dd8"
+  stats: { hp: 0, atk: -1, def: 2, spd: 0, int: 3, mag: 1 }
+  specials:
+    - name: Absolute Sense
+      cost: null
+      text: These gems can't be Blinded, always know where hidden or invisible enemies are, and can tell when anyone within earshot lies. Their senses go beyond even Enhanced Senses, picking one voice out of a screaming crowd or feeling a blade drawn behind them.
+
+- slug: nightshade-violet-sole-essence
+  name: Nightshade Violet Sole Essence
+  kind: sole
+  accent: "#8a4fd8"
+  stats: { hp: 0, atk: -1, def: 0, spd: 2, int: 2, mag: 2 }
+  specials:
+    - name: Blind Spot Sense
+      cost: null
+      text: These gems always know where they would go unseen in any room, crowd, or battlefield. Their first attack from Behind or from hiding has advantage. While one is in the party, darkness doesn't slow the Star Gauge.
+
+- slug: maroon-red-sole-essence
+  name: Maroon Red Sole Essence
+  kind: sole
+  accent: "#b0223a"
+  stats: { hp: 0, atk: 3, def: 2, spd: 0, int: -1, mag: 1 }
+  specials:
+    - name: Unbreakable Line
+      cost: null
+      text: Allies Near a Maroon Red gem can't be knocked back and have advantage on resisting fear. When the Maroon Red gem Defends, every ally Near them also gets Defend's damage reduction against the next hit they take.
+
+- slug: bi-colored-kandy-sole-essence
+  name: Bi-Colored Kandy Sole Essence
+  kind: sole
+  accent: "#ff6fb5"
+  stats: { hp: 0, atk: -1, def: 1, spd: 0, int: 3, mag: 2 }
+  specials:
+    - name: Holoprint
+      cost: null
+      text: These gems can picture a structure and project its blueprint in hard light, then make it real for a short time.
+    - name: Holoprint Barrier
+      cost: 2
+      text: Builds a hard light wall beside yourself or an ally. Anyone behind it counts as Behind. The wall has 5 + MAG HP and takes hits meant for whoever it covers until it breaks or 3 turns pass.
+
+- slug: saturn-light-sole-essence
+  name: Saturn Light Sole Essence
+  kind: sole
+  accent: "#f08a24"
+  stats: { hp: 0, atk: 0, def: 1, spd: 2, int: -1, mag: 3 }
+  specials:
+    - name: Surface Adherence
+      cost: null
+      text: These gems can walk on walls and ceilings, so terrain never stops them from getting Near or Behind.
+    - name: Pin
+      cost: 2
+      text: The gem sticks a target's limb to a nearby surface. The target resists with DEF. If they fail, they are Stuck until the end of their next turn.
+
+- slug: red-orange-mix
+  name: Red-Orange Mix
+  parents: [Maroon Red, Saturn Light]
+  kind: mix
+  stats: { hp: 0, atk: 3, def: 0, spd: 1, int: -1, mag: 3 }
+  specials:
+    - name: Limited Blood Arts
+      cost: null
+      text: As the red light of Maroon drew out the red light from Saturn, it corrupted Saturn's healing arts and gave this mixture the privilege of Blood Arts. These gems can shape the blood of organics into attacks. They only work while an organic within reach is bleeding.
+    - name: Blood Spike
+      cost: 2
+      text: Hardens blood into a projectile, dealing 1d8 + MAG damage.
+    - name: Blood Siphon
+      cost: 3
+      text: Draws the blood's vitality, healing yourself or an ally for 1d6 + MAG.
+
+- slug: orange-yellow-mix
+  name: Orange-Yellow Mix
+  parents: [Saturn Light, Theta Gold]
+  kind: mix
+  stats: { hp: 0, atk: 1, def: 2, spd: -1, int: 1, mag: 3 }
+  specials:
+    - name: Psammokinesis
+      cost: null
+      text: As the orange light of Saturn drew out the yellow light from Theta Gold, the former brought the most basic concept of the latter into reality. These gems can summon, control, and shape sand.
+    - name: Suffocating Grit
+      cost: 2
+      text: A stinging blast of sand dealing 1d6 + MAG damage. On a natural 6, the grit gets in the target's eyes and their next roll has disadvantage.
+    - name: Abrasive Shell
+      cost: 3
+      text: Wraps yourself or an ally in coarse sand for 2 turns. Any melee attacker who hits it takes 1d4 damage.
+
+- slug: blue-purple-mix
+  name: Blue-Purple Mix
+  parents: [Epsilon Blue, Nightshade Violet]
+  kind: mix
+  stats: { hp: 0, atk: -1, def: 1, spd: 1, int: 3, mag: 2 }
+  specials:
+    - name: Ink Generation
+      cost: null
+      text: Epsilon Blue is the pinnacle of insight and the conscious, but Deadly Nightshade is a toxic plant, and so the conscious is snuffed and diluted into inky black death. These gems can create and shape Ink, using it to enforce contracts or blot out an enemy's senses.
+    - name: Blinding Ink
+      cost: 2
+      text: Hurls an orb of ink at a target's face. The target resists with SPD. If they fail, they are Blinded for 2 turns.
+
+- slug: purple-red-mix
+  name: Purple-Red Mix
+  parents: [Nightshade Violet, Maroon Red]
+  kind: mix
+  stats: { hp: 0, atk: 3, def: -1, spd: 2, int: 0, mag: 2 }
+  specials:
+    - name: Nightmare Arts
+      cost: null
+      text: When the commanding fire of Maroon Red clashes with the shadows of Nightshade Violet, it corrupts the essence of night into an everlasting nightmare. The result is weaponized fear.
+    - name: Night Terror
+      cost: 2
+      text: Projects a terrifying vision into a target's mind. The target resists with INT. If they fail, they are Frightened for 2 turns, and their party loses 2 SP.
+    - name: The Stalker
+      cost: 4
+      text: Manifests a beast made of the target's fear, which strikes for 1d8 + MAG damage before dissolving into ash. Against a Frightened target, it deals 2d8 + MAG instead.
+
+- slug: black-white-mix
+  name: Black-White Mix
+  parents: [Alpha Black, Omega White]
+  kind: mix
+  stats: { hp: 4, atk: 2, def: 2, spd: -1, int: 2, mag: 1 }
+  specials:
+    - name: Shortcut
+      cost: null
+      text: Matter can never cross open space faster than light allows, but it doesn't have to cross that space at all. These gems fold the space between where they stand and where they want to be. Outside of battle, they can reach any place they can clearly picture. The fold isn't instant.
+    - name: Shortcut
+      cost: 1
+      text: Move to Near, Far, or Behind any character without using your turn.
+    - name: Shortcut [REACTION]
+      cost: 2
+      text: When a melee attack targets you, fold away from it. The attack misses.
+
+- slug: kandy-blue-mix
+  name: Kandy-Blue Mix
+  parents: [Bi-Colored Kandy, Epsilon Blue]
+  kind: mix
+  stats: { hp: 0, atk: -1, def: 0, spd: 1, int: 4, mag: 2 }
+  specials:
+    - name: System Read
+      cost: null
+      text: When Kandy's blue light met Epsilon Blue's, the two blues ran together without a seam, and insight was given a machine to run on. These gems read anything the way a machine reads data.
+    - name: Analyze
+      cost: 2
+      text: Reveals a target's stats and Abilities to the whole party. The next hit each ally lands on that target ignores its DEF bonus.
+
+- slug: kandy-purple-mix
+  name: Kandy-Purple Mix
+  parents: [Bi-Colored Kandy, Nightshade Violet]
+  kind: mix
+  stats: { hp: 0, atk: 0, def: -1, spd: 2, int: 3, mag: 2 }
+  specials:
+    - name: Watcher Tech
+      cost: null
+      text: As Kandy's pink light drew out Nightshade's violet, his endless watching eyes took the shape of machines. These gems build small devices that see what others can't.
+    - name: Watcher Drone
+      cost: 2
+      text: A hard light drone marks one enemy for 3 turns. While marked, the enemy can't hide or turn invisible, and their SPD bonus doesn't raise the number allies need to hit them.
+
+- slug: kandy-red-mix
+  name: Kandy-Red Mix
+  parents: [Bi-Colored Kandy, Maroon Red]
+  kind: mix
+  stats: { hp: 0, atk: 2, def: 2, spd: -1, int: 1, mag: 2 }
+  specials:
+    - name: Warforge
+      cost: null
+      text: When Kandy's pink light met Maroon Red's fire, the workshop became a forge for war. These gems can heat, shape, and push any weapon past its limits.
+    - name: Overclock
+      cost: 2
+      text: Superheats an ally's weapon for 3 turns. Their FIGHTs deal +2 damage per hit and count as Fire damage.
+
+- slug: perfect-cut
+  name: Perfect Cut
+  kind: cut
+  stats: { hp: 2, atk: 1, def: 0, spd: 0, int: 0, mag: 1 }
+  specials:
+    - name: Enhanced Signature
+      cost: null
+      text: The Gem-Type's Signature Ability goes up one Rating step, for example from Base to Enhanced. For a Sapphire, that means Enhanced Clairvoyance.
+  lore: >-
+    Perfect cuts are gems that emerge at the highest quality possible for their gem type, with no defects whatsoever and an
+    above-average build or skill. They tend to be slightly larger than their average-cut counterparts, and they are highly
+    praised within the empire. A Perfect Cut Sapphire is larger than the typical Sapphire and sees the future more
+    precisely than she would.
+
+- slug: perfect-polish
+  name: Perfect Polish
+  kind: cut
+  stats: { hp: 2, atk: 1, def: 1, spd: 0, int: 0, mag: 0 }
+  specials:
+    - name: Enhanced Signature
+      cost: null
+      text: The Metal-type's Signature Ability goes up one Rating step, for example from Base to Enhanced. For a Gold, that means Enhanced Gold Control.
+  lore: >-
+    Perfect Polish is the Metal equivalent of a Perfect Cut: a Metal that emerges at the highest quality possible for its
+    type, denser and better built than its standard counterparts.
+
+- slug: defective
+  name: Defective
+  kind: cut
+  stats: null
+  statsText: -1 to two stats tied to the defect, chosen with staff
+  specials:
+    - name: Defect
+      cost: null
+      text: The Gem-Type's Signature Ability is replaced by a twisted version of the same Rating. A Defective Sapphire doesn't lose Clairvoyance. She gets Retrocognition, seeing the past instead of the future.
+  lore: >-
+    Defective means something is wrong with the gem that keeps them from doing their job properly, like a Sapphire who can
+    see the past and not the future. Being Off-Color is different: it only means the gem isn't a color their type normally
+    comes in. Off-Color gems get no stat changes.

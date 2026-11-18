@@ -1,0 +1,101 @@
+---
+title: SKILLs
+description: What a SKILL is, how each section of a SKILL works, how moves are priced, and the SP Cost Checker.
+sidebar:
+  order: 7
+---
+import SpChecker from '../../../components/rules/SpChecker.astro';
+
+<span class="ia-label">Rules · out of character</span>
+
+A SKILL is something a character has learned: a fighting style, a craft, a trained technique. It's different from a Gem-Type's powers, which come from the gemstone. SKILLs are the Learned Abilities on a character sheet. The blank template is on the [Templates](../templates/#skill) page.
+
+## What a SKILL can be
+
+A SKILL should be **something learnable**, like Karate or Boxing, or **a physical or mental condition with substance**, like a mental disorder with abilities that go with it.
+
+A SKILL should **not** be a personality trait, like having better charisma. That's what ACTs are for. It also can't be pseudo-magic: something that says it isn't magic but works just like it. Magic comes from the gemstone, so SKILLs can't feature it.
+
+## The sections
+
+| Section | What goes in it |
+| --- | --- |
+| **Name** | The SKILL itself, like Boxing or Kenjutsu. No skill level in the name: "Advanced Swordsmanship" isn't a SKILL name. Names don't need to come from the Superpower Wiki. |
+| **Parent Ability** | The SKILL or SKILLs this one grows out of, up to two. Learning it needs at least **Standard** Expertise in every parent. Broad foundations like Acrobatics have none, so write N/A. A SKILL may carry over passives from its parents if it names them. |
+| **Kind** | **Learned** (a discipline someone trains in) or **Condition** (a physical or mental condition with abilities tied to it). |
+| **Complexity** | How hard it is to learn: Basic, Intermediate, Advanced, or Complex. It should match how strong the SKILL is. |
+| **Origin** | Who teaches it or where it's learned: a school, a court, a family, a mentor, or self taught. Condition SKILLs can leave it out. |
+| **Description** | What the SKILL is, how it's used, and what sets it apart from similar SKILLs. A sentence or a short paragraph. |
+| **Passives** | Always-on effects while using the SKILL. Every passive needs a clear number: not "more damage," but "+2 damage per hit." |
+| **Signature Mechanic** | Optional. A resource or meter the SKILL is built around, like stacks of Focus. Say how it's gained, how it's lost, its maximum, and what it unlocks. |
+| **Moves** | Up to six techniques, each with the Expertise needed to use it and its own Type. |
+| **Stat Changes** | How learning it changes the character's stats. Must add up to 0, or +1 for Advanced and Complex SKILLs. A second set for a specific condition, like "when holding a weapon," follows the same rule. |
+| **Weaknesses** | Required. A matchup it loses, gear it needs, a situation it can't handle. |
+
+Passives and Moves are each optional, but a SKILL needs at least one of the two. Everything else is required except Signature Mechanic, Stat Changes, and Origin for Condition SKILLs.
+
+## Expertise and Complexity
+
+These are easy to mix up.
+
+- **Complexity** belongs to the SKILL. It's how hard the SKILL is to learn, and it's the same for everyone.
+- **Expertise** belongs to the character. It's how far they've come with it: **Basic**, **Standard**, **Advanced**, or **Mastered**. It grows through training and story.
+
+The Expertise listed beside each move is how skilled a character needs to be to use it. On a sheet, Expertise goes in front of the SKILL's name, like **Basic Acrobatics** or **Advanced Boxing**.
+
+A character's **Main SKILL** is the one they rely on most. Every other SKILL they know is a **Sub SKILL**. This isn't tied to Expertise: Standard Acrobatics can be someone's Main SKILL while Advanced Swordsmanship is a Sub SKILL.
+
+## Pricing moves
+
+Every active move costs SP based on how strong that one move is. Start at **1 SP** and add up what it does.
+
+| Add | Cost |
+| --- | --- |
+| Small damage or healing (averages up to 6) | +1 |
+| Medium damage or healing (averages 7 to 10) | +2 |
+| Heavy damage or healing (averages 11 or more) | +3 |
+| 2 or 3 targets, or every enemy who is Near | +1 |
+| Every enemy | +2 |
+| All of a target's stats or Abilities | +1 |
+| Each control effect: Stuck, Blinded, Asleep, Frightened, cancelling a move, or skipping a turn | +2 each |
+| Taking control of a target or machine | +3 |
+| Every 2 points of a stat buff or debuff, or 2 damage per hit | +1 |
+| Can't miss, or ignores DEF | +1 |
+| Lasts 2 or 3 turns | +1 |
+| Lasts 4 or more turns | +2 |
+
+| Subtract | Cost |
+| --- | --- |
+| Needs a setup first | -1 |
+| The target gets a resist roll, or the move can fail | -1 |
+| A real drawback, like self damage or losing a turn | -1 |
+
+Discounts can never take off more than half the cost. A drawback only counts if it can't easily be avoided.
+
+**Free moves.** A move can cost 0 SP if it has a cooldown of at least 2 turns and isn't stronger than a 2 SP move.
+
+**Passives cost nothing**, since they're always on. Staff check that they aren't stronger than a move would be.
+
+:::note[Example]
+A slash that deals 2d4 damage and makes the target Stuck if they fail a resist roll: 1 (base) + 1 (small damage) + 2 (Stuck) - 1 (resist roll) = **3 SP**.
+:::
+
+## SP Cost Checker
+
+Tick what the move does and the checker adds up its price. It works for SKILL moves, SPELLs, and item Extra Effects. Staff have the final say on any cost.
+
+<SpChecker />
+
+## Kinds of damage
+
+Damage doesn't have to be dice plus a stat. Each kind plays differently, and each is priced as small, medium, or heavy. Any size of die works, since the dice bot rolls anything from d1 to d999.
+
+| Kind | How it works | How it's priced |
+| --- | --- | --- |
+| **Dice** | The usual kind, like 2d6 + MAG | By the average of the dice alone: up to 6 small, 7 to 10 medium, 11 or more heavy |
+| **Fixed** | A set number, like "deals 12 damage." It doesn't care how strong either side is. | By the number, the same way as dice. Ignoring DEF costs 1 more. |
+| **Stat against stat** | One stat minus another, like "MAG x 2 minus the target's INT." It rewards picking the right target. | Medium, or heavy if it multiplies by 3 or more |
+| **Tiered** | One formula per Expertise level, like "2d5 + MAG at Basic, 3d5 + MAG at Standard" | Each tier lists its own SP cost |
+| **Rolling** | Half lands now, the rest at the start of the target's next turn. Healing or Defending first cancels the second half. | As normal damage, minus 1 |
+| **Percent** | A share of the target's current HP. Strong against bosses, weak against gems already low. | A quarter is medium, half is heavy |
+| **Draining** | Damage that also heals the user, or takes SP from the enemy side | The damage and the drain are priced separately |

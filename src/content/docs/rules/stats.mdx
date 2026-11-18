@@ -1,0 +1,81 @@
+---
+title: Stats & Leveling
+description: The six stats, how HP is worked out, resisting effects, and how levels grow.
+sidebar:
+  order: 2
+---
+import ExpTable from '../../../components/rules/ExpTable.astro';
+
+<span class="ia-label">Rules · out of character</span>
+
+Every character has six stats. They describe what a character can do, but they aren't canon in-universe. A gem doesn't know their DEF is 12. Gems who can CHECK another gem see an aura showing how strong that gem is, not numbers.
+
+## The six stats
+
+| Stat | What it covers | In battle | Growth |
+| --- | --- | --- | --- |
+| **HP** | How much damage a character takes before they start to Flicker | See [HP](#hp) below | +2 every level after 1, plus +2 each time DEF rises from leveling |
+| **ATK** | Physical strength: lifting, carrying, striking | Added once to the damage of every FIGHT and physical move. Weapons add to it. | +1 every 3 levels |
+| **DEF** | How well a character soaks physical hits | Each physical hit is reduced by DEF ÷ 4, rounded down, to a minimum of 1. Resists effects on the body. Armor adds to it. | +1 every 4 levels |
+| **SPD** | Quickness, reflexes, reaction time | Every 4 SPD adds +1 to the number an attack needs to hit you. Sets turn order. Resists anything that can be dodged. | +1 every 6 levels |
+| **INT** | How fast a character learns and adapts | Makes ACTs more effective. Used for perception. Each magic hit is reduced by INT ÷ 4, rounded down, to a minimum of 1. Resists effects on the mind. | Never grows with level |
+| **MAG** | How strong a character's magic is | Added to the damage of SPELLs, and sets how hard they are to resist | +2 every 3 levels for Gems, +1 every 3 levels for Organics |
+
+A few more details:
+
+- Since DEF applies to **every hit**, weapons that hit many times lose more against high DEF.
+- A natural 20 always hits, and the number needed to hit can never go above 18.
+- Within each round, characters act from highest SPD to lowest.
+- A character's top running speed is SPD x 3 km/h.
+
+## HP
+
+HP works differently for Gems and Organics.
+
+**Gems.** A gem's base HP comes from their Gem-Type, and can never be higher than this:
+
+```
+20 + (DEF x 2)
+```
+
+A Gem-Type can sit lower than that, as long as its lore gives a reason. On a character sheet, HP is the Gem-Type's base HP plus the HP from the gem's Modifier and Cut Quality. DEF from a Modifier or Cut doesn't raise HP a second time.
+
+**Organics.** An organic's HP is at most:
+
+```
+Age x 2
+```
+
+It's often lower, depending on their health.
+
+## Organic averages
+
+An adult human averages **ATK 4, DEF 4, SPD 5, INT 5, MAG 0**. Most organics have little or no MAG. Humans almost never have access to magic, but those who do average MAG 5.
+
+## Resisting effects
+
+When an effect targets you, roll **1d20 + the stat that fits it**. If you meet or beat the effect's DC, you resist it.
+
+| Stat | Resists | Examples |
+| --- | --- | --- |
+| DEF | Effects on the body | Poison, corrosion, knockback |
+| SPD | Anything you can dodge | Blasts, traps, area attacks |
+| INT | Effects on the mind | Sleep, fear, illusions, control |
+
+A SPELL's DC is:
+
+```
+10 + (MAG ÷ 2, rounded down)
+```
+
+## Advantage and disadvantage
+
+With advantage, roll twice and keep the higher result. With disadvantage, keep the lower. Several sources of advantage still only give advantage once, and advantage and disadvantage cancel each other out.
+
+## Level and EXP
+
+Level measures combat experience, not age, and caps at **30**. Every new character starts at Level 1 with 0 EXP, even a very old one.
+
+EXP is earned by winning battles and is a running total. Level 2 needs 100 EXP, and each level after that needs 25 more than the last.
+
+<ExpTable />
