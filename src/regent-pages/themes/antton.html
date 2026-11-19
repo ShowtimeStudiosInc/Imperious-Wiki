@@ -1,181 +1,113 @@
 <!--fonts-->
-<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet" />
 <!--/fonts-->
 <style>
   :root {
     color-scheme: dark;
     --font-body: "Nunito Sans", system-ui, -apple-system, Segoe UI, sans-serif;
-    --font-display: "Righteous", Georgia, serif;
-    --bg: #0f0818; --bg-deep: #2c1248; --star: #ffd166;
-    --panel: rgba(52, 26, 82, .9); --panel-2: rgba(52, 26, 82, .9); --panel-solid: rgba(30, 15, 48, .92);
-    --ink: #f5eefc; --ink-soft: #d8c8ee; --ink-faint: #a891c8;
-    --gold: #f2b632; --gold-bright: #ffd166; --gold-pale: #ffe199;
-    --brown-deep: rgba(14, 7, 22, .96);
-    --line: rgba(178, 128, 236, .18); --line-strong: rgba(242, 182, 50, .34);
-    --chip: rgba(150, 90, 220, .2);
-    --quote-bg: rgba(10, 5, 16, .9); --quote-ink: #f5eefc;
-    --shadow: 0 18px 44px rgba(0, 0, 0, .45);
-    --sp: #2c1248; --sp-bg: #ffd166; --badge-ink: #2c1248;
+    --font-display: "Pixelify Sans", "Courier New", monospace;
+    --bg: #1f0a2c; --bg-deep: #3b1350;
+    --panel: rgba(70, 22, 88, .9); --panel-2: rgba(70, 22, 88, .9); --panel-solid: rgba(36, 11, 50, .9);
+    --ink: #fff3fa; --ink-soft: #f4cfe6; --ink-faint: #c99bc4;
+    --gold: #ff4fa3; --gold-bright: #ff86c8; --gold-pale: #ffd6ee;
+    --brown-deep: rgba(24, 7, 34, .95);
+    --line: rgba(255, 134, 200, .2); --line-strong: rgba(127, 224, 168, .45);
+    --chip: rgba(255, 79, 163, .16);
+    --quote-bg: rgba(20, 6, 28, .9); --quote-ink: #fff3fa;
+    --shadow: 0 18px 44px rgba(10, 2, 16, .55);
+    --sp: #1f0a2c; --sp-bg: #7fe0a8; --badge-ink: #1f0a2c;
   }
-  body { background: radial-gradient(120% 90% at 50% 0%, var(--bg-deep) 0%, var(--bg) 62%) fixed, var(--bg); font-size: 1.06rem; }
-  h1 { letter-spacing: .01em; }
-  .orb { background: radial-gradient(circle at 38% 34%, rgba(214, 170, 255, .55) 0%, rgba(150, 90, 220, .4) 30%, rgba(90, 40, 150, .16) 60%, rgba(90, 40, 150, 0) 72%) !important; }
-  .orb.halo { background: radial-gradient(circle, rgba(255, 209, 102, .16) 0%, rgba(242, 182, 50, .06) 46%, rgba(242, 182, 50, 0) 70%) !important; }
-  .star4 { filter: drop-shadow(0 0 6px rgba(255, 209, 102, .8)) !important; }
-      /* ---------- Animated star court background ---------- */
-      .sky {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        overflow: hidden;
-        pointer-events: none;
-      }
-      .sky-layer {
-        position: absolute;
-        inset: -90px;
-        will-change: transform;
-      }
-      .orb {
-        position: absolute;
-        border-radius: 50%;
-        background: radial-gradient(circle at 38% 34%, rgba(214, 238, 255, 0.95) 0%, rgba(109, 180, 255, 0.75) 26%, rgba(46, 110, 246, 0.34) 58%, rgba(46, 110, 246, 0) 72%);
-        filter: blur(0.4px);
-      }
-      .orb.halo {
-        background: radial-gradient(circle, rgba(109, 180, 255, 0.30) 0%, rgba(64, 130, 246, 0.12) 46%, rgba(64, 130, 246, 0) 70%);
-      }
-      .star4 {
-        position: absolute;
-        background: var(--star);
-        clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
-        filter: drop-shadow(0 0 6px rgba(169, 214, 255, 0.9));
-      }
-      .sdot {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(215, 236, 255, 0.85);
-      }
-      @keyframes drift {
-        0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
-        50%  { transform: translate3d(10px, -16px, 0) rotate(7deg); }
-        100% { transform: translate3d(-6px, 6px, 0) rotate(-5deg); }
-      }
-      @keyframes twinkle {
-        0%, 100% { opacity: 0.45; }
-        50% { opacity: 1; }
-      }
-      .floaty { animation: drift 11s ease-in-out infinite alternate; }
-      .twinkle { animation: twinkle 5s ease-in-out infinite; }
+  body { background: var(--bg); }
+  h1 { letter-spacing: .02em; font-weight: 700; }
+  .card h2, .ability-head h2, .artbox-head h2, .facts-wrap h2 { font-weight: 600; }
+  .card h2 .dot { border-radius: 0; background: #7fe0a8; box-shadow: 0 0 0 4px var(--chip); }
+  .hero { border-top-color: #7fe0a8; }
 
-  @media (prefers-reduced-motion: reduce) { .floaty, .twinkle { animation: none; } }
+  /* ---------- Homeworld at sunset background ---------- */
+  .hw-bg { position: fixed; inset: -40px; z-index: 0; pointer-events: none;
+    background: url("{{BASE}}images/regents/antton/bg.webp") center top / cover no-repeat;
+    image-rendering: pixelated; will-change: transform; }
+  .hw-shade { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(31, 10, 44, .35) 0%, rgba(31, 10, 44, .62) 45%, rgba(31, 10, 44, .82) 100%); }
+  .hw-float { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .hw-layer { position: absolute; inset: -80px; will-change: transform; }
+  .px-star { position: absolute; image-rendering: pixelated; animation: pxbob 6s ease-in-out infinite alternate; }
+  .px-star svg, .px-balloon svg { display: block; }
+  .px-balloon { position: absolute; animation: pxrise 9s ease-in-out infinite alternate; }
+  @keyframes pxbob { from { transform: translateY(-6px); } to { transform: translateY(6px); } }
+  @keyframes pxrise { from { transform: translate(0, 10px) rotate(-4deg); } to { transform: translate(6px, -14px) rotate(4deg); } }
+  @media (prefers-reduced-motion: reduce) { .px-star, .px-balloon { animation: none !important; } }
 </style>
 <!--mark-->
-<svg class="hero-mark" width="190" height="190" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 62,36 98,38 69,59 80,95 50,74 20,95 31,59 2,38 38,36" fill="var(--gold)"/></svg>
+<svg class="hero-mark" width="200" height="160" viewBox="0 0 20 16" shape-rendering="crispEdges" aria-hidden="true"><path fill="var(--gold)" d="M2 2h16v1h1v10h-1v1H2v-1H1V3h1zM6 0h1v1h1v1H6zM13 0h1v2h-2V1h1zM6 15h2v1H6zM12 15h2v1h-2z"/></svg>
 <!--/mark-->
-<div class="sky" id="sky" aria-hidden="true">
-      <div class="sky-layer" data-depth="0.25"></div>
-      <div class="sky-layer" data-depth="0.55"></div>
-      <div class="sky-layer" data-depth="1"></div>
-    </div>
+<div class="hw-bg" aria-hidden="true"></div>
+<div class="hw-shade" aria-hidden="true"></div>
+<div class="hw-float" id="hwFloat" aria-hidden="true">
+  <div class="hw-layer" data-depth="0.35"></div>
+  <div class="hw-layer" data-depth="0.8"></div>
+</div>
 <script>
-      (function () {
-        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        var layers = Array.prototype.slice.call(document.querySelectorAll(".sky-layer"));
-
-        function rand(min, max) { return min + Math.random() * (max - min); }
-
-        // Build the sky: small star dots, four-pointed stars, and glowing orbs.
-        var plan = [
-          { dots: 46, stars: 7,  orbs: 3, orbMin: 26,  orbMax: 60  },
-          { dots: 26, stars: 6,  orbs: 3, orbMin: 48,  orbMax: 100 },
-          { dots: 12, stars: 5,  orbs: 3, orbMin: 80,  orbMax: 150 }
-        ];
-
-        layers.forEach(function (layer, li) {
-          var spec = plan[li] || plan[0];
-          var i, el;
-          for (i = 0; i < spec.dots; i++) {
-            el = document.createElement("span");
-            el.className = "sdot";
-            var d = rand(1, 2.6);
-            el.style.width = d + "px";
-            el.style.height = d + "px";
-            el.style.left = rand(0, 100) + "%";
-            el.style.top = rand(0, 100) + "%";
-            el.style.opacity = rand(0.3, 0.9).toFixed(2);
-            if (!reduceMotion) {
-              el.classList.add("twinkle");
-              el.style.animationDuration = rand(3.5, 8) + "s";
-              el.style.animationDelay = (-rand(0, 8)) + "s";
-            }
-            layer.appendChild(el);
-          }
-          for (i = 0; i < spec.stars; i++) {
-            el = document.createElement("span");
-            el.className = "star4";
-            var s = rand(10, 26);
-            el.style.width = s + "px";
-            el.style.height = s + "px";
-            el.style.left = rand(1, 96) + "%";
-            el.style.top = rand(1, 96) + "%";
-            el.style.opacity = rand(0.5, 0.95).toFixed(2);
-            if (!reduceMotion) {
-              el.classList.add("floaty");
-              el.style.animationDuration = rand(8, 16) + "s";
-              el.style.animationDelay = (-rand(0, 10)) + "s";
-            }
-            layer.appendChild(el);
-          }
-          for (i = 0; i < spec.orbs; i++) {
-            el = document.createElement("span");
-            el.className = "orb" + (Math.random() < 0.4 ? " halo" : "");
-            var o = rand(spec.orbMin, spec.orbMax);
-            el.style.width = o + "px";
-            el.style.height = o + "px";
-            el.style.left = rand(0, 94) + "%";
-            el.style.top = rand(0, 94) + "%";
-            if (!reduceMotion) {
-              el.classList.add("floaty");
-              el.style.animationDuration = rand(10, 20) + "s";
-              el.style.animationDelay = (-rand(0, 12)) + "s";
-            }
-            layer.appendChild(el);
-          }
-        });
-
-        if (reduceMotion) return;
-
-        // Parallax: layers drift against the scroll and lean toward the mouse.
-        var targetX = 0, targetY = 0, curX = 0, curY = 0, ticking = false;
-
-        function render() {
-          curX += (targetX - curX) * 0.06;
-          curY += (targetY - curY) * 0.06;
-          var sy = window.scrollY || window.pageYOffset || 0;
-          layers.forEach(function (layer) {
-            var depth = parseFloat(layer.getAttribute("data-depth")) || 0.5;
-            var x = curX * depth * 34;
-            var y = curY * depth * 26 - sy * depth * 0.22;
-            layer.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)";
-          });
-          if (Math.abs(targetX - curX) > 0.001 || Math.abs(targetY - curY) > 0.001) {
-            requestAnimationFrame(render);
-          } else {
-            ticking = false;
-          }
-        }
-        function kick() {
-          if (!ticking) { ticking = true; requestAnimationFrame(render); }
-        }
-
-        window.addEventListener("scroll", kick, { passive: true });
-        if (window.matchMedia("(pointer: fine)").matches) {
-          window.addEventListener("mousemove", function (e) {
-            targetX = (e.clientX / window.innerWidth - 0.5) * 2;
-            targetY = (e.clientY / window.innerHeight - 0.5) * 2;
-            kick();
-          }, { passive: true });
-        }
-        kick();
-      })();
-    </script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var bg = document.querySelector(".hw-bg");
+  var layers = Array.prototype.slice.call(document.querySelectorAll(".hw-layer"));
+  function rand(a, b) { return a + Math.random() * (b - a); }
+  // Pixel four-point star, drawn on a 7x7 grid.
+  function star(color) {
+    return '<svg width="100%" height="100%" viewBox="0 0 7 7" shape-rendering="crispEdges"><path fill="' + color +
+      '" d="M3 0h1v2h1v1h2v1H5v1H4v2H3V5H2V4H0V3h2V2h1z"/></svg>';
+  }
+  // Pixel balloon with a string.
+  function balloon(color) {
+    return '<svg width="100%" height="100%" viewBox="0 0 8 14" shape-rendering="crispEdges"><path fill="' + color +
+      '" d="M2 0h4v1h1v1h1v4H7v1H6v1H5v1H3V8H2V7H1V6H0V2h1V1h1z"/><path fill="rgba(255,255,255,.55)" d="M2 2h1v2H2z"/>' +
+      '<path fill="#f4cfe6" d="M4 9h1v1H4zM3 10h1v2H3zM4 12h1v2H4z"/></svg>';
+  }
+  var starColors = ["#7fe0a8", "#ff86c8", "#fff3d6", "#ffffff"];
+  var balloonColors = ["#ff8a5c", "#ff4fa3", "#f6b26b"];
+  layers.forEach(function (layer, li) {
+    var i, el, s;
+    for (i = 0; i < (li ? 7 : 10); i++) {
+      el = document.createElement("div"); el.className = "px-star";
+      s = Math.round(rand(li ? 18 : 10, li ? 30 : 18));
+      el.style.width = s + "px"; el.style.height = s + "px";
+      el.style.left = rand(0, 96) + "%"; el.style.top = rand(0, 96) + "%";
+      el.style.opacity = rand(0.5, 0.95).toFixed(2);
+      el.style.animationDuration = rand(4, 8).toFixed(1) + "s"; el.style.animationDelay = (-rand(0, 8)).toFixed(1) + "s";
+      el.innerHTML = star(starColors[i % starColors.length]);
+      layer.appendChild(el);
+    }
+    for (i = 0; i < (li ? 3 : 2); i++) {
+      el = document.createElement("div"); el.className = "px-balloon";
+      s = Math.round(rand(li ? 34 : 22, li ? 46 : 30));
+      el.style.width = s + "px"; el.style.height = Math.round(s * 1.75) + "px";
+      el.style.left = rand(2, 94) + "%"; el.style.top = rand(10, 90) + "%";
+      el.style.opacity = rand(0.6, 0.9).toFixed(2);
+      el.style.animationDuration = rand(7, 12).toFixed(1) + "s"; el.style.animationDelay = (-rand(0, 10)).toFixed(1) + "s";
+      el.innerHTML = balloon(balloonColors[i % balloonColors.length]);
+      layer.appendChild(el);
+    }
+  });
+  if (reduce) return;
+  var tx = 0, ty = 0, cx = 0, cy = 0, ticking = false;
+  function render() {
+    cx += (tx - cx) * 0.06; cy += (ty - cy) * 0.06;
+    var sy = window.scrollY || 0;
+    if (bg) bg.style.transform = "translate3d(" + (cx * -8).toFixed(1) + "px," + (cy * -6 - Math.min(sy * 0.03, 40)).toFixed(1) + "px,0)";
+    layers.forEach(function (l) {
+      var d = parseFloat(l.getAttribute("data-depth")) || 0.5;
+      l.style.transform = "translate3d(" + (cx * d * 28).toFixed(1) + "px," + (cy * d * 20 - sy * d * 0.18).toFixed(1) + "px,0)";
+    });
+    if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) requestAnimationFrame(render); else ticking = false;
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(render); } }
+  window.addEventListener("scroll", kick, { passive: true });
+  if (window.matchMedia("(pointer: fine)").matches) {
+    window.addEventListener("mousemove", function (e) {
+      tx = (e.clientX / window.innerWidth - 0.5) * 2; ty = (e.clientY / window.innerHeight - 0.5) * 2; kick();
+    }, { passive: true });
+  }
+  kick();
+})();
+</script>
