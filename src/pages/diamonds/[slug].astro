@@ -109,7 +109,6 @@ const desc = `${d.name}${d.pillar ? `, Pillar of ${d.pillar}` : ''}. ${d.purpose
           </dl>
           {d.artCaption && <p class="bg-note">{d.artCaption}</p>}
           <p class="subdomains"><strong>Sub-Domains:</strong> {d.subDomains.join(', ')}</p>
-          <p class="bg-note">{t.backgroundLabel}</p>
         </div>
       </section>
 
@@ -235,7 +234,6 @@ const desc = `${d.name}${d.pillar ? `, Pillar of ${d.pillar}` : ''}. ${d.purpose
   .facts dt { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
   .facts dd { margin: 0; }
   .subdomains { margin: 0.9rem 0 0; font-size: 0.92rem; color: #ddd5f5; }
-  .bg-note { margin: 0.9rem 0 0; font-size: 0.8rem; color: var(--muted); }
   .quote { margin: 1rem 0; padding: 1rem 1.4rem; border-left: 3px solid var(--d-accent2); background: rgba(10, 6, 24, 0.6); font-family: var(--serif); font-size: 1.15rem; color: #f2ecff; }
   .quote p { margin: 0; }
   .cols { display: grid; grid-template-columns: 1fr 1.15fr; gap: 0.9rem; margin-top: 0.9rem; }

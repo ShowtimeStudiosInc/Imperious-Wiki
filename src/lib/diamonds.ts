@@ -52,7 +52,7 @@ export interface DiamondTheme {
   orbs?: boolean;
   /** Show floating clock gears behind the page. */
   gears?: boolean;
-  /** Short label for the background, shown under the name. */
+  /** Design note for the background. Not shown on the page. */
   backgroundLabel: string;
 }
 
