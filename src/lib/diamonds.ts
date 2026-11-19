@@ -605,7 +605,7 @@ export const DIAMONDS: Diamond[] = [
     powers: [{"name": "Absolute Photokinesis", "level": "Mastered"}, {"name": "Mind Control", "level": "Mastered"}, {"name": "Matter Manipulation", "level": "Mastered"}],
     weaknesses: "Her sense of self is so fragile that any Gem acting differently feels like an attack on her, and a Gem feeling something strongly enough can break free of her hold.",
     quote: "Now the impurities you've allowed to fester within yourself are gone! Now you are brilliant; now, you are perfect; now, you are ME!",
-    art: '/images/diamonds/omega-white/placeholder.svg',
+    art: '/images/diamonds/omega-white.webp',
     theme: { bg: '', glow: '', accent: '', accent2: '', meteors: false, backgroundLabel: '' },
     abilities: [],
     updated: '2026-11-19',

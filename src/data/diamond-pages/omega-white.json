@@ -7,7 +7,22 @@
   "quoteBy": "Omega White Diamond",
   "art": {
     "sub": "",
-    "images": []
+    "images": [
+      {
+        "src": "{{BASE}}images/diamonds/omega-white/page/1.webp",
+        "full": "{{BASE}}images/diamonds/omega-white/page/1.webp",
+        "title": "Portrait",
+        "note": "Arms spread, with light pouring out behind her.",
+        "alt": "Omega White Diamond floating with her arms spread, a crown of light around her head, glowing diamond shapes around her, and huge rays of light and wings spreading behind her"
+      },
+      {
+        "src": "{{BASE}}images/diamonds/omega-white/page/2.webp",
+        "full": "{{BASE}}images/diamonds/omega-white/page/2.webp",
+        "title": "Second view",
+        "note": "Her whole form blazing with white light.",
+        "alt": "A second view of Omega White Diamond, her form made of rough, sweeping strokes, blazing with white light, with diamond shapes glowing at her feet"
+      }
+    ]
   },
   "personality": [
     "Omega White believes that because her gem gives off white light, she is light itself, and since every Gem is made of light, every Gem is a piece of her. She judges them the way she would judge herself, and when a Gem doesn't act the way she would, she takes it as a personal attack. The truth is that she has no real self at all. She never lets herself want or feel anything, because then she would have to judge that too. So instead she makes everyone else into her, and everyone around her pays for it."
@@ -33,6 +48,11 @@
       "level": "Mastered"
     }
   ],
-  "credits": [],
+  "credits": [
+    {
+      "label": "Art",
+      "name": "TEOFT"
+    }
+  ],
   "partial": ""
 }
