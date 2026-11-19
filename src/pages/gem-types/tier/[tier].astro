@@ -18,6 +18,9 @@ const sorted = [...gems].sort((a, b) => (a.rank ?? '').localeCompare(b.rank ?? '
     <p class="crumbs"><a href={url('/gem-types/')}>Gem-Types</a> / {t.name}</p>
     <h1 class="tier-title" data-tier={tier}>{t.name}</h1>
     <p class="lede">{t.blurb}</p>
+    {tier === 'transcendent' && (
+      <a class="dia-link" href={url('/diamonds/')}><strong>Rank 1.1: The Diamonds</strong><span>Meet them on Know Your Diamond &rarr;</span></a>
+    )}
     {ranks.length > 1 && (
       <div class="tabs" role="tablist">
         <button class="tab" role="tab" aria-selected="true" data-rank="">All</button>
@@ -31,6 +34,11 @@ const sorted = [...gems].sort((a, b) => (a.rank ?? '').localeCompare(b.rank ?? '
     )}
   </main>
 </Site>
+<style>
+  .dia-link { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4rem 1rem; margin: 0 0 1.2rem; padding: 0.9rem 1.1rem; border: 1px solid #6f5bb8; border-radius: 10px; background: #1c1533; color: #f3eeff; text-decoration: none; }
+  .dia-link:hover { border-color: #b9a6ff; }
+  .dia-link span { color: #c9bcf5; }
+</style>
 <script>
   const tabs = document.querySelectorAll<HTMLButtonElement>('.tab');
   const cards = document.querySelectorAll<HTMLElement>('#grid .card');

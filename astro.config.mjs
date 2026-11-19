@@ -25,6 +25,7 @@ export default defineConfig({
       ],
       sidebar: [
         { label: 'Gem-Types', link: '/gem-types/' },
+        { label: 'Know Your Diamond', link: '/diamonds/' },
         { label: 'Start Here', items: [{ autogenerate: { directory: 'start-here' } }] },
         { label: 'Rules', items: [{ autogenerate: { directory: 'rules' } }] },
         { label: 'Lore', items: [{ autogenerate: { directory: 'lore' } }] },

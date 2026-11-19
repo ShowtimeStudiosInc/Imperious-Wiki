@@ -280,11 +280,11 @@ export const DIAMONDS: Diamond[] = [
     slug: 'saturn-light',
     name: 'Saturn Light Diamond',
     pronouns: 'He/him',
-    height: "30'0",
+    height: "30'0\"",
     color: 'Brown',
     domains: ['Vitality', 'Force'],
     subDomains: ['Health', 'Revelry', 'Endurance', 'Strength', 'Motion', 'Impact'],
-    court: 'Saturn light',
+    court: 'Saturn',
     personality:
       'Saturn Light is the sweet summer child who stands at the bottom of the Diamond pyramid. He views the world in a playful light, almost the same way a Spinel does. He does not take things as seriously as he should, and he believes that bringing people together is the easiest way to resolve a conflict, whether that is by force or not. He is by far the laziest Diamond, always choosing to hang out at his club instead of doing important paperwork. Saturn is also kind of naive. He is aware of the way certain Gems get treated, and he is highly against how some servant Gems get treated, but at the same time he will turn a blind eye to it, because at the end of the day, is it really a problem he has to deal with? Those Gems do not belong to him personally, so he sees no reason to bother interfering. Saturn is not the type to easily show mercy to his court. Well, he is. He sees those in his court as his children. But if a Gem does something that goes against Saturn, or is simply really bad, the Gem will be shattered. No questions asked.',
     purpose:
@@ -363,9 +363,9 @@ export const DIAMONDS: Diamond[] = [
           { name: 'Yank', cost: 2, kind: 'debuff', text: "Saturn pulls one target's weapon out of their hands. The target resists with SPD. If they fail, they're [[Disarmed]] until they spend a turn getting it back." },
           { name: 'Bouncer', cost: 3, kind: 'defensive', text: 'Saturn puts a wall of force around one ally. The next attack against them is stopped completely, and the attacker is pushed back to Far.' },
           { name: 'Mosh Pit', cost: 3, kind: 'offensive', text: 'Saturn throws every enemy who is Near into each other, dealing [1d6 + MAG] Psychic damage to each.' },
-          { name: 'Heavy Hand', cost: 3, kind: 'debuff', text: "Saturn presses one target flat. The target resists with DEF. If they fail, they're [[KnockedDown]] for 2 turns." },
+          { name: 'Heavy Hand', cost: 3, kind: 'debuff', text: "Saturn presses one target flat. The target resists with DEF. If they fail, they're [[Knocked Down]] for 2 turns." },
           { name: 'Impact', cost: 4, kind: 'offensive', text: "Saturn hits one target with everything he's got, dealing [3d6 + MAG] Psychic damage." },
-          { name: 'Bass Drop', cost: 7, kind: 'offensive', text: "Saturn slams the ground with a wave of force. Every enemy takes [4d6 + MAG] Psychic damage and resists with DEF. Those who fail are [[KnockedDown]]." },
+          { name: 'Bass Drop', cost: 7, kind: 'offensive', text: "Saturn slams the ground with a wave of force. Every enemy takes [4d6 + MAG] Psychic damage and resists with DEF. Those who fail are [[Knocked Down]]." },
         ],
         statChanges: 'None',
         weaknesses:
@@ -456,7 +456,7 @@ export const DIAMONDS: Diamond[] = [
         ],
         statChanges: 'None',
         weaknesses:
-          "Anything grounded or insulated, like a Copper, takes half damage from her Electric spells, and her Charge is lost if she's [[KnockedDown]].",
+          "Anything insulated, or wired into the ground like a Copper, takes half damage from her Electric spells, and her Charge is lost if she's [[Knocked Down]].",
       },
     ],
     updated: '2026-11-18',
@@ -597,7 +597,7 @@ export function statusIcon(name: string): { file: string; dark: boolean } | null
     Burn: 'burn.png',
     Stunned: 'stunned.png',
     Disarmed: 'disarmed.png',
-    KnockedDown: 'knocked-down.svg',
+    'Knocked Down': 'knocked-down.svg',
   };
   const file = map[name];
   if (!file) return null;

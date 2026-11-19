@@ -11,7 +11,7 @@ const t = d.theme;
 
 // [[Status]] tokens become the local status icon.
 function rich(text: string) {
-  return text.replace(/\[\[(\w+)\]\]/g, (_, name: string) => {
+  return text.replace(/\[\[([\w ]+)\]\]/g, (_, name: string) => {
     const icon = statusIcon(name);
     if (!icon) return name;
     return `<img class="sico${icon.dark ? ' dark' : ''}" src="${url(`/images/statuses/${icon.file}`)}" alt="${name}" title="${name}" /> ${name}`;
@@ -20,7 +20,7 @@ function rich(text: string) {
 const desc = `${d.name}${d.pillar ? `, Pillar of ${d.pillar}` : ''}. ${d.purpose}`.slice(0, 200);
 ---
 
-<Site title={d.name} description={desc} current="lore">
+<Site title={d.name} description={desc} current="diamonds">
   <main
     class="wrap diamond"
     style={`--d-bg: ${t.bg}; --d-glow: ${t.glow}; --d-accent: ${t.accent}; --d-accent2: ${t.accent2};`}
