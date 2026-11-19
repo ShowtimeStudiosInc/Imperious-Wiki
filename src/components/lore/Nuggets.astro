@@ -1,0 +1,50 @@
+---
+import { load } from 'js-yaml';
+import fs from 'node:fs';
+const raw = fs.readFileSync('src/data/nuggets.yml', 'utf8');
+type Nugget = { n: number; tags: string[]; text: string[]; note?: string; link?: { label: string; href: string } };
+const nuggets = (load(raw) as Nugget[]).sort((a, b) => b.n - a.n);
+const tags = [...new Set(nuggets.flatMap((x) => x.tags))].sort();
+---
+<div class="ia-nug-filter" role="group" aria-label="Filter nuggets by topic">
+  <button type="button" class="on" data-tag="">All</button>
+  {tags.map((t) => <button type="button" data-tag={t}>{t}</button>)}
+</div>
+<div class="ia-nugs">
+  {nuggets.map((x) => (
+    <article class="ia-nug" id={`nugget-${x.n}`} data-tags={x.tags.join('|')}>
+      <header>
+        <span class="num">⟡ Nugget #{x.n}</span>
+        <span class="tags">{x.tags.map((t) => <span>{t}</span>)}</span>
+      </header>
+      {x.text.map((t) => <p>{t}</p>)}
+      {x.note && <p class="note">{x.note}</p>}
+      {x.link && <p><a href={x.link.href}>{x.link.label} →</a></p>}
+    </article>
+  ))}
+</div>
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.ia-nug-filter button');
+  const cards = document.querySelectorAll<HTMLElement>('.ia-nug');
+  btns.forEach((b) => b.addEventListener('click', () => {
+    btns.forEach((o) => o.classList.toggle('on', o === b));
+    const t = b.dataset.tag;
+    cards.forEach((c) => { c.hidden = !!t && !(c.dataset.tags || '').split('|').includes(t); });
+  }));
+</script>
+<style>
+  .ia-nug-filter { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 1.4rem; }
+  .ia-nug-filter > * { margin-top: 0 !important; }
+  .ia-nug-filter button { font: inherit; font-size: 0.82rem; padding: 0.3rem 0.75rem; border-radius: 999px; cursor: pointer;
+    background: transparent; color: var(--sl-color-gray-2); border: 1px solid var(--sl-color-gray-5); }
+  .ia-nug-filter button.on, .ia-nug-filter button:hover { border-color: #d9a441; color: #f0cf8a; }
+  .ia-nugs { display: grid; gap: 1rem; }
+  .ia-nug { border: 1px solid var(--sl-color-gray-5); border-left: 3px solid #d9a441; border-radius: 6px; padding: 1rem 1.2rem; background: var(--sl-color-gray-6); scroll-margin-top: 5rem; }
+  .ia-nug[hidden] { display: none; }
+  .ia-nug header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4rem 1rem; margin-bottom: 0.4rem; }
+  .ia-nug .num { font-family: var(--sl-font-serif, Georgia, serif); font-size: 1.15rem; color: var(--sl-color-white); }
+  .ia-nug .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .ia-nug .tags span { font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sl-color-gray-3); border: 1px solid var(--sl-color-gray-5); border-radius: 3px; padding: 0.05rem 0.4rem; }
+  .ia-nug p { margin: 0.5rem 0 0; }
+  .ia-nug .note { font-size: 0.9rem; color: var(--sl-color-gray-3); font-style: italic; }
+</style>

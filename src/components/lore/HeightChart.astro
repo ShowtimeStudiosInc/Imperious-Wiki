@@ -1,0 +1,115 @@
+---
+/**
+ * Height chart: one bar per Gem-Type, grouped by rank, built from the Gem-Type data
+ * (the `height` field). Single measure, so one color; identity comes from the name labels.
+ */
+import { getGems, fullName, RANKS, url } from '../../lib/gems';
+const all = await getGems();
+const toIn = (h?: string | null) => {
+  const m = (h ?? '').match(/(\d+)\s*'\s*(\d+)?/);
+  return m ? Number(m[1]) * 12 + Number(m[2] ?? 0) : null;
+};
+const gems = all
+  .map((g) => ({ g, inches: toIn(g.height) }))
+  .filter((x) => x.inches !== null) as { g: (typeof all)[number]; inches: number }[];
+const order = ['1.2', '2.1', '2.2', '2.3', '3.1', '3.2', '3.3', '4.1', '4.2', '4.3', '5.1', '5.2'];
+const groups: { id: string; title: string; items: typeof gems }[] = [];
+for (const r of order) {
+  const items = gems.filter((x) => x.g.faction === 'gempire' && x.g.rank === r);
+  if (items.length) groups.push({ id: `rank-${r.replace('.', '-')}`, title: `Rank ${r}: ${RANKS[r]?.name ?? ''}`, items });
+}
+const extra: [string, string, (g: any) => boolean][] = [
+  ['united-frontier', 'United Frontier', (g) => g.faction === 'united-frontier'],
+  ['rogues', 'Rogues', (g) => g.faction === 'rogue'],
+  ['discontinued', 'Discontinued & Lost Light', (g) => g.faction === 'lost'],
+];
+for (const [id, title, fn] of extra) {
+  const items = gems.filter((x) => fn(x.g));
+  if (items.length) groups.push({ id, title, items });
+}
+for (const grp of groups) grp.items.sort((a, b) => b.inches - a.inches || a.g.name.localeCompare(b.g.name));
+const maxIn = Math.max(...gems.map((x) => x.inches));
+const topFt = Math.ceil(maxIn / 12 / 2) * 2;
+const PX = 13; // px per foot
+const fmt = (i: number) => `${Math.floor(i / 12)}'${i % 12}"`;
+const base = url('/');
+---
+<div class="hc-filter" role="group" aria-label="Show one group">
+  <button type="button" class="on" data-show="">All</button>
+  {groups.map((grp) => <button type="button" data-show={grp.id}>{grp.title.replace(/:.*/, '')}</button>)}
+</div>
+<p class="hc-note">Heights are the standard for each Gem-Type; individual Gems can vary a little. Hover or tap a bar for the exact height.</p>
+{groups.map((grp) => (
+  <section class="hc-group" id={grp.id} data-group={grp.id}>
+    <h2>{grp.title}</h2>
+    <div class="hc-scroll">
+      <div class="hc-plot" style={`--h:${topFt * PX}px; --ft:${PX}px;`}>
+        <div class="hc-axis" aria-hidden="true">
+          {Array.from({ length: topFt / 2 + 1 }, (_, i) => <span style={`bottom:${i * 2 * PX}px`}>{i * 2}'</span>)}
+        </div>
+        <ol class="hc-bars">
+          {grp.items.map(({ g, inches }) => (
+            <li>
+              <a href={url(`/gem-types/${g.slug}/`)} class="hc-col" aria-label={`${fullName(g)}, ${fmt(inches)}`}>
+                <span class="hc-bar" style={`height:${(inches / 12) * PX}px`}>
+                  <span class="hc-tip">{fullName(g)} · {fmt(inches)}</span>
+                  <img src={`${base}images/gemstones/${g.slug}.svg`} alt="" loading="lazy" width="22" height="22" />
+                </span>
+                <span class="hc-name">{fullName(g)}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+    <details class="hc-list">
+      <summary>Show as a list</summary>
+      <table>
+        <thead><tr><th>Gem-Type</th><th>Height</th></tr></thead>
+        <tbody>{grp.items.map(({ g, inches }) => <tr><td>{fullName(g)}</td><td>{fmt(inches)}</td></tr>)}</tbody>
+      </table>
+    </details>
+  </section>
+))}
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.hc-filter button');
+  const secs = document.querySelectorAll<HTMLElement>('.hc-group');
+  btns.forEach((b) => b.addEventListener('click', () => {
+    btns.forEach((o) => o.classList.toggle('on', o === b));
+    const id = b.dataset.show;
+    secs.forEach((s) => { s.hidden = !!id && s.dataset.group !== id; });
+  }));
+</script>
+<style>
+  .hc-filter { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 0.6rem; }
+  .hc-filter > *, .hc-bars > *, .hc-plot > * { margin-top: 0 !important; }
+  .hc-filter button { font: inherit; font-size: 0.82rem; padding: 0.3rem 0.75rem; border-radius: 999px; cursor: pointer;
+    background: transparent; color: var(--sl-color-gray-2); border: 1px solid var(--sl-color-gray-5); }
+  .hc-filter button.on, .hc-filter button:hover { border-color: #d9a441; color: #f0cf8a; }
+  .hc-note { font-size: 0.88rem; color: var(--sl-color-gray-3); }
+  .hc-group[hidden] { display: none; }
+  .hc-group h2 { font-size: 1.3rem; margin-top: 2rem; }
+  .hc-scroll { overflow-x: auto; padding-bottom: 0.4rem; margin-top: 0.6rem; }
+  .hc-plot { position: relative; display: flex; align-items: flex-start; padding-left: 2.2rem; padding-top: 1.6rem; min-width: max-content; }
+  .hc-plot::before { content: ''; position: absolute; left: 2.2rem; right: 0; top: 1.6rem; height: var(--h);
+    background: repeating-linear-gradient(to top, var(--sl-color-gray-5) 0 1px, transparent 1px calc(var(--ft) * 2)); opacity: 0.6; pointer-events: none; }
+  .hc-axis { position: absolute; left: 0; top: 1.6rem; height: var(--h); width: 2rem; }
+  .hc-axis span { position: absolute; right: 0.35rem; transform: translateY(50%); font-size: 0.7rem; color: var(--sl-color-gray-3); }
+  .hc-bars { list-style: none; margin: 0; padding: 0; display: flex; gap: 2px; align-items: flex-end; height: var(--h); position: relative; }
+  .hc-bars li { margin: 0; }
+  .hc-col { position: relative; display: flex; flex-direction: column; align-items: center; width: 58px; height: var(--h); justify-content: flex-end; text-decoration: none; }
+  .hc-bar { position: relative; width: 22px; border-radius: 4px 4px 0 0; background: #d9a441; display: block; transition: background 0.15s; }
+  .hc-bar img { position: absolute; left: 50%; bottom: 100%; transform: translate(-50%, -3px); width: 22px; height: 22px; }
+  .hc-name { position: absolute; top: calc(100% + 6px); left: 50%; width: 56px; transform: translateX(-50%); text-align: center; overflow-wrap: anywhere;
+    font-size: 0.66rem; line-height: 1.15; color: var(--sl-color-gray-2); }
+  .hc-plot { margin-bottom: 3.4rem; }
+  .hc-tip { position: absolute; bottom: calc(100% + 30px); left: 50%; transform: translateX(-50%); white-space: nowrap; z-index: 2;
+    background: var(--sl-color-black); color: var(--sl-color-white); border: 1px solid var(--sl-color-gray-5); border-radius: 4px;
+    padding: 0.2rem 0.5rem; font-size: 0.75rem; opacity: 0; pointer-events: none; transition: opacity 0.12s; }
+  .hc-col:hover .hc-bar, .hc-col:focus-visible .hc-bar { background: #f0cf8a; }
+  .hc-col:hover .hc-tip, .hc-col:focus-visible .hc-tip { opacity: 1; }
+  .hc-col:hover .hc-name { color: var(--sl-color-white); }
+  .hc-list { margin-top: 0.4rem; font-size: 0.9rem; }
+  .hc-list summary { cursor: pointer; color: var(--sl-color-gray-3); }
+  .hc-list table { margin-top: 0.5rem; }
+</style>
