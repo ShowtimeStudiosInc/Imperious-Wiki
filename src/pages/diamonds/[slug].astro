@@ -16,6 +16,7 @@ import { url } from '../../lib/gems';
 
 const themes = import.meta.glob('../../diamond-pages/themes/*.html', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 const pages = import.meta.glob('../../data/diamond-pages/*.json', { import: 'default', eager: true }) as Record<string, any>;
+const regentData = import.meta.glob('../../data/regents/*.json', { import: 'default', eager: true }) as Record<string, any>;
 
 export async function getStaticPaths() {
   return DIAMONDS.map((d) => ({ params: { slug: d.slug }, props: { diamond: d } }));
@@ -31,6 +32,7 @@ const fonts = theme.match(/<!--fonts-->([\s\S]*?)<!--\/fonts-->/)?.[1] ?? '';
 const mark = theme.match(/<!--mark-->([\s\S]*?)<!--\/mark-->/)?.[1] ?? '';
 const background = theme.replace(/<!--fonts-->[\s\S]*?<!--\/fonts-->/, '').replace(/<!--mark-->[\s\S]*?<!--\/mark-->/, '');
 
+const regents = Object.values(regentData).filter((r: any) => r.diamond === d.slug);
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const pronouns = d.pronouns.split('/').map((x) => x.trim()).join(' / ');
 const domains = d.domains.join(' & ');
@@ -224,6 +226,15 @@ const nav = [
               {facts.map(([k, v]) => <tr><th>{k}</th><td set:html={v} /></tr>)}
             </table>
           </section>
+
+          {regents.length > 0 && (
+            <section class="facts-wrap" aria-label="Grand Regents">
+              <h2>{regents.length > 1 ? 'Grand Regents' : 'Grand Regent'}</h2>
+              <ul class="credits">
+                {regents.map((r: any) => <li><a href={url(`/regents/${r.slug}/`)}>{r.name}</a></li>)}
+              </ul>
+            </section>
+          )}
 
           {p.credits.length > 0 && (
             <section class="facts-wrap" aria-label="Art credits">

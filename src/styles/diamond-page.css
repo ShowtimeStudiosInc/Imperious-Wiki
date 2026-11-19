@@ -93,7 +93,8 @@ aside { display: grid; gap: 20px; }
 .spell-name { font-weight: 800; color: var(--ink); font-size: 1.02rem; }
 .spell-tier { font-weight: 700; color: var(--ink-faint); font-size: .78rem; margin-left: 8px; letter-spacing: .05em; text-transform: uppercase; }
 .spell-desc { grid-column: 1; color: var(--ink-soft); font-size: .97rem; margin: 0; }
-.sp-cost { grid-row: 1 / span 2; background: var(--sp-bg); color: var(--sp); font-weight: 800; font-size: .85rem; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+.spells li > div { grid-column: 1; grid-row: 1; }
+.sp-cost { grid-column: 2; grid-row: 1 / span 2; justify-self: end; align-self: start; background: var(--sp-bg); color: var(--sp); font-weight: 800; font-size: .85rem; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
 .ability .weak-box { margin: 18px 0 0; }
 
 .lightbox { position: fixed; inset: 0; z-index: 2000; background: rgba(5, 4, 8, .92); display: none; align-items: center; justify-content: center; padding: 20px; }
@@ -111,6 +112,31 @@ aside { display: grid; gap: 20px; }
   .hero, .card { padding: 22px 20px; }
   .ability-head, .ability-body { padding-left: 20px; padding-right: 20px; }
   .spells li { grid-template-columns: minmax(0, 1fr); }
-  .sp-cost { grid-row: auto; justify-self: start; margin-top: 4px; }
+  .spells li > div, .spell-desc { grid-row: auto; }
+  .sp-cost { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 4px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Grand Regent pages (same layout, character-sheet sections) */
+.two-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.two-lists div { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.two-lists h3 { margin: 0 0 6px; font-size: 1.05rem; color: var(--ink); }
+.two-lists ul { margin: 0; padding-left: 1.1rem; color: var(--ink-soft); }
+.two-lists li + li { margin-top: 3px; }
+.rel-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; }
+.rel-list li { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; color: var(--ink-soft); }
+.rel-list li b { display: block; color: var(--ink); }
+.passive .tag { font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); margin-left: 6px; }
+.outside { margin-top: 18px; border: 1px solid var(--line-strong); border-radius: 12px; padding: 14px 16px; background: var(--panel); }
+.outside h3 { margin: 0 0 6px; font-size: 1.05rem; color: var(--ink); }
+.outside p { margin: 6px 0 0; }
+.outside p b { color: var(--ink); }
+.statgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 6px 18px 12px; }
+.statgrid div { background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; text-align: center; }
+.statgrid b { display: block; font-size: 1.3rem; color: var(--ink); font-family: var(--font-display); line-height: 1.2; }
+.statgrid span { font-size: .74rem; font-weight: 800; letter-spacing: .08em; color: var(--gold); }
+.equip { list-style: none; margin: 0; padding: 0 18px 12px; display: grid; gap: 6px; color: var(--ink-soft); font-size: .94rem; }
+.equip b { color: var(--gold); margin-right: .35em; }
+.sibling { display: block; padding: 4px 18px 14px; color: var(--ink-soft); }
+.sibling a { font-weight: 800; }
+@media (max-width: 900px) { .two-lists { grid-template-columns: 1fr; } }

@@ -1,0 +1,170 @@
+{
+  "slug": "tethys",
+  "name": "Grand Regent Tethys",
+  "shortName": "Tethys",
+  "diamond": "epsilon-blue",
+  "diamondName": "Epsilon Blue Diamond",
+  "title": "Grand Regent <span class=\"accent\">Tethys</span>",
+  "courtLine": "Court Epsilon · Grand Regent · Rank 1.2",
+  "heroSub": "Cloudy Blue Cubic Zirconia, sibling of Epsilon Blue Diamond and Grand Regent Law.",
+  "chips": [
+    [
+      "Sub-Domain",
+      "Awareness"
+    ],
+    [
+      "Era",
+      "1B"
+    ],
+    [
+      "Height",
+      "80'1\""
+    ],
+    [
+      "Pronouns",
+      "They / Them"
+    ]
+  ],
+  "facts": [
+    [
+      "Gem-Type",
+      "Cloudy Blue Cubic Zirconia"
+    ],
+    [
+      "Era",
+      "1B (Epsilon Blue Sole Essence)"
+    ],
+    [
+      "Pronouns",
+      "They / Them"
+    ],
+    [
+      "Height",
+      "80'1\""
+    ],
+    [
+      "Court",
+      "Epsilon"
+    ],
+    [
+      "Gem Placement",
+      "Left eye"
+    ],
+    [
+      "Place of Birth",
+      "Epsilon Blue's birthplace"
+    ],
+    [
+      "Alignment",
+      "Lawful Good"
+    ],
+    [
+      "Nicknames",
+      "Tetty, Cloudy, Droopy"
+    ]
+  ],
+  "stats": [
+    [
+      "HP",
+      "44"
+    ],
+    [
+      "ATK",
+      "10"
+    ],
+    [
+      "DEF",
+      "14"
+    ],
+    [
+      "SPD",
+      "4"
+    ],
+    [
+      "INT",
+      "10"
+    ],
+    [
+      "MAG",
+      "6"
+    ],
+    [
+      "Level",
+      "1"
+    ]
+  ],
+  "equipment": [
+    [
+      "Accessory",
+      "Mysterious Veil (no stat buffs, just there for aura)"
+    ]
+  ],
+  "personality": [
+    "Tethys is very mousy, preferring to work behind the scenes compared to more social zirconia, organizing court cases to send to Kyanites and Azurites. They're strangely unnoticeable despite their large size, along with their quiet demeanor and soft voice.",
+    "Tethys is constantly observing everything going on around them, being able to read gems like an open book. But of course, they always try to be gentle and caring, and much like their elder sister, they have a child-like curiosity once you get to know them better!"
+  ],
+  "likes": [
+    "Art",
+    "Literature",
+    "The smell of herbs",
+    "Organization"
+  ],
+  "dislikes": [
+    "Loud noises",
+    "Crowds",
+    "Movie remakes"
+  ],
+  "fear": "Walking in on either of their siblings making out with their significant others 💔",
+  "relationships": [
+    [
+      "Epsilon Blue Diamond",
+      "They admire and look up to her, they like her presence!"
+    ],
+    [
+      "Grand Regent Law",
+      "They find him… too intense for their taste. But he is their brother, so they care about him."
+    ]
+  ],
+  "abilities": [
+    {
+      "name": "Perception Manipulation",
+      "label": "Sub-Domain: Awareness",
+      "desc": [
+        "Tethys's Sub-Domain allows them to manipulate perception!"
+      ],
+      "passives": [
+        {
+          "name": "Absolute Sense",
+          "tag": "Passive",
+          "text": "Tethys cannot be blinded and always knows where invisible or hidden gems are! They can also tell when someone within earshot lies. Their senses go beyond even enhanced senses, like picking out one voice out of a screaming crowd!"
+        }
+      ],
+      "spells": [
+        {
+          "name": "Heightened Sense",
+          "kind": "Buff",
+          "cost": "2 SP",
+          "text": "Every ally near Tethys becomes more aware of their surroundings, noticing details they may not have before. This gives them advantage on observation and inspection rolls."
+        },
+        {
+          "name": "Mind Scrape",
+          "kind": "Offensive",
+          "cost": "5 SP",
+          "text": "Tethys unleashes a psychic blast across the field, dealing 1d12 + MAG damage to all enemies! Every enemy who fails to resist with INT is disoriented, unable to tell friend from foe, and is Confused for 1 turn!"
+        }
+      ],
+      "outside": []
+    }
+  ],
+  "art": {
+    "src": "{{BASE}}images/regents/tethys/1.webp",
+    "alt": "Reference sheet of Grand Regent Tethys: a tall figure in pale blue robes and a hood with long dark hair, a gemstone in their left eye, a color palette, and scroll-shaped hair sketches marked still a work in progress",
+    "caption": "Reference sheet"
+  },
+  "credits": [
+    [
+      "Art",
+      "@Goofykat13"
+    ]
+  ]
+}

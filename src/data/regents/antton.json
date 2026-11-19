@@ -1,0 +1,197 @@
+{
+  "slug": "antton",
+  "name": "Grand Regent Antton",
+  "shortName": "Antton",
+  "diamond": "nightshade-violet",
+  "diamondName": "Nightshade Violet Diamond",
+  "title": "Grand Regent <span class=\"accent\">Antton</span>",
+  "courtLine": "Court Nightshade · Grand Regent · Rank 1.2",
+  "heroSub": "Pansy Violet Cubic Zirconia, brother of Nightshade Violet Diamond and Grand Regent Reina, and host of his own game show.",
+  "chips": [
+    [
+      "Sub-Domain",
+      "Darkness"
+    ],
+    [
+      "Era",
+      "2A"
+    ],
+    [
+      "Height",
+      "48'0\""
+    ],
+    [
+      "Pronouns",
+      "He / Him / His"
+    ]
+  ],
+  "facts": [
+    [
+      "Gem-Type",
+      "Pansy Violet Cubic Zirconia"
+    ],
+    [
+      "Era",
+      "2A (Nightshade Violet Sole Essence)"
+    ],
+    [
+      "Pronouns",
+      "He / Him / His"
+    ],
+    [
+      "Height",
+      "48'0\""
+    ],
+    [
+      "Court",
+      "Nightshade"
+    ],
+    [
+      "Gem Placement",
+      "Belt"
+    ],
+    [
+      "Place of Birth",
+      "Same planet as Nightshade Violet Diamond"
+    ],
+    [
+      "Alignment",
+      "Neutral Good"
+    ],
+    [
+      "Nicknames",
+      "Mr. (Ant) Ton, Mr. Tonton, Ton"
+    ]
+  ],
+  "stats": [
+    [
+      "HP",
+      "44"
+    ],
+    [
+      "ATK",
+      "10"
+    ],
+    [
+      "DEF",
+      "12"
+    ],
+    [
+      "SPD",
+      "6"
+    ],
+    [
+      "INT",
+      "9"
+    ],
+    [
+      "MAG",
+      "7"
+    ],
+    [
+      "Level",
+      "1"
+    ]
+  ],
+  "equipment": [
+    [
+      "Weapon",
+      "Mr. (Ant) Ton's Mic"
+    ],
+    [
+      "Accessory",
+      "Comms Ear-Piece"
+    ]
+  ],
+  "personality": [
+    "Antton is a showman through and through. Put a camera or a mic in front of him and he's a completely different gem. He's got a big toothy grin and a mischievous streak, and you can never quite tell what he's planning next. He loves getting a reaction out of people and talks to everyone like they're on air, even when nobody's watching.",
+    "Under all the theatrics, he's loyal to his family above everything else. If Reina or Nightshade ever needed him, the act would drop on the spot."
+  ],
+  "likes": [
+    "Hosting his game show",
+    "Live audiences and their reactions",
+    "Catching contestants off guard with a twist",
+    "Sound checks",
+    "Chatting with Mike",
+    "Staying connected with his siblings through his earpiece"
+  ],
+  "dislikes": [
+    "Dead air",
+    "Boring or lifeless contestants",
+    "Being upstaged during a broadcast",
+    "Technical malfunctions mid show"
+  ],
+  "fear": "None.",
+  "relationships": [
+    [
+      "Nightshade Violet Diamond",
+      "His brother."
+    ],
+    [
+      "Grand Regent Reina",
+      "His sister."
+    ],
+    [
+      "Mike",
+      "His Pearl."
+    ]
+  ],
+  "abilities": [
+    {
+      "name": "Umbrakinesis",
+      "label": "Sub-Domain: Darkness",
+      "desc": [
+        "Antton can create, control, and shape darkness, not just as the absence of light, but as a thick, liquid-like force he can bend however he wants."
+      ],
+      "passives": [
+        {
+          "name": "Blind Spot Sense",
+          "tag": "Passive",
+          "text": "Antton always knows where he would go unseen in any room, crowd, or battlefield. His first attack from Behind or from hiding has advantage. While he's in the party, darkness doesn't slow the Star Gauge."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Shadowportation",
+          "kind": "Mobility",
+          "cost": "2 SP",
+          "text": "Antton and up to 2 allies sink into the shadows and come back up Near, Far, or Behind anyone, like a cut in production."
+        },
+        {
+          "name": "Star Barrage",
+          "kind": "Offensive",
+          "cost": "4 SP",
+          "text": "A spinning carousel of stars made of darkness sweeps across the enemy side. Every enemy resists with SPD. Those who fail take 4d4 damage, and those who pass take half."
+        },
+        {
+          "name": "Special Guests",
+          "kind": "Buff",
+          "cost": "5 SP",
+          "text": "Antton calls in up to 2 gems who are under contract with him. They fight on his side using their own stats, act on his turn, and stay until they're defeated or spared."
+        },
+        {
+          "name": "Constrain",
+          "kind": "Debuff",
+          "cost": "5 SP",
+          "text": "Antton smothers the light of every enemy gem. For 3 turns, the enemy party gains 2 fewer Star Gauge marks each round. He can't use his other Umbrakinesis spells while it lasts."
+        }
+      ],
+      "outside": [
+        {
+          "name": "Shadow Contract",
+          "text": "Antton writes a contract out of his shadows. Once it's signed, it turns into shadow smoke that enters the signer's gem or body, and they have to follow its rules."
+        },
+        {
+          "name": "Gacha Ball",
+          "text": "Antton traps a target inside an extremely durable Gacha Ball made of darkness."
+        }
+      ]
+    }
+  ],
+  "art": {
+    "src": "{{BASE}}images/regents/antton/1.webp",
+    "alt": "Antton, a grinning gem with messy gray hair over his eyes, a purple shirt with a gold HOLO pin and an ON AIR sign, a gold tie, suspenders, holding a gold microphone and reaching out",
+    "caption": ""
+  },
+  "credits": []
+}

@@ -1,0 +1,243 @@
+---
+/**
+ * Grand Regent (Cubic Zirconia) pages. Same layout as the Diamond pages
+ * (src/styles/diamond-page.css), with character-sheet sections.
+ *  - text: src/data/regents/<slug>.json
+ *  - theme: src/regent-pages/themes/<slug>.html (same format as Diamond themes)
+ * Story spoilers (villains like the Conductor) never get a page.
+ */
+import '../../styles/diamond-page.css';
+import { DIAMONDS } from '../../lib/diamonds';
+import { url } from '../../lib/gems';
+
+const themes = import.meta.glob('../../regent-pages/themes/*.html', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const all = import.meta.glob('../../data/regents/*.json', { import: 'default', eager: true }) as Record<string, any>;
+
+export async function getStaticPaths() {
+  const data = import.meta.glob('../../data/regents/*.json', { import: 'default', eager: true }) as Record<string, any>;
+  return Object.values(data).map((r: any) => ({ params: { slug: r.slug } }));
+}
+const { slug } = Astro.params;
+const p = all[`../../data/regents/${slug}.json`];
+const themeRaw = themes[`../../regent-pages/themes/${slug}.html`];
+if (!p || !themeRaw) throw new Error(`Missing data or theme for regent ${slug}`);
+const base = url('/');
+const fix = (s: string) => (s ?? '').replaceAll('{{BASE}}', base);
+const theme = fix(themeRaw);
+const fonts = theme.match(/<!--fonts-->([\s\S]*?)<!--\/fonts-->/)?.[1] ?? '';
+const mark = theme.match(/<!--mark-->([\s\S]*?)<!--\/mark-->/)?.[1] ?? '';
+const background = theme.replace(/<!--fonts-->[\s\S]*?<!--\/fonts-->/, '').replace(/<!--mark-->[\s\S]*?<!--\/mark-->/, '');
+const sibling = DIAMONDS.find((d) => d.slug === p.diamond);
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const art = { ...p.art, src: fix(p.art.src) };
+const jump = [
+  { id: 'appearance', label: 'Appearance' },
+  { id: 'personality', label: 'Personality' },
+  { id: 'likes', label: 'Likes & Dislikes' },
+  { id: 'relationships', label: 'Relationships' },
+  ...p.abilities.map((a: any) => ({ id: slugify(a.name), label: a.name })),
+];
+const title = `${p.name} | Imperious Authorities`;
+const desc = `${p.name}. ${p.heroSub}`.slice(0, 200);
+const ogImage = new URL(url(art.src.replace(base, '/')), Astro.site).href;
+const nav = [
+  { href: '/gem-types/', label: 'Gem-Types', key: 'gem-types' },
+  { href: '/diamonds/', label: 'Diamonds', key: 'diamonds' },
+  { href: '/start-here/welcome/', label: 'Start Here', key: 'start' },
+  { href: '/rules/overview/', label: 'Rules', key: 'rules' },
+  { href: '/lore/overview/', label: 'Lore', key: 'lore' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={desc} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="theme-color" content="#7c4dff" />
+    <link rel="icon" href={url('/favicon.png')} type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" />
+    <Fragment set:html={fonts} />
+    <style is:inline>
+      .ia-top { position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; gap: 1.25rem;
+        padding: 0.7rem 1.25rem; background: rgba(7, 5, 13, 0.82); backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(201, 184, 255, 0.16); font-family: Inter, system-ui, sans-serif; line-height: 1.55; }
+      .ia-top a { text-decoration: none; }
+      .ia-top .ia-brand { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.02rem; letter-spacing: 0.04em; color: #ece6ff; display: flex; align-items: center; gap: 0.5rem; }
+      .ia-top .ia-brand img { height: 1.6rem; width: auto; display: block; }
+      .ia-top nav { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.86rem; letter-spacing: 0.06em; text-transform: uppercase; }
+      .ia-top nav a { color: #a99fc7; }
+      .ia-top nav a:hover, .ia-top nav a[aria-current] { color: #ece6ff; }
+      @media (max-width: 700px) {
+        .ia-top { flex-wrap: wrap; gap: 0.4rem 1rem; padding: 0.6rem 0.9rem; }
+        .ia-top nav { gap: 0.8rem; font-size: 0.74rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="ia-top">
+      <a class="ia-brand" href={url('/')}><img src={url('/images/brand/logo-white.png')} alt="" width="22" height="27" /> Imperious Authorities</a>
+      <nav aria-label="Main">
+        {nav.map((n) => <a href={url(n.href)} aria-current={n.key === 'diamonds' ? 'page' : undefined}>{n.label}</a>)}
+      </nav>
+    </header>
+
+    <Fragment set:html={background} />
+
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Imperious Authorities Wiki</a><span class="sep">/</span>
+        <a href={url('/diamonds/')}>Know Your Diamond</a><span class="sep">/</span>
+        <a href={url('/diamonds/#regents')}>Grand Regents</a><span class="sep">/</span>
+        <span>{p.shortName}</span>
+      </nav>
+
+      <header class="hero">
+        <Fragment set:html={mark} />
+        <div class="court-line">{p.courtLine}</div>
+        <h1 set:html={p.title} />
+        <p class="hero-sub" set:html={p.heroSub} />
+        <div class="domain-chips">
+          {p.chips.map(([k, v]: [string, string]) => <span><b>{k}</b>{v}</span>)}
+        </div>
+      </header>
+
+      <nav class="jumpnav" aria-label="On this page">
+        {jump.map((j) => <a href={`#${j.id}`}>{j.label}</a>)}
+      </nav>
+
+      <div class="grid">
+        <main class="stack">
+          <section class="card" id="personality">
+            <h2><span class="dot"></span>Personality</h2>
+            {p.personality.map((t: string) => <p set:html={t} />)}
+          </section>
+          <section class="card" id="likes">
+            <h2><span class="dot"></span>Likes & Dislikes</h2>
+            <div class="two-lists">
+              <div><h3>Likes</h3><ul>{p.likes.map((t: string) => <li>{t}</li>)}</ul></div>
+              <div><h3>Dislikes</h3><ul>{p.dislikes.map((t: string) => <li>{t}</li>)}</ul></div>
+            </div>
+            <div class="weak-box"><h3>Fear</h3><p>{p.fear}</p></div>
+          </section>
+          <section class="card" id="relationships">
+            <h2><span class="dot"></span>Relationships</h2>
+            <ul class="rel-list">
+              {p.relationships.map(([who, what]: [string, string]) => <li><b>{who}</b>{what}</li>)}
+            </ul>
+          </section>
+
+          {p.abilities.map((a: any) => (
+            <section class="card ability" id={slugify(a.name)}>
+              <div class="ability-head">
+                <div class="num">{a.label}</div>
+                <h2>{a.name}</h2>
+              </div>
+              <div class="ability-body">
+                {a.desc.map((t: string) => <p set:html={t} />)}
+                {a.passives.length > 0 && <h3 class="subhead">{a.passives.length > 1 ? 'Passives' : 'Passive'}</h3>}
+                {a.passives.length > 0 && (
+                  <div class="passives">
+                    {a.passives.map((ps: any) => <div class="passive"><h4>{ps.name}<span class="tag">{ps.tag}</span></h4><p set:html={ps.text} /></div>)}
+                  </div>
+                )}
+                <h3 class="subhead">Spells</h3>
+                <ul class="spells">
+                  {a.spells.map((s: any) => (
+                    <li>
+                      <div><span class="spell-name">{s.name}</span><span class="spell-tier">{s.kind}</span></div>
+                      <p class="spell-desc" set:html={s.text} />
+                      <span class="sp-cost">{s.cost}</span>
+                    </li>
+                  ))}
+                </ul>
+                {a.outside.length > 0 && (
+                  <div class="outside">
+                    <h3>Outside of Combat</h3>
+                    {a.outside.map((o: any) => <p><b>{o.name}:</b> {o.text}</p>)}
+                  </div>
+                )}
+              </div>
+            </section>
+          ))}
+        </main>
+
+        <aside>
+          <section class="artbox" id="appearance">
+            <div class="artbox-head">
+              <h2>Appearance</h2>
+              {art.caption && <p>{art.caption}</p>}
+            </div>
+            <div class="collage single">
+              <figure data-full={art.src} data-title={p.name} data-note={art.caption} tabindex="0" role="button" aria-label={`View ${p.name} picture larger`}>
+                <img src={art.src} alt={art.alt} loading="lazy" />
+              </figure>
+            </div>
+          </section>
+
+          <section class="facts-wrap" aria-label={`${p.name} facts`}>
+            <h2>At a glance</h2>
+            <table class="facts">
+              {p.facts.map(([k, v]: [string, string]) => <tr><th>{k}</th><td>{v}</td></tr>)}
+            </table>
+          </section>
+
+          <section class="facts-wrap" aria-label="Stats">
+            <h2>Stats</h2>
+            <div class="statgrid">
+              {p.stats.map(([k, v]: [string, string]) => <div><b>{v}</b><span>{k}</span></div>)}
+            </div>
+            {p.equipment.length > 0 && (
+              <ul class="equip">{p.equipment.map(([k, v]: [string, string]) => <li><b>{k}:</b>{v}</li>)}</ul>
+            )}
+          </section>
+
+          <section class="facts-wrap" aria-label="Sibling">
+            <h2>Sibling Diamond</h2>
+            <span class="sibling">
+              {sibling ? <a href={url(`/diamonds/${sibling.slug}/`)}>{p.diamondName}</a> : p.diamondName}
+            </span>
+          </section>
+
+          {p.credits.length > 0 && (
+            <section class="facts-wrap" aria-label="Art credits">
+              <h2>Art Credits</h2>
+              <ul class="credits">{p.credits.map(([k, v]: [string, string]) => <li><b>{k}:</b>{v}</li>)}</ul>
+            </section>
+          )}
+        </aside>
+      </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Picture viewer">
+      <button class="lb-close" id="lbClose" aria-label="Close picture viewer">&times;</button>
+      <figure>
+        <img id="lbImg" alt="" />
+        <figcaption><span id="lbTitle"></span><small id="lbNote"></small></figcaption>
+      </figure>
+    </div>
+    <script is:inline>
+      (function () {
+        var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg');
+        var lbTitle = document.getElementById('lbTitle'), lbNote = document.getElementById('lbNote'), lastFocus = null;
+        function openLB(fig) { lastFocus = document.activeElement; lbImg.src = fig.getAttribute('data-full'); lbImg.alt = fig.querySelector('img').alt;
+          lbTitle.textContent = fig.getAttribute('data-title'); lbNote.textContent = fig.getAttribute('data-note') || ''; lb.classList.add('open'); document.getElementById('lbClose').focus(); }
+        function closeLB() { lb.classList.remove('open'); lbImg.removeAttribute('src'); if (lastFocus) lastFocus.focus(); }
+        document.querySelectorAll('.collage figure').forEach(function (fig) {
+          fig.addEventListener('click', function () { openLB(fig); });
+          fig.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLB(fig); } });
+        });
+        document.getElementById('lbClose').addEventListener('click', closeLB);
+        lb.addEventListener('click', function (e) { if (e.target === lb) closeLB(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLB(); });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+{
+  "slug": "florentino",
+  "name": "Grand Regent Florentino",
+  "shortName": "Florentino",
+  "diamond": "saturn-light",
+  "diamondName": "Saturn Light Diamond",
+  "title": "Grand Regent <span class=\"accent\">Florentino</span>",
+  "courtLine": "Court Saturn · Grand Regent · Rank 1.2",
+  "heroSub": "Marigold Orange Cubic Zirconia, and Saturn Light Diamond's brother.",
+  "chips": [
+    [
+      "Sub-Domain",
+      "Momentum"
+    ],
+    [
+      "Era",
+      "2A"
+    ],
+    [
+      "Height",
+      "29'0\""
+    ],
+    [
+      "Pronouns",
+      "He / Him / His"
+    ]
+  ],
+  "facts": [
+    [
+      "Gem-Type",
+      "Marigold Orange Cubic Zirconia"
+    ],
+    [
+      "Era",
+      "2A (Saturn Light Sole Essence)"
+    ],
+    [
+      "Pronouns",
+      "He / Him / His"
+    ],
+    [
+      "Height",
+      "29'0\""
+    ],
+    [
+      "Court",
+      "Saturn"
+    ],
+    [
+      "Gem Placement",
+      "Right side of chest"
+    ],
+    [
+      "Place of Birth",
+      "Same planet as Saturn Light Diamond"
+    ],
+    [
+      "Alignment",
+      "Chaotic Good"
+    ],
+    [
+      "Nicknames",
+      "Flor, Tino, Gold, Big Bro (from his close menagerie of gems), \"The Marigold Menace\" (self given), Jerk (by one of Nightshade's Pearls)"
+    ]
+  ],
+  "stats": [
+    [
+      "HP",
+      "44"
+    ],
+    [
+      "ATK",
+      "11"
+    ],
+    [
+      "DEF",
+      "13"
+    ],
+    [
+      "SPD",
+      "6"
+    ],
+    [
+      "INT",
+      "6"
+    ],
+    [
+      "MAG",
+      "8"
+    ],
+    [
+      "Level",
+      "1"
+    ]
+  ],
+  "equipment": [],
+  "personality": [
+    "Florentino is a jerk with a heart of gold. He's loud, he's dramatic, and he can't let a room go quiet without cracking a joke or giving somebody a new nickname they didn't ask for. He teases the gems he likes the most, which is why half of them think he can't stand them.",
+    "He's a lot smarter than he acts. He can tell who's lying to themselves within a few minutes of meeting them, and he'll say it to their face whether they want to hear it or not.",
+    "Saturn Light is the one gem he never jokes about. He'll take on work that isn't his just so his brother has less to deal with, and he doesn't forgive anyone who leaves Saturn to handle things alone. He bends the rules when he thinks they're stupid, but he'd never really hurt someone he cares about. If something goes wrong, he's the first one to step in front of it, and he'll make a joke about it after so nobody thanks him."
+  ],
+  "likes": [
+    "Putting on a show",
+    "Dramatic entrances and exits",
+    "Teasing gems he actually respects",
+    "Keeping a room laughing even when things are tense",
+    "Collecting little trinkets from every court he visits"
+  ],
+  "dislikes": [
+    "Being ignored",
+    "Gems who refuse to be honest with themselves",
+    "Long stretches of silence",
+    "Being told to tone it down"
+  ],
+  "fear": "Being forgotten or becoming irrelevant.",
+  "relationships": [
+    [
+      "Saturn Light Diamond",
+      "His sibling."
+    ],
+    [
+      "Six formerly Rogue Pearls",
+      "He's taken them in and cared for them over the last year, found scattered across the colonies and wilds and given a place with him rather than being reported or turned away."
+    ]
+  ],
+  "abilities": [
+    {
+      "name": "Momentum Manipulation",
+      "label": "Sub-Domain: Momentum",
+      "desc": [
+        "As Saturn Light's Cubic Zirconia, Florentino inherits his Sub-Domain of Momentum. He can build up speed and force in his own body and in anything he touches, then let it all out at once. When he moves fast enough, he leaves a trail of marigold petals made of light behind him."
+      ],
+      "passives": [
+        {
+          "name": "Marigold Guard",
+          "tag": "Aura",
+          "text": "Allies who are Near Florentino take 1 less damage from each hit."
+        },
+        {
+          "name": "Perennial",
+          "tag": "Passive",
+          "text": "The first time he would drop to 0 HP in a battle, he drops to 1 HP instead, is pushed out of immediate danger, and can't act on his next turn."
+        },
+        {
+          "name": "Surface Adherence",
+          "tag": "Passive",
+          "text": "Florentino can walk on walls and ceilings, so terrain never stops him from getting Near or Behind a target. It also gives him the spell Pin."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Running Start",
+          "kind": "Mobility",
+          "cost": "2 SP",
+          "text": "Florentino moves Near or Behind any target. His next FIGHT this turn deals +2 damage per hit."
+        },
+        {
+          "name": "Petal Rush",
+          "kind": "Offensive",
+          "cost": "2 SP",
+          "text": "Florentino dashes straight through one target, dealing 1d10 + SPD damage and leaving a trail of petals behind him."
+        },
+        {
+          "name": "Pin",
+          "kind": "Debuff",
+          "cost": "2 SP",
+          "text": "From Surface Adherence. Florentino sticks a target's limb to a nearby surface. The target resists with DEF. If they fail, they are Stuck until the end of their next turn."
+        },
+        {
+          "name": "Redirect",
+          "kind": "Defensive",
+          "cost": "3 SP",
+          "text": "A Reaction. When a physical attack hits an ally Near him, Florentino catches the force and turns it around. The ally takes no damage, and the attacker takes half of it instead."
+        },
+        {
+          "name": "Bowl Over",
+          "kind": "Offensive",
+          "cost": "4 SP",
+          "text": "Florentino barrels through every enemy Near him, dealing 1d8 + SPD damage to each. Each one resists with DEF. Those who fail are Knocked Down."
+        },
+        {
+          "name": "Marigold Comet",
+          "kind": "Offensive",
+          "cost": "6 SP",
+          "text": "Florentino must spend his previous turn building up speed. He then crashes through the whole battlefield, dealing 3d10 + SPD damage to every enemy. This damage ignores DEF."
+        }
+      ],
+      "outside": []
+    }
+  ],
+  "art": {
+    "src": "{{BASE}}images/regents/florentino/1.webp",
+    "alt": "Florentino, a grinning gem with messy orange hair, an orange vest over a peach shirt, gold chains, a dark red jacket and brown trousers, with an orange gemstone on his chest and marigold petals around him",
+    "caption": ""
+  },
+  "credits": []
+}

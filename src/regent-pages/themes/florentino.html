@@ -1,0 +1,171 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    --font-body: "Nunito Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+    --font-display: "DM Serif Display", Georgia, serif;
+    color-scheme: light;
+    --bg: #f7ead2;
+    --bg-deep: #efd9ae;
+    --panel: #fffaf0;
+    --panel-2: #fdf1da;
+    --panel-solid: #fffaf0;
+    --ink: #2e1c0d;
+    --ink-soft: #5c4225;
+    --ink-faint: #7d5f38;
+    --gold: #c25a12;
+    --gold-bright: #e8731c;
+    --gold-pale: #ffd19a;
+    --brown: #6b4423;
+    --brown-deep: #3d2412;
+    --line: #e3c99a;
+    --line-strong: #cfa75e;
+    --chip: #fbeecb;
+    --quote-bg: #3d2412;
+    --quote-ink: #fbeecb;
+    --shadow: 0 10px 30px rgba(90, 55, 10, .14);
+    --ring: rgba(232, 115, 28, .5);
+    --ring-soft: rgba(232, 115, 28, .28);
+    --scrim: rgba(247, 234, 210, .55);
+    --sp: #6b4423;
+    --sp-bg: #ffd19a;
+    --badge-ink: #2e1c0d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #1d1107;
+      --bg-deep: #140b04;
+      --panel: #2b1a0d;
+      --panel-2: #33200f;
+      --panel-solid: #2b1a0d;
+      --ink: #f7e8c9;
+      --ink-soft: #e3c99a;
+      --ink-faint: #bd9a62;
+      --gold: #e0aa3e;
+      --gold-bright: #f2c14e;
+      --gold-pale: #f7dc8f;
+      --brown: #a97a3f;
+      --brown-deep: #f3d489;
+      --line: #4f3517;
+      --line-strong: #7d5a24;
+      --chip: #3d2a10;
+      --quote-bg: #0f0803;
+      --quote-ink: #f7dc8f;
+      --shadow: 0 12px 34px rgba(0, 0, 0, .45);
+      --ring: rgba(255, 158, 69, .55);
+      --ring-soft: rgba(255, 158, 69, .3);
+      --scrim: rgba(20, 11, 4, .5);
+      --sp: #2b1a0d;
+      --sp-bg: #ff9e45;
+    --badge-ink: #2e1c0d;
+    }
+  }
+  .artbox-head { background: var(--brown-deep); }
+  @media (prefers-color-scheme: dark) { .artbox-head { background: #0f0803; } }
+  /* ---------- Floating Saturn rings background ---------- */
+  .bg-layer {
+    position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+    background:
+      radial-gradient(900px 500px at 85% -5%, var(--bg-deep), transparent 60%),
+      radial-gradient(700px 500px at -10% 30%, var(--bg-deep), transparent 55%),
+      var(--bg);
+  }
+  .bg-scrim { position: absolute; inset: 0; background: var(--scrim); }
+  .saturn { position: absolute; will-change: transform; }
+  .saturn-inner { animation: floaty 7s ease-in-out infinite; }
+  .saturn svg { display: block; overflow: visible; }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0) rotate(-8deg); }
+    50% { transform: translateY(-16px) rotate(-5deg); }
+  }
+  .spark { position: absolute; border-radius: 50%; background: var(--gold-bright); opacity: .55; animation: floaty 6s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) { .saturn-inner, .spark { animation: none !important; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="200" height="200" viewBox="0 0 100 100" aria-hidden="true"><g fill="var(--gold-bright)"><ellipse cx="50" cy="24" rx="12" ry="22"/><ellipse cx="50" cy="76" rx="12" ry="22"/><ellipse cx="24" cy="50" rx="22" ry="12"/><ellipse cx="76" cy="50" rx="22" ry="12"/><ellipse cx="32" cy="32" rx="10" ry="20" transform="rotate(-45 32 32)"/><ellipse cx="68" cy="68" rx="10" ry="20" transform="rotate(-45 68 68)"/><ellipse cx="68" cy="32" rx="10" ry="20" transform="rotate(45 68 32)"/><ellipse cx="32" cy="68" rx="10" ry="20" transform="rotate(45 32 68)"/></g><circle cx="50" cy="50" r="12" fill="var(--gold)"/></svg>
+<!--/mark-->
+<div class="bg-layer" id="bgLayer" aria-hidden="true">
+  <div class="bg-scrim"></div>
+  <!-- rings are placed by script -->
+</div>
+<script>
+(function () {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  /* ----- Build Saturn rings ----- */
+  var layer = document.getElementById("bgLayer");
+  var ringDefs = [
+    { left: "4%",  top: "6%",  size: 210, depth: 0.55, delay: "0s",    op: 0.85 },
+    { left: "78%", top: "12%", size: 300, depth: 0.3,  delay: "-2s",   op: 0.7 },
+    { left: "62%", top: "46%", size: 150, depth: 0.85, delay: "-4s",   op: 0.8 },
+    { left: "8%",  top: "58%", size: 260, depth: 0.4,  delay: "-1.2s", op: 0.65 },
+    { left: "84%", top: "72%", size: 180, depth: 0.7,  delay: "-5s",   op: 0.8 },
+    { left: "38%", top: "84%", size: 130, depth: 1.0,  delay: "-3s",   op: 0.6 },
+    { left: "26%", top: "30%", size: 90,  depth: 1.2,  delay: "-0.6s", op: 0.55 }
+  ];
+  function ringSVG(size, op) {
+    return '<svg width="' + size + '" height="' + Math.round(size * 0.62) + '" viewBox="0 0 260 160" fill="none" style="opacity:' + op + '">' +
+      '<ellipse cx="130" cy="80" rx="120" ry="33" stroke="var(--ring)" stroke-width="6"/>' +
+      '<ellipse cx="130" cy="80" rx="96" ry="25" stroke="var(--ring-soft)" stroke-width="3"/>' +
+      '<circle cx="130" cy="80" r="30" fill="var(--gold-bright)" fill-opacity="0.28" stroke="var(--ring)" stroke-width="2"/>' +
+      '</svg>';
+  }
+  var saturns = [];
+  ringDefs.forEach(function (d) {
+    var el = document.createElement("div");
+    el.className = "saturn";
+    el.style.left = d.left; el.style.top = d.top;
+    var inner = document.createElement("div");
+    inner.className = "saturn-inner";
+    inner.style.animationDelay = d.delay;
+    inner.innerHTML = ringSVG(d.size, d.op);
+    el.appendChild(inner);
+    layer.appendChild(el);
+    saturns.push({ el: el, depth: d.depth, baseY: 0 });
+  });
+  /* small gold sparks */
+  for (var i = 0; i < 14; i++) {
+    var s = document.createElement("div");
+    s.className = "spark";
+    var sz = 3 + Math.random() * 5;
+    s.style.width = sz + "px"; s.style.height = sz + "px";
+    s.style.left = (Math.random() * 96) + "%";
+    s.style.top = (Math.random() * 96) + "%";
+    s.style.animationDelay = (-Math.random() * 6) + "s";
+    layer.appendChild(s);
+  }
+
+  if (!reduceMotion) {
+    var mx = 0, my = 0, tx = 0, ty = 0, ticking = false;
+    if (canHover) {
+      window.addEventListener("mousemove", function (e) {
+        tx = (e.clientX / window.innerWidth - 0.5) * 2;
+        ty = (e.clientY / window.innerHeight - 0.5) * 2;
+        requestTick();
+      }, { passive: true });
+    }
+    window.addEventListener("scroll", function () { requestTick(); }, { passive: true });
+    function requestTick() {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }
+    function update() {
+      ticking = false;
+      mx += (tx - mx) * 0.06;
+      my += (ty - my) * 0.06;
+      var scroll = window.scrollY || 0;
+      saturns.forEach(function (s) {
+        var px = mx * 26 * s.depth;
+        var py = my * 18 * s.depth - scroll * 0.12 * s.depth;
+        s.el.style.transform = "translate3d(" + px.toFixed(1) + "px," + py.toFixed(1) + "px,0)";
+      });
+      if (Math.abs(tx - mx) > 0.001 || Math.abs(ty - my) > 0.001) requestTick();
+    }
+    requestTick();
+  }
+
+})();
+</script>

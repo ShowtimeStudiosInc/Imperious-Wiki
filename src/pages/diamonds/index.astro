@@ -2,6 +2,8 @@
 import Site from '../../layouts/Site.astro';
 import { DIAMONDS, FORTHCOMING_DIAMONDS } from '../../lib/diamonds';
 import { url } from '../../lib/gems';
+const regentData = import.meta.glob('../../data/regents/*.json', { import: 'default', eager: true }) as Record<string, any>;
+const REGENTS = Object.values(regentData).sort((a: any, b: any) => a.shortName.localeCompare(b.shortName));
 ---
 
 <Site title="Know Your Diamond" description="Rank 1.1: the Diamonds of the Gempire." current="diamonds">
@@ -27,6 +29,21 @@ import { url } from '../../lib/gems';
       ))}
     </div>
 
+    <h2 id="regents">Grand Regents</h2>
+    <p class="intro">
+      Cubic Zirconias are Rank 1.2. Each one emerges beside their Diamond as a sibling, carries a fragment of their essence, and is given the Title of Grand Regent.
+    </p>
+    <div class="grid">
+      {REGENTS.map((r: any) => (
+        <a class="card diamond-card" href={url(`/regents/${r.slug}/`)}>
+          <img class="thumb" src={r.art.src.replace('{{BASE}}', url('/'))} alt={`${r.name} art`} />
+          <span class="name">{r.name}</span>
+          <span class="sub">{r.facts[0][1]}</span>
+          <span class="sub">Court {r.facts.find((f: any) => f[0] === 'Court')[1]} &middot; {r.chips.find((c: any) => c[0] === 'Height')[1]}</span>
+        </a>
+      ))}
+    </div>
+
     <section class="panel">
       <div class="bar">Forthcoming</div>
       <div class="body">
@@ -43,6 +60,7 @@ import { url } from '../../lib/gems';
   .crumbs { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.06em; margin: 0 0 0.8rem; }
   .crumbs span { margin: 0 0.3rem; }
   h1 { margin: 0 0 0.6rem; font-size: 2rem; }
+  h2 { margin: 2rem 0 0.4rem; font-size: 1.5rem; scroll-margin-top: 70px; }
   .intro { max-width: 62ch; color: #ddd5f5; }
   .intro.muted { color: var(--muted); font-size: 0.92rem; }
   .grid { margin: 1.2rem 0; }
