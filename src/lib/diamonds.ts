@@ -79,6 +79,8 @@ export interface Diamond {
   references?: { label: string; image: string; caption: string }[];
   theme: DiamondTheme;
   abilities: DiamondAbility[];
+  /** Art and design credits, shown in an Art Credits box. Only list what Oliver has confirmed. */
+  credits?: { label: string; name: string }[];
   updated: string;
 }
 
@@ -274,6 +276,7 @@ export const DIAMONDS: Diamond[] = [
           "Her strongest Memory spells need Records first, so they're slow to get going. They're mind spells too, so anyone with a high INT is hard to reach. And drawing out memories needs contact.",
       },
     ],
+    credits: [{ label: 'Design', name: 'Liyuu (Fiverr)' }],
     updated: '2026-11-18',
   },
   {
@@ -569,6 +572,7 @@ export const DIAMONDS: Diamond[] = [
           "Mannequins can't think for themselves, so they only follow simple orders, and they can't be healed.",
       },
     ],
+    credits: [{ label: 'Design', name: 'err0rc0de_blair' }],
     updated: '2026-11-18',
   },
 ];

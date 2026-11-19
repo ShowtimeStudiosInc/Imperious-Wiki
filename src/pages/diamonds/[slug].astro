@@ -143,6 +143,16 @@ const desc = `${d.name}${d.pillar ? `, Pillar of ${d.pillar}` : ''}. ${d.purpose
             <div class="bar">Weakness</div>
             <div class="body prose"><p>{d.weaknesses}</p></div>
           </section>
+          {d.credits && d.credits.length > 0 && (
+            <section class="panel">
+              <div class="bar">Art Credits</div>
+              <div class="body">
+                <ul class="credit-list">
+                  {d.credits.map((c) => <li><span class="clabel">{c.label}</span> {c.name}</li>)}
+                </ul>
+              </div>
+            </section>
+          )}
         </div>
 
         <div class="col">
@@ -258,6 +268,9 @@ const desc = `${d.name}${d.pillar ? `, Pillar of ${d.pillar}` : ''}. ${d.purpose
   .fine { font-size: 0.88rem; color: #cfc6ea; margin: 0.7rem 0 0; }
   :global(.sico) { width: 1.15em; height: 1.15em; vertical-align: -0.22em; margin-right: 0.15em; image-rendering: pixelated; }
   :global(.sico.dark) { background: #c9bfe8; border-radius: 4px; padding: 2px; box-sizing: border-box; }
+  .credit-list { list-style: none; margin: 0; padding: 0; }
+  .credit-list li + li { margin-top: 0.35rem; }
+  .clabel { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 0.4rem; }
   .credit { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 1rem 0 0; }
   /* Space background: stars plus meteor rocks, behind the content. */
   .space-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
