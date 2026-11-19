@@ -32,7 +32,7 @@ export const TIERS: { slug: string; name: string; blurb: string; match: (g: Gem)
   { slug: 'servants', name: 'Servants', blurb: 'Rank 5. Pearls, Spinels, and the helpers who keep everyone else working.', match: (g) => !!g.rank?.startsWith('5.') && g.faction === 'gempire' },
   { slug: 'discontinued', name: 'Discontinued Types', blurb: 'Gem-Types the empire no longer makes. Discontinued ones were stopped on purpose. Lost Lights are ones it can no longer make, because the formula is gone or can\'t be found.', match: (g) => g.faction === 'lost' },
   { slug: 'rogues', name: 'Rogues', blurb: 'Gem-Types rarely found inside the empire, outside of marriage.', match: (g) => g.faction === 'rogue' || !!g.alsoFactions?.includes('rogue') },
-  { slug: 'united-frontier', name: 'United Frontier', blurb: 'Gem-Types of Hades 9, hidden in a fold of space.', match: (g) => g.faction === 'united-frontier' },
+  { slug: 'united-frontier', name: 'United Frontier', blurb: 'Gem-Types of the United Frontier, on Hades 9.', match: (g) => g.faction === 'united-frontier' },
 ];
 
 export const FACTION_LABEL: Record<string, string> = {
