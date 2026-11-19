@@ -647,7 +647,7 @@ export const DIAMONDS: Diamond[] = [
     powers: [],
     weaknesses: "",
     quote: "",
-    art: '/images/diamonds/maroon-red/placeholder.svg',
+    art: '/images/diamonds/maroon-red.webp',
     theme: { bg: '', glow: '', accent: '', accent2: '', meteors: false, backgroundLabel: '' },
     abilities: [],
     updated: '2026-11-19',

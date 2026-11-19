@@ -7,7 +7,22 @@
   "quoteBy": "Maroon Red Diamond",
   "art": {
     "sub": "",
-    "images": []
+    "images": [
+      {
+        "src": "{{BASE}}images/diamonds/maroon-red/page/1.webp",
+        "full": "{{BASE}}images/diamonds/maroon-red/page/1.webp",
+        "title": "Full body",
+        "note": "Long dark cape, peach sash, red gem at the collar and on the forehead.",
+        "alt": "Maroon Red Diamond standing in a long dark cape over a red jacket with a peach sash, a glowing red gem at the collar and a small red gem on the forehead"
+      },
+      {
+        "src": "{{BASE}}images/diamonds/maroon-red/page/2.webp",
+        "full": "{{BASE}}images/diamonds/maroon-red/page/2.webp",
+        "title": "Ref sheet",
+        "note": "Front, back, side profile, and with the hair down.",
+        "alt": "Reference sheet for Maroon Red Diamond showing a full body pose, front and back views, a side profile, and a bust with the hair down"
+      }
+    ]
   },
   "personality": [],
   "purpose": [],
