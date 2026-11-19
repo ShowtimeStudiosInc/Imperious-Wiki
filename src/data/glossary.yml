@@ -1,0 +1,123 @@
+# Glossary: terms that get a hover/tap definition on Rules and Lore pages (first use per page),
+# and that are listed on the Glossary page. Definitions are short and taken from the site's own pages.
+# match: the exact spellings to look for (longest wins). href: relative to the site root.
+- term: Star Gauge
+  match: [Star Gauge]
+  def: A shared meter with 10 marks. When it fills, the party gains 5 SP and the gauge empties.
+  href: /rules/battles/
+- term: Star Points (SP)
+  match: [Star Points]
+  def: Shared by the whole party and earned from the Star Gauge. Most SKILL moves and spells cost them. A party can't hold more than 9.
+  href: /rules/battles/
+- term: Flickering
+  match: [Flickering]
+  def: At 0 HP or below, a gem's form starts to flicker. They can still act, but they poof at the start of their next turn unless healed or the battle ends.
+  href: /rules/battles/
+- term: Poofed
+  match: [Poofed, poofed, poofs]
+  def: The gem's body has taken too much damage and they've retreated into their gemstone until they reform.
+  href: /rules/battles/
+- term: Cracked
+  match: [Cracked]
+  def: A Flickering or Poofed gem who takes another hit is Cracked. Cracks don't heal on their own, and any more damage shatters them.
+  href: /rules/battles/
+- term: Shattered
+  match: [Shattered, shattered]
+  def: The gemstone itself is broken. It's the only true death for a Gem, and only Diamond essence can undo it.
+  href: /lore/how-gems-work/species/
+- term: Era modifier
+  match: [Era modifier]
+  def: The starting stats and Special a gem gets from the Era they were made in. Every gem carries exactly one modifier.
+  href: /rules/modifiers/
+- term: Sole Essence
+  match: [Sole Essences, Sole Essence]
+  def: The modifier for a gem made from a single Diamond's essence and nothing else. Extremely rare, and it replaces the Era modifier.
+  href: /rules/modifiers/
+- term: Analogous Mix
+  match: [Analogous Mixes, Analogous Mix]
+  def: The modifier for a gem made by blending two neighboring Diamond essences. It replaces the Era modifier and needs staff approval.
+  href: /rules/modifiers/
+- term: Cut Quality
+  match: [Cut Quality]
+  def: Standard, Perfect, or Defective. It stacks on top of a gem's Era, Sole Essence, or Analogous Mix.
+  href: /rules/modifiers/
+- term: Off-Color
+  match: [Off-Colors, Off-Color]
+  def: A gem who isn't a color their type normally comes in. It's a look, not a cut quality, and doesn't mean Defective.
+  href: /rules/modifiers/
+- term: Facet & Cut
+  match: [Facet & Cut, Facet and Cut]
+  def: The batch code every kindergarten Gem is given when they emerge. Gems from the same batch share it.
+  href: /lore/how-gems-work/facet-and-cut/
+- term: Lost Light
+  match: [Lost Light, Lost Lights]
+  def: A Gem-Type the empire can no longer make, because the formula is gone or can't be found.
+  href: /gem-types/tier/discontinued/
+- term: Deity Diamonds
+  match: [Deity Diamonds]
+  def: Alpha Black, Omega White, Theta Gold, and Epsilon Blue. They were never made; they emerged on their own, and each holds a Pillar.
+  href: /lore/how-gems-work/how-diamonds-are-made/
+- term: Cubic Zirconia
+  match: [Cubic Zirconias, Cubic Zirconia]
+  def: A Diamond's sibling, made from the same Paragon Core. They carry a fragment of their Diamond's essence and hold the Title of Grand Regent.
+  href: /diamonds/#regents
+- term: Grand Regent
+  match: [Grand Regents, Grand Regent]
+  def: The Title every Cubic Zirconia is given the moment they emerge, the only Title that isn't earned.
+  href: /diamonds/#regents
+- term: Paragon Core
+  match: [Paragon Core]
+  def: The liquid core a planet becomes after a Super-Sized Injector of Diamond Essence. Every Diamond since the Deity Diamonds is made from one.
+  href: /lore/how-gems-work/how-diamonds-are-made/
+- term: Throne of Homeworld
+  match: [Throne of Homeworld]
+  def: The great tower at the heart of Homeworld's city. Titles are granted on its 23rd floor.
+  href: /lore/gempire-life/homeworld/
+- term: Sector Null
+  match: [Sector Null]
+  def: The frozen, unlit wilderness past the edge of Homeworld's holographic sky, home to the first abandoned kindergartens and most Rogues.
+  href: /lore/gempire-life/homeworld/
+- term: Nacre
+  match: [Nacres, Nacre]
+  def: The Gem who owns and runs a Reef, makes its Pearls, and to most of them is something close to a mother.
+  href: /lore/gempire-life/reef-system/
+- term: Returned
+  match: [Returned]
+  def: Pearls who come home to their Reef after their superior is shattered or disgraced, or who were never chosen.
+  href: /lore/gempire-life/reef-system/
+- term: Rogue
+  match: [Rogues, Rogue]
+  def: A Gem who walked away from the Gempire to live her own life. Most want nothing more than to be left alone.
+  href: /lore/factions/rogues-and-rebels/
+- term: Rebel
+  match: [Rebels, Rebel]
+  def: A Rogue who has acted against the Imperious Authority.
+  href: /lore/factions/rogues-and-rebels/
+- term: S.T.O.R.M.
+  match: [S.T.O.R.M.]
+  def: The largest and most organized Rebel group, run in small cells that only know their own Handler.
+  href: /lore/factions/storm/
+- term: The Agency
+  match: [the Agency, The Agency]
+  def: The intelligence organization serving both the Gempire and the United Frontier, with Alpha Black as Director-General.
+  href: /lore/factions/the-agency/
+- term: United Frontier
+  match: [United Frontier]
+  def: The oldest society Gems ever built, started in Era 0 and now hidden on Hades 9, run by an elected High Council.
+  href: /lore/factions/united-frontier/
+- term: Metal Society
+  match: [Metal Society]
+  def: The Metals' own civilization, older than the Gempire. Its Metals go by real names and only joined the empire in Era 2A.
+  href: /lore/how-gems-work/species/
+- term: Variant Metals
+  match: [Variant Metals]
+  def: Metals the Gempire has made in its own kindergartens since Era 2A, by injecting a mix of alloys.
+  href: /lore/how-gems-work/species/
+- term: Triadism
+  match: [Triadism]
+  def: The most common Gem religion. It worships Alpha Black, Theta Gold, and Epsilon Blue as the makers of Gemkind and the universe.
+  href: /lore/nuggets/#nugget-12
+- term: Monolithism
+  match: [Monolithism]
+  def: A heretical offshoot of Triadism that believes in a single Universe Diamond.
+  href: /lore/nuggets/#nugget-12

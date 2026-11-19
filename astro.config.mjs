@@ -18,6 +18,7 @@ export default defineConfig({
       logo: { light: './src/assets/logo-dark.png', dark: './src/assets/logo-white.png', alt: 'Imperious Authorities logo' },
       favicon: '/favicon.png',
       customCss: ['./src/styles/starlight.css'],
+      components: { Footer: './src/components/GlossaryFooter.astro' },
       head: [
         { tag: 'meta', attrs: { property: 'og:image', content: new URL((base.endsWith('/') ? base : base + '/') + 'images/brand/og-logo.png', site).href } },
         { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
@@ -37,6 +38,7 @@ export default defineConfig({
             { label: 'How Gems Work', collapsed: false, items: [{ autogenerate: { directory: 'lore/how-gems-work' } }] },
             { label: 'Nuggets of Lore', link: '/lore/nuggets/' },
             { label: 'Height Chart', link: '/lore/height-chart/' },
+            { label: 'Glossary', link: '/lore/glossary/' },
           ],
         },
       ],

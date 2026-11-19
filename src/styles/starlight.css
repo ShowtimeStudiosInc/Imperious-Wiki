@@ -103,3 +103,13 @@ img.ia-ico { display: inline-block; width: 1.25em; height: 1.25em; vertical-alig
 
 .ia-code-big { margin-top: 0.8rem; }
 .ia-code-big code { font-size: 1.6rem; padding: 0.3rem 0.8rem; letter-spacing: 0.06em; }
+
+/* Glossary tooltips (src/components/GlossaryFooter.astro) */
+.ia-gloss { text-decoration: underline dotted; text-decoration-color: #d9a441; text-underline-offset: 3px; cursor: help; }
+.ia-gloss:focus-visible { outline: 2px solid #d9a441; outline-offset: 2px; border-radius: 2px; }
+.ia-gloss-tip { position: absolute; z-index: 100; background: var(--sl-color-black); color: var(--sl-color-gray-2);
+  border: 1px solid #d9a441; border-radius: 6px; padding: 0.6rem 0.8rem; font-size: 0.86rem; line-height: 1.45;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); }
+.ia-gloss-tip strong { color: #f0cf8a; display: block; margin-bottom: 0.2rem; }
+.ia-gloss-tip p { margin: 0 0 0.35rem; }
+.ia-gloss-tip a { color: #f0cf8a; font-size: 0.82rem; }

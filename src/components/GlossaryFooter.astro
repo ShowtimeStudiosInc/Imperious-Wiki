@@ -1,0 +1,93 @@
+---
+/**
+ * Starlight footer override. Renders the normal footer, then adds glossary tooltips:
+ * the first use of each term in src/data/glossary.yml on a page gets a dotted underline
+ * and a hover / tap definition with a link to where it's explained.
+ */
+import Default from '@astrojs/starlight/components/Footer.astro';
+import { load } from 'js-yaml';
+import fs from 'node:fs';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const terms = (load(fs.readFileSync('src/data/glossary.yml', 'utf8')) as any[]).map((t) => ({
+  term: t.term, match: t.match, def: t.def, href: base + String(t.href).replace(/^\//, ''),
+}));
+const self = Astro.url.pathname;
+---
+<Default><slot /></Default>
+<script type="application/json" id="ia-glossary-data" set:html={JSON.stringify({ terms, self })} />
+<script>
+  const el = document.getElementById('ia-glossary-data');
+  const root = document.querySelector('.sl-markdown-content');
+  if (el && root) {
+    const { terms, self } = JSON.parse(el.textContent || '{}') as { terms: { term: string; match: string[]; def: string; href: string }[]; self: string };
+    const byWord = new Map<string, (typeof terms)[number]>();
+    for (const t of terms) for (const m of t.match) byWord.set(m, t);
+    const words = [...byWord.keys()].sort((a, b) => b.length - a.length);
+    const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(`(?<![\\w-])(${words.map(esc).join('|')})(?![\\w-])`);
+    const used = new Set<string>();
+    const skip = '.ia-glossary, A, CODE, PRE, H1, H2, H3, H4, H5, H6, BUTTON, SUMMARY, ABBR, .ia-label, .ia-nug-filter, .hc-filter, .hc-plot, .ia-gloss';
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => (n.parentElement && !n.parentElement.closest(skip) && n.nodeValue && n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT),
+    });
+    const nodes: Text[] = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode as Text);
+    for (let node of nodes) {
+      let guard = 0;
+      while (node && guard++ < 20) {
+        const m = (node.nodeValue || '').match(re);
+        if (!m || m.index === undefined) break;
+        const t = byWord.get(m[1])!;
+        const onOwnPage = self.replace(/\/$/, '') === t.href.split('#')[0].replace(/\/$/, '');
+        if (used.has(t.term) || onOwnPage) {
+          // already explained on this page: look past this match
+          const rest = (node as Text).splitText(m.index + m[1].length);
+          node = rest; continue;
+        }
+        used.add(t.term);
+        const hit = (node as Text).splitText(m.index);
+        const after = hit.splitText(m[1].length);
+        const span = document.createElement('span');
+        span.className = 'ia-gloss'; span.tabIndex = 0; span.setAttribute('role', 'button');
+        span.dataset.term = t.term; span.textContent = hit.nodeValue;
+        hit.replaceWith(span);
+        node = after;
+      }
+    }
+    const tip = document.createElement('div');
+    tip.className = 'ia-gloss-tip'; tip.setAttribute('role', 'tooltip'); tip.hidden = true;
+    document.body.appendChild(tip);
+    const byTerm = new Map(terms.map((t) => [t.term, t]));
+    let current: HTMLElement | null = null;
+    const show = (s: HTMLElement) => {
+      const t = byTerm.get(s.dataset.term || ''); if (!t) return;
+      tip.innerHTML = '';
+      const b = document.createElement('strong'); b.textContent = t.term;
+      const p = document.createElement('p'); p.textContent = t.def;
+      const a = document.createElement('a'); a.href = t.href; a.textContent = 'Read more →';
+      tip.append(b, p, a); tip.hidden = false; current = s;
+      const r = s.getBoundingClientRect(); const w = Math.min(300, window.innerWidth - 24);
+      tip.style.width = w + 'px';
+      const left = Math.max(12, Math.min(window.innerWidth - w - 12, r.left + r.width / 2 - w / 2));
+      tip.style.left = left + window.scrollX + 'px';
+      const below = r.bottom + 8 + tip.offsetHeight < window.innerHeight;
+      tip.style.top = (below ? r.bottom + 8 : r.top - tip.offsetHeight - 8) + window.scrollY + 'px';
+    };
+    const hide = () => { tip.hidden = true; current = null; };
+    let leaveTimer: number | undefined;
+    document.addEventListener('mouseover', (e) => {
+      const s = (e.target as HTMLElement).closest?.('.ia-gloss') as HTMLElement | null;
+      if (s) { clearTimeout(leaveTimer); show(s); }
+      else if ((e.target as HTMLElement).closest?.('.ia-gloss-tip')) clearTimeout(leaveTimer);
+      else if (current) { leaveTimer = window.setTimeout(hide, 200); }
+    });
+    document.addEventListener('click', (e) => {
+      const s = (e.target as HTMLElement).closest?.('.ia-gloss') as HTMLElement | null;
+      if (s) { e.preventDefault(); current === s ? hide() : show(s); }
+      else if (!(e.target as HTMLElement).closest?.('.ia-gloss-tip')) hide();
+    });
+    document.addEventListener('focusin', (e) => { const s = (e.target as HTMLElement).closest?.('.ia-gloss') as HTMLElement | null; if (s) show(s); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hide(); });
+    window.addEventListener('scroll', () => { if (current) show(current); }, { passive: true });
+  }
+</script>

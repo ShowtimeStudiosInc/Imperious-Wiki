@@ -1,0 +1,20 @@
+---
+import { load } from 'js-yaml';
+import fs from 'node:fs';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const terms = (load(fs.readFileSync('src/data/glossary.yml', 'utf8')) as any[])
+  .sort((a, b) => a.term.localeCompare(b.term));
+---
+<dl class="ia-glossary">
+  {terms.map((t) => (
+    <div>
+      <dt>{t.term}</dt>
+      <dd>{t.def} <a href={base + String(t.href).replace(/^\//, '')}>Read more</a></dd>
+    </div>
+  ))}
+</dl>
+<style>
+  .ia-glossary > div { margin-top: 0 !important; padding: 0.7rem 0; border-bottom: 1px solid var(--sl-color-hairline); }
+  .ia-glossary dt { color: #f0cf8a; font-weight: 600; }
+  .ia-glossary dd { margin: 0.2rem 0 0 !important; }
+</style>
