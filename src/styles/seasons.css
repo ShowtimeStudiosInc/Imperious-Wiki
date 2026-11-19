@@ -59,8 +59,21 @@
   --sky: #3d1230; --glow: rgba(255, 100, 150, 0.5); --fx: #ff6f9c; --fx-2: #ffb3cb;
 }
 
+/* Easter: pastels */
+:root[data-season='easter'] {
+  --a: #9b7fe0; --a-mid: #b9a6f0; --a-high: #e9e1ff; --a-low: #2a2046; --bar-b: #6fb89a;
+  --a-line: rgba(200, 230, 210, 0.3); --a-line-strong: rgba(200, 230, 210, 0.6);
+  --sky: #2a2a48; --glow: rgba(190, 240, 210, 0.45); --fx: #ffe9a8; --fx-2: #b8ecd0; --fx-3: #ffc6dd;
+}
+/* Thanksgiving: harvest */
+:root[data-season='thanksgiving'] {
+  --a: #b8432f; --a-mid: #d98a3d; --a-high: #ffe0b8; --a-low: #361510; --bar-b: #8a5a1e;
+  --a-line: rgba(240, 190, 120, 0.3); --a-line-strong: rgba(240, 190, 120, 0.62);
+  --sky: #38180f; --glow: rgba(240, 160, 70, 0.45); --fx: #b8432f; --fx-2: #d98a3d; --fx-3: #e8c46a;
+}
+
 /* ---------- Effects ---------- */
-.season-fx { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.season-fx { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .season-fx i { position: absolute; top: -5vh; display: block; width: 8px; height: 8px; opacity: 0.7;
   transform: scale(var(--s, 1)); animation: season-fall linear infinite; }
 @keyframes season-fall {
@@ -110,6 +123,16 @@
 [data-season='valentines'] .season-fx i.p1 { background: var(--fx-2); }
 
 @media (prefers-reduced-motion: reduce) { .season-fx { display: none; } }
+
+/* Pastel eggs and petals: Easter */
+[data-season='easter'] .season-fx i { width: 8px; height: 11px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: var(--fx); opacity: 0.6; }
+[data-season='easter'] .season-fx i.p1 { background: var(--fx-2); }
+[data-season='easter'] .season-fx i.p2 { width: 10px; height: 7px; border-radius: 80% 0 80% 0; background: var(--fx-3); }
+
+/* Leaves in harvest colors: Thanksgiving */
+[data-season='thanksgiving'] .season-fx i { width: 12px; height: 12px; border-radius: 0 80% 0 80%; background: var(--fx); opacity: 0.6; }
+[data-season='thanksgiving'] .season-fx i.p1 { background: var(--fx-2); }
+[data-season='thanksgiving'] .season-fx i.p2 { background: var(--fx-3); width: 5px; height: 12px; border-radius: 50%; }
 
 /* Reading pages: keep the effect soft so it doesn't get in the way of the text. */
 body:has(.sl-markdown-content) .season-fx { opacity: 0.45; }

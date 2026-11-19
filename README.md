@@ -96,7 +96,9 @@ The wiki is always dark. On top of that, it changes its accent colors and adds a
 | Spring | March to May | Petals |
 | Summer | June to August | Fireflies |
 | Autumn | September to November | Leaves |
+| Easter | All of April | Pastel eggs and petals |
 | Halloween | October 15 to 31 | Embers and bats |
+| Thanksgiving | All of November | Harvest leaves |
 | Winter Holidays | December 1 to 26 | Snow with gold |
 | New Year | December 31 to January 1 | Confetti |
 | Valentine's Day | February 10 to 14 | Hearts |
