@@ -51,6 +51,7 @@ For example: `Alpha Black Diamond was updated at [Know Your Diamond](https://sho
 - If one change touches several places, put the main one in the title and list each of the others on its own line in the same format in the commit body.
 - If a change has no page of its own (styles, scripts), name the page where it shows up.
 - Keep it to what changed. No extra summary in the title.
+- Only lines that link to a page on the live site show in the home page's Latest Changes box and in Discord. Lines that link anywhere else (like this README) stay in the history only.
 
 ## Posting updates to Discord
 

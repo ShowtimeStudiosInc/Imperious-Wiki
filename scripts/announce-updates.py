@@ -2,7 +2,8 @@
 
 Reads the push event, keeps only lines in the update log format
 ("<Content> was updated at [<Place>](<link>)"), and sends them to the
-Discord webhook in DISCORD_WEBHOOK_URL. Does nothing if the secret is
+Discord webhook in DISCORD_WEBHOOK_URL. Lines that link anywhere other than
+the live site (like the repo) are skipped. Does nothing if the secret is
 missing or no line matches.
 """
 import json
@@ -11,12 +12,15 @@ import re
 import sys
 import urllib.request
 
-LINE = re.compile(r"^.+ (?:was|were) updated at \[[^\]]+\]\(https?://[^)\s]+\)\s*$")
+LINE = re.compile(r"^.+ (?:was|were) updated at \[[^\]]+\]\((https?://[^)\s]+)\)\s*$")
 
 url = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
 if not url:
     print("No DISCORD_WEBHOOK_URL secret set, skipping.")
     sys.exit(0)
+
+owner, _, name = os.environ.get("GITHUB_REPOSITORY", "ShowtimeStudiosInc/Imperious-Wiki").partition("/")
+SITE = f"https://{owner.lower()}.github.io/{name}/".lower()
 
 with open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8") as f:
     event = json.load(f)
@@ -25,7 +29,9 @@ lines = []
 for commit in event.get("commits", []):
     for raw in commit.get("message", "").splitlines():
         text = raw.strip().lstrip("-* ").strip()
-        if LINE.match(text) and text not in lines:
+        m = LINE.match(text)
+        # Only lines that point at a page on the live site get posted.
+        if m and m.group(1).lower().startswith(SITE) and text not in lines:
             lines.append(text)
 
 if not lines:
