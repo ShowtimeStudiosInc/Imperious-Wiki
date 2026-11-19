@@ -1,7 +1,8 @@
 /**
  * Diamonds, Rank 1.1, Know Your Diamond.
  *
- * The page itself is a hand-made design in src/diamond-pages/<slug>.html.
+ * Page text lives in src/data/diamond-pages/<slug>.json and the theme in
+ * src/diamond-pages/themes/<slug>.html (see src/pages/diamonds/[slug].astro).
  * This file holds the data the Know Your Diamond index uses (name, art,
  * domains, court, height) plus the older structured profile.
  * Add a Diamond by adding one entry here and their art at

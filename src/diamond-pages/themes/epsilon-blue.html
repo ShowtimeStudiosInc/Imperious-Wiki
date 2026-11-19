@@ -1,0 +1,178 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-body: "Spectral", Georgia, "Times New Roman", serif;
+    --font-display: "Cinzel", Georgia, serif;
+    --bg: #02081d; --bg-deep: #061638; --star: #d7ecff;
+    --panel: rgba(13, 34, 82, .94); --panel-2: rgba(13, 34, 82, .94); --panel-solid: rgba(7, 20, 52, .92);
+    --ink: #e9f2ff; --ink-soft: #b9cff2; --ink-faint: #8ba7d4;
+    --gold: #6db4ff; --gold-bright: #a9d6ff; --gold-pale: #a9d6ff;
+    --brown-deep: rgba(3, 11, 34, .96);
+    --line: rgba(126, 184, 255, .16); --line-strong: rgba(126, 184, 255, .28);
+    --chip: rgba(64, 130, 246, .18);
+    --quote-bg: rgba(2, 8, 29, .9); --quote-ink: #e9f2ff;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .4);
+    --sp: #0a2a63; --sp-bg: #a9d6ff; --badge-ink: #0a2a63;
+  }
+  body { background: radial-gradient(120% 90% at 50% 0%, var(--bg-deep) 0%, var(--bg) 62%) fixed, var(--bg); font-size: 1.06rem; }
+  h1 { letter-spacing: .04em; }
+      /* ---------- Animated star court background ---------- */
+      .sky {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .sky-layer {
+        position: absolute;
+        inset: -90px;
+        will-change: transform;
+      }
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle at 38% 34%, rgba(214, 238, 255, 0.95) 0%, rgba(109, 180, 255, 0.75) 26%, rgba(46, 110, 246, 0.34) 58%, rgba(46, 110, 246, 0) 72%);
+        filter: blur(0.4px);
+      }
+      .orb.halo {
+        background: radial-gradient(circle, rgba(109, 180, 255, 0.30) 0%, rgba(64, 130, 246, 0.12) 46%, rgba(64, 130, 246, 0) 70%);
+      }
+      .star4 {
+        position: absolute;
+        background: var(--star);
+        clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+        filter: drop-shadow(0 0 6px rgba(169, 214, 255, 0.9));
+      }
+      .sdot {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(215, 236, 255, 0.85);
+      }
+      @keyframes drift {
+        0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+        50%  { transform: translate3d(10px, -16px, 0) rotate(7deg); }
+        100% { transform: translate3d(-6px, 6px, 0) rotate(-5deg); }
+      }
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.45; }
+        50% { opacity: 1; }
+      }
+      .floaty { animation: drift 11s ease-in-out infinite alternate; }
+      .twinkle { animation: twinkle 5s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) { .floaty, .twinkle { animation: none; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="190" height="190" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="var(--gold)"/></svg>
+<!--/mark-->
+<div class="sky" id="sky" aria-hidden="true">
+      <div class="sky-layer" data-depth="0.25"></div>
+      <div class="sky-layer" data-depth="0.55"></div>
+      <div class="sky-layer" data-depth="1"></div>
+    </div>
+<script>
+      (function () {
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var layers = Array.prototype.slice.call(document.querySelectorAll(".sky-layer"));
+
+        function rand(min, max) { return min + Math.random() * (max - min); }
+
+        // Build the sky: small star dots, four-pointed stars, and glowing orbs.
+        var plan = [
+          { dots: 46, stars: 7,  orbs: 3, orbMin: 26,  orbMax: 60  },
+          { dots: 26, stars: 6,  orbs: 3, orbMin: 48,  orbMax: 100 },
+          { dots: 12, stars: 5,  orbs: 3, orbMin: 80,  orbMax: 150 }
+        ];
+
+        layers.forEach(function (layer, li) {
+          var spec = plan[li] || plan[0];
+          var i, el;
+          for (i = 0; i < spec.dots; i++) {
+            el = document.createElement("span");
+            el.className = "sdot";
+            var d = rand(1, 2.6);
+            el.style.width = d + "px";
+            el.style.height = d + "px";
+            el.style.left = rand(0, 100) + "%";
+            el.style.top = rand(0, 100) + "%";
+            el.style.opacity = rand(0.3, 0.9).toFixed(2);
+            if (!reduceMotion) {
+              el.classList.add("twinkle");
+              el.style.animationDuration = rand(3.5, 8) + "s";
+              el.style.animationDelay = (-rand(0, 8)) + "s";
+            }
+            layer.appendChild(el);
+          }
+          for (i = 0; i < spec.stars; i++) {
+            el = document.createElement("span");
+            el.className = "star4";
+            var s = rand(10, 26);
+            el.style.width = s + "px";
+            el.style.height = s + "px";
+            el.style.left = rand(1, 96) + "%";
+            el.style.top = rand(1, 96) + "%";
+            el.style.opacity = rand(0.5, 0.95).toFixed(2);
+            if (!reduceMotion) {
+              el.classList.add("floaty");
+              el.style.animationDuration = rand(8, 16) + "s";
+              el.style.animationDelay = (-rand(0, 10)) + "s";
+            }
+            layer.appendChild(el);
+          }
+          for (i = 0; i < spec.orbs; i++) {
+            el = document.createElement("span");
+            el.className = "orb" + (Math.random() < 0.4 ? " halo" : "");
+            var o = rand(spec.orbMin, spec.orbMax);
+            el.style.width = o + "px";
+            el.style.height = o + "px";
+            el.style.left = rand(0, 94) + "%";
+            el.style.top = rand(0, 94) + "%";
+            if (!reduceMotion) {
+              el.classList.add("floaty");
+              el.style.animationDuration = rand(10, 20) + "s";
+              el.style.animationDelay = (-rand(0, 12)) + "s";
+            }
+            layer.appendChild(el);
+          }
+        });
+
+        if (reduceMotion) return;
+
+        // Parallax: layers drift against the scroll and lean toward the mouse.
+        var targetX = 0, targetY = 0, curX = 0, curY = 0, ticking = false;
+
+        function render() {
+          curX += (targetX - curX) * 0.06;
+          curY += (targetY - curY) * 0.06;
+          var sy = window.scrollY || window.pageYOffset || 0;
+          layers.forEach(function (layer) {
+            var depth = parseFloat(layer.getAttribute("data-depth")) || 0.5;
+            var x = curX * depth * 34;
+            var y = curY * depth * 26 - sy * depth * 0.22;
+            layer.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)";
+          });
+          if (Math.abs(targetX - curX) > 0.001 || Math.abs(targetY - curY) > 0.001) {
+            requestAnimationFrame(render);
+          } else {
+            ticking = false;
+          }
+        }
+        function kick() {
+          if (!ticking) { ticking = true; requestAnimationFrame(render); }
+        }
+
+        window.addEventListener("scroll", kick, { passive: true });
+        if (window.matchMedia("(pointer: fine)").matches) {
+          window.addEventListener("mousemove", function (e) {
+            targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+            targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+            kick();
+          }, { passive: true });
+        }
+        kick();
+      })();
+    </script>

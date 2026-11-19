@@ -1,0 +1,193 @@
+{
+  "slug": "alpha-black",
+  "title": "Alpha Black <span class=\"accent\">Diamond</span>",
+  "courtLine": "Court Alpha · Pillar of Space · Rank 1.1 Diamond",
+  "heroSub": "Head of the Agency. She is one of the three founders of the Gempire. With Theta Gold and Epsilon Blue, she made the first of its Gems, and the three of them are worshipped as the deities of Homeworld.",
+  "quote": "You’ll never see most of what I do for you. And that is alright, for we die in the dark so you may live in the light.",
+  "quoteBy": "Alpha Black Diamond",
+  "art": {
+    "sub": "",
+    "images": [
+      {
+        "src": "{{BASE}}images/diamonds/alpha-black/page/1.webp",
+        "full": "{{BASE}}images/diamonds/alpha-black/page/1.webp",
+        "title": "Alpha Black Diamond",
+        "note": "",
+        "alt": "Portrait of Alpha Black Diamond, a tall dark figure with long star filled hair, gold eyes, a black gem on her forehead, and a gold crescent behind her head"
+      }
+    ]
+  },
+  "personality": [
+    "Alpha Black is kind, and she treats the Gems close to her like her own children. Not many get that close, though. She keeps herself hidden behind a veil of darkness and only lifts it in her own rooms, for Gems she trusts.",
+    "With everyone else, she is quiet and hard to read. As head of the Agency, she expects the Gems who report to her to stay loyal and keep what they learn to themselves, so even old friends tend to be careful with what they say around her.",
+    "Theta Gold and Epsilon Blue are the two she respects most and sees as her equals."
+  ],
+  "purpose": [
+    "Alpha Black runs the Agency, the empire’s intelligence network. Its spies, informants, and counter-intelligence teams work across every court and colony, and what they learn comes back to her.",
+    "Her job is to catch threats while they are still small, and to make sure the reports that reach the top have not been changed along the way. She also keeps the other Diamonds informed and protected, so they can rule in the open while she stays out of sight.",
+    "Very little of importance happens in the empire without her hearing about it."
+  ],
+  "weakness": [
+    "Her daughters. They are the one subject that can bring out her wrath. When they are in danger, she stops being careful and can be made to act without thinking."
+  ],
+  "abilities": [
+    {
+      "name": "Absolute Darkness Manipulation",
+      "level": "Mastered",
+      "meta": {
+        "Parent": "Umbrakinesis",
+        "Complexity": "Complex",
+        "Origin": "Domain of Darkness · Pillar of Space"
+      },
+      "desc": [
+        "Alpha Black can summon her aura as darkness anywhere on the same planet as her, and shape it however she likes: flat shadows, or solid shapes, objects, and creatures that can touch the world. Her shadows act as her eyes, ears, and mouth away from her body, and by bending the light around them she can make illusions. The veil that hangs from her ring is her darkness too. Outside of battle, The Tree is her most common sentence, sized to the offense, from a small one for a set term up to one whose roots never let go."
+      ],
+      "passives": [
+        {
+          "name": "Suppression Aura",
+          "text": "While Alpha Black is on the battlefield, her aura presses down on the enemy side. The enemy party’s Star Gauge only gains its start-of-round marks, the same as fighting in a dark area. This works on anyone, including the Deity Diamonds."
+        },
+        {
+          "name": "Darkness",
+          "text": "Each spell from this ability that lands adds 1 Darkness to the battlefield, and Ekleipsis adds 2. Darkness caps at 5, and fades when the battle ends."
+        },
+        {
+          "name": "The Tree",
+          "text": "When an enemy would go from Flickering to Poofed, they are Mangled instead."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Skia",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Alpha Black or one ally steps into a shadow and out of another, moving to Near, Far, or Behind."
+        },
+        {
+          "name": "Phantasma",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Alpha Black bends the light around one enemy and fills their view with illusions. Their next attack is made with disadvantage."
+        },
+        {
+          "name": "Eidolon",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Alpha Black shapes her darkness into solid creatures that strike up to 3 enemies who are Near, each taking [2d4 + MAG] DARK damage."
+        },
+        {
+          "name": "Desmos",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Alpha Black presses her aura down on one target. The target resists with INT. If they fail, they cannot use SPELLs or SKILLs for 2 turns. This has no effect on the Deity Diamonds."
+        },
+        {
+          "name": "Phobos",
+          "tier": "Standard",
+          "cost": "4 SP",
+          "text": "Alpha Black lets her aura close in on every enemy who is Near. Each resists with INT. Those who fail are Frightened for 2 turns: they cannot move Near her, and their attacks against her are made with disadvantage."
+        },
+        {
+          "name": "Tartarus",
+          "tier": "Advanced",
+          "cost": "4 SP",
+          "text": "Her darkness hardens around one target, sealing them away to be questioned later. The target resists with DEF. If they fail, they are Stuck for 3 turns, so they cannot change position, and the darkness cuts them off completely: they cannot target anyone, and no one can target them."
+        },
+        {
+          "name": "Chaos",
+          "tier": "Advanced",
+          "cost": "4 SP",
+          "text": "The darkness around one target opens into empty, freezing space, dealing [3d6 + MAG] COLD damage."
+        },
+        {
+          "name": "Ekleipsis",
+          "tier": "Advanced",
+          "cost": "5 SP",
+          "text": "Alpha Black blots out every light on the battlefield. Every enemy resists with INT. Those who fail are Blinded for 2 turns, and their attacks are made with disadvantage. This adds 2 Darkness instead of 1."
+        },
+        {
+          "name": "Nyx",
+          "tier": "Mastered",
+          "cost": "7 SP",
+          "text": "Requires 5 Darkness, and uses all of it. For 2 turns, the enemy side of the field falls into total darkness. Every enemy is Blinded with no resist, so their attacks are made with disadvantage, and the enemy party’s Star Gauge gains nothing at all."
+        }
+      ],
+      "weakLabel": "Limits",
+      "weak": "Her darkness cannot reach past the planet she is on. Strong light works against it: each Fire or Light attack that lands on her side of the field removes 1 Darkness. And she never fights at full strength. Part of her is always occupied with something she will not explain. Stat changes: none."
+    },
+    {
+      "name": "Absolute Mnemokinesis",
+      "level": "Standard",
+      "meta": {
+        "Parent": "Mnemokinesis",
+        "Complexity": "Complex",
+        "Origin": "Domain of Knowledge"
+      },
+      "desc": [
+        "Alpha Black can draw the memories out of anyone she or her darkness touches, and keep them as holo-records. Done by her own hand, the effect is much stronger, and painful for anyone but a Diamond. She remembers every name she has ever heard, and every language she has ever heard spoken."
+      ],
+      "passives": [
+        {
+          "name": "Sensory Scrying",
+          "text": "As the mother of the Era 0 and Era 1 Gems, Alpha Black can see and hear through any of them, and speak through them, though she rarely does."
+        },
+        {
+          "name": "Records",
+          "text": "Each time Mnemosyne or Anamnesis lands on a target, Alpha Black gains 1 Record on them, up to 3. Each Record gives that target -1 on every resist roll against her. Records last until the battle ends."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Mania",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Alpha Black loosens one target’s grip on what is real. The target resists with INT. If they fail, they are Confused for 1 turn, and their next attack or spell hits a random target, ally or enemy."
+        },
+        {
+          "name": "Anamnesis",
+          "tier": "Basic",
+          "cost": "3 SP",
+          "text": "Alpha Black reads one target in a moment: their stats, their abilities, and what they mean to do next. On the next turn, her allies have advantage against them."
+        },
+        {
+          "name": "Mnemosyne",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Alpha Black grips one target and pulls at their memories. The target resists with INT. If they fail, they take [2d6 + MAG] PSYCHIC damage, and she learns their stats and abilities."
+        },
+        {
+          "name": "Mneme",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Alpha Black reminds one ally of their best moment. Their next 2 rolls are made with advantage."
+        },
+        {
+          "name": "Onoma",
+          "tier": "Advanced",
+          "cost": "2 SP",
+          "text": "Requires 1 Record on the target. Alpha Black speaks their true name. The target resists with INT. If they fail, they are Stuck for 2 turns, so they cannot change position, and they cannot use Reactions."
+        },
+        {
+          "name": "Opsis",
+          "tier": "Advanced",
+          "cost": "4 SP",
+          "text": "Alpha Black lets her allies see through each other’s eyes. For 3 turns, her party cannot be Blinded or ambushed."
+        },
+        {
+          "name": "Amnesia",
+          "tier": "Mastered",
+          "cost": "4 SP",
+          "text": "Requires 3 Records on the target. Alpha Black takes everything they know about the fight. They lose their next 2 turns, with no resist."
+        }
+      ],
+      "weakLabel": "Limits",
+      "weak": "Her strongest Memory spells need Records first, so they are slow to get going. They are mind spells too, so anyone with a high INT is hard to reach. And drawing out memories needs contact. Stat changes: none."
+    }
+  ],
+  "credits": [
+    {
+      "label": "Design",
+      "name": "Liyuu (Fiverr)"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-body: "Spectral", Georgia, serif;
+    --font-display: "Marcellus", Georgia, serif;
+    --bg: #0d0a06; --bg-deep: #1a1309;
+    --panel: rgba(28, 21, 12, .92); --panel-2: rgba(28, 21, 12, .92); --panel-solid: rgba(19, 15, 9, .92);
+    --ink: #f2e8d5; --ink-soft: #cfc0a0; --ink-faint: #9d8f73;
+    --gold: #d4a437; --gold-bright: #f0c95c; --gold-pale: #f0c95c;
+    --brown-deep: rgba(10, 8, 4, .96);
+    --line: rgba(212, 164, 55, .2); --line-strong: rgba(212, 164, 55, .35);
+    --chip: rgba(212, 164, 55, .1);
+    --quote-bg: rgba(8, 6, 3, .92); --quote-ink: #f2e8d5;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .45);
+    --sp: #14100a; --sp-bg: #f0c95c; --badge-ink: #14100a;
+  }
+  body { background: radial-gradient(1100px 600px at 85% -5%, rgba(212, 164, 55, .10), transparent 60%), radial-gradient(900px 700px at -10% 40%, rgba(150, 105, 25, .08), transparent 60%), var(--bg); font-size: 1.05rem; }
+      /* ---------- floating gear background ---------- */
+      #gear-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .gear {
+        position: absolute;
+        will-change: transform;
+      }
+      .gear .bob {
+        animation: bob 9s ease-in-out infinite alternate;
+      }
+      .gear svg {
+        display: block;
+        animation: spin 90s linear infinite;
+      }
+      .gear.rev svg { animation-direction: reverse; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes bob {
+        from { transform: translateY(-9px); }
+        to   { transform: translateY(9px); }
+      }
+
+  @media (prefers-reduced-motion: reduce) { .gear svg, .gear .bob { animation: none !important; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="190" height="190" viewBox="0 0 100 100" fill="none" aria-hidden="true"><circle cx="50" cy="50" r="40" stroke="var(--gold)" stroke-width="9" stroke-dasharray="9 6"/><circle cx="50" cy="50" r="22" stroke="var(--gold)" stroke-width="5"/><circle cx="50" cy="50" r="8" fill="var(--gold)"/></svg>
+<!--/mark-->
+<div id="gear-layer" aria-hidden="true"></div>
+<script>
+      (function () {
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* Build a gear outline: outer teeth plus an inner ring, drawn as one SVG. */
+        function gearSVG(size, teeth, color, opacity) {
+          var c = 50, rOut = 47, rRoot = 39, rHole = 15, rRing = 27;
+          var pts = [];
+          var step = (Math.PI * 2) / teeth;
+          for (var i = 0; i < teeth; i++) {
+            var a = i * step;
+            var a1 = a + step * 0.28, a2 = a + step * 0.5, a3 = a + step * 0.78;
+            pts.push([c + rRoot * Math.cos(a), c + rRoot * Math.sin(a)]);
+            pts.push([c + rOut * Math.cos(a + step * 0.08), c + rOut * Math.sin(a + step * 0.08)]);
+            pts.push([c + rOut * Math.cos(a1), c + rOut * Math.sin(a1)]);
+            pts.push([c + rRoot * Math.cos(a2), c + rRoot * Math.sin(a2)]);
+            pts.push([c + rRoot * Math.cos(a3), c + rRoot * Math.sin(a3)]);
+          }
+          var d = pts.map(function (p, i) {
+            return (i === 0 ? "M" : "L") + p[0].toFixed(1) + " " + p[1].toFixed(1);
+          }).join(" ") + " Z";
+          var spokes = "";
+          for (var s = 0; s < 5; s++) {
+            var sa = (s / 5) * Math.PI * 2;
+            spokes += '<line x1="' + (c + rHole * Math.cos(sa)).toFixed(1) + '" y1="' + (c + rHole * Math.sin(sa)).toFixed(1) +
+                      '" x2="' + (c + rRing * Math.cos(sa)).toFixed(1) + '" y2="' + (c + rRing * Math.sin(sa)).toFixed(1) +
+                      '" stroke="' + color + '" stroke-width="3.4" opacity="' + opacity + '"/>';
+          }
+          return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 100 100" fill="none" aria-hidden="true">' +
+            '<path d="' + d + '" stroke="' + color + '" stroke-width="2.2" opacity="' + opacity + '"/>' +
+            '<circle cx="50" cy="50" r="' + rRing + '" stroke="' + color + '" stroke-width="2" opacity="' + opacity + '"/>' +
+            spokes +
+            '<circle cx="50" cy="50" r="' + rHole + '" stroke="' + color + '" stroke-width="2.2" opacity="' + opacity + '"/>' +
+            "</svg>";
+        }
+
+        var layer = document.getElementById("gear-layer");
+        var defs = [
+          { x: -70,  y: -60,  size: 340, teeth: 12, depth: 0.55, dur: 150, rev: false, op: 0.20, bob: 11 },
+          { x: null, y: 90,   size: 210, teeth: 10, depth: 0.9,  dur: 105, rev: true,  op: 0.26, bob: 8,  right: -50 },
+          { x: 90,   y: null, size: 260, teeth: 14, depth: 0.35, dur: 190, rev: true,  op: 0.15, bob: 13, bottom: -70 },
+          { x: null, y: null, size: 150, teeth: 9,  depth: 1.2,  dur: 80,  rev: false, op: 0.30, bob: 7,  right: 130, bottom: 170 },
+          { x: 40,   y: 330,  size: 120, teeth: 8,  depth: 1.45, dur: 65,  rev: true,  op: 0.32, bob: 6 },
+          { x: null, y: 380,  size: 300, teeth: 13, depth: 0.45, dur: 170, rev: false, op: 0.13, bob: 12, right: -110 },
+          { x: 260,  y: 40,   size: 95,  teeth: 8,  depth: 1.7,  dur: 55,  rev: false, op: 0.34, bob: 5 },
+          { x: null, y: 40,   size: 80,  teeth: 7,  depth: 1.9,  dur: 48,  rev: true,  op: 0.30, bob: 5,  right: 300 }
+        ];
+        var gears = [];
+        defs.forEach(function (d, i) {
+          var wrap = document.createElement("div");
+          wrap.className = "gear" + (d.rev ? " rev" : "");
+          if (d.x !== null && d.x !== undefined) wrap.style.left = d.x + "px";
+          if (d.right !== undefined) wrap.style.right = d.right + "px";
+          if (d.y !== null && d.y !== undefined) wrap.style.top = d.y + "px";
+          if (d.bottom !== undefined) wrap.style.bottom = d.bottom + "px";
+          var bob = document.createElement("div");
+          bob.className = "bob";
+          bob.style.animationDuration = d.bob + "s";
+          bob.style.animationDelay = (i * -1.7) + "s";
+          bob.innerHTML = gearSVG(d.size, d.teeth, "#d4a437", d.op);
+          var svg = bob.querySelector("svg");
+          if (svg) svg.style.animationDuration = d.dur + "s";
+          wrap.appendChild(bob);
+          layer.appendChild(wrap);
+          gears.push({ el: wrap, depth: d.depth });
+        });
+
+        /* Parallax: gears drift against the scroll and lean toward the mouse. */
+        if (!reduced) {
+          var mx = 0, my = 0, tx = 0, ty = 0, ticking = false;
+          function render() {
+            ticking = false;
+            var sy = window.scrollY || window.pageYOffset || 0;
+            gears.forEach(function (g) {
+              var dx = tx * 16 * g.depth;
+              var dy = ty * 12 * g.depth - sy * 0.14 * g.depth;
+              g.el.style.transform = "translate3d(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px,0)";
+            });
+          }
+          function ask() { if (!ticking) { ticking = true; requestAnimationFrame(render); } }
+          window.addEventListener("scroll", ask, { passive: true });
+          if (window.matchMedia("(pointer: fine)").matches) {
+            window.addEventListener("pointermove", function (e) {
+              tx = (e.clientX / window.innerWidth - 0.5) * 2;
+              ty = (e.clientY / window.innerHeight - 0.5) * 2;
+              ask();
+            }, { passive: true });
+          }
+          render();
+        }
+
+      })();
+    </script>

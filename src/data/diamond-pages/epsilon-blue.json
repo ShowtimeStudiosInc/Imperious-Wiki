@@ -1,0 +1,146 @@
+{
+  "slug": "epsilon-blue",
+  "title": "Epsilon Blue <span class=\"accent\">Diamond</span>",
+  "courtLine": "Court Epsilon · Pillar of Energy · Rank 1.1 Diamond",
+  "heroSub": "Grand Judge of Homeworld.",
+  "quote": "Feeling something in the courtroom is like trying to reason with a case by appealing to emotion. You may ‘feel’ any type of way you want, but what is law is absolute, and nothing shall triumph over it.",
+  "quoteBy": "Epsilon Blue Diamond",
+  "art": {
+    "sub": "Placeholder art, being redesigned.",
+    "images": [
+      {
+        "src": "{{BASE}}images/diamonds/epsilon-blue/page/1.webp",
+        "full": "{{BASE}}images/diamonds/epsilon-blue/page/1.webp",
+        "title": "Epsilon Blue Diamond",
+        "note": "Placeholder art, being redesigned.",
+        "alt": "Epsilon Blue Diamond, a tall figure in a long blue robe and wide skirt patterned with white stars, wearing a round blue halo headdress, against a dark background. One hand is raised beside a column of floating blue orbs, and four-pointed stars shine around her."
+      }
+    ]
+  },
+  "personality": [
+    "On the outside, Epsilon Blue is a rigid, hardworking Diamond, bound by the very systems she herself set up for the laws and legalities of the Gempire. She is quiet yet demanding, graceful yet authoritative. She is the grand judge of Homeworld, and that comes with a certain appraisal that she displays to the courtroom on a daily basis. She is not afraid to judge those based on their actions; it is her whole purpose after all.",
+    "On the inside however, you will find a curious, almost child-like personality that directly contradicts Epsilon Blue's demeanor. It is very rare to see this side of her, but she shows it often to her Pearls and her fellow Diamond companions, though she knows when and when not to be soft to somegem.",
+    "After the Gempire started to get back on its feet, it was clear that someone needed to be in charge of the judiciary and overall moral compass of Gems. From the moment she first took her form, Epsilon Blue has been working tirelessly to ensure that all laws and statutes that are in place stay in place and that the Gempire continues to flourish. Though appearing less within the public eye, Epsilon still makes an effort to let other Gems know that they are welcome to visit her."
+  ],
+  "purpose": [
+    "Epsilon Blue Diamond is responsible for court proceedings of Gems that are suspected of breaking laws, and convicting them accordingly. Though a Diamond, she enjoys sitting through the smaller court sessions to observe her Kyanites and Azurites cases. When not doing that, she is constantly reviewing case verdicts in civil courts as well, as they often get escalated to her as she is a supreme court judge of sorts. These cases are usually opinion based with Epsilon Blue having the final say, and about 75% to 80% of all cases are just civil ones. This is why her appearances outside dwindle bit by bit.",
+    "She also oversees Homeworld proper as a mayoral figure, meaning she is seen more often than Alpha Black and even Theta Gold. When she is not in either place, she is somewhere comforting a lone Gem if they decide to come to her for any of their struggles that they may deal with, though she rarely has time for any of her pastimes. She often visits the other deity Diamonds, and ruling Diamonds if they are available."
+  ],
+  "weakness": [
+    "Epsilon's greatest weakness is the unknown. With an ability like Absolute Perception, meaning she knows what everything around is, what it is composed of, what its intentions are, what it is for, and who it is from, Epsilon Blue falters in the absence of knowing. She is open to abilities that affect the senses, particularly blindness.",
+    "In addition, she has another weakness: emotional regulation. Though not common, Epsilon Blue will have spells of deep depression where she barely leaves her tower and buries herself in her workloads non-stop for months and even years at a time. There, she is the most productive workwise, but the least productive selfwise."
+  ],
+  "abilities": [
+    {
+      "name": "Absolute Perception",
+      "level": "Mastered",
+      "meta": {
+        "Parent": "Enhanced Senses",
+        "Complexity": "Complex",
+        "Origin": "Domain of Perception"
+      },
+      "desc": [
+        "Epsilon Blue perceives everything around her at once: every sound in a room, every flicker of light, every change in someone's voice. She can tell what a Gem is about to do before they move, see through any disguise, and know when someone is lying to her. Nothing in front of her stays hidden for long."
+      ],
+      "passives": [
+        {
+          "name": "Aura: Nothing Hidden",
+          "text": "While she is on the battlefield, enemies cannot hide or turn invisible, and her party cannot be ambushed."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Read",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Epsilon takes in one target at a glance. Her party learns their stats and abilities."
+        },
+        {
+          "name": "Tell",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Epsilon spots the small sign that gives one enemy's next move away. Their next attack against her or an ally is made with disadvantage."
+        },
+        {
+          "name": "Second Sight",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Epsilon shares what she sees with every ally who is Near. They cannot be Blinded until her next turn, and their next attack has advantage."
+        },
+        {
+          "name": "Exposed",
+          "tier": "Advanced",
+          "cost": "4 SP",
+          "text": "Epsilon finds every weak point in one target's guard. For 2 turns, her allies' hits against them ignore DEF."
+        },
+        {
+          "name": "All Is Known",
+          "tier": "Mastered",
+          "cost": "6 SP",
+          "text": "Epsilon sees the whole battlefield for what it is. Her party learns every enemy's stats and abilities, and each ally's next attack cannot miss and ignores DEF."
+        }
+      ],
+      "weakLabel": "Weakness",
+      "weak": "Her senses are so sharp that they can be turned against her. Blinded, Stunned, and other effects that overwhelm the senses last 1 turn longer on her."
+    },
+    {
+      "name": "Energy Manipulation",
+      "level": "Advanced",
+      "meta": {
+        "Parent": "N/A",
+        "Complexity": "Complex",
+        "Origin": "Domain of Energy"
+      },
+      "desc": [
+        "Epsilon Blue can draw energy in, hold it, and release it in any form she likes: electricity, magnetism, sound, or radiation. She can power a machine with a touch, pull metal toward her, or let it all out at once."
+      ],
+      "passives": [
+        {
+          "name": "Conservation",
+          "text": "Energy cannot be destroyed, only stored. Each time an Electric, Fire, or Light attack hits Epsilon, she gains 1 Charge, up to 3. Charge lasts until the battle ends."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Spark",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "A spark jumps from Epsilon's hand to one target, dealing 1d6 + MAG Electric damage."
+        },
+        {
+          "name": "Magnetize",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Epsilon pulls one target to Near or pushes them to Far. Metals and Gem Machines resist with disadvantage. Anyone else resists with DEF."
+        },
+        {
+          "name": "Static Field",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "The air around Epsilon fills with static. Every enemy who is Near takes 1d6 + MAG Electric damage."
+        },
+        {
+          "name": "Discharge",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Epsilon lets out everything she has stored into one target, dealing 2d6 + MAG Electric damage, plus 1d6 for each Charge spent. This uses all of her Charge."
+        },
+        {
+          "name": "Thunderclap",
+          "tier": "Advanced",
+          "cost": "4 SP",
+          "text": "Epsilon claps her hands, and a wave of sound rolls across the battlefield. Every enemy resists with DEF. Those who fail are Stunned for 1 turn."
+        },
+        {
+          "name": "Fallout",
+          "tier": "Mastered",
+          "cost": "7 SP",
+          "text": "Epsilon releases radiation across the whole battlefield. Every enemy takes 4d6 + MAG damage and resists with DEF. Those who fail are Poisoned for 3 turns."
+        }
+      ],
+      "weakLabel": "Weakness",
+      "weak": "Anything insulated or unable to carry a current, like a Copper, takes half damage from her Electric spells, and her Charge is lost if she is Knocked Down."
+    }
+  ],
+  "credits": []
+}

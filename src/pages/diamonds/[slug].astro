@@ -1,25 +1,58 @@
 ---
 /**
- * Diamond pages. Each Diamond has its own hand-made design in
- * src/diamond-pages/<slug>.html (its styles, markup and script).
- * These pages don't load the site's shared CSS, because the designs use
- * the same class names (panel, chip, stars...). They get their own copy
- * of the top menu instead. {{BASE}} in a design becomes the site's base path.
+ * Diamond pages. Every Diamond uses the same layout (based on Saturn Light's
+ * design, styles in src/styles/diamond-page.css). What differs per Diamond:
+ *  - text: src/data/diamond-pages/<slug>.json
+ *  - theme: src/diamond-pages/themes/<slug>.html (font links, color variables,
+ *    the moving background and its script, and the hero mark between
+ *    <!--mark--> markers)
+ *  - facts and chips: src/lib/diamonds.ts
+ * These pages don't load the site's shared CSS. They carry their own copy of
+ * the top menu. {{BASE}} in data or theme files becomes the site base path.
  */
+import '../../styles/diamond-page.css';
 import { DIAMONDS } from '../../lib/diamonds';
 import { url } from '../../lib/gems';
 
-const designs = import.meta.glob('../../diamond-pages/*.html', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const themes = import.meta.glob('../../diamond-pages/themes/*.html', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const pages = import.meta.glob('../../data/diamond-pages/*.json', { import: 'default', eager: true }) as Record<string, any>;
 
 export async function getStaticPaths() {
   return DIAMONDS.map((d) => ({ params: { slug: d.slug }, props: { diamond: d } }));
 }
 const { diamond: d } = Astro.props;
-const raw = designs[`../../diamond-pages/${d.slug}.html`];
-if (!raw) throw new Error(`No design file for ${d.slug} in src/diamond-pages/`);
-const html = raw.replaceAll('{{BASE}}', url('/'));
-const fonts = html.match(/<!--fonts-->([\s\S]*?)<!--\/fonts-->/)?.[1] ?? '';
-const body = html.replace(/<!--fonts-->[\s\S]*?<!--\/fonts-->/, '');
+const base = url('/');
+const fix = (s: string) => (s ?? '').replaceAll('{{BASE}}', base);
+const themeRaw = themes[`../../diamond-pages/themes/${d.slug}.html`];
+const p = pages[`../../data/diamond-pages/${d.slug}.json`];
+if (!themeRaw || !p) throw new Error(`Missing theme or data for ${d.slug}`);
+const theme = fix(themeRaw);
+const fonts = theme.match(/<!--fonts-->([\s\S]*?)<!--\/fonts-->/)?.[1] ?? '';
+const mark = theme.match(/<!--mark-->([\s\S]*?)<!--\/mark-->/)?.[1] ?? '';
+const background = theme.replace(/<!--fonts-->[\s\S]*?<!--\/fonts-->/, '').replace(/<!--mark-->[\s\S]*?<!--\/mark-->/, '');
+
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const pronouns = d.pronouns.split('/').map((x) => x.trim()).join(' / ');
+const domains = d.domains.join(' & ');
+const images = p.art.images.map((i: any) => ({ ...i, src: fix(i.src), full: fix(i.full) }));
+const single = images.length === 1;
+const jump = [
+  { id: 'appearance', label: 'Appearance' },
+  { id: 'personality', label: 'Personality' },
+  { id: 'purpose', label: 'Purpose' },
+  { id: 'powers', label: 'Powers' },
+  ...p.abilities.map((a: any) => ({ id: slugify(a.name), label: a.name })),
+];
+const facts: [string, string][] = [
+  ['Pronouns', pronouns],
+  ['Height', d.height],
+  ['Color', d.color],
+  ...(d.pillar ? [['Pillar of', d.pillar] as [string, string]] : []),
+  ['Domains', domains],
+  ['Sub-Domains', d.subDomains.join(', ')],
+  ['Court', d.court],
+  ['Powers', p.abilities.map((a: any) => `${a.name} [${a.level}]`).join('<br />')],
+];
 
 const title = `${d.name} | Imperious Authorities`;
 const desc = `${d.name}${d.pillar ? `, Pillar of ${d.pillar}` : ''}. ${d.purpose}`.slice(0, 200);
@@ -37,7 +70,6 @@ const nav = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="dark" />
     <title>{title}</title>
     <meta name="description" content={desc} />
     <meta property="og:title" content={title} />
@@ -73,6 +105,177 @@ const nav = [
         {nav.map((n) => <a href={url(n.href)} aria-current={n.key === 'diamonds' ? 'page' : undefined}>{n.label}</a>)}
       </nav>
     </header>
-    <Fragment set:html={body} />
+
+    <Fragment set:html={background} />
+
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href={url('/')}>Imperious Authorities Wiki</a><span class="sep">/</span>
+        <a href={url('/diamonds/')}>Know Your Diamond</a><span class="sep">/</span>
+        <span>{d.name}</span>
+      </nav>
+
+      <header class="hero">
+        <Fragment set:html={mark} />
+        <div class="court-line">{p.courtLine}</div>
+        <h1 set:html={p.title} />
+        <p class="hero-sub" set:html={p.heroSub} />
+        <blockquote class="quote">
+          <p set:html={`&ldquo;${p.quote}&rdquo;`} />
+          <footer>{p.quoteBy}</footer>
+        </blockquote>
+        <div class="domain-chips">
+          <span><b>Domains</b>{domains}</span>
+          <span><b>Color</b>{d.color}</span>
+          <span><b>Height</b>{d.height}</span>
+          <span><b>Pronouns</b>{pronouns}</span>
+        </div>
+      </header>
+
+      <nav class="jumpnav" aria-label="On this page">
+        {jump.map((j) => <a href={`#${j.id}`}>{j.label}</a>)}
+      </nav>
+
+      <div class="grid">
+        <main class="stack">
+          <section class="card" id="personality">
+            <h2><span class="dot"></span>Personality</h2>
+            {p.personality.map((t: string) => <p set:html={t} />)}
+          </section>
+          <section class="card" id="purpose">
+            <h2><span class="dot"></span>Purpose</h2>
+            {p.purpose.map((t: string) => <p set:html={t} />)}
+          </section>
+          <section class="card" id="powers">
+            <h2><span class="dot"></span>Powers</h2>
+            <ul class="powers-list">
+              {p.abilities.map((a: any) => <li>{a.name} <span class="level">{a.level}</span></li>)}
+            </ul>
+            <div class="weak-box">
+              <h3>Weakness</h3>
+              {p.weakness.map((t: string) => <p set:html={t} />)}
+            </div>
+          </section>
+
+          {p.abilities.map((a: any, i: number) => (
+            <section class="card ability" id={slugify(a.name)}>
+              <div class="ability-head">
+                <div class="num">Ability {i + 1} <span class="level">{a.level}</span></div>
+                <h2>{a.name}</h2>
+                <div class="meta">
+                  {Object.entries(a.meta).map(([k, v]) => <span>{k}<b>{v as string}</b></span>)}
+                </div>
+              </div>
+              <div class="ability-body">
+                {a.desc.map((t: string) => <p set:html={t} />)}
+                {a.passives.length > 0 && <h3 class="subhead">{a.passives.length > 1 ? 'Passives' : 'Passive'}</h3>}
+                {a.passives.length > 0 && (
+                  <div class="passives">
+                    {a.passives.map((ps: any) => (
+                      <div class="passive"><h4>{ps.name}</h4><p set:html={ps.text} /></div>
+                    ))}
+                  </div>
+                )}
+                <h3 class="subhead">Spells</h3>
+                <ul class="spells">
+                  {a.spells.map((s: any) => (
+                    <li>
+                      <div><span class="spell-name">{s.name}</span><span class="spell-tier">{s.tier}</span></div>
+                      <p class="spell-desc" set:html={s.text} />
+                      <span class="sp-cost">{s.cost}</span>
+                    </li>
+                  ))}
+                </ul>
+                {a.weak && (
+                  <div class="weak-box">
+                    <h3>{a.weakLabel}</h3>
+                    <p set:html={a.weak} />
+                  </div>
+                )}
+              </div>
+            </section>
+          ))}
+        </main>
+
+        <aside>
+          <section class="artbox" id="appearance">
+            <div class="artbox-head">
+              <h2>Appearance</h2>
+              {p.art.sub && <p>{p.art.sub}</p>}
+            </div>
+            <div class={`collage${single ? ' single' : ''}`}>
+              {images.map((im: any) => (
+                <figure data-full={im.full} data-title={im.title} data-note={im.note} tabindex="0" role="button" aria-label={`View ${im.title} picture larger`}>
+                  <img src={im.src} alt={im.alt} loading="lazy" />
+                  {!single && <figcaption>{im.title}</figcaption>}
+                </figure>
+              ))}
+            </div>
+            {!single && (
+              <div class="collage-notes">
+                {images.map((im: any) => <div><b>{im.title}:</b> {im.note}</div>)}
+              </div>
+            )}
+          </section>
+
+          <section class="facts-wrap" aria-label={`${d.name} facts`}>
+            <h2>At a glance</h2>
+            <table class="facts">
+              {facts.map(([k, v]) => <tr><th>{k}</th><td set:html={v} /></tr>)}
+            </table>
+          </section>
+
+          {p.credits.length > 0 && (
+            <section class="facts-wrap" aria-label="Art credits">
+              <h2>Art Credits</h2>
+              <ul class="credits">
+                {p.credits.map((c: any) => <li><b>{c.label}:</b>{c.name}</li>)}
+              </ul>
+            </section>
+          )}
+        </aside>
+      </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Picture viewer">
+      <button class="lb-close" id="lbClose" aria-label="Close picture viewer">&times;</button>
+      <figure>
+        <img id="lbImg" alt="" />
+        <figcaption><span id="lbTitle"></span><small id="lbNote"></small></figcaption>
+      </figure>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lbImg');
+        var lbTitle = document.getElementById('lbTitle');
+        var lbNote = document.getElementById('lbNote');
+        var lastFocus = null;
+        function openLB(fig) {
+          lastFocus = document.activeElement;
+          lbImg.src = fig.getAttribute('data-full');
+          lbImg.alt = fig.querySelector('img').alt;
+          lbTitle.textContent = fig.getAttribute('data-title');
+          lbNote.textContent = fig.getAttribute('data-note');
+          lb.classList.add('open');
+          document.getElementById('lbClose').focus();
+        }
+        function closeLB() {
+          lb.classList.remove('open');
+          lbImg.removeAttribute('src');
+          if (lastFocus) lastFocus.focus();
+        }
+        document.querySelectorAll('.collage figure').forEach(function (fig) {
+          fig.addEventListener('click', function () { openLB(fig); });
+          fig.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLB(fig); }
+          });
+        });
+        document.getElementById('lbClose').addEventListener('click', closeLB);
+        lb.addEventListener('click', function (e) { if (e.target === lb) closeLB(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLB(); });
+      })();
+    </script>
   </body>
 </html>
