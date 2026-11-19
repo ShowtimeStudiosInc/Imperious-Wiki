@@ -50,11 +50,11 @@ const jump = [
   ...p.abilities.map((a: any) => ({ id: slugify(a.name), label: a.name })),
 ];
 const facts: [string, string][] = [
-  ['Pronouns', pronouns],
+  ['Pronouns', or(pronouns)],
   ['Height', or(d.height)],
   ['Color', or(d.color)],
   ...(d.pillar ? [['Pillar of', d.pillar] as [string, string]] : []),
-  ['Domains', domains],
+  ['Domains', or(domains)],
   ['Sub-Domains', or(d.subDomains.join(', '))],
   ['Court', or(d.court)],
   ['Powers', powerList.length ? powerList.map((a: any) => `${a.name} [${a.level}]`).join('<br />') : TBD],

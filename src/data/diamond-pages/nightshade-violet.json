@@ -7,7 +7,15 @@
   "quoteBy": "Nightshade Violet Diamond",
   "art": {
     "sub": "",
-    "images": []
+    "images": [
+      {
+        "src": "{{BASE}}images/diamonds/nightshade-violet/page/1.webp",
+        "full": "{{BASE}}images/diamonds/nightshade-violet/page/1.webp",
+        "title": "Nightshade Violet Diamond",
+        "note": "",
+        "alt": "Portrait of Nightshade Violet Diamond, a shadowed figure with fluffy black and lavender hair, round pale eyes, a soft smile, hands folded, wide sparkling lavender sleeves, and an eight-point star gem at the waist"
+      }
+    ]
   },
   "personality": [],
   "purpose": [],
