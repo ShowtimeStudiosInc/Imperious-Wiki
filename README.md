@@ -52,6 +52,15 @@ For example: `Alpha Black Diamond was updated at [Know Your Diamond](https://sho
 - If a change has no page of its own (styles, scripts), name the page where it shows up.
 - Keep it to what changed. No extra summary in the title.
 
+## Posting updates to Discord
+
+After each deploy, `scripts/announce-updates.py` posts every update log line from that push to a Discord channel, as clickable links. Lines that aren't in the update log format are skipped. To turn it on:
+
+1. In Discord, open the channel's settings, then **Integrations > Webhooks > New Webhook**, and copy its URL.
+2. In GitHub, open the repo's **Settings > Secrets and variables > Actions > New repository secret**. Name it `DISCORD_WEBHOOK_URL` and paste the URL.
+
+With no secret set, the step does nothing.
+
 ## Running it on your computer
 
 ```bash

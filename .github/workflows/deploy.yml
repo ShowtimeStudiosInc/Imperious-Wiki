@@ -42,3 +42,13 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+  announce:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Post update log to Discord
+        run: python3 scripts/announce-updates.py
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
