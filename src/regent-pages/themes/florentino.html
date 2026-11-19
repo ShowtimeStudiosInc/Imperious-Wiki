@@ -3,169 +3,84 @@
 <!--/fonts-->
 <style>
   :root {
+    color-scheme: light;
     --font-body: "Nunito Sans", system-ui, -apple-system, Segoe UI, sans-serif;
     --font-display: "DM Serif Display", Georgia, serif;
-    color-scheme: light;
-    --bg: #f7ead2;
-    --bg-deep: #efd9ae;
-    --panel: #fffaf0;
-    --panel-2: #fdf1da;
-    --panel-solid: #fffaf0;
-    --ink: #2e1c0d;
-    --ink-soft: #5c4225;
-    --ink-faint: #7d5f38;
-    --gold: #c25a12;
-    --gold-bright: #e8731c;
-    --gold-pale: #ffd19a;
-    --brown: #6b4423;
-    --brown-deep: #3d2412;
-    --line: #e3c99a;
-    --line-strong: #cfa75e;
-    --chip: #fbeecb;
-    --quote-bg: #3d2412;
-    --quote-ink: #fbeecb;
-    --shadow: 0 10px 30px rgba(90, 55, 10, .14);
-    --ring: rgba(232, 115, 28, .5);
-    --ring-soft: rgba(232, 115, 28, .28);
-    --scrim: rgba(247, 234, 210, .55);
-    --sp: #6b4423;
-    --sp-bg: #ffd19a;
-    --badge-ink: #2e1c0d;
+    --bg: #f8c6c4; --bg-deep: #f3a6c4;
+    --panel: #fff6ee; --panel-2: #ffefe6; --panel-solid: rgba(255, 249, 243, .94);
+    --ink: #3d1a26; --ink-soft: #6e3646; --ink-faint: #a0636f;
+    --gold: #d6457f; --gold-bright: #f2a93b; --gold-pale: #ffe1a8;
+    --brown-deep: #7a2a46;
+    --line: #f2d0c6; --line-strong: #eab07a;
+    --chip: #ffe9da;
+    --quote-bg: #7a2a46; --quote-ink: #ffe9da;
+    --shadow: 0 12px 34px rgba(122, 42, 70, .18);
+    --sp: #3d1a26; --sp-bg: #ffc65c; --badge-ink: #3d1a26;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color-scheme: dark;
-      --bg: #1d1107;
-      --bg-deep: #140b04;
-      --panel: #2b1a0d;
-      --panel-2: #33200f;
-      --panel-solid: #2b1a0d;
-      --ink: #f7e8c9;
-      --ink-soft: #e3c99a;
-      --ink-faint: #bd9a62;
-      --gold: #e0aa3e;
-      --gold-bright: #f2c14e;
-      --gold-pale: #f7dc8f;
-      --brown: #a97a3f;
-      --brown-deep: #f3d489;
-      --line: #4f3517;
-      --line-strong: #7d5a24;
-      --chip: #3d2a10;
-      --quote-bg: #0f0803;
-      --quote-ink: #f7dc8f;
-      --shadow: 0 12px 34px rgba(0, 0, 0, .45);
-      --ring: rgba(255, 158, 69, .55);
-      --ring-soft: rgba(255, 158, 69, .3);
-      --scrim: rgba(20, 11, 4, .5);
-      --sp: #2b1a0d;
-      --sp-bg: #ff9e45;
-    --badge-ink: #2e1c0d;
-    }
-  }
-  .artbox-head { background: var(--brown-deep); }
-  @media (prefers-color-scheme: dark) { .artbox-head { background: #0f0803; } }
-  /* ---------- Floating Saturn rings background ---------- */
-  .bg-layer {
-    position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
-    background:
-      radial-gradient(900px 500px at 85% -5%, var(--bg-deep), transparent 60%),
-      radial-gradient(700px 500px at -10% 30%, var(--bg-deep), transparent 55%),
-      var(--bg);
-  }
-  .bg-scrim { position: absolute; inset: 0; background: var(--scrim); }
-  .saturn { position: absolute; will-change: transform; }
-  .saturn-inner { animation: floaty 7s ease-in-out infinite; }
-  .saturn svg { display: block; overflow: visible; }
-  @keyframes floaty {
-    0%, 100% { transform: translateY(0) rotate(-8deg); }
-    50% { transform: translateY(-16px) rotate(-5deg); }
-  }
-  .spark { position: absolute; border-radius: 50%; background: var(--gold-bright); opacity: .55; animation: floaty 6s ease-in-out infinite; }
+  body { background: var(--bg); }
+  .hero { border-top-color: #f2a93b; }
+  .card h2 .dot { background: #f2a93b; }
+  .crumbs { color: #6e3646; }
+  .crumbs a { color: #a8285c; }
 
-  @media (prefers-reduced-motion: reduce) { .saturn-inner, .spark { animation: none !important; } }
+  /* ---------- Field of Pink and Gold: original vector field, drifting petals ---------- */
+  .fl-bg { position: fixed; inset: -30px; z-index: 0; pointer-events: none;
+    background: #f8c6c4 url("{{BASE}}images/regents/florentino/field.svg") center bottom / cover no-repeat; will-change: transform; }
+  .fl-shade { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(255, 240, 236, .05) 0%, rgba(255, 236, 228, .2) 100%); }
+  .fl-petals { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .petal { position: absolute; top: -40px; border-radius: 80% 0 80% 0; opacity: .85; will-change: transform;
+    animation: fall linear infinite; }
+  @keyframes fall {
+    0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+    25%  { transform: translate3d(-30px, 28vh, 0) rotate(120deg); }
+    50%  { transform: translate3d(20px, 55vh, 0) rotate(220deg); }
+    75%  { transform: translate3d(-24px, 82vh, 0) rotate(320deg); }
+    100% { transform: translate3d(10px, 112vh, 0) rotate(420deg); }
+  }
+  @media (prefers-reduced-motion: reduce) { .petal { display: none; } }
 </style>
 <!--mark-->
-<svg class="hero-mark" width="200" height="200" viewBox="0 0 100 100" aria-hidden="true"><g fill="var(--gold-bright)"><ellipse cx="50" cy="24" rx="12" ry="22"/><ellipse cx="50" cy="76" rx="12" ry="22"/><ellipse cx="24" cy="50" rx="22" ry="12"/><ellipse cx="76" cy="50" rx="22" ry="12"/><ellipse cx="32" cy="32" rx="10" ry="20" transform="rotate(-45 32 32)"/><ellipse cx="68" cy="68" rx="10" ry="20" transform="rotate(-45 68 68)"/><ellipse cx="68" cy="32" rx="10" ry="20" transform="rotate(45 68 32)"/><ellipse cx="32" cy="68" rx="10" ry="20" transform="rotate(45 32 68)"/></g><circle cx="50" cy="50" r="12" fill="var(--gold)"/></svg>
+<svg class="hero-mark" width="200" height="200" viewBox="0 0 100 100" aria-hidden="true"><g fill="#f2a93b"><ellipse cx="50" cy="24" rx="12" ry="22"/><ellipse cx="50" cy="76" rx="12" ry="22"/><ellipse cx="24" cy="50" rx="22" ry="12"/><ellipse cx="76" cy="50" rx="22" ry="12"/><ellipse cx="32" cy="32" rx="10" ry="20" transform="rotate(-45 32 32)"/><ellipse cx="68" cy="68" rx="10" ry="20" transform="rotate(-45 68 68)"/><ellipse cx="68" cy="32" rx="10" ry="20" transform="rotate(45 68 32)"/><ellipse cx="32" cy="68" rx="10" ry="20" transform="rotate(45 32 68)"/></g><circle cx="50" cy="50" r="12" fill="#d6457f"/></svg>
 <!--/mark-->
-<div class="bg-layer" id="bgLayer" aria-hidden="true">
-  <div class="bg-scrim"></div>
-  <!-- rings are placed by script -->
-</div>
+<div class="fl-bg" aria-hidden="true"></div>
+<div class="fl-shade" aria-hidden="true"></div>
+<div class="fl-petals" id="flPetals" aria-hidden="true"></div>
 <script>
 (function () {
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-  /* ----- Build Saturn rings ----- */
-  var layer = document.getElementById("bgLayer");
-  var ringDefs = [
-    { left: "4%",  top: "6%",  size: 210, depth: 0.55, delay: "0s",    op: 0.85 },
-    { left: "78%", top: "12%", size: 300, depth: 0.3,  delay: "-2s",   op: 0.7 },
-    { left: "62%", top: "46%", size: 150, depth: 0.85, delay: "-4s",   op: 0.8 },
-    { left: "8%",  top: "58%", size: 260, depth: 0.4,  delay: "-1.2s", op: 0.65 },
-    { left: "84%", top: "72%", size: 180, depth: 0.7,  delay: "-5s",   op: 0.8 },
-    { left: "38%", top: "84%", size: 130, depth: 1.0,  delay: "-3s",   op: 0.6 },
-    { left: "26%", top: "30%", size: 90,  depth: 1.2,  delay: "-0.6s", op: 0.55 }
-  ];
-  function ringSVG(size, op) {
-    return '<svg width="' + size + '" height="' + Math.round(size * 0.62) + '" viewBox="0 0 260 160" fill="none" style="opacity:' + op + '">' +
-      '<ellipse cx="130" cy="80" rx="120" ry="33" stroke="var(--ring)" stroke-width="6"/>' +
-      '<ellipse cx="130" cy="80" rx="96" ry="25" stroke="var(--ring-soft)" stroke-width="3"/>' +
-      '<circle cx="130" cy="80" r="30" fill="var(--gold-bright)" fill-opacity="0.28" stroke="var(--ring)" stroke-width="2"/>' +
-      '</svg>';
-  }
-  var saturns = [];
-  ringDefs.forEach(function (d) {
-    var el = document.createElement("div");
-    el.className = "saturn";
-    el.style.left = d.left; el.style.top = d.top;
-    var inner = document.createElement("div");
-    inner.className = "saturn-inner";
-    inner.style.animationDelay = d.delay;
-    inner.innerHTML = ringSVG(d.size, d.op);
-    el.appendChild(inner);
-    layer.appendChild(el);
-    saturns.push({ el: el, depth: d.depth, baseY: 0 });
-  });
-  /* small gold sparks */
-  for (var i = 0; i < 14; i++) {
-    var s = document.createElement("div");
-    s.className = "spark";
-    var sz = 3 + Math.random() * 5;
-    s.style.width = sz + "px"; s.style.height = sz + "px";
-    s.style.left = (Math.random() * 96) + "%";
-    s.style.top = (Math.random() * 96) + "%";
-    s.style.animationDelay = (-Math.random() * 6) + "s";
-    layer.appendChild(s);
-  }
-
-  if (!reduceMotion) {
-    var mx = 0, my = 0, tx = 0, ty = 0, ticking = false;
-    if (canHover) {
-      window.addEventListener("mousemove", function (e) {
-        tx = (e.clientX / window.innerWidth - 0.5) * 2;
-        ty = (e.clientY / window.innerHeight - 0.5) * 2;
-        requestTick();
-      }, { passive: true });
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var box = document.getElementById("flPetals");
+  var bg = document.querySelector(".fl-bg");
+  function rand(a, b) { return a + Math.random() * (b - a); }
+  var colors = ["#f2a93b", "#f08a2c", "#ffc65c", "#ff8fb5", "#f77aa6", "#ffd6e4"];
+  if (!reduce) {
+    for (var i = 0; i < 22; i++) {
+      var p = document.createElement("span");
+      p.className = "petal";
+      var s = rand(8, 16);
+      p.style.width = s + "px"; p.style.height = (s * 0.62) + "px";
+      p.style.left = rand(0, 100) + "%";
+      p.style.background = colors[i % colors.length];
+      p.style.animationDuration = rand(14, 26).toFixed(1) + "s";
+      p.style.animationDelay = (-rand(0, 26)).toFixed(1) + "s";
+      box.appendChild(p);
     }
-    window.addEventListener("scroll", function () { requestTick(); }, { passive: true });
-    function requestTick() {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
-    }
-    function update() {
-      ticking = false;
-      mx += (tx - mx) * 0.06;
-      my += (ty - my) * 0.06;
-      var scroll = window.scrollY || 0;
-      saturns.forEach(function (s) {
-        var px = mx * 26 * s.depth;
-        var py = my * 18 * s.depth - scroll * 0.12 * s.depth;
-        s.el.style.transform = "translate3d(" + px.toFixed(1) + "px," + py.toFixed(1) + "px,0)";
-      });
-      if (Math.abs(tx - mx) > 0.001 || Math.abs(ty - my) > 0.001) requestTick();
-    }
-    requestTick();
   }
-
+  if (reduce || !bg) return;
+  var tx = 0, ty = 0, cx = 0, cy = 0, ticking = false;
+  function render() {
+    cx += (tx - cx) * 0.06; cy += (ty - cy) * 0.06;
+    var sy = window.scrollY || 0;
+    bg.style.transform = "translate3d(" + (cx * -10).toFixed(1) + "px," + (cy * -6 - Math.min(sy * 0.02, 24)).toFixed(1) + "px,0)";
+    if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) requestAnimationFrame(render); else ticking = false;
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(render); } }
+  window.addEventListener("scroll", kick, { passive: true });
+  if (window.matchMedia("(pointer: fine)").matches) {
+    window.addEventListener("mousemove", function (e) {
+      tx = (e.clientX / window.innerWidth - 0.5) * 2; ty = (e.clientY / window.innerHeight - 0.5) * 2; kick();
+    }, { passive: true });
+  }
+  kick();
 })();
 </script>
