@@ -6,176 +6,88 @@
     color-scheme: dark;
     --font-body: "Spectral", Georgia, "Times New Roman", serif;
     --font-display: "Cormorant Garamond", Georgia, serif;
-    --bg: #10131f; --bg-deep: #2b3147; --star: #e3e9f8;
-    --panel: rgba(46, 54, 84, .9); --panel-2: rgba(46, 54, 84, .9); --panel-solid: rgba(28, 33, 52, .92);
+    --bg: #121524; --bg-deep: #2b3147;
+    --panel: rgba(46, 54, 84, .9); --panel-2: rgba(46, 54, 84, .9); --panel-solid: rgba(24, 28, 46, .9);
     --ink: #eef1fa; --ink-soft: #c5d0ea; --ink-faint: #9aa6cd;
     --gold: #aebbe2; --gold-bright: #dbe3f7; --gold-pale: #dbe3f7;
-    --brown-deep: rgba(16, 19, 31, .96);
+    --brown-deep: rgba(14, 16, 28, .96);
     --line: rgba(197, 208, 234, .16); --line-strong: rgba(197, 208, 234, .3);
     --chip: rgba(154, 166, 205, .16);
     --quote-bg: rgba(12, 14, 24, .9); --quote-ink: #eef1fa;
-    --shadow: 0 18px 44px rgba(0, 0, 0, .4);
+    --shadow: 0 18px 44px rgba(0, 0, 0, .45);
     --sp: #2b3147; --sp-bg: #dbe3f7; --badge-ink: #2b3147;
   }
-  body { background: radial-gradient(120% 90% at 50% 0%, var(--bg-deep) 0%, var(--bg) 62%) fixed, var(--bg); font-size: 1.06rem; }
+  body { background: var(--bg); font-size: 1.06rem; }
   h1 { letter-spacing: .02em; font-weight: 600; }
-  .orb { background: radial-gradient(circle at 38% 34%, rgba(240, 244, 252, .9) 0%, rgba(174, 187, 226, .7) 26%, rgba(107, 119, 163, .3) 58%, rgba(107, 119, 163, 0) 72%) !important; }
-  .orb.halo { background: radial-gradient(circle, rgba(174, 187, 226, .26) 0%, rgba(107, 119, 163, .1) 46%, rgba(107, 119, 163, 0) 70%) !important; }
-  .star4 { filter: drop-shadow(0 0 6px rgba(219, 227, 247, .8)) !important; }
-      /* ---------- Animated star court background ---------- */
-      .sky {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        overflow: hidden;
-        pointer-events: none;
-      }
-      .sky-layer {
-        position: absolute;
-        inset: -90px;
-        will-change: transform;
-      }
-      .orb {
-        position: absolute;
-        border-radius: 50%;
-        background: radial-gradient(circle at 38% 34%, rgba(214, 238, 255, 0.95) 0%, rgba(109, 180, 255, 0.75) 26%, rgba(46, 110, 246, 0.34) 58%, rgba(46, 110, 246, 0) 72%);
-        filter: blur(0.4px);
-      }
-      .orb.halo {
-        background: radial-gradient(circle, rgba(109, 180, 255, 0.30) 0%, rgba(64, 130, 246, 0.12) 46%, rgba(64, 130, 246, 0) 70%);
-      }
-      .star4 {
-        position: absolute;
-        background: var(--star);
-        clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
-        filter: drop-shadow(0 0 6px rgba(169, 214, 255, 0.9));
-      }
-      .sdot {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(215, 236, 255, 0.85);
-      }
-      @keyframes drift {
-        0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
-        50%  { transform: translate3d(10px, -16px, 0) rotate(7deg); }
-        100% { transform: translate3d(-6px, 6px, 0) rotate(-5deg); }
-      }
-      @keyframes twinkle {
-        0%, 100% { opacity: 0.45; }
-        50% { opacity: 1; }
-      }
-      .floaty { animation: drift 11s ease-in-out infinite alternate; }
-      .twinkle { animation: twinkle 5s ease-in-out infinite; }
+  .card h2 .dot { background: #a3b5a6; }
 
-  @media (prefers-reduced-motion: reduce) { .floaty, .twinkle { animation: none; } }
+  /* ---------- The Quiet Archive: original vector scene, drifting dust and paper ---------- */
+  .ar-bg { position: fixed; inset: -30px; z-index: 0; pointer-events: none;
+    background: #121524 url("{{BASE}}images/regents/tethys/archive-2.svg") center center / cover no-repeat; will-change: transform; }
+  .ar-shade { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 40%, rgba(18, 21, 36, .15) 0%, rgba(18, 21, 36, .55) 75%); }
+  .ar-float { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .mote { position: absolute; border-radius: 50%; background: #eef1fa; animation: drift ease-in-out infinite alternate; }
+  .paper { position: absolute; top: -30px; background: #dbe3f7; border-radius: 1px; opacity: .7; animation: settle linear infinite; }
+  @keyframes drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(14px, -22px, 0); } }
+  @keyframes settle {
+    0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+    33%  { transform: translate3d(26px, 38vh, 0) rotate(90deg); }
+    66%  { transform: translate3d(-18px, 74vh, 0) rotate(200deg); }
+    100% { transform: translate3d(12px, 112vh, 0) rotate(300deg); }
+  }
+  @media (prefers-reduced-motion: reduce) { .mote, .paper { animation: none; } .paper { display: none; } }
 </style>
 <!--mark-->
 <svg class="hero-mark" width="190" height="170" viewBox="0 0 120 106" aria-hidden="true"><polygon points="60,2 116,56 96,104 24,104 4,56" fill="var(--gold)"/></svg>
 <!--/mark-->
-<div class="sky" id="sky" aria-hidden="true">
-      <div class="sky-layer" data-depth="0.25"></div>
-      <div class="sky-layer" data-depth="0.55"></div>
-      <div class="sky-layer" data-depth="1"></div>
-    </div>
+<div class="ar-bg" aria-hidden="true"></div>
+<div class="ar-shade" aria-hidden="true"></div>
+<div class="ar-float" id="arFloat" aria-hidden="true"></div>
 <script>
-      (function () {
-        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        var layers = Array.prototype.slice.call(document.querySelectorAll(".sky-layer"));
-
-        function rand(min, max) { return min + Math.random() * (max - min); }
-
-        // Build the sky: small star dots, four-pointed stars, and glowing orbs.
-        var plan = [
-          { dots: 46, stars: 7,  orbs: 3, orbMin: 26,  orbMax: 60  },
-          { dots: 26, stars: 6,  orbs: 3, orbMin: 48,  orbMax: 100 },
-          { dots: 12, stars: 5,  orbs: 3, orbMin: 80,  orbMax: 150 }
-        ];
-
-        layers.forEach(function (layer, li) {
-          var spec = plan[li] || plan[0];
-          var i, el;
-          for (i = 0; i < spec.dots; i++) {
-            el = document.createElement("span");
-            el.className = "sdot";
-            var d = rand(1, 2.6);
-            el.style.width = d + "px";
-            el.style.height = d + "px";
-            el.style.left = rand(0, 100) + "%";
-            el.style.top = rand(0, 100) + "%";
-            el.style.opacity = rand(0.3, 0.9).toFixed(2);
-            if (!reduceMotion) {
-              el.classList.add("twinkle");
-              el.style.animationDuration = rand(3.5, 8) + "s";
-              el.style.animationDelay = (-rand(0, 8)) + "s";
-            }
-            layer.appendChild(el);
-          }
-          for (i = 0; i < spec.stars; i++) {
-            el = document.createElement("span");
-            el.className = "star4";
-            var s = rand(10, 26);
-            el.style.width = s + "px";
-            el.style.height = s + "px";
-            el.style.left = rand(1, 96) + "%";
-            el.style.top = rand(1, 96) + "%";
-            el.style.opacity = rand(0.5, 0.95).toFixed(2);
-            if (!reduceMotion) {
-              el.classList.add("floaty");
-              el.style.animationDuration = rand(8, 16) + "s";
-              el.style.animationDelay = (-rand(0, 10)) + "s";
-            }
-            layer.appendChild(el);
-          }
-          for (i = 0; i < spec.orbs; i++) {
-            el = document.createElement("span");
-            el.className = "orb" + (Math.random() < 0.4 ? " halo" : "");
-            var o = rand(spec.orbMin, spec.orbMax);
-            el.style.width = o + "px";
-            el.style.height = o + "px";
-            el.style.left = rand(0, 94) + "%";
-            el.style.top = rand(0, 94) + "%";
-            if (!reduceMotion) {
-              el.classList.add("floaty");
-              el.style.animationDuration = rand(10, 20) + "s";
-              el.style.animationDelay = (-rand(0, 12)) + "s";
-            }
-            layer.appendChild(el);
-          }
-        });
-
-        if (reduceMotion) return;
-
-        // Parallax: layers drift against the scroll and lean toward the mouse.
-        var targetX = 0, targetY = 0, curX = 0, curY = 0, ticking = false;
-
-        function render() {
-          curX += (targetX - curX) * 0.06;
-          curY += (targetY - curY) * 0.06;
-          var sy = window.scrollY || window.pageYOffset || 0;
-          layers.forEach(function (layer) {
-            var depth = parseFloat(layer.getAttribute("data-depth")) || 0.5;
-            var x = curX * depth * 34;
-            var y = curY * depth * 26 - sy * depth * 0.22;
-            layer.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)";
-          });
-          if (Math.abs(targetX - curX) > 0.001 || Math.abs(targetY - curY) > 0.001) {
-            requestAnimationFrame(render);
-          } else {
-            ticking = false;
-          }
-        }
-        function kick() {
-          if (!ticking) { ticking = true; requestAnimationFrame(render); }
-        }
-
-        window.addEventListener("scroll", kick, { passive: true });
-        if (window.matchMedia("(pointer: fine)").matches) {
-          window.addEventListener("mousemove", function (e) {
-            targetX = (e.clientX / window.innerWidth - 0.5) * 2;
-            targetY = (e.clientY / window.innerHeight - 0.5) * 2;
-            kick();
-          }, { passive: true });
-        }
-        kick();
-      })();
-    </script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var box = document.getElementById("arFloat");
+  var bg = document.querySelector(".ar-bg");
+  function rand(a, b) { return a + Math.random() * (b - a); }
+  for (var i = 0; i < 40; i++) {
+    var m = document.createElement("span");
+    m.className = "mote";
+    var s = rand(1.5, 3.5);
+    m.style.width = s + "px"; m.style.height = s + "px";
+    m.style.left = rand(0, 100) + "%"; m.style.top = rand(0, 100) + "%";
+    m.style.opacity = rand(0.2, 0.6).toFixed(2);
+    m.style.animationDuration = rand(6, 14).toFixed(1) + "s";
+    m.style.animationDelay = (-rand(0, 14)).toFixed(1) + "s";
+    box.appendChild(m);
+  }
+  if (!reduce) {
+    for (var j = 0; j < 7; j++) {
+      var p = document.createElement("span");
+      p.className = "paper";
+      var w = rand(8, 13);
+      p.style.width = w + "px"; p.style.height = (w * 1.3) + "px";
+      p.style.left = rand(0, 100) + "%";
+      p.style.animationDuration = rand(26, 40).toFixed(1) + "s";
+      p.style.animationDelay = (-rand(0, 40)).toFixed(1) + "s";
+      box.appendChild(p);
+    }
+  }
+  if (reduce || !bg) return;
+  var tx = 0, ty = 0, cx = 0, cy = 0, ticking = false;
+  function render() {
+    cx += (tx - cx) * 0.06; cy += (ty - cy) * 0.06;
+    var sy = window.scrollY || 0;
+    bg.style.transform = "translate3d(" + (cx * -8).toFixed(1) + "px," + (cy * -6 - Math.min(sy * 0.02, 24)).toFixed(1) + "px,0)";
+    if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) requestAnimationFrame(render); else ticking = false;
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(render); } }
+  window.addEventListener("scroll", kick, { passive: true });
+  if (window.matchMedia("(pointer: fine)").matches) {
+    window.addEventListener("mousemove", function (e) {
+      tx = (e.clientX / window.innerWidth - 0.5) * 2; ty = (e.clientY / window.innerHeight - 0.5) * 2; kick();
+    }, { passive: true });
+  }
+  kick();
+})();
+</script>
