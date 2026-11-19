@@ -23,12 +23,12 @@
   .card h2 .dot { border-radius: 0; background: #7fe0a8; box-shadow: 0 0 0 4px var(--chip); }
   .hero { border-top-color: #7fe0a8; }
 
-  /* ---------- Homeworld at sunset background ---------- */
+  /* ---------- Homeworld at night: original pixel city, nebula sky, Throne spire ---------- */
   .hw-bg { position: fixed; inset: -40px; z-index: 0; pointer-events: none;
-    background: url("{{BASE}}images/regents/antton/bg.webp") center top / cover no-repeat;
+    background: #1a0826 url("{{BASE}}images/regents/antton/stage.svg") center bottom / cover no-repeat;
     image-rendering: pixelated; will-change: transform; }
   .hw-shade { position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background: linear-gradient(180deg, rgba(31, 10, 44, .35) 0%, rgba(31, 10, 44, .62) 45%, rgba(31, 10, 44, .82) 100%); }
+    background: linear-gradient(180deg, rgba(26, 8, 38, .2) 0%, rgba(26, 8, 38, .5) 50%, rgba(26, 8, 38, .72) 100%); }
   .hw-float { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
   .hw-layer { position: absolute; inset: -80px; will-change: transform; }
   .px-star { position: absolute; image-rendering: pixelated; animation: pxbob 6s ease-in-out infinite alternate; }
@@ -58,14 +58,15 @@
     return '<svg width="100%" height="100%" viewBox="0 0 7 7" shape-rendering="crispEdges"><path fill="' + color +
       '" d="M3 0h1v2h1v1h2v1H5v1H4v2H3V5H2V4H0V3h2V2h1z"/></svg>';
   }
-  // Pixel balloon with a string.
+  // Pixel Holovision screen: frame, antennas, and a star on the screen.
   function balloon(color) {
-    return '<svg width="100%" height="100%" viewBox="0 0 8 14" shape-rendering="crispEdges"><path fill="' + color +
-      '" d="M2 0h4v1h1v1h1v4H7v1H6v1H5v1H3V8H2V7H1V6H0V2h1V1h1z"/><path fill="rgba(255,255,255,.55)" d="M2 2h1v2H2z"/>' +
-      '<path fill="#f4cfe6" d="M4 9h1v1H4zM3 10h1v2H3zM4 12h1v2H4z"/></svg>';
+    return '<svg width="100%" height="100%" viewBox="0 0 14 12" shape-rendering="crispEdges">' +
+      '<path fill="#f4cfe6" d="M4 0h1v1h1v1H5V1H4zM9 0h1v1H9v1H8V1h1z"/>' +
+      '<path fill="' + color + '" d="M0 2h14v10H0z"/><path fill="#7fe0a8" d="M1 3h12v8H1z"/><path fill="#5cc68c" d="M1 9h12v2H1z"/>' +
+      '<path fill="' + color + '" d="M6 4h2v2h2v2H8v2H6V8H4V6h2z"/></svg>';
   }
   var starColors = ["#7fe0a8", "#ff86c8", "#fff3d6", "#ffffff"];
-  var balloonColors = ["#ff8a5c", "#ff4fa3", "#f6b26b"];
+  var balloonColors = ["#ff4fa3", "#ff86c8", "#e8607a"];
   layers.forEach(function (layer, li) {
     var i, el, s;
     for (i = 0; i < (li ? 7 : 10); i++) {
@@ -81,7 +82,7 @@
     for (i = 0; i < (li ? 3 : 2); i++) {
       el = document.createElement("div"); el.className = "px-balloon";
       s = Math.round(rand(li ? 34 : 22, li ? 46 : 30));
-      el.style.width = s + "px"; el.style.height = Math.round(s * 1.75) + "px";
+      el.style.width = s + "px"; el.style.height = Math.round(s * 0.86) + "px";
       el.style.left = rand(2, 94) + "%"; el.style.top = rand(10, 90) + "%";
       el.style.opacity = rand(0.6, 0.9).toFixed(2);
       el.style.animationDuration = rand(7, 12).toFixed(1) + "s"; el.style.animationDelay = (-rand(0, 10)).toFixed(1) + "s";
