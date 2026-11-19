@@ -257,8 +257,8 @@ const desc = `${d.name}${d.pillar ? `, Pillar of ${d.pillar}` : ''}. ${d.purpose
   .stag.cost { color: var(--d-accent2); border-color: #e8c46a66; }
   .spell p { margin: 0; color: #ddd5f5; font-size: 0.92rem; }
   .fine { font-size: 0.88rem; color: #cfc6ea; margin: 0.7rem 0 0; }
-  .sico { width: 1.15em; height: 1.15em; vertical-align: -0.22em; margin-right: 0.15em; image-rendering: pixelated; }
-  .sico.dark { background: #c9bfe8; border-radius: 4px; padding: 2px; box-sizing: border-box; }
+  :global(.sico) { width: 1.15em; height: 1.15em; vertical-align: -0.22em; margin-right: 0.15em; image-rendering: pixelated; }
+  :global(.sico.dark) { background: #c9bfe8; border-radius: 4px; padding: 2px; box-sizing: border-box; }
   .credit { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 1rem 0 0; }
   /* Space background: stars plus meteor rocks, behind the content. */
   .space-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
