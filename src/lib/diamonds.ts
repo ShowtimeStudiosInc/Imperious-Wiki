@@ -1,7 +1,9 @@
 /**
  * Diamonds, Rank 1.1, Know Your Diamond.
  *
- * Each Diamond gets their own page, designed around their own submission.
+ * The page itself is a hand-made design in src/diamond-pages/<slug>.html.
+ * This file holds the data the Know Your Diamond index uses (name, art,
+ * domains, court, height) plus the older structured profile.
  * Add a Diamond by adding one entry here and their art at
  * public/images/diamonds/<slug>.webp (or .svg for a vector trace). Only Diamonds with a submitted
  * and approved profile go in this list. The rest are listed on the

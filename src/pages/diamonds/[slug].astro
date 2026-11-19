@@ -1,360 +1,78 @@
 ---
-import Site from '../../layouts/Site.astro';
-import { DIAMONDS, statusIcon } from '../../lib/diamonds';
+/**
+ * Diamond pages. Each Diamond has its own hand-made design in
+ * src/diamond-pages/<slug>.html (its styles, markup and script).
+ * These pages don't load the site's shared CSS, because the designs use
+ * the same class names (panel, chip, stars...). They get their own copy
+ * of the top menu instead. {{BASE}} in a design becomes the site's base path.
+ */
+import { DIAMONDS } from '../../lib/diamonds';
 import { url } from '../../lib/gems';
+
+const designs = import.meta.glob('../../diamond-pages/*.html', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 
 export async function getStaticPaths() {
   return DIAMONDS.map((d) => ({ params: { slug: d.slug }, props: { diamond: d } }));
 }
 const { diamond: d } = Astro.props;
-const t = d.theme;
+const raw = designs[`../../diamond-pages/${d.slug}.html`];
+if (!raw) throw new Error(`No design file for ${d.slug} in src/diamond-pages/`);
+const html = raw.replaceAll('{{BASE}}', url('/'));
+const fonts = html.match(/<!--fonts-->([\s\S]*?)<!--\/fonts-->/)?.[1] ?? '';
+const body = html.replace(/<!--fonts-->[\s\S]*?<!--\/fonts-->/, '');
 
-// [[Status]] tokens become the local status icon.
-function rich(text: string) {
-  return text.replace(/\[\[([\w ]+)\]\]/g, (_, name: string) => {
-    const icon = statusIcon(name);
-    if (!icon) return name;
-    return `<img class="sico${icon.dark ? ' dark' : ''}" src="${url(`/images/statuses/${icon.file}`)}" alt="${name}" title="${name}" /> ${name}`;
-  });
-}
+const title = `${d.name} | Imperious Authorities`;
 const desc = `${d.name}${d.pillar ? `, Pillar of ${d.pillar}` : ''}. ${d.purpose}`.slice(0, 200);
+const ogImage = new URL(url(d.art || '/images/brand/og-logo.png'), Astro.site).href;
+const nav = [
+  { href: '/gem-types/', label: 'Gem-Types', key: 'gem-types' },
+  { href: '/diamonds/', label: 'Diamonds', key: 'diamonds' },
+  { href: '/start-here/welcome/', label: 'Start Here', key: 'start' },
+  { href: '/rules/overview/', label: 'Rules', key: 'rules' },
+  { href: '/lore/overview/', label: 'Lore', key: 'lore' },
+];
 ---
-
-<Site title={d.name} description={desc} current="diamonds">
-  <main
-    class="wrap diamond"
-    style={`--d-bg: ${t.bg}; --d-glow: ${t.glow}; --d-accent: ${t.accent}; --d-accent2: ${t.accent2};`}
-  >
-    {t.rings && (
-      <div class="space-bg" aria-hidden="true">
-        <div class="stars2" />
-        <div class="ring r1" data-depth="0.3"><svg viewBox="0 0 200 80"><ellipse cx="100" cy="40" rx="92" ry="26" /><ellipse cx="100" cy="40" rx="62" ry="16" /><circle cx="100" cy="40" r="10" /></svg></div>
-        <div class="ring r2" data-depth="0.7"><svg viewBox="0 0 200 80"><ellipse cx="100" cy="40" rx="92" ry="26" /><ellipse cx="100" cy="40" rx="62" ry="16" /><circle cx="100" cy="40" r="10" /></svg></div>
-        <div class="ring r3" data-depth="1.1"><svg viewBox="0 0 200 80"><ellipse cx="100" cy="40" rx="92" ry="26" /><ellipse cx="100" cy="40" rx="62" ry="16" /><circle cx="100" cy="40" r="10" /></svg></div>
-        <div class="ring r4" data-depth="0.5"><svg viewBox="0 0 200 80"><ellipse cx="100" cy="40" rx="92" ry="26" /><ellipse cx="100" cy="40" rx="62" ry="16" /><circle cx="100" cy="40" r="10" /></svg></div>
-        <div class="ring r5" data-depth="1.4"><svg viewBox="0 0 200 80"><ellipse cx="100" cy="40" rx="92" ry="26" /><ellipse cx="100" cy="40" rx="62" ry="16" /><circle cx="100" cy="40" r="10" /></svg></div>
-        <div class="ring r6" data-depth="0.9"><svg viewBox="0 0 200 80"><ellipse cx="100" cy="40" rx="92" ry="26" /><ellipse cx="100" cy="40" rx="62" ry="16" /><circle cx="100" cy="40" r="10" /></svg></div>
-      </div>
-    )}
-    {t.orbs && (
-      <div class="space-bg" aria-hidden="true">
-        <div class="stars2" />
-        <div class="orb o1" data-depth="0.3" />
-        <div class="orb o2" data-depth="0.7" />
-        <div class="orb o3" data-depth="1.1" />
-        <div class="orb o4" data-depth="0.5" />
-        <div class="orb o5" data-depth="1.4" />
-        <div class="orb o6" data-depth="0.9" />
-        <div class="orb-star s1" data-depth="0.6"><svg viewBox="0 0 40 40"><polygon points="20,2 24,16 38,20 24,24 20,38 16,24 2,20 16,16" /></svg></div>
-        <div class="orb-star s2" data-depth="1.2"><svg viewBox="0 0 40 40"><polygon points="20,2 24,16 38,20 24,24 20,38 16,24 2,20 16,16" /></svg></div>
-        <div class="orb-star s3" data-depth="0.4"><svg viewBox="0 0 40 40"><polygon points="20,2 24,16 38,20 24,24 20,38 16,24 2,20 16,16" /></svg></div>
-        <div class="orb-star s4" data-depth="0.8"><svg viewBox="0 0 40 40"><polygon points="20,2 24,16 38,20 24,24 20,38 16,24 2,20 16,16" /></svg></div>
-      </div>
-    )}
-    {t.gears && (
-      <div class="space-bg" aria-hidden="true">
-        <div class="stars2" />
-        <div class="gear g1" data-depth="0.3"><svg viewBox="0 0 100 100"><g><rect x="46" y="4" width="8" height="16" rx="2" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(45 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(90 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(135 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(180 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(225 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(270 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(315 50 50)" /><circle cx="50" cy="50" r="28" /><circle cx="50" cy="50" r="10" /></g></svg></div>
-        <div class="gear g2" data-depth="0.7"><svg viewBox="0 0 100 100"><g><rect x="46" y="4" width="8" height="16" rx="2" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(45 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(90 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(135 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(180 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(225 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(270 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(315 50 50)" /><circle cx="50" cy="50" r="28" /><circle cx="50" cy="50" r="10" /></g></svg></div>
-        <div class="gear g3" data-depth="1.1"><svg viewBox="0 0 100 100"><g><rect x="46" y="4" width="8" height="16" rx="2" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(45 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(90 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(135 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(180 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(225 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(270 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(315 50 50)" /><circle cx="50" cy="50" r="28" /><circle cx="50" cy="50" r="10" /></g></svg></div>
-        <div class="gear g4" data-depth="0.5"><svg viewBox="0 0 100 100"><g><rect x="46" y="4" width="8" height="16" rx="2" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(45 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(90 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(135 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(180 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(225 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(270 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(315 50 50)" /><circle cx="50" cy="50" r="28" /><circle cx="50" cy="50" r="10" /></g></svg></div>
-        <div class="gear g5" data-depth="1.4"><svg viewBox="0 0 100 100"><g><rect x="46" y="4" width="8" height="16" rx="2" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(45 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(90 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(135 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(180 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(225 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(270 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(315 50 50)" /><circle cx="50" cy="50" r="28" /><circle cx="50" cy="50" r="10" /></g></svg></div>
-        <div class="gear g6" data-depth="0.9"><svg viewBox="0 0 100 100"><g><rect x="46" y="4" width="8" height="16" rx="2" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(45 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(90 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(135 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(180 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(225 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(270 50 50)" /><rect x="46" y="4" width="8" height="16" rx="2" transform="rotate(315 50 50)" /><circle cx="50" cy="50" r="28" /><circle cx="50" cy="50" r="10" /></g></svg></div>
-      </div>
-    )}
-    {t.meteors && (
-      <div class="space-bg" aria-hidden="true">
-        <div class="stars2" />
-        <div class="meteor m1" data-depth="0.3"><svg viewBox="0 0 100 80"><polygon points="18,52 34,22 62,12 88,30 82,58 58,74 30,68" /></svg></div>
-        <div class="meteor m2" data-depth="0.7"><svg viewBox="0 0 100 80"><polygon points="22,48 40,18 70,16 90,38 76,62 44,70" /></svg></div>
-        <div class="meteor m3" data-depth="1.1"><svg viewBox="0 0 100 80"><polygon points="16,44 30,16 58,10 84,28 78,56 52,72 26,62" /></svg></div>
-        <div class="meteor m4" data-depth="0.5"><svg viewBox="0 0 100 80"><polygon points="20,50 38,20 66,14 88,34 80,60 56,72 28,66" /></svg></div>
-        <div class="meteor m5" data-depth="1.4"><svg viewBox="0 0 100 80"><polygon points="24,46 42,20 68,18 86,40 72,64 46,68" /></svg></div>
-        <div class="meteor m6" data-depth="0.9"><svg viewBox="0 0 100 80"><polygon points="18,52 36,24 64,14 86,32 80,58 54,74 30,66" /></svg></div>
-        <div class="meteor m7" data-depth="0.2"><svg viewBox="0 0 100 80"><polygon points="22,48 44,18 72,20 88,42 74,62 42,70" /></svg></div>
-      </div>
-    )}
-
-    <div class="diamond-content">
-      <p class="crumbs"><a href={url('/diamonds/')}>Know Your Diamond</a> <span>/</span> Rank 1.1</p>
-
-      <section class="panel hero">
-        <div class="hero-art">
-          {d.references ? (
-            <div class="collage">
-              {d.references.map((r) => (
-                <figure>
-                  <img src={url(r.image)} alt={`${d.name}: ${r.label}`} />
-                  <figcaption>{r.label} &middot; {r.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
-          ) : (
-            <img src={url(d.art)} alt={`${d.name} art`} />
-          )}
-        </div>
-        <div class="hero-body">
-          <p class="eyebrow">Rank 1.1{d.pillar ? ` · Pillar of ${d.pillar}` : ''}</p>
-          <h1>{d.name}</h1>
-          <p class="domains">Domains: {d.domains.join(' and ')}</p>
-          <div class="chips">
-            <span class="chip">Court {d.court}</span>
-            <span class="chip">Height {d.height}</span>
-            <span class="chip">{d.pronouns}</span>
-          </div>
-          <dl class="facts">
-            <dt>Color</dt><dd>{d.color}</dd>
-            {d.pillar && <><dt>Pillar of</dt><dd>{d.pillar}</dd></>}
-            <dt>Domains</dt><dd>{d.domains.join(', ')}</dd>
-          </dl>
-          {d.artCaption && <p class="bg-note">{d.artCaption}</p>}
-          <p class="subdomains"><strong>Sub-Domains:</strong> {d.subDomains.join(', ')}</p>
-        </div>
-      </section>
-
-      <blockquote class="quote">
-        <p>&ldquo;{d.quote}&rdquo;</p>
-      </blockquote>
-
-      <div class="cols">
-        <div class="col">
-          <section class="panel">
-            <div class="bar">Personality</div>
-            <div class="body prose"><p>{d.personality}</p></div>
-          </section>
-
-          <section class="panel">
-            <div class="bar">Purpose</div>
-            <div class="body prose"><p>{d.purpose}</p></div>
-          </section>
-
-          <section class="panel">
-            <div class="bar">Powers</div>
-            <div class="body">
-              <ul class="power-list">
-                {d.powers.map((p) => (
-                  <li><strong>{p.name}</strong> <span class="level">[{p.level}]</span></li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          <section class="panel">
-            <div class="bar">Weakness</div>
-            <div class="body prose"><p>{d.weaknesses}</p></div>
-          </section>
-          {d.credits && d.credits.length > 0 && (
-            <section class="panel">
-              <div class="bar">Art Credits</div>
-              <div class="body">
-                <ul class="credit-list">
-                  {d.credits.map((c) => <li><span class="clabel">{c.label}</span> {c.name}</li>)}
-                </ul>
-              </div>
-            </section>
-          )}
-        </div>
-
-        <div class="col">
-          {d.abilities.map((a) => (
-            <section class="panel ability">
-              <div class="bar">{a.name}</div>
-              <div class="body">
-                <dl class="facts">
-                  <dt>Parent Ability</dt><dd>{a.parent}</dd>
-                  <dt>Complexity</dt><dd>{a.complexity}</dd>
-                  <dt>Level</dt><dd>{a.level}</dd>
-                  <dt>Origin</dt><dd>{a.origin}</dd>
-                </dl>
-                <p class="prose">{a.description}</p>
-                <h3>Passives</h3>
-                {a.passives.map((p) => (
-                  <p class="passive"><strong>{p.name}:</strong> <span set:html={rich(p.text)} /></p>
-                ))}
-                <h3>Spells</h3>
-                {a.spells.map((s) => (
-                  <article class="spell">
-                    <header>
-                      <span class="sname">{s.name}</span>
-                      <span class="stag cost">{s.cost} SP</span>
-                      <span class="stag">{s.kind}</span>
-                    </header>
-                    <p set:html={rich(s.text)} />
-                  </article>
-                ))}
-                <p class="fine"><strong>Stat Changes:</strong> {a.statChanges}</p>
-                <p class="fine"><strong>Weaknesses:</strong> <span set:html={rich(a.weaknesses)} /></p>
-              </div>
-            </section>
-          ))}
-        </div>
-      </div>
-
-      <p class="credit">Last updated {d.updated}</p>
-    </div>
-  </main>
-</Site>
-
-<script>
-  // Meteor rocks: float on their own, drift with scroll, and shift with
-  // the mouse on devices with hover. Touch screens get the float only.
-  // Respects reduced motion: no float, no parallax.
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const hover = window.matchMedia('(hover: hover)').matches;
-  const rocks = Array.from(document.querySelectorAll<HTMLElement>('.meteor, .ring, .orb, .orb-star, .gear'));
-  if (!reduce) {
-    let mx = 0, my = 0, sy = window.scrollY;
-    const apply = () => {
-      for (const r of rocks) {
-        const depth = parseFloat(r.dataset.depth || '0.5');
-        const x = mx * depth * 22;
-        const y = my * depth * 16 - sy * depth * 0.12;
-        r.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>{title}</title>
+    <meta name="description" content={desc} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="theme-color" content="#7c4dff" />
+    <link rel="icon" href={url('/favicon.png')} type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" />
+    <Fragment set:html={fonts} />
+    <style is:inline>
+      .ia-top { position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; gap: 1.25rem;
+        padding: 0.7rem 1.25rem; background: rgba(7, 5, 13, 0.82); backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(201, 184, 255, 0.16); font-family: Inter, system-ui, sans-serif; line-height: 1.55; }
+      .ia-top a { text-decoration: none; }
+      .ia-top .ia-brand { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.02rem; letter-spacing: 0.04em; color: #ece6ff; display: flex; align-items: center; gap: 0.5rem; }
+      .ia-top .ia-brand img { height: 1.6rem; width: auto; display: block; }
+      .ia-top nav { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.86rem; letter-spacing: 0.06em; text-transform: uppercase; }
+      .ia-top nav a { color: #a99fc7; }
+      .ia-top nav a:hover, .ia-top nav a[aria-current] { color: #ece6ff; }
+      @media (max-width: 700px) {
+        .ia-top { flex-wrap: wrap; gap: 0.4rem 1rem; padding: 0.6rem 0.9rem; }
+        .ia-top nav { gap: 0.8rem; font-size: 0.74rem; }
       }
-    };
-    if (hover) {
-      window.addEventListener('mousemove', (e) => {
-        mx = (e.clientX / window.innerWidth - 0.5) * 2;
-        my = (e.clientY / window.innerHeight - 0.5) * 2;
-        apply();
-      }, { passive: true });
-    }
-    window.addEventListener('scroll', () => { sy = window.scrollY; apply(); }, { passive: true });
-    apply();
-  }
-</script>
-
-<style>
-  .diamond { position: relative; background: var(--d-bg); }
-  .diamond-content { position: relative; z-index: 2; }
-  .crumbs { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.06em; margin: 0 0 0.8rem; }
-  .crumbs span { margin: 0 0.3rem; }
-  .hero { display: grid; grid-template-columns: minmax(240px, 340px) 1fr; overflow: hidden; }
-  .hero-art { background: radial-gradient(circle at 50% 40%, var(--d-glow), transparent 70%), #0a0618; display: grid; place-items: center; }
-  .hero-art img { display: block; width: 100%; height: 100%; max-height: 560px; object-fit: cover; object-position: center 20%; }
-  .collage { display: grid; grid-template-columns: 1fr 1fr; width: 100%; height: 100%; }
-  .collage figure { margin: 0; position: relative; overflow: hidden; min-height: 200px; }
-  .collage img { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: center 30%; }
-  .collage figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 0.35rem 0.5rem; font-size: 0.72rem; color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, 0.75)); }
-  .hero-body { padding: 1.2rem 1.4rem; }
-  .eyebrow { color: var(--d-accent2); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 0.4rem; }
-  .hero h1 { margin: 0 0 0.4rem; font-size: 2.1rem; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; }
-  .domains { color: var(--d-accent); font-size: 1.05rem; margin: 0 0 0.8rem; }
-  .facts { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem; margin: 0.9rem 0 0; }
-  .facts dt { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
-  .facts dd { margin: 0; }
-  .subdomains { margin: 0.9rem 0 0; font-size: 0.92rem; color: #ddd5f5; }
-  .quote { margin: 1rem 0; padding: 1rem 1.4rem; border-left: 3px solid var(--d-accent2); background: rgba(10, 6, 24, 0.6); font-family: var(--serif); font-size: 1.15rem; color: #f2ecff; }
-  .bg-note { margin: 0.9rem 0 0; font-size: 0.8rem; color: var(--muted); }
-  .quote p { margin: 0; }
-  .cols { display: grid; grid-template-columns: 1fr 1.15fr; gap: 0.9rem; margin-top: 0.9rem; }
-  .col { display: flex; flex-direction: column; }
-  .col .panel + .panel { margin-top: 0.9rem; }
-  .panel .bar { background: linear-gradient(90deg, var(--d-accent), #3d3478 70%); }
-  .prose p { margin: 0 0 0.7rem; }
-  .prose p:last-child { margin: 0; }
-  .power-list { margin: 0; padding-left: 1.1rem; }
-  .power-list li + li { margin-top: 0.4rem; }
-  .level { color: var(--d-accent2); }
-  .ability h3 { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--d-accent); margin: 1rem 0 0.5rem; font-weight: 600; }
-  .passive { margin: 0 0 0.5rem; font-size: 0.92rem; color: #ddd5f5; }
-  .spell { border: 1px solid var(--line); border-left: 3px solid var(--d-accent); background: rgba(5, 3, 16, 0.55); padding: 0.6rem 0.75rem; }
-  .spell + .spell { margin-top: 0.5rem; }
-  .spell header { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin-bottom: 0.3rem; }
-  .sname { font-family: var(--serif); font-size: 1rem; color: #fff; }
-  .stag { font-size: 0.66rem; letter-spacing: 0.08em; padding: 0.06rem 0.4rem; border: 1px solid var(--line); color: var(--muted); border-radius: 2px; }
-  .stag.cost { color: var(--d-accent2); border-color: #e8c46a66; }
-  .spell p { margin: 0; color: #ddd5f5; font-size: 0.92rem; }
-  .fine { font-size: 0.88rem; color: #cfc6ea; margin: 0.7rem 0 0; }
-  :global(.sico) { width: 1.15em; height: 1.15em; vertical-align: -0.22em; margin-right: 0.15em; image-rendering: pixelated; }
-  :global(.sico.dark) { background: #c9bfe8; border-radius: 4px; padding: 2px; box-sizing: border-box; }
-  .credit-list { list-style: none; margin: 0; padding: 0; }
-  .credit-list li + li { margin-top: 0.35rem; }
-  .clabel { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 0.4rem; }
-  .credit { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 1rem 0 0; }
-  /* Space background: stars plus meteor rocks, behind the content. */
-  .space-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-  .stars2 { position: absolute; inset: -40px; background-image:
-    radial-gradient(1px 1px at 12% 22%, #fff 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 72% 12%, #d8ccff 50%, transparent 51%),
-    radial-gradient(1px 1px at 42% 68%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 88% 52%, #fff 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 28% 88%, #cbbdff 50%, transparent 51%),
-    radial-gradient(1px 1px at 58% 34%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 6% 58%, #fff 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 94% 82%, #e5dcff 50%, transparent 51%);
-    background-size: 420px 420px; opacity: 0.85; }
-  .meteor { position: absolute; will-change: transform; }
-  .meteor svg { display: block; width: 100%; height: auto; fill: #2a3352; stroke: #5a6ea8; stroke-width: 2; opacity: 0.9; animation: drift 9s ease-in-out infinite alternate; }
-  .m1 { width: 110px; top: 12%; left: 4%; }
-  .m2 { width: 70px; top: 58%; left: 82%; }
-  .m3 { width: 150px; top: 78%; left: 10%; }
-  .m4 { width: 56px; top: 30%; left: 88%; }
-  .m5 { width: 96px; top: 88%; left: 62%; }
-  .m6 { width: 64px; top: 8%; left: 58%; }
-  .m7 { width: 130px; top: 44%; left: -2%; }
-  .ring { position: absolute; will-change: transform; }
-  .ring svg { display: block; width: 100%; height: auto; fill: none; stroke: var(--d-accent); stroke-width: 3; opacity: 0.55; animation: drift 10s ease-in-out infinite alternate; }
-  .ring svg circle { fill: var(--d-accent2); stroke: none; opacity: 0.9; }
-  .r1 { width: 190px; top: 10%; left: 3%; transform: rotate(-12deg); }
-  .r2 { width: 120px; top: 62%; left: 84%; transform: rotate(18deg); }
-  .r3 { width: 230px; top: 80%; left: 8%; transform: rotate(8deg); }
-  .r4 { width: 100px; top: 28%; left: 88%; transform: rotate(-20deg); }
-  .r5 { width: 160px; top: 90%; left: 60%; transform: rotate(14deg); }
-  .r6 { width: 110px; top: 6%; left: 55%; transform: rotate(-8deg); }
-  .r2 svg { animation-duration: 12s; animation-delay: -3s; }
-  .r3 svg { animation-duration: 14s; animation-delay: -5s; }
-  .r4 svg { animation-duration: 9s; animation-delay: -2s; }
-  .r5 svg { animation-duration: 13s; animation-delay: -7s; }
-  .r6 svg { animation-duration: 11s; animation-delay: -4s; }
-  .orb { position: absolute; border-radius: 50%; background: radial-gradient(circle at 35% 35%, var(--d-accent2), var(--d-accent) 55%, transparent 75%); box-shadow: 0 0 24px 6px var(--d-glow); opacity: 0.8; will-change: transform; animation: drift 10s ease-in-out infinite alternate; }
-  .o1 { width: 90px; height: 90px; top: 8%; left: 5%; }
-  .o2 { width: 46px; height: 46px; top: 58%; left: 86%; animation-duration: 12s; animation-delay: -3s; }
-  .o3 { width: 64px; height: 64px; top: 82%; left: 10%; animation-duration: 14s; animation-delay: -5s; }
-  .o4 { width: 34px; height: 34px; top: 30%; left: 90%; animation-duration: 9s; animation-delay: -2s; }
-  .o5 { width: 56px; height: 56px; top: 92%; left: 62%; animation-duration: 13s; animation-delay: -7s; }
-  .o6 { width: 28px; height: 28px; top: 5%; left: 58%; animation-duration: 11s; animation-delay: -4s; }
-  .orb-star { position: absolute; will-change: transform; }
-  .orb-star svg { display: block; width: 100%; height: auto; fill: var(--d-accent2); opacity: 0.9; animation: drift 9s ease-in-out infinite alternate; }
-  .s1 { width: 44px; top: 18%; left: 78%; }
-  .s2 { width: 30px; top: 68%; left: 6%; }
-  .s3 { width: 24px; top: 42%; left: 94%; }
-  .s4 { width: 36px; top: 88%; left: 38%; }
-  .gear { position: absolute; will-change: transform; }
-  .gear svg { display: block; width: 100%; height: auto; animation: spin 26s linear infinite; }
-  .gear svg g { fill: var(--d-accent); opacity: 0.45; }
-  .gear svg circle { fill: none; stroke: var(--d-accent); stroke-width: 4; opacity: 0.6; }
-  .gear svg circle:last-child { fill: var(--d-accent2); stroke: none; opacity: 0.7; }
-  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-  .g1 { width: 170px; top: 9%; left: 4%; }
-  .g2 { width: 110px; top: 60%; left: 85%; }
-  .g3 { width: 210px; top: 82%; left: 9%; }
-  .g4 { width: 90px; top: 28%; left: 89%; }
-  .g5 { width: 150px; top: 92%; left: 60%; }
-  .g6 { width: 100px; top: 5%; left: 56%; }
-  .g2 svg { animation-duration: 34s; animation-direction: reverse; }
-  .g3 svg { animation-duration: 40s; }
-  .g4 svg { animation-duration: 22s; animation-direction: reverse; }
-  .g5 svg { animation-duration: 30s; }
-  .g6 svg { animation-duration: 24s; animation-direction: reverse; }
-  .m2 svg { animation-duration: 11s; animation-delay: -3s; }
-  .m3 svg { animation-duration: 13s; animation-delay: -5s; }
-  .m4 svg { animation-duration: 8s; animation-delay: -2s; }
-  .m5 svg { animation-duration: 12s; animation-delay: -7s; }
-  .m6 svg { animation-duration: 10s; animation-delay: -4s; }
-  .m7 svg { animation-duration: 14s; animation-delay: -6s; }
-  @keyframes drift {
-    from { transform: translateY(-14px) rotate(-4deg); }
-    to { transform: translateY(16px) rotate(5deg); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .meteor svg, .ring svg, .orb, .orb-star svg, .gear svg { animation: none; }
-  }
-  @media (max-width: 820px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-art img { max-height: 420px; }
-    .cols { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 1.6rem; }
-    .m3, .m7 { width: 90px; }
-  }
-</style>
+    </style>
+  </head>
+  <body>
+    <header class="ia-top">
+      <a class="ia-brand" href={url('/')}><img src={url('/images/brand/logo-white.png')} alt="" width="22" height="27" /> Imperious Authorities</a>
+      <nav aria-label="Main">
+        {nav.map((n) => <a href={url(n.href)} aria-current={n.key === 'diamonds' ? 'page' : undefined}>{n.label}</a>)}
+      </nav>
+    </header>
+    <Fragment set:html={body} />
+  </body>
+</html>

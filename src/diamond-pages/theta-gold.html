@@ -1,0 +1,695 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2rem; }
+
+      :root {
+        --bg: #0d0a06;
+        --panel: rgba(19, 15, 9, 0.92);
+        --panel-solid: #14100a;
+        --panel-2: rgba(28, 21, 12, 0.92);
+        --gold: #d4a437;
+        --gold-bright: #f0c95c;
+        --gold-soft: #b98f2e;
+        --gold-dim: rgba(212, 164, 55, 0.35);
+        --ink: #f2e8d5;
+        --ink-soft: #cfc0a0;
+        --ink-faint: #9d8f73;
+        --line: rgba(212, 164, 55, 0.28);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(1100px 600px at 85% -5%, rgba(212, 164, 55, 0.10), transparent 60%),
+          radial-gradient(900px 700px at -10% 40%, rgba(150, 105, 25, 0.08), transparent 60%),
+          var(--bg);
+        color: var(--ink);
+        font-family: "Spectral", Georgia, serif;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      /* ---------- floating gear background ---------- */
+      #gear-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .gear {
+        position: absolute;
+        will-change: transform;
+      }
+      .gear .bob {
+        animation: bob 9s ease-in-out infinite alternate;
+      }
+      .gear svg {
+        display: block;
+        animation: spin 90s linear infinite;
+      }
+      .gear.rev svg { animation-direction: reverse; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes bob {
+        from { transform: translateY(-9px); }
+        to   { transform: translateY(9px); }
+      }
+
+      /* ---------- layout ---------- */
+      .page {
+        position: relative;
+        z-index: 1;
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: 2.2rem 1.1rem 4rem;
+      }
+
+      header.hero { text-align: center; padding: 1.2rem 0 0.4rem; }
+      .court-line {
+        color: var(--gold-bright);
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+        margin: 0 0 0.7rem;
+      }
+      h1 {
+        font-family: "Marcellus", serif;
+        font-weight: 400;
+        font-size: clamp(2.3rem, 6.5vw, 3.9rem);
+        line-height: 1.08;
+        margin: 0;
+        color: var(--ink);
+      }
+      h1 .gold { color: var(--gold-bright); }
+      .pillar-line {
+        margin: 0.8rem auto 0;
+        color: var(--ink-soft);
+        font-size: 1.08rem;
+        font-style: italic;
+      }
+      .rule {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin: 1.6rem auto 0;
+        max-width: 520px;
+        color: var(--gold);
+      }
+      .rule::before, .rule::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      }
+      .rule .diamond-mark { font-size: 0.95rem; }
+
+      /* ---------- panels ---------- */
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 1.5rem 1.6rem;
+        margin-top: 1.4rem;
+      }
+      h2 {
+        font-family: "Marcellus", serif;
+        font-weight: 400;
+        font-size: 1.55rem;
+        margin: 0 0 0.9rem;
+        color: var(--gold-bright);
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      h2::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+      p { margin: 0 0 0.9rem; }
+      p:last-child { margin-bottom: 0; }
+
+      /* ---------- top grid: art + facts ---------- */
+      .top-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+        gap: 1.4rem;
+        align-items: start;
+        margin-top: 1.6rem;
+      }
+      .top-grid .panel { margin-top: 0; }
+
+      figure.art { margin: 0; }
+      .art-frame {
+        background: #efe9dc;
+        border: 1px solid var(--gold-dim);
+        border-radius: 6px;
+        padding: 0.55rem;
+      }
+      .art-frame button {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: none;
+        cursor: zoom-in;
+      }
+      .art-frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 3px;
+      }
+      figcaption {
+        text-align: center;
+        color: var(--ink-faint);
+        font-size: 0.88rem;
+        font-style: italic;
+        padding-top: 0.65rem;
+      }
+
+      dl.facts { margin: 0; }
+      .fact {
+        display: grid;
+        grid-template-columns: 7.6rem 1fr;
+        gap: 0.4rem 1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(212, 164, 55, 0.14);
+      }
+      .fact:last-child { border-bottom: 0; }
+      .fact dt {
+        color: var(--gold);
+        font-size: 0.82rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding-top: 0.28rem;
+        font-family: "Marcellus", serif;
+      }
+      .fact dd { margin: 0; }
+      .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+      .chip {
+        border: 1px solid var(--gold-dim);
+        border-radius: 999px;
+        padding: 0.08rem 0.6rem;
+        font-size: 0.88rem;
+        color: var(--ink-soft);
+        background: rgba(212, 164, 55, 0.07);
+      }
+
+      /* ---------- quote ---------- */
+      blockquote.quote {
+        margin: 1.4rem 0 0;
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--gold);
+        border-radius: 10px;
+        padding: 1.6rem 1.8rem;
+      }
+      blockquote.quote p {
+        font-size: 1.13rem;
+        line-height: 1.75;
+        font-style: italic;
+        color: var(--ink);
+      }
+      blockquote.quote footer {
+        margin-top: 0.9rem;
+        color: var(--gold);
+        font-family: "Marcellus", serif;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-style: normal;
+      }
+
+      /* ---------- abilities ---------- */
+      .ability-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.5rem 0.8rem;
+        margin-bottom: 0.4rem;
+      }
+      .ability-head h2 { flex: 1 1 auto; }
+      .ability-head h2::after { display: none; }
+      .badge {
+        font-family: "Marcellus", serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #171106;
+        background: var(--gold);
+        border-radius: 4px;
+        padding: 0.22rem 0.6rem;
+      }
+      .badge.plain {
+        background: transparent;
+        color: var(--gold-bright);
+        border: 1px solid var(--gold-dim);
+      }
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem 1.6rem;
+        color: var(--ink-faint);
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(212, 164, 55, 0.14);
+        padding-bottom: 0.8rem;
+        margin-bottom: 1rem;
+      }
+      .meta b { color: var(--ink-soft); font-weight: 600; }
+
+      .passive {
+        background: rgba(212, 164, 55, 0.08);
+        border: 1px solid rgba(212, 164, 55, 0.22);
+        border-radius: 8px;
+        padding: 0.9rem 1.1rem;
+        margin-bottom: 1.1rem;
+      }
+      .passive .label, .weakness .label {
+        font-family: "Marcellus", serif;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+      .passive p, .weakness p { margin: 0; }
+
+      .spells { list-style: none; margin: 0; padding: 0; }
+      .spell {
+        padding: 0.85rem 0;
+        border-bottom: 1px solid rgba(212, 164, 55, 0.12);
+      }
+      .spell:last-child { border-bottom: 0; padding-bottom: 0.2rem; }
+      .spell-top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.45rem 0.6rem;
+      }
+      .spell-name {
+        font-family: "Marcellus", serif;
+        font-size: 1.12rem;
+        color: var(--ink);
+      }
+      .tier {
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        border: 1px solid rgba(207, 192, 160, 0.3);
+        border-radius: 999px;
+        padding: 0.1rem 0.55rem;
+      }
+      .cost {
+        margin-left: auto;
+        font-family: "Marcellus", serif;
+        color: var(--gold-bright);
+        border: 1px solid var(--gold-dim);
+        background: rgba(212, 164, 55, 0.1);
+        border-radius: 4px;
+        padding: 0.14rem 0.6rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+      .spell p { margin: 0.35rem 0 0; color: var(--ink-soft); }
+
+      .weakness {
+        margin-top: 1.1rem;
+        border-top: 1px dashed rgba(212, 164, 55, 0.3);
+        padding-top: 0.9rem;
+      }
+      .weakness p { color: var(--ink-soft); }
+
+      .page-foot {
+        text-align: center;
+        color: var(--ink-faint);
+        font-size: 0.9rem;
+        margin-top: 2.4rem;
+      }
+
+      /* ---------- lightbox ---------- */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        background: rgba(5, 4, 2, 0.92);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .lightbox.open { display: flex; }
+      .lightbox img {
+        max-width: 100%;
+        max-height: 88vh;
+        border-radius: 6px;
+        background: #efe9dc;
+        padding: 0.5rem;
+      }
+      .lightbox .close {
+        position: absolute;
+        top: 0.8rem;
+        right: 0.8rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 50%;
+        border: 1px solid var(--gold-dim);
+        background: var(--panel-solid);
+        color: var(--gold-bright);
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
+
+      @media (max-width: 760px) {
+        .top-grid { grid-template-columns: 1fr; }
+        .panel { padding: 1.25rem 1.15rem; }
+        blockquote.quote { padding: 1.3rem 1.2rem; }
+        .fact { grid-template-columns: 6.4rem 1fr; }
+        .cost { margin-left: 0; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .gear svg, .gear .bob { animation: none !important; }
+      }
+    </style>
+<div id="gear-layer" aria-hidden="true"></div>
+
+    <div class="page">
+      <header class="hero">
+        <p class="court-line">Imperious Authorities &middot; Court Theta</p>
+        <h1>Theta <span class="gold">Gold</span> Diamond</h1>
+        <p class="pillar-line">Pillar of Time. Creator of most Gems in the Gempire.</p>
+        <div class="rule"><span class="diamond-mark">&#9670;</span></div>
+      </header>
+
+      <div class="top-grid">
+        <section class="panel" aria-label="Art">
+          <figure class="art">
+            <div class="art-frame">
+              <button type="button" id="art-open" aria-label="View the redesign sketch at full size">
+                <img src="{{BASE}}images/diamonds/theta-gold/page/1.webp" alt="Pencil redesign sketch of Theta Gold Diamond. On the left, his outfit: a sheer top over a shirt with a diamond at the chest, long panels with pockets for work supplies, and no shoes. On the right, a close up of his messy haired head with a monocle, long hair, and the joint lines of a ball jointed doll on his face." />
+              </button>
+            </div>
+            <figcaption>Redesign sketch</figcaption>
+          </figure>
+        </section>
+
+        <section class="panel" aria-label="Details">
+          <h2>Details</h2>
+          <dl class="facts">
+            <div class="fact"><dt>Pronouns</dt><dd>He / They</dd></div>
+            <div class="fact"><dt>Height</dt><dd>164&prime;0&Prime;</dd></div>
+            <div class="fact"><dt>Color</dt><dd>Gold</dd></div>
+            <div class="fact"><dt>Pillar</dt><dd>Time</dd></div>
+            <div class="fact"><dt>Domains</dt><dd>Production and Time</dd></div>
+            <div class="fact">
+              <dt>Sub-Domains</dt>
+              <dd>
+                <span class="chips">
+                  <span class="chip">Growth</span>
+                  <span class="chip">Harvest</span>
+                  <span class="chip">Industry</span>
+                  <span class="chip">Refinement</span>
+                  <span class="chip">Replication</span>
+                  <span class="chip">Seasons</span>
+                  <span class="chip">Aging</span>
+                  <span class="chip">Haste</span>
+                </span>
+              </dd>
+            </div>
+            <div class="fact"><dt>Court</dt><dd>Theta</dd></div>
+          </dl>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h2>Personality</h2>
+        <p>Theta Gold is a total control freak when it comes to his gem productions. He will only take the optimal kindergarten locations for certain gems to be made and refuses to acknowledge any of the defective or off color gems as his creations. Anything less than perfect in his eyes does not belong in his court. Perfect cut gems are his prized possessions, often showing them off to the other Diamonds as a form of flaunting his work.</p>
+        <p>Theta Gold will often experiment under the table with different gems developing in different conditions to try and give them certain features or powers to see if he could create the perfect gem for different scenarios. He takes great pride in his work and in his appearance, making sure he looks the best he can be despite having visible joints similar to a ball-jointed doll along with the lines on his face and spots on his hands.</p>
+        <p>Theta Gold is very much so a workaholic, so he highly prefers work over social outings or events, to which he sends his Cubic Zirconia as a replacement for himself.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Purpose</h2>
+        <p>Theta Gold Diamond is the creator of most gems. He oversees the production of gems, controlling their quantity, type, and, hopefully, quality as well. He is rarely seen in public due to being deeply buried in his work more often than not. He wants to ensure the absolute quality of his gems and is constantly researching ways to create perfect cut gems more often.</p>
+        <p>Theta Gold will take requests from other courts for gem productions and send them the best of the batch while sending the below-average and defective gems to other courts to fill in lesser roles.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Weakness</h2>
+        <p>His greatest weaknesses are how little he understands the world outside his office, his need for perfection, and how deeply he forms attachments to certain gems and metals. If any of these are disrupted, changed, or put into danger, Theta Gold quickly becomes overwhelmed and lets his emotions get the better of him, whether it be stress, grief, or anger.</p>
+      </section>
+
+      <blockquote class="quote">
+        <p>&ldquo;I need you to understand something: this Gempire needs me. I keep the perfect cuts coming in. I keep up production of workers and laborers. I keep up the production of aristocrats and all your little friends. But those defectives? They are not your friends. They are parasites, wastes of resources, and the reason I keep working to prevent more from ever forming. So excuse me if I&rsquo;m upset with you for bringing one into my court and declaring them your friend before fusing with them before my very eyes. Stop your crying, I shattered them for a good reason and we both know it.&rdquo;</p>
+        <footer>Theta Gold Diamond</footer>
+      </blockquote>
+
+      <section class="panel">
+        <div class="ability-head">
+          <h2>Absolute Chronokinesis</h2>
+          <span class="badge">Mastered</span>
+        </div>
+        <div class="meta">
+          <span><b>Parent Ability:</b> Chronokinesis</span>
+          <span><b>Complexity:</b> Complex</span>
+          <span><b>Origin:</b> Domain of Time</span>
+        </div>
+        <p>Theta Gold can speed time up, slow it down, wind it back, and stop it, for a single gem or a whole room. He uses it the way he uses everything else: to keep work on schedule.</p>
+        <div class="passive">
+          <span class="label">Passive: Punctual</span>
+          <p>Theta always acts first in the first round of a battle.</p>
+        </div>
+        <ul class="spells">
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Haste</span><span class="tier">Basic</span><span class="cost">2 SP</span></div>
+            <p>Theta speeds up time around one ally. They act first in the next round.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Slow</span><span class="tier">Basic</span><span class="cost">2 SP</span></div>
+            <p>Theta slows time around one target. The target resists with INT. If they fail, they act last in the next round.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Rewind</span><span class="tier">Standard</span><span class="cost">3 SP</span></div>
+            <p>Theta winds one ally back a few moments. They heal for all the damage they have taken since the end of their last turn.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Wear</span><span class="tier">Advanced</span><span class="cost">4 SP</span></div>
+            <p>Theta ages one target&rsquo;s light form by years in an instant. The target resists with DEF. If they fail, their DEF drops by 4 for 3 turns.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Overtime</span><span class="tier">Advanced</span><span class="cost">4 SP</span></div>
+            <p>Theta takes another turn right away. He skips his next turn afterward.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Time Stop</span><span class="tier">Mastered</span><span class="cost">7 SP</span></div>
+            <p>Theta stops time for everyone but his party. Every enemy skips their next turn, with no resist.</p>
+          </li>
+        </ul>
+        <div class="weakness">
+          <span class="label">Weakness</span>
+          <p>Time cannot undo a Crack or a Shattering, and stopping time takes everything he has. After Time Stop, he cannot use another spell from this ability for 2 turns.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="ability-head">
+          <h2>Body Part Detachment</h2>
+          <span class="badge">Advanced</span>
+        </div>
+        <div class="meta">
+          <span><b>Parent Ability:</b> N/A</span>
+          <span><b>Complexity:</b> Complex</span>
+          <span><b>Origin:</b> Domain of Production</span>
+        </div>
+        <p>Theta Gold can come apart at the joints like a ball-jointed doll and still control every piece. He can also summon up to ten extra disembodied arms and hands made of light to help with his work, whether that is building, carrying, or fighting.</p>
+        <div class="passive">
+          <span class="label">Passive: Ball-Jointed</span>
+          <p>Effects that hold a limb in place, like Stuck and Entangle, last 1 turn shorter on Theta, since he can just take the limb off.</p>
+        </div>
+        <ul class="spells">
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Long Reach</span><span class="tier">Basic</span><span class="cost">2 SP</span></div>
+            <p>Theta detaches a hand and sends it across the battlefield. It can grab an item, pull one ally to Near, or make a FIGHT against a target who is Far as if they were Near.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Helping Hands</span><span class="tier">Standard</span><span class="cost">3 SP</span></div>
+            <p>Theta summons a pair of hands for one ally. For 2 turns, that ally gets one extra FIGHT each turn, dealing half damage.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Many Hands</span><span class="tier">Advanced</span><span class="cost">4 SP</span></div>
+            <p>Ten disembodied hands rain down on one target, each dealing 1d4 damage, plus MAG once.</p>
+          </li>
+        </ul>
+        <div class="weakness">
+          <span class="label">Weakness</span>
+          <p>A detached limb can be hit on its own. If one of his extra hands is struck while out, he takes the damage too.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="ability-head">
+          <h2>Mannequin Creation</h2>
+          <span class="badge">Mastered</span>
+        </div>
+        <div class="meta">
+          <span><b>Parent Ability:</b> N/A</span>
+          <span><b>Complexity:</b> Complex</span>
+          <span><b>Origin:</b> Domain of Production</span>
+        </div>
+        <p>Theta Gold can summon physical mannequins at any size to help with his work. Each one is a prototype of the Gem-Type it is sized after, with that type&rsquo;s base stats at level 1, but no mind of its own and no abilities. Unlike holograms, they are solid. The bigger the mannequin, the fewer he can make.</p>
+        <div class="passive">
+          <span class="label">Passive: Prototypes</span>
+          <p>Mannequins use the base stats of the Gem-Type they are sized after, with no Signature Ability, Era modifier, or Latent Ability. They act on Theta&rsquo;s turn, can only FIGHT or Defend, and last until they are defeated or the battle ends.</p>
+        </div>
+        <ul class="spells">
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Small Mannequin</span><span class="tier">Basic</span><span class="cost">2 SP</span></div>
+            <p>Theta summons a mannequin sized after any Rank 4 or Rank 5 Gem-Type. There is no limit to how many he can have.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Militia Mannequin</span><span class="tier">Standard</span><span class="cost">3 SP</span></div>
+            <p>Theta summons a mannequin sized after any Rank 3 Gem-Type. He can have up to 3 at a time.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Aristocrat Mannequin</span><span class="tier">Advanced</span><span class="cost">4 SP</span></div>
+            <p>Theta summons a mannequin sized after any Rank 2 Gem-Type. He can have up to 2 at a time.</p>
+          </li>
+          <li class="spell">
+            <div class="spell-top"><span class="spell-name">Grand Mannequin</span><span class="tier">Mastered</span><span class="cost">6 SP</span></div>
+            <p>Theta summons a mannequin the size of a Cubic Zirconia, using the Cubic Zirconia&rsquo;s base stats. He can only have 1 at a time in battle, or 2 outside of it.</p>
+          </li>
+        </ul>
+        <div class="weakness">
+          <span class="label">Weakness</span>
+          <p>Mannequins cannot think for themselves, so they only follow simple orders, and they cannot be healed.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Art Credits</h2>
+        <p><b>Design:</b> err0rc0de_blair</p>
+      </section>
+
+      <p class="page-foot">Theta Gold Diamond &middot; Court Theta &middot; Imperious Authorities</p>
+    </div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Redesign sketch at full size">
+      <button type="button" class="close" id="lightbox-close" aria-label="Close full size view">&times;</button>
+      <img src="{{BASE}}images/diamonds/theta-gold/page/1.webp" alt="Pencil redesign sketch of Theta Gold Diamond at full size: his outfit with pockets for work supplies on the left, and a close up of his messy haired head with a monocle on the right." />
+    </div>
+
+    <script>
+      (function () {
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* Build a gear outline: outer teeth plus an inner ring, drawn as one SVG. */
+        function gearSVG(size, teeth, color, opacity) {
+          var c = 50, rOut = 47, rRoot = 39, rHole = 15, rRing = 27;
+          var pts = [];
+          var step = (Math.PI * 2) / teeth;
+          for (var i = 0; i < teeth; i++) {
+            var a = i * step;
+            var a1 = a + step * 0.28, a2 = a + step * 0.5, a3 = a + step * 0.78;
+            pts.push([c + rRoot * Math.cos(a), c + rRoot * Math.sin(a)]);
+            pts.push([c + rOut * Math.cos(a + step * 0.08), c + rOut * Math.sin(a + step * 0.08)]);
+            pts.push([c + rOut * Math.cos(a1), c + rOut * Math.sin(a1)]);
+            pts.push([c + rRoot * Math.cos(a2), c + rRoot * Math.sin(a2)]);
+            pts.push([c + rRoot * Math.cos(a3), c + rRoot * Math.sin(a3)]);
+          }
+          var d = pts.map(function (p, i) {
+            return (i === 0 ? "M" : "L") + p[0].toFixed(1) + " " + p[1].toFixed(1);
+          }).join(" ") + " Z";
+          var spokes = "";
+          for (var s = 0; s < 5; s++) {
+            var sa = (s / 5) * Math.PI * 2;
+            spokes += '<line x1="' + (c + rHole * Math.cos(sa)).toFixed(1) + '" y1="' + (c + rHole * Math.sin(sa)).toFixed(1) +
+                      '" x2="' + (c + rRing * Math.cos(sa)).toFixed(1) + '" y2="' + (c + rRing * Math.sin(sa)).toFixed(1) +
+                      '" stroke="' + color + '" stroke-width="3.4" opacity="' + opacity + '"/>';
+          }
+          return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 100 100" fill="none" aria-hidden="true">' +
+            '<path d="' + d + '" stroke="' + color + '" stroke-width="2.2" opacity="' + opacity + '"/>' +
+            '<circle cx="50" cy="50" r="' + rRing + '" stroke="' + color + '" stroke-width="2" opacity="' + opacity + '"/>' +
+            spokes +
+            '<circle cx="50" cy="50" r="' + rHole + '" stroke="' + color + '" stroke-width="2.2" opacity="' + opacity + '"/>' +
+            "</svg>";
+        }
+
+        var layer = document.getElementById("gear-layer");
+        var defs = [
+          { x: -70,  y: -60,  size: 340, teeth: 12, depth: 0.55, dur: 150, rev: false, op: 0.20, bob: 11 },
+          { x: null, y: 90,   size: 210, teeth: 10, depth: 0.9,  dur: 105, rev: true,  op: 0.26, bob: 8,  right: -50 },
+          { x: 90,   y: null, size: 260, teeth: 14, depth: 0.35, dur: 190, rev: true,  op: 0.15, bob: 13, bottom: -70 },
+          { x: null, y: null, size: 150, teeth: 9,  depth: 1.2,  dur: 80,  rev: false, op: 0.30, bob: 7,  right: 130, bottom: 170 },
+          { x: 40,   y: 330,  size: 120, teeth: 8,  depth: 1.45, dur: 65,  rev: true,  op: 0.32, bob: 6 },
+          { x: null, y: 380,  size: 300, teeth: 13, depth: 0.45, dur: 170, rev: false, op: 0.13, bob: 12, right: -110 },
+          { x: 260,  y: 40,   size: 95,  teeth: 8,  depth: 1.7,  dur: 55,  rev: false, op: 0.34, bob: 5 },
+          { x: null, y: 40,   size: 80,  teeth: 7,  depth: 1.9,  dur: 48,  rev: true,  op: 0.30, bob: 5,  right: 300 }
+        ];
+        var gears = [];
+        defs.forEach(function (d, i) {
+          var wrap = document.createElement("div");
+          wrap.className = "gear" + (d.rev ? " rev" : "");
+          if (d.x !== null && d.x !== undefined) wrap.style.left = d.x + "px";
+          if (d.right !== undefined) wrap.style.right = d.right + "px";
+          if (d.y !== null && d.y !== undefined) wrap.style.top = d.y + "px";
+          if (d.bottom !== undefined) wrap.style.bottom = d.bottom + "px";
+          var bob = document.createElement("div");
+          bob.className = "bob";
+          bob.style.animationDuration = d.bob + "s";
+          bob.style.animationDelay = (i * -1.7) + "s";
+          bob.innerHTML = gearSVG(d.size, d.teeth, "#d4a437", d.op);
+          var svg = bob.querySelector("svg");
+          if (svg) svg.style.animationDuration = d.dur + "s";
+          wrap.appendChild(bob);
+          layer.appendChild(wrap);
+          gears.push({ el: wrap, depth: d.depth });
+        });
+
+        /* Parallax: gears drift against the scroll and lean toward the mouse. */
+        if (!reduced) {
+          var mx = 0, my = 0, tx = 0, ty = 0, ticking = false;
+          function render() {
+            ticking = false;
+            var sy = window.scrollY || window.pageYOffset || 0;
+            gears.forEach(function (g) {
+              var dx = tx * 16 * g.depth;
+              var dy = ty * 12 * g.depth - sy * 0.14 * g.depth;
+              g.el.style.transform = "translate3d(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px,0)";
+            });
+          }
+          function ask() { if (!ticking) { ticking = true; requestAnimationFrame(render); } }
+          window.addEventListener("scroll", ask, { passive: true });
+          if (window.matchMedia("(pointer: fine)").matches) {
+            window.addEventListener("pointermove", function (e) {
+              tx = (e.clientX / window.innerWidth - 0.5) * 2;
+              ty = (e.clientY / window.innerHeight - 0.5) * 2;
+              ask();
+            }, { passive: true });
+          }
+          render();
+        }
+
+        /* Lightbox for the art. */
+        var box = document.getElementById("lightbox");
+        var openBtn = document.getElementById("art-open");
+        var closeBtn = document.getElementById("lightbox-close");
+        function openBox() { box.classList.add("open"); closeBtn.focus(); }
+        function closeBox() { box.classList.remove("open"); openBtn.focus(); }
+        openBtn.addEventListener("click", openBox);
+        closeBtn.addEventListener("click", closeBox);
+        box.addEventListener("click", function (e) { if (e.target === box) closeBox(); });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && box.classList.contains("open")) closeBox();
+        });
+      })();
+    </script>
