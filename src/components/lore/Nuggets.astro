@@ -3,7 +3,8 @@ import { load } from 'js-yaml';
 import fs from 'node:fs';
 const raw = fs.readFileSync('src/data/nuggets.yml', 'utf8');
 type Nugget = { n: number; tags: string[]; text: string[]; note?: string; link?: { label: string; href: string } };
-const nuggets = (load(raw) as Nugget[]).sort((a, b) => b.n - a.n);
+const ndata = load(raw) as any;
+const nuggets = ((Array.isArray(ndata) ? ndata : ndata.nuggets) as Nugget[]).sort((a, b) => b.n - a.n);
 const tags = [...new Set(nuggets.flatMap((x) => x.tags))].sort();
 ---
 <div class="ia-nug-filter" role="group" aria-label="Filter nuggets by topic">

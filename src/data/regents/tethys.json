@@ -162,9 +162,9 @@
     "caption": "Reference sheet"
   },
   "credits": [
-    [
-      "Art",
-      "@Goofykat13"
-    ]
+    {
+      "label": "Art",
+      "name": "@Goofykat13"
+    }
   ]
 }

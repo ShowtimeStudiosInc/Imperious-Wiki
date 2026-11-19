@@ -22,6 +22,7 @@ collections:
     slug: "{{fields.slug}}"
     identifier_field: name
     summary: "{{name}} · Rank {{rank}}"
+    description: "Saving a Gem-Type here marks it as edited in the editor, so the rank-doc import won't overwrite it. Copy big changes into the RANK docs too."
     fields:
       - { name: name, label: Name, widget: string }
       - { name: slug, label: "URL name (lowercase, dashes)", widget: string, pattern: ['^[a-z0-9-]+$', 'Lowercase letters, numbers, and dashes only'] }
@@ -75,3 +76,245 @@ collections:
       - { name: image, label: "Art or gemstone vector", widget: image, required: false }
       - { name: credit, label: "Design credit", widget: string, required: false }
       - { name: updated, label: "Last updated", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { name: gemstone, label: "Gemstone vector (set by the build)", widget: string, required: false }
+      - { name: notes, label: Notes, widget: list, required: false, field: { name: note, label: Note, widget: text } }
+      - { name: descendedFrom, label: "Descended from (slug)", widget: string, required: false }
+      - { name: shiftOf, label: "Shift of (UF Quartz only, slug)", widget: string, required: false }
+      - { name: alsoFactions, label: "Also in factions", widget: list, required: false }
+      - { name: attachments, label: "Attached Gem-Types (slugs)", widget: list, required: false }
+      - name: modifiers
+        label: "Stat modifiers (UF Quartz shifts)"
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: hp, label: HP, widget: number, value_type: int, required: false }
+          - { name: atk, label: ATK, widget: number, value_type: int, required: false }
+          - { name: def, label: DEF, widget: number, value_type: int, required: false }
+          - { name: spd, label: SPD, widget: number, value_type: int, required: false }
+          - { name: int, label: INT, widget: number, value_type: int, required: false }
+          - { name: mag, label: MAG, widget: number, value_type: int, required: false }
+      - name: extraBlocks
+        label: "Extra blocks (tables like Fated Draw)"
+        widget: list
+        required: false
+        collapsed: true
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: lines, label: Lines, widget: list, field: { name: line, label: Line, widget: text } }
+      - { name: editorLocked, label: "Edited in the wiki editor (set on save)", widget: hidden, required: false }
+
+  # ---------- Diamond Approval Rating ----------
+  - name: approval
+    label: Diamond Approval Rating
+    description: "For each update: copy every score into Previous, write the new Score and Votes, change the date, then add log lines (newest goes on top). Each person's log changes should add up to Score minus Previous."
+    files:
+      - name: rating
+        label: Approval Rating and log
+        file: src/data/popularity.yml
+        format: yml
+        fields:
+          - { name: updated, label: "Update date", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+          - name: deity
+            label: "Deity Diamonds"
+            widget: list
+            allow_add: false
+            summary: "{{slug}}: {{score}} (was {{previous}})"
+            fields:
+              - { name: slug, label: Who, widget: hidden }
+              - { name: name, label: "Name (only if there's no page yet)", widget: string, required: false }
+              - { name: score, label: Score, widget: number, value_type: int, min: 0, max: 100 }
+              - { name: previous, label: "Previous score", widget: number, value_type: int, min: 0, max: 100 }
+              - { name: votes, label: "Gems polled", widget: number, value_type: int, min: 0 }
+          - name: ruling
+            label: "Ruling Diamonds"
+            widget: list
+            allow_add: false
+            summary: "{{slug}}: {{score}} (was {{previous}})"
+            fields:
+              - { name: slug, label: Who, widget: hidden }
+              - { name: name, label: "Name (only if there's no page yet)", widget: string, required: false }
+              - { name: score, label: Score, widget: number, value_type: int, min: 0, max: 100 }
+              - { name: previous, label: "Previous score", widget: number, value_type: int, min: 0, max: 100 }
+              - { name: votes, label: "Gems polled", widget: number, value_type: int, min: 0 }
+          - name: regents
+            label: "Grand Regents"
+            widget: list
+            allow_add: false
+            summary: "{{slug}}: {{score}} (was {{previous}})"
+            fields:
+              - { name: slug, label: Who, widget: hidden }
+              - { name: name, label: "Name (only if there's no page yet)", widget: string, required: false }
+              - { name: score, label: Score, widget: number, value_type: int, min: 0, max: 100 }
+              - { name: previous, label: "Previous score", widget: number, value_type: int, min: 0, max: 100 }
+              - { name: votes, label: "Gems polled", widget: number, value_type: int, min: 0 }
+          - name: log
+            label: "What moved the numbers"
+            widget: list
+            add_to_top: true
+            summary: "{{date}} · {{who}} · {{change}} · {{kind}}"
+            fields:
+              - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { name: who, label: Who, widget: select, options: [alpha-black, epsilon-blue, theta-gold, saturn-light, nightshade-violet, maroon-red, bi-colored-kandy, antton, florentino, tethys] }
+              - { name: change, label: "Points (+3, -2, 0)", widget: number, value_type: int }
+              - { name: kind, label: Kind, widget: select, options: [{ label: "Event (something they did)", value: event }, { label: "Update roll", value: roll }] }
+              - { name: text, label: "What happened", widget: text }
+
+  # ---------- Lore ----------
+  - name: nuggets
+    label: Nuggets of Lore
+    files:
+      - name: nuggets
+        label: Nuggets of Lore
+        file: src/data/nuggets.yml
+        format: yml
+        fields:
+          - name: nuggets
+            label: Nuggets
+            widget: list
+            add_to_top: true
+            summary: "#{{n}} · {{tags}}"
+            fields:
+              - { name: n, label: "Number", widget: number, value_type: int }
+              - { name: tags, label: "Tags (used by the filter buttons)", widget: list }
+              - { name: text, label: "Text (one paragraph per item)", widget: list, field: { name: p, label: Paragraph, widget: text } }
+              - { name: note, label: "Note (optional)", widget: text, required: false }
+              - { name: link, label: "Link (optional, a page on the wiki)", widget: string, required: false }
+  - name: glossary
+    label: Glossary
+    description: "Each term gets a hover definition the first time it shows up on a Rules or Lore page, and is listed on the Glossary page."
+    files:
+      - name: glossary
+        label: Glossary terms
+        file: src/data/glossary.yml
+        format: yml
+        fields:
+          - name: terms
+            label: Terms
+            widget: list
+            summary: "{{term}}"
+            fields:
+              - { name: term, label: Term, widget: string }
+              - { name: match, label: "Spellings to look for (plural, lowercase, etc.)", widget: list }
+              - { name: def, label: "Short definition", widget: text }
+              - { name: href, label: "Read more link (starts with /, e.g. /lore/glossary/)", widget: string }
+  - name: loreFactions
+    label: "Lore: Factions"
+    label_singular: Page
+    folder: src/content/docs/lore/factions
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: "Short description (for link previews)", widget: string }
+      - { name: sidebar, label: Sidebar, widget: object, required: false, collapsed: true, fields: [{ name: order, label: "Order in sidebar", widget: number, value_type: int, required: false }] }
+      - { name: body, label: Text, widget: markdown, modes: [raw], hint: "The In-World and Rules labels are written as <span class=\"ia-label in-world\">In-World</span> and <span class=\"ia-label\">Rules · out of character</span>." }
+  - name: loreLife
+    label: "Lore: Gempire Life"
+    label_singular: Page
+    folder: src/content/docs/lore/gempire-life
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: "Short description (for link previews)", widget: string }
+      - { name: sidebar, label: Sidebar, widget: object, required: false, collapsed: true, fields: [{ name: order, label: "Order in sidebar", widget: number, value_type: int, required: false }] }
+      - { name: body, label: Text, widget: markdown, modes: [raw], hint: "The In-World and Rules labels are written as <span class=\"ia-label in-world\">In-World</span> and <span class=\"ia-label\">Rules · out of character</span>." }
+  - name: loreGems
+    label: "Lore: How Gems Work"
+    label_singular: Page
+    folder: src/content/docs/lore/how-gems-work
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: "Short description (for link previews)", widget: string }
+      - { name: sidebar, label: Sidebar, widget: object, required: false, collapsed: true, fields: [{ name: order, label: "Order in sidebar", widget: number, value_type: int, required: false }] }
+      - { name: body, label: Text, widget: markdown, modes: [raw], hint: "The In-World and Rules labels are written as <span class=\"ia-label in-world\">In-World</span> and <span class=\"ia-label\">Rules · out of character</span>." }
+  - name: loreWorld
+    label: "Lore: Wildlife & Ships"
+    label_singular: Page
+    folder: src/content/docs/lore/world
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: "Short description (for link previews)", widget: string }
+      - { name: sidebar, label: Sidebar, widget: object, required: false, collapsed: true, fields: [{ name: order, label: "Order in sidebar", widget: number, value_type: int, required: false }] }
+      - { name: body, label: Text, widget: markdown, modes: [raw], hint: "The In-World and Rules labels are written as <span class=\"ia-label in-world\">In-World</span> and <span class=\"ia-label\">Rules · out of character</span>." }
+
+  # ---------- Diamonds and Grand Regents (page text) ----------
+  - name: diamondPages
+    label: "Diamonds: page text"
+    label_singular: Diamond page
+    folder: src/data/diamond-pages
+    extension: json
+    format: json
+    create: false
+    identifier_field: slug
+    summary: "{{slug}}"
+    description: "Text on each Diamond's page. Height, color, domains and the other facts in the chips live in src/lib/diamonds.ts, and themes are code."
+    fields:
+      - { name: slug, label: Slug, widget: hidden }
+      - { name: courtLine, label: "Line above the name", widget: string }
+      - { name: heroSub, label: "Intro line", widget: text }
+      - { name: partial, label: "Partial page note (clear it when the page is complete)", widget: text, required: false }
+      - { name: quote, label: Quote, widget: text, required: false }
+      - { name: personality, label: Personality, widget: list, required: false, field: { name: p, label: Paragraph, widget: text } }
+      - { name: purpose, label: Purpose, widget: list, required: false, field: { name: p, label: Paragraph, widget: text } }
+      - { name: weakness, label: Weakness, widget: list, required: false, field: { name: p, label: Paragraph, widget: text } }
+      - { name: credits, label: "Art credits", widget: list, required: false, fields: [{ name: label, label: "What (Art, Design...)", widget: string }, { name: name, label: Who, widget: string }] }
+  - name: regentPages
+    label: "Grand Regents: page text"
+    label_singular: Grand Regent page
+    folder: src/data/regents
+    extension: json
+    format: json
+    create: false
+    identifier_field: name
+    summary: "{{name}}"
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: heroSub, label: "Intro line", widget: text }
+      - { name: personality, label: Personality, widget: list, field: { name: p, label: Paragraph, widget: text } }
+      - { name: likes, label: Likes, widget: list }
+      - { name: dislikes, label: Dislikes, widget: list }
+      - { name: fear, label: Fear, widget: string, required: false }
+      - { name: credits, label: "Art credits", widget: list, required: false, fields: [{ name: label, label: "What (Art, Design...)", widget: string }, { name: name, label: Who, widget: string }] }
+
+  # ---------- Site settings ----------
+  - name: settings
+    label: Site settings
+    files:
+      - name: seasons
+        label: Seasonal themes
+        file: src/data/seasons.yml
+        format: yml
+        fields:
+          - { name: force, label: "Lock a theme (leave empty to go by date)", widget: select, required: false, options: [none, winter, spring, summer, autumn, easter, halloween, thanksgiving, winter-holidays, new-year, valentines] }
+          - name: holidays
+            label: Holidays
+            widget: list
+            summary: "{{name}}: {{from}} to {{to}}"
+            fields:
+              - { name: key, label: "Theme", widget: select, options: [easter, halloween, thanksgiving, winter-holidays, new-year, valentines] }
+              - { name: name, label: Name, widget: string }
+              - { name: from, label: "From (MM-DD)", widget: string, pattern: ['^\d\d-\d\d$', 'Write it as MM-DD'] }
+              - { name: to, label: "To (MM-DD)", widget: string, pattern: ['^\d\d-\d\d$', 'Write it as MM-DD'] }
+          - name: seasons
+            label: "Seasons (months)"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: winter, label: Winter, widget: list, field: { name: m, label: Month, widget: number, value_type: int } }
+              - { name: spring, label: Spring, widget: list, field: { name: m, label: Month, widget: number, value_type: int } }
+              - { name: summer, label: Summer, widget: list, field: { name: m, label: Month, widget: number, value_type: int } }
+              - { name: autumn, label: Autumn, widget: list, field: { name: m, label: Month, widget: number, value_type: int } }

@@ -209,7 +209,7 @@ const nav = [
           {p.credits.length > 0 && (
             <section class="facts-wrap" aria-label="Art credits">
               <h2>Art Credits</h2>
-              <ul class="credits">{p.credits.map(([k, v]: [string, string]) => <li><b>{k}:</b>{v}</li>)}</ul>
+              <ul class="credits">{p.credits.map((c: any) => <li><b>{c.label}:</b>{c.name}</li>)}</ul>
             </section>
           )}
         </aside>

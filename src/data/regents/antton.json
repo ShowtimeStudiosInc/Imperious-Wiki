@@ -193,5 +193,10 @@
     "alt": "Antton, a grinning gem with messy gray hair over his eyes, a purple shirt with a gold HOLO pin and an ON AIR sign, a gold tie, suspenders, holding a gold microphone and reaching out",
     "caption": ""
   },
-  "credits": [["Art", "Belle (Fiverr)"]]
+  "credits": [
+    {
+      "label": "Art",
+      "name": "Belle (Fiverr)"
+    }
+  ]
 }

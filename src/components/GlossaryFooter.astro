@@ -8,7 +8,8 @@ import Default from '@astrojs/starlight/components/Footer.astro';
 import { load } from 'js-yaml';
 import fs from 'node:fs';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const terms = (load(fs.readFileSync('src/data/glossary.yml', 'utf8')) as any[]).map((t) => ({
+const gdata = load(fs.readFileSync('src/data/glossary.yml', 'utf8')) as any;
+const terms = ((Array.isArray(gdata) ? gdata : gdata.terms) as any[]).map((t) => ({
   term: t.term, match: t.match, def: t.def, href: base + String(t.href).replace(/^\//, ''),
 }));
 const self = Astro.url.pathname;

@@ -175,6 +175,10 @@ function slugFor(g) {
   return slugify(base);
 }
 
+// Remember the current files before clearing the folder: unchanged Gem-Types keep their
+// "updated" date, and files saved in the wiki editor (editorLocked) are kept as they are.
+const previous = new Map();
+if (fs.existsSync(OUT)) for (const f of fs.readdirSync(OUT)) if (f.endsWith('.yml')) previous.set(f.slice(0, -4), fs.readFileSync(path.join(OUT, f), 'utf8'));
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 const all = [];
@@ -202,6 +206,7 @@ for (const g of all) {
 }
 
 const out = [];
+const locked = [];
 for (const g of all) {
   const ex = extras.types?.[g.slug] || {};
   const doc = {
@@ -244,7 +249,25 @@ for (const g of all) {
   if (g.unparsed) console.warn('Unparsed lines in', g.slug, g.unparsed);
   if (g.unknownTags) console.warn('Unknown tags in', g.slug, g.unknownTags);
   for (const k of Object.keys(doc)) if (doc[k] === undefined) delete doc[k];
-  fs.writeFileSync(path.join(OUT, g.slug + '.yml'), yaml.dump(doc, { lineWidth: 120, noRefs: true }));
+  const target = path.join(OUT, g.slug + '.yml');
+  // A Gem-Type saved in the wiki editor (/admin) gets `editorLocked: true`. The import leaves
+  // those files alone so editor changes aren't wiped; copy the change into raw/ and remove the
+  // flag (or delete the line) when you want the import to manage that Gem-Type again.
+  const prevText = previous.get(g.slug);
+  if (prevText && /^editorLocked:\s*true\s*$/m.test(prevText)) {
+    locked.push(g.slug);
+    fs.writeFileSync(target, prevText);
+    out.push(yaml.load(prevText));
+    continue;
+  }
+  // Keep the old "updated" date when nothing else about the Gem-Type changed.
+  if (prevText) {
+    const old = yaml.load(prevText);
+    const blank = (t) => t.replace(/^updated: .*$/m, '');
+    if (old?.updated && blank(prevText) === blank(yaml.dump(doc, { lineWidth: 120, noRefs: true }))) doc.updated = old.updated;
+  }
+  fs.writeFileSync(target, yaml.dump(doc, { lineWidth: 120, noRefs: true }));
   out.push(doc);
 }
-console.log(`Wrote ${out.length} Gem-Types to src/data/gem-types`);
+console.log(`Wrote ${out.length - locked.length} Gem-Types to src/data/gem-types`);
+if (locked.length) console.warn(`Kept ${locked.length} Gem-Types edited in the wiki editor (editorLocked): ${locked.join(', ')}. Copy those changes into raw/ when you can.`);

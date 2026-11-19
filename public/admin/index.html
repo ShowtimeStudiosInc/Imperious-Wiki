@@ -8,5 +8,16 @@
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // Any Gem-Type saved here is marked editorLocked, so the rank-doc import
+      // (npm run import) keeps this version instead of overwriting it.
+      CMS.registerEventListener({
+        name: 'preSave',
+        handler: ({ entry }) => {
+          if (entry.get('collection') !== 'gemTypes') return entry.get('data');
+          return entry.get('data').set('editorLocked', true);
+        },
+      });
+    </script>
   </body>
 </html>

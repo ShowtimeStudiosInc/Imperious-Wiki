@@ -81,7 +81,39 @@ For a custom domain, set `SITE` to the domain and `BASE` to `/` in the workflow,
 
 ## Turning on the editor (`/admin`)
 
-Decap needs a small OAuth helper so you can log in with GitHub. The simplest free option is a Cloudflare Worker such as [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) or [decap-proxy](https://github.com/sterlingwes/decap-proxy). Deploy one, create a GitHub OAuth App that points to it, then set `base_url` in `public/admin/config.yml`. Only the owner uses the editor, so no one else needs write access to the repo.
+The editor lives at `/admin` on the live site. It edits the files in this repo for you, so nothing there needs code. It covers:
+
+- **Gem-Types**
+- **Diamond Approval Rating** (scores, gems polled, and the log)
+- **Nuggets of Lore** and the **Glossary**
+- **Lore pages** (Factions, Gempire Life, How Gems Work, Wildlife & Ships)
+- **Diamond and Grand Regent page text** (themes, chips and abilities stay in code)
+- **Site settings** (seasonal themes)
+
+Edits save as drafts first (editorial workflow) and go live when you press Publish.
+
+**Gem-Types and the import:** any Gem-Type saved in the editor gets `editorLocked: true`. `npm run import` leaves those files alone and lists them, so editor changes are never wiped. Copy the change into the RANK doc and `raw/` when you can, then delete the `editorLocked` line to hand that Gem-Type back to the import.
+
+### One-time login setup (Oliver)
+
+GitHub Pages can't do the GitHub sign-in by itself, so the editor needs a tiny free helper on Cloudflare (sveltia-cms-auth, which works with Decap).
+
+1. **Make the helper.** Sign up at cloudflare.com (free). Open github.com/sveltia/sveltia-cms-auth and press **Deploy to Cloudflare Workers**. When it's done, open the `sveltia-cms-auth` Worker in the Cloudflare dashboard and copy its URL. It looks like `https://sveltia-cms-auth.<your-name>.workers.dev`.
+2. **Make a GitHub OAuth app.** Go to github.com/settings/applications/new:
+   - Application name: `Imperious Wiki Editor`
+   - Homepage URL: `https://showtimestudiosinc.github.io/Imperious-Wiki/`
+   - Authorization callback URL: the Worker URL from step 1 with `/callback` on the end
+   
+   Register it, then press **Generate a new client secret**. Keep the page open.
+3. **Connect them.** In Cloudflare, open the Worker → **Settings → Variables** and add:
+   - `GITHUB_CLIENT_ID`: the Client ID from step 2
+   - `GITHUB_CLIENT_SECRET`: the client secret from step 2 (press **Encrypt**)
+   - `ALLOWED_DOMAINS`: `showtimestudiosinc.github.io`
+   
+   Save and deploy.
+4. **Send Claude the Worker URL** (it isn't secret). It goes in `public/admin/config.yml` as `base_url`. After the next deploy, open `/admin` on the live site and sign in with GitHub.
+
+Never share the client secret. If it leaks, generate a new one in the OAuth app and replace it in Cloudflare.
 
 ## Hooking up the Gem Builder
 

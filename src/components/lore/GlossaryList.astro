@@ -2,7 +2,8 @@
 import { load } from 'js-yaml';
 import fs from 'node:fs';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const terms = (load(fs.readFileSync('src/data/glossary.yml', 'utf8')) as any[])
+const gdata = load(fs.readFileSync('src/data/glossary.yml', 'utf8')) as any;
+const terms = ((Array.isArray(gdata) ? gdata : gdata.terms) as any[])
   .sort((a, b) => a.term.localeCompare(b.term));
 ---
 <dl class="ia-glossary">
