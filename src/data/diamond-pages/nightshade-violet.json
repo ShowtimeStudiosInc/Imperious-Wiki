@@ -22,6 +22,11 @@
   "weakness": [],
   "abilities": [],
   "powerList": [],
-  "credits": [],
+  "credits": [
+    {
+      "label": "Art",
+      "name": "KitsuneFPm"
+    }
+  ],
   "partial": "This page is partial. Only what the server already knows is here, and the rest will be added once Nightshade Violet's submission is finished."
 }
