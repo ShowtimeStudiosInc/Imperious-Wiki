@@ -1,6 +1,7 @@
 ---
 import Site from '../layouts/Site.astro';
 import { getGems, url } from '../lib/gems';
+import HoloScreen from '../components/HoloScreen.astro';
 const all = await getGems();
 const repo = import.meta.env.PUBLIC_REPO || 'ShowtimeStudiosInc/Imperious-Wiki';
 const sections = [
@@ -11,6 +12,7 @@ const sections = [
 ];
 ---
 <Site title="Imperious Authorities">
+  <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" />
   <main class="wrap home">
     <header class="hero">
       <img class="hero-logo" src={url('/images/brand/logo-white.png')} alt="Imperious Authorities logo" width="134" height="162" />
@@ -26,10 +28,13 @@ const sections = [
           </a>
         ))}
       </div>
+      <div class="side">
+      <HoloScreen />
       <aside class="panel log">
         <div class="bar">Latest Changes</div>
         <ol id="log" class="body"><li class="muted">Loading the latest changes…</li></ol>
       </aside>
+      </div>
     </div>
   </main>
 </Site>

@@ -1,0 +1,53 @@
+---
+/** Home page Holovision screen with the Gempire Popularity standings. Opens /popularity/. */
+import { diamonds, regents, changeLabel, changeClass } from '../lib/popularity';
+import { url } from '../lib/gems';
+const groups = [ { title: 'Diamonds', rows: diamonds }, { title: 'Grand Regents', rows: regents } ];
+---
+<a class="holo" href={url('/popularity/')} aria-label="Gempire Popularity: open the full report">
+  <span class="ant l" aria-hidden="true"></span><span class="ant r" aria-hidden="true"></span>
+  <span class="screen">
+    <span class="h">Gempire Popularity</span>
+    {groups.map((g) => (
+      <span class="grp">
+        <span class="gt">{g.title}</span>
+        {g.rows.map((r, i) => (
+          <span class="row">
+            <span class="n">{i + 1}</span>
+            <span class="nm">{r.short}</span>
+            <span class="tr"><span style={`width:${r.score}%`} /></span>
+            <span class="sc">{r.score}</span>
+            <span class={`ch ${changeClass(r.change)}`}>{changeLabel(r.change)}</span>
+          </span>
+        ))}
+      </span>
+    ))}
+    <span class="go">Full report and what changed ›</span>
+  </span>
+</a>
+<style>
+  .holo { position: relative; display: block; margin: 14px 0 1rem; padding: 10px; border-radius: 14px; text-decoration: none;
+    background: linear-gradient(160deg, #3a1a52, #1d0d2e); border: 2px solid #ff4fa3;
+    box-shadow: 0 0 0 2px #1d0d2e, 0 0 22px rgba(255, 79, 163, 0.35); transition: box-shadow 0.2s, transform 0.2s; }
+  .holo:hover, .holo:focus-visible { box-shadow: 0 0 0 2px #1d0d2e, 0 0 30px rgba(255, 79, 163, 0.6); transform: translateY(-2px); }
+  .ant { position: absolute; top: -14px; width: 4px; height: 16px; background: #ff4fa3; }
+  .ant::after { content: ''; position: absolute; top: -4px; left: -2px; width: 8px; height: 6px; background: #7fe0a8; }
+  .ant.l { left: 32%; transform: rotate(-25deg); } .ant.r { right: 32%; transform: rotate(25deg); }
+  .screen { position: relative; display: block; overflow: hidden; border-radius: 8px; padding: 0.8rem 0.9rem 0.7rem;
+    background: radial-gradient(ellipse at 50% 30%, #2b1745, #120a1e 75%); border: 1px solid rgba(127, 224, 168, 0.35); color: #f3e8ff; }
+  .screen::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 3px); }
+  .h { display: block; font-family: 'Pixelify Sans', var(--serif), monospace; color: #ff4fa3; font-size: 1.05rem; letter-spacing: 0.06em;
+    text-transform: uppercase; text-shadow: 0 0 8px rgba(255, 79, 163, 0.6); margin-bottom: 0.3rem; }
+  .grp { display: block; margin-top: 0.45rem; }
+  .gt { display: block; font-family: 'Pixelify Sans', monospace; color: #7fe0a8; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.15rem; }
+  .row { display: grid; grid-template-columns: 0.9rem minmax(0, 1fr) 70px 1.6rem 2.2rem; gap: 0.45rem; align-items: center; font-size: 0.8rem; padding: 0.14rem 0; }
+  .n { color: #b49bd0; font-size: 0.7rem; text-align: right; }
+  .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tr { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+  .tr span { display: block; height: 100%; border-radius: 3px; background: #ff4fa3; }
+  .sc { text-align: right; font-variant-numeric: tabular-nums; }
+  .ch { font-size: 0.7rem; color: #b49bd0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .ch.up { color: #7fe0a8; } .ch.down { color: #ff8a8a; }
+  .go { display: block; margin-top: 0.6rem; font-size: 0.75rem; color: #7fe0a8; text-align: right; }
+</style>

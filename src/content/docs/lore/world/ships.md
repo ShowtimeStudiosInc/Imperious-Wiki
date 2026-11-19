@@ -33,14 +33,6 @@ The Warden Ship is a transport with basic weapons, built for an Emerald to comma
 
 The Bounty Skiff is a fast, light ship built for Aquamarines on the hunt. It carries the Aquamarine, a few Topazes, and room for whatever she's been sent to bring back, whether that's an item or a gem. When she isn't on a job, it's usually docked at the Canis Major station.
 
-## Star Vector
-
-| Affiliation | Crew | Builder | Purpose |
-|---|---|---|---|
-| Any court | A skeleton crew of Nephrites | Kandy Innovations | Experimental autopilot cargo and prisoner transport |
-
-The Star Vector is a new, experimental ship that flies itself. It was built to test long-range autopilot, cargo runs with no pilot, and a single automated prisoner cell. It carries the most advanced tech in the empire, but a small crew of Nephrites stays on board anyway, in case the system fails and someone has to take the controls. Plenty of gems don't trust a ship that thinks for itself, and the Nephrites on board are usually the first to say so.
-
 ## Infiltrator Major
 
 | Era | Where it's seen | Look |

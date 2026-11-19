@@ -1,0 +1,105 @@
+# Gempire Popularity: how the empire as a whole feels about each Diamond and Grand Regent.
+# This is in-world standing, not a member vote. Staff update it:
+#   - with a roll for each entry (rise, drop, or stay the same), and
+#   - by hand after major events, based on how each Diamond or Regent reacted.
+#
+# To post a new update:
+#   1. Copy each `score` into `previous`, then write the new `score` (0 to 100).
+#   2. Change `updated` to today's date.
+#   3. Add log lines at the TOP of `log` with the same date. Each one has:
+#        who: a slug from the lists below
+#        change: how many points it moved (+3, -2, 0)
+#        kind: event (something they did) or roll (the update roll)
+#        text: what happened, in-world
+#      The changes for one update should add up to score minus previous.
+# The home page screen and the Popularity page sort by score on their own.
+updated: 2026-11-19
+diamonds:
+  - slug: saturn-light
+    score: 78
+    previous: 72
+  - slug: epsilon-blue
+    score: 64
+    previous: 66
+  - slug: theta-gold
+    score: 58
+    previous: 55
+  - slug: alpha-black
+    score: 47
+    previous: 47
+regents:
+  - slug: antton
+    score: 74
+    previous: 68
+  - slug: florentino
+    score: 69
+    previous: 70
+  - slug: tethys
+    score: 41
+    previous: 38
+log:
+  - date: 2026-11-19
+    who: saturn-light
+    change: +4
+    kind: event
+    text: Opened Club Imperious to Service Trade gems for one night, free of charge. Saturn stayed until the last song and danced with anyone who asked.
+  - date: 2026-11-19
+    who: saturn-light
+    change: +2
+    kind: roll
+    text: Talk of the club night kept going all week.
+  - date: 2026-11-19
+    who: epsilon-blue
+    change: -3
+    kind: event
+    text: Ruled against a well-liked Aristocrat in a public case. The ruling was fair, and the Aristocrat's friends are still telling everyone it wasn't.
+  - date: 2026-11-19
+    who: epsilon-blue
+    change: +1
+    kind: roll
+    text: A Bounty Skiff out of Canis Major brought home a set of stolen relics, and Court Epsilon got the credit.
+  - date: 2026-11-19
+    who: theta-gold
+    change: +3
+    kind: event
+    text: Gave the Era 1A workforce a full day off, the first one most of them can remember. Theta spent it reviewing their quotas.
+  - date: 2026-11-19
+    who: theta-gold
+    change: 0
+    kind: roll
+    text: Production numbers came in on time, as always. Nobody noticed.
+  - date: 2026-11-19
+    who: alpha-black
+    change: 0
+    kind: roll
+    text: Not seen in public this cycle. The Hematites ran a special on her anyway, and it was the most watched broadcast of the week.
+  - date: 2026-11-19
+    who: antton
+    change: +5
+    kind: event
+    text: His game show's season finale pulled the biggest audience in Holovision history, mostly because nobody saw the final twist coming. Mike got a cheer of his own.
+  - date: 2026-11-19
+    who: antton
+    change: +1
+    kind: roll
+    text: Reruns are doing well.
+  - date: 2026-11-19
+    who: florentino
+    change: -2
+    kind: event
+    text: Gave an Emerald commander a new nickname in front of her whole fleet. The fleet loved it. The Emerald filed a complaint.
+  - date: 2026-11-19
+    who: florentino
+    change: +1
+    kind: roll
+    text: Brought marigolds to a Kindergarten crew working a double shift.
+  - date: 2026-11-19
+    who: tethys
+    change: +2
+    kind: event
+    text: Reorganized the Court Epsilon case archive so Kyanites and Azurites can find any file in minutes. Most gems still couldn't tell you who did it.
+  - date: 2026-11-19
+    who: tethys
+    change: +1
+    kind: roll
+    text: In a Hematite street poll, most gems couldn't name Tethys. The ones who could rated them very highly.
