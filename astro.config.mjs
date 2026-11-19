@@ -28,7 +28,15 @@ export default defineConfig({
         { label: 'Know Your Diamond', link: '/diamonds/' },
         { label: 'Start Here', items: [{ autogenerate: { directory: 'start-here' } }] },
         { label: 'Rules', items: [{ autogenerate: { directory: 'rules' } }] },
-        { label: 'Lore', items: [{ autogenerate: { directory: 'lore' } }] },
+        {
+          label: 'Lore',
+          items: [
+            { label: 'Lore Overview', link: '/lore/overview/' },
+            { label: 'Factions', collapsed: false, items: [{ autogenerate: { directory: 'lore/factions' } }] },
+            { label: 'Gempire Life', collapsed: false, items: [{ autogenerate: { directory: 'lore/gempire-life' } }] },
+            { label: 'How Gems Work', collapsed: false, items: [{ autogenerate: { directory: 'lore/how-gems-work' } }] },
+          ],
+        },
       ],
     }),
   ],
