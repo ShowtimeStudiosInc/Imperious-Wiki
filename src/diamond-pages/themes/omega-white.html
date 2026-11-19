@@ -17,12 +17,11 @@
     --shadow: 0 18px 44px rgba(0, 0, 0, .4);
     --sp: #1c2130; --sp-bg: #eef2fa; --badge-ink: #1c2130;
   }
-  body { background: radial-gradient(120% 90% at 50% 0%, var(--bg-deep) 0%, var(--bg) 62%) fixed, var(--bg); font-size: 1.1rem; }
+  body { background: var(--bg) url('{{BASE}}images/diamonds/omega-white/hall-of-light-3.svg') center / cover no-repeat fixed; font-size: 1.1rem; }
   .sky { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-  .pt { position:absolute; width:10px; height:10px; transform:rotate(45deg); border:1px solid rgba(240,244,255,.35); }
-.sky-grid { position:absolute; inset:-80px; animation: sync 14s ease-in-out infinite alternate; }
-@keyframes sync { from { transform: translateY(0); } to { transform: translateY(-40px); } }
-.ray { position:absolute; top:-20%; width:2px; height:140%; background:linear-gradient(transparent, rgba(255,255,255,.07), transparent); transform-origin:top; }
+  .mote { position:absolute; bottom:-10px; width:4px; height:4px; border-radius:50%; background:#fff; box-shadow:0 0 8px 2px rgba(255,255,255,.55); opacity:0; animation: lift 12s linear infinite; }
+  @keyframes lift { 0% { transform:translateY(0); opacity:0; } 12%,80% { opacity:.7; } 100% { transform:translateY(-105vh); opacity:0; } }
+  .crumbs { color: #f4f6fb; text-shadow: 0 1px 6px rgba(5, 6, 10, .95), 0 0 2px rgba(5, 6, 10, .9); }
   @media (prefers-reduced-motion: reduce) { .sky * { animation: none !important; } }
 </style>
 <!--mark-->
@@ -33,8 +32,9 @@
   (function () {
     var sky = document.getElementById('sky'); if (!sky) return;
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var g=document.createElement('div'); g.className='sky-grid'; sky.appendChild(g);
-for (var y=0; y<16; y++) for (var x=0; x<22; x++) { var p=document.createElement('span'); p.className='pt'; p.style.left=(x*90+((y%2)*45))+'px'; p.style.top=(y*90)+'px'; g.appendChild(p); }
-for (var i=0;i<7;i++){ var r=document.createElement('span'); r.className='ray'; r.style.left=(8+i*14)+'%'; r.style.transform='rotate('+(-18+i*6)+'deg)'; sky.appendChild(r); }
+    if (reduce) return;
+    // every mote starts at the same moment, in an even row: Omega's uniformity
+    for (var i = 0; i < 14; i++) { var m = document.createElement('span'); m.className = 'mote'; m.style.left = (4 + i * 7) + '%'; sky.appendChild(m); }
+    for (var j = 0; j < 14; j++) { var n = document.createElement('span'); n.className = 'mote'; n.style.left = (7.5 + j * 7) + '%'; n.style.animationDelay = '-6s'; sky.appendChild(n); }
   })();
 </script>
