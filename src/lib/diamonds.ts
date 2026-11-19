@@ -306,7 +306,7 @@ export const DIAMONDS: Diamond[] = [
     artCaption: 'Appearance collection: outfit, hair, eyes, and earrings',
     references: [
       { label: 'Outfit', image: '/images/diamonds/saturn-light/outfit.webp', caption: 'Brown open shirt, gold necklaces, patterned shawl, gold belt, and a black briefcase' },
-      { label: 'Hair', image: '/images/diamonds/saturn-light/hair.webp', caption: 'Curly black hair with blonde streaks' },
+      { label: 'Hair', image: '/images/diamonds/saturn-light/hair.webp', caption: 'Curly black hair with blonde highlights' },
       { label: 'Eyes', image: '/images/diamonds/saturn-light/eyes.webp', caption: 'Yellow star eye makeup, one yellow iris and one dark iris' },
       { label: 'Earrings', image: '/images/diamonds/saturn-light/earrings.webp', caption: 'Gold star earrings with pearls' },
     ],
