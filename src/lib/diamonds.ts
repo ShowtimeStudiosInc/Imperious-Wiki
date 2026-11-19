@@ -659,7 +659,7 @@ export const DIAMONDS: Diamond[] = [
     name: 'Bi-Colored Kandy Diamond',
     pronouns: "",
     height: "",
-    color: "Bi-colored",
+    color: "Pink and blue",
     domains: ["Technology"],
     subDomains: [],
     court: 'Kandy',
