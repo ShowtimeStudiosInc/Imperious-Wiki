@@ -1,0 +1,40 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Rubik:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-body: "Rubik", system-ui, sans-serif;
+    --font-display: "Orbitron", system-ui, sans-serif;
+    --bg: #070a14; --bg-deep: #1a1236;
+    --panel: rgba(24, 20, 50, .93); --panel-2: rgba(24, 20, 50, .93); --panel-solid: rgba(14, 12, 32, .92);
+    --ink: #eef4ff; --ink-soft: #c4c8ea; --ink-faint: #8f93c0;
+    --gold: #ff6fb5; --gold-bright: #5fe3ff; --gold-pale: #5fe3ff;
+    --brown-deep: rgba(14, 12, 32, .92);
+    --line: rgba(120, 220, 255, .15); --line-strong: rgba(120, 220, 255, .3);
+    --chip: rgba(255, 111, 181, .16);
+    --quote-bg: rgba(14, 12, 32, .92); --quote-ink: #eef4ff;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .4);
+    --sp: #1a1236; --sp-bg: #5fe3ff; --badge-ink: #1a1236;
+  }
+  body { background: radial-gradient(120% 90% at 50% 0%, var(--bg-deep) 0%, var(--bg) 62%) fixed, var(--bg); font-size: 1rem; }
+  .sky { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .trace { position:absolute; height:2px; background:linear-gradient(90deg, transparent, rgba(95,227,255,.35), transparent); animation: pulse 6s ease-in-out infinite; }
+.trace.v { width:2px; height:auto; background:linear-gradient(transparent, rgba(255,111,181,.35), transparent); }
+@keyframes pulse { 0%,100% { opacity:.25; } 50% { opacity:1; } }
+.node { position:absolute; width:8px; height:8px; border-radius:2px; background:#ff6fb5; box-shadow:0 0 10px rgba(255,111,181,.7); animation: pulse 4s ease-in-out infinite; }
+.node.b { background:#5fe3ff; box-shadow:0 0 10px rgba(95,227,255,.7); }
+  @media (prefers-reduced-motion: reduce) { .sky * { animation: none !important; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="190" height="190" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,6 92,50 50,94" fill="#ff6fb5"/><polygon points="50,6 8,50 50,94" fill="#5fe3ff"/></svg>
+<!--/mark-->
+<div class="sky" id="sky" aria-hidden="true"></div>
+<script>
+  (function () {
+    var sky = document.getElementById('sky'); if (!sky) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    for (var i=0;i<10;i++){ var t=document.createElement('span'); var v=i%2; t.className='trace'+(v?' v':''); if(v){ t.style.left=(Math.random()*100)+'%'; t.style.top=(Math.random()*60)+'%'; t.style.height=(15+Math.random()*25)+'vh'; } else { t.style.top=(Math.random()*100)+'%'; t.style.left=(Math.random()*60)+'%'; t.style.width=(15+Math.random()*25)+'vw'; } t.style.animationDelay=(-Math.random()*6)+'s'; sky.appendChild(t); }
+for (var i=0;i<16;i++){ var n=document.createElement('span'); n.className='node'+(i%2?' b':''); n.style.left=Math.random()*100+'%'; n.style.top=Math.random()*100+'%'; n.style.animationDelay=(-Math.random()*4)+'s'; sky.appendChild(n); }
+  })();
+</script>

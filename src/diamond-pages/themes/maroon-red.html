@@ -1,0 +1,38 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-body: "Source Serif 4", Georgia, serif;
+    --font-display: "Oswald", Impact, sans-serif;
+    --bg: #0e0506; --bg-deep: #3a0c12;
+    --panel: rgba(52, 14, 20, .93); --panel-2: rgba(52, 14, 20, .93); --panel-solid: rgba(32, 9, 12, .92);
+    --ink: #fbecec; --ink-soft: #e2bcbc; --ink-faint: #b48787;
+    --gold: #d24a4a; --gold-bright: #ff9a7a; --gold-pale: #ff9a7a;
+    --brown-deep: rgba(32, 9, 12, .92);
+    --line: rgba(255, 140, 140, .15); --line-strong: rgba(255, 140, 140, .3);
+    --chip: rgba(200, 50, 60, .2);
+    --quote-bg: rgba(32, 9, 12, .92); --quote-ink: #fbecec;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .4);
+    --sp: #3a0c12; --sp-bg: #ffb4a0; --badge-ink: #3a0c12;
+  }
+  body { background: radial-gradient(120% 90% at 50% 0%, var(--bg-deep) 0%, var(--bg) 62%) fixed, var(--bg); font-size: 1.04rem; }
+  .sky { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .ember { position:absolute; bottom:-4vh; width:4px; height:4px; border-radius:50%; background:#ff8a4a; box-shadow:0 0 8px 2px rgba(255,110,50,.6); animation: rise linear infinite; }
+@keyframes rise { 0% { transform: translateY(0); opacity:0; } 15%,70% { opacity:.9; } 100% { transform: translate(30px,-90vh); opacity:0; } }
+.banner { position:absolute; top:0; width:70px; height:42vh; background:linear-gradient(rgba(120,20,30,.35), rgba(120,20,30,.05)); clip-path:polygon(0 0,100% 0,100% 100%,50% 88%,0 100%); }
+  @media (prefers-reduced-motion: reduce) { .sky * { animation: none !important; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="190" height="190" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,6 90,30 90,70 50,94 10,70 10,30" fill="var(--gold)"/><path d="M30 30 L70 70 M70 30 L30 70" stroke="#3a0c12" stroke-width="7" stroke-linecap="round"/></svg>
+<!--/mark-->
+<div class="sky" id="sky" aria-hidden="true"></div>
+<script>
+  (function () {
+    var sky = document.getElementById('sky'); if (!sky) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    [6, 88].forEach(function(x){ var b=document.createElement('span'); b.className='banner'; b.style.left=x+'%'; sky.appendChild(b); });
+if(!reduce) for (var i=0;i<22;i++){ var e=document.createElement('span'); e.className='ember'; e.style.left=Math.random()*100+'%'; e.style.animationDuration=(9+Math.random()*9)+'s'; e.style.animationDelay=(-Math.random()*15)+'s'; sky.appendChild(e); }
+  })();
+</script>

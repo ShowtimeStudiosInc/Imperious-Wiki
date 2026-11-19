@@ -29,7 +29,7 @@ Every Gem made in a Gempire kindergarten is given a Facet & Cut code when they e
 
 **2nd character:** the first letter of your kindergarten's name.
 
-**3rd character:** your rank, without the decimal. *A Rank 4.2 Gem uses `42`.*
+**3rd character:** your rank, with the decimal cut off. *A Rank 4.2 Gem uses `4`.*
 
 **4th character:** any letter you like.
 
@@ -45,7 +45,7 @@ Every Gem made in a Gempire kindergarten is given a Facet & Cut code when they e
 
 A Hessonite made by Maroon Red, emerged at the Militia Kindergarten, Rank 2.1, with 11 ATK after her Era modifier:
 
-- **Facet:** `4` `M` `21` + `O`
+- **Facet:** `4` `M` `2` + `O`
 - **Cut:** `11` `X` `X`
 
-<p class="ia-code-big"><code>4M21O - 11XX</code></p>
+<p class="ia-code-big"><code>4M2O - 11XX</code></p>

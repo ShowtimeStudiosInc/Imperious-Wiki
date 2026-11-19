@@ -21,6 +21,9 @@ const sorted = [...gems].sort((a, b) => (a.rank ?? '').localeCompare(b.rank ?? '
     {tier === 'transcendent' && (
       <a class="dia-link" href={url('/diamonds/')}><strong>Rank 1.1: The Diamonds</strong><span>Meet them on Know Your Diamond &rarr;</span></a>
     )}
+    {tier === 'discontinued' && (
+      <a class="dia-link" href={url('/diamonds/omega-white/')}><strong>Omega White Diamond</strong><span>The absorbed Deity Diamond whose empire made the Wittichenites &rarr;</span></a>
+    )}
     {ranks.length > 1 && (
       <div class="tabs" role="tablist">
         <button class="tab" role="tab" aria-selected="true" data-rank="">All</button>

@@ -1,0 +1,40 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-body: "Cormorant Garamond", Georgia, serif;
+    --font-display: "Cinzel", Georgia, serif;
+    --bg: #0b0d14; --bg-deep: #1c2130;
+    --panel: rgba(28, 33, 48, .93); --panel-2: rgba(28, 33, 48, .93); --panel-solid: rgba(18, 21, 32, .92);
+    --ink: #f4f6fb; --ink-soft: #c9cfdd; --ink-faint: #98a0b4;
+    --gold: #e8ecf5; --gold-bright: #ffffff; --gold-pale: #ffffff;
+    --brown-deep: rgba(18, 21, 32, .92);
+    --line: rgba(230, 236, 250, .14); --line-strong: rgba(230, 236, 250, .3);
+    --chip: rgba(220, 228, 245, .12);
+    --quote-bg: rgba(18, 21, 32, .92); --quote-ink: #f4f6fb;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .4);
+    --sp: #1c2130; --sp-bg: #eef2fa; --badge-ink: #1c2130;
+  }
+  body { background: radial-gradient(120% 90% at 50% 0%, var(--bg-deep) 0%, var(--bg) 62%) fixed, var(--bg); font-size: 1.1rem; }
+  .sky { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .pt { position:absolute; width:10px; height:10px; transform:rotate(45deg); border:1px solid rgba(240,244,255,.35); }
+.sky-grid { position:absolute; inset:-80px; animation: sync 14s ease-in-out infinite alternate; }
+@keyframes sync { from { transform: translateY(0); } to { transform: translateY(-40px); } }
+.ray { position:absolute; top:-20%; width:2px; height:140%; background:linear-gradient(transparent, rgba(255,255,255,.07), transparent); transform-origin:top; }
+  @media (prefers-reduced-motion: reduce) { .sky * { animation: none !important; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="190" height="190" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 92,50 50,96 8,50" fill="none" stroke="var(--gold)" stroke-width="3"/><polygon points="50,20 76,50 50,80 24,50" fill="var(--gold)" opacity=".85"/></svg>
+<!--/mark-->
+<div class="sky" id="sky" aria-hidden="true"></div>
+<script>
+  (function () {
+    var sky = document.getElementById('sky'); if (!sky) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var g=document.createElement('div'); g.className='sky-grid'; sky.appendChild(g);
+for (var y=0; y<16; y++) for (var x=0; x<22; x++) { var p=document.createElement('span'); p.className='pt'; p.style.left=(x*90+((y%2)*45))+'px'; p.style.top=(y*90)+'px'; g.appendChild(p); }
+for (var i=0;i<7;i++){ var r=document.createElement('span'); r.className='ray'; r.style.left=(8+i*14)+'%'; r.style.transform='rotate('+(-18+i*6)+'deg)'; sky.appendChild(r); }
+  })();
+</script>

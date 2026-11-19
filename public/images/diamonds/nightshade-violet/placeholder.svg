@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
+<defs><radialGradient id="g" cx="50%" cy="35%" r="75%"><stop offset="0" stop-color="#22103a"/><stop offset="1" stop-color="#0a0612"/></radialGradient></defs>
+<rect width="300" height="400" fill="url(#g)"/>
+<g transform="translate(75 115) scale(1.5)" style="--gold:#b07cf0"><path d="M50 8 C62 30 86 34 92 50 C86 66 62 70 50 92 C38 70 14 66 8 50 C14 34 38 30 50 8Z" fill="#b07cf0"/><circle cx="50" cy="50" r="9" fill="#22103a"/></g>
+<text x="150" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="16" letter-spacing="3" fill="#9d86c4">NO ART YET</text>
+</svg>

@@ -1,0 +1,39 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-body: "Lora", Georgia, serif;
+    --font-display: "Playfair Display", Georgia, serif;
+    --bg: #0a0612; --bg-deep: #22103a;
+    --panel: rgba(36, 18, 58, .93); --panel-2: rgba(36, 18, 58, .93); --panel-solid: rgba(22, 11, 36, .92);
+    --ink: #f1e8ff; --ink-soft: #cdb9ec; --ink-faint: #9d86c4;
+    --gold: #b07cf0; --gold-bright: #d7b8ff; --gold-pale: #d7b8ff;
+    --brown-deep: rgba(22, 11, 36, .92);
+    --line: rgba(190, 150, 255, .15); --line-strong: rgba(190, 150, 255, .3);
+    --chip: rgba(150, 90, 230, .18);
+    --quote-bg: rgba(22, 11, 36, .92); --quote-ink: #f1e8ff;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .4);
+    --sp: #22103a; --sp-bg: #d7b8ff; --badge-ink: #22103a;
+  }
+  body { background: radial-gradient(120% 90% at 50% 0%, var(--bg-deep) 0%, var(--bg) 62%) fixed, var(--bg); font-size: 1.05rem; }
+  .sky { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .fog { position:absolute; width:60vw; height:40vh; border-radius:50%; background:radial-gradient(closest-side, rgba(120,70,200,.22), transparent); filter:blur(20px); animation: fogmove 30s ease-in-out infinite alternate; }
+@keyframes fogmove { from { transform: translateX(-8vw); } to { transform: translateX(8vw); } }
+.petal { position:absolute; top:-4vh; width:12px; height:8px; border-radius:80% 0 80% 0; background:#8e5bd8; opacity:.55; animation: fall linear infinite; }
+@keyframes fall { to { transform: translate(40px, 110vh) rotate(320deg); } }
+  @media (prefers-reduced-motion: reduce) { .sky * { animation: none !important; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="190" height="190" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8 C62 30 86 34 92 50 C86 66 62 70 50 92 C38 70 14 66 8 50 C14 34 38 30 50 8Z" fill="var(--gold)"/><circle cx="50" cy="50" r="9" fill="#22103a"/></svg>
+<!--/mark-->
+<div class="sky" id="sky" aria-hidden="true"></div>
+<script>
+  (function () {
+    var sky = document.getElementById('sky'); if (!sky) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    for (var i=0;i<4;i++){ var f=document.createElement('span'); f.className='fog'; f.style.left=(i*25-10)+'%'; f.style.top=(15+i*20)+'%'; f.style.animationDelay=(-i*7)+'s'; sky.appendChild(f); }
+if(!reduce) for (var i=0;i<14;i++){ var p=document.createElement('span'); p.className='petal'; p.style.left=Math.random()*100+'%'; p.style.animationDuration=(14+Math.random()*10)+'s'; p.style.animationDelay=(-Math.random()*20)+'s'; if(i%3==0) p.style.background='#c9a0ff'; sky.appendChild(p); }
+  })();
+</script>

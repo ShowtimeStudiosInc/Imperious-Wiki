@@ -7,7 +7,7 @@ sidebar:
 
 <span class="ia-label in-world">In-World</span>
 
-The empire's ships, who flies them, and what they're for. Any gem in any court can use these, but each one is most often found with the court or Gem-Type listed. The one exception is the Infiltrator Major, which never leaves the Sagittarius Dwarf Station.
+The empire's ships, who flies them, and what they're for. Any gem in any court can use these, but each one is most often found with the court or Gem-Type listed. The one exception is the Infiltrator Major, a United Frontier ship that the Gempire only ever sees at the Sagittarius Dwarf Station.
 
 ## Roaming Eye
 
@@ -35,8 +35,8 @@ The Bounty Skiff is a fast, light ship built for Aquamarines on the hunt. It car
 
 ## Infiltrator Major
 
-| Era | Where it's seen | Look |
-|---|---|---|
-| Era 0 | Only at the Sagittarius Dwarf Station | Black and white |
+| Era | Affiliation | Where it's seen in the Gempire | Look |
+|---|---|---|---|
+| Era 0 | [United Frontier](../../factions/united-frontier/), open to any citizen | Only the Sagittarius Dwarf Station | Black and white |
 
-The Infiltrator Major is an Era 0 ship, and it's only ever seen in the docking bay of the Sagittarius Dwarf Station, where several of them are kept. Even though it comes from the empire's oldest era, it's more technologically advanced than anything the other courts fly. Gems who arrive at the station for the first time usually don't recognize it, because it isn't in any ship registry they've seen. The station is also home to the [Era 0 Hematites](../../../gem-types/hematite-era-0/) who run the empire's news.
+To the United Frontier, the Infiltrator Major is nothing special. It's a basic model that any UF Gem can use, and citizens get around in them about the way people get around in cars. To the Gempire it's another story. Its tech is well beyond anything the courts fly, it isn't in any Gempire ship registry, and the only place it's ever seen on this side is the docking bay of the Sagittarius Dwarf Station, where several are kept. Gems who arrive at the station for the first time usually don't recognize it. The station is also home to the [Era 0 Hematites](../../../gem-types/hematite-era-0/) who run the empire's news.

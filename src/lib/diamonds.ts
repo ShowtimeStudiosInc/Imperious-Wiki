@@ -84,12 +84,19 @@ export interface Diamond {
   abilities: DiamondAbility[];
   /** Art and design credits, shown in an Art Credits box. Only list what Oliver has confirmed. */
   credits?: { label: string; name: string }[];
+  /** Deity Diamonds (the four who emerged on their own) or Ruling Diamonds (made since). */
+  group: 'deity' | 'ruling';
+  /** Short status tag on the index, like "Absorbed". */
+  status?: string;
+  /** The page only has what's known so far; the rest comes with the submission. */
+  partial?: boolean;
   updated: string;
 }
 
 export const DIAMONDS: Diamond[] = [
   {
     slug: 'alpha-black',
+    group: 'deity',
     name: 'Alpha Black Diamond',
     pronouns: 'She/Her/Hers',
     height: "166'2\"",
@@ -284,6 +291,7 @@ export const DIAMONDS: Diamond[] = [
   },
   {
     slug: 'saturn-light',
+    group: 'ruling',
     name: 'Saturn Light Diamond',
     pronouns: 'He/him',
     height: "30'0\"",
@@ -382,6 +390,7 @@ export const DIAMONDS: Diamond[] = [
   },
   {
     slug: 'epsilon-blue',
+    group: 'deity',
     name: 'Epsilon Blue Diamond',
     pronouns: 'She/Her',
     height: "163'0\"",
@@ -469,6 +478,7 @@ export const DIAMONDS: Diamond[] = [
   },
   {
     slug: 'theta-gold',
+    group: 'deity',
     name: 'Theta Gold Diamond',
     pronouns: 'He/They',
     height: "164'0\"",
@@ -578,10 +588,96 @@ export const DIAMONDS: Diamond[] = [
     credits: [{ label: 'Design', name: 'err0rc0de_blair' }],
     updated: '2026-11-18',
   },
+  {
+    slug: 'omega-white',
+    group: 'deity',
+    status: 'Absorbed',
+    name: 'Omega White Diamond',
+    pronouns: "She/Her",
+    height: "165'0\"",
+    color: "White",
+    pillar: 'Matter',
+    domains: ["The Heavens", "Mind"],
+    subDomains: ["Sky", "Light", "Stars", "Sun", "Thought", "Will", "Emotion", "Illusion"],
+    court: 'Omega',
+    personality: "Omega White believes that because her gem gives off white light, she is light itself, and since every Gem is made of light, every Gem is a piece of her. She judges them the way she would judge herself, and when a Gem doesn't act the way she would, she takes it as a personal attack. The truth is that she has no real self at all. She never lets herself want or feel anything, because then she would have to judge that too. So instead she makes everyone else into her, and everyone around her pays for it.",
+    purpose: "Omega White ruled the far side of existence, overseeing her own Gempire and keeping her Homeworld powered and held together, since without her it would have shattered. She did it the only way she knew how, by making every Gem under her exactly the same. After her defeat in the war, Alpha Black absorbed her, and she has been held inside Alpha's space ever since.",
+    powers: [{"name": "Absolute Photokinesis", "level": "Mastered"}, {"name": "Mind Control", "level": "Mastered"}, {"name": "Matter Manipulation", "level": "Mastered"}],
+    weaknesses: "Her sense of self is so fragile that any Gem acting differently feels like an attack on her, and a Gem feeling something strongly enough can break free of her hold.",
+    quote: "Now the impurities you've allowed to fester within yourself are gone! Now you are brilliant; now, you are perfect; now, you are ME!",
+    art: '/images/diamonds/omega-white/placeholder.svg',
+    theme: { bg: '', glow: '', accent: '', accent2: '', meteors: false, backgroundLabel: '' },
+    abilities: [],
+    updated: '2026-11-19',
+  },
+  {
+    slug: 'nightshade-violet',
+    group: 'ruling',
+    partial: true,
+    name: 'Nightshade Violet Diamond',
+    pronouns: "",
+    height: "",
+    color: "Violet",
+    domains: [],
+    subDomains: ["Darkness"],
+    court: 'Nightshade',
+    personality: "",
+    purpose: "",
+    powers: [],
+    weaknesses: "",
+    quote: "",
+    art: '/images/diamonds/nightshade-violet/placeholder.svg',
+    theme: { bg: '', glow: '', accent: '', accent2: '', meteors: false, backgroundLabel: '' },
+    abilities: [],
+    updated: '2026-11-19',
+  },
+  {
+    slug: 'maroon-red',
+    group: 'ruling',
+    partial: true,
+    name: 'Maroon Red Diamond',
+    pronouns: "",
+    height: "",
+    color: "Maroon",
+    domains: ["War"],
+    subDomains: [],
+    court: 'Maroon',
+    personality: "",
+    purpose: "",
+    powers: [],
+    weaknesses: "",
+    quote: "",
+    art: '/images/diamonds/maroon-red/placeholder.svg',
+    theme: { bg: '', glow: '', accent: '', accent2: '', meteors: false, backgroundLabel: '' },
+    abilities: [],
+    updated: '2026-11-19',
+  },
+  {
+    slug: 'bi-colored-kandy',
+    group: 'ruling',
+    partial: true,
+    name: 'Bi-Colored Kandy Diamond',
+    pronouns: "",
+    height: "",
+    color: "Bi-colored",
+    domains: ["Technology"],
+    subDomains: [],
+    court: 'Kandy',
+    personality: "",
+    purpose: "",
+    powers: [],
+    weaknesses: "",
+    quote: "",
+    art: '/images/diamonds/bi-colored-kandy/placeholder.svg',
+    theme: { bg: '', glow: '', accent: '', accent2: '', meteors: false, backgroundLabel: '' },
+    abilities: [],
+    updated: '2026-11-19',
+  },
 ];
 
 /** Diamonds whose pages are not ready yet. No page, no invented details, just a placeholder line each. */
-export const FORTHCOMING_DIAMONDS: { name: string; note: string }[] = [
+export const FORTHCOMING_DIAMONDS: { name: string; note: string }[] = [];
+const _OLD_FORTHCOMING = [
   { name: 'Nightshade Violet Diamond', note: 'Submission received, a few details still to come' },
   { name: 'Maroon Red Diamond', note: 'The War Diamond. Submission not arrived yet.' },
   { name: 'Bi-Colored Kandy Diamond', note: 'The Tech Diamond. Submission not arrived yet.' },

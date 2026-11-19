@@ -38,6 +38,10 @@ const pronouns = d.pronouns.split('/').map((x) => x.trim()).join(' / ');
 const domains = d.domains.join(' & ');
 const images = p.art.images.map((i: any) => ({ ...i, src: fix(i.src), full: fix(i.full) }));
 const single = images.length === 1;
+const TBD = 'To come';
+const or = (v: string) => (v && String(v).trim() ? v : TBD);
+const powerList: { name: string; level: string }[] = p.abilities.length ? p.abilities : (p.powerList ?? []);
+const tbdText = 'Not known yet. This will be filled in once the submission is in.';
 const jump = [
   { id: 'appearance', label: 'Appearance' },
   { id: 'personality', label: 'Personality' },
@@ -47,13 +51,13 @@ const jump = [
 ];
 const facts: [string, string][] = [
   ['Pronouns', pronouns],
-  ['Height', d.height],
-  ['Color', d.color],
+  ['Height', or(d.height)],
+  ['Color', or(d.color)],
   ...(d.pillar ? [['Pillar of', d.pillar] as [string, string]] : []),
   ['Domains', domains],
-  ['Sub-Domains', d.subDomains.join(', ')],
-  ['Court', d.court],
-  ['Powers', p.abilities.map((a: any) => `${a.name} [${a.level}]`).join('<br />')],
+  ['Sub-Domains', or(d.subDomains.join(', '))],
+  ['Court', or(d.court)],
+  ['Powers', powerList.length ? powerList.map((a: any) => `${a.name} [${a.level}]`).join('<br />') : TBD],
 ];
 
 const title = `${d.name} | Imperious Authorities`;
@@ -122,15 +126,18 @@ const nav = [
         <div class="court-line">{p.courtLine}</div>
         <h1 set:html={p.title} />
         <p class="hero-sub" set:html={p.heroSub} />
-        <blockquote class="quote">
-          <p set:html={`&ldquo;${p.quote}&rdquo;`} />
-          <footer>{p.quoteBy}</footer>
-        </blockquote>
+        {p.partial && <p class="partial-note">{p.partial}</p>}
+        {p.quote && (
+          <blockquote class="quote">
+            <p set:html={`&ldquo;${p.quote}&rdquo;`} />
+            <footer>{p.quoteBy}</footer>
+          </blockquote>
+        )}
         <div class="domain-chips">
-          <span><b>Domains</b>{domains}</span>
-          <span><b>Color</b>{d.color}</span>
-          <span><b>Height</b>{d.height}</span>
-          <span><b>Pronouns</b>{pronouns}</span>
+          <span><b>Domains</b>{or(domains)}</span>
+          <span><b>Color</b>{or(d.color)}</span>
+          <span><b>Height</b>{or(d.height)}</span>
+          <span><b>Pronouns</b>{or(pronouns)}</span>
         </div>
       </header>
 
@@ -142,20 +149,21 @@ const nav = [
         <main class="stack">
           <section class="card" id="personality">
             <h2><span class="dot"></span>Personality</h2>
-            {p.personality.map((t: string) => <p set:html={t} />)}
+            {p.personality.length ? p.personality.map((t: string) => <p set:html={t} />) : <p class="tbd">{tbdText}</p>}
           </section>
           <section class="card" id="purpose">
             <h2><span class="dot"></span>Purpose</h2>
-            {p.purpose.map((t: string) => <p set:html={t} />)}
+            {p.purpose.length ? p.purpose.map((t: string) => <p set:html={t} />) : <p class="tbd">{tbdText}</p>}
           </section>
           <section class="card" id="powers">
             <h2><span class="dot"></span>Powers</h2>
             <ul class="powers-list">
-              {p.abilities.map((a: any) => <li>{a.name} <span class="level">{a.level}</span></li>)}
+              {powerList.map((a: any) => <li>{a.name} <span class="level">{a.level}</span></li>)}
             </ul>
+            {!powerList.length && <p class="tbd">{tbdText}</p>}
             <div class="weak-box">
               <h3>Weakness</h3>
-              {p.weakness.map((t: string) => <p set:html={t} />)}
+              {p.weakness.length ? p.weakness.map((t: string) => <p set:html={t} />) : <p class="tbd">{tbdText}</p>}
             </div>
           </section>
 
@@ -205,15 +213,18 @@ const nav = [
               <h2>Appearance</h2>
               {p.art.sub && <p>{p.art.sub}</p>}
             </div>
-            <div class={`collage${single ? ' single' : ''}`}>
+            {images.length === 0 && (
+              <div class="collage single"><figure class="noart"><img src={url(d.art)} alt="" /></figure></div>
+            )}
+            {images.length > 0 && <div class={`collage${single ? ' single' : ''}`}>
               {images.map((im: any) => (
                 <figure data-full={im.full} data-title={im.title} data-note={im.note} tabindex="0" role="button" aria-label={`View ${im.title} picture larger`}>
                   <img src={im.src} alt={im.alt} loading="lazy" />
                   {!single && <figcaption>{im.title}</figcaption>}
                 </figure>
               ))}
-            </div>
-            {!single && (
+            </div>}
+            {images.length > 1 && (
               <div class="collage-notes">
                 {images.map((im: any) => <div><b>{im.title}:</b> {im.note}</div>)}
               </div>
