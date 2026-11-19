@@ -12,7 +12,7 @@ import re
 import sys
 import urllib.request
 
-LINE = re.compile(r"^.+ (?:was|were) updated at \[[^\]]+\]\((https?://[^)\s]+)\)\s*$")
+LINE = re.compile(r"^.+ (?:was|were) (?:updated|added) at \[[^\]]+\]\((https?://[^)\s]+)\)\s*$")
 
 url = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
 if not url:

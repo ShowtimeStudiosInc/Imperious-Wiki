@@ -39,7 +39,7 @@ const sections = [
   //   <Content> was updated at [<Place>](<link to this site>)
   const log = document.getElementById('log');
   const home = new URL('.', location.href).href;
-  const LINE = /^(.+? (?:was|were) updated at) \[([^\]]+)\]\((https?:\/\/[^)\s]+)\)\s*$/;
+  const LINE = /^(.+? (?:was|were) (?:updated|added) at) \[([^\]]+)\]\((https?:\/\/[^)\s]+)\)\s*$/;
   const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const ago = (d) => { const m = Math.max(0, Math.round((Date.now() - d) / 60000)); return m < 60 ? `${m}m ago` : m < 1440 ? `${Math.round(m / 60)}h ago` : `${Math.round(m / 1440)}d ago`; };
   const onSite = (u) => { try { const x = new URL(u); return x.origin === location.origin && x.pathname.startsWith(new URL(home).pathname); } catch { return false; } };
