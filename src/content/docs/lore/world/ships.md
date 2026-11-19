@@ -7,7 +7,7 @@ sidebar:
 
 <span class="ia-label in-world">In-World</span>
 
-The empire's ships, who flies them, and what they're for. Any gem in any court can use these, but each one is most often found with the court or Gem-Type listed.
+The empire's ships, who flies them, and what they're for. Any gem in any court can use these, but each one is most often found with the court or Gem-Type listed. The one exception is the Infiltrator Major, which never leaves the Sagittarius Dwarf Station.
 
 ## Roaming Eye
 
@@ -40,3 +40,11 @@ The Bounty Skiff is a fast, light ship built for Aquamarines on the hunt. It car
 | Any court | A skeleton crew of Nephrites | Kandy Innovations | Experimental autopilot cargo and prisoner transport |
 
 The Star Vector is a new, experimental ship that flies itself. It was built to test long-range autopilot, cargo runs with no pilot, and a single automated prisoner cell. It carries the most advanced tech in the empire, but a small crew of Nephrites stays on board anyway, in case the system fails and someone has to take the controls. Plenty of gems don't trust a ship that thinks for itself, and the Nephrites on board are usually the first to say so.
+
+## Infiltrator Major
+
+| Era | Where it's seen | Look |
+|---|---|---|
+| Era 0 | Only at the Sagittarius Dwarf Station | Black and white |
+
+The Infiltrator Major is an Era 0 ship, and it's only ever seen in the docking bay of the Sagittarius Dwarf Station, where several of them are kept. Even though it comes from the empire's oldest era, it's more technologically advanced than anything the other courts fly. Gems who arrive at the station for the first time usually don't recognize it, because it isn't in any ship registry they've seen. The station is also home to the [Era 0 Hematites](../../../gem-types/hematite-era-0/) who run the empire's news.
