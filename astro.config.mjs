@@ -36,6 +36,7 @@ export default defineConfig({
             { label: 'Factions', collapsed: false, items: [{ autogenerate: { directory: 'lore/factions' } }] },
             { label: 'Gempire Life', collapsed: false, items: [{ autogenerate: { directory: 'lore/gempire-life' } }] },
             { label: 'How Gems Work', collapsed: false, items: [{ autogenerate: { directory: 'lore/how-gems-work' } }] },
+            { label: 'Wildlife & Ships', collapsed: false, items: [{ autogenerate: { directory: 'lore/world' } }] },
             { label: 'Nuggets of Lore', link: '/lore/nuggets/' },
             { label: 'Height Chart', link: '/lore/height-chart/' },
             { label: 'Glossary', link: '/lore/glossary/' },

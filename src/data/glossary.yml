@@ -121,3 +121,7 @@
   match: [Monolithism]
   def: A heretical offshoot of Triadism that believes in a single Universe Diamond.
   href: /lore/nuggets/#nugget-12
+- term: Crystal wildlife
+  match: [Crystal Crabs, Crystal Crab, Crystal Crocodiles, Crystal Crocodile, Crystal Shrimp]
+  def: Creatures with crystal bodies that grow on their own across the colonies. Most leave gems alone unless provoked.
+  href: /lore/world/wildlife/

@@ -27,6 +27,11 @@ Everything on these pages is what the server knows about the world. Pages marked
 - [How Are Diamonds Made?](../how-gems-work/how-diamonds-are-made/): the Paragon Core and the Cubic Zirconias.
 - [Facet & Cut](../how-gems-work/facet-and-cut/): reading a Gem's batch code.
 
+## Wildlife & Ships
+
+- [Wildlife](../world/wildlife/): Crystal Crabs, Crocodiles and Shrimp, and how dangerous each one is.
+- [Ships](../world/ships/): the empire's ships, who flies them, and what they're for.
+
 ## The Diamonds
 
 The Diamonds and their Grand Regents have their own home: [Know Your Diamond](../../diamonds/), Rank 1.1.
