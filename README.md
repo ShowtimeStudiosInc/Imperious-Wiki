@@ -39,15 +39,16 @@ Tags come from the data, not from the name. The name stays plain (`Sardonyx`), a
 
 ## Update log (commit titles)
 
-The commit history is the wiki's update log, so every commit title follows one format:
+The commit history is the wiki's update log, so every commit title follows one format, with the place written as a Markdown link that names it:
 
 ```
-<Content> was updated at <live link>
+<Content> was updated at [<Place name>](<live link>)
 ```
 
-For example: `Alpha Black Diamond was updated at https://showtimestudiosinc.github.io/Imperious-Wiki/diamonds/alpha-black/`
+For example: `Alpha Black Diamond was updated at [Know Your Diamond](https://showtimestudiosinc.github.io/Imperious-Wiki/diamonds/alpha-black/)`
 
-- If one change touches several places, put the main one in the title and list each of the others on its own `<Content> was updated at <link>` line in the commit body.
+- The place name is the page or section as readers know it (Know Your Diamond, Gem-Types, Rules: Battles, and so on). Never show the bare URL.
+- If one change touches several places, put the main one in the title and list each of the others on its own line in the same format in the commit body.
 - If a change has no page of its own (styles, scripts), name the page where it shows up.
 - Keep it to what changed. No extra summary in the title.
 
