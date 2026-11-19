@@ -37,6 +37,20 @@ Either way, the site rebuilds in a minute or two.
 
 Tags come from the data, not from the name. The name stays plain (`Sardonyx`), and the chips under it come from these fields: `rank`, `side`, `era`, `kind` (+ `parent` or `components`), `species`, `faction`, `status`, `traits`, `court`, `threatClass`.
 
+## Update log (commit titles)
+
+The commit history is the wiki's update log, so every commit title follows one format:
+
+```
+<Content> was updated at <live link>
+```
+
+For example: `Alpha Black Diamond was updated at https://showtimestudiosinc.github.io/Imperious-Wiki/diamonds/alpha-black/`
+
+- If one change touches several places, put the main one in the title and list each of the others on its own `<Content> was updated at <link>` line in the commit body.
+- If a change has no page of its own (styles, scripts), name the page where it shows up.
+- Keep it to what changed. No extra summary in the title.
+
 ## Running it on your computer
 
 ```bash
