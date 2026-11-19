@@ -8,6 +8,7 @@ const site = process.env.SITE || 'https://showtimestudiosinc.github.io';
 const base = process.env.BASE || '/';
 
 export default defineConfig({
+  redirects: { '/popularity': '/approval-rating' },
   site,
   base,
   trailingSlash: 'always',

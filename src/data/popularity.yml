@@ -1,93 +1,143 @@
-# Gempire Popularity: how the empire as a whole feels about each Diamond and Grand Regent.
+# Diamond Approval Rating: how the Gempire as a whole feels about each Diamond and Grand Regent.
 # This is in-world standing, not a member vote. Staff update it:
 #   - with a roll for each entry (rise, drop, or stay the same), and
 #   - by hand after major events, based on how each Diamond or Regent reacted.
 #
 # To post a new update:
 #   1. Copy each `score` into `previous`, then write the new `score` (0 to 100).
-#   2. Change `updated` to today's date.
-#   3. Add log lines at the TOP of `log` with the same date. Each one has:
+#   2. Write how many gems were polled this time in `votes`.
+#   3. Change `updated` to today's date.
+#   4. Add log lines at the TOP of `log` with the same date. Each one has:
 #        who: a slug from the lists below
 #        change: how many points it moved (+3, -2, 0)
 #        kind: event (something they did) or roll (the update roll)
 #        text: what happened, in-world
 #      The changes for one update should add up to score minus previous.
-# The home page screen and the Popularity page sort by score on their own.
+# Diamonds without a page yet need a `name:`. The home page screen and the full page
+# sort each group by score on their own.
 updated: 2026-11-19
-diamonds:
-  - slug: saturn-light
-    score: 78
-    previous: 72
-  - slug: epsilon-blue
-    score: 64
-    previous: 66
-  - slug: theta-gold
-    score: 58
-    previous: 55
+deity:
   - slug: alpha-black
     score: 47
     previous: 47
+    votes: 51300
+  - slug: epsilon-blue
+    score: 64
+    previous: 66
+    votes: 49215
+  - slug: theta-gold
+    score: 58
+    previous: 55
+    votes: 46870
+ruling:
+  - slug: saturn-light
+    score: 78
+    previous: 72
+    votes: 38940
+  - slug: nightshade-violet
+    name: Nightshade Violet Diamond
+    score: 55
+    previous: 52
+    votes: 29660
+  - slug: maroon-red
+    name: Maroon Red Diamond
+    score: 61
+    previous: 63
+    votes: 33105
+  - slug: bi-colored-kandy
+    name: Bi-Colored Kandy Diamond
+    score: 67
+    previous: 64
+    votes: 31488
 regents:
   - slug: antton
     score: 74
     previous: 68
+    votes: 12402
   - slug: florentino
     score: 69
     previous: 70
+    votes: 9815
   - slug: tethys
     score: 41
     previous: 38
+    votes: 2117
 log:
   - date: 2026-11-19
     who: saturn-light
     change: +4
     kind: event
-    text: Opened Club Imperious to Service Trade gems for one night, free of charge. Saturn stayed until the last song and danced with anyone who asked.
+    text: Saturn opened Club Imperious to Service Trade gems for a night, free. He stayed until closing and talked to a lot of them himself. People are still bringing it up.
   - date: 2026-11-19
     who: saturn-light
     change: +2
     kind: roll
-    text: Talk of the club night kept going all week.
+    text: A quiet week otherwise. The club night kept people talking.
   - date: 2026-11-19
     who: epsilon-blue
     change: -3
     kind: event
-    text: Ruled against a well-liked Aristocrat in a public case. The ruling was fair, and the Aristocrat's friends are still telling everyone it wasn't.
+    text: Epsilon ruled against an Aristocrat that a lot of gems like. Most agree it was the right call, but the Aristocrat's friends have been loud about it.
   - date: 2026-11-19
     who: epsilon-blue
     change: +1
     kind: roll
-    text: A Bounty Skiff out of Canis Major brought home a set of stolen relics, and Court Epsilon got the credit.
+    text: A Bounty Skiff out of Canis Major brought back some stolen relics, which helped a little.
   - date: 2026-11-19
     who: theta-gold
     change: +3
     kind: event
-    text: Gave the Era 1A workforce a full day off, the first one most of them can remember. Theta spent it reviewing their quotas.
+    text: Theta gave the Era 1A workforce a day off. For a lot of them it was the first one in a very long time.
   - date: 2026-11-19
     who: theta-gold
     change: 0
     kind: roll
-    text: Production numbers came in on time, as always. Nobody noticed.
+    text: No change. Work came in on schedule like it always does.
   - date: 2026-11-19
     who: alpha-black
     change: 0
     kind: roll
-    text: Not seen in public this cycle. The Hematites ran a special on her anyway, and it was the most watched broadcast of the week.
+    text: Still hasn't been seen in public. The Hematites ran a special on her and plenty of gems watched it, but her rating didn't move.
+  - date: 2026-11-19
+    who: maroon-red
+    change: -2
+    kind: event
+    text: Court Maroon pulled Rubies off transport runs for extra drills. A few colonies waited days longer than usual for supplies, and they weren't happy about it.
+  - date: 2026-11-19
+    who: maroon-red
+    change: 0
+    kind: roll
+    text: No change.
+  - date: 2026-11-19
+    who: nightshade-violet
+    change: +3
+    kind: roll
+    text: Went up a little. Nothing big happened; gems just seem warmer toward Court Nightshade lately.
+  - date: 2026-11-19
+    who: bi-colored-kandy
+    change: +2
+    kind: event
+    text: Court Kandy got the comm relays on two outer colonies working again after weeks of outages.
+  - date: 2026-11-19
+    who: bi-colored-kandy
+    change: +1
+    kind: roll
+    text: Small bump. The relay fix was still in the news.
   - date: 2026-11-19
     who: antton
     change: +5
     kind: event
-    text: His game show's season finale pulled the biggest audience in Holovision history, mostly because nobody saw the final twist coming. Mike got a cheer of his own.
+    text: His game show's season finale was the most watched thing on Holovision all cycle. Mike got his own round of applause.
   - date: 2026-11-19
     who: antton
     change: +1
     kind: roll
-    text: Reruns are doing well.
+    text: Reruns are still doing well.
   - date: 2026-11-19
     who: florentino
     change: -2
     kind: event
-    text: Gave an Emerald commander a new nickname in front of her whole fleet. The fleet loved it. The Emerald filed a complaint.
+    text: Gave an Emerald commander a nickname in front of her whole fleet. Her crew thought it was funny. She filed a complaint.
   - date: 2026-11-19
     who: florentino
     change: +1
@@ -97,9 +147,9 @@ log:
     who: tethys
     change: +2
     kind: event
-    text: Reorganized the Court Epsilon case archive so Kyanites and Azurites can find any file in minutes. Most gems still couldn't tell you who did it.
+    text: Sorted out the Court Epsilon case archive, so Kyanites and Azurites can find files much faster now. Not many gems know Tethys was the one who did it.
   - date: 2026-11-19
     who: tethys
     change: +1
     kind: roll
-    text: In a Hematite street poll, most gems couldn't name Tethys. The ones who could rated them very highly.
+    text: Only a small number of gems voted on Tethys, mostly ones who have worked with them, and they rated them well.

@@ -1,15 +1,15 @@
 ---
 import Site from '../layouts/Site.astro';
-import { diamonds, regents, updated, logByDate, changeLabel, changeClass } from '../lib/popularity';
-const boards = [ { title: 'Diamonds', rows: diamonds }, { title: 'Grand Regents', rows: regents } ];
+import { groups, updated, logByDate, changeLabel, changeClass, votesLabel } from '../lib/popularity';
+const boards = groups;
 ---
-<Site title="Gempire Popularity" description="How the Gempire feels about its Diamonds and Grand Regents, and what changed it.">
+<Site title="Diamond Approval Rating" description="How the Gempire feels about its Diamonds and Grand Regents, and what changed it.">
   <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" />
   <main class="wrap pop-page">
     <header class="top">
       <svg class="mark" width="60" height="48" viewBox="0 0 20 16" shape-rendering="crispEdges" aria-hidden="true"><path fill="#ff4fa3" d="M2 2h16v1h1v10h-1v1H2v-1H1V3h1zM6 0h1v1h1v1H6zM13 0h1v2h-2V1h1zM6 15h2v1H6zM12 15h2v1h-2z"/><path fill="#1d0d2e" d="M3 4h14v8H3z"/><path fill="#7fe0a8" d="M5 9h2v2H5zM8 7h2v4H8zM11 5h2v6h-2zM14 8h1v3h-1z"/></svg>
-      <h1>Gempire Popularity</h1>
-      <p>How the empire feels about its Diamonds and Grand Regents, out of 100. As reported on Holovision. Updated {updated}.</p>
+      <h1>Diamond Approval Rating</h1>
+      <p>How the empire feels about its Diamonds and Grand Regents, out of 100, from the latest Hematite poll. Updated {updated}.</p>
     </header>
 
     <div class="boards">
@@ -20,7 +20,10 @@ const boards = [ { title: 'Diamonds', rows: diamonds }, { title: 'Grand Regents'
             {b.rows.map((r, i) => (
               <li>
                 <span class="n">{i + 1}</span>
-                <a href={r.href}>{r.name}</a>
+                <span class="who">
+                  {r.href ? <a href={r.href}>{r.name}</a> : <span class="nolink">{r.name}</span>}
+                  {r.votes != null && <small>{votesLabel(r.votes)}</small>}
+                </span>
                 <span class="tr" role="img" aria-label={`${r.score} out of 100`}><span style={`width:${r.score}%`} /></span>
                 <span class="sc">{r.score}</span>
                 <span class={`ch ${changeClass(r.change)}`}>{changeLabel(r.change)}<span class="sr"> since the last update</span></span>
@@ -41,7 +44,7 @@ const boards = [ { title: 'Diamonds', rows: diamonds }, { title: 'Grand Regents'
               <li>
                 <span class={`ch badge ${changeClass(l.change)}`}>{changeLabel(l.change)}</span>
                 <div>
-                  <a href={l.person.href}>{l.person.name}</a>
+                  {l.person.href ? <a href={l.person.href}>{l.person.name}</a> : <span class="nolink">{l.person.name}</span>}
                   <span class="kind">{l.kind === 'roll' ? 'Update roll' : 'Event'}</span>
                   <p>{l.text}</p>
                 </div>
@@ -65,6 +68,9 @@ const boards = [ { title: 'Diamonds', rows: diamonds }, { title: 'Grand Regents'
   .top h1 { color: var(--pink); font-size: clamp(1.8rem, 5vw, 2.8rem); letter-spacing: 0.06em; text-transform: uppercase; margin: 0.4rem 0; text-shadow: 0 0 14px rgba(255, 79, 163, 0.5); }
   .top p { color: var(--muted); max-width: 40rem; margin: 0 auto; }
   .boards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .boards > .tv:first-child { grid-column: 1 / -1; }
+  .who small { display: block; color: var(--dim); font-size: 0.74rem; margin-top: 0.1rem; }
+  .nolink { color: #f3e8ff; }
   .tv { position: relative; overflow: hidden; padding: 1rem 1.2rem; border-radius: 12px; border: 2px solid var(--pink);
     background: radial-gradient(ellipse at 50% 20%, #2b1745, #120a1e 80%); box-shadow: 0 0 22px rgba(255, 79, 163, 0.25); }
   .tv::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 3px); }

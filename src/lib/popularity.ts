@@ -1,44 +1,54 @@
-/** Loads src/data/popularity.yml for the home page screen and the Popularity page. */
+/** Loads src/data/popularity.yml for the home page screen and the Diamond Approval Rating page. */
 import { load } from 'js-yaml';
 import fs from 'node:fs';
 import { DIAMONDS } from './diamonds';
 import { url } from './gems';
 
-type Row = { slug: string; score: number; previous?: number };
+type Row = { slug: string; name?: string; score: number; previous?: number; votes?: number };
 type Log = { date: string | Date; who: string; change: number; kind: 'event' | 'roll'; text: string };
-const raw = load(fs.readFileSync('src/data/popularity.yml', 'utf8')) as { updated: string | Date; diamonds: Row[]; regents: Row[]; log?: Log[] };
+const raw = load(fs.readFileSync('src/data/popularity.yml', 'utf8')) as {
+  updated: string | Date; deity: Row[]; ruling: Row[]; regents: Row[]; log?: Log[];
+};
 
-const regent = (slug: string) => JSON.parse(fs.readFileSync(`src/data/regents/${slug}.json`, 'utf8')) as { name: string };
 const fmt = (d: string | Date) => new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
-export interface Standing { slug: string; name: string; short: string; href: string; score: number; change: number; kind: 'diamond' | 'regent' }
+export interface Person { slug: string; name: string; short: string; href: string | null }
+export interface Standing extends Person { score: number; change: number; votes: number | null }
 
-const people = new Map<string, Omit<Standing, 'score' | 'change'>>();
-for (const d of raw.diamonds) {
-  const name = DIAMONDS.find((x) => x.slug === d.slug)?.name ?? d.slug;
-  people.set(d.slug, { slug: d.slug, name, short: name.replace(/ Diamond$/, ''), href: url(`/diamonds/${d.slug}/`), kind: 'diamond' });
+const people = new Map<string, Person>();
+for (const d of [...raw.deity, ...raw.ruling]) {
+  const page = DIAMONDS.find((x) => x.slug === d.slug);
+  const name = page?.name ?? d.name ?? d.slug;
+  people.set(d.slug, { slug: d.slug, name, short: name.replace(/ Diamond$/, ''), href: page ? url(`/diamonds/${d.slug}/`) : null });
 }
 for (const r of raw.regents) {
-  const name = regent(r.slug).name;
-  people.set(r.slug, { slug: r.slug, name, short: name.replace(/^Grand Regent /, ''), href: url(`/regents/${r.slug}/`), kind: 'regent' });
+  const file = `src/data/regents/${r.slug}.json`;
+  const name = fs.existsSync(file) ? (JSON.parse(fs.readFileSync(file, 'utf8')).name as string) : (r.name ?? r.slug);
+  people.set(r.slug, { slug: r.slug, name, short: name.replace(/^Grand Regent /, ''), href: fs.existsSync(file) ? url(`/regents/${r.slug}/`) : null });
 }
 const rank = (rows: Row[]): Standing[] =>
-  rows.map((r) => ({ ...people.get(r.slug)!, score: r.score, change: r.score - (r.previous ?? r.score) })).sort((a, b) => b.score - a.score);
+  rows
+    .map((r) => ({ ...people.get(r.slug)!, score: r.score, change: r.score - (r.previous ?? r.score), votes: r.votes ?? null }))
+    .sort((a, b) => b.score - a.score);
 
 export const updated = fmt(raw.updated);
-export const diamonds = rank(raw.diamonds);
-export const regents = rank(raw.regents);
+export const groups = [
+  { title: 'Deity Diamonds', rows: rank(raw.deity) },
+  { title: 'Ruling Diamonds', rows: rank(raw.ruling) },
+  { title: 'Grand Regents', rows: rank(raw.regents) },
+];
 
 /** Log grouped by date, newest first. */
 export const logByDate = (() => {
-  const groups = new Map<string, (Log & { person: Omit<Standing, 'score' | 'change'> })[]>();
+  const byDate = new Map<string, (Log & { person: Person })[]>();
   for (const l of raw.log ?? []) {
     const key = new Date(l.date).toISOString().slice(0, 10);
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key)!.push({ ...l, change: Number(l.change), person: people.get(l.who)! });
+    if (!byDate.has(key)) byDate.set(key, []);
+    byDate.get(key)!.push({ ...l, change: Number(l.change), person: people.get(l.who)! });
   }
-  return [...groups.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1)).map(([k, items]) => ({ date: fmt(k), items }));
+  return [...byDate.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1)).map(([k, items]) => ({ date: fmt(k), items }));
 })();
 
 export const changeLabel = (n: number) => (n > 0 ? `▲ ${n}` : n < 0 ? `▼ ${-n}` : '–');
 export const changeClass = (n: number) => (n > 0 ? 'up' : n < 0 ? 'down' : 'same');
+export const votesLabel = (n: number | null) => (n == null ? '' : `${n.toLocaleString('en-US')} gems polled`);
