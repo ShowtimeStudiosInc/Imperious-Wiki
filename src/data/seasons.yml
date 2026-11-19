@@ -1,0 +1,30 @@
+# Seasonal themes. The site picks one by today's date in the visitor's own time zone.
+# Holidays win over seasons. Dates are MM-DD; a range can wrap past New Year.
+#
+# force: set to a theme key (winter, spring, summer, autumn, halloween, winter-holidays,
+#        new-year, valentines) to show it no matter the date, or to "none" for the plain
+#        purple theme. Leave it empty to go by date.
+# Preview any theme by adding ?season=<key> to a page address, e.g. .../?season=winter
+force:
+holidays:
+  - key: new-year
+    name: New Year
+    from: 12-31
+    to: 01-01
+  - key: valentines
+    name: Valentine's Day
+    from: 02-10
+    to: 02-14
+  - key: halloween
+    name: Halloween
+    from: 10-15
+    to: 10-31
+  - key: winter-holidays
+    name: Winter Holidays
+    from: 12-01
+    to: 12-26
+seasons:
+  winter: [12, 1, 2]
+  spring: [3, 4, 5]
+  summer: [6, 7, 8]
+  autumn: [9, 10, 11]

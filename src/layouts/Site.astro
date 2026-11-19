@@ -1,5 +1,7 @@
 ---
 import '../styles/site.css';
+import '../styles/seasons.css';
+import SeasonScript from '../components/SeasonScript.astro';
 import { url } from '../lib/gems';
 interface Props { title: string; description?: string; current?: string; bare?: boolean; image?: string }
 const { title, description = 'The rulebook and setting wiki for the Imperious Authorities roleplay.', current, bare = false, image } = Astro.props;
@@ -14,9 +16,10 @@ const nav = [
 ];
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
+    <SeasonScript />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />

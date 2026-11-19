@@ -1,0 +1,54 @@
+---
+/**
+ * Inline script for every page: keeps the site in dark mode and picks the seasonal theme
+ * (sets <html data-season="...">), then adds the falling or floating effect once the page loads.
+ * Config: src/data/seasons.yml. Colors and effects: src/styles/seasons.css.
+ */
+import { load } from 'js-yaml';
+import fs from 'node:fs';
+const cfg = load(fs.readFileSync('src/data/seasons.yml', 'utf8')) as any;
+const season = { force: cfg.force ?? null, holidays: cfg.holidays ?? [], seasons: cfg.seasons ?? {} };
+---
+<script is:inline define:vars={{ season }}>
+  (() => {
+    const root = document.documentElement;
+    root.dataset.theme = 'dark';
+    try { localStorage.setItem('starlight-theme', 'dark'); } catch (e) {}
+    const keys = ['none', ...season.holidays.map((h) => h.key), ...Object.keys(season.seasons)];
+    let pick = null;
+    try { const q = new URLSearchParams(location.search).get('season'); if (q && keys.includes(q)) pick = q; } catch (e) {}
+    if (!pick && season.force && keys.includes(String(season.force))) pick = String(season.force);
+    if (!pick) {
+      const now = new Date();
+      const md = (now.getMonth() + 1) * 100 + now.getDate();
+      const num = (s) => { const [m, d] = String(s).split('-').map(Number); return m * 100 + d; };
+      for (const h of season.holidays) {
+        const a = num(h.from), b = num(h.to);
+        if (a <= b ? md >= a && md <= b : md >= a || md <= b) { pick = h.key; break; }
+      }
+      if (!pick) for (const [k, months] of Object.entries(season.seasons)) if (months.includes(now.getMonth() + 1)) { pick = k; break; }
+    }
+    if (!pick || pick === 'none') return;
+    root.dataset.season = pick;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const add = () => {
+      if (document.querySelector('.season-fx')) return;
+      const fx = document.createElement('div');
+      fx.className = 'season-fx';
+      fx.setAttribute('aria-hidden', 'true');
+      const count = window.innerWidth < 700 ? 10 : 18;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('i');
+        p.style.left = Math.round(Math.random() * 100) + '%';
+        p.style.animationDelay = (-Math.random() * 16).toFixed(1) + 's';
+        p.style.animationDuration = (11 + Math.random() * 9).toFixed(1) + 's';
+        p.style.setProperty('--s', (0.6 + Math.random() * 0.8).toFixed(2));
+        p.style.setProperty('--drift', Math.round(Math.random() * 120 - 60) + 'px');
+        p.className = 'p' + (i % 3);
+        fx.appendChild(p);
+      }
+      document.body.appendChild(fx);
+    };
+    if (document.body) add(); else document.addEventListener('DOMContentLoaded', add);
+  })();
+</script>

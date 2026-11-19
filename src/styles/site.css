@@ -29,7 +29,7 @@ body {
   font-size: 15px;
   line-height: 1.55;
   color: var(--text);
-  background: radial-gradient(1200px 700px at 70% -10%, #2a1650 0%, transparent 60%),
+  background: radial-gradient(1200px 700px at 70% -10%, var(--sky, #2a1650) 0%, transparent 60%),
     radial-gradient(900px 600px at 0% 100%, #1d0f3a 0%, transparent 60%), var(--bg-0);
 }
 a { color: var(--lav); text-decoration: none; }
@@ -75,7 +75,7 @@ code {
 h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: 0.02em; }
 
 /* Codex panels, modeled on the Gem Galaxies reference */
-.bar { background: linear-gradient(90deg, #8f6fe0 0%, #5c4aa8 60%, #3d3478 100%); color: #fff;
+.bar { background: linear-gradient(90deg, var(--bar-a, #8f6fe0) 0%, var(--bar-b, #5c4aa8) 60%, var(--bar-c, #3d3478) 100%); color: #fff;
   font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.55rem 0.8rem; font-weight: 500; }
 .panel { background: var(--panel); border: 1px solid var(--line); backdrop-filter: blur(6px); }
 .panel > .body { padding: 0.9rem 1rem; }

@@ -1,0 +1,115 @@
+/*
+ * Seasonal themes. <html data-season="..."> is set by src/components/SeasonScript.astro
+ * using the dates in src/data/seasons.yml. Each theme swaps the accent colors on the main
+ * wiki pages and Starlight pages, and styles the falling or floating effect (.season-fx).
+ * The Diamond and Regent pages keep their own themes and don't load this file.
+ */
+
+/* ---------- Colors ---------- */
+:root[data-season] {
+  --sl-color-accent-low: var(--a-low);
+  --sl-color-accent: var(--a);
+  --sl-color-accent-high: var(--a-high);
+  --lav: var(--a-high);
+  --lav-2: var(--a-mid);
+  --violet: var(--a);
+  --line: var(--a-line);
+  --line-strong: var(--a-line-strong);
+  --bar-a: var(--a-mid);
+  --bar-c: var(--a-low);
+}
+:root[data-season='winter'] {
+  --a: #4f8fd9; --a-mid: #7fb4e6; --a-high: #d6ecff; --a-low: #13284a; --bar-b: #35659f;
+  --a-line: rgba(160, 205, 255, 0.28); --a-line-strong: rgba(160, 205, 255, 0.6);
+  --sky: #16304f; --glow: rgba(130, 195, 255, 0.5); --fx: #eaf6ff;
+}
+:root[data-season='spring'] {
+  --a: #d6457f; --a-mid: #ec8fb4; --a-high: #ffd6e7; --a-low: #3d1430; --bar-b: #a63a6a;
+  --a-line: rgba(255, 190, 220, 0.28); --a-line-strong: rgba(255, 190, 220, 0.6);
+  --sky: #3a1838; --glow: rgba(255, 150, 200, 0.45); --fx: #ffc1da; --fx-2: #fff0f6; --fx-3: #b8e6b0;
+}
+:root[data-season='summer'] {
+  --a: #e8892b; --a-mid: #f2b45a; --a-high: #ffe6b3; --a-low: #3a2208; --bar-b: #b86a22;
+  --a-line: rgba(255, 215, 150, 0.28); --a-line-strong: rgba(255, 215, 150, 0.6);
+  --sky: #3a2410; --glow: rgba(255, 200, 110, 0.45); --fx: #ffe58a;
+}
+:root[data-season='autumn'] {
+  --a: #d0652a; --a-mid: #e89a5a; --a-high: #ffd8b0; --a-low: #3a1a0c; --bar-b: #a14d22;
+  --a-line: rgba(255, 190, 140, 0.28); --a-line-strong: rgba(255, 190, 140, 0.6);
+  --sky: #3a1c12; --glow: rgba(255, 150, 80, 0.45); --fx: #e0702e; --fx-2: #c8402a; --fx-3: #e8b23a;
+}
+:root[data-season='halloween'] {
+  --a: #ff7a1a; --a-mid: #ff9c4a; --a-high: #ffd9b3; --a-low: #3a1600; --bar-b: #b34d0e;
+  --a-line: rgba(255, 160, 80, 0.3); --a-line-strong: rgba(255, 160, 80, 0.65);
+  --sky: #2e1240; --glow: rgba(255, 120, 30, 0.5); --fx: #ff8a2b; --fx-2: #ffb35c;
+}
+:root[data-season='winter-holidays'] {
+  --a: #c8323c; --a-mid: #e8676c; --a-high: #ffd8d8; --a-low: #3a0f14; --bar-b: #2f7a4a;
+  --a-line: rgba(255, 190, 190, 0.28); --a-line-strong: rgba(255, 190, 190, 0.6);
+  --sky: #3a1420; --glow: rgba(255, 120, 120, 0.45); --fx: #ffffff;
+}
+:root[data-season='new-year'] {
+  --a: #c9a227; --a-mid: #e8c46a; --a-high: #fff0c2; --a-low: #33280a; --bar-b: #9c7d1d;
+  --a-line: rgba(255, 225, 150, 0.3); --a-line-strong: rgba(255, 225, 150, 0.65);
+  --sky: #2a2240; --glow: rgba(255, 215, 110, 0.5); --fx: #ffd95c; --fx-2: #c9b8ff; --fx-3: #ff8ab8;
+}
+:root[data-season='valentines'] {
+  --a: #e0306a; --a-mid: #ff6f9c; --a-high: #ffd0df; --a-low: #3d0f22; --bar-b: #a82552;
+  --a-line: rgba(255, 170, 200, 0.3); --a-line-strong: rgba(255, 170, 200, 0.65);
+  --sky: #3d1230; --glow: rgba(255, 100, 150, 0.5); --fx: #ff6f9c; --fx-2: #ffb3cb;
+}
+
+/* ---------- Effects ---------- */
+.season-fx { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.season-fx i { position: absolute; top: -5vh; display: block; width: 8px; height: 8px; opacity: 0.7;
+  transform: scale(var(--s, 1)); animation: season-fall linear infinite; }
+@keyframes season-fall {
+  from { transform: translate(0, -5vh) scale(var(--s, 1)) rotate(0deg); }
+  to { transform: translate(var(--drift, 0), 110vh) scale(var(--s, 1)) rotate(360deg); }
+}
+@keyframes season-rise {
+  0% { transform: translate(0, 105vh) scale(var(--s, 1)); opacity: 0; }
+  15%, 75% { opacity: 0.8; }
+  100% { transform: translate(var(--drift, 0), 20vh) scale(var(--s, 1)); opacity: 0; }
+}
+
+/* Snow: winter, winter holidays */
+[data-season='winter'] .season-fx i, [data-season='winter-holidays'] .season-fx i {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--fx); box-shadow: 0 0 6px rgba(255, 255, 255, 0.6); opacity: 0.55; }
+[data-season='winter-holidays'] .season-fx i.p1 { background: #ffd95c; box-shadow: 0 0 6px rgba(255, 217, 92, 0.6); }
+
+/* Petals: spring */
+[data-season='spring'] .season-fx i { width: 10px; height: 7px; border-radius: 80% 0 80% 0; background: var(--fx); opacity: 0.65; }
+[data-season='spring'] .season-fx i.p1 { background: var(--fx-2); }
+[data-season='spring'] .season-fx i.p2 { background: var(--fx-3); width: 9px; height: 5px; }
+
+/* Fireflies: summer (float up) */
+[data-season='summer'] .season-fx i { top: 0; width: 4px; height: 4px; border-radius: 50%; background: var(--fx);
+  box-shadow: 0 0 10px 3px rgba(255, 220, 110, 0.55); animation-name: season-rise; }
+
+/* Leaves: autumn */
+[data-season='autumn'] .season-fx i { width: 12px; height: 12px; border-radius: 0 80% 0 80%; background: var(--fx); opacity: 0.6; }
+[data-season='autumn'] .season-fx i.p1 { background: var(--fx-2); }
+[data-season='autumn'] .season-fx i.p2 { background: var(--fx-3); }
+
+/* Embers: Halloween (float up) */
+[data-season='halloween'] .season-fx i { top: 0; width: 4px; height: 4px; border-radius: 50%; background: var(--fx);
+  box-shadow: 0 0 8px 2px rgba(255, 120, 30, 0.6); animation-name: season-rise; }
+[data-season='halloween'] .season-fx i.p1 { background: var(--fx-2); }
+[data-season='halloween'] .season-fx i.p2 { width: 14px; height: 6px; border-radius: 0; background: #1a0d24; box-shadow: none; opacity: 0.85;
+  clip-path: polygon(0 40%, 22% 0, 38% 45%, 50% 25%, 62% 45%, 78% 0, 100% 40%, 70% 100%, 50% 70%, 30% 100%); animation-name: season-rise; }
+
+/* Confetti: New Year */
+[data-season='new-year'] .season-fx i { width: 6px; height: 10px; border-radius: 1px; background: var(--fx); opacity: 0.75; }
+[data-season='new-year'] .season-fx i.p1 { background: var(--fx-2); }
+[data-season='new-year'] .season-fx i.p2 { background: var(--fx-3); }
+
+/* Hearts: Valentine's */
+[data-season='valentines'] .season-fx i { width: 11px; height: 10px; background: var(--fx); opacity: 0.6;
+  clip-path: path('M5.5 10 L0.8 5.2 A2.6 2.6 0 0 1 5.5 1.6 A2.6 2.6 0 0 1 10.2 5.2 Z'); }
+[data-season='valentines'] .season-fx i.p1 { background: var(--fx-2); }
+
+@media (prefers-reduced-motion: reduce) { .season-fx { display: none; } }
+
+/* Reading pages: keep the effect soft so it doesn't get in the way of the text. */
+body:has(.sl-markdown-content) .season-fx { opacity: 0.45; }

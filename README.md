@@ -86,3 +86,22 @@ Decap needs a small OAuth helper so you can log in with GitHub. The simplest fre
 ## Hooking up the Gem Builder
 
 The Gem Builder can load `https://<owner>.github.io/<repo>/gem-types.json` instead of its own list. Each entry has `slug`, `displayName`, `rank`, `stats`, and `abilities`. The "Open in Gem Builder" button on each entry links to `?type=<slug>`, so the builder can preselect it once it reads that parameter.
+
+## Seasonal themes
+The wiki is always dark. On top of that, it changes its accent colors and adds a light falling or floating effect for the time of year:
+
+| Theme | Dates | Effect |
+|---|---|---|
+| Winter | December to February | Snow |
+| Spring | March to May | Petals |
+| Summer | June to August | Fireflies |
+| Autumn | September to November | Leaves |
+| Halloween | October 15 to 31 | Embers and bats |
+| Winter Holidays | December 1 to 26 | Snow with gold |
+| New Year | December 31 to January 1 | Confetti |
+| Valentine's Day | February 10 to 14 | Hearts |
+
+- Dates and the `force` setting are in `src/data/seasons.yml`. Holidays win over seasons. Set `force: none` to turn themes off, or `force: winter` (any key) to lock one in.
+- Preview any theme by adding `?season=<key>` to a page address.
+- Colors and effects are in `src/styles/seasons.css`. The script is `src/components/SeasonScript.astro`, used by both the main layout and Starlight (through the ThemeProvider override).
+- Diamond and Grand Regent pages keep their own themes. Visitors who turn off motion on their device don't get the effects.
