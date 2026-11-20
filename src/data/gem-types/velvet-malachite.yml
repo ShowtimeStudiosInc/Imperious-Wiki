@@ -1,0 +1,83 @@
+name: Velvet Malachite
+slug: velvet-malachite
+rank: '2.3'
+side: Aristocratic
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - catseye
+  - malachite
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Elite
+height: 14'2"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Feline Agility
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      From her Catseye half. Velvet Malachite is agile and extremely flexible, bending and twisting her form in unusual
+      ways. She always lands on her feet, can't be knocked down, and can slip free of being
+      <:Stuck:1569710918638510141>Stuck at the start of her turn.
+    moves: []
+  - section: Signature Ability
+    name: Geokinesis
+    tags: []
+    cost: null
+    text: >-
+      From her Malachite half. Velvet Malachite can control and shape dirt, stone, and rock, letting her open or close a
+      path.
+    moves:
+      - name: Stone Spike
+        tags:
+          - 2 SP
+        cost: 2
+        text: A spike of rock bursts up under one target for 2d4 + MAG damage.
+  - section: Signature Ability
+    name: Toxin Absorption
+    tags:
+      - 1 SP
+    cost: 1
+    text: >-
+      From her Malachite half. She pulls poison or corrosion out of the air, the ground, or an ally, ending that effect.
+      She can't be poisoned herself.
+    moves: []
+  - section: Fusion Ability
+    name: Pounce
+    tags:
+      - 3 SP
+    cost: 3
+    text: >-
+      Velvet Malachite moves from Far or Behind to Near one target and <:Fight:1568035371974135940>FIGHTs them in the
+      same turn. If the target hasn't acted yet this round, the FIGHT has advantage.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: Any Latent Ability either half has unlocked carries into the fusion, including her Catseye half's Liquidation.
+    moves: []
+role: >-
+  Velvet Malachites are fusions between a Catseye and a non-fusion Malachite. They're usually formed when a high-ranking
+  official wants a job done quickly and quietly, so most of them work as spies or assassins. Their dark green coloring
+  helps them blend into the dark. The Catseye half gives them the agility to get in and out of tight spaces, and the
+  Malachite half lets them shape stone to open a way in and handle toxic air that would stop other gems.
+interactions: >-
+  A Velvet Malachite takes her orders from the official who had her formed, and rarely from anyone else. She keeps away
+  from Catseyes and Malachites working their normal jobs, since being recognized ruins the work. Era 0 Hessonites, who
+  handle Court Alpha's spying, sometimes bring one in for a job that needs more strength than stealth.
+description: >-
+  Tall, lean, and strongly built, like a dark green black panther with four arms. She looks a lot like a Catseye, only
+  taller and without the liquid parts.
+image: null
+gemstone: /images/gemstones/velvet-malachite.svg
+credit: null
+updated: '2026-11-20'

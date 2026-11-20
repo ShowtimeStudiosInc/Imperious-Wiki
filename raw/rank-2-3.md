@@ -234,6 +234,30 @@ _``Interactions:``_
 ``Inside the Gempire, a Blue Halite usually stays with the Lapis squad her halves came from, and Tungstens and other miners work under her on seafloor jobs. Regular Agates tend to see her as a sign that an Orca Agate got too close to her Lapis. Among the Rogues, Blue Halites take in water gems who want out, and Bluebird Azurites bring them new arrivals who need somewhere to hide.``
 
 
+# VELVET MALACHITE [FUSION]
+**``BASE STATS``**
+_``HP:``_ [Look at the two components]
+_``ATK:``_ [Look at the two components]
+_``DEF:``_ [Look at the two components]
+_``SPD:``_ [Look at the two components]
+_``INT:``_ [Look at the two components]
+_``MAG:``_ [Look at the two components]
+_``Signature Ability:``_ 
+`Feline Agility [PASSIVE]` - From her Catseye half. Velvet Malachite is agile and extremely flexible, bending and twisting her form in unusual ways. She always lands on her feet, can't be knocked down, and can slip free of being <:Stuck:1569710918638510141>Stuck at the start of her turn.
+`Geokinesis` - From her Malachite half. Velvet Malachite can control and shape dirt, stone, and rock, letting her open or close a path.
+> - `Stone Spike [2 SP]` - A spike of rock bursts up under one target for 2d4 + MAG damage.
+`Toxin Absorption [1 SP]` - From her Malachite half. She pulls poison or corrosion out of the air, the ground, or an ally, ending that effect. She can't be poisoned herself.
+_``Fusion Ability:``_ 
+`Pounce [3 SP]` - Velvet Malachite moves from Far or Behind to Near one target and <:Fight:1568035371974135940>FIGHTs them in the same turn. If the target hasn't acted yet this round, the FIGHT has advantage.
+_``Latent Ability:``_ 
+Any Latent Ability either half has unlocked carries into the fusion, including her Catseye half's Liquidation.
+
+``Velvet Malachites are fusions between a Catseye and a non-fusion Malachite. They're usually formed when a high-ranking official wants a job done quickly and quietly, so most of them work as spies or assassins. Their dark green coloring helps them blend into the dark. The Catseye half gives them the agility to get in and out of tight spaces, and the Malachite half lets them shape stone to open a way in and handle toxic air that would stop other gems.``
+
+_``Interactions:``_
+``A Velvet Malachite takes her orders from the official who had her formed, and rarely from anyone else. She keeps away from Catseyes and Malachites working their normal jobs, since being recognized ruins the work. Era 0 Hessonites, who handle Court Alpha's spying, sometimes bring one in for a job that needs more strength than stealth.``
+
+
 # CATSEYE
 **``BASE STATS``**
 _``HP:``_ 38
