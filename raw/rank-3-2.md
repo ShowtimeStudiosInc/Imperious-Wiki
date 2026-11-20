@@ -87,6 +87,24 @@ _``Latent Ability:``_
 _``Interactions:``_
 ``Bumblebee Jaspers usually guard the Malachites who clear toxic planets, since they can stay in the fumes as long as the Malachite can. Regular Jaspers tease them for smelling like sulfur, and a Bumblebee Jasper always teases back. Agates like having a squad of them, because they rarely need to be told twice to hold a line.``
 
+# CACTUS QUARTZ [SUB-TYPE OF QUARTZ]
+**``BASE STATS``**
+_``HP:``_ 32
+_``ATK:``_ 8
+_``DEF:``_ 6
+_``SPD:``_ 4
+_``INT:``_ 5
+_``MAG:``_ 4
+_``Signature Ability:``_ 
+`Prickly Punch [PASSIVE]` [Limited] [Physical] - Cactus Quartz can push tiny needle-like spikes out of her hands, adding a sting to every punch. Each hit of her <:Fight:1568035371974135940>FIGHTs deals +1 damage while she fights unarmed or with a Punch weapon.
+_``Latent Ability:``_ 
+`Liquid Storage` - Cactus Quartz may learn to store small amounts of water, or any liquid that's needed, inside her form for later. Its moves and SP costs are set when it's unlocked.
+
+``Cactus Quartzes are Quartz soldiers made for dry worlds, where water is hard to find. Most of them learn to store water inside their forms, so they're assigned to squads that need it. Malachites and Lapises can't use their water powers without water nearby, so a Cactus Quartz travels with them and carries their supply. She also carries extra for putting out fires, cooling down machines, and keeping organic samples alive. In a fight, tiny spikes come out of her hands and add damage to every punch, so Agates usually put her at the front of the squad.``
+
+_``Interactions:``_
+``Cactus Quartzes travel with Malachites and Lapises on dry worlds and carry the water they need to work. They share desert posts with Carnelians, who handle the heat and sand while the Cactus Quartz handles the water. Rubies and Eucryptites learn not to stand too close to one in a fight.``
+
 # CARNELIAN [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
 _``HP:``_ 34

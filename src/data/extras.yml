@@ -166,6 +166,7 @@ heights:
   smoky-quartz: 8'0"
   zebra-jasper: 8'0"
   bumblebee-jasper: 8'0"
+  cactus-quartz: 8'0"
   cloud-quartz: 8'0"
   ocean-jasper: 8'0"
   tiger-s-eye: 8'0"
@@ -298,10 +299,11 @@ types:
   rutile: { image: /images/gem-types/rutile.webp }
   angelite: { image: /images/gem-types/angelite.webp }
   zircon: { image: /images/gem-types/zircon.webp }
-  quartz: { image: /images/gem-types/quartz.webp, attachments: [clear-quartz, amethyst, aventurine, blue-quartz, bumblebee-jasper, carnelian, cherry-quartz, citrine, cloud-quartz, jasper, milky-quartz, ocean-jasper, prasiolite, rose-quartz, smoky-quartz, strawberry-quartz, tiger-s-eye, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
+  quartz: { image: /images/gem-types/quartz.webp, attachments: [clear-quartz, amethyst, aventurine, blue-quartz, bumblebee-jasper, cactus-quartz, carnelian, cherry-quartz, citrine, cloud-quartz, jasper, milky-quartz, ocean-jasper, prasiolite, rose-quartz, smoky-quartz, strawberry-quartz, tiger-s-eye, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
   zebra-jasper: { image: /images/gem-types/zebra-jasper.webp }
   bumblebee-jasper: { image: /images/gem-types/bumblebee-jasper.webp }
   calcite: { image: /images/gem-types/calcite.webp }
+  cactus-quartz: { description: "Their gem is like any other quartz, but what's different is that they have tiny, sharp grooves within them, imitating a real life cactus." }
   cloud-quartz: { image: /images/gem-types/cloud-quartz.webp }
   ocean-jasper: { image: /images/gem-types/ocean-jasper.webp }
   tiger-s-eye: { image: /images/gem-types/tiger-s-eye.webp }
