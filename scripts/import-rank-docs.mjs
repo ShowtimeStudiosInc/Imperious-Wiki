@@ -205,7 +205,7 @@ for (const g of all) {
   bySlug[g.slug] = g;
 }
 
-// A fusion with no height of its own stands as tall as its halves added together.
+// A fusion stands as tall as its halves added together, unless its entry under "types" sets its own height (an exception, like Bluebird Azurite).
 const inches = (h) => { const m = /^(\d+)'(\d+)"?$/.exec(String(h || '').trim()); return m ? +m[1] * 12 + +m[2] : null; };
 const heightOf = (slug) => extras.types?.[slug]?.height ?? extras.heights?.[slug] ?? null;
 function fusionHeight(components) {
@@ -236,7 +236,7 @@ for (const g of all) {
     traits: ex.traits ?? (g.abilities.some((a) => /Bioluminescence|Luminescence/.test(a.name || '')) ? ['Bioluminescent'] : []),
     court: ex.court ?? null,
     threatClass: ex.threatClass ?? null,
-    height: fusionHeight(ex.components) ?? ex.height ?? extras.heights?.[g.slug] ?? null,
+    height: ex.height ?? fusionHeight(ex.components) ?? extras.heights?.[g.slug] ?? null,
     stats: g.stats,
     abilities: g.abilities,
     extraBlocks: g.extraBlocks.length ? g.extraBlocks : undefined,
