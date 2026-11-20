@@ -8,6 +8,11 @@ backend:
   # GitHub login goes through the Cloudflare Worker below (sveltia-cms-auth). See README "Turning on the editor".
   base_url: https://ia-wiki-auth.dilanrodriguez091.workers.dev
 publish_mode: editorial_workflow
+logo:
+  src: https://showtimestudiosinc.github.io/Imperious-Wiki/images/brand/logo-white.png
+  show_in_header: true
+site_url: https://showtimestudiosinc.github.io/Imperious-Wiki/
+display_url: https://showtimestudiosinc.github.io/Imperious-Wiki/
 media_folder: public/images/gem-types
 public_folder: /images/gem-types
 

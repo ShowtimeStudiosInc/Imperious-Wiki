@@ -1,0 +1,19 @@
+/* Wiki look for the editor. Colors are swapped by theme.js; this adds fonts, background and a few touch-ups. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville&display=swap');
+html, body { background: #0b0814 url('../images/brand/background.webp') center / cover no-repeat fixed !important; color: #ece6ff; color-scheme: dark; }
+body, button, input, select, textarea { font-family: 'Inter', system-ui, sans-serif !important; }
+h1, h2, [class*='-cardTopHeading'], [class*='-AppHeader'] a[href$='#/'] { font-family: 'Libre Baskerville', Georgia, serif !important; font-weight: 400 !important; letter-spacing: 0.02em; }
+[class*='-AppHeader'] { background: rgba(7, 5, 13, 0.92) !important; border-bottom: 1px solid rgba(201, 184, 255, 0.14); box-shadow: none !important; backdrop-filter: blur(8px); }
+[class*='-AppHeaderLink'], [class*='-AppHeaderButton'] { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.86rem !important; }
+input, textarea, select, [contenteditable='true'], .CodeMirror, [data-slate-editor] { background-color: rgba(7, 5, 13, 0.6) !important; color: #ece6ff !important; caret-color: #c9b8ff; }
+::placeholder { color: #6f6690 !important; }
+a { color: #c9b8ff; }
+::selection { background: rgba(124, 77, 255, 0.45); }
+* { scrollbar-color: #3a2f5c transparent; }
+/* Login page */
+.ia-login-brand { position: fixed; top: 1.4rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.6rem; font: 400 1.05rem 'Libre Baskerville', Georgia, serif; letter-spacing: 0.24em; text-transform: uppercase; color: #ece6ff; pointer-events: none; }
+a { text-decoration: none !important; }
+a:hover { text-decoration: underline !important; }
+[class*='-SidebarNavLink'] { border-radius: 6px; }
+[class*='-option'] { color: #ece6ff !important; }
+[class*='-menu'] { border: 1px solid rgba(201, 184, 255, 0.22); }

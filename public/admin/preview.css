@@ -1,0 +1,9 @@
+/* The live preview pane, styled like a wiki page. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville&display=swap');
+html, body { background: #0d0819; color: #ece6ff; font: 16px/1.6 'Inter', system-ui, sans-serif; color-scheme: dark; }
+body { padding: 1.5rem 2rem; }
+h1, h2, h3 { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 400; color: #fff; }
+a { color: #c9b8ff; }
+img { max-width: 100%; border-radius: 8px; }
+code { background: #1d1434; padding: 0.1em 0.35em; border-radius: 4px; }
+table { border-collapse: collapse; } td, th { border: 1px solid rgba(201, 184, 255, 0.2); padding: 0.3rem 0.6rem; }

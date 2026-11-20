@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Imperious Authorities Wiki Editor</title>
+    <link rel="icon" href="../images/brand/logo-white.png" />
+    <link rel="stylesheet" href="theme.css" />
+    <script src="theme.js"></script>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
+      CMS.registerPreviewStyle('preview.css');
       CMS.registerEventListener({
         name: 'preSave',
         handler: ({ entry }) => {
