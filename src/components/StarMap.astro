@@ -1,22 +1,23 @@
 ---
 /**
- * Home page star map, full screen. Each section of the wiki is a destination in the sky above
- * Homeworld's horizon; Start Here is the station on the horizon; smaller pages are the hex
- * quick-travel icons along the bottom. On narrow screens it becomes a list.
+ * Home page star map, full screen. Destinations are emblem icons linked by routes from Start Here,
+ * which sits on Homeworld's horizon. The Holovision Approval Rating screen floats on the left and
+ * Latest Changes on the right (passed in as the "left" and "right" slots). Hex icons along the
+ * bottom are quick travel to smaller pages. Below 1180px the side panels move under the map;
+ * on phones the destinations become a grid.
  */
 import { url } from '../lib/gems';
-interface Props { gemCount: number }
-const { gemCount } = Astro.props;
 
 const dests = [
-  { id: 'gems', href: '/gem-types/', name: 'Gem-Types', kicker: `${gemCount} catalogued`, text: 'Every type in the empire, from Servants to Transcendents.', x: 50, y: 30, size: 150 },
-  { id: 'diamonds', href: '/diamonds/', name: 'Know Your Diamond', kicker: 'Rank 1.1', text: 'The Deity and Ruling Diamonds, and their Grand Regents.', x: 24, y: 40, size: 128 },
-  { id: 'lore', href: '/lore/overview/', name: 'Lore', kicker: 'The setting', text: 'Factions, Gempire life, how Gems work, wildlife and ships.', x: 79, y: 52, size: 150 },
-  { id: 'rules', href: '/rules/overview/', name: 'Rules', kicker: 'How play works', text: 'Battles, stats, abilities, items, SKILLs and statuses.', x: 71, y: 23, size: 92 },
-  { id: 'approval', href: '/approval-rating/', name: 'Approval Rating', kicker: 'Holovision', text: 'How the empire feels about its Diamonds right now.', x: 87, y: 17, size: 70 },
-  { id: 'nuggets', href: '/lore/nuggets/', name: 'Nuggets of Lore', kicker: 'Small truths', text: 'Short facts about the Gempire, sorted by tag.', x: 10, y: 21, size: 66 },
-  { id: 'start', href: '/start-here/welcome/', name: 'Start Here', kicker: 'New arrivals', text: 'What the setting is, and how to build your first Gem.', x: 50, y: 71, size: 96 },
+  { id: 'gems', href: '/gem-types/', name: 'Gem-Types', x: 50, y: 25, size: 128, color: '#b69cff' },
+  { id: 'diamonds', href: '/diamonds/', name: 'Know Your Diamond', x: 34, y: 34, size: 112, color: '#f2e9ff' },
+  { id: 'lore', href: '/lore/overview/', name: 'Lore', x: 66, y: 34, size: 112, color: '#f0b27a' },
+  { id: 'rules', href: '/rules/overview/', name: 'Rules', x: 38, y: 58, size: 96, color: '#7fb6ff' },
+  { id: 'nuggets', href: '/lore/nuggets/', name: 'Nuggets of Lore', x: 62, y: 58, size: 96, color: '#f2cd6a' },
+  { id: 'start', href: '/start-here/welcome/', name: 'Start Here', x: 50, y: 71, size: 104, color: '#a8f0e0' },
 ];
+const start = dests.find((d) => d.id === 'start')!;
+const others = dests.filter((d) => d.id !== 'start');
 
 const quick = [
   { href: '/lore/glossary/', name: 'Glossary', icon: 'book' },
@@ -28,205 +29,208 @@ const quick = [
 
 let seed = 11;
 const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
-const stars = Array.from({ length: 260 }, () => ({ x: rnd() * 100, y: rnd() * 82, r: rnd() < 0.86 ? 0.5 + rnd() * 0.6 : 1.2 + rnd() * 0.9, o: 0.2 + rnd() * 0.65 }));
+const stars = Array.from({ length: 280 }, () => ({ x: rnd() * 100, y: rnd() * 80, r: rnd() < 0.86 ? 0.5 + rnd() * 0.6 : 1.2 + rnd() * 0.9, o: 0.2 + rnd() * 0.65 }));
+// Homeworld's curve in the horizon box (1600 x 320): y = top of the planet at each x.
+const arcY = (x: number) => 60 + ((x - 800) ** 2) / 4200;
+const ctrl = 60 - (arcY(0) - 60);
+const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const d = rnd() * 70; return { x, y: arcY(x) + 6 + d, r: d < 18 ? 1.3 : 0.9, o: Math.max(0.15, 0.9 - d / 80) }; });
 ---
-<section class="map" aria-label="Wiki map: pick a destination">
-  <svg class="sky" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-    {stars.map((s) => <circle cx={s.x} cy={s.y} r={s.r * 0.09} opacity={s.o} />)}
-  </svg>
-  <div class="nebula" aria-hidden="true"></div>
-  <svg class="grid" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="0" y1="45" x2="100" y2="45" /><line x1="50" y1="0" x2="50" y2="100" />
-  </svg>
+<section class="map-wrap">
+  <div class="map" aria-label="Wiki map: pick a destination">
+    <svg class="sky" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      {stars.map((s) => <circle cx={s.x} cy={s.y} r={s.r * 0.09} opacity={s.o} />)}
+    </svg>
+    <div class="nebula" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"></div>
 
-  <div class="horizon" aria-hidden="true">
-    <div class="atmo"></div>
-    <div class="planet-body"></div>
-  </div>
+    <svg class="routes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points={`${dests[1].x},${dests[1].y} ${dests[0].x},${dests[0].y} ${dests[2].x},${dests[2].y}`} class="route faint" />
+      <polyline points={`${dests[1].x},${dests[1].y} ${dests[3].x},${dests[3].y}`} class="route faint" />
+      <polyline points={`${dests[2].x},${dests[2].y} ${dests[4].x},${dests[4].y}`} class="route faint" />
+      {others.map((d) => <line x1={start.x} y1={start.y} x2={d.x} y2={d.y} class="route" />)}
+      {others.map((d, i) => <line x1={start.x} y1={start.y} x2={d.x} y2={d.y} class="pulse" pathLength="100" style={`animation-delay:${-i * 0.9}s`} />)}
+    </svg>
 
-  <div class="titlebar">
-    <img src={url('/images/brand/logo-white.png')} alt="" width="134" height="162" />
-    <div><h1>Imperious Authorities</h1><p>Pick a destination</p></div>
-  </div>
+    <svg class="horizon" viewBox="0 0 1600 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="hz-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1b4e" /><stop offset=".35" stop-color="#140c2a" /><stop offset="1" stop-color="#07040f" /></linearGradient>
+        <radialGradient id="hz-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#c9b8ff" stop-opacity=".35" /><stop offset="1" stop-color="#c9b8ff" stop-opacity="0" /></radialGradient>
+        <filter id="hz-blur" x="-10%" y="-200%" width="120%" height="500%"><feGaussianBlur stdDeviation="7" /></filter>
+      </defs>
+      <ellipse cx="800" cy="70" rx="560" ry="60" fill="url(#hz-glow)" />
+      <path d={`M0 ${arcY(0)} Q800 ${ctrl} 1600 ${arcY(1600)}`} fill="none" stroke="#9a7cf0" stroke-width="20" opacity=".55" filter="url(#hz-blur)" />
+      <path d={`M0 ${arcY(0)} Q800 ${ctrl} 1600 ${arcY(1600)} L1600 320 L0 320 Z`} fill="url(#hz-body)" />
+      <path d={`M0 ${arcY(0)} Q800 ${ctrl} 1600 ${arcY(1600)}`} fill="none" stroke="#e1d6ff" stroke-width="1.5" opacity=".85" />
+      {lights.map((l) => <circle cx={l.x.toFixed(1)} cy={l.y.toFixed(1)} r={l.r} fill="#ffd9a0" opacity={l.o.toFixed(2)} />)}
+      <g fill="#0d0820">
+        <polygon points="794,62 800,14 806,62" /><polygon points="781,63 786,38 791,63" /><polygon points="809,63 814,40 819,63" />
+      </g>
+      <circle cx="800" cy="14" r="2.4" fill="#f0e8ff" />
+    </svg>
 
-  {dests.map((d) => (
-    <a class={`dest dest-${d.id}`} href={url(d.href)} style={`--x:${d.x}%;--y:${d.y}%;--size:${d.size}px`}>
-      <span class="halo" aria-hidden="true"></span>
-      <span class="planet" aria-hidden="true">
-        {d.id === 'gems' && (
-          <svg viewBox="0 0 100 100">
-            <defs><radialGradient id="pg-gems" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#f6eeff" /><stop offset=".5" stop-color="#b69cff" /><stop offset="1" stop-color="#3e2380" /></radialGradient></defs>
-            <circle cx="50" cy="50" r="46" fill="url(#pg-gems)" />
-            <g fill="#ffffff" opacity=".22"><polygon points="50,6 70,30 50,44 30,30" /><polygon points="70,30 94,50 72,62 50,44" /><polygon points="30,30 50,44 28,62 6,50" /><polygon points="50,44 72,62 50,94 28,62" opacity=".5" /></g>
-            <g fill="none" stroke="#ffffff" stroke-width="1" opacity=".55"><polyline points="50,6 70,30 94,50" /><polyline points="50,6 30,30 6,50" /><polyline points="30,30 50,44 70,30" /><polyline points="50,44 50,94" /><polyline points="28,62 50,44 72,62" /></g>
-          </svg>
-        )}
-        {d.id === 'diamonds' && (
-          <svg viewBox="0 0 100 100">
-            <defs><radialGradient id="pg-dia" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffffff" /><stop offset=".55" stop-color="#d9d4ee" /><stop offset="1" stop-color="#5e5680" /></radialGradient></defs>
-            <ellipse cx="50" cy="52" rx="49" ry="12" fill="none" stroke="#e9e2ff" stroke-width="3" opacity=".35" transform="rotate(-14 50 52)" />
-            <circle cx="50" cy="50" r="34" fill="url(#pg-dia)" />
-            <path d="M3 61 A49 12 0 0 0 97 43" fill="none" stroke="#f5f0ff" stroke-width="3" opacity=".9" transform="rotate(-14 50 52)" />
-            <polygon points="50,30 56,40 50,50 44,40" fill="#ffffff" opacity=".8" />
-          </svg>
-        )}
-        {d.id === 'rules' && (
-          <svg viewBox="0 0 100 100">
-            <defs><radialGradient id="pg-rules" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#d7ecff" /><stop offset=".55" stop-color="#6aa0d8" /><stop offset="1" stop-color="#1a3060" /></radialGradient><clipPath id="pc-rules"><circle cx="50" cy="50" r="44" /></clipPath></defs>
-            <circle cx="50" cy="50" r="44" fill="url(#pg-rules)" />
-            <g clip-path="url(#pc-rules)" fill="none" stroke="#e8f3ff" stroke-width="1" opacity=".45">
-              <ellipse cx="50" cy="50" rx="44" ry="14" /><ellipse cx="50" cy="50" rx="44" ry="30" /><line x1="6" y1="50" x2="94" y2="50" />
-              <ellipse cx="50" cy="50" rx="14" ry="44" /><ellipse cx="50" cy="50" rx="30" ry="44" /><line x1="50" y1="6" x2="50" y2="94" />
-            </g>
-          </svg>
-        )}
-        {d.id === 'lore' && (
-          <svg viewBox="0 0 100 100">
-            <defs><radialGradient id="pg-lore" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#ffe2b8" /><stop offset=".5" stop-color="#d98a5a" /><stop offset="1" stop-color="#4a2240" /></radialGradient><clipPath id="pc-lore"><circle cx="46" cy="52" r="40" /></clipPath></defs>
-            <circle cx="46" cy="52" r="40" fill="url(#pg-lore)" />
-            <g clip-path="url(#pc-lore)" fill="none" stroke-linecap="round">
-              <path d="M2 38 Q30 32 50 38 T92 36" stroke="#fff1dc" stroke-width="4" opacity=".35" />
-              <path d="M2 52 Q26 58 48 52 T92 54" stroke="#7a2e4a" stroke-width="6" opacity=".35" />
-              <path d="M2 66 Q34 60 56 66 T92 64" stroke="#fff1dc" stroke-width="3" opacity=".3" />
-              <ellipse cx="60" cy="58" rx="7" ry="4" fill="#7a2e4a" opacity=".45" stroke="none" />
-            </g>
-            <circle cx="88" cy="18" r="7" fill="#e9dcff" />
-          </svg>
-        )}
-        {d.id === 'nuggets' && (
-          <svg viewBox="0 0 100 100">
-            <defs><radialGradient id="pg-nug" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff6d8" /><stop offset=".55" stop-color="#e8c46a" /><stop offset="1" stop-color="#6a4a14" /></radialGradient></defs>
-            <circle cx="50" cy="50" r="38" fill="url(#pg-nug)" />
-            <g fill="#6a4a14" opacity=".35"><circle cx="38" cy="40" r="6" /><circle cx="60" cy="58" r="8" /><circle cx="62" cy="34" r="4" /></g>
-          </svg>
-        )}
-        {d.id === 'start' && (
-          <svg viewBox="0 0 100 100">
-            <defs><radialGradient id="pg-start" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#ffffff" /><stop offset=".5" stop-color="#c9b8ff" /><stop offset="1" stop-color="#4b2f8f" /></radialGradient></defs>
-            <circle class="beacon" cx="50" cy="50" r="40" fill="none" stroke="#c9b8ff" stroke-width="2.5" />
-            <circle cx="50" cy="50" r="40" fill="#120a24" stroke="#c9b8ff" stroke-width="2" />
-            <circle cx="50" cy="50" r="30" fill="none" stroke="#c9b8ff" stroke-width="1" opacity=".5" />
-            <polygon points="50,18 58,44 50,82 42,44" fill="url(#pg-start)" />
-            <line x1="20" y1="50" x2="80" y2="50" stroke="#c9b8ff" stroke-width="2" opacity=".7" />
-          </svg>
-        )}
-        {d.id === 'approval' && (
-          <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="40" fill="#1a0e2c" stroke="#ff4fa3" stroke-width="5" />
-            <circle cx="50" cy="50" r="40" fill="none" stroke="#7fe0a8" stroke-width="2" stroke-dasharray="6 9" />
-            <rect x="32" y="37" width="36" height="26" rx="4" fill="#2b1745" stroke="#ff4fa3" stroke-width="3" />
-            <rect x="39" y="50" width="5" height="9" fill="#7fe0a8" /><rect x="47" y="44" width="5" height="15" fill="#7fe0a8" /><rect x="55" y="48" width="5" height="11" fill="#ff4fa3" />
-          </svg>
-        )}
-      </span>
-      <span class="label"><strong>{d.name}</strong><small>{d.kicker}</small></span>
-      <span class="card" role="presentation"><span>{d.text}</span><em>Travel ›</em></span>
-    </a>
-  ))}
+    <div class="titlebar">
+      <img src={url('/images/brand/logo-white.png')} alt="" width="134" height="162" />
+      <h1>Imperious Authorities</h1>
+    </div>
 
-  <nav class="quick" aria-label="Quick travel">
-    {quick.map((q) => (
-      <a href={url(q.href)} title={q.name}>
-        <span class="hex" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            {q.icon === 'book' && <><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" /><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5" /></>}
-            {q.icon === 'bars' && <><line x1="5" y1="20" x2="5" y2="12" /><line x1="10" y1="20" x2="10" y2="6" /><line x1="15" y1="20" x2="15" y2="9" /><line x1="20" y1="20" x2="20" y2="3" /></>}
-            {q.icon === 'bolt' && <path d="M13 2 4 14h7l-1 8 9-12h-7z" />}
-            {q.icon === 'sheet' && <><rect x="5" y="3" width="14" height="18" rx="2" /><line x1="9" y1="8" x2="15" y2="8" /><line x1="9" y1="12" x2="15" y2="12" /><line x1="9" y1="16" x2="13" y2="16" /></>}
-            {q.icon === 'ship' && <><path d="M12 3l6 13-6-3-6 3z" /><path d="M9 18l3 3 3-3" /></>}
-          </svg>
+    {dests.map((d, i) => (
+      <a class={`dest dest-${d.id}${i % 2 ? ' rev' : ''}`} href={url(d.href)} style={`--x:${d.x}%;--y:${d.y}%;--s:${d.size};--c:${d.color}`}>
+        <span class="emblem" aria-hidden="true">
+          <svg class="ring" viewBox="0 0 100 100"><circle class="outer" cx="50" cy="50" r="48" /><circle class="dash" cx="50" cy="50" r="44" /><circle class="dot" cx="50" cy="2" r="2.2" /></svg>
+          <span class="medal">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+              {d.id === 'gems' && <>
+                <polygon points="18,14 46,14 56,26 32,54 8,26" fill="currentColor" fill-opacity=".14" />
+                <polyline points="8,26 56,26" /><polyline points="18,14 24,26 32,54 40,26 46,14" /><polyline points="24,26 32,14 40,26" />
+              </>}
+              {d.id === 'diamonds' && <>
+                <polyline points="16,22 20,12 26,18 32,9 38,18 44,12 48,22" /><line x1="16" y1="22" x2="48" y2="22" />
+                <polygon points="32,27 46,41 32,56 18,41" fill="currentColor" fill-opacity=".18" /><polyline points="18,41 46,41" /><polyline points="32,27 32,56" />
+              </>}
+              {d.id === 'rules' && <>
+                <polygon points="32,7 54,19 54,45 32,57 10,45 10,19" fill="currentColor" fill-opacity=".12" />
+                <polygon points="32,18 45,40 19,40" /><polyline points="32,7 32,18" /><polyline points="54,19 45,40 54,45" /><polyline points="10,19 19,40 10,45" /><polyline points="19,40 32,57 45,40" />
+              </>}
+              {d.id === 'lore' && <>
+                <path d="M32 18 C24 12 14 12 8 14 V50 C14 48 24 48 32 54 C40 48 50 48 56 50 V14 C50 12 40 12 32 18 Z" fill="currentColor" fill-opacity=".14" /><line x1="32" y1="18" x2="32" y2="54" />
+                <path d="M44 22 l1.6 3.6 3.6 1.6 -3.6 1.6 -1.6 3.6 -1.6 -3.6 -3.6 -1.6 3.6 -1.6z" fill="currentColor" stroke="none" />
+                <line x1="14" y1="26" x2="26" y2="26" /><line x1="14" y1="33" x2="26" y2="33" /><line x1="38" y1="40" x2="50" y2="40" />
+              </>}
+              {d.id === 'nuggets' && <>
+                <polygon points="12,40 18,30 28,32 30,44 20,48" fill="currentColor" fill-opacity=".22" />
+                <polygon points="32,24 40,16 50,20 50,32 40,34" fill="currentColor" fill-opacity=".22" />
+                <polygon points="34,46 42,38 52,42 48,52 38,52" fill="currentColor" fill-opacity=".22" />
+                <path d="M20 14 l1 2.4 2.4 1 -2.4 1 -1 2.4 -1 -2.4 -2.4 -1 2.4 -1z" fill="currentColor" stroke="none" />
+              </>}
+              {d.id === 'start' && <>
+                <path d="M14 56 V30 A18 18 0 0 1 50 30 V56" />
+                <path d="M21 56 V31 A11 11 0 0 1 43 31 V56" fill="currentColor" fill-opacity=".16" />
+                <polygon points="32,28 36,38 32,50 28,38" fill="currentColor" stroke="none" />
+                <line x1="8" y1="56" x2="56" y2="56" />
+              </>}
+            </svg>
+          </span>
         </span>
-        <span class="qname">{q.name}</span>
+        <span class="name">{d.name}</span>
       </a>
     ))}
-  </nav>
 
-  <a class="scroll-cue" href="#below" aria-label="Scroll to the Approval Rating and Latest Changes">⌄</a>
+    <nav class="quick" aria-label="Quick travel">
+      {quick.map((q) => (
+        <a href={url(q.href)} aria-label={q.name}>
+          <span class="hex" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              {q.icon === 'book' && <><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" /><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5" /></>}
+              {q.icon === 'bars' && <><line x1="5" y1="20" x2="5" y2="12" /><line x1="10" y1="20" x2="10" y2="6" /><line x1="15" y1="20" x2="15" y2="9" /><line x1="20" y1="20" x2="20" y2="3" /></>}
+              {q.icon === 'bolt' && <path d="M13 2 4 14h7l-1 8 9-12h-7z" />}
+              {q.icon === 'sheet' && <><rect x="5" y="3" width="14" height="18" rx="2" /><line x1="9" y1="8" x2="15" y2="8" /><line x1="9" y1="12" x2="15" y2="12" /><line x1="9" y1="16" x2="13" y2="16" /></>}
+              {q.icon === 'ship' && <><path d="M12 3l6 13-6-3-6 3z" /><path d="M9 18l3 3 3-3" /></>}
+            </svg>
+          </span>
+          <span class="qname">{q.name}</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+
+  <aside class="side side-left"><slot name="left" /></aside>
+  <aside class="side side-right"><slot name="right" /></aside>
 </section>
 
 <script>
-  const map = document.querySelector<HTMLElement>('.map');
-  if (map && matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    map.addEventListener('pointermove', (e) => {
-      const r = map.getBoundingClientRect();
-      map.style.setProperty('--px', ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
-      map.style.setProperty('--py', ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
+  const wrap = document.querySelector<HTMLElement>('.map-wrap');
+  if (wrap && matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    wrap.addEventListener('pointermove', (e) => {
+      const r = wrap.getBoundingClientRect();
+      wrap.style.setProperty('--px', ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
+      wrap.style.setProperty('--py', ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
     });
-    map.addEventListener('pointerleave', () => { map.style.setProperty('--px', '0'); map.style.setProperty('--py', '0'); });
+    wrap.addEventListener('pointerleave', () => { wrap.style.setProperty('--px', '0'); wrap.style.setProperty('--py', '0'); });
   }
 </script>
 
 <style>
-  .map { --px: 0; --py: 0; position: relative; height: calc(100vh - 54px); min-height: 640px; overflow: hidden; isolation: isolate;
-    background: radial-gradient(80% 60% at 50% 38%, #1c1036, #0a0614 70%), #07040f; }
+  .map-wrap { --px: 0; --py: 0; position: relative; }
+  .map { position: relative; height: calc(100vh - 54px); min-height: 680px; overflow: hidden; isolation: isolate;
+    background: radial-gradient(70% 55% at 50% 40%, #1c1036, #0a0614 70%), #07040f; }
   .sky { position: absolute; inset: -2%; width: 104%; height: 104%; fill: #efe6ff; transform: translate(calc(var(--px) * -10px), calc(var(--py) * -10px)); transition: transform 0.3s ease-out; }
   .nebula { position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(28% 32% at 22% 30%, rgba(255, 120, 190, 0.10), transparent 70%), radial-gradient(30% 34% at 80% 28%, rgba(95, 180, 255, 0.10), transparent 70%), radial-gradient(40% 30% at 50% 48%, var(--glow, rgba(124, 77, 255, 0.18)), transparent 70%); }
-  .grid { position: absolute; inset: 0; width: 100%; height: 100%; stroke: var(--lav, #c9b8ff); stroke-width: 0.06; opacity: 0.2; }
+    background: radial-gradient(26% 30% at 20% 30%, rgba(255, 120, 190, 0.10), transparent 70%), radial-gradient(28% 32% at 80% 28%, rgba(95, 180, 255, 0.10), transparent 70%), radial-gradient(34% 28% at 50% 42%, var(--glow, rgba(124, 77, 255, 0.2)), transparent 70%); }
+  .aurora { position: absolute; left: 12%; right: 12%; bottom: 22%; height: 22%; pointer-events: none; opacity: 0.55; filter: blur(34px);
+    background: linear-gradient(90deg, transparent, rgba(127, 224, 168, 0.2), rgba(182, 156, 255, 0.28), rgba(255, 120, 190, 0.16), transparent); animation: aurora 14s ease-in-out infinite alternate; }
+  @keyframes aurora { from { transform: translateX(-4%) skewX(-6deg); } to { transform: translateX(4%) skewX(6deg); } }
 
-  .horizon { position: absolute; left: 50%; top: 78%; width: 260vw; height: 260vw; margin-left: -130vw; transform: translate(calc(var(--px) * 6px), calc(var(--py) * 4px)); pointer-events: none; transition: transform 0.3s ease-out; }
-  .atmo { position: absolute; inset: -1.5%; border-radius: 50%; background: radial-gradient(closest-side, transparent 96.6%, var(--glow, rgba(150, 110, 255, 0.6)) 98.2%, rgba(201, 184, 255, 0.15) 99.2%, transparent 100%); }
-  .planet-body { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(closest-side at 50% 4%, #3a2a62, #1b1236 18%, #0b0718 45%); box-shadow: inset 0 14px 40px rgba(201, 184, 255, 0.3); }
+  .routes { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; transform: translate(calc(var(--px) * 14px), calc(var(--py) * 14px)); transition: transform 0.3s ease-out; }
+  .route { stroke: var(--lav, #c9b8ff); stroke-width: 1; vector-effect: non-scaling-stroke; fill: none; stroke-dasharray: 3 6; opacity: 0.35; }
+  .route.faint { opacity: 0.15; }
+  .pulse { stroke: #ffffff; stroke-width: 3; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-dasharray: 0.4 99.6; animation: travel 4.5s linear infinite; opacity: 0.85; }
+  @keyframes travel { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -100; } }
 
-  .titlebar { position: absolute; left: clamp(1rem, 3vw, 2.5rem); top: 1.2rem; display: flex; align-items: center; gap: 0.8rem; z-index: 2; }
-  .titlebar img { height: 46px; width: auto; filter: drop-shadow(0 0 10px var(--glow, rgba(124, 77, 255, 0.6))); }
-  .titlebar h1 { margin: 0; font-size: clamp(1rem, 1.8vw, 1.35rem); letter-spacing: 0.16em; text-transform: uppercase; }
-  .titlebar p { margin: 0; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .horizon { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 34%; overflow: visible; transform: translate(calc(var(--px) * 5px), calc(var(--py) * 3px)); transition: transform 0.3s ease-out; }
 
-  .dest { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%) translate(calc(var(--px) * 14px), calc(var(--py) * 14px)); transition: transform 0.3s ease-out; color: var(--text); text-decoration: none; display: grid; justify-items: center; gap: 0.45rem; z-index: 1; }
-  .dest-start { transform: translate(-50%, -50%) translate(calc(var(--px) * 6px), calc(var(--py) * 4px)); }
-  .halo { position: absolute; top: calc(var(--size) / 2); left: 50%; width: calc(var(--size) * 1.32); height: calc(var(--size) * 1.32); transform: translate(-50%, -50%); border-radius: 50%; border: 1px solid rgba(201, 184, 255, 0.22); pointer-events: none; transition: border-color 0.25s, box-shadow 0.25s; }
-  .planet { display: block; width: var(--size); height: var(--size); transition: transform 0.25s ease, filter 0.25s ease; animation: bob 8s ease-in-out infinite; }
-  .dest-diamonds .planet { animation-delay: -2s; } .dest-lore .planet { animation-delay: -4s; } .dest-rules .planet { animation-delay: -1s; } .dest-nuggets .planet { animation-delay: -6s; } .dest-start .planet { animation: none; }
-  .planet svg { width: 100%; height: 100%; overflow: visible; }
-  @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
-  .beacon { transform-origin: 50px 50px; animation: beacon 2.8s ease-out infinite; }
-  @keyframes beacon { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.65); opacity: 0; } }
+  .titlebar { position: absolute; left: 50%; top: 1.2rem; transform: translateX(-50%); display: flex; align-items: center; gap: 0.7rem; z-index: 2; white-space: nowrap; }
+  .titlebar img { height: 34px; width: auto; filter: drop-shadow(0 0 10px var(--glow, rgba(124, 77, 255, 0.6))); }
+  .titlebar h1 { margin: 0; font-size: clamp(0.95rem, 1.5vw, 1.2rem); letter-spacing: 0.3em; text-transform: uppercase; color: #efe6ff; }
 
-  .label { display: grid; justify-items: center; text-align: center; line-height: 1.2; pointer-events: none; white-space: nowrap; }
-  .label strong { font-family: var(--serif); font-weight: 400; font-size: 0.95rem; letter-spacing: 0.22em; text-transform: uppercase; text-shadow: 0 1px 10px #07040f, 0 0 2px #07040f; }
-  .label small { color: var(--muted); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; text-shadow: 0 1px 8px #07040f; }
+  .dest { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%) translate(calc(var(--px) * 14px), calc(var(--py) * 14px)); transition: transform 0.3s ease-out; color: var(--text); text-decoration: none; display: grid; justify-items: center; gap: 0.6rem; z-index: 1; }
+  .emblem { --size: clamp(calc(var(--s) * 0.8px), calc(var(--s) * 0.075vw), calc(var(--s) * 1.35px)); position: relative; display: grid; place-items: center; width: var(--size); height: var(--size); }
+  .ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; animation: spin 40s linear infinite; }
+  .rev .ring { animation-direction: reverse; }
+  .ring circle { fill: none; stroke: var(--c); }
+  .ring .outer { stroke-width: 0.6; opacity: 0.35; }
+  .ring .dash { stroke-width: 1.2; stroke-dasharray: 3 7; opacity: 0.55; }
+  .ring .dot { fill: var(--c); stroke: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .medal { position: relative; display: grid; place-items: center; width: 70%; height: 70%; color: var(--c);
+    background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--c) 24%, #160d2c), #0c0718 75%);
+    clip-path: polygon(50% 0, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); transition: filter 0.25s, transform 0.25s; }
+  .medal::before { content: ''; position: absolute; inset: 0; background: var(--c); opacity: 0.55;
+    clip-path: polygon(50% 0, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%, 7% 25%, 10% 26.7%, 10% 73.3%, 50% 96.5%, 90% 73.3%, 90% 26.7%, 50% 3.5%, 10% 26.7%); }
+  .medal svg { position: relative; width: 58%; height: 58%; filter: drop-shadow(0 0 6px color-mix(in srgb, var(--c) 70%, transparent)); }
+  .dest-start .emblem::after { content: ''; position: absolute; inset: 14%; border-radius: 50%; border: 2px solid var(--c); animation: beacon 2.8s ease-out infinite; pointer-events: none; }
+  @keyframes beacon { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.7); opacity: 0; } }
 
-  .card { position: absolute; top: calc(100% + 0.5rem); left: 50%; width: 15rem; transform: translate(-50%, 4px); opacity: 0; pointer-events: none; transition: opacity 0.18s, transform 0.18s;
-    padding: 0.65rem 0.8rem; border-radius: 10px; background: rgba(14, 9, 28, 0.95); border: 1px solid var(--line-strong); font-size: 0.84rem; color: var(--text); text-align: left; display: grid; gap: 0.3rem; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); }
-  .card em { font-style: normal; color: var(--lav); font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .dest-start .card, .dest-lore .card { top: auto; bottom: calc(100% + 0.5rem); }
-  .dest-approval .card { left: auto; right: 0; transform: translate(0, 4px); }
-  .dest-nuggets .card { left: 0; transform: translate(0, 4px); }
+  .name { font-family: var(--serif); font-weight: 400; font-size: clamp(0.82rem, 0.95vw, 1.05rem); letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; color: #efe6ff; text-shadow: 0 1px 10px #07040f, 0 0 2px #07040f; transition: color 0.2s, letter-spacing 0.25s; }
 
   .dest:hover, .dest:focus-visible { z-index: 4; outline: none; }
-  .dest:hover .planet, .dest:focus-visible .planet { transform: scale(1.07); filter: drop-shadow(0 0 18px var(--glow, rgba(124, 77, 255, 0.65))); }
-  .dest:hover .halo, .dest:focus-visible .halo { border-color: rgba(201, 184, 255, 0.6); box-shadow: 0 0 24px rgba(201, 184, 255, 0.18); }
-  .dest:hover .card, .dest:focus-visible .card { opacity: 1; transform: translate(-50%, 0); }
-  .dest-approval:hover .card, .dest-approval:focus-visible .card, .dest-nuggets:hover .card, .dest-nuggets:focus-visible .card { transform: translate(0, 0); }
+  .dest:hover .medal, .dest:focus-visible .medal { transform: scale(1.08); filter: drop-shadow(0 0 16px var(--c)) brightness(1.2); }
+  .dest:hover .ring, .dest:focus-visible .ring { animation-duration: 8s; }
+  .dest:hover .name, .dest:focus-visible .name { color: var(--c); letter-spacing: 0.3em; }
 
-  .quick { position: absolute; left: 50%; bottom: 5%; transform: translateX(-50%); display: flex; gap: clamp(0.5rem, 1.6vw, 1.2rem); z-index: 3; }
+  .quick { position: absolute; left: 50%; bottom: 3.5%; transform: translateX(-50%); display: flex; gap: clamp(0.5rem, 1.4vw, 1.1rem); z-index: 3; }
   .quick a { position: relative; display: grid; justify-items: center; color: var(--lav, #c9b8ff); text-decoration: none; }
-  .hex { display: grid; place-items: center; width: 52px; height: 58px; background: rgba(14, 9, 28, 0.85); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); position: relative; transition: background 0.2s, color 0.2s; }
-  .hex::before { content: ''; position: absolute; inset: 0; background: currentColor; opacity: 0.4; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%, 0 25%, 3% 26.5%, 3% 73.5%, 50% 96.5%, 97% 73.5%, 97% 26.5%, 50% 3.5%, 3% 26.5%); }
-  .hex svg { width: 22px; height: 22px; }
-  .qname { position: absolute; top: calc(100% + 0.35rem); white-space: nowrap; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); opacity: 0; transition: opacity 0.18s; text-shadow: 0 1px 8px #07040f; }
-  .quick a:hover .hex, .quick a:focus-visible .hex { background: rgba(60, 40, 110, 0.9); color: #fff; }
+  .hex { display: grid; place-items: center; width: 48px; height: 54px; background: rgba(14, 9, 28, 0.9); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); position: relative; transition: background 0.2s, color 0.2s; }
+  .hex::before { content: ''; position: absolute; inset: 0; background: currentColor; opacity: 0.45; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%, 0 25%, 3% 26.5%, 3% 73.5%, 50% 96.5%, 97% 73.5%, 97% 26.5%, 50% 3.5%, 3% 26.5%); }
+  .hex svg { position: relative; width: 20px; height: 20px; }
+  .qname { position: absolute; bottom: calc(100% + 0.4rem); white-space: nowrap; font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); opacity: 0; transition: opacity 0.18s; text-shadow: 0 1px 8px #07040f; }
+  .quick a:hover .hex, .quick a:focus-visible .hex { background: rgba(60, 40, 110, 0.95); color: #fff; }
   .quick a:hover .qname, .quick a:focus-visible .qname { opacity: 1; }
   .quick a:focus-visible { outline: none; }
 
-  .scroll-cue { position: absolute; right: clamp(1rem, 3vw, 2.5rem); bottom: 1rem; color: var(--muted); font-size: 1.6rem; text-decoration: none; z-index: 3; animation: cue 2.4s ease-in-out infinite; }
-  @keyframes cue { 0%, 100% { translate: 0 0; } 50% { translate: 0 5px; } }
+  .side { position: absolute; top: 50%; transform: translateY(-50%); width: clamp(250px, 19vw, 330px); z-index: 5; }
+  .side-left { left: clamp(1rem, 2.2vw, 2.2rem); }
+  .side-right { right: clamp(1rem, 2.2vw, 2.2rem); }
 
-  @media (prefers-reduced-motion: reduce) { .planet, .beacon, .scroll-cue { animation: none !important; } .beacon { display: none; } .sky, .dest, .horizon { transition: none; } }
-  @media (max-height: 760px) and (min-width: 761px) { .planet { scale: 0.78; } .halo { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .ring, .pulse, .aurora, .dest-start .emblem::after { animation: none !important; } .pulse { display: none; } .sky, .dest, .routes, .horizon { transition: none; } }
+  @media (max-height: 780px) and (min-width: 761px) { .emblem { scale: 0.82; } .dest { gap: 0.25rem; } }
 
+  @media (max-width: 1180px) {
+    .map-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .map { grid-column: 1 / -1; }
+    .side { position: static; transform: none; width: auto; }
+    .side-left { margin-left: 1rem; } .side-right { margin-right: 1rem; }
+  }
   @media (max-width: 760px) {
-    .map { height: auto; min-height: 0; padding: 5.4rem 1rem 1.5rem; display: grid; gap: 0.6rem; }
-    .grid, .horizon, .scroll-cue, .halo { display: none; }
-    .dest { position: static; transform: none !important; display: grid; grid-template-columns: 60px 1fr; grid-template-areas: 'p l' 'p c'; justify-items: start; align-items: center; gap: 0 0.9rem; padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(14, 9, 28, 0.6); }
-    .dest-start { order: -1; }
-    .planet { grid-area: p; width: 56px; height: 56px; animation: none; }
-    .label { grid-area: l; justify-items: start; text-align: left; white-space: normal; }
-    .label strong { font-size: 0.9rem; letter-spacing: 0.12em; }
-    .card { grid-area: c; position: static; opacity: 1; transform: none !important; width: auto; padding: 0; background: none; border: 0; box-shadow: none; font-size: 0.8rem; color: var(--muted); }
-    .card em { display: none; }
-    .quick { position: static; transform: none; justify-content: center; flex-wrap: wrap; margin-top: 0.6rem; gap: 1.2rem 0.9rem; }
-    .qname { position: static; opacity: 1; margin-top: 0.3rem; font-size: 0.6rem; }
+    .map-wrap { grid-template-columns: 1fr; }
+    .side-left, .side-right { margin: 0 1rem; }
+    .map { height: auto; min-height: 0; padding: 4.5rem 1rem 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .routes, .horizon, .aurora { display: none; }
+    .dest { position: static; transform: none !important; padding: 0.8rem 0.4rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(14, 9, 28, 0.6); }
+    .dest-start { order: -1; grid-column: 1 / -1; }
+    .dest-nuggets { grid-column: 1 / -1; }
+    .emblem { width: 72px; height: 72px; }
+    .name { font-size: 0.72rem; letter-spacing: 0.14em; white-space: normal; text-align: center; }
+    .quick { position: static; transform: none; grid-column: 1 / -1; justify-content: center; flex-wrap: wrap; margin-top: 0.4rem; }
+    .qname { position: static; opacity: 1; margin-top: 0.3rem; font-size: 0.56rem; }
   }
 </style>
