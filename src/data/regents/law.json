@@ -1,0 +1,44 @@
+{
+ "slug": "law",
+ "name": "Grand Regent Law",
+ "shortName": "Law",
+ "diamond": "epsilon-blue",
+ "diamondName": "Epsilon Blue Diamond",
+ "title": "Grand Regent <span class=\"accent\">Law</span>",
+ "courtLine": "Court Epsilon · Grand Regent · Rank 1.2",
+ "heroSub": "Cubic Zirconia of Epsilon Blue Diamond, and sibling of Grand Regent Tethys.",
+ "chips": [
+  [
+   "Court",
+   "Epsilon"
+  ],
+  [
+   "Rank",
+   "1.2"
+  ]
+ ],
+ "facts": [
+  [
+   "Gem-Type",
+   "Cubic Zirconia"
+  ],
+  [
+   "Court",
+   "Epsilon"
+  ],
+  [
+   "Siblings",
+   "Epsilon Blue Diamond, Grand Regent Tethys"
+  ]
+ ],
+ "pending": true,
+ "status": "Submission pending",
+ "redacted": false,
+ "known": [
+  "Law is one of Epsilon Blue Diamond's two Cubic Zirconias, alongside Grand Regent Tethys.",
+  "Tethys finds him a bit too intense for their taste, but he is still their brother.",
+  "His full page goes up when his submission arrives."
+ ],
+ "sections": [],
+ "credits": []
+}

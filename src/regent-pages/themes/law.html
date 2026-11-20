@@ -1,0 +1,36 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-display: "Cormorant Garamond", Georgia, serif;
+    --bg: #0a1222; --bg-deep: #142443;
+    --panel: rgba(20, 34, 64, .9); --panel-2: rgba(20, 34, 64, .9); --panel-solid: rgba(14, 24, 46, .92);
+    --ink: #eef4ff; --ink-soft: #c4d4f2; --ink-faint: #8ea4cf;
+    --gold: #7fb0ff; --gold-bright: #b8d3ff; --gold-pale: #dbe8ff;
+    --brown-deep: rgba(6, 10, 20, .96);
+    --line: rgba(127, 176, 255, .16); --line-strong: rgba(127, 176, 255, .34);
+    --chip: rgba(127, 176, 255, .14);
+    --quote-bg: rgba(6, 10, 20, .9); --quote-ink: #eef4ff;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .5);
+    --sp: #142443; --sp-bg: #b8d3ff; --badge-ink: #142443;
+  }
+  body { background: var(--bg); }
+  /* A hall of tall pillars with light falling between them */
+  .lw-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      repeating-linear-gradient(90deg, rgba(10, 18, 34, 0) 0 9%, rgba(127, 176, 255, .07) 9% 10.5%, rgba(10, 18, 34, 0) 10.5% 16.6%),
+      linear-gradient(180deg, rgba(127, 176, 255, .12), transparent 45%),
+      radial-gradient(ellipse at 50% 110%, #1d3566, transparent 60%), var(--bg); }
+  .lw-beam { position: fixed; top: -10%; width: 14vw; height: 130%; z-index: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(184, 211, 255, .14), transparent 75%); transform: skewX(-12deg); animation: lw-sway 14s ease-in-out infinite alternate; }
+  @keyframes lw-sway { to { opacity: .45; transform: skewX(-8deg) translateX(3vw); } }
+  @media (prefers-reduced-motion: reduce) { .lw-beam { animation: none; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="200" height="180" viewBox="0 0 100 90" aria-hidden="true" fill="none" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"><line x1="50" y1="8" x2="50" y2="84"/><line x1="16" y1="20" x2="84" y2="20"/><path d="M16 20 L6 50 H26 Z"/><path d="M84 20 L74 50 H94 Z"/><line x1="32" y1="84" x2="68" y2="84"/></svg>
+<!--/mark-->
+<div class="lw-bg" aria-hidden="true"></div>
+<div class="lw-beam" style="left:18%" aria-hidden="true"></div>
+<div class="lw-beam" style="left:62%;animation-delay:-6s" aria-hidden="true"></div>

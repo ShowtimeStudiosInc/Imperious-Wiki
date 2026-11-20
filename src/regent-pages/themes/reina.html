@@ -1,0 +1,74 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-display: "Chakra Petch", "Share Tech Mono", monospace;
+    --bg: #08051a; --bg-deep: #160c33;
+    --panel: rgba(22, 12, 48, .88); --panel-2: rgba(22, 12, 48, .88); --panel-solid: rgba(14, 8, 34, .9);
+    --ink: #f3ecff; --ink-soft: #cdbcf5; --ink-faint: #9483c4;
+    --gold: #b98cff; --gold-bright: #ff5fd2; --gold-pale: #8ff3ff;
+    --brown-deep: rgba(6, 3, 18, .96);
+    --line: rgba(185, 140, 255, .2); --line-strong: rgba(255, 95, 210, .45);
+    --chip: rgba(185, 140, 255, .14);
+    --quote-bg: rgba(6, 3, 18, .9); --quote-ink: #f3ecff;
+    --shadow: 0 0 0 1px rgba(143, 243, 255, .08), 0 18px 44px rgba(0, 0, 0, .55);
+    --sp: #160c33; --sp-bg: #8ff3ff; --badge-ink: #160c33;
+  }
+  body { background: var(--bg); }
+  h1 { font-weight: 700; letter-spacing: .04em; text-shadow: 0 0 18px rgba(255, 95, 210, .45); }
+  .court-line, .domain-chips span, .facts th { font-family: "Share Tech Mono", monospace; }
+  .hero { border-top-color: var(--gold-bright) !important; }
+  /* Neon city at night: a skyline of lit windows, a highway of light trails and a glowing grid floor */
+  .rc-city { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    background: radial-gradient(ellipse at 50% 85%, rgba(255, 95, 210, .22), transparent 55%), linear-gradient(180deg, #08051a 0%, #1a0b3d 62%, #2a0f4a 70%, #08051a 100%); }
+  .rc-city svg { position: absolute; left: 0; right: 0; bottom: 30%; width: 100%; height: 55%; }
+  .rc-floor { position: absolute; left: -50%; right: -50%; bottom: 0; height: 30%; transform-origin: top; transform: perspective(300px) rotateX(62deg);
+    background:
+      repeating-linear-gradient(90deg, rgba(143, 243, 255, .35) 0 1px, transparent 1px 60px),
+      repeating-linear-gradient(0deg, rgba(185, 140, 255, .35) 0 1px, transparent 1px 60px);
+    animation: rc-run 3s linear infinite; }
+  @keyframes rc-run { to { background-position: 0 0, 0 60px; } }
+  .rc-trail { position: absolute; height: 2px; width: 22vw; bottom: 31%; border-radius: 2px; animation: rc-drive linear infinite; }
+  @keyframes rc-drive { from { transform: translateX(-30vw); } to { transform: translateX(130vw); } }
+  .rc-scan { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 3px); }
+  .rc-blink { animation: rc-blink 3.4s steps(2, start) infinite; }
+  @keyframes rc-blink { to { opacity: .2; } }
+  @media (prefers-reduced-motion: reduce) { .rc-floor, .rc-trail, .rc-blink { animation: none; } .rc-trail { display: none; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="220" height="150" viewBox="0 0 120 80" aria-hidden="true"><path d="M8 30 C30 14 90 14 112 30 L104 54 C80 46 40 46 16 54 Z" fill="var(--gold)"/><rect x="30" y="30" width="60" height="6" fill="var(--gold-pale)"/></svg>
+<!--/mark-->
+<div class="rc-city" aria-hidden="true">
+  <svg id="rcSky" viewBox="0 0 1600 500" preserveAspectRatio="xMidYMax slice"></svg>
+  <span class="rc-trail" style="background:linear-gradient(90deg,transparent,#ff5fd2);animation-duration:5s"></span>
+  <span class="rc-trail" style="bottom:30.5%;background:linear-gradient(90deg,transparent,#8ff3ff);animation-duration:7s;animation-delay:-3s"></span>
+  <span class="rc-trail" style="bottom:31.4%;background:linear-gradient(90deg,transparent,#b98cff);animation-duration:9s;animation-delay:-6s"></span>
+  <div class="rc-floor"></div>
+</div>
+<div class="rc-scan" aria-hidden="true"></div>
+<script>
+(function () {
+  // Build an original skyline: towers of different heights with rows of lit windows.
+  var svg = document.getElementById("rcSky"), ns = "http://www.w3.org/2000/svg";
+  var colors = ["#b98cff", "#ff5fd2", "#8ff3ff", "#f3ecff"];
+  var seed = 7; function r() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+  function el(n, a) { var e = document.createElementNS(ns, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+  var x = -20;
+  while (x < 1620) {
+    var w = 50 + r() * 90, h = 120 + r() * 340, top = 500 - h;
+    svg.appendChild(el("rect", { x: x, y: top, width: w, height: h, fill: r() < .5 ? "#120a2c" : "#170d36" }));
+    svg.appendChild(el("rect", { x: x, y: top, width: w, height: 2, fill: colors[Math.floor(r() * 3)], opacity: .7 }));
+    if (r() < .35) svg.appendChild(el("rect", { x: x + w / 2 - 1, y: top - 30 - r() * 40, width: 2, height: 70, fill: "#2a1a55" }));
+    for (var wy = top + 14; wy < 492; wy += 16) for (var wx = x + 8; wx < x + w - 10; wx += 14) {
+      if (r() < .42) {
+        var c = el("rect", { x: wx, y: wy, width: 7, height: 5, fill: colors[Math.floor(r() * colors.length)], opacity: (.35 + r() * .55).toFixed(2) });
+        if (r() < .05) c.setAttribute("class", "rc-blink");
+        svg.appendChild(c);
+      }
+    }
+    x += w + 6 + r() * 14;
+  }
+})();
+</script>

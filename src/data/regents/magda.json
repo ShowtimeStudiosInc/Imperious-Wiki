@@ -1,0 +1,39 @@
+{
+ "slug": "magda",
+ "name": "Grand Regent Magda",
+ "shortName": "Magda",
+ "diamond": "maroon-red",
+ "diamondName": "Maroon Red Diamond",
+ "title": "Grand Regent <span class=\"accent\">Magda</span>",
+ "courtLine": "Court Maroon · Grand Regent · Rank 1.2",
+ "heroSub": "Cubic Zirconia of Maroon Red Diamond.",
+ "chips": [
+  [
+   "Court",
+   "Maroon"
+  ],
+  [
+   "Rank",
+   "1.2"
+  ]
+ ],
+ "facts": [
+  [
+   "Gem-Type",
+   "Cubic Zirconia"
+  ],
+  [
+   "Court",
+   "Maroon"
+  ]
+ ],
+ "pending": true,
+ "status": "Submission pending",
+ "redacted": false,
+ "known": [
+  "Magda is Maroon Red Diamond's Cubic Zirconia and holds the Title of Grand Regent.",
+  "Magda's full page goes up when the submission arrives."
+ ],
+ "sections": [],
+ "credits": []
+}

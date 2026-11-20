@@ -1,0 +1,39 @@
+{
+ "slug": "ordr",
+ "name": "Grand Regent Ordr",
+ "shortName": "Ordr",
+ "diamond": "theta-gold",
+ "diamondName": "Theta Gold Diamond",
+ "title": "Grand Regent <span class=\"accent\">Ordr</span>",
+ "courtLine": "Court Theta · Grand Regent · Rank 1.2",
+ "heroSub": "Cubic Zirconia of Theta Gold Diamond.",
+ "chips": [
+  [
+   "Court",
+   "Theta"
+  ],
+  [
+   "Rank",
+   "1.2"
+  ]
+ ],
+ "facts": [
+  [
+   "Gem-Type",
+   "Cubic Zirconia"
+  ],
+  [
+   "Court",
+   "Theta"
+  ]
+ ],
+ "pending": true,
+ "status": "Submission pending",
+ "redacted": false,
+ "known": [
+  "Ordr is Theta Gold Diamond's Cubic Zirconia and holds the Title of Grand Regent.",
+  "Ordr's full page goes up when the submission arrives."
+ ],
+ "sections": [],
+ "credits": []
+}

@@ -1,0 +1,42 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-display: "Cormorant Garamond", Georgia, serif;
+    --bg: #150708; --bg-deep: #2c0d10;
+    --panel: rgba(44, 14, 18, .9); --panel-2: rgba(44, 14, 18, .9); --panel-solid: rgba(30, 10, 12, .92);
+    --ink: #fff0ec; --ink-soft: #f0c9c0; --ink-faint: #c08c84;
+    --gold: #e0624f; --gold-bright: #ff9a6b; --gold-pale: #ffd2bd;
+    --brown-deep: rgba(12, 4, 5, .96);
+    --line: rgba(224, 98, 79, .18); --line-strong: rgba(224, 98, 79, .36);
+    --chip: rgba(224, 98, 79, .14);
+    --quote-bg: rgba(12, 4, 5, .9); --quote-ink: #fff0ec;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .55);
+    --sp: #2c0d10; --sp-bg: #ff9a6b; --badge-ink: #2c0d10;
+  }
+  body { background: radial-gradient(ellipse at 50% 120%, #5a1a12, var(--bg) 65%) fixed; }
+  /* Embers drifting up from a fire below the page */
+  .mg-embers { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .mg-embers i { position: absolute; bottom: -10px; width: 3px; height: 3px; border-radius: 50%; background: #ff9a6b; box-shadow: 0 0 6px #ff6a3d; animation: mg-rise linear infinite; }
+  @keyframes mg-rise { from { transform: translate3d(0, 0, 0); opacity: .9; } to { transform: translate3d(30px, -105vh, 0); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .mg-embers { display: none; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="180" height="190" viewBox="0 0 100 106" aria-hidden="true"><path d="M50 4 C62 26 84 38 80 66 C77 88 62 102 50 102 C38 102 23 88 20 66 C17 46 32 38 36 22 C42 34 46 36 50 4 Z" fill="var(--gold)"/></svg>
+<!--/mark-->
+<div class="mg-embers" id="mgEmbers" aria-hidden="true"></div>
+<script>
+(function () {
+  var box = document.getElementById("mgEmbers");
+  for (var i = 0; i < 34; i++) {
+    var e = document.createElement("i");
+    e.style.left = (Math.random() * 100) + "%";
+    e.style.animationDuration = (8 + Math.random() * 10).toFixed(1) + "s";
+    e.style.animationDelay = (-Math.random() * 18).toFixed(1) + "s";
+    var s = 2 + Math.random() * 3; e.style.width = s + "px"; e.style.height = s + "px";
+    box.appendChild(e);
+  }
+})();
+</script>

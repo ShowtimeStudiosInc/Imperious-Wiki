@@ -7,7 +7,18 @@ const groups = [
   { id: 'deity', title: 'Deity Diamonds', text: 'The four Diamonds who were never made. They emerged on their own, and each holds a Pillar of existence.', rows: DIAMONDS.filter((d) => d.group === 'deity') },
   { id: 'ruling', title: 'Ruling Diamonds', text: 'The Diamonds who came into being in Era 2A, each made from a Paragon Core.', rows: DIAMONDS.filter((d) => d.group === 'ruling') },
 ];
-const REGENTS = Object.values(regentData).sort((a: any, b: any) => a.shortName.localeCompare(b.shortName));
+const regents = Object.fromEntries(Object.values(regentData).map((r: any) => [r.slug, r]));
+// Every Diamond's Cubic Zirconia slots, in order. null = slot still open. Omega White's is left out on purpose.
+const SLOTS: [string, (string | null)[]][] = [
+  ['alpha-black', ['dante']],
+  ['theta-gold', ['ordr']],
+  ['epsilon-blue', ['tethys', 'law']],
+  ['saturn-light', ['florentino']],
+  ['nightshade-violet', ['reina', 'antton']],
+  ['maroon-red', ['magda', null]],
+  ['bi-colored-kandy', [null, null]],
+];
+const court = (slug: string) => DIAMONDS.find((d) => d.slug === slug);
 ---
 
 <Site title="Know Your Diamond" description="Rank 1.1: the Diamonds of the Gempire." current="diamonds">
@@ -42,16 +53,45 @@ const REGENTS = Object.values(regentData).sort((a: any, b: any) => a.shortName.l
     <p class="intro">
       Cubic Zirconias are Rank 1.2. Each one emerges beside their Diamond as a sibling, carries a fragment of their essence, and is given the Title of Grand Regent.
     </p>
-    <div class="grid">
-      {REGENTS.map((r: any) => (
-        <a class="card diamond-card" href={url(`/regents/${r.slug}/`)}>
-          <img class="thumb" src={r.art.src.replace('{{BASE}}', url('/'))} alt={`${r.name} art`} />
-          <span class="name">{r.name}</span>
-          <span class="sub">{r.facts[0][1]}</span>
-          <span class="sub">Court {r.facts.find((f: any) => f[0] === 'Court')[1]} &middot; {r.chips.find((c: any) => c[0] === 'Height')[1]}</span>
-        </a>
-      ))}
-    </div>
+    {SLOTS.map(([dslug, slots]) => {
+      const d = court(dslug);
+      return (
+        <>
+          <h3 class="court-head">{d ? <a href={url(`/diamonds/${dslug}/`)}>{d.name}</a> : dslug}<span>{slots.length === 1 ? '1 Cubic Zirconia' : `${slots.length} Cubic Zirconias`}</span></h3>
+          <div class="grid regent-grid">
+            {slots.map((rs, i) => {
+              const r = rs ? regents[rs] : null;
+              if (!r) return (
+                <div class="card diamond-card open-slot">
+                  <div class="thumb ph" aria-hidden="true"><span>+</span></div>
+                  <span class="name">Slot open</span>
+                  <span class="sub">Cubic Zirconia {i + 1} of {d?.name ?? dslug}</span>
+                </div>
+              );
+              if (r.pending) return (
+                <a class={`card diamond-card${r.redacted ? ' sealed' : ''}`} href={url(`/regents/${r.slug}/`)}>
+                  <div class="thumb ph" aria-hidden="true">
+                    <svg viewBox="0 0 100 130"><circle cx="50" cy="36" r="20" /><path d="M14 128 C14 88 30 66 50 66 C70 66 86 88 86 128 Z" /></svg>
+                    {r.redacted && <em>[REDACTED]</em>}
+                  </div>
+                  <span class="name">{r.name}<span class="tag">{r.status}</span></span>
+                  <span class="sub">{r.facts[0][1]}</span>
+                  <span class="sub">Court {r.facts.find((f: any) => f[0] === 'Court')?.[1]}</span>
+                </a>
+              );
+              return (
+                <a class="card diamond-card" href={url(`/regents/${r.slug}/`)}>
+                  <img class="thumb" src={r.art.src.replace('{{BASE}}', url('/'))} alt={`${r.name} art`} />
+                  <span class="name">{r.name}</span>
+                  <span class="sub">{r.facts[0][1]}</span>
+                  <span class="sub">Court {r.facts.find((f: any) => f[0] === 'Court')[1]} &middot; {r.chips.find((c: any) => c[0] === 'Height')?.[1]}</span>
+                </a>
+              );
+            })}
+          </div>
+        </>
+      );
+    })}
 
     {FORTHCOMING_DIAMONDS.length > 0 && <section class="panel">
       <div class="bar">Forthcoming</div>
@@ -75,6 +115,15 @@ const REGENTS = Object.values(regentData).sort((a: any, b: any) => a.shortName.l
   .grid { margin: 1.2rem 0; }
   .diamond-card .thumb { aspect-ratio: 3 / 4; object-position: center 18%; }
   .tag { display: inline-block; margin-left: 0.45rem; padding: 0.05rem 0.45rem; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); vertical-align: middle; }
+  .court-head { display: flex; align-items: baseline; gap: 0.7rem; margin: 1.6rem 0 0; font-family: var(--serif); font-weight: 400; font-size: 1.1rem; }
+  .court-head a { color: var(--text); }
+  .court-head span { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .regent-grid { margin-top: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(180px, 220px)); }
+  .thumb.ph { position: relative; display: grid; place-items: center; width: calc(100% + 1.7rem); margin: -0.85rem -0.85rem 0.1rem; aspect-ratio: 3 / 4; border-bottom: 1px solid var(--line); background: radial-gradient(ellipse at 50% 30%, rgba(124, 77, 255, 0.18), rgba(7, 5, 13, 0.6)); }
+  .thumb.ph svg { width: 46%; fill: rgba(201, 184, 255, 0.1); stroke: rgba(201, 184, 255, 0.3); stroke-width: 1.2; }
+  .thumb.ph em { position: absolute; left: 10%; right: 10%; top: 44%; padding: 0.3rem; background: #050407; color: #8a8076; text-align: center; font-style: normal; letter-spacing: 0.2em; font-size: 0.72rem; transform: rotate(-6deg); }
+  .open-slot { border-style: dashed; opacity: 0.75; }
+  .open-slot .thumb.ph span { font-size: 2.4rem; color: rgba(201, 184, 255, 0.4); }
   .forthcoming { margin: 0.6rem 0 0; padding-left: 1.1rem; color: #ddd5f5; }
   .forthcoming li + li { margin-top: 0.3rem; }
 </style>

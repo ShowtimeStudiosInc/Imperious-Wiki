@@ -32,17 +32,20 @@ const mark = theme.match(/<!--mark-->([\s\S]*?)<!--\/mark-->/)?.[1] ?? '';
 const background = theme.replace(/<!--fonts-->[\s\S]*?<!--\/fonts-->/, '').replace(/<!--mark-->[\s\S]*?<!--\/mark-->/, '');
 const sibling = DIAMONDS.find((d) => d.slug === p.diamond);
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-const art = { ...p.art, src: fix(p.art.src) };
-const jump = [
+const pending = !!p.pending;
+const art = p.art ? { ...p.art, src: fix(p.art.src) } : null;
+const jump = pending ? [] : [
   { id: 'appearance', label: 'Appearance' },
   { id: 'personality', label: 'Personality' },
   { id: 'likes', label: 'Likes & Dislikes' },
   { id: 'relationships', label: 'Relationships' },
   ...p.abilities.map((a: any) => ({ id: slugify(a.name), label: a.name })),
 ];
+// Widths for the black bars on a sealed file, fixed so the page doesn't change between builds.
+const bars = (n: number, seed: number) => Array.from({ length: n }, (_, i) => 55 + ((seed * 37 + i * 23) % 40));
 const title = `${p.name} | Imperious Authorities`;
 const desc = `${p.name}. ${p.heroSub}`.slice(0, 200);
-const ogImage = new URL(url(art.src.replace(base, '/')), Astro.site).href;
+const ogImage = new URL(art ? url(art.src.replace(base, '/')) : url('/images/brand/og-logo.png'), Astro.site).href;
 const nav = NAV;
 ---
 <!doctype html>
@@ -63,6 +66,15 @@ const nav = NAV;
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" />
     <Fragment set:html={fonts} />
     <style is:inline>
+      .pending-note p { margin: 0 0 .7rem; }
+      .sealed .bar-line { margin: 0 0 .8rem; }
+      .sealed .bar-line span { display: inline-block; max-width: 100%; padding: .1rem .5rem; background: #050407; color: #050407; border-radius: 2px; font-size: .9rem; user-select: none; }
+      .sealed .bar-line span::selection { background: transparent; }
+      .facts td.redact { color: transparent; background: #050407; border-radius: 2px; user-select: none; }
+      .no-art { position: relative; display: grid; place-items: center; aspect-ratio: 3 / 4; border-radius: 14px; border: 1px dashed var(--line-strong); background: var(--panel-solid); }
+      .no-art svg { width: 55%; fill: var(--chip); stroke: var(--line-strong); stroke-width: 1.2; }
+      .no-art .gem { fill: var(--gold); stroke: none; opacity: .8; }
+      .no-art span { position: absolute; top: 46%; left: 8%; right: 8%; text-align: center; padding: .4rem; background: #050407; color: var(--ink-faint); letter-spacing: .2em; font-size: .8rem; transform: rotate(-6deg); }
       .ia-top { position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; gap: 1.25rem;
         padding: 0.7rem 1.25rem; background: rgba(7, 5, 13, 0.82); backdrop-filter: blur(8px);
         border-bottom: 1px solid rgba(201, 184, 255, 0.16); font-family: Inter, system-ui, sans-serif; line-height: 1.55; }
@@ -108,6 +120,41 @@ const nav = NAV;
         </div>
       </header>
 
+      {pending ? (
+        <div class="grid">
+          <main class="stack">
+            <section class="card pending-note">
+              <h2><span class="dot"></span>{p.redacted ? 'Sealed file' : 'Submission pending'}</h2>
+              {p.known.map((t: string) => <p set:html={t} />)}
+            </section>
+            {p.sections.map(([name, n]: [string, number], si: number) => (
+              <section class="card sealed">
+                <h2><span class="dot"></span>{name}</h2>
+                {bars(n, si + 1).map((w) => <p class="bar-line"><span style={`width:${w}%`}>[REDACTED]</span></p>)}
+              </section>
+            ))}
+          </main>
+          <aside>
+            <section class="artbox" id="appearance">
+              <div class="artbox-head"><h2>Appearance</h2><p>{p.redacted ? 'Image sealed.' : 'No art yet.'}</p></div>
+              <div class={`no-art${p.redacted ? ' sealed-art' : ''}`} aria-hidden="true">
+                <svg viewBox="0 0 100 130"><circle cx="50" cy="36" r="20" /><path d="M14 128 C14 88 30 66 50 66 C70 66 86 88 86 128 Z" /><polygon points="50,24 57,34 50,46 43,34" class="gem" /></svg>
+                {p.redacted && <span>[REDACTED]</span>}
+              </div>
+            </section>
+            <section class="facts-wrap" aria-label={`${p.name} facts`}>
+              <h2>At a glance</h2>
+              <table class="facts">
+                {p.facts.map(([k, v]: [string, string]) => <tr><th>{k}</th><td class={v === '[REDACTED]' ? 'redact' : ''}>{v}</td></tr>)}
+              </table>
+            </section>
+            <section class="facts-wrap" aria-label="Sibling">
+              <h2>Sibling Diamond</h2>
+              <span class="sibling">{sibling ? <a href={url(`/diamonds/${sibling.slug}/`)}>{p.diamondName}</a> : p.diamondName}</span>
+            </section>
+          </aside>
+        </div>
+      ) : (<>
       <nav class="jumpnav" aria-label="On this page">
         {jump.map((j) => <a href={`#${j.id}`}>{j.label}</a>)}
       </nav>
@@ -213,6 +260,7 @@ const nav = NAV;
           )}
         </aside>
       </div>
+      </>)}
     </div>
 
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Picture viewer">

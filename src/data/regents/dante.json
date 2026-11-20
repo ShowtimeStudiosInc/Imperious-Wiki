@@ -1,0 +1,72 @@
+{
+ "slug": "dante",
+ "name": "Grand Regent Dante",
+ "shortName": "Dante",
+ "diamond": "alpha-black",
+ "diamondName": "Alpha Black Diamond",
+ "title": "Grand Regent <span class=\"accent\">Dante</span>",
+ "courtLine": "Court Alpha · Grand Regent · Rank 1.2",
+ "heroSub": "Cubic Zirconia of Alpha Black Diamond. Most of this file has been sealed.",
+ "chips": [
+  [
+   "Sub-Domain",
+   "[REDACTED]"
+  ],
+  [
+   "Era",
+   "[REDACTED]"
+  ],
+  [
+   "Height",
+   "[REDACTED]"
+  ]
+ ],
+ "facts": [
+  [
+   "Gem-Type",
+   "Cubic Zirconia"
+  ],
+  [
+   "Court",
+   "Alpha"
+  ],
+  [
+   "Pronouns",
+   "[REDACTED]"
+  ],
+  [
+   "Height",
+   "[REDACTED]"
+  ],
+  [
+   "Gem Placement",
+   "[REDACTED]"
+  ],
+  [
+   "Place of Birth",
+   "[REDACTED]"
+  ]
+ ],
+ "pending": true,
+ "status": "File sealed",
+ "redacted": true,
+ "known": [
+  "Dante is Alpha Black Diamond's Cubic Zirconia and holds the Title of Grand Regent.",
+  "Anything past that is sealed for now."
+ ],
+ "sections": [
+  [
+   "Personality",
+   3
+  ],
+  [
+   "Relationships",
+   2
+  ],
+  [
+   "Abilities",
+   4
+  ]
+ ],
+ "credits": []
+}
