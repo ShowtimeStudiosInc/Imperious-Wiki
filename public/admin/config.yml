@@ -140,7 +140,7 @@ collections:
         required: false
         summary: "{{fields.who}} {{fields.change}}"
         fields:
-          - { name: who, label: Who, widget: select, options: [{ label: Alpha Black, value: alpha-black }, { label: Epsilon Blue, value: epsilon-blue }, { label: Theta Gold, value: theta-gold }, { label: Saturn Light, value: saturn-light }, { label: Nightshade Violet, value: nightshade-violet }, { label: Maroon Red, value: maroon-red }, { label: Bi-Colored Kandy, value: bi-colored-kandy }, { label: Antton, value: antton }, { label: Florentino, value: florentino }, { label: Tethys, value: tethys }] }
+          - { name: who, label: Who, widget: select, options: [{ label: Alpha Black, value: alpha-black }, { label: Epsilon Blue, value: epsilon-blue }, { label: Theta Gold, value: theta-gold }, { label: Saturn Light, value: saturn-light }, { label: Nightshade Violet, value: nightshade-violet }, { label: Maroon Red, value: maroon-red }, { label: Bi-Colored Kandy, value: bi-colored-kandy }, { label: Antton, value: antton }, { label: Florentino, value: florentino }, { label: Tethys, value: tethys }, { label: Reina, value: reina }, { label: Magda, value: magda }, { label: Law, value: law }, { label: Ordr, value: ordr }, { label: Dante, value: dante }] }
           - { name: change, label: "Points (+3, -2)", widget: number, value_type: int }
           - { name: text, label: "Why (shown on the Approval Rating)", widget: text }
       - { name: unrest, label: "Unrest change (optional, + or -)", widget: number, value_type: int, required: false }
@@ -197,7 +197,7 @@ collections:
             summary: "{{date}} · {{who}} · {{change}} · {{kind}}"
             fields:
               - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
-              - { name: who, label: Who, widget: select, options: [alpha-black, epsilon-blue, theta-gold, saturn-light, nightshade-violet, maroon-red, bi-colored-kandy, antton, florentino, tethys] }
+              - { name: who, label: Who, widget: select, options: [alpha-black, epsilon-blue, theta-gold, saturn-light, nightshade-violet, maroon-red, bi-colored-kandy, antton, florentino, tethys, reina, magda, law, ordr, dante] }
               - { name: change, label: "Points (+3, -2, 0)", widget: number, value_type: int }
               - { name: kind, label: Kind, widget: select, options: [{ label: "Event (something they did)", value: event }, { label: "Update roll", value: roll }] }
               - { name: text, label: "What happened", widget: text }

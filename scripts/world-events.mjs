@@ -65,7 +65,9 @@ function people(pop) {
 }
 
 // Alpha Black stays out of public life, so she only gets events that name her or are marked alpha_ok.
-const allowed = (p, e) => p.slug !== 'alpha-black' || (Array.isArray(e.who) && e.who.includes('alpha-black')) || (e.alpha_ok && !e.acts);
+// Dante's file is sealed, so he's kept out of public life the same way.
+const HIDDEN = ['alpha-black', 'dante'];
+const allowed = (p, e) => !HIDDEN.includes(p.slug) || (Array.isArray(e.who) && e.who.includes(p.slug)) || (e.alpha_ok && !e.acts);
 function inGroup(p, who) {
   if (!who || who === 'any') return true;
   if (Array.isArray(who)) return who.includes(p.slug);
@@ -152,7 +154,7 @@ function tick(pop, state, now, forceTier) {
     const p = weighted(candidates, (c) => tilt(c, leaning(ev)));
     let other = null;
     if (ev.other) {
-      other = ev.other_who ? all.find((o) => o.slug === ev.other_who) : pick(all.filter((o) => o.slug !== p.slug && o.slug !== 'alpha-black'));
+      other = ev.other_who ? all.find((o) => o.slug === ev.other_who) : pick(all.filter((o) => o.slug !== p.slug && !HIDDEN.includes(o.slug)));
     }
     const text = fill(ev.text, p, other, gem);
     move(p, rand(ev.change[0], ev.change[1]), tier, text);

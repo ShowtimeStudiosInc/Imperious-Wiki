@@ -323,6 +323,54 @@
   change: [-1, -1]
   text: Gems at court say Tethys can tell when they're lying. Some find that comforting. Others find it creepy.
 
+- id: reina-visor
+  tier: small
+  who: [reina]
+  change: [1, 2]
+  text: A clip of Reina's visor flashing a reply mid-meeting is going around Court Nightshade. Gems think it's funny.
+
+- id: reina-couch
+  tier: small
+  who: [reina]
+  change: [-2, -1]
+  text: A petitioner says Reina heard her whole case from her Couch without looking up once. The story is getting around.
+
+- id: magda-drills
+  tier: small
+  who: [magda]
+  change: [1, 2]
+  text: A squad back from training under Magda beat every other squad at a Militia sports day. Others are asking to be put under her.
+
+- id: magda-quiet
+  tier: small
+  who: [magda]
+  change: [-1, -1]
+  text: Magda left a Court Maroon gathering early after barely talking to anyone. Some took it as a snub.
+
+- id: law-hard
+  tier: small
+  who: [law]
+  change: [-2, -1]
+  text: Gems who have dealt with Law say he is hard to please and harder to argue with. Not everyone means it as a compliment.
+
+- id: law-backed
+  tier: small
+  who: [law]
+  change: [1, 2]
+  text: Law backed a Service Trade gem in a dispute with her overseer, and the overseer had to apologize in front of everyone.
+
+- id: ordr-schedules
+  tier: small
+  who: [ordr]
+  change: [1, 1]
+  text: Work schedules sent out by Ordr's office are clearer than the old ones. Gems in Court Theta noticed.
+
+- id: dante-rumor
+  tier: small
+  who: [dante]
+  change: [-1, 1]
+  text: Gems keep trading guesses about Grand Regent Dante. Nobody they know has seen him, and the guesses get stranger every week.
+
 # ── MEDIUM EVENTS (every few days) ───────────────────────────────────────────
 
 - id: power-out
