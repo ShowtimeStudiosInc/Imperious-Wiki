@@ -230,7 +230,7 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
     .dest-nuggets { grid-column: 1 / -1; }
     .emblem { width: 72px; height: 72px; }
     .name { font-size: 0.72rem; letter-spacing: 0.14em; white-space: normal; text-align: center; }
-    .quick { position: static; transform: none; grid-column: 1 / -1; justify-content: center; flex-wrap: wrap; margin-top: 0.4rem; }
-    .qname { position: static; opacity: 1; margin-top: 0.3rem; font-size: 0.56rem; }
+    .quick { position: static; transform: none; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4rem; margin-top: 0.4rem; }
+    .qname { position: static; opacity: 1; margin-top: 0.3rem; font-size: 0.54rem; white-space: normal; text-align: center; line-height: 1.25; }
   }
 </style>
