@@ -204,6 +204,21 @@ _``Interactions:``_
 
 
 
+# BUMBLEBEE JASPER [UNITED FRONTIER GEM-TYPE] [THE QUARTZ GROUP]
+**``STAT MODIFIER``**
+_``ATK:``_ +2
+_``DEF:``_ -1 (HP -2)
+_``SPD:``_ +2
+_``INT:``_ -2
+_``MAG:``_ -2
+_``Signature Ability:``_ 
+`Paralyzing Bite [PASSIVE]` - Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands will secrete the venom into their saliva, with which they will bite an opponent and paralyze them for anywhere between 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents).
+
+``A Clear Quartz shifts into a Bumblebee Jasper when they're drawn to wildlife control work. When a dangerous animal wanders into a settlement, a worksite, or a trek camp, a Bumblebee Jasper is the one called to deal with it. Her bite puts the animal down without hurting it for good, so the crew can move it somewhere safe instead of killing it. Bumblebee Jaspers are quick and bold, and they'd rather get close to a problem than wait for it to come to them.``
+
+_``Interactions:``_
+``Bumblebee Jaspers ride along on Zebra Jasper treks, handling the wildlife so the guide can keep the crew moving. Jaspers guarding remote outposts call them in when something big gets too close. Most crews are glad to have one around, as long as she isn't biting them.``
+
 # CARNELIAN [UNITED FRONTIER GEM-TYPE] [THE QUARTZ GROUP]
 **``STAT MODIFIER``**
 _``ATK:``_ +1
