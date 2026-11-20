@@ -117,19 +117,21 @@ _``Interactions:``_
 _``HP:``_ 28
 _``ATK:``_ 3
 _``DEF:``_ 4
-_``SPD:``_ 6
+_``SPD:``_ 5
 _``INT:``_ 7
 _``MAG:``_ 4
 _``Signature Ability:``_ 
-`Hydroportation` - Labradorite can teleport to other places that hold water, using even a single droplet to get somewhere fast.
-> - `Water Step [1 SP]` - Labradorite moves to Near, Far, or Behind anyone standing by water.
+`Psychometry` [Minor] [Visions] - Labradorite can touch an object and see who has owned it and where it's been. The older the object, the more she has to dig, but even a single touch tells her who held it last.
+> - `Read the Trail [2 SP]` - She touches one target who is Near and learns their HP, their statuses, and one of their abilities.
 _``ACT Bonus:``_ 
 `Recall` - <:Act:1568035453842751618>ACTs that remember a face, a name, or a record are especially effective for her.
+_``Latent Ability:``_ 
+`Aurora Flash` - Labradorite may learn to let out the light stored in her gemstone as a burst of shifting color, like the northern lights. Its moves and SP costs are set when it's unlocked.
 
-``Labradorite works as an archivist and record keeper, tracking family lines, adoptions, and community history across the United Frontier as new generations grow up and start their own lives.``
+``Labradorites are the United Frontier's registrars. When a gem emerges, gets adopted, founds a colony, or is laid to rest, it goes on record with a Labradorite, and years later she's the one who can tell you exactly where you came from. A lot of that work is done by touch. A Labradorite can hold an old letter, a necklace, or a worn tool and feel who it belonged to and what it went through, so when the paperwork runs out, the objects fill in the rest of the story. Gems bring her boxes of things a relative left behind and ask her who that gem really was. Most of the time, she can tell them.``
 
 _``Interactions:``_
-``Labradorites keep the Frontier's family and community records, working with Iolites on school records and Astrophyllites on career paths. Melanites send them the record of every gem laid to rest, and Yellow Tourmalines rely on them to trace ownership before a trade.``
+``Labradorites keep the Frontier's records, working with Iolites on school records and Astrophyllites on career paths. Melanites send them the record of every gem laid to rest, and Yellow Tourmalines bring them goods to read before a trade, since a Labradorite can tell in a moment whether something was stolen. After a disaster, Almandines call one in to help get lost belongings back to the right families.``
 
 
 # ORCA AGATE [UNITED FRONTIER GEM-TYPE]
