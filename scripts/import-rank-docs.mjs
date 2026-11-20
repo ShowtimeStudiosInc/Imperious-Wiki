@@ -271,3 +271,6 @@ for (const g of all) {
 }
 console.log(`Wrote ${out.length - locked.length} Gem-Types to src/data/gem-types`);
 if (locked.length) console.warn(`Kept ${locked.length} Gem-Types edited in the wiki editor (editorLocked): ${locked.join(', ')}. Copy those changes into raw/ when you can.`);
+// Rank 2 Gempire types only show on the pyramid once they have a side in extras.yml.
+const noSide = out.filter((d) => d.faction === 'gempire' && String(d.rank || '').startsWith('2.') && !d.side).map((d) => d.slug);
+if (noSide.length) console.warn(`Rank 2 Gem-Types with no side yet (they won't show under Authoritatives or Aristocrats): ${noSide.join(', ')}. Add them under "sides" in src/data/extras.yml.`);

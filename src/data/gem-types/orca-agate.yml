@@ -1,7 +1,7 @@
 name: Orca Agate
 slug: orca-agate
 rank: '2.3'
-side: null
+side: Authoritative
 faction: gempire
 kind: sub-type
 parent: agate
