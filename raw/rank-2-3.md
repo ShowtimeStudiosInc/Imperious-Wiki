@@ -190,6 +190,26 @@ _``Interactions:``_
 ``Orca Agates and regular Agates sometimes argue over who gets to give a Lapis her orders, and the Lapis usually sides with the Orca Agate. Malachites and Clinohumites on the same terraforming job tend to let her lead once the water gets deep. A gem who picks a fight with her Lapis squad finds out quickly why the Lapis call her pod leader.``
 
 
+# LABRADORITE
+**``BASE STATS``**
+_``HP:``_ 32
+_``ATK:``_ 4
+_``DEF:``_ 7
+_``SPD:``_ 4
+_``INT:``_ 8
+_``MAG:``_ 9
+_``Signature Ability:``_ 
+`Detailed [PASSIVE]` - Labradorites have a keen eye, being able to notice or fill in details that the average gem wouldn't notice! This is rather helpful for completing their art pieces! This adds a +4 to their observation rolls.
+_``Latent Ability:``_ 
+`Paint Magic` [Base] [Summoning] - A Labradorite can use the paint produced from their hair to make spells!
+> - `Paint Splash [3 SP]` - The Labradorite spins around, spinning paint everywhere to hit all enemies for 2d4 + MAG damage! Opposing units hit must roll a 1d20 to determine whether they become <:Blinded:1568081577429176350>Blinded for 2 turns.
+
+``Labradorites work as the Gempire's artists, painting requests for fellow aristocrats and even Cubic Zirconias! They are also responsible for recording history visually in the form of their art. Many murals of today were made by a group of talented Labradorites! The ends of their hair seem to always produce a colorful assortment of paint they use! It's said it has a shiny gleam to it. They are often found in Court Theta or Court Saturn.``
+
+_``Interactions:``_
+``Labradorites take commissions from aristocrats like Pyropes and Jades, and a Cubic Zirconia who asks for a portrait expects it done fast and done well. For their history work they lean on the library Opals, who dig up the records a mural needs. Catseyes and Scapolites are favorite subjects, since a Labradorite will paint a good performance whether anyone asked for it or not.``
+
+
 # CATSEYE
 **``BASE STATS``**
 _``HP:``_ 38

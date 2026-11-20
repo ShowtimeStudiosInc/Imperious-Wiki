@@ -1,8 +1,8 @@
 name: Labradorite
 slug: labradorite
-rank: null
+rank: '2.3'
 side: null
-faction: united-frontier
+faction: gempire
 kind: standard
 parent: null
 components: null
@@ -13,41 +13,51 @@ status: []
 traits: []
 court: null
 threatClass: null
-height: 6'2"
+height: 6'7"
 stats:
-  hp: 28
-  atk: 3
-  def: 4
-  spd: 6
-  int: 7
-  mag: 4
+  hp: 32
+  atk: 4
+  def: 7
+  spd: 4
+  int: 8
+  mag: 9
 abilities:
   - section: Signature Ability
-    name: Hydroportation
-    tags: []
+    name: Detailed
+    tags:
+      - PASSIVE
     cost: null
-    text: Labradorite can teleport to other places that hold water, using even a single droplet to get somewhere fast.
-    moves:
-      - name: Water Step
-        tags:
-          - 1 SP
-        cost: 1
-        text: Labradorite moves to Near, Far, or Behind anyone standing by water.
-  - section: ACT Bonus
-    name: Recall
-    tags: []
-    cost: null
-    text: <:Act:1568035453842751618>ACTs that remember a face, a name, or a record are especially effective for her.
+    text: >-
+      Labradorites have a keen eye, being able to notice or fill in details that the average gem wouldn't notice! This
+      is rather helpful for completing their art pieces! This adds a +4 to their observation rolls.
     moves: []
+  - section: Latent Ability
+    name: Paint Magic
+    tags:
+      - Base
+      - Summoning
+    cost: null
+    text: A Labradorite can use the paint produced from their hair to make spells!
+    moves:
+      - name: Paint Splash
+        tags:
+          - 3 SP
+        cost: 3
+        text: >-
+          The Labradorite spins around, spinning paint everywhere to hit all enemies for 2d4 + MAG damage! Opposing
+          units hit must roll a 1d20 to determine whether they become <:Blinded:1568081577429176350>Blinded for 2 turns.
 role: >-
-  Labradorite works as an archivist and record keeper, tracking family lines, adoptions, and community history across
-  the United Frontier as new generations grow up and start their own lives.
+  Labradorites work as the Gempire's artists, painting requests for fellow aristocrats and even Cubic Zirconias! They
+  are also responsible for recording history visually in the form of their art. Many murals of today were made by a
+  group of talented Labradorites! The ends of their hair seem to always produce a colorful assortment of paint they use!
+  It's said it has a shiny gleam to it. They are often found in Court Theta or Court Saturn.
 interactions: >-
-  Labradorites keep the Frontier's family and community records, working with Iolites on school records and
-  Astrophyllites on career paths. Melanites send them the record of every gem laid to rest, and Yellow Tourmalines rely
-  on them to trace ownership before a trade.
+  Labradorites take commissions from aristocrats like Pyropes and Jades, and a Cubic Zirconia who asks for a portrait
+  expects it done fast and done well. For their history work they lean on the library Opals, who dig up the records a
+  mural needs. Catseyes and Scapolites are favorite subjects, since a Labradorite will paint a good performance whether
+  anyone asked for it or not.
 description: null
-image: null
+image: /images/gem-types/labradorite.webp
 gemstone: /images/gemstones/labradorite.svg
-credit: null
-updated: '2026-11-18'
+credit: '@Goofykat13'
+updated: '2026-11-20'

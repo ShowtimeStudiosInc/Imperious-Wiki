@@ -1,0 +1,53 @@
+name: Labradorite
+slug: labradorite-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 6'2"
+stats:
+  hp: 28
+  atk: 3
+  def: 4
+  spd: 6
+  int: 7
+  mag: 4
+abilities:
+  - section: Signature Ability
+    name: Hydroportation
+    tags: []
+    cost: null
+    text: Labradorite can teleport to other places that hold water, using even a single droplet to get somewhere fast.
+    moves:
+      - name: Water Step
+        tags:
+          - 1 SP
+        cost: 1
+        text: Labradorite moves to Near, Far, or Behind anyone standing by water.
+  - section: ACT Bonus
+    name: Recall
+    tags: []
+    cost: null
+    text: <:Act:1568035453842751618>ACTs that remember a face, a name, or a record are especially effective for her.
+    moves: []
+role: >-
+  Labradorite works as an archivist and record keeper, tracking family lines, adoptions, and community history across
+  the United Frontier as new generations grow up and start their own lives.
+interactions: >-
+  Labradorites keep the Frontier's family and community records, working with Iolites on school records and
+  Astrophyllites on career paths. Melanites send them the record of every gem laid to rest, and Yellow Tourmalines rely
+  on them to trace ownership before a trade.
+description: null
+image: null
+gemstone: /images/gemstones/labradorite-uf.svg
+credit: null
+updated: '2026-11-20'

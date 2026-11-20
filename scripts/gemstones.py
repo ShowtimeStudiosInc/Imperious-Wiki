@@ -41,7 +41,7 @@ GEMS = {
     'kyanite': ('marquise', '#3f6fe0', {}),
     'nacre': ('pearl', '#e3dcf2', {'multi': ['#e3dcf2', '#c9f0ec', '#f6dceb']}),
     'pink-tourmaline': ('emerald-long', '#ff6fa6', {}),
-    'labradorite': ('cab-oval', '#3a4a5a', {'bands': '#4fd0e0'}),
+    'labradorite-uf': ('cab-oval', '#3a4a5a', {'bands': '#4fd0e0'}),
     'celestine': ('cabochon', '#8fc6f0', {}),
     'seraphinite': ('cab-oval', '#2f7a5a', {'bands': '#cfe8dc'}),
     'iolite': ('round', '#5a5ad6', {}),

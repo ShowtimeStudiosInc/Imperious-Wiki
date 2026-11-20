@@ -95,7 +95,8 @@ heights:
   aventurine-uf: 8'0"
   amethyst-uf: 8'0"
   clear-quartz: 8'0"
-  labradorite: 6'2"
+  labradorite: 6'7"
+  labradorite-uf: 6'2"
   astrophyllite: 6'0"
   iolite: 5'10"
   seraphinite: 7'10"
@@ -213,6 +214,7 @@ types:
   alexandrite: { components: [sapphire, quartz], threatClass: Champion, image: /images/gem-types/alexandrite.webp, credit: 'Canon + Lexariix', alsoFactions: [rogue] }
   blue-tourmaline-indicolite-era-1: { image: /images/gem-types/blue-tourmaline-indicolite-era-1.webp, credit: Lexariix }
   tanzanite: { image: /images/gem-types/tanzanite.webp, credit: Lexariix }
+  labradorite: { image: /images/gem-types/labradorite.webp, credit: '@Goofykat13' }
   crocoite: { image: /images/gem-types/crocoite.webp, credit: Lexariix }
   amazonite: { components: [peridot-era-2a, lapis], threatClass: Elite, image: /images/gem-types/amazonite.webp, credit: Lexariix, alsoFactions: [rogue] }
   green-serpentine: { components: [lapis, scapolite], threatClass: Champion }
