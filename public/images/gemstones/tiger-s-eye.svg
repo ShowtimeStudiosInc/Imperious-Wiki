@@ -4,11 +4,11 @@
 <clipPath id="te"><circle cx="100" cy="100" r="85"/></clipPath>
 <g clip-path="url(#te)">
 <rect width="200" height="200" fill="#9a5418"/>
-<polygon points="42.7,5.1 163.3,5.1 157.3,32.8 74.3,107.1 62.4,97.2 125.7,26.9 28.8,64.4 32.8,48.6 42.7,38.7" fill="#f2b33a" stroke="#f2b33a" stroke-width="0.6" stroke-linejoin="round"/>
-<polygon points="181.0,79.4 202.8,72.3 202.8,175.1 175.1,152.2 159.3,157.3 123.7,152.2 100.0,130.8 82.2,116.6" fill="#f2b33a" stroke="#f2b33a" stroke-width="0.6" stroke-linejoin="round"/>
-<polygon points="5.1,71.5 125.7,26.9 62.4,97.2 5.1,108.7" fill="#4e2009" stroke="#4e2009" stroke-width="0.6" stroke-linejoin="round"/>
-<polygon points="155.3,32.0 202.8,64.4 202.8,84.2 181.0,79.4 62.4,122.1" fill="#5e2a0c" stroke="#5e2a0c" stroke-width="0.6" stroke-linejoin="round"/>
-<polygon points="5.1,164.0 151.4,117.8 90.1,181.0 5.1,190.9" fill="#4e2009" stroke="#4e2009" stroke-width="0.6" stroke-linejoin="round"/>
+<polygon points="42.7,5.1 163.3,5.1 157.3,32.8 74.3,107.1 62.4,97.2 125.7,26.9 28.8,64.4 32.8,48.6 42.7,38.7" fill="#f2b33a"/>
+<polygon points="181.0,79.4 202.8,72.3 202.8,175.1 175.1,152.2 159.3,157.3 123.7,152.2 100.0,130.8 82.2,116.6" fill="#f2b33a"/>
+<polygon points="125.7,26.9 -261.7,180.3 -127.3,308.3" fill="#4e2009"/>
+<polygon points="62.4,122.1 434.1,-238.4 536.9,-48.7" fill="#5e2a0c"/>
+<polygon points="151.4,117.8 -338.8,280.7 -93.7,370.8" fill="#4e2009"/>
 </g>
 <circle cx="100" cy="100" r="82.5" fill="none" stroke="#2a1405" stroke-opacity="0.35" stroke-width="5"/>
 </svg>
