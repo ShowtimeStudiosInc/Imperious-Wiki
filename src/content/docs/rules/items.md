@@ -36,7 +36,7 @@ Equipping or switching an item uses your turn, unless an ability says otherwise.
 ## How a FIGHT rolls
 
 1. **Roll to hit.** Roll 1d20. You need to meet or beat your weapon's **Hit Number**, plus the target's SPD ÷ 4 (rounded down). The number needed can never go above 18. A natural 20 always hits, and a natural 1 always misses.
-2. **Count the hits.** Each weapon type hits a set number of times, shown as its **Hits**. Reaching the weapon's **Crit Number** adds its crit effect on top, which for some types means extra hits.
+2. **Count the hits.** Each weapon type hits a number of times within its **Hits** range. Crits never add hits. They make each hit deal more damage instead.
 3. **Roll damage.** Roll the weapon's damage die once for each hit, then add your ATK (your own plus your weapon's) **once** to the total.
 4. **The target soaks it.** Each hit that lands is reduced by the target's DEF ÷ 4 (rounded down), but always deals at least 1 damage.
 
@@ -48,15 +48,17 @@ A Ruby (ATK 10) swings a Slash weapon (+1 ATK) at a Pearl (SPD 5, DEF 3). Slash 
 
 ## Weapon types
 
-| Type | Examples | Hits | Damage | Hit No. | Crit Number: effect |
+| Type | Examples | Hits | Damage | Hit No. | Crit No. |
 | --- | --- | --- | --- | --- | --- |
-| **Slash** | Swords, greatswords, heavier blades | 1 | 1d8 per hit | 7 | 16: roll the damage die twice |
-| **Quickslash** | Daggers, katanas, rapiers, light blades | 1 | 1d6 per hit | 6 | 15: one extra hit (2 total) |
-| **Punch** | Fists, gloves, knuckles, unarmed | 3 | 1d4 per hit | 5 | 15: one extra hit (4 total) |
-| **Blunt** | Bats, clubs, books, blunt objects | 1 | 1d10 per hit | 8 | 20: 4 hits instead of 1 |
-| **Metal-Blunt** | Frying pans, hammers, empty guns, heavy metal objects | 4 | 1d6 per hit | 11 | 20: roll every damage die twice |
-| **Ranged** | Guns, bows, anything that strikes from a distance | 2 | 1d6 per hit | 12 | 17: 4 hits. 20: 6 hits |
+| **Slash** | Swords, greatswords, heavier blades | 1 | 1d8 per hit | 7 | 16 |
+| **Quickslash** | Daggers, katanas, rapiers, light blades | 1 to 2 | 1d6 per hit | 6 | 15 |
+| **Punch** | Fists, gloves, knuckles, unarmed | 3 to 4 | 1d4 per hit | 5 | 15 |
+| **Blunt** | Bats, clubs, books, blunt objects | 1 to 4 | 1d10 per hit | 8 | 20 |
+| **Metal-Blunt** | Frying pans, hammers, empty guns, heavy metal objects | 4 | 1d6 per hit | 11 | 20 |
+| **Ranged** | Guns, bows, anything that strikes from a distance | 2 to 6 | 1d6 per hit | 12 | 17 |
 | **Shield** | Shields of any kind | 1 | 1d4 per hit | 4 | None, shields can't crit |
+
+**Crits:** meeting or beating your weapon's Crit Number makes every hit of that FIGHT stronger. Roll each hit's damage die twice and add them together. The number of hits doesn't change.
 
 Ranged is the only type that can hit a target who is **Far**. Every other type can only hit targets who are **Near**.
 
