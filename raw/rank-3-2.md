@@ -276,10 +276,10 @@ _``ACT Bonus:``_
 _``Latent Ability:``_ 
 `Night Vision [PASSIVE]` - Tiger's Eye may learn to see clearly in dim light and darkness, the way her stone seems to glow when light hits it.
 
-``Tiger's Eyes are Quartz soldiers made for the night watch. They patrol bases, borders, and wild planets after dark, when most other soldiers are resting or can't see far. They move quietly, keep low, and would rather pounce on an intruder than chase one. Tiger's Eyes are proud and a bit showy, and they love being called the empire's hunters, but they take the safety of the gems sleeping behind them very seriously.``
+``Tiger's Eyes are Quartz soldiers made for the night watch. They patrol bases, borders, and wild planets after dark, when most other soldiers are resting or can't see far. They move quietly, keep low, and would rather pounce on an intruder than chase one. Tiger's Eyes are proud and a bit showy, and they love being called the empire's big cats, but they take the safety of the gems sleeping behind them very seriously.``
 
 _``Interactions:``_
-``Tiger's Eyes take over from Cloud Quartzes and Zebra Jaspers when the sun goes down, and Milky Quartzes are always glad to hand them the overnight watch. They don't get along with Citrines, since both like to be the loudest in the room. A Tiger's Eye who catches an intruder will tell the story to every Quartz in the barracks.``
+``Tiger's Eyes take over from Cloud Quartzes and Zebra Jaspers when the sun goes down, and Milky Quartzes on overnight watch are always glad to have one along. They don't get along with Citrines, since both like to be the loudest in the room. A Tiger's Eye who catches an intruder will tell the story to every Quartz in the barracks.``
 
 # ZEBRA JASPER [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
