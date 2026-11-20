@@ -1,0 +1,55 @@
+name: Tiger's Eye
+slug: tiger-s-eye
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 10
+  def: 6
+  spd: 6
+  int: 3
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Stalk
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that sneak up on, corner, or keep watch on an enemy are especially effective for
+      her.
+    moves: []
+  - section: Latent Ability
+    name: Night Vision
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      Tiger's Eye may learn to see clearly in dim light and darkness, the way her stone seems to glow when light hits
+      it.
+    moves: []
+role: >-
+  Tiger's Eyes are Quartz soldiers made for the night watch. They patrol bases, borders, and wild planets after dark,
+  when most other soldiers are resting or can't see far. They move quietly, keep low, and would rather pounce on an
+  intruder than chase one. Tiger's Eyes are proud and a bit showy, and they love being called the empire's hunters, but
+  they take the safety of the gems sleeping behind them very seriously.
+interactions: >-
+  Tiger's Eyes take over from Cloud Quartzes and Zebra Jaspers when the sun goes down, and Milky Quartzes are always
+  glad to hand them the overnight watch. They don't get along with Citrines, since both like to be the loudest in the
+  room. A Tiger's Eye who catches an intruder will tell the story to every Quartz in the barracks.
+description: null
+image: /images/gem-types/tiger-s-eye.webp
+gemstone: /images/gemstones/tiger-s-eye.svg
+credit: null
+updated: '2026-11-20'

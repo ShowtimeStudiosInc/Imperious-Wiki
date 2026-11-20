@@ -1,0 +1,54 @@
+name: Ocean Jasper
+slug: ocean-jasper
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 34
+  atk: 9
+  def: 7
+  spd: 4
+  int: 4
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Wait It Out
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that wait for the right moment or outlast an enemy's patience are especially
+      effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Tide Sense
+    tags:
+      - PASSIVE
+    cost: null
+    text: Ocean Jasper may learn to feel when nearby water is about to rise or fall, long before anyone can see it.
+    moves: []
+role: >-
+  Ocean Jaspers are Quartz soldiers who guard the empire's shorelines. They hold beaches, tidal flats, and coastal
+  kindergartens on ocean worlds, standing on the line where the water meets the land. A shore post changes twice a day
+  as the tide comes and goes, so Ocean Jaspers are patient soldiers who are used to waiting for the right moment.
+  They're cheerful and easygoing compared to other Jaspers, but anyone who tries to land on a beach they're guarding
+  finds out they hit just as hard.
+interactions: >-
+  Ocean Jaspers hold the shore while Blue Quartzes work the water, and the two trade posts whenever the tide turns.
+  Regular Jaspers think they're too relaxed, until they see one in a fight. Lapises like them, since an Ocean Jasper
+  always knows when the water is about to move.
+description: null
+image: /images/gem-types/ocean-jasper.webp
+gemstone: /images/gemstones/ocean-jasper.svg
+credit: null
+updated: '2026-11-20'

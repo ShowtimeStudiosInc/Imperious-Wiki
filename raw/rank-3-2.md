@@ -191,6 +191,24 @@ _``Latent Ability:``_
 _``Interactions:``_
 ``Milky Quartzes are known for slacking off, which keeps them in trouble with Agates, and Rose Quartzes are usually the ones covering for them. Hessonites who know better post them on overnight watch, since a Milky Quartz who has finally had a good rest is one of the most alert soldiers on a station.``
 
+# OCEAN JASPER [SUB-TYPE OF QUARTZ]
+**``BASE STATS``**
+_``HP:``_ 34
+_``ATK:``_ 9
+_``DEF:``_ 7
+_``SPD:``_ 4
+_``INT:``_ 4
+_``MAG:``_ 4
+_``ACT Bonus:``_ 
+`Wait It Out` - <:Act:1568035453842751618>ACTs that wait for the right moment or outlast an enemy's patience are especially effective for her.
+_``Latent Ability:``_ 
+`Tide Sense [PASSIVE]` - Ocean Jasper may learn to feel when nearby water is about to rise or fall, long before anyone can see it.
+
+``Ocean Jaspers are Quartz soldiers who guard the empire's shorelines. They hold beaches, tidal flats, and coastal kindergartens on ocean worlds, standing on the line where the water meets the land. A shore post changes twice a day as the tide comes and goes, so Ocean Jaspers are patient soldiers who are used to waiting for the right moment. They're cheerful and easygoing compared to other Jaspers, but anyone who tries to land on a beach they're guarding finds out they hit just as hard.``
+
+_``Interactions:``_
+``Ocean Jaspers hold the shore while Blue Quartzes work the water, and the two trade posts whenever the tide turns. Regular Jaspers think they're too relaxed, until they see one in a fight. Lapises like them, since an Ocean Jasper always knows when the water is about to move.``
+
 # PRASIOLITE [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
 _``HP:``_ 32
@@ -244,6 +262,24 @@ _``Latent Ability:``_
 
 _``Interactions:``_
 ``Smoky Quartzes and Amethysts are rarely apart, bouncing jokes off each other in the barracks and on duty. A nervous Ruby or Eucryptite who ends up next to a Smoky Quartz before a fight usually walks into it calmer than she would have alone.``
+
+# TIGER'S EYE [SUB-TYPE OF QUARTZ]
+**``BASE STATS``**
+_``HP:``_ 32
+_``ATK:``_ 10
+_``DEF:``_ 6
+_``SPD:``_ 6
+_``INT:``_ 3
+_``MAG:``_ 3
+_``ACT Bonus:``_ 
+`Stalk` - <:Act:1568035453842751618>ACTs that sneak up on, corner, or keep watch on an enemy are especially effective for her.
+_``Latent Ability:``_ 
+`Night Vision [PASSIVE]` - Tiger's Eye may learn to see clearly in dim light and darkness, the way her stone seems to glow when light hits it.
+
+``Tiger's Eyes are Quartz soldiers made for the night watch. They patrol bases, borders, and wild planets after dark, when most other soldiers are resting or can't see far. They move quietly, keep low, and would rather pounce on an intruder than chase one. Tiger's Eyes are proud and a bit showy, and they love being called the empire's hunters, but they take the safety of the gems sleeping behind them very seriously.``
+
+_``Interactions:``_
+``Tiger's Eyes take over from Cloud Quartzes and Zebra Jaspers when the sun goes down, and Milky Quartzes are always glad to hand them the overnight watch. They don't get along with Citrines, since both like to be the loudest in the room. A Tiger's Eye who catches an intruder will tell the story to every Quartz in the barracks.``
 
 # ZEBRA JASPER [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
