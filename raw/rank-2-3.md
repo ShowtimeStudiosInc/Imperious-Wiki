@@ -189,6 +189,7 @@ _``Latent Ability:``_
 _``Interactions:``_
 ``In the Gempire, Orca Agates and regular Agates sometimes argue over who gets to give a Lapis her orders, and the Lapis usually sides with the Orca Agate. Malachites and Clinohumites on the same terraforming job tend to let her lead once the water gets deep. In the United Frontier, her pod is a group of close friends instead of a squad, and newcomers to a water colony usually meet her first, since she's the one giving the tour.``
 
+
 # CATSEYE
 **``BASE STATS``**
 _``HP:``_ 38
