@@ -1,4 +1,5 @@
 ---
+import { NAV, navKey } from '../../lib/nav';
 /**
  * Grand Regent (Cubic Zirconia) pages. Same layout as the Diamond pages
  * (src/styles/diamond-page.css), with character-sheet sections.
@@ -40,13 +41,7 @@ const jump = [
 const title = `${p.name} | Imperious Authorities`;
 const desc = `${p.name}. ${p.heroSub}`.slice(0, 200);
 const ogImage = new URL(url(art.src.replace(base, '/')), Astro.site).href;
-const nav = [
-  { href: '/gem-types/', label: 'Gem-Types', key: 'gem-types' },
-  { href: '/diamonds/', label: 'Diamonds', key: 'diamonds' },
-  { href: '/start-here/welcome/', label: 'Start Here', key: 'start' },
-  { href: '/rules/overview/', label: 'Rules', key: 'rules' },
-  { href: '/lore/overview/', label: 'Lore', key: 'lore' },
-];
+const nav = NAV;
 ---
 <!doctype html>
 <html lang="en">
@@ -72,6 +67,7 @@ const nav = [
       .ia-top a { text-decoration: none; }
       .ia-top .ia-brand { font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.02rem; letter-spacing: 0.04em; color: #ece6ff; display: flex; align-items: center; gap: 0.5rem; }
       .ia-top .ia-brand img { height: 1.6rem; width: auto; display: block; }
+      @media (max-width: 640px) { .ia-top { flex-wrap: wrap; row-gap: 0.4rem; } .ia-top nav { flex-wrap: nowrap !important; overflow-x: auto; width: 100%; scrollbar-width: none; } }
       .ia-top nav { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.86rem; letter-spacing: 0.06em; text-transform: uppercase; }
       .ia-top nav a { color: #a99fc7; }
       .ia-top nav a:hover, .ia-top nav a[aria-current] { color: #ece6ff; }
@@ -85,7 +81,7 @@ const nav = [
     <header class="ia-top">
       <a class="ia-brand" href={url('/')}><img src={url('/images/brand/logo-white.png')} alt="" width="22" height="27" /> Imperious Authorities</a>
       <nav aria-label="Main">
-        {nav.map((n) => <a href={url(n.href)} aria-current={n.key === 'diamonds' ? 'page' : undefined}>{n.label}</a>)}
+        {nav.map((n) => <a href={url(n.href)} aria-current={n.key === navKey(Astro.url.pathname) ? 'page' : undefined}>{n.label}</a>)}
       </nav>
     </header>
 

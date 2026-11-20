@@ -130,3 +130,10 @@ footer.site { border-top: 1px solid var(--line); color: var(--dim); font-size: 0
   .topbar { flex-wrap: wrap; gap: 0.4rem 1rem; padding: 0.6rem 0.9rem; }
   .topbar nav { gap: 0.8rem; font-size: 0.74rem; }
 }
+
+/* Phones: keep the main menu on one swipeable row (same as the Diamond and Regent pages) */
+@media (max-width: 640px) {
+  .topbar { flex-wrap: wrap; row-gap: 0.4rem; }
+  .topbar nav { flex-wrap: nowrap; overflow-x: auto; width: 100%; scrollbar-width: none; }
+  .topbar nav::-webkit-scrollbar { display: none; }
+}

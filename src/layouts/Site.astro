@@ -1,4 +1,5 @@
 ---
+import { NAV, navKey } from '../lib/nav';
 import '../styles/site.css';
 import '../styles/seasons.css';
 import SeasonScript from '../components/SeasonScript.astro';
@@ -7,13 +8,7 @@ interface Props { title: string; description?: string; current?: string; bare?: 
 const { title, description = 'The rulebook and setting wiki for the Imperious Authorities roleplay.', current, bare = false, image } = Astro.props;
 const ogImage = new URL(url(image || '/images/brand/og-logo.png'), Astro.site).href;
 const fullTitle = title === 'Imperious Authorities' ? title : `${title} | Imperious Authorities`;
-const nav = [
-  { href: '/gem-types/', label: 'Gem-Types', key: 'gem-types' },
-  { href: '/diamonds/', label: 'Diamonds', key: 'diamonds' },
-  { href: '/start-here/welcome/', label: 'Start Here', key: 'start' },
-  { href: '/rules/overview/', label: 'Rules', key: 'rules' },
-  { href: '/lore/overview/', label: 'Lore', key: 'lore' },
-];
+const nav = NAV;
 ---
 <!doctype html>
 <html lang="en" data-theme="dark">
@@ -39,7 +34,7 @@ const nav = [
       <header class="topbar">
         <a class="brand" href={url('/')}><img class="mark-logo" src={url('/images/brand/logo-white.png')} alt="" width="22" height="27" /> Imperious Authorities</a>
         <nav aria-label="Main">
-          {nav.map((n) => <a href={url(n.href)} aria-current={current === n.key ? 'page' : undefined}>{n.label}</a>)}
+          {nav.map((n) => <a href={url(n.href)} aria-current={(current ?? navKey(Astro.url.pathname)) === n.key ? 'page' : undefined}>{n.label}</a>)}
         </nav>
       </header>
     )}

@@ -23,6 +23,7 @@ export default defineConfig({
         Footer: './src/components/GlossaryFooter.astro',
         ThemeProvider: './src/components/ThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
+        Header: './src/components/Header.astro',
       },
       head: [
         { tag: 'meta', attrs: { property: 'og:image', content: new URL((base.endsWith('/') ? base : base + '/') + 'images/brand/og-logo.png', site).href } },
