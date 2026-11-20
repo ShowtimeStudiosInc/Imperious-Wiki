@@ -15,7 +15,7 @@
   /* Same top bar and page color as the rest of the wiki */
   --sl-nav-height: 3.1rem;
   --sl-color-bg-nav: rgba(7, 5, 13, 0.92);
-  --sl-color-bg-sidebar: #0b0814;
+  --sl-color-bg-sidebar: rgba(11, 8, 20, 0.72);
   --sl-color-hairline-shade: rgba(201, 184, 255, 0.14);
 }
 h1, h2, h3, .site-title { font-family: 'Libre Baskerville', Georgia, serif !important; font-weight: 400 !important; letter-spacing: 0.02em; }
@@ -122,3 +122,10 @@ img.ia-ico { display: inline-block; width: 1.25em; height: 1.25em; vertical-alig
 /* Top bar: match the site's slim dark bar */
 header.header { border-bottom: 1px solid rgba(201, 184, 255, 0.14) !important; backdrop-filter: blur(8px); }
 .sidebar-pane { border-inline-end: 1px solid rgba(201, 184, 255, 0.10) !important; }
+
+/* Default wiki background on the Rules, Lore and Start Here pages */
+html { background: #0b0814; }
+body { background: #0b0814 url('../images/brand/background.webp') center / cover no-repeat fixed; }
+:root { --sl-color-bg: transparent; }
+.right-sidebar { background: rgba(11, 8, 20, 0.45); }
+.content-panel + .content-panel { border-top-color: rgba(201, 184, 255, 0.14); }

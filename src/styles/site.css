@@ -29,9 +29,13 @@ body {
   font-size: 15px;
   line-height: 1.55;
   color: var(--text);
-  background: radial-gradient(1200px 700px at 70% -10%, var(--sky, #2a1650) 0%, transparent 60%),
-    radial-gradient(900px 600px at 0% 100%, #1d0f3a 0%, transparent 60%), var(--bg-0);
+  /* The wiki's default background (pages with their own scene, like the Diamonds, cover it). */
+  background: var(--bg-0) url('../images/brand/background.webp') center / cover no-repeat fixed;
 }
+/* Seasonal tint over the default background */
+body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(1200px 700px at 70% -10%, var(--sky, transparent) 0%, transparent 60%); opacity: 0.6; }
+.stars { display: none; }
 a { color: var(--lav); text-decoration: none; }
 a:hover { color: #fff; }
 code {
