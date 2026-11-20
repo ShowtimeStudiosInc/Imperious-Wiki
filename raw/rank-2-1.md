@@ -196,3 +196,30 @@ _``Latent Ability:``_
 
 _``Interactions:``_
 ``A Tanzanite takes on the same work her Sapphire half does, giving predictions and advice, usually to whoever her Pearl half served. Most come from a sudden, emotional moment between the two, so few last long, and higher-ups rarely plan around one. She shares a name with the shrine guardian Tanzanites, but the two have nothing to do with each other.``
+
+
+# PURPLE LEPIDOLITE [FUSION]
+**``BASE STATS``**
+_``HP:``_ [Look at the two components]
+_``ATK:``_ [Look at the two components]
+_``DEF:``_ [Look at the two components]
+_``SPD:``_ [Look at the two components]
+_``INT:``_ [Look at the two components]
+_``MAG:``_ [Look at the two components]
+_``Signature Ability:``_ 
+`Hydrokinesis` [Base] [Elements] - From her Lapis half. Purple Lepidolite can move and shape large amounts of water. At events she uses it for shows and tricks. She needs a source of water nearby.
+> - `Water Lash [2 SP]` - A whip of water strikes one target for 2d4 + MAG damage.
+> - `Fountain Trick [1 SP]` - She makes a shape out of water to pull one target's attention. They resist with INT. If they fail, the next attack against them has advantage.
+`Silence Inducement` - From her Pyrope half. Purple Lepidolite can force an area or a person to go silent.
+> - `Hush [2 SP]` - One target resists with INT. If they fail, they can't speak, sing, or use <:Act:1568035453842751618>ACTs for 2 turns.
+`Levitation [PASSIVE]` - From her Pyrope half. She floats a little above whatever is under her, so she can walk across water, and ground traps and anything that targets the ground can't touch her.
+_``Fusion Ability:``_ 
+`Sole Announcer [3 SP]` - Purple Lepidolite's voice fills the room and drowns out everyone else's. Every enemy who is Near resists with INT. If they fail, they're Hushed for 1 turn.
+_``Latent Ability:``_ 
+`Total Silence` - Purple Lepidolite may learn to quiet a whole area at once, so not even footsteps can be heard. Its moves and SP costs are set when it's unlocked.
+`Voice Recognition [PASSIVE]` - Purple Lepidolite may learn to recognize any gem she has heard speak before, just from their voice.
+
+``Purple Lepidolites are fusions between a Lapis Lazuli and a Pyrope. They're a rare fusion, and they usually form when a ball is held on a colony covered in water and the event needs a louder voice than one Pyrope can manage. The Pyrope half runs the event and can quiet a whole room, and the Lapis half fills the venue with water shows, like fountains, floating walkways, and tricks hidden around corners for guests to find. She also acts as the event's announcer, quieting the room whenever she needs everyone's attention.``
+
+_``Interactions:``_
+``A Purple Lepidolite forms when a Pyrope hosting on a water colony brings in a Lapis to help with the venue. She works with Pezzottaites to keep the event on schedule, and Scapolites time their songs around her water shows. Jades and other guests tend to follow her around the room to catch the next trick.``
