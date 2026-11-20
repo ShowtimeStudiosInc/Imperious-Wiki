@@ -75,13 +75,14 @@
     <legend>Name it and export</legend>
     <div class="ia-sp-name-row">
       <label>Move name <input name="mname" type="text" placeholder="e.g. Sap Snare" autocomplete="off" /></label>
-      <label>It's a
-        <select name="mkind">
-          <option value="skill">SKILL move</option>
-          <option value="spell">SPELL</option>
-          <option value="item">Item Extra Effect</option>
-        </select>
-      </label>
+      <div class="ia-sp-kind" role="radiogroup" aria-label="Emoji">
+        <span>Emoji</span>
+        <div>
+          <label><input type="radio" name="mkind" value="skill" checked /><span><img src="https://cdn.discordapp.com/emojis/1568035509752561876.png" alt="" width="18" height="18" onerror="this.remove()" />SKILL</span></label>
+          <label><input type="radio" name="mkind" value="spell" /><span><img src="https://cdn.discordapp.com/emojis/1568035570641412217.png" alt="" width="18" height="18" onerror="this.remove()" />SPELL</span></label>
+          <label><input type="radio" name="mkind" value="item" /><span>Item</span></label>
+        </div>
+      </div>
       <label>Type
         <select name="mtype">
           <option value="offensive">Offensive</option>
@@ -176,7 +177,7 @@
     const exportMove = () => {
       const name = q<HTMLInputElement>('mname').value.trim() || 'Move Name';
       const desc = q<HTMLTextAreaElement>('mdesc').value.trim().replace(/\s*\n+\s*/g, ' ') || 'What the move does.';
-      const kind = q<HTMLSelectElement>('mkind').value;
+      const kind = root.querySelector<HTMLInputElement>('[name="mkind"]:checked')?.value || 'skill';
       const type = q<HTMLSelectElement>('mtype').value;
       const total = Number(root.querySelector('[data-total]')!.textContent) || 0;
       const free = on('cooldown') && total <= 2;
