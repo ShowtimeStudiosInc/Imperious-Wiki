@@ -1,4 +1,17 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { createHash } from 'node:crypto';
+import { existsSync, readFileSync } from 'node:fs';
+
+/** Adds ?v=<content hash> to a file in public/, so browsers fetch it again whenever it changes. */
+const versions = new Map<string, string>();
+function versioned(path: string | null | undefined) {
+  if (!path || !path.startsWith('/') || path.includes('?')) return path ?? null;
+  if (!versions.has(path)) {
+    const file = process.cwd() + '/public' + path;
+    versions.set(path, existsSync(file) ? path + '?v=' + createHash('md5').update(readFileSync(file)).digest('hex').slice(0, 8) : path);
+  }
+  return versions.get(path)!;
+}
 
 export type Gem = CollectionEntry<'gemTypes'>['data'];
 
@@ -44,7 +57,7 @@ export const KIND_LABEL: Record<string, string> = {
 
 export async function getGems() {
   const entries = await getCollection('gemTypes');
-  return entries.map((e) => e.data).sort((a, b) => a.name.localeCompare(b.name) || (a.slug < b.slug ? -1 : 1));
+  return entries.map((e) => ({ ...e.data, image: versioned(e.data.image), gemstone: versioned(e.data.gemstone) })).sort((a, b) => a.name.localeCompare(b.name) || (a.slug < b.slug ? -1 : 1));
 }
 
 /** Resolve a loose parent name ("hessonite") to a real slug. */
