@@ -1,8 +1,8 @@
 ---
 import GemIcon from './GemIcon.astro';
-import { url, fullName, RANKS, KIND_LABEL, FACTION_LABEL, hasPower, type Gem } from '../lib/gems';
-interface Props { gem: Gem }
-const { gem: g } = Astro.props;
+import { url, fullName, family, RANKS, KIND_LABEL, FACTION_LABEL, hasPower, type Gem } from '../lib/gems';
+interface Props { gem: Gem; fresh?: boolean }
+const { gem: g, fresh = false } = Astro.props;
 const chips = [
   g.rank ? `Rank ${g.rank}` : null,
   g.era,
@@ -16,13 +16,13 @@ const s = g.stats;
 <a class="card" href={url(`/gem-types/${g.slug}/`)}
   data-name={fullName(g).toLowerCase()} data-rank={g.rank ?? ''} data-side={g.side ?? ''} data-era={g.era ?? ''}
   data-kind={g.kind} data-species={g.species} data-faction={g.faction} data-status={g.status.join('|')}
-  data-trait={g.traits.join('|')} data-threat={g.threatClass ?? ''} data-court={g.court ?? ''} data-power={hasPower(g) ? 'yes' : 'no'}
+  data-trait={g.traits.join('|')} data-threat={g.threatClass ?? ''} data-court={g.court ?? ''} data-family={family(g)} data-updated={fresh ? 'yes' : 'no'} data-power={hasPower(g) ? 'yes' : 'no'}
   data-hp={s?.hp ?? ''} data-atk={s?.atk ?? ''} data-def={s?.def ?? ''} data-spd={s?.spd ?? ''} data-int={s?.int ?? ''} data-mag={s?.mag ?? ''}>
   {g.image && <img class="thumb" src={g.image.startsWith('/') ? url(g.image) : g.image} alt="" loading="lazy" />}
   <div class="top">
     {!g.image && <GemIcon name={g.name} fusion={g.kind === 'fusion'} gemstone={g.gemstone} class="gem-mini" />}
     <div>
-      <div class="name">{fullName(g)}</div>
+      <div class="name">{fullName(g)}{fresh && <span class="fresh">Updated</span>}</div>
       <div class="sub">{g.rank ? RANKS[g.rank]?.name : FACTION_LABEL[g.faction]}</div>
     </div>
   </div>
@@ -32,5 +32,9 @@ const s = g.stats;
       <span><b>{s.hp}</b>HP</span><span><b>{s.atk}</b>ATK</span><span><b>{s.def}</b>DEF</span>
       <span><b>{s.spd}</b>SPD</span><span><b>{s.int}</b>INT</span><span><b>{s.mag}</b>MAG</span>
     </div>
-  ) : <div class="sub">Stats come from its two halves</div>}
+  ) : <div class="sub">{g.kind === 'fusion' ? 'Stats come from its two halves' : (g as any).shiftOf ? 'A shift of Clear Quartz. Its page lists the stat changes.' : 'Stats on its page'}</div>}
 </a>
+<style>
+  .fresh { display: inline-block; margin-left: 0.45rem; padding: 0.05rem 0.4rem; border-radius: 999px; font: 600 0.6rem/1.4 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; vertical-align: middle;
+    color: #0b0814; background: #7fe0a8; }
+</style>

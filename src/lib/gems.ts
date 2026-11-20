@@ -125,3 +125,32 @@ export function characterTemplate(g: Gem) {
     '## Appearance', `- _\`Natural Height:\`_ ${g.height ?? ''}`, '- _`Appearance (Image/Description):`_',
   ].join('\n');
 }
+
+/** Family a Gem-Type belongs to: the last word of its name ("Rose Quartz" → "Quartz"). */
+export function family(g: Gem) {
+  const words = g.name.replace(/\(.*?\)/g, '').trim().split(/\s+/);
+  return words[words.length - 1];
+}
+
+/** Families with at least two Gem-Types, for the catalog filter. */
+export function families(all: Gem[]) {
+  const n = new Map<string, number>();
+  for (const g of all) n.set(family(g), (n.get(family(g)) ?? 0) + 1);
+  return [...n].filter(([, c]) => c > 1).map(([f]) => f).sort();
+}
+
+/**
+ * Gem-Types changed recently. The most common `updated` date is the last full import, which
+ * touched everything, so only dates after it count, and only within RECENT_DAYS of the newest.
+ */
+export const RECENT_DAYS = 21;
+export function recentlyUpdated(all: Gem[]) {
+  const dates = all.map((g) => g.updated).filter(Boolean) as string[];
+  if (!dates.length) return new Set<string>();
+  const count = new Map<string, number>();
+  for (const d of dates) count.set(d, (count.get(d) ?? 0) + 1);
+  const bulk = [...count].sort((a, b) => b[1] - a[1])[0][0];
+  const newest = dates.sort().at(-1)!;
+  const cutoff = new Date(new Date(newest).getTime() - RECENT_DAYS * 864e5).toISOString().slice(0, 10);
+  return new Set(all.filter((g) => g.updated && g.updated > bulk && g.updated >= cutoff).map((g) => g.slug));
+}

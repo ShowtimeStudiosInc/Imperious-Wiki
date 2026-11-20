@@ -1,0 +1,35 @@
+---
+/**
+ * Short links: /gem/<name>/ → the Gem-Type's page. Every slug gets one, plus each plain name
+ * ("hessonite", "rose-quartz"). A name shared by several types (split by era, variants) goes to
+ * the catalog searched for that name.
+ */
+import { getGems, url } from '../../lib/gems';
+export async function getStaticPaths() {
+  const all = await getGems();
+  const slugify = (s: string) => s.toLowerCase().replace(/\(.*?\)/g, '').trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const out = new Map<string, string>();
+  for (const g of all) out.set(g.slug, `/gem-types/${g.slug}/`);
+  const byName = new Map<string, typeof all>();
+  for (const g of all) { const k = slugify(g.name); byName.set(k, [...(byName.get(k) ?? []), g]); }
+  for (const [k, gs] of byName) {
+    if (out.has(k)) continue;
+    out.set(k, gs.length === 1 ? `/gem-types/${gs[0].slug}/` : `/gem-types/all/?q=${encodeURIComponent(gs[0].name.toLowerCase())}`);
+  }
+  return [...out].map(([slug, to]) => ({ params: { slug }, props: { to } }));
+}
+const target = url(Astro.props.to as string);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body style="background:#07040f;color:#ece6ff;font-family:system-ui,sans-serif">
+    <p>Going to <a href={target} style="color:#c9b8ff">{target}</a>…</p>
+  </body>
+</html>

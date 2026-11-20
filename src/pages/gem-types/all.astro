@@ -2,10 +2,13 @@
 import Site from '../../layouts/Site.astro';
 import GemCard from '../../components/GemCard.astro';
 import { getGems, url, RANKS, FACTION_LABEL, KIND_LABEL } from '../../lib/gems';
+import { recentlyUpdated, families, family } from '../../lib/gems';
 const all = await getGems();
+const fresh = recentlyUpdated(all);
 const uniq = (xs: (string | null | undefined)[]) => [...new Set(xs.filter(Boolean))].sort() as string[];
 const groups = [
   { key: 'faction', label: 'Faction', values: uniq(all.map((g) => g.faction)), show: (v: string) => FACTION_LABEL[v] },
+  { key: 'family', label: 'Family', values: families(all), show: (v: string) => v },
   { key: 'rank', label: 'Rank', values: Object.keys(RANKS).filter((r) => all.some((g) => g.rank === r)), show: (v: string) => v },
   { key: 'side', label: 'Side', values: uniq(all.map((g) => g.side)), show: (v: string) => v },
   { key: 'kind', label: 'Kind', values: uniq(all.map((g) => g.kind)), show: (v: string) => KIND_LABEL[v] },
@@ -14,6 +17,7 @@ const groups = [
   { key: 'status', label: 'Status', values: uniq(all.flatMap((g) => g.status)), show: (v: string) => v },
   { key: 'trait', label: 'Traits', values: uniq(all.flatMap((g) => g.traits)), show: (v: string) => v },
   { key: 'threat', label: 'Threat Class', values: uniq(all.map((g) => g.threatClass)), show: (v: string) => v },
+  { key: 'updated', label: 'Recently updated', values: fresh.size ? ['yes'] : [], show: () => 'Updated' },
   { key: 'power', label: 'Has a power', values: ['yes', 'no'], show: (v: string) => (v === 'yes' ? 'Yes' : 'No') },
 ];
 ---
@@ -42,7 +46,7 @@ const groups = [
       </div>
     </div>
     <p class="count"><span id="count">{all.length}</span> of {all.length} Gem-Types</p>
-    <div class="grid" id="grid">{all.map((g) => <GemCard gem={g} />)}</div>
+    <div class="grid" id="grid">{all.map((g) => <GemCard gem={g} fresh={fresh.has(g.slug)} />)}</div>
   </main>
 </Site>
 <script>
@@ -53,7 +57,7 @@ const groups = [
   const sort = document.getElementById('sort') as HTMLSelectElement;
   const params = new URLSearchParams(location.search);
   const active = new Map<string, Set<string>>();
-  for (const [k, v] of params) if (k !== 'q' && k !== 'sort') { if (!active.has(k)) active.set(k, new Set()); active.get(k)!.add(v); }
+  for (const [k, v] of params) if (k !== 'q' && k !== 'sort' && k !== 'season') { if (!active.has(k)) active.set(k, new Set()); active.get(k)!.add(v); }
   q.value = params.get('q') ?? '';
   sort.value = params.get('sort') ?? 'name';
   const multi = new Set(['status', 'trait']);

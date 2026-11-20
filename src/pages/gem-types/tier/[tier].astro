@@ -2,6 +2,7 @@
 import Site from '../../../layouts/Site.astro';
 import GemCard from '../../../components/GemCard.astro';
 import { getGems, TIERS, RANKS, url, type Gem } from '../../../lib/gems';
+import { recentlyUpdated } from '../../../lib/gems';
 
 export async function getStaticPaths() {
   const all = await getGems();
@@ -9,6 +10,7 @@ export async function getStaticPaths() {
 }
 const { tier, gems } = Astro.props as { tier: string; gems: Gem[] };
 const t = TIERS.find((x) => x.slug === tier)!;
+const fresh = recentlyUpdated(await getGems());
 const ranks = [...new Set(gems.map((g) => g.rank).filter(Boolean))].sort() as string[];
 const order = (g: Gem) => (g.kind === 'fusion' ? 2 : g.kind === 'sub-type' ? 1 : 0);
 const sorted = [...gems].sort((a, b) => (a.rank ?? '').localeCompare(b.rank ?? '') || order(a) - order(b) || a.name.localeCompare(b.name));
@@ -31,7 +33,7 @@ const sorted = [...gems].sort((a, b) => (a.rank ?? '').localeCompare(b.rank ?? '
       </div>
     )}
     {sorted.length ? (
-      <div class="grid" id="grid">{sorted.map((g) => <GemCard gem={g} />)}</div>
+      <div class="grid" id="grid">{sorted.map((g) => <GemCard gem={g} fresh={fresh.has(g.slug)} />)}</div>
     ) : (
       <div class="empty">No Gem-Types are catalogued here yet. They'll show up as soon as they're added to the data files.</div>
     )}
