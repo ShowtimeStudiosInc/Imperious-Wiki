@@ -263,6 +263,24 @@ _``Latent Ability:``_
 _``Interactions:``_
 ``Smoky Quartzes and Amethysts are rarely apart, bouncing jokes off each other in the barracks and on duty. A nervous Ruby or Eucryptite who ends up next to a Smoky Quartz before a fight usually walks into it calmer than she would have alone.``
 
+# STRAWBERRY QUARTZ [SUB-TYPE OF QUARTZ]
+**``BASE STATS``**
+_``HP:``_ 32
+_``ATK:``_ 8
+_``DEF:``_ 6
+_``SPD:``_ 7
+_``INT:``_ 4
+_``MAG:``_ 3
+_``ACT Bonus:``_ 
+`Pass It On` - <:Act:1568035453842751618>ACTs that carry a message, relay orders, or bring help from across the field are especially effective for her.
+_``Latent Ability:``_ 
+`Enhanced Stamina [PASSIVE]` - Strawberry Quartz may learn to run for very long distances without slowing down.
+
+``Strawberry Quartzes are the militia's runners. When a battle cuts off communication, or a message is too important to send over a line someone could be listening to, a Strawberry Quartz carries it by hand. They run orders between squads, bring reports back to Agates and Hessonites, and go for help when a unit is pinned down. They're cheerful, chatty, and always on the move, and most of them know every gem in the barracks by name, since they've delivered something to all of them at least once.``
+
+_``Interactions:``_
+``Strawberry Quartzes take their orders from Agates and Hessonites and carry them out to every squad on the field. Rose Quartzes love them, since a Strawberry Quartz always has news. Cherry Quartzes get along with them a little too well, because a runner hears everything and a Cherry Quartz wants to know all of it.``
+
 # TIGER'S EYE [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
 _``HP:``_ 32

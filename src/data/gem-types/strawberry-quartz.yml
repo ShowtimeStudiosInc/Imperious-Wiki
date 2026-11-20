@@ -1,0 +1,54 @@
+name: Strawberry Quartz
+slug: strawberry-quartz
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 8
+  def: 6
+  spd: 7
+  int: 4
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Pass It On
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that carry a message, relay orders, or bring help from across the field are
+      especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Enhanced Stamina
+    tags:
+      - PASSIVE
+    cost: null
+    text: Strawberry Quartz may learn to run for very long distances without slowing down.
+    moves: []
+role: >-
+  Strawberry Quartzes are the militia's runners. When a battle cuts off communication, or a message is too important to
+  send over a line someone could be listening to, a Strawberry Quartz carries it by hand. They run orders between
+  squads, bring reports back to Agates and Hessonites, and go for help when a unit is pinned down. They're cheerful,
+  chatty, and always on the move, and most of them know every gem in the barracks by name, since they've delivered
+  something to all of them at least once.
+interactions: >-
+  Strawberry Quartzes take their orders from Agates and Hessonites and carry them out to every squad on the field. Rose
+  Quartzes love them, since a Strawberry Quartz always has news. Cherry Quartzes get along with them a little too well,
+  because a runner hears everything and a Cherry Quartz wants to know all of it.
+description: null
+image: /images/gem-types/strawberry-quartz.webp
+gemstone: /images/gemstones/strawberry-quartz.svg
+credit: null
+updated: '2026-11-20'

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<svg viewBox="0 0 200 200" width="200" height="200">
+<circle cx="100" cy="100" r="94" fill="#4a1028"/>
+<clipPath id="sq"><circle cx="100" cy="100" r="85"/></clipPath>
+<g clip-path="url(#sq)">
+<rect width="200" height="200" fill="#ffbddb"/>
+<circle cx="265.4" cy="9.6" r="209.1" fill="#ff92c0"/>
+<ellipse cx="103.1" cy="47.2" rx="15.3" ry="10.0" fill="#fb3876"/>
+<circle cx="150.9" cy="45.2" r="21.1" fill="#fb3876"/>
+<circle cx="159.3" cy="85.5" r="29.9" fill="#fb3876"/>
+<circle cx="139.4" cy="68.2" r="15.3" fill="#fb3876"/>
+<circle cx="136.4" cy="122.6" r="18.4" fill="#fb3876"/>
+<circle cx="150.9" cy="106.5" r="17.2" fill="#fb3876"/>
+<circle cx="177.7" cy="64.4" r="23.0" fill="#fb3876"/>
+<circle cx="154.8" cy="44.5" r="11.5" fill="#ff8a52"/>
+<circle cx="160.5" cy="85.5" r="16.5" fill="#ff8a52"/>
+</g>
+<circle cx="100" cy="100" r="82.5" fill="none" stroke="#4a1028" stroke-opacity="0.2" stroke-width="4"/>
+</svg>
+</svg>
