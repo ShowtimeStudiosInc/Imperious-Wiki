@@ -6,15 +6,20 @@
  "diamondName": "Maroon Red Diamond",
  "title": "Grand Regent <span class=\"accent\">Magda</span>",
  "courtLine": "Court Maroon · Grand Regent · Rank 1.2",
- "heroSub": "Cubic Zirconia of Maroon Red Diamond.",
+ "heroSub": "Cubic Zirconia of Maroon Red Diamond, known across the Militia as the Vermillion Bastion.",
+ "notice": "This page is from Magda's submission before the rebuild. Her abilities and stats will change when it's updated.",
  "chips": [
   [
-   "Court",
-   "Maroon"
+   "Era",
+   "2A"
   ],
   [
-   "Rank",
-   "1.2"
+   "Height",
+   "37'6\""
+  ],
+  [
+   "Pronouns",
+   "She / Her"
   ]
  ],
  "facts": [
@@ -23,17 +28,123 @@
    "Cubic Zirconia"
   ],
   [
+   "Era",
+   "2A"
+  ],
+  [
+   "Pronouns",
+   "She / Her"
+  ],
+  [
+   "Height",
+   "37'6\""
+  ],
+  [
    "Court",
    "Maroon"
+  ],
+  [
+   "Gem Placement",
+   "Navel"
+  ],
+  [
+   "Place of Birth",
+   "Solstice Kindergarten, Sector 315"
+  ],
+  [
+   "Alignment",
+   "Neutral Good"
+  ],
+  [
+   "Facet & Cut",
+   "4S1A - 19XD"
+  ],
+  [
+   "Nicknames",
+   "The Vermillion Bastion, Maggy, Big Red, The Red One"
   ]
  ],
- "pending": true,
- "status": "Submission pending",
- "redacted": false,
- "known": [
-  "Magda is Maroon Red Diamond's Cubic Zirconia and holds the Title of Grand Regent.",
-  "Magda's full page goes up when the submission arrives."
+ "stats": [
+  [
+   "HP",
+   "48"
+  ],
+  [
+   "ATK",
+   "19"
+  ],
+  [
+   "DEF",
+   "16"
+  ],
+  [
+   "SPD",
+   "5"
+  ],
+  [
+   "INT",
+   "9"
+  ],
+  [
+   "MAG",
+   "15"
+  ],
+  [
+   "Level",
+   "1"
+  ]
  ],
- "sections": [],
+ "equipment": [],
+ "personality": [
+  "What she lacks in height, Magda more than makes up for in sheer intimidation and presence among the Cubic Zirconia. In the short time since her emergence, many gems have said that even the most inexperienced of soldiers who are or were under her direct command come away from training sessions and missions off of Homeworld stronger, faster, in general far more efficient than when they went in.",
+  "Some have even said that she herself will step in whenever her armies are unable to handle a threat, though these rumors remain as such to this day."
+ ],
+ "likes": [
+  "Puzzles",
+  "Relaxing",
+  "Socializing (kinda bad at it, though)"
+ ],
+ "dislikes": [
+  "Dishonesty",
+  "Betrayal",
+  "Seeing shards"
+ ],
+ "fear": "Being shattered",
+ "relationships": [
+  [
+   "Maroon Red Diamond",
+   "Her older sibling. Magda carries a fraction of Maroon's power."
+  ]
+ ],
+ "abilities": [
+  {
+   "label": "Pre-rebuild",
+   "name": "Powers & Abilities",
+   "desc": [
+    "These are Magda's abilities as they were submitted before the rebuild."
+   ],
+   "passives": [],
+   "spells": [
+    {
+     "name": "Sub-Domain",
+     "kind": "Aura",
+     "cost": "3 SP",
+     "text": "Magda bears a fraction of the power her older sibling Maroon holds, capable of projecting a mighty aura similar to his, but at notably limited strength and limited area of effect."
+    },
+    {
+     "name": "Unbreakable Line",
+     "kind": "Command",
+     "cost": "1 SP",
+     "text": "Maroon court gems under her direct command gain endurance for as long as they still stand in battle, but should they fall like dominoes in battle, the boost will vanish effective immediately."
+    }
+   ],
+   "outside": []
+  }
+ ],
+ "art": {
+  "src": "{{BASE}}images/regents/magda/1.webp",
+  "alt": "Grand Regent Magda: a red and white figure with a square head, round dark eyes and a small gem at her waist, arms out to both sides, drawn in bold flat shapes",
+  "caption": ""
+ },
  "credits": []
 }

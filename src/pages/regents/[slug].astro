@@ -66,6 +66,7 @@ const nav = NAV;
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" />
     <Fragment set:html={fonts} />
     <style is:inline>
+      .hero-notice { margin: 12px 0 0; padding: 8px 12px; border-left: 3px solid var(--gold); background: var(--chip); color: var(--ink-soft); font-size: .92rem; max-width: 62ch; }
       .pending-note p { margin: 0 0 .7rem; }
       .sealed .bar-line { margin: 0 0 .8rem; }
       .sealed .bar-line span { display: inline-block; max-width: 100%; padding: .1rem .5rem; background: #050407; color: #050407; border-radius: 2px; font-size: .9rem; user-select: none; }
@@ -115,6 +116,7 @@ const nav = NAV;
         <div class="court-line">{p.courtLine}</div>
         <h1 set:html={p.title} />
         <p class="hero-sub" set:html={p.heroSub} />
+        {p.notice && <p class="hero-notice">{p.notice}</p>}
         <div class="domain-chips">
           {p.chips.map(([k, v]: [string, string]) => <span><b>{k}</b>{v}</span>)}
         </div>
