@@ -1,19 +1,32 @@
 {
-  "slug": "bi-colored-kandy",
-  "title": "Bi-Colored <span class=\"accent\">Kandy</span> Diamond",
-  "courtLine": "Court Kandy · Ruling Diamond · Era 2A",
-  "heroSub": "The Tech Diamond, and one of the four Ruling Diamonds who came into being in Era 2A.",
-  "quote": "",
-  "quoteBy": "Bi-Colored Kandy Diamond",
-  "art": {
-    "sub": "",
-    "images": []
-  },
-  "personality": [],
-  "purpose": [],
-  "weakness": [],
-  "abilities": [],
-  "powerList": [],
-  "credits": [],
-  "partial": "This page is partial. Only what the server already knows is here, and the rest will be added once Bi-Colored Kandy's submission arrives."
+ "slug": "bi-colored-kandy",
+ "title": "Bi-Colored <span class=\"accent\">Kandy</span> Diamond",
+ "courtLine": "Court Kandy · Ruling Diamond · Era 2A",
+ "heroSub": "The Tech Diamond, and one of the four Ruling Diamonds who came into being in Era 2A.",
+ "quote": "",
+ "quoteBy": "Bi-Colored Kandy Diamond",
+ "art": {
+  "sub": "Sketch",
+  "images": [
+   {
+    "src": "{{BASE}}images/diamonds/bi-colored-kandy/page/1.webp",
+    "full": "{{BASE}}images/diamonds/bi-colored-kandy/page/1.webp",
+    "title": "Bi-Colored Kandy Diamond",
+    "note": "Pencil sketch, 9/18/2026",
+    "alt": "Pencil sketch of Bi-Colored Kandy Diamond: long twin tails, goggles pushed up on a curly fringe, a cropped top with tool pouches on the belt, striped stockings, riding a hoverboard trailing cloud puffs, with a power cord and plug for a tail"
+   }
+  ]
+ },
+ "personality": [],
+ "purpose": [],
+ "weakness": [],
+ "abilities": [],
+ "powerList": [],
+ "credits": [
+  {
+   "label": "Art",
+   "name": "Blair"
+  }
+ ],
+ "partial": "This page is partial. Only what the server already knows is here, and the rest will be added once Bi-Colored Kandy's submission arrives."
 }

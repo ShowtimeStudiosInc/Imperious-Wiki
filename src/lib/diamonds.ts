@@ -668,7 +668,7 @@ export const DIAMONDS: Diamond[] = [
     powers: [],
     weaknesses: "",
     quote: "",
-    art: '/images/diamonds/bi-colored-kandy/placeholder.svg',
+    art: '/images/diamonds/bi-colored-kandy.webp',
     theme: { bg: '', glow: '', accent: '', accent2: '', meteors: false, backgroundLabel: '' },
     abilities: [],
     updated: '2026-11-19',
