@@ -1,6 +1,7 @@
 ---
 import { NAV, navKey } from '../lib/nav';
 import SiteSearch from '../components/SiteSearch.astro';
+import PresenceBadge from '../components/PresenceBadge.astro';
 import '../styles/site.css';
 import '../styles/seasons.css';
 import SeasonScript from '../components/SeasonScript.astro';
@@ -42,5 +43,6 @@ const nav = NAV;
     )}
     <slot />
     {!bare && <footer class="site">Imperious Authorities Wiki · Stats are out-of-character mechanics. Gems can't see them in-world.</footer>}
+    <PresenceBadge />
   </body>
 </html>

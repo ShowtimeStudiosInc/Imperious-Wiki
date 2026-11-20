@@ -1,4 +1,5 @@
 ---
+import PresenceBadge from '../../components/PresenceBadge.astro';
 import { NAV, navKey } from '../../lib/nav';
 import SiteSearch from '../../components/SiteSearch.astro';
 /**
@@ -297,5 +298,6 @@ const nav = NAV;
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLB(); });
       })();
     </script>
-  </body>
+    <PresenceBadge />
+</body>
 </html>

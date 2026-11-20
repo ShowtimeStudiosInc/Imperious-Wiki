@@ -1,0 +1,66 @@
+---
+// Live count of how many people have this page open. Talks to the ia-wiki-presence Worker
+// (workers/presence). Stays hidden until the Worker answers, so nothing shows if it's offline.
+const ENDPOINT = import.meta.env.PUBLIC_PRESENCE_URL || 'wss://ia-wiki-presence.dilanrodriguez091.workers.dev/room';
+const base = import.meta.env.BASE_URL;
+---
+<div class="presence" id="presence" hidden aria-live="polite">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C6.5 5 2.7 9.3 1.5 12c1.2 2.7 5 7 10.5 7s9.3-4.3 10.5-7C21.3 9.3 17.5 5 12 5Zm0 11.2A4.2 4.2 0 1 1 12 7.8a4.2 4.2 0 0 1 0 8.4Zm0-6.4a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4Z"/></svg>
+  <span id="presence-text"></span>
+</div>
+<script is:inline define:vars={{ ENDPOINT, base }}>
+  (function () {
+    var box = document.getElementById('presence');
+    var text = document.getElementById('presence-text');
+    if (!box || !('WebSocket' in window)) return;
+    var page = location.pathname;
+    if (base && base !== '/' && page.indexOf(base) === 0) page = '/' + page.slice(base.length);
+    var ws, retry = 0, closed = false;
+    function show(n) {
+      text.textContent = n === 1 ? 'Only you here' : n + ' viewing this page';
+      box.title = n === 1 ? 'Nobody else has this page open right now' : n + ' people have this page open right now';
+      box.hidden = false;
+    }
+    function connect() {
+      if (closed) return;
+      try { ws = new WebSocket(ENDPOINT + '?page=' + encodeURIComponent(page)); } catch (e) { return; }
+      ws.onmessage = function (e) {
+        retry = 0;
+        try { var d = JSON.parse(e.data); if (typeof d.viewers === 'number') show(d.viewers); } catch (err) {}
+      };
+      ws.onclose = function () {
+        if (closed) return;
+        retry = Math.min(retry + 1, 6);
+        setTimeout(connect, 1000 * Math.pow(2, retry)); // back off: 2s, 4s ... about a minute
+      };
+    }
+    connect();
+    addEventListener('pagehide', function () { closed = true; try { ws && ws.close(); } catch (e) {} });
+    addEventListener('pageshow', function (e) { if (e.persisted) { closed = false; connect(); } });
+  })();
+</script>
+<style>
+  .presence {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 200;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.75rem 0.4rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(21, 13, 41, 0.82);
+    border: 1px solid rgba(201, 184, 255, 0.28);
+    color: #ece6ff;
+    font: 500 0.78rem/1 'Inter', system-ui, sans-serif;
+    letter-spacing: 0.02em;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    pointer-events: auto;
+  }
+  .presence[hidden] { display: none; }
+  .presence svg { width: 1rem; height: 1rem; fill: #c9b8ff; }
+  @media (max-width: 760px) { .presence { right: 0.6rem; bottom: 0.6rem; font-size: 0.72rem; } }
+  @media print { .presence { display: none; } }
+</style>
