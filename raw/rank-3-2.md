@@ -204,10 +204,10 @@ _``ACT Bonus:``_
 _``Latent Ability:``_ 
 `Tide Sense [PASSIVE]` - Ocean Jasper may learn to feel when nearby water is about to rise or fall, long before anyone can see it.
 
-``Ocean Jaspers are Quartz soldiers who guard the empire's shorelines. They hold beaches, tidal flats, and coastal kindergartens on ocean worlds, standing on the line where the water meets the land. A shore post changes twice a day as the tide comes and goes, so Ocean Jaspers are patient soldiers who are used to waiting for the right moment. They're cheerful and easygoing compared to other Jaspers, but anyone who tries to land on a beach they're guarding finds out they hit just as hard.``
+``Ocean Jaspers are Quartz soldiers made for water worlds. They guard the empire's ocean colonies, from floating platforms and harbor stations to domes built on the sea floor, and they're the soldiers sent when a fight breaks out on, in, or under the water. Deep cold and crushing pressure barely slow them down, so their daily work includes patrolling underwater pipelines and cables, escorting ships in and out of harbor, guarding coastal kindergartens, and pulling gems out of the water when something goes wrong. Ocean Jaspers are patient and easygoing compared to other Jaspers, and they're used to long watches where nothing happens, but they hit just as hard as any Jasper once something does.``
 
 _``Interactions:``_
-``Ocean Jaspers hold the shore while Blue Quartzes work the water, and the two trade posts whenever the tide turns. Regular Jaspers think they're too relaxed, until they see one in a fight. Lapises like them, since an Ocean Jasper always knows when the water is about to move.``
+``Ocean Jaspers often share water colony posts with Blue Quartzes, who handle the surface while the Ocean Jaspers take anything deep. They guard Lapis crews shaping new ocean worlds, and Lapises like having them around, since an Ocean Jasper always seems to know when the water is about to move. Regular Jaspers think they're too relaxed, until they see one in a fight.``
 
 # PRASIOLITE [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
