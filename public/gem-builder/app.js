@@ -348,7 +348,7 @@ function refresh() {
   if (cutEl.value === 'Perfect Polish' && !polishAllowed) cutEl.value = 'Perfect Cut'; if (cutEl.value === 'Perfect Cut' && !cutAllowed) cutEl.value = 'Perfect Polish';
   refreshDefectStatOptions();
   $('defect-stats-step').classList.toggle('hidden', cutEl.value !== 'Defective');
-  const level = Math.min(database.rules.levelCap, Math.max(1, Number.parseInt($('level').value, 10) || 1)); $('level').value = level;
+  const level = Math.min(database.rules.levelCap, Math.max(1, Number.parseInt($('level').value, 10) || 1));
   const cutData = cuts[cutEl.value] || cuts.Standard;
   const defectPenalty = cutEl.value === 'Defective' ? {
     [defectStatAEl.value]: -1,
@@ -407,9 +407,32 @@ function refresh() {
   if (modifierOnlyProfile) notes.push('This profile provides stat modifiers but no absolute base stats. The stat panel shows the source modifiers; final stats cannot be calculated from the supplied data.');
   else notes.push('Level gains follow the level-up rules on the Stats page.');
   $('notice').textContent = notes.join(' ');
+  const latent = new Set(detailNames(displayDetails.filter(d => d.type === 'Latent Ability')));
+  const eraTag = (record.tags || []).find(t => /^Era /.test(t)) || '';
+  const shown = S.map(k => record.fusion ? (record.componentStats ? record.componentStats[k] : '') : modifierOnlyProfile ? '' : Math.max(0, final[k]));
+  lastSheet = { name: shift ? shift.name : record.name, era: currentModifier.name === 'No modifier' ? eraTag : currentModifier.name,
+    abilities: abilityList.filter(a => !latent.has(a)), stats: Object.fromEntries(S.map((k, i) => [k, shown[i]])),
+    level, exp: 0, height: heightFor(record) === 'Not assigned' ? '' : heightFor(record), cut: cutEl.value };
 }
+let lastSheet = null;
+function characterSheet() {
+  const x = lastSheet; if (!x) return '';
+  const code = [$('facet-result')?.textContent, $('cut-result')?.textContent].filter(t => t && t !== '---');
+  const st = k => x.stats[k] === '' ? '' : x.stats[k];
+  return [
+    '## Gem Information', '- _`Name:`_ ', `- _\`Facet & Cut:\`_ ${code.length === 2 ? code.join(' - ') : ''}`, `- _\`Era:\`_ ${x.era}`, '- _`Nicknames:`_ ', '- _`Pronouns:`_ ', '- _`Affiliation:`_ ',
+    '## Behavior', '- _`Personality:`_ ', '- _`Likes:`_ ', '- _`Dislikes:`_ ', '- _`Attraction towards(Male Presenting or Female Presenting Gems?):`_ ', '- _`Relationships:`_ ', '- _`Fear:`_ ', '- _`Alignment:`_ ',
+    '## Capabilities', `- _\`Gem Type:\`_ ${x.name}${x.cut && x.cut !== 'Standard' ? ` (${x.cut})` : ''}`, '- _`Gem Placement:`_ ', '- _`Place of Birth:`_', `- _\`Powers & Abilities:\`_ ${x.abilities.join(', ')}`,
+    '## Stats', `- _\`HP:\`_ ${st('HP')}`, `- _\`ATK:\`_ ${st('ATK')}`, '  - _`Weapon 1 (Optional):`_ ', '  - _`Weapon 2 (Optional):`_ ', `- _\`DEF:\`_ ${st('DEF')}`, '  - _`Armor (Optional):`_ ', '  - _`Accessories 1 (Optional):`_', '  - _`Accessories 2 (Optional):`_',
+    `- _\`SPD:\`_ ${st('SPD')}`, `- _\`INT:\`_ ${st('INT')}`, `- _\`MAG:\`_ ${st('MAG')}`, `- _\`LVL:\`_ ${x.level}`, `  - _\`EXP:\`_ ${x.exp}`,
+    '## Appearance', `- _\`Natural Height:\`_ ${x.height}`, '- _`Appearance (Image/Description):`_',
+  ].join('\n');
+}
+document.getElementById('copy-sheet')?.addEventListener('click', e => copyToClipboard(characterSheet(), e.currentTarget));
 choices(factionEl, factions); choices(eraEl, modifiers, m => m.name); choices(prismEl, ['Unshifted', ...quartz.map(q => q.name)]); choices(cutEl, Object.keys(cuts)); refreshDefectStatOptions();
 factionEl.addEventListener('change', refreshGems); [gemEl, prismEl, eraEl, cutEl, defectStatAEl, defectStatBEl, $('level')].forEach(el => el.addEventListener('input', refresh));
+// Tidy the level box only when you leave it, so you can clear it and type a new number.
+$('level').addEventListener('change', () => { const el = $('level'); el.value = Math.min(database.rules.levelCap, Math.max(1, Number.parseInt(el.value, 10) || 1)); refresh(); });
 refreshGems();
 // Gem-Type pages link here with ?type=<slug> to open that Gem-Type straight away.
 (() => {
