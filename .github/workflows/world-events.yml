@@ -1,0 +1,77 @@
+name: World events (Diamond Approval Rating)
+
+# Every 3 hours: a small event. Every few days: a medium event. Once a week: the weekly report.
+# The script decides which, based on src/data/events/state.json.
+on:
+  schedule:
+    - cron: '23 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: 'Force a tier (leave empty to let it choose)'
+        required: false
+        type: choice
+        options: ['', small, medium, big]
+
+concurrency:
+  group: world-events
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      tier: ${{ steps.run.outputs.tier }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Roll an event
+        id: run
+        run: node scripts/world-events.mjs ${{ inputs.tier && format('--tier {0}', inputs.tier) || '' }}
+      - name: Commit
+        run: |
+          git config user.name "Imperious Wiki"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/popularity.yml src/data/events/state.json
+          TIER="${{ steps.run.outputs.tier }}"
+          if [ "$TIER" = "small" ]; then
+            git commit -q -m "World event rolled for the Diamond Approval Rating"
+          else
+            git commit -q -m "The Diamond Approval Rating was updated at [Diamond Approval Rating](https://showtimestudiosinc.github.io/Imperious-Wiki/approval-rating/)"
+          fi
+          for i in 1 2 3; do git push -q origin HEAD:main && exit 0; git pull -q --rebase origin main; done
+          exit 1
+
+  deploy:
+    needs: tick
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
+
+  announce:
+    needs: [tick, deploy]
+    if: needs.tick.outputs.tier != 'small'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Post to Discord
+        run: node scripts/world-events.mjs --announce
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}

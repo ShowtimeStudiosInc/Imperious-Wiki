@@ -1,6 +1,6 @@
 ---
 import Site from '../layouts/Site.astro';
-import { groups, updated, logByDate, changeLabel, changeClass, votesLabel } from '../lib/popularity';
+import { groups, updated, logByDate, changeLabel, changeClass, votesLabel, unrest, unrestLevel, kindLabel } from '../lib/popularity';
 const boards = groups;
 ---
 <Site title="Diamond Approval Rating" description="How the Gempire feels about its Diamonds and Grand Regents, and what changed it.">
@@ -9,8 +9,16 @@ const boards = groups;
     <header class="top">
       <svg class="mark" width="60" height="48" viewBox="0 0 20 16" shape-rendering="crispEdges" aria-hidden="true"><path fill="#ff4fa3" d="M2 2h16v1h1v10h-1v1H2v-1H1V3h1zM6 0h1v1h1v1H6zM13 0h1v2h-2V1h1zM6 15h2v1H6zM12 15h2v1h-2z"/><path fill="#1d0d2e" d="M3 4h14v8H3z"/><path fill="#7fe0a8" d="M5 9h2v2H5zM8 7h2v4H8zM11 5h2v6h-2zM14 8h1v3h-1z"/></svg>
       <h1>Diamond Approval Rating</h1>
-      <p>How the empire feels about its Diamonds and Grand Regents, out of 100, from the latest Hematite poll. Updated {updated}.</p>
+      <p>How the empire feels about its Diamonds and Grand Regents, out of 100, from the Hematite polls. Arrows show the change over the last 7 days. Updated {updated}.</p>
     </header>
+    {unrest != null && (
+      <section class="unrest" data-level={unrestLevel(unrest).toLowerCase()}>
+        <div class="ur-top"><h2>Unrest</h2><span class="ur-val">{unrest}<small>/100</small> · {unrestLevel(unrest)}</span></div>
+        <span class="ur-bar" role="img" aria-label={`Unrest ${unrest} out of 100, ${unrestLevel(unrest)}`}><span style={`width:${unrest}%`} /><i style="left:25%" /><i style="left:50%" /><i style="left:75%" /></span>
+        <div class="ur-scale"><span>Calm</span><span>Uneasy</span><span>Restless</span><span>Boiling</span></div>
+        <p>How restless the Gempire is as a whole. It climbs when the Diamonds are unpopular and when bad news piles up. The higher it gets, the worse the events that can happen.</p>
+      </section>
+    )}
 
     <div class="boards">
       {boards.map((b) => (
@@ -45,7 +53,7 @@ const boards = groups;
                 <span class={`ch badge ${changeClass(l.change)}`}>{changeLabel(l.change)}</span>
                 <div>
                   {l.person.href ? <a href={l.person.href}>{l.person.name}</a> : <span class="nolink">{l.person.name}</span>}
-                  <span class="kind">{l.kind === 'roll' ? 'Update roll' : 'Event'}</span>
+                  <span class="kind">{kindLabel(l.kind)}</span>
                   <p>{l.text}</p>
                 </div>
               </li>
@@ -56,7 +64,7 @@ const boards = groups;
     </section>
 
     <aside class="ooc">
-      <strong>Out of character:</strong> these numbers are the Gempire's opinion, not a member vote. Staff roll for each Diamond and Grand Regent every update (rise, drop, or stay the same), and adjust the numbers after major events based on how each of them reacted.
+      <strong>Out of character:</strong> these numbers are the Gempire's opinion, not a member vote. They update on their own: a small event every 3 hours, a medium one every few days, and a weekly report with an update roll for everyone. Staff can still adjust them by hand after story events. Random events are background news. If one doesn't fit the story, staff can remove it.
     </aside>
   </main>
 </Site>
@@ -88,6 +96,18 @@ const boards = groups;
   .ch.up { color: var(--mint); } .ch.down { color: #ff8a8a; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .log { margin-top: 2rem; }
+  .unrest { margin: 0 auto 1.4rem; max-width: 46rem; padding: 0.9rem 1.2rem 1rem; border-radius: 12px; border: 2px solid var(--ur, #e8c46a);
+    background: radial-gradient(ellipse at 50% 0%, #2b1745, #120a1e 85%); --ur: #e8c46a; }
+  .unrest[data-level='calm'] { --ur: #7fe0a8; } .unrest[data-level='restless'] { --ur: #ff9b5c; } .unrest[data-level='boiling'] { --ur: #ff4f6a; }
+  .ur-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+  .unrest h2 { font-family: 'Pixelify Sans', var(--serif), monospace; color: var(--ur); text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.1rem; margin: 0; }
+  .ur-val { font-family: 'Pixelify Sans', monospace; color: #f3e8ff; font-size: 1.1rem; } .ur-val small { color: var(--dim); font-size: 0.75rem; }
+  .ur-bar { position: relative; display: block; height: 12px; margin: 0.6rem 0 0.25rem; border-radius: 6px; background: linear-gradient(90deg, rgba(127,224,168,.18), rgba(232,196,106,.18), rgba(255,155,92,.18), rgba(255,79,106,.22)); overflow: hidden; }
+  .ur-bar > span { display: block; height: 100%; background: var(--ur); border-radius: 6px; box-shadow: 0 0 10px var(--ur); }
+  .ur-bar i { position: absolute; top: 0; bottom: 0; width: 2px; background: #120a1e; }
+  .ur-scale { display: grid; grid-template-columns: repeat(4, 1fr); font-size: 0.7rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.06em; }
+  .ur-scale span:nth-child(2) { text-align: left; } .ur-scale span:last-child { text-align: right; }
+  .unrest p { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.88rem; }
   .log h2 { color: var(--pink); font-size: 1.4rem; letter-spacing: 0.05em; margin: 0 0 0.6rem; }
   .log h3 { color: var(--mint); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 1rem 0 0.4rem; }
   .log ul { list-style: none; margin: 0; padding: 0; }

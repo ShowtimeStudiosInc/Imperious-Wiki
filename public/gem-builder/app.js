@@ -411,6 +411,18 @@ function refresh() {
 choices(factionEl, factions); choices(eraEl, modifiers, m => m.name); choices(prismEl, ['Unshifted', ...quartz.map(q => q.name)]); choices(cutEl, Object.keys(cuts)); refreshDefectStatOptions();
 factionEl.addEventListener('change', refreshGems); [gemEl, prismEl, eraEl, cutEl, defectStatAEl, defectStatBEl, $('level')].forEach(el => el.addEventListener('input', refresh));
 refreshGems();
+// Gem-Type pages link here with ?type=<slug> to open that Gem-Type straight away.
+(() => {
+  const want = new URLSearchParams(location.search).get('type');
+  if (!want) return;
+  const shift = quartz.find(q => q.slug === want);
+  const record = shift ? gems.find(g => g.name === 'Clear Quartz' && g.faction === 'United Frontier') : gems.find(g => g.slug === want);
+  if (!record) return;
+  factionEl.value = record.faction; refreshGems();
+  gemEl.value = record.slug;
+  if (shift) prismEl.value = shift.name;
+  refresh();
+})();
 fusionAEl.addEventListener('change', refreshFusion); fusionBEl.addEventListener('change', refreshFusion); initialiseFusionTool();
 
 // Ability Checker event listeners - wrapped in DOMContentLoaded to ensure elements exist

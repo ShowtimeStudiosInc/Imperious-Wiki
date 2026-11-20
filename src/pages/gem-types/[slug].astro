@@ -43,7 +43,7 @@ const related = [
   ...(siblings.length ? [{ label: 'Other versions', items: siblings }] : []),
 ];
 const attached = (g.attachments ?? []).map((a) => resolveSlug(all, a)).filter(Boolean) as Gem[];
-const builder = `https://showtimestudiosinc.github.io/Imperious-Gem-Builder/?type=${encodeURIComponent(g.slug)}`;
+const builder = url(`/gem-builder/?type=${encodeURIComponent(g.slug)}`);
 const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
 ---
 <Site title={fullName(g)} description={desc} current="gem-types">
@@ -200,7 +200,7 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
     <footer class="panel codex-foot">
       <div class="body footrow">
         <button class="btn" type="button" data-copy={characterTemplate(g)}>⧉ Copy Character Template</button>
-        <a class="btn" href={builder} target="_blank" rel="noopener">◈ Open in Gem Builder</a>
+        <a class="btn" href={builder}>◈ Open in Gem Builder</a>
         <span class="credit">{g.credit ? `Design: ${g.credit}` : 'Design: Imperious Authorities staff'}{g.updated && ` · Last updated ${g.updated}`}</span>
       </div>
     </footer>

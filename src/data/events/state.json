@@ -1,0 +1,44 @@
+{
+ "flags": {},
+ "recent": {
+  "small": [
+   "theta-hours"
+  ]
+ },
+ "history": [
+  {
+   "t": 1794579450522,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 66,
+    "theta-gold": 55,
+    "saturn-light": 72,
+    "nightshade-violet": 52,
+    "maroon-red": 63,
+    "bi-colored-kandy": 64,
+    "antton": 68,
+    "florentino": 70,
+    "tethys": 38
+   }
+  },
+  {
+   "t": 1795184250522,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 64,
+    "theta-gold": 57,
+    "saturn-light": 78,
+    "nightshade-violet": 55,
+    "maroon-red": 61,
+    "bi-colored-kandy": 67,
+    "antton": 74,
+    "florentino": 69,
+    "tethys": 41
+   }
+  }
+ ],
+ "lastMedium": 1795184250522,
+ "lastBig": 1795184250522,
+ "nextMediumGap": 289165617,
+ "post": null
+}

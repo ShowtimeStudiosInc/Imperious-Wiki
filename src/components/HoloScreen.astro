@@ -1,6 +1,6 @@
 ---
 /** Home page Holovision screen with the Diamond Approval Rating standings. Opens /approval-rating/. */
-import { groups, changeLabel, changeClass } from '../lib/popularity';
+import { groups, changeLabel, changeClass, unrest, unrestLevel } from '../lib/popularity';
 import { url } from '../lib/gems';
 ---
 <a class="holo" href={url('/approval-rating/')} aria-label="Diamond Approval Rating: open the full report">
@@ -21,6 +21,7 @@ import { url } from '../lib/gems';
         ))}
       </span>
     ))}
+    {unrest != null && <span class={`ur ${unrestLevel(unrest).toLowerCase()}`}>Unrest <b>{unrest}</b> · {unrestLevel(unrest)}</span>}
     <span class="go">Full report and what changed ›</span>
   </span>
 </a>
@@ -48,6 +49,8 @@ import { url } from '../lib/gems';
   .sc { text-align: right; font-variant-numeric: tabular-nums; }
   .ch { font-size: 0.7rem; color: #b49bd0; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .ch.up { color: #7fe0a8; } .ch.down { color: #ff8a8a; }
+  .ur { display: block; margin-top: 0.55rem; padding-top: 0.4rem; border-top: 1px solid rgba(255,255,255,.08); font-family: 'Pixelify Sans', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #e8c46a; }
+  .ur b { color: #f3e8ff; font-weight: 500; } .ur.calm { color: #7fe0a8; } .ur.restless { color: #ff9b5c; } .ur.boiling { color: #ff4f6a; }
   .go { display: block; margin-top: 0.6rem; font-size: 0.75rem; color: #7fe0a8; text-align: right; }
 </style>
 <style>

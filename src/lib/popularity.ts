@@ -5,9 +5,9 @@ import { DIAMONDS } from './diamonds';
 import { url } from './gems';
 
 type Row = { slug: string; name?: string; score: number; previous?: number; votes?: number };
-type Log = { date: string | Date; who: string; change: number; kind: 'event' | 'roll'; text: string };
+type Log = { date: string | Date; who: string; change: number; kind: 'event' | 'roll' | 'small' | 'medium' | 'big'; text: string };
 const raw = load(fs.readFileSync('src/data/popularity.yml', 'utf8')) as {
-  updated: string | Date; deity: Row[]; ruling: Row[]; regents: Row[]; log?: Log[];
+  updated: string | Date; unrest?: number; deity: Row[]; ruling: Row[]; regents: Row[]; log?: Log[];
 };
 
 const fmt = (d: string | Date) => new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
@@ -32,6 +32,12 @@ const rank = (rows: Row[]): Standing[] =>
     .sort((a, b) => b.score - a.score);
 
 export const updated = fmt(raw.updated);
+
+/** Gempire-wide Unrest meter, 0 to 100. */
+export const unrest = raw.unrest ?? null;
+export const unrestLevel = (u: number) => (u >= 75 ? 'Boiling' : u >= 50 ? 'Restless' : u >= 25 ? 'Uneasy' : 'Calm');
+export const kindLabel = (k: string) =>
+  ({ roll: 'Weekly roll', event: 'Event', small: 'Small event', medium: 'Medium event', big: 'Weekly headline' } as Record<string, string>)[k] ?? 'Event';
 export const groups = [
   { title: 'Deity Diamonds', rows: rank(raw.deity) },
   { title: 'Ruling Diamonds', rows: rank(raw.ruling) },
