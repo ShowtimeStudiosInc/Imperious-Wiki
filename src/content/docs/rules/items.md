@@ -36,7 +36,7 @@ Equipping or switching an item uses your turn, unless an ability says otherwise.
 ## How a FIGHT rolls
 
 1. **Roll to hit.** Roll 1d20. You need to meet or beat your weapon's **Hit Number**, plus the target's SPD ÷ 4 (rounded down). The number needed can never go above 18. A natural 20 always hits, and a natural 1 always misses.
-2. **Count the hits.** Each weapon type hits a number of times within its **Hits** range. Crits never add hits. They make each hit deal more damage instead.
+2. **Count the hits.** Roll how many times your weapon hits, anywhere in its **Hits** range (the combat bot rolls this for you). Crits never add hits. They make each hit deal more damage instead.
 3. **Roll damage.** Roll the weapon's damage die once for each hit, then add your ATK (your own plus your weapon's) **once** to the total.
 4. **The target soaks it.** Each hit that lands is reduced by the target's DEF ÷ 4 (rounded down), but always deals at least 1 damage.
 
