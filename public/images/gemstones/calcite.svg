@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<polygon points="68.0,34.0 132.0,34.0 172.0,76.0 100.0,176.0 28.0,76.0" fill="#cfbb81"/>
-<polygon points="68.0,34.0 132.0,34.0 116.0,56.6 84.0,56.6" fill="#f7efd9"/>
-<polygon points="132.0,34.0 172.0,76.0 136.0,77.6 116.0,56.6" fill="#e1d1a2"/>
-<polygon points="172.0,76.0 100.0,176.0 100.0,127.6 136.0,77.6" fill="#cfbb81"/>
-<polygon points="100.0,176.0 28.0,76.0 64.0,77.6 100.0,127.6" fill="#e1d1a2"/>
-<polygon points="28.0,76.0 68.0,34.0 84.0,56.6 64.0,77.6" fill="#f7efd9"/>
-<polygon points="84.0,56.6 116.0,56.6 136.0,77.6 100.0,127.6 64.0,77.6" fill="#f2e6c4"/>
-<polygon points="84.0,56.6 116.0,56.6 92.8,69.0" fill="#ffffff" opacity="0.9"/>
-<polygon points="68.0,34.0 132.0,34.0 172.0,76.0 100.0,176.0 28.0,76.0" fill="none" stroke="#816822" stroke-width="9" stroke-linejoin="round"/>
+<svg viewBox="0 0 200 200" width="200" height="200">
+<circle cx="100" cy="100" r="92" fill="#5a2a1c"/>
+<clipPath id="cal"><circle cx="100" cy="100" r="80"/></clipPath>
+<g clip-path="url(#cal)">
+<rect x="0" y="0" width="200" height="200" fill="#e9a576"/>
+<path d="M 108 0 C 84 40, 84 70, 98 100 C 112 130, 112 160, 92 200 L 0 200 L 0 0 Z" fill="#f6e1cc"/>
+<path d="M 52 64 C 60 46, 76 36, 92 33" fill="none" stroke="#fffaf2" stroke-width="9" stroke-linecap="round"/>
+<path d="M 150 132 C 144 150, 132 160, 118 166" fill="none" stroke="#d48958" stroke-width="9" stroke-linecap="round"/>
+</g>
+</svg>
 </svg>

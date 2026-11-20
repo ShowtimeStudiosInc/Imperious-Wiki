@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<circle cx="100" cy="100" r="92" fill="#5a2a1c"/>
+<clipPath id="cal"><circle cx="100" cy="100" r="80"/></clipPath>
+<g clip-path="url(#cal)">
+<rect x="0" y="0" width="200" height="200" fill="#e9a576"/>
+<path d="M 108 0 C 84 40, 84 70, 98 100 C 112 130, 112 160, 92 200 L 0 200 L 0 0 Z" fill="#f6e1cc"/>
+<path d="M 52 64 C 60 46, 76 36, 92 33" fill="none" stroke="#fffaf2" stroke-width="9" stroke-linecap="round"/>
+<path d="M 150 132 C 144 150, 132 160, 118 166" fill="none" stroke="#d48958" stroke-width="9" stroke-linecap="round"/>
+</g>
+</svg>
