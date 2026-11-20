@@ -49,6 +49,27 @@ _``Interactions:``_
 ``Coppers work with Silvers and other technical gems. A Silver makes the power, and a Copper carries it to the panels and ports that need it. As a Copper ages, it slowly turns green. Other gems don't see this as a flaw. They treat a greener Copper as the one with more experience.``
 
 
+# LEAD
+**``BASE STATS``**
+_``HP:``_ 40
+_``ATK:``_ 6
+_``DEF:``_ 10
+_``SPD:``_ 2
+_``INT:``_ 2
+_``MAG:``_ 1
+_``Signature Ability:``_ 
+`Lead Manipulation` [Minor] [Alteration] - Lead can shape the lead of her own body and make herself heavier or denser at will.
+> - `Dead Weight [2 SP]` - Lead makes her body extremely heavy until her next turn. She can't be Knocked Down or moved, and every physical hit on her is reduced by 1 more.
+> - `Lead Shot [2 SP]` - She flicks a small, heavy pellet of lead at one target, even one who is Far, for 1d6 + ATK damage.
+_``Latent Ability:``_ 
+`Poisonous Touch` - Lead may learn to push the toxin in her body out through her skin, so touching her or being hit by her can leave a gem <:Poison:1569755788761894983>Poisoned. Its moves and SP costs are set when it's unlocked.
+
+``Lead doesn't really fit into Homeworld, at least not the way they were made to. In the Metal Society they were the main makers of ammunition, producing small, forceful bullets for guns. Homeworld doesn't use bullets or guns, so that job was dropped when Metals joined the Gempire. Now they work in groups around construction sites as anchors for heavy material handling and shipping. Lead are very dense and fairly common, so a group of them is extremely heavy, which makes them ideal as dead weight for levers and pulley systems. Their bodies also make a toxin, which is harmless in passing but dangerous to anyone who handles a Lead for a long time.``
+
+_``Interactions:``_
+``Lead work beside Tungstens on construction and shipping sites, with the Tungstens moving loads and the Lead holding them in place. Bismuths and other builders set up their pulleys and cranes around a group of Lead. Most gems keep their gloves on around one, since a Lead's toxin builds up the longer you touch her.``
+
+
 # BRONZE [ERA 2]
 **``BASE STATS``**
 _``HP:``_ 38

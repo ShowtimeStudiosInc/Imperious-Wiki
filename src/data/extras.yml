@@ -100,6 +100,10 @@ heights:
   amethyst-uf: 8'0"
   clear-quartz: 8'0"
   labradorite: 6'7"
+  orca-agate: 7'7"
+  orca-agate-uf: 7'7"
+  lead: 5'4"
+  cubic-zirconia: Depends on their Diamond
   labradorite-uf: 6'2"
   astrophyllite: 6'0"
   iolite: 5'10"
@@ -226,6 +230,7 @@ types:
   blue-halite: { components: [lapis, orca-agate], threatClass: Champion, alsoFactions: [rogue], description: "A deep blue gem with small cracks that can be seen inside. It seems to have flowing water inside that shimmers, giving it a striped look." }
   dark-blue-hawk-s-eye: { components: [topaz, jasper], threatClass: Champion, description: "The gem is mostly blue, very dark in color, with stripes of color coming out of it, in this case yellow. It looks like an eye from certain angles, and it's said a stare from this fusion makes even the strongest soldiers flinch." }
   purple-lepidolite: { components: [lapis, pyrope], threatClass: Elite, description: "A round, mostly oval gem, a soft purple with spots of white and black. Both of her gemstones take on these colors." }
+  lead: { description: "Lead is spiky and usually jagged, but when made it forms a silvery-gray, textured, blocky substance that is extremely dense, durable, and mildly toxic to handle." }
   malachite-fusion: { components: [lapis, quartz], threatClass: Champion, image: /images/gem-types/malachite-fusion.webp }
   bluebird-azurite: { components: [ruby, aquamarine], threatClass: Elite, height: "4'9\"", image: /images/gem-types/bluebird-azurite.webp }
   rhodonite: { components: [ruby, pearl], threatClass: Elite, image: /images/gem-types/rhodonite.webp }

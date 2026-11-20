@@ -13,7 +13,7 @@ status: []
 traits: []
 court: null
 threatClass: null
-height: null
+height: Depends on their Diamond
 stats:
   hp: 44
   atk: 11
@@ -47,4 +47,4 @@ description: null
 image: /images/gem-types/cubic-zirconia.webp
 gemstone: /images/gemstones/cubic-zirconia.svg
 credit: null
-updated: '2026-11-18'
+updated: '2026-11-20'

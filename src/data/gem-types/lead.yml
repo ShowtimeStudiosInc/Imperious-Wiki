@@ -1,0 +1,70 @@
+name: Lead
+slug: lead
+rank: '4.3'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 5'4"
+stats:
+  hp: 40
+  atk: 6
+  def: 10
+  spd: 2
+  int: 2
+  mag: 1
+abilities:
+  - section: Signature Ability
+    name: Lead Manipulation
+    tags:
+      - Minor
+      - Alteration
+    cost: null
+    text: Lead can shape the lead of her own body and make herself heavier or denser at will.
+    moves:
+      - name: Dead Weight
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Lead makes her body extremely heavy until her next turn. She can't be Knocked Down or moved, and every
+          physical hit on her is reduced by 1 more.
+      - name: Lead Shot
+        tags:
+          - 2 SP
+        cost: 2
+        text: She flicks a small, heavy pellet of lead at one target, even one who is Far, for 1d6 + ATK damage.
+  - section: Latent Ability
+    name: Poisonous Touch
+    tags: []
+    cost: null
+    text: >-
+      Lead may learn to push the toxin in her body out through her skin, so touching her or being hit by her can leave a
+      gem <:Poison:1569755788761894983>Poisoned. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Lead doesn't really fit into Homeworld, at least not the way they were made to. In the Metal Society they were the
+  main makers of ammunition, producing small, forceful bullets for guns. Homeworld doesn't use bullets or guns, so that
+  job was dropped when Metals joined the Gempire. Now they work in groups around construction sites as anchors for heavy
+  material handling and shipping. Lead are very dense and fairly common, so a group of them is extremely heavy, which
+  makes them ideal as dead weight for levers and pulley systems. Their bodies also make a toxin, which is harmless in
+  passing but dangerous to anyone who handles a Lead for a long time.
+interactions: >-
+  Lead work beside Tungstens on construction and shipping sites, with the Tungstens moving loads and the Lead holding
+  them in place. Bismuths and other builders set up their pulleys and cranes around a group of Lead. Most gems keep
+  their gloves on around one, since a Lead's toxin builds up the longer you touch her.
+description: >-
+  Lead is spiky and usually jagged, but when made it forms a silvery-gray, textured, blocky substance that is extremely
+  dense, durable, and mildly toxic to handle.
+image: null
+gemstone: /images/gemstones/lead.svg
+credit: null
+updated: '2026-11-20'
