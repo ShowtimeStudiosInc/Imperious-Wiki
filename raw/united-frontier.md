@@ -128,7 +128,7 @@ _``ACT Bonus:``_
 _``Latent Ability:``_ 
 `Aurora Flash` - Labradorite may learn to let out the light stored in her gemstone as a burst of changing color, like the northern lights. Its moves and SP costs are set when it's unlocked.
 
-``Labradorites are the United Frontier's registrars. When a gem emerges, gets adopted, founds a colony, or is laid to rest, it goes on record with a Labradorite, and years later she's the one who can tell you exactly where you came from. A lot of that work is done by touch. A Labradorite can hold an old letter, a necklace, or a worn tool and feel who it belonged to and what it went through, so when the paperwork runs out, the objects fill in the rest of the story. Gems bring her boxes of things a relative left behind and ask her who that gem really was. Most of the time, she can tell them.``
+``Labradorites are the United Frontier's registrars. When a gem emerges, gets adopted, founds a colony, or is laid to rest, it goes on record with a Labradorite, and later on, gems come to her to find out where they came from. A lot of that work is done by touch. A Labradorite can hold an old letter, a necklace, or a worn tool and feel who it belonged to and what it went through, so she can fill in the gaps where written records are missing. Gems often bring her things a relative left behind so she can tell them more about that relative.``
 
 _``Interactions:``_
 ``Labradorites keep the Frontier's records, working with Iolites on school records and Astrophyllites on career paths. Melanites send them the record of every gem laid to rest, and Yellow Tourmalines bring them goods to read before a trade, since a Labradorite can tell in a moment whether something was stolen. After a disaster, Almandines call one in to help get lost belongings back to the right families.``
@@ -148,10 +148,10 @@ _``Latent Ability:``_
 `Aquatic Adaptation [PASSIVE]` [Minor] [Physical] - Orca Agate moves through water as easily as she walks on land. Underwater, moving between Near, Far, and Behind doesn't use her turn, and she never gets disadvantage for fighting in water.
 `Lateral Ampullae [PASSIVE]` [Minor] [Visions] - Orca Agate can feel it when something means harm to her pod, even out of sight. Her party can't be ambushed, and when an enemy attacks one of her Lapis, she can use her Reaction to call out a warning, giving that attack disadvantage.
 
-``In the United Frontier, though they still have a group of close friends they call their pods, Orca Agates are often found working as tour guides as well as any job close to water! Nobody is assigned to an Orca Agate in the Frontier, so her pod is whoever she chooses to keep close, and she looks after them just as fiercely. On water colonies she shows visitors and new arrivals around the reefs, harbors, and coastlines, and outside of tours she takes on harbor work, diving jobs, and water rescues. Her old habit of scouting ahead never really goes away, so a tour group that wanders somewhere dangerous usually finds their Orca Agate already standing between them and the trouble.``
+``In the United Frontier, though they still have a group of close friends they call their pods, Orca Agates are often found working as tour guides as well as any job close to water! Nobody is assigned to an Orca Agate in the Frontier, so her pod is whoever she chooses to keep close, and she looks after them the same way. On water colonies she shows visitors and new arrivals around the reefs, harbors, and coastlines, and outside of tours she takes on harbor work, diving jobs, and water rescues. She still scouts ahead like Gempire Orca Agates do, so she usually spots danger before her tour group reaches it.``
 
 _``Interactions:``_
-``Orca Agates and Zebra Jaspers both lead tours in the Frontier, and on a long trip they often split it, with the Zebra Jasper taking the land and the Orca Agate taking over at the water. Almandines call on them for floods and water rescues, since an Orca Agate can reach a trapped gem underwater faster than anyone. Her pod of friends tends to follow her from colony to colony, and they're usually the first to sign up for her tours.``
+``Orca Agates and Zebra Jaspers both lead tours in the Frontier, and on a long trip they often split it, with the Zebra Jasper taking the land and the Orca Agate taking over at the water. Almandines call on them for floods and water rescues, since an Orca Agate can reach a trapped gem underwater faster than anyone. Her pod of friends tends to follow her from colony to colony.``
 
 
 # CLEAR QUARTZ [UNITED FRONTIER GEM-TYPE] [THE QUARTZ GROUP]
@@ -236,10 +236,10 @@ _``MAG:``_ -2
 _``Signature Ability:``_ 
 `Paralyzing Bite [PASSIVE]` - Bumblebee Jaspers secrete a paralyzing venom from special glands in their mouth. When threatened or utilizing this ability in combat, the glands will secrete the venom into their saliva, with which they will bite an opponent and paralyze them for anywhere between 1-3 rounds of combat (1 round for large opponents, 2 rounds for medium opponents, 3 rounds for small opponents).
 
-``A Clear Quartz shifts into a Bumblebee Jasper when they're drawn to wildlife control work. When a dangerous animal wanders into a settlement, a worksite, or a trek camp, a Bumblebee Jasper is the one called to deal with it. Her bite puts the animal down without hurting it for good, so the crew can move it somewhere safe instead of killing it. Bumblebee Jaspers are quick and bold, and they'd rather get close to a problem than wait for it to come to them.``
+``A Clear Quartz shifts into a Bumblebee Jasper when they're drawn to wildlife control work. When a dangerous animal wanders into a settlement, a worksite, or a trek camp, a Bumblebee Jasper is the one called to deal with it. Her bite puts the animal down without hurting it for good, so the crew can move it somewhere safe instead of killing it. Bumblebee Jaspers are quick and bold, and they prefer to deal with a problem early instead of waiting for it to get worse.``
 
 _``Interactions:``_
-``Bumblebee Jaspers ride along on Zebra Jasper treks, handling the wildlife so the guide can keep the crew moving. Jaspers guarding remote outposts call them in when something big gets too close. Most crews are glad to have one around, as long as she isn't biting them.``
+``Bumblebee Jaspers ride along on Zebra Jasper treks, handling the wildlife so the guide can keep the crew moving. Jaspers guarding remote outposts call them in when something big gets too close. Most crews are glad to have one around.``
 
 # CARNELIAN [UNITED FRONTIER GEM-TYPE] [THE QUARTZ GROUP]
 **``STAT MODIFIER``**

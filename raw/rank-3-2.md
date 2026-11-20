@@ -82,7 +82,7 @@ _``Signature Ability:``_
 _``Latent Ability:``_ 
 `Fume Venting` - Bumblebee Jasper may learn to let off a cloud of sulfur fumes that makes it hard to breathe or see. Its moves and SP costs are set when it's unlocked.
 
-``Bumblebee Jaspers are Quartz soldiers made to guard the places other gems can't stay in for long, like volcanic worlds, sulfur vents, and poisoned land that hasn't been cleaned up yet. The fumes that make other soldiers sick barely bother them, so they hold posts at mining camps and early kindergarten sites until the ground is safe. They work in tight squads of three or four and treat their post like a hive. Each one knows her part of the perimeter, and if one is attacked, the whole squad comes running. They're loud and pushy like other Jaspers, but they're very protective of the gems working inside the lines they guard.``
+``Bumblebee Jaspers are Quartz soldiers made to guard the places other gems can't stay in for long, like volcanic worlds, sulfur vents, and poisoned land that hasn't been cleaned up yet. The fumes that make other soldiers sick barely bother them, so they hold posts at mining camps and early kindergarten sites until the land is safe to work. They work in tight squads of three or four and treat their post like a hive. Each one knows her part of the perimeter, and if one is attacked, the whole squad comes running. They're loud and pushy like other Jaspers, but they're very protective of the gems working inside the lines they guard.``
 
 _``Interactions:``_
 ``Bumblebee Jaspers usually guard the Malachites who clear toxic planets, since they can stay in the fumes as long as the Malachite can. Regular Jaspers tease them for smelling like sulfur, and a Bumblebee Jasper always teases back. Agates like having a squad of them, because they rarely need to be told twice to hold a line.``
@@ -170,7 +170,7 @@ _``ACT Bonus:``_
 _``Latent Ability:``_ 
 `Fog Generation` - Cloud Quartz may learn to gather a thin fog around herself, enough to hide a squad for a short while. Its moves and SP costs are set when it's unlocked.
 
-``Cloud Quartzes are Quartz soldiers made for the empire's high places, like stations floating in gas giant skies, landing platforms above the cloud layer, and lookout towers on stormy worlds. They're used to thin air, strong winds, and not being able to see more than a few feet ahead, so they keep watch where other soldiers get lost. Most of them are soft-spoken and a little dreamy, and other Quartzes joke that they live with their heads in the clouds. When a fight does break out, a Cloud Quartz is quick to vanish into the weather and turn up where the enemy least expects her.``
+``Cloud Quartzes are Quartz soldiers made for the empire's high places, like stations floating in gas giant skies, landing platforms above the cloud layer, and lookout towers on stormy worlds. They're used to thin air, strong winds, and not being able to see more than a few feet ahead, so they keep watch where other soldiers get lost. Most of them are soft-spoken and a little dreamy, and other Quartzes joke that they live with their heads in the clouds. In a fight, a Cloud Quartz uses fog and cloud cover to hide, then attacks from a direction the enemy isn't watching.``
 
 _``Interactions:``_
 ``Cloud Quartzes guard Rutiles and other crews scouting stormy planets, calling out what's ahead when no one else can see it. Rose Quartzes tend to look after them, since a Cloud Quartz will forget to come in from watch if nobody reminds her. Citrines love teasing them for being spacey, and most Cloud Quartzes don't even notice.``
@@ -222,10 +222,10 @@ _``ACT Bonus:``_
 _``Latent Ability:``_ 
 `Tide Sense [PASSIVE]` - Ocean Jasper may learn to feel when nearby water is about to rise or fall, long before anyone can see it.
 
-``Ocean Jaspers are Quartz soldiers made for water worlds. They guard the empire's ocean colonies, from floating platforms and harbor stations to domes built on the sea floor, and they're the soldiers sent when a fight breaks out on, in, or under the water. Deep cold and crushing pressure barely slow them down, so their daily work includes patrolling underwater pipelines and cables, escorting ships in and out of harbor, guarding coastal kindergartens, and pulling gems out of the water when something goes wrong. Ocean Jaspers are patient and easygoing compared to other Jaspers, and they're used to long watches where nothing happens, but they hit just as hard as any Jasper once something does.``
+``Ocean Jaspers are Quartz soldiers made for water worlds. They guard the empire's ocean colonies, from floating platforms and harbor stations to domes built on the sea floor, and they're the soldiers sent when a fight breaks out on, in, or under the water. They can handle deep cold and heavy water pressure, so their daily work includes patrolling underwater pipelines and cables, escorting ships in and out of harbor, guarding coastal kindergartens, and pulling gems out of the water when something goes wrong. Ocean Jaspers are patient and easygoing compared to other Jaspers, which suits the long, quiet watches that most of their posts involve.``
 
 _``Interactions:``_
-``Ocean Jaspers often share water colony posts with Blue Quartzes, who handle the surface while the Ocean Jaspers take anything deep. They guard Lapis crews shaping new ocean worlds, and Lapises like having them around, since an Ocean Jasper always seems to know when the water is about to move. Regular Jaspers think they're too relaxed, until they see one in a fight.``
+``Ocean Jaspers often share water colony posts with Blue Quartzes, who handle the surface while the Ocean Jaspers take anything deep. They guard Lapis crews shaping new ocean worlds, and Lapises like having them around, since an Ocean Jasper can usually tell when the tide or current is about to change. Regular Jaspers think they're too relaxed.``
 
 # PRASIOLITE [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
@@ -294,7 +294,7 @@ _``ACT Bonus:``_
 _``Latent Ability:``_ 
 `Enhanced Stamina [PASSIVE]` - Strawberry Quartz may learn to run for very long distances without slowing down.
 
-``Strawberry Quartzes have two jobs in the militia. On the battlefield they're runners. When a battle cuts off communication, or a message is too important to send over a line someone could be listening to, a Strawberry Quartz carries it by hand, running orders between squads and going for help when a unit is pinned down. Off the battlefield, they train new recruits. Freshly emerged Quartzes usually meet a Strawberry Quartz first, and she teaches them the drills, the routes around the base, and who to salute. The two jobs feed each other, since a gem who has run every route on a base is the best one to show newcomers around it. They're cheerful, chatty, and patient, and most of them know every gem in the barracks by name.``
+``Strawberry Quartzes have two jobs in the militia. On the battlefield they're runners. When a battle cuts off communication, or a message is too important to send over a line someone could be listening to, a Strawberry Quartz carries it by hand, running orders between squads and going for help when a unit is pinned down. Off the battlefield, they train new recruits. Freshly emerged Quartzes usually meet a Strawberry Quartz first, and she teaches them the drills, the routes around the base, and who to salute. The two jobs go together, since a gem who has run every route on a base knows it well enough to teach it. They're cheerful, chatty, and patient, and most of them know every gem in the barracks by name.``
 
 _``Interactions:``_
 ``Strawberry Quartzes take their orders from Agates and Hessonites and carry them out to every squad on the field. Once a recruit knows the basics, a Strawberry Quartz hands her over to an Onyx for weapons training, and a lot of Quartzes still look up to the Strawberry Quartz who trained them first. Rose Quartzes love them, since a Strawberry Quartz always has news. Cherry Quartzes get along with them a little too well, because a runner hears everything and a Cherry Quartz wants to know all of it.``
@@ -312,7 +312,7 @@ _``ACT Bonus:``_
 _``Latent Ability:``_ 
 `Night Vision [PASSIVE]` - Tiger's Eye may learn to see clearly in dim light and darkness, the way her stone seems to glow when light hits it.
 
-``Tiger's Eyes are Quartz soldiers made for the night watch. They patrol bases, borders, and wild planets after dark, when most other soldiers are resting or can't see far. They move quietly, keep low, and would rather pounce on an intruder than chase one. Tiger's Eyes are proud and a bit showy, and they love being called the empire's big cats, but they take the safety of the gems sleeping behind them very seriously.``
+``Tiger's Eyes are Quartz soldiers made for the night watch. They patrol bases, borders, and wild planets after dark, when most other soldiers are resting or can't see far. They move quietly, keep low, and would rather pounce on an intruder than chase one. Tiger's Eyes are proud and a bit showy, and they love being called the empire's big cats, but they take night watch seriously and rarely miss anything.``
 
 _``Interactions:``_
 ``Tiger's Eyes take over from Cloud Quartzes and Zebra Jaspers when the sun goes down, and Milky Quartzes on overnight watch are always glad to have one along. They don't get along with Citrines, since both like to be the loudest in the room. A Tiger's Eye who catches an intruder will tell the story to every Quartz in the barracks.``
