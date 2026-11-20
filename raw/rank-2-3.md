@@ -170,6 +170,25 @@ _``Interactions:``_
 ``Polyhedroid Agates share command of a station with its Agate, who runs the soldiers while the Polyhedroid Agate keeps them healthy. When a soldier is hurt worse than she can fix, she sends them on to a Celestite's med bay. Geodes are rarely made now, so Quartzes tend to look after the one on their station.``
 
 
+# ORCA AGATE [SUB-TYPE OF AGATE]
+**``BASE STATS``**
+_``HP:``_ 30
+_``ATK:``_ 7
+_``DEF:``_ 5
+_``SPD:``_ 7
+_``INT:``_ 4
+_``MAG:``_ 2
+_``ACT Bonus:``_ 
+`Command` - <:Act:1568035453842751618>ACTs that give orders work better for her. A Lapis who follows her order gets advantage on their next roll. Underwater, any ally who follows her order gets it too.
+_``Latent Ability:``_ 
+`Aquatic Adaptation [PASSIVE]` [Minor] [Physical] - Orca Agate moves through water as easily as she walks on land. Underwater, moving between Near, Far, and Behind doesn't use her turn, and she never gets disadvantage for fighting in water.
+`Lateral Ampullae [PASSIVE]` [Minor] [Visions] - Orca Agate can feel it when something means harm to her pod, even out of sight. Her party can't be ambushed, and when an enemy attacks one of her Lapis, she can use her Reaction to call out a warning, giving that attack disadvantage.
+
+``Orca Agate finds her typical job in the Gempire as a general or manager of Lapis Lazuli along with their terraforming expeditions for kindergartens. Despite being made to make sure Lapis Lazuli stay on task and on their best behavior, they will also act as scouts and protectors of their Lapis squads, fending off danger from the other gems, treating them as their pods. In the United Frontier, though they still have a group of close friends they call their pods, they're often found working as tour guides as well as any job close to water!``
+
+_``Interactions:``_
+``In the Gempire, Orca Agates and regular Agates sometimes argue over who gets to give a Lapis her orders, and the Lapis usually sides with the Orca Agate. Malachites and Clinohumites on the same terraforming job tend to let her lead once the water gets deep. In the United Frontier, her pod is a group of close friends instead of a squad, and newcomers to a water colony usually meet her first, since she's the one giving the tour.``
+
 # CATSEYE
 **``BASE STATS``**
 _``HP:``_ 38

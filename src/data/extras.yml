@@ -304,6 +304,7 @@ types:
   ocean-jasper: { image: /images/gem-types/ocean-jasper.webp }
   tiger-s-eye: { image: /images/gem-types/tiger-s-eye.webp }
   strawberry-quartz: { image: /images/gem-types/strawberry-quartz.webp }
+  orca-agate: { description: "Orca Agate is typically a mainly black and white striped or spotted agate, though they can come in with red or brown as their main colors with black and white as complementary colors. They also have white hair with black streaks that ends in shapes that look like fins." }
   bumblebee-jasper-uf: { description: "Bumblebee Jaspers typically take on a gray appearance with yellow or orange hair. They also bear yellow, orange, and black markings across their bodies, though the majority of their design is gray and yellow." }
   smoky-quartz: { image: /images/gem-types/smoky-quartz.webp }
   rose-quartz: { image: /images/gem-types/rose-quartz.webp }
