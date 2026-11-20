@@ -19,13 +19,20 @@ function trap(y1: number, y2: number, side: 'left' | 'right' | 'full') {
   return [pt(AX + s * SPLIT, y1), pt(AX + s * a, y1), pt(AX + s * b, y2), pt(AX + s * SPLIT, y2)].join(' ');
 }
 const tip = [pt(AX, rows[0]), pt(AX + half(rows[1] - GAP), rows[1] - GAP), pt(AX - half(rows[1] - GAP), rows[1] - GAP)].join(' ');
+// Label centers sit in the middle of each tier at the label's height, and each line gets the
+// width it has room for there (a script below shrinks any line that would spill over the edge).
+const PAD = 10;
+const room = (side: string, y: number) => (side === 'left' || side === 'right' ? half(y) - SPLIT : 2 * half(y)) - 2 * PAD;
+const cx = (side: string, y: number) => (side === 'left' ? AX - (SPLIT + half(y)) / 2 : side === 'right' ? AX + (SPLIT + half(y)) / 2 : AX);
+const seg = (key: string, label: string, sub: string, href: string, points: string, side: string, ty: number, n: number) =>
+  ({ key, label, sub, href, points, n, ty, tx: cx(side, ty), maxLabel: room(side, ty - 12), maxSub: room(side, ty + 10) });
 const segs = [
-  { key: 'diamonds', label: 'Diamonds', sub: 'Transcendent', href: '/gem-types/tier/transcendent/', points: tip, tx: AX, ty: 100, n: count('transcendent') },
-  { key: 'authoritatives', label: 'Authoritatives', sub: 'Rank 2', href: '/gem-types/tier/authoritatives/', points: trap(rows[1], rows[2] - GAP, 'left'), tx: AX - 82, ty: 200, n: count('authoritatives') },
-  { key: 'aristocrats', label: 'Aristocrats', sub: 'Rank 2', href: '/gem-types/tier/aristocrats/', points: trap(rows[1], rows[2] - GAP, 'right'), tx: AX + 80, ty: 200, n: count('aristocrats') },
-  { key: 'militia', label: 'Militia', sub: 'Rank 3', href: '/gem-types/tier/militia/', points: trap(rows[2], rows[3] - GAP, 'left'), tx: AX - 92, ty: 312, n: count('militia') },
-  { key: 'service', label: 'Service Trade', sub: 'Rank 4', href: '/gem-types/tier/service-trade/', points: trap(rows[2], rows[3] - GAP, 'right'), tx: AX + 92, ty: 312, n: count('service-trade') },
-  { key: 'servants', label: 'Servants', sub: 'Rank 5', href: '/gem-types/tier/servants/', points: trap(rows[3], rows[4], 'full'), tx: AX, ty: 424, n: count('servants') },
+  seg('diamonds', 'Diamonds', 'Transcendent', '/gem-types/tier/transcendent/', tip, 'tip', 102, count('transcendent')),
+  seg('authoritatives', 'Authoritatives', 'Rank 2', '/gem-types/tier/authoritatives/', trap(rows[1], rows[2] - GAP, 'left'), 'left', 200, count('authoritatives')),
+  seg('aristocrats', 'Aristocrats', 'Rank 2', '/gem-types/tier/aristocrats/', trap(rows[1], rows[2] - GAP, 'right'), 'right', 200, count('aristocrats')),
+  seg('militia', 'Militia', 'Rank 3', '/gem-types/tier/militia/', trap(rows[2], rows[3] - GAP, 'left'), 'left', 312, count('militia')),
+  seg('service', 'Service Trade', 'Rank 4', '/gem-types/tier/service-trade/', trap(rows[2], rows[3] - GAP, 'right'), 'right', 312, count('service-trade')),
+  seg('servants', 'Servants', 'Rank 5', '/gem-types/tier/servants/', trap(rows[3], rows[4], 'full'), 'full', 424, count('servants')),
 ];
 ---
 <Site title="Gem-Types" description="Every Gem-Type in the empire, from Servants to Transcendents." current="gem-types">
@@ -115,11 +122,26 @@ const segs = [
         {segs.map((s) => (
           <a href={url(s.href)} class={`seg seg-${s.key}`} aria-label={`${s.label}, ${s.n} Gem-Types`}>
             <polygon points={s.points} fill={s.key === 'diamonds' ? 'url(#tipfill)' : 'url(#segfill)'} filter="url(#glow)" />
-            <text x={s.tx} y={s.ty} class="seg-label" text-anchor="middle">{s.label}</text>
-            <text x={s.tx} y={s.ty + 18} class="seg-sub" text-anchor="middle">{s.sub} · {s.n}</text>
+            <text x={s.tx} y={s.ty} class="seg-label fit" text-anchor="middle" data-max={s.maxLabel.toFixed(0)}>{s.label}</text>
+            <text x={s.tx} y={s.ty + 18} class="seg-sub fit" text-anchor="middle" data-max={s.maxSub.toFixed(0)}>{s.sub} · {s.n}</text>
           </a>
         ))}
       </svg>
+      <script is:inline>
+        // Shrink any tier label that is wider than its tier at that height (wide fonts, phone text scaling).
+        (function () {
+          var fit = function () {
+            document.querySelectorAll('.pyramid text.fit').forEach(function (t) {
+              t.style.fontSize = '';
+              var max = +t.dataset.max, w = t.getComputedTextLength();
+              if (w > max) t.style.fontSize = (parseFloat(getComputedStyle(t).fontSize) * max / w).toFixed(2) + 'px';
+            });
+          };
+          fit();
+          if (document.fonts) document.fonts.ready.then(fit);
+          addEventListener('resize', fit);
+        })();
+      </script>
     </div>
 
     <!-- Rogues: a Quartz crossed out of the empire -->
