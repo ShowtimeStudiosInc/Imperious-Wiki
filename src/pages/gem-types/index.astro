@@ -255,6 +255,9 @@ const segs = [
 </script>
 
 <style>
+  /* The Lake of Light page keeps its own sky instead of the wiki's default background. */
+  :global(.stars) { display: block; }
+  :global(body) { background: radial-gradient(1200px 700px at 70% -10%, var(--sky, #2a1650) 0%, transparent 60%), radial-gradient(900px 600px at 0% 100%, #1d0f3a 0%, transparent 60%), var(--bg-0); }
   .scene { position: relative; min-height: calc(100vh - 52px); overflow: hidden; display: grid;
     grid-template-columns: 1fr minmax(320px, 640px) 1fr; grid-template-rows: auto auto 1fr auto; align-items: center; padding: 0 1rem; }
   .layer { transform: translate3d(var(--px, 0), var(--py, 0), 0); will-change: transform; }
