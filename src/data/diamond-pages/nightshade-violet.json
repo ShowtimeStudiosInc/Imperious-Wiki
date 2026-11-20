@@ -1,10 +1,24 @@
 {
   "slug": "nightshade-violet",
-  "title": "Nightshade <span class=\"accent\">Violet</span> Diamond",
   "courtLine": "Court Nightshade · Ruling Diamond · Era 2A",
   "heroSub": "One of the four Ruling Diamonds who came into being in Era 2A. Sibling of Grand Regents Antton and Reina.",
-  "quote": "",
-  "quoteBy": "Nightshade Violet Diamond",
+  "partial": "This page is partial. Only what the server already knows is here, and the rest will be added once Nightshade Violet's submission is finished.",
+  "quote": "\"...hello?\"",
+  "personality": [
+    "Nightshade isn't very social, so not many people know what he's like at first. He's shy and has a massive case of stage fright, which isn't what the average person would imagine for the gem that's supposed to be running Homeworld. Regardless of how unfit Nightshade may seem for his own job, he does it effectively, and that's what matters. Despite this, he always seems happy when he is in public, and he's kind toward everyone in his court, especially his fellow Diamonds. Nightshade likes to take on any work he can if someone is struggling. After all, a healthy work ethic makes things go quicker. He can get upset like anyone else, but it isn't common, since he's a chronic people pleaser. Nightshade has appeared less and less in public over the years, yet his court and Diamond work always gets done early, as if he has nothing else to do.\nWhen Nightshade is alone, he works for hours on end. He does take breaks, mostly to clean or reorganize his space. The silence makes him calm and uneasy at once, and yet he doesn't know how to socialize very well. So isolating is probably better, right? His Pearls are the closest ones to him, and they handle public relations for the most part."
+  ],
+  "purpose": [
+    "Nightshade Violet Diamond is responsible for the empire as a whole and for his fellow Diamonds. He makes sure everyone stays on course, no matter how overwhelming the workload is most of the time. However, Nightshade can't complain, since he was made for this. He has eyes and ears everywhere, which helps a lot now that the whole of Homeworld is his responsibility."
+  ],
+  "weakness": [
+    "Social interaction.."
+  ],
+  "credits": [
+    {
+      "label": "Art",
+      "name": "KitsuneFP"
+    }
+  ],
   "art": {
     "sub": "",
     "images": [
@@ -17,16 +31,8 @@
       }
     ]
   },
-  "personality": [],
-  "purpose": [],
-  "weakness": [],
-  "abilities": [],
   "powerList": [],
-  "credits": [
-    {
-      "label": "Art",
-      "name": "KitsuneFPm"
-    }
-  ],
-  "partial": "This page is partial. Only what the server already knows is here, and the rest will be added once Nightshade Violet's submission is finished."
+  "abilities": [],
+  "quoteBy": "Nightshade Violet Diamond",
+  "title": "Nightshade <span class=\"accent\">Violet</span> Diamond"
 }
