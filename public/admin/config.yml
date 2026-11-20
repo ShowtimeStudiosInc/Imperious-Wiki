@@ -109,10 +109,47 @@ collections:
           - { name: lines, label: Lines, widget: list, field: { name: line, label: Line, widget: text } }
       - { name: editorLocked, label: "Edited in the wiki editor (set on save)", widget: hidden, required: false }
 
+  # ---------- The Homeworld Times ----------
+  - name: news
+    label: The Homeworld Times
+    label_singular: Broadcast
+    folder: src/data/news
+    extension: yml
+    format: yml
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{date}} · {{title}} · {{anchor}}"
+    sortable_fields: [date, title]
+    description: "News broadcasts, once they're done being roleplayed. Publishing one puts it on the Homeworld Times page and posts it to Discord. Any rating changes reach the Diamond Approval Rating on the next automatic update (within about 3 hours)."
+    fields:
+      - { name: title, label: Headline, widget: string }
+      - { name: date, label: "Aired on", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: anchor, label: Anchor, widget: string, default: Vevila Dei }
+      - { name: guests, label: "Guests (one per line)", widget: list, required: false }
+      - { name: credits, label: "Written by (optional)", widget: string, required: false }
+      - { name: summary, label: "Short summary (one or two sentences)", widget: text }
+      - name: transcript
+        label: Transcript
+        widget: text
+        hint: "Paste the broadcast as posted. Put @Name on its own line before someone talks (@Vevila Dei, @Black Star Sapphire). Lines starting with * are actions. A line in [square brackets] is an on-screen card. Code fences and # - are fine to leave in."
+      - name: changes
+        label: "Approval Rating changes (optional)"
+        label_singular: change
+        widget: list
+        required: false
+        summary: "{{fields.who}} {{fields.change}}"
+        fields:
+          - { name: who, label: Who, widget: select, options: [{ label: Alpha Black, value: alpha-black }, { label: Epsilon Blue, value: epsilon-blue }, { label: Theta Gold, value: theta-gold }, { label: Saturn Light, value: saturn-light }, { label: Nightshade Violet, value: nightshade-violet }, { label: Maroon Red, value: maroon-red }, { label: Bi-Colored Kandy, value: bi-colored-kandy }, { label: Antton, value: antton }, { label: Florentino, value: florentino }, { label: Tethys, value: tethys }] }
+          - { name: change, label: "Points (+3, -2)", widget: number, value_type: int }
+          - { name: text, label: "Why (shown on the Approval Rating)", widget: text }
+      - { name: unrest, label: "Unrest change (optional, + or -)", widget: number, value_type: int, required: false }
+      - { name: unrest_text, label: "Why Unrest moved (optional)", widget: text, required: false }
+
   # ---------- Diamond Approval Rating ----------
   - name: approval
     label: Diamond Approval Rating
-    description: "For each update: copy every score into Previous, write the new Score and Votes, change the date, then add log lines (newest goes on top). Each person's log changes should add up to Score minus Previous."
+    description: "This updates by itself every 3 hours. To change it by hand after a story event, change the Score and add a log line at the top. Previous is filled in automatically (the score 7 days ago). For news broadcasts, use The Homeworld Times collection instead."
     files:
       - name: rating
         label: Approval Rating and log

@@ -1,0 +1,79 @@
+---
+import Site from '../../layouts/Site.astro';
+import HTLogo from '../../components/HTLogo.astro';
+import { getBroadcasts, airDate } from '../../lib/news';
+import { url } from '../../lib/gems';
+import '../../styles/news.css';
+
+export function getStaticPaths() {
+  const all = getBroadcasts();
+  return all.map((b, i) => ({ params: { slug: b.slug }, props: { b, newer: all[i - 1] ?? null, older: all[i + 1] ?? null } }));
+}
+const { b, newer, older } = Astro.props;
+const guests = new Set(b.guests);
+const isGuest = (s: string | null) => !!s && s !== b.anchor;
+const chip = (n: number) => (n > 0 ? 'up' : n < 0 ? 'down' : '');
+const arrow = (n: number) => (n > 0 ? `▲ ${n}` : n < 0 ? `▼ ${-n}` : '–');
+const role = (s: string | null) => (s === b.anchor ? 'Anchor' : guests.has(s ?? '') ? 'Guest' : 'On air');
+---
+<Site title={`${b.title} · The Homeworld Times`} description={b.summary}>
+  <main class="wrap ht" data-pagefind-body>
+    <a class="ht-back" href={url('/news/')}>← The Homeworld Times</a>
+    <header class="ht-head">
+      <div class="row"><HTLogo size={34} /><span class="ht-meta">Broadcast · Aired {airDate(b.date)}</span></div>
+      <h1>{b.title}</h1>
+      {b.summary && <p class="summary">{b.summary}</p>}
+      <div class="ht-plates">
+        <span class="ht-plate"><b>{b.anchor}</b><em>Anchor</em></span>
+        {b.guests.map((g) => <span class="ht-plate guest"><b>{g}</b><em>Guest</em></span>)}
+      </div>
+      {b.credits && <p class="credits">Written by {b.credits}</p>}
+    </header>
+
+    <article class="ht-script">
+      {b.beats.map((beat) =>
+        beat.kind === 'card' ? <div class="ht-card"><span>{beat.text}</span></div>
+        : beat.kind === 'action' ? <p class="ht-action">{beat.text}</p>
+        : (
+          <div class={`ht-speech${isGuest(beat.speaker) ? ' guest' : ''}`}>
+            {beat.speaker && <span class={`ht-plate${isGuest(beat.speaker) ? ' guest' : ''}`}><b>{beat.speaker}</b><em>{role(beat.speaker)}</em></span>}
+            {beat.lines.map((l) => <p>{l}</p>)}
+          </div>
+        )
+      )}
+    </article>
+
+    {b.impact && (
+      <section class="ht-impact">
+        <h2>How the Gempire took it</h2>
+        <p>{b.impact.applied ? 'What this broadcast did to the Diamond Approval Rating.' : 'These changes reach the Diamond Approval Rating within about 3 hours of the broadcast going up.'}</p>
+        <ul>
+          {b.impact.changes.map((c) => (
+            <li>
+              <span class={`ht-chip ${chip(c.change)}`}>{arrow(c.change)}</span>
+              <div>{c.href ? <a href={c.href}><strong>{c.name}</strong></a> : <strong>{c.name}</strong>}<p>{c.text}</p></div>
+            </li>
+          ))}
+          {b.impact.unrest ? (
+            <li>
+              <span class="ht-chip unrest">{b.impact.unrest > 0 ? '+' : ''}{b.impact.unrest}</span>
+              <div><strong>Unrest</strong>{b.impact.unrestText && <p>{b.impact.unrestText}</p>}</div>
+            </li>
+          ) : null}
+        </ul>
+        <a class="more" href={url('/approval-rating/')}>Diamond Approval Rating →</a>
+      </section>
+    )}
+
+    {(newer || older) && (
+      <nav class="ht-pager" aria-label="More broadcasts">
+        {older && <a href={older.href}><small>← Earlier broadcast</small>{older.title}</a>}
+        {newer && <a class="next" href={newer.href}><small>Later broadcast →</small>{newer.title}</a>}
+      </nav>
+    )}
+  </main>
+</Site>
+<style is:global>
+  body:has(.ht) { background: #09060a; }
+  body:has(.ht)::before { background: radial-gradient(1100px 600px at 50% -10%, rgba(255, 61, 79, 0.16), transparent 65%) !important; opacity: 1 !important; }
+</style>

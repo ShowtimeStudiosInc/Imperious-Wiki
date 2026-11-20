@@ -1,5 +1,6 @@
 ---
 import Site from '../layouts/Site.astro';
+import { url } from '../lib/gems';
 import { groups, updated, logByDate, changeLabel, changeClass, votesLabel, unrest, unrestLevel, kindLabel, earlierNews } from '../lib/popularity';
 const boards = groups;
 ---
@@ -65,11 +66,11 @@ const boards = groups;
 
     {earlierNews.length > 0 && (
       <section class="log earlier">
-        <h2>Earlier news</h2>
-        <p class="sub">Big stories from before the ratings started updating by themselves.</p>
+        <h2>From The Homeworld Times</h2>
+        <p class="sub">Broadcasts that moved the numbers. <a href={url('/news/')}>Read them in full</a>.</p>
         {earlierNews.map((n) => (
           <div class="day">
-            <h3>{n.title}</h3>
+            <h3>{n.news ? <a href={url(`/news/${n.news}/`)}>{n.title}</a> : n.title}</h3>
             {n.source && <p class="src">{n.source}</p>}
             <ul>
               {n.changes.map((l) => (

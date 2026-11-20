@@ -5,7 +5,7 @@ import { DIAMONDS } from './diamonds';
 import { url } from './gems';
 
 type Row = { slug: string; name?: string; score: number; previous?: number; votes?: number };
-type News = { title: string; source?: string; unrest?: number; unrest_text?: string; changes?: { who: string; change: number; text: string }[] };
+type News = { title: string; news?: string; source?: string; unrest?: number; unrest_text?: string; changes?: { who: string; change: number; text: string }[] };
 type Log = { date: string | Date; who: string; change: number; kind: 'event' | 'roll' | 'small' | 'medium' | 'big'; text: string };
 const raw = load(fs.readFileSync('src/data/popularity.yml', 'utf8')) as {
   updated: string | Date; unrest?: number; earlier_news?: News[]; deity: Row[]; ruling: Row[]; regents: Row[]; log?: Log[];
@@ -27,6 +27,9 @@ for (const r of raw.regents) {
   const name = fs.existsSync(file) ? (JSON.parse(fs.readFileSync(file, 'utf8')).name as string) : (r.name ?? r.slug);
   people.set(r.slug, { slug: r.slug, name, short: name.replace(/^Grand Regent /, ''), href: fs.existsSync(file) ? url(`/regents/${r.slug}/`) : null });
 }
+/** Name and page for a Diamond or Regent slug from the boards. */
+export const personFor = (slug: string) => people.get(slug) ?? null;
+
 const rank = (rows: Row[]): Standing[] =>
   rows
     .map((r) => ({ ...people.get(r.slug)!, score: r.score, change: r.score - (r.previous ?? r.score), votes: r.votes ?? null }))

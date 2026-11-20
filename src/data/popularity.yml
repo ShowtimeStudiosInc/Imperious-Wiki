@@ -61,6 +61,7 @@ regents:
     votes: 2117
 earlier_news:
   - title: The Gugungagap Disaster
+    news: gugungagap-disaster
     source: The Homeworld Times
     unrest: 10
     unrest_text: The broadcast told gems the administration can't always be trusted to see a storm coming.
@@ -72,6 +73,7 @@ earlier_news:
         change: 1
         text: Court Nightshade's investigators were named to look into the Gugungagap disaster. Gems are waiting on them for answers.
   - title: Survivors of Gugungagap
+    news: survivors-of-gugungagap
     source: The Homeworld Times
     unrest: -5
     unrest_text: Survivors, a named culprit and a Diamond promising safety calmed things down, but the attacker is still out there.
@@ -86,6 +88,7 @@ earlier_news:
         change: 2
         text: Survivors of Gugungagap say the base was attacked by a rogue gem hiding in the storm. Gems are starting to blame the attacker more than Kandy's overseers.
   - title: A New Colony, an Engine Crackdown and a Storm Warning
+    news: colony-crackdown-and-storm-warning
     source: The Homeworld Times
     unrest: 5
     unrest_text: A wave of cosmic radiation is heading for the outer colonies, and gems in its path were told to evacuate. Pilots are also angry about the engine crackdown.
@@ -100,6 +103,7 @@ earlier_news:
         change: 2
         text: Alpha Black's court released a new batch of early Era 1 records to the public data centers. Gems are reading them on their rest cycles.
   - title: The Outer Rim Evacuation
+    news: outer-rim-evacuation
     source: The Homeworld Times
     unrest: 2
     unrest_text: An unknown attacker in a white ship destroyed an outer rim town during its evacuation and left the survivors trapped in the storm. Florentino's rescues took some of the edge off.
@@ -111,6 +115,7 @@ earlier_news:
         change: 2
         text: Court Saturn got credit for Florentino's rescue work on the outer rim.
   - title: The Storm Reaches the Inner Colonies
+    news: storm-reaches-inner-colonies
     source: The Homeworld Times, weather desk
     unrest: 6
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.

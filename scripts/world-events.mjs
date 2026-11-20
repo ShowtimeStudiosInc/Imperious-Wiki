@@ -177,6 +177,34 @@ function tick(pop, state, now, forceTier) {
   return { tier, ev, lines, all };
 }
 
+// ── News broadcasts ──────────────────────────────────────────────────────────
+// A broadcast in src/data/news with `changes` or `unrest` is applied once, on the next run after it's
+// published, and added to the Approval Rating's "From The Homeworld Times" list.
+function applyNews(pop, state) {
+  state.appliedNews ||= [];
+  const dir = 'src/data/news';
+  if (!fs.existsSync(dir)) return [];
+  const done = [];
+  const all = people(pop);
+  for (const f of fs.readdirSync(dir).filter((f) => /\.ya?ml$/.test(f)).sort()) {
+    const slug = f.replace(/\.ya?ml$/, '');
+    if (state.appliedNews.includes(slug) || (pop.earlier_news || []).some((n) => n.news === slug)) continue;
+    const d = load(fs.readFileSync(`${dir}/${f}`, 'utf8')) || {};
+    const changes = (d.changes || []).filter((c) => c && c.who && Number(c.change)).map((c) => ({ who: c.who, change: Number(c.change), text: c.text || '' }));
+    const unrest = Number(d.unrest || 0);
+    state.appliedNews.push(slug);
+    if (!changes.length && !unrest) continue;
+    for (const c of changes) {
+      const p = all.find((x) => x.slug === c.who);
+      if (p) p.row.score = clamp(p.row.score + c.change, 3, 98);
+    }
+    pop.unrest = clamp((pop.unrest ?? 40) + unrest, 0, 100);
+    pop.earlier_news = [...(pop.earlier_news || []), { title: d.title || slug, news: slug, source: d.anchor ? `The Homeworld Times, with ${d.anchor}` : 'The Homeworld Times', unrest, unrest_text: d.unrest_text || '', changes }];
+    done.push(slug);
+  }
+  return done;
+}
+
 // ── Discord post ─────────────────────────────────────────────────────────────
 const arrow = (n) => (n > 0 ? `▲ ${n}` : n < 0 ? `▼ ${-n}` : '–');
 function discordPost(pop, result) {
@@ -242,6 +270,8 @@ if (arg('--announce')) {
   console.log('log entries', pop.log.length);
 } else {
   const pop = loadPop(), state = loadState();
+  const applied = applyNews(pop, state);
+  if (applied.length) console.log('Applied news:', applied.join(', '));
   const result = tick(pop, state, Date.now(), arg('--tier'));
   const post = discordPost(pop, result);
   state.post = post ? { run: process.env.GITHUB_RUN_ID || 'local', ...post } : null;

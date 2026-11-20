@@ -15,6 +15,7 @@ const dests = [
   { id: 'rules', href: '/rules/overview/', name: 'Rules', x: 38, y: 58, size: 96, color: '#7fb6ff' },
   { id: 'nuggets', href: '/lore/nuggets/', name: 'Nuggets of Lore', x: 62, y: 58, size: 96, color: '#f2cd6a' },
   { id: 'start', href: '/start-here/welcome/', name: 'Start Here', x: 50, y: 71, size: 104, color: '#a8f0e0' },
+  { id: 'news', href: '/news/', name: 'The Homeworld Times', x: 50, y: 46, size: 92, color: '#ff7a86' },
 ];
 const start = dests.find((d) => d.id === 'start')!;
 const others = dests.filter((d) => d.id !== 'start');
@@ -101,6 +102,13 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
                 <polygon points="32,24 40,16 50,20 50,32 40,34" fill="currentColor" fill-opacity=".22" />
                 <polygon points="34,46 42,38 52,42 48,52 38,52" fill="currentColor" fill-opacity=".22" />
                 <path d="M20 14 l1 2.4 2.4 1 -2.4 1 -1 2.4 -1 -2.4 -2.4 -1 2.4 -1z" fill="currentColor" stroke="none" />
+              </>}
+              {d.id === 'news' && <>
+                <rect x="10" y="22" width="44" height="30" rx="4" fill="currentColor" fill-opacity=".14" />
+                <line x1="24" y1="22" x2="18" y2="10" /><line x1="40" y1="22" x2="46" y2="10" />
+                <circle cx="32" cy="37" r="7" /><path d="M32 30 a7 7 0 0 1 7 7" stroke-width="3" />
+                <path d="M14 8 a10 10 0 0 0 -4 6" /><path d="M50 8 a10 10 0 0 1 4 6" />
+                <line x1="22" y1="57" x2="42" y2="57" />
               </>}
               {d.id === 'start' && <>
                 <path d="M14 56 V30 A18 18 0 0 1 50 30 V56" />
@@ -227,7 +235,6 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
     .routes, .horizon, .aurora { display: none; }
     .dest { position: static; transform: none !important; padding: 0.8rem 0.4rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(14, 9, 28, 0.6); }
     .dest-start { order: -1; grid-column: 1 / -1; }
-    .dest-nuggets { grid-column: 1 / -1; }
     .emblem { width: 72px; height: 72px; }
     .name { font-size: 0.72rem; letter-spacing: 0.14em; white-space: normal; text-align: center; }
     .quick { position: static; transform: none; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4rem; margin-top: 0.4rem; }

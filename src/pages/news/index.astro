@@ -1,0 +1,90 @@
+---
+import Site from '../../layouts/Site.astro';
+import HTLogo from '../../components/HTLogo.astro';
+import { getBroadcasts, airDate } from '../../lib/news';
+import '../../styles/news.css';
+
+const all = getBroadcasts();
+const [latest, ...rest] = all;
+const chip = (n: number) => (n > 0 ? 'up' : n < 0 ? 'down' : '');
+const arrow = (n: number) => (n > 0 ? `▲ ${n}` : n < 0 ? `▼ ${-n}` : '–');
+const short = (name: string) => name.replace(/^Grand Regent /, '').replace(/ Diamond$/, '');
+---
+<Site title="The Homeworld Times" description="News broadcasts from The Homeworld Times, the Gempire's news network.">
+  <main class="wrap ht" data-pagefind-body>
+    <div class="ht-strip">
+      <span class="ht-onair"><i></i> On air</span>
+      <span>Broadcasting to every colony{latest && ` · Last broadcast ${airDate(latest.date)}`}</span>
+    </div>
+    <header class="ht-mast">
+      <HTLogo size={84} />
+      <div>
+        <h1><span>The</span>Homeworld Times</h1>
+        <p>Trust US! With your News.</p>
+      </div>
+    </header>
+
+    {all.length > 0 && (
+      <div class="ht-ticker" aria-label="Headlines">
+        <b>HEADLINES</b>
+        <div class="roll"><span>{[...all, ...all].map((b) => <a href={b.href} tabindex="-1">{b.title}</a>)}</span></div>
+      </div>
+    )}
+
+    {latest ? (
+      <a class="ht-feature" href={latest.href}>
+        <div class="ht-screen">
+          <span class="live">Latest broadcast</span>
+          <span class="ring"><HTLogo size={40} /></span>
+          <h2>{latest.title}</h2>
+          <div class="ht-plates">
+            <span class="ht-plate"><b>{latest.anchor}</b><em>Anchor</em></span>
+          </div>
+        </div>
+        <div class="ht-side">
+          <span class="ht-meta">Aired {airDate(latest.date)}</span>
+          <p>{latest.summary}</p>
+          {latest.impact && (
+            <div class="ht-chips">
+              {latest.impact.changes.map((c) => <span class={`ht-chip ${chip(c.change)}`}>{short(c.name)} {arrow(c.change)}</span>)}
+              {latest.impact.unrest ? <span class="ht-chip unrest">Unrest {latest.impact.unrest > 0 ? '+' : ''}{latest.impact.unrest}</span> : null}
+            </div>
+          )}
+          <span class="go">Read the broadcast →</span>
+        </div>
+      </a>
+    ) : (
+      <p>No broadcasts yet.</p>
+    )}
+
+    {rest.length > 0 && (
+      <>
+        <h2 class="ht-section-title">The archive</h2>
+        <ul class="ht-archive">
+          {rest.map((b) => (
+            <li>
+              <a href={b.href}>
+                <time datetime={b.date}>{airDate(b.date)}</time>
+                <div>
+                  <h3>{b.title}</h3>
+                  <p>{b.summary}</p>
+                  {b.impact && (
+                    <div class="ht-chips">
+                      {b.impact.changes.map((c) => <span class={`ht-chip ${chip(c.change)}`}>{short(c.name)} {arrow(c.change)}</span>)}
+                      {b.impact.unrest ? <span class="ht-chip unrest">Unrest {b.impact.unrest > 0 ? '+' : ''}{b.impact.unrest}</span> : null}
+                    </div>
+                  )}
+                </div>
+                <span class="who">{b.anchor}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </main>
+</Site>
+<style is:global>
+  body:has(.ht) { background: #09060a; }
+  body:has(.ht)::before { background: radial-gradient(1100px 600px at 50% -10%, rgba(255, 61, 79, 0.16), transparent 65%) !important; opacity: 1 !important; }
+</style>
