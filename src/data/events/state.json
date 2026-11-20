@@ -2,6 +2,7 @@
  "flags": {},
  "recent": {
   "small": [
+   "reassigned-story",
    "theta-hours"
   ]
  },
@@ -35,10 +36,31 @@
     "florentino": 69,
     "tethys": 41
    }
+  },
+  {
+   "t": 1795212981471,
+   "scores": {
+    "alpha-black": 49,
+    "epsilon-blue": 68,
+    "theta-gold": 57,
+    "saturn-light": 80,
+    "nightshade-violet": 59,
+    "maroon-red": 62,
+    "bi-colored-kandy": 68,
+    "antton": 74,
+    "florentino": 75,
+    "tethys": 41,
+    "reina": 61,
+    "magda": 67,
+    "law": 57,
+    "ordr": 54,
+    "dante": 44
+   }
   }
  ],
  "lastMedium": 1795184250522,
  "lastBig": 1795184250522,
  "nextMediumGap": 289165617,
- "post": null
+ "post": null,
+ "appliedNews": []
 }

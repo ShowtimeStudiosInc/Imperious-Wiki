@@ -12,7 +12,7 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-20'
-unrest: 59
+unrest: 58
 deity:
   - slug: alpha-black
     score: 49
@@ -64,8 +64,8 @@ regents:
     previous: 61
     votes: 10840
   - slug: magda
-    score: 66
-    previous: 66
+    score: 67
+    previous: 67
     votes: 8925
   - slug: law
     score: 57
@@ -141,6 +141,11 @@ earlier_news:
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.
     changes: []
 log:
+  - date: '2026-11-20'
+    who: magda
+    change: +1
+    kind: small
+    text: A Tivcral told a crowd that Magda's court once helped her get a better assignment. The story spread fast.
   - date: '2026-11-20'
     who: theta-gold
     change: -1
