@@ -8,8 +8,8 @@ const repo = import.meta.env.PUBLIC_REPO || 'ShowtimeStudiosInc/Imperious-Wiki';
 ---
 <Site title="Imperious Authorities">
   <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" />
-  <main class="wrap home">
-    <StarMap gemCount={all.length} />
+  <StarMap gemCount={all.length} />
+  <main class="wrap home" id="below">
     <div class="below">
       <div class="holo-wrap"><HoloScreen /></div>
       <aside class="panel log">
@@ -51,7 +51,7 @@ const repo = import.meta.env.PUBLIC_REPO || 'ShowtimeStudiosInc/Imperious-Wiki';
     .catch(() => { log.innerHTML = '<li class="muted">Updates will show here as pages change.</li>'; });
 </script>
 <style>
-  .home { padding-top: 1.2rem; }
+  .home { padding-top: 2rem; scroll-margin-top: 60px; }
   .below { display: grid; grid-template-columns: 1fr 1.4fr; gap: 1rem; align-items: start; }
   .holo-wrap :global(.holo) { margin-top: 14px; }
   .log ol { list-style: none; margin: 0; }
