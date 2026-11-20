@@ -47,8 +47,8 @@ const builder = `https://showtimestudiosinc.github.io/Imperious-Gem-Builder/?typ
 const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
 ---
 <Site title={fullName(g)} description={desc} current="gem-types">
-  <main class="wrap codex">
-    <p class="crumbs"><a href={url('/gem-types/')}>Gem-Types</a> <span>/</span> {rank && g.faction !== 'lost' ? <span>Rank {g.rank} · {rank.name}</span> : <span>{g.faction === 'lost' ? 'Discontinued Types' : g.faction === 'united-frontier' ? 'United Frontier' : g.faction === 'rogue' ? 'Rogues' : ''}</span>}</p>
+  <main class="wrap codex" data-pagefind-body data-pagefind-meta="section:Gem-Types">
+    <p class="crumbs" data-pagefind-ignore><a href={url('/gem-types/')}>Gem-Types</a> <span>/</span> {rank && g.faction !== 'lost' ? <span>Rank {g.rank} · {rank.name}</span> : <span>{g.faction === 'lost' ? 'Discontinued Types' : g.faction === 'united-frontier' ? 'United Frontier' : g.faction === 'rogue' ? 'Rogues' : ''}</span>}</p>
 
     <section class="panel namebar">
       <div class="bar">&nbsp;</div>

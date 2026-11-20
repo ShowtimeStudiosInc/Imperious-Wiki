@@ -1,5 +1,6 @@
 ---
 import { NAV, navKey } from '../../lib/nav';
+import SiteSearch from '../../components/SiteSearch.astro';
 /**
  * Grand Regent (Cubic Zirconia) pages. Same layout as the Diamond pages
  * (src/styles/diamond-page.css), with character-sheet sections.
@@ -83,12 +84,13 @@ const nav = NAV;
       <nav aria-label="Main">
         {nav.map((n) => <a href={url(n.href)} aria-current={n.key === navKey(Astro.url.pathname) ? 'page' : undefined}>{n.label}</a>)}
       </nav>
+      <SiteSearch />
     </header>
 
     <Fragment set:html={background} />
 
-    <div class="wrap">
-      <nav class="crumbs" aria-label="Breadcrumb">
+    <div class="wrap" data-pagefind-body data-pagefind-meta="section:Grand Regents">
+      <nav class="crumbs" aria-label="Breadcrumb" data-pagefind-ignore>
         <a href={url('/')}>Imperious Authorities Wiki</a><span class="sep">/</span>
         <a href={url('/diamonds/')}>Know Your Diamond</a><span class="sep">/</span>
         <a href={url('/diamonds/#regents')}>Grand Regents</a><span class="sep">/</span>

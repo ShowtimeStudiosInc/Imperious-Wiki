@@ -1,0 +1,68 @@
+---
+/**
+ * Search button for the top bar on pages outside the Rules/Lore docs. Opens a window with
+ * Pagefind's search over the whole wiki (the same index the docs search uses). Ctrl/Cmd+K opens it.
+ */
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<button class="ia-search-btn" type="button" data-base={base} aria-label="Search the wiki">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" /></svg>
+  <span class="lbl">Search</span><kbd>Ctrl K</kbd>
+</button>
+<dialog class="ia-search-dialog" aria-label="Search the wiki">
+  <div class="ia-search-top"><span>Search the wiki</span><button type="button" class="ia-search-close" aria-label="Close">✕</button></div>
+  <div class="ia-search-ui"></div>
+</dialog>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.ia-search-btn');
+  const dlg = document.querySelector<HTMLDialogElement>('.ia-search-dialog');
+  let loaded: Promise<void> | null = null;
+  const load = (base: string) =>
+    (loaded ??= new Promise<void>((resolve, reject) => {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet'; css.href = base + 'pagefind/pagefind-ui.css';
+      document.head.appendChild(css);
+      const s = document.createElement('script');
+      s.src = base + 'pagefind/pagefind-ui.js';
+      s.onload = () => {
+        // @ts-ignore: provided by pagefind-ui.js
+        new window.PagefindUI({ element: '.ia-search-ui', showSubResults: true, showImages: false, resetStyles: false, translations: { placeholder: 'Search Gem-Types, Diamonds, rules, lore…' } });
+        resolve();
+      };
+      s.onerror = () => reject();
+      document.head.appendChild(s);
+    }));
+  const open = async () => {
+    if (!btn || !dlg) return;
+    dlg.showModal();
+    try { await load(btn.dataset.base || '/'); } catch { dlg.querySelector('.ia-search-ui')!.textContent = 'Search is available on the live site.'; return; }
+    setTimeout(() => dlg.querySelector<HTMLInputElement>('.pagefind-ui__search-input')?.focus(), 30);
+  };
+  btn?.addEventListener('click', open);
+  dlg?.querySelector('.ia-search-close')?.addEventListener('click', () => dlg.close());
+  dlg?.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); dlg?.open ? dlg.close() : open(); }
+  });
+</script>
+
+<style>
+  .ia-search-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.38rem 0.6rem; border-radius: 8px; cursor: pointer;
+    background: rgba(14, 9, 28, 0.6); border: 1px solid rgba(201, 184, 255, 0.28); color: #ece6ff; font: 500 0.86rem/1 Inter, system-ui, sans-serif; }
+  .ia-search-btn:hover { border-color: rgba(201, 184, 255, 0.6); }
+  .ia-search-btn kbd { font: 600 0.7rem/1 Inter, system-ui, sans-serif; padding: 0.2rem 0.35rem; border-radius: 4px; background: rgba(124, 77, 255, 0.25); color: #c9bfe8; }
+  @media (max-width: 640px) { .ia-search-btn .lbl, .ia-search-btn kbd { display: none; } .ia-search-btn { position: absolute; right: 1rem; top: 0.6rem; } }
+  .ia-search-dialog { width: min(720px, 94vw); max-height: 82vh; margin: 8vh auto auto; padding: 0; border-radius: 14px; border: 1px solid rgba(201, 184, 255, 0.4);
+    background: #0e0a1c; color: #ece6ff; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); overflow: auto; }
+  .ia-search-dialog::backdrop { background: rgba(5, 3, 12, 0.7); backdrop-filter: blur(4px); }
+  .ia-search-top { position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 1rem; background: #0e0a1c; border-bottom: 1px solid rgba(201, 184, 255, 0.15);
+    font: 600 0.72rem/1 Inter, system-ui, sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: #c9b8ff; }
+  .ia-search-close { background: none; border: 0; color: #c9bfe8; font-size: 1rem; cursor: pointer; }
+  .ia-search-ui { padding: 1rem;
+    --pagefind-ui-primary: #c9b8ff; --pagefind-ui-text: #ece6ff; --pagefind-ui-background: #120c24; --pagefind-ui-border: rgba(201, 184, 255, 0.3);
+    --pagefind-ui-tag: rgba(124, 77, 255, 0.25); --pagefind-ui-border-width: 1px; --pagefind-ui-border-radius: 8px; --pagefind-ui-font: Inter, system-ui, sans-serif; }
+  .ia-search-ui :global(mark) { background: rgba(201, 184, 255, 0.3); color: #fff; }
+  .ia-search-ui :global(.pagefind-ui__result-link) { color: #ece6ff; }
+  .ia-search-ui :global(.pagefind-ui__result-excerpt) { color: #c9bfe8; }
+</style>
