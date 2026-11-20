@@ -5,8 +5,8 @@ backend:
   name: github
   repo: ShowtimeStudiosInc/Imperious-Wiki   # change if the repo name differs
   branch: main
-  # GitHub login needs a small OAuth helper. See README "Turning on the editor".
-  # base_url: https://your-oauth-helper.example.com
+  # GitHub login goes through the Cloudflare Worker below (sveltia-cms-auth). See README "Turning on the editor".
+  base_url: https://ia-wiki-auth.dilanrodriguez091.workers.dev
 publish_mode: editorial_workflow
 media_folder: public/images/gem-types
 public_folder: /images/gem-types
