@@ -126,7 +126,7 @@ _``Signature Ability:``_
 _``ACT Bonus:``_ 
 `Recall` - <:Act:1568035453842751618>ACTs that remember a face, a name, or a record are especially effective for her.
 _``Latent Ability:``_ 
-`Aurora Flash` - Labradorite may learn to let out the light stored in her gemstone as a burst of shifting color, like the northern lights. Its moves and SP costs are set when it's unlocked.
+`Aurora Flash` - Labradorite may learn to let out the light stored in her gemstone as a burst of changing color, like the northern lights. Its moves and SP costs are set when it's unlocked.
 
 ``Labradorites are the United Frontier's registrars. When a gem emerges, gets adopted, founds a colony, or is laid to rest, it goes on record with a Labradorite, and years later she's the one who can tell you exactly where you came from. A lot of that work is done by touch. A Labradorite can hold an old letter, a necklace, or a worn tool and feel who it belonged to and what it went through, so when the paperwork runs out, the objects fill in the rest of the story. Gems bring her boxes of things a relative left behind and ask her who that gem really was. Most of the time, she can tell them.``
 
