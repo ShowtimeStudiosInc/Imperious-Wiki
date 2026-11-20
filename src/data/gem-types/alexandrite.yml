@@ -15,7 +15,7 @@ status: []
 traits: []
 court: null
 threatClass: Champion
-height: 12'0"
+height: 11'10"
 stats: null
 abilities:
   - section: Signature Ability
@@ -73,4 +73,4 @@ gemstone: /images/gemstones/alexandrite.svg
 credit: Canon + Lexariix
 alsoFactions:
   - rogue
-updated: '2026-11-18'
+updated: '2026-11-20'

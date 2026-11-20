@@ -15,7 +15,7 @@ status: []
 traits: []
 court: null
 threatClass: Elite
-height: 10'2"
+height: 10'6"
 stats: null
 abilities:
   - section: Signature Ability
@@ -68,4 +68,4 @@ description: null
 image: /images/gem-types/sodalite.webp
 gemstone: /images/gemstones/sodalite.svg
 credit: null
-updated: '2026-11-18'
+updated: '2026-11-20'

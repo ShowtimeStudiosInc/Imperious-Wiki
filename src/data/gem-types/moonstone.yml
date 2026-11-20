@@ -15,7 +15,7 @@ status: []
 traits: []
 court: null
 threatClass: Elite
-height: 14'0"
+height: 11'10"
 stats: null
 abilities:
   - section: Signature Ability
@@ -64,4 +64,4 @@ description: null
 image: null
 gemstone: /images/gemstones/moonstone.svg
 credit: null
-updated: '2026-11-18'
+updated: '2026-11-20'

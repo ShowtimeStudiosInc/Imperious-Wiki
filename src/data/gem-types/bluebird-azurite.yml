@@ -15,7 +15,7 @@ status: []
 traits: []
 court: null
 threatClass: Elite
-height: 4'9"
+height: 6'10"
 stats: null
 abilities:
   - section: Signature Ability
@@ -84,4 +84,4 @@ description: null
 image: /images/gem-types/bluebird-azurite.webp
 gemstone: /images/gemstones/bluebird-azurite.svg
 credit: null
-updated: '2026-11-18'
+updated: '2026-11-20'

@@ -205,6 +205,17 @@ for (const g of all) {
   bySlug[g.slug] = g;
 }
 
+// A fusion with no height of its own stands as tall as its halves added together.
+const inches = (h) => { const m = /^(\d+)'(\d+)"?$/.exec(String(h || '').trim()); return m ? +m[1] * 12 + +m[2] : null; };
+const heightOf = (slug) => extras.types?.[slug]?.height ?? extras.heights?.[slug] ?? null;
+function fusionHeight(components) {
+  if (!components || components.length !== 2) return null;
+  const parts = components.map((c) => inches(heightOf(c)));
+  if (parts.includes(null)) return null;
+  const total = parts[0] + parts[1];
+  return `${Math.floor(total / 12)}'${total % 12}"`;
+}
+
 const out = [];
 const locked = [];
 for (const g of all) {
@@ -225,7 +236,7 @@ for (const g of all) {
     traits: ex.traits ?? (g.abilities.some((a) => /Bioluminescence|Luminescence/.test(a.name || '')) ? ['Bioluminescent'] : []),
     court: ex.court ?? null,
     threatClass: ex.threatClass ?? null,
-    height: ex.height ?? extras.heights?.[g.slug] ?? null,
+    height: fusionHeight(ex.components) ?? ex.height ?? extras.heights?.[g.slug] ?? null,
     stats: g.stats,
     abilities: g.abilities,
     extraBlocks: g.extraBlocks.length ? g.extraBlocks : undefined,

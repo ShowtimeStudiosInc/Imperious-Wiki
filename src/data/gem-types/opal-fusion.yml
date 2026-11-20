@@ -15,7 +15,7 @@ status: []
 traits: []
 court: null
 threatClass: Elite
-height: 13'6"
+height: 14'0"
 stats: null
 abilities:
   - section: Signature Ability
@@ -69,4 +69,4 @@ description: null
 image: /images/gem-types/opal-fusion.webp
 gemstone: /images/gemstones/opal-fusion.svg
 credit: null
-updated: '2026-11-18'
+updated: '2026-11-20'
