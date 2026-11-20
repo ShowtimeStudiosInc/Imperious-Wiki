@@ -1,0 +1,65 @@
+name: Bumblebee Jasper
+slug: bumblebee-jasper
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 34
+  atk: 9
+  def: 7
+  spd: 5
+  int: 3
+  mag: 2
+abilities:
+  - section: Signature Ability
+    name: Venom Production
+    tags:
+      - Minor
+      - Alteration
+    cost: null
+    text: >-
+      Bumblebee Jasper's light form carries a mild venom, like the arsenic and sulfur in her stone. She can coat her
+      weapon or fists with it, and she has advantage on resisting <:Poison:1569755788761894983>Poison.
+    moves:
+      - name: Sting
+        tags:
+          - 2 SP
+        cost: 2
+        text: >-
+          Her next <:Fight:1568035371974135940>FIGHT that lands also leaves the target
+          <:Poison:1569755788761894983>Poisoned for 2 turns. The target resists with DEF.
+  - section: Latent Ability
+    name: Fume Venting
+    tags: []
+    cost: null
+    text: >-
+      Bumblebee Jasper may learn to let off a cloud of sulfur fumes that makes it hard to breathe or see. Its moves and
+      SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Bumblebee Jaspers are Quartz soldiers made to guard the places other gems can't stay in for long, like volcanic
+  worlds, sulfur vents, and poisoned land that hasn't been cleaned up yet. The fumes that make other soldiers sick
+  barely bother them, so they hold posts at mining camps and early kindergarten sites until the ground is safe. They
+  work in tight squads of three or four and treat their post like a hive. Each one knows her part of the perimeter, and
+  if one is attacked, the whole squad comes running. They're loud and pushy like other Jaspers, but they're very
+  protective of the gems working inside the lines they guard.
+interactions: >-
+  Bumblebee Jaspers usually guard the Malachites who clear toxic planets, since they can stay in the fumes as long as
+  the Malachite can. Regular Jaspers tease them for smelling like sulfur, and a Bumblebee Jasper always teases back.
+  Agates like having a squad of them, because they rarely need to be told twice to hold a line.
+description: null
+image: /images/gem-types/bumblebee-jasper.webp
+gemstone: /images/gemstones/bumblebee-jasper.svg
+credit: null
+updated: '2026-11-20'

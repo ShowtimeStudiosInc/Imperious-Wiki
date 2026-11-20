@@ -68,6 +68,25 @@ _``Latent Ability:``_
 _``Interactions:``_
 ``Blue Quartzes pair with Aventurines on organic planets and with each other on ocean worlds. Lapises fuse with them more than with almost any other Quartz, since their love of water lines up. When a squad is wound up before a fight, an Agate often sends a Blue Quartz in to calm it down.``
 
+# BUMBLEBEE JASPER [SUB-TYPE OF QUARTZ]
+**``BASE STATS``**
+_``HP:``_ 34
+_``ATK:``_ 9
+_``DEF:``_ 7
+_``SPD:``_ 5
+_``INT:``_ 3
+_``MAG:``_ 2
+_``Signature Ability:``_ 
+`Venom Production` [Minor] [Alteration] - Bumblebee Jasper's light form carries a mild venom, like the arsenic and sulfur in her stone. She can coat her weapon or fists with it, and she has advantage on resisting <:Poison:1569755788761894983>Poison.
+> - `Sting [2 SP]` - Her next <:Fight:1568035371974135940>FIGHT that lands also leaves the target <:Poison:1569755788761894983>Poisoned for 2 turns. The target resists with DEF.
+_``Latent Ability:``_ 
+`Fume Venting` - Bumblebee Jasper may learn to let off a cloud of sulfur fumes that makes it hard to breathe or see. Its moves and SP costs are set when it's unlocked.
+
+``Bumblebee Jaspers are Quartz soldiers made to guard the places other gems can't stay in for long, like volcanic worlds, sulfur vents, and poisoned land that hasn't been cleaned up yet. The fumes that make other soldiers sick barely bother them, so they hold posts at mining camps and early kindergarten sites until the ground is safe. They work in tight squads of three or four and treat their post like a hive. Each one knows her part of the perimeter, and if one is attacked, the whole squad comes running. They're loud and pushy like other Jaspers, but they're very protective of the gems working inside the lines they guard.``
+
+_``Interactions:``_
+``Bumblebee Jaspers usually guard the Malachites who clear toxic planets, since they can stay in the fumes as long as the Malachite can. Regular Jaspers tease them for smelling like sulfur, and a Bumblebee Jasper always teases back. Agates like having a squad of them, because they rarely need to be told twice to hold a line.``
+
 # CARNELIAN [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
 _``HP:``_ 34

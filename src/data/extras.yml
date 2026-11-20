@@ -163,6 +163,7 @@ heights:
   rose-quartz: 8'0"
   smoky-quartz: 8'0"
   zebra-jasper: 8'0"
+  bumblebee-jasper: 8'0"
   malachite-fusion: 13'10"
   rhodonite: 9'10"
   titanium: 9'0"
@@ -290,8 +291,9 @@ types:
   rutile: { image: /images/gem-types/rutile.webp }
   angelite: { image: /images/gem-types/angelite.webp }
   zircon: { image: /images/gem-types/zircon.webp }
-  quartz: { image: /images/gem-types/quartz.webp, attachments: [clear-quartz, amethyst, aventurine, blue-quartz, carnelian, cherry-quartz, citrine, jasper, milky-quartz, prasiolite, rose-quartz, smoky-quartz, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
+  quartz: { image: /images/gem-types/quartz.webp, attachments: [clear-quartz, amethyst, aventurine, blue-quartz, bumblebee-jasper, carnelian, cherry-quartz, citrine, jasper, milky-quartz, prasiolite, rose-quartz, smoky-quartz, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
   zebra-jasper: { image: /images/gem-types/zebra-jasper.webp }
+  bumblebee-jasper: { image: /images/gem-types/bumblebee-jasper.webp }
   smoky-quartz: { image: /images/gem-types/smoky-quartz.webp }
   rose-quartz: { image: /images/gem-types/rose-quartz.webp }
   prasiolite: { image: /images/gem-types/prasiolite.webp }

@@ -81,6 +81,7 @@ GEMS = {
     'prasiolite': ('quartz', '#9fd66a', {}),
     'rose-quartz': ('quartz', '#ff9ec4', {}),
     'smoky-quartz': ('quartz', '#8a7a6b', {}),
+    'bumblebee-jasper': ('quartz', '#f2b52e', {'bands': '#2a2218'}),
     'zebra-jasper': ('quartz', '#ece8df', {'bands': '#2a2730'}),
     # 3.3
     'aragonite': ('hexagon', '#e8a66a', {}),
