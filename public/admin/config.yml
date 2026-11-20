@@ -21,7 +21,7 @@ collections:
     create: true
     slug: "{{fields.slug}}"
     identifier_field: name
-    summary: "{{name}} · Rank {{rank}}"
+    summary: "{{name}} · {{faction}} · Rank {{rank | default('none')}}"
     description: "Saving a Gem-Type here marks it as edited in the editor, so the rank-doc import won't overwrite it. Copy big changes into the RANK docs too."
     fields:
       - { name: name, label: Name, widget: string }
