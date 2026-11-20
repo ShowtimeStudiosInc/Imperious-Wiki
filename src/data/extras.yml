@@ -223,6 +223,7 @@ types:
   amazonite: { components: [peridot-era-2a, lapis], threatClass: Elite, image: /images/gem-types/amazonite.webp, credit: Lexariix, alsoFactions: [rogue] }
   green-serpentine: { components: [lapis, scapolite], threatClass: Champion }
   blue-halite: { components: [lapis, orca-agate], threatClass: Champion, alsoFactions: [rogue], description: "A deep blue gem with small cracks that can be seen inside. It seems to have flowing water inside that shimmers, giving it a striped look." }
+  dark-blue-hawk-s-eye: { components: [topaz, jasper], threatClass: Champion, description: "The gem is mostly blue, very dark in color, with stripes of color coming out of it, in this case yellow. It looks like an eye from certain angles, and it's said a stare from this fusion makes even the strongest soldiers flinch." }
   malachite-fusion: { components: [lapis, quartz], threatClass: Champion, image: /images/gem-types/malachite-fusion.webp }
   bluebird-azurite: { components: [ruby, aquamarine], threatClass: Elite, image: /images/gem-types/bluebird-azurite.webp }
   rhodonite: { components: [ruby, pearl], threatClass: Elite, image: /images/gem-types/rhodonite.webp }

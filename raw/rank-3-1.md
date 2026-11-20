@@ -91,3 +91,26 @@ _``Latent Ability:``_
 
 _``Interactions:``_
 ``Tanzanites work alongside each other and serve under shrine keepers like the Era 1 Indicolites. They guard parts of a shrine directly, protecting its statues, figures, and remnants. They can be assigned to war duties, but most are kept at the shrines.``
+
+
+# DARK BLUE HAWK'S EYE [FUSION]
+**``BASE STATS``**
+_``HP:``_ [Look at the two components]
+_``ATK:``_ [Look at the two components]
+_``DEF:``_ [Look at the two components]
+_``SPD:``_ [Look at the two components]
+_``INT:``_ [Look at the two components]
+_``MAG:``_ [Look at the two components]
+_``ACT Bonus:``_ 
+From her Topaz half. `Guard` - <:Act:1568035453842751618>ACTs that block a doorway, hold a position, or stop enemies from reaching someone are especially effective for her.
+From her Jasper half. `Intimidate` - <:Act:1568035453842751618>ACTs that threaten or scare an enemy are especially effective for her.
+_``Fusion Ability:``_ 
+`Shield Break [3 SP]` - Dark Blue Hawk's Eye puts her full strength into one blow against a target who is Near. The target resists with DEF. If they fail, they're Defense Broken for 2 turns.
+_``Latent Ability:``_ 
+`Shockwave Generation` - From her Topaz half, if it's been unlocked. She can send out a burst of force from her body.
+`Penetrative Stare` - Dark Blue Hawk's Eye may learn to stare an enemy down hard enough to make them flinch. Its moves and SP costs are set when it's unlocked.
+
+``Dark Blue Hawk's Eyes are fusions between a Topaz and a Jasper. They aren't a common fusion. They usually form in the middle of a battle, when the fight needs a lot of muscle, either to take on enemies or to move heavy objects out of the way when no Tungsten can be reached. Most don't last long and unfuse once the job is done. Not all of them are only soldiers, though, and some are protective and caring toward the gems around them. A Hawk's Eye whose Topaz half has learned Shockwave Generation can knock enemies down and collapse structures, but it throws off the whole battlefield, for better or for worse.``
+
+_``Interactions:``_
+``Hawk's Eyes form on the front line, usually from a Topaz and a Jasper who were already fighting side by side. Agates sometimes call for one when a wall or blockage needs to come down and no Tungsten is nearby. Tungstens don't mind, since it means one less heavy job for them.``
