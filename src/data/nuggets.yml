@@ -45,7 +45,7 @@ nuggets:
   - n: 10
     tags: [Gem-Types, Heights]
     text:
-      - The standard heights of each Gem-Type, by rank. Individual Gems can vary a little.
+      - The standard heights of each Gem-Type, by rank. Individual Gems can vary a little. Fusions stand as tall as their two halves added together.
       - A Cubic Zirconia's height depends on their Diamond's. A Diamond's only Cubic Zirconia stands one foot shorter than them. If there are two, each one stands half their Diamond's height.
     link: { label: See every height on the Height Chart, href: ../height-chart/ }
   - n: 11
