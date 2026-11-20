@@ -23,7 +23,7 @@ owner, _, name = os.environ.get("GITHUB_REPOSITORY", "ShowtimeStudiosInc/Imperio
 SITE = f"https://{owner.lower()}.github.io/{name}/".lower()
 
 TEST = os.environ.get("DISCORD_TEST") == "1"
-STYLE = (os.environ.get("DISCORD_STYLE") or "plain").strip().lower()
+STYLE = (os.environ.get("DISCORD_STYLE") or "embed").strip().lower()
 
 def log_lines(messages):
     found = []
