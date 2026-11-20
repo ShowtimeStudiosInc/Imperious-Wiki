@@ -453,6 +453,7 @@ FUSION_LAYOUTS = {
     'garnet-sapphire-variant': [('ruby', 68, 0, S), ('sapphire', 0, 68, S)],
     'sugilite': [('ruby', 68, 68, S), ('amethyst', 0, 0, S)],
     'malachite-fusion': [('lapis', 68, 68, S), ('jasper', 0, 0, S)],
+    'blue-halite': [('lapis', 68, 68, S), ('orca-agate', 0, 0, S)],
     'sphene': [('pearl', 36, 70, S), ('peridot-era-2a', 34, 0, S)],
 }
 

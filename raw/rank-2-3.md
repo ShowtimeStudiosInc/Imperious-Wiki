@@ -210,6 +210,30 @@ _``Interactions:``_
 ``Labradorites take commissions from aristocrats like Pyropes and Jades, and a Cubic Zirconia who asks for a portrait expects it done fast and done well. For their history work they lean on the library Opals, who dig up the records a mural needs. Catseyes and Scapolites are favorite subjects, since a Labradorite will paint a good performance whether anyone asked for it or not.``
 
 
+# BLUE HALITE [FUSION]
+**``BASE STATS``**
+_``HP:``_ [Look at the two components]
+_``ATK:``_ [Look at the two components]
+_``DEF:``_ [Look at the two components]
+_``SPD:``_ [Look at the two components]
+_``INT:``_ [Look at the two components]
+_``MAG:``_ [Look at the two components]
+_``Signature Ability:``_ 
+`Hydrokinesis` [Base] [Elements] - From her Lapis half. Blue Halite can move and shape large amounts of water, strong enough to carve canyons, redirect rivers, or call up a tidal wave. She needs a source of water nearby.
+> - `Water Lash [2 SP]` - A whip of water strikes one target for 2d4 + MAG damage.
+_``ACT Bonus:``_ 
+From her Orca Agate half. `Command` - <:Act:1568035453842751618>ACTs that give orders work better for her. A Lapis who follows her order gets advantage on their next roll. Underwater, any ally who follows her order gets it too.
+_``Fusion Ability:``_ 
+`Seabed Cut [3 SP]` - Blue Halite drives a jet of water down into the floor in front of her. Every enemy who is Near takes 1d6 + MAG damage. If she's underwater, they're also pushed Far.
+_``Latent Ability:``_ 
+Any Latent Ability either half has unlocked carries into the fusion, including her Orca Agate half's Aquatic Adaptation and Lateral Ampullae.
+
+``Blue Halites are fusions between a Lapis Lazuli and an Orca Agate. Most of them start the same way: an Orca Agate manages the same Lapis squad for years, and she and one of her Lapis grow close enough to fuse. The empire doesn't assign this fusion, so inside the Gempire a Blue Halite only appears through a licensed marriage. There she does underwater excavation, cutting into the seafloor with her water when the empire needs resources from the bottom of an ocean. That isn't often, since most water planets are left untouched. Many pairs who can't get a license leave instead. Among the Rogues, Blue Halites use those same untouched water planets as hiding places, carving shelters into the seafloor where the empire rarely looks.``
+
+_``Interactions:``_
+``Inside the Gempire, a Blue Halite usually stays with the Lapis squad her halves came from, and Tungstens and other miners work under her on seafloor jobs. Regular Agates tend to see her as a sign that an Orca Agate got too close to her Lapis. Among the Rogues, Blue Halites take in water gems who want out, and Bluebird Azurites bring them new arrivals who need somewhere to hide.``
+
+
 # CATSEYE
 **``BASE STATS``**
 _``HP:``_ 38

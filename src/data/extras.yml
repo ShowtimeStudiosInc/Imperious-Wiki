@@ -40,6 +40,7 @@ sides:
   polyhedroid-agate: Authoritative
   orca-agate: Authoritative
   labradorite: Aristocratic
+  blue-halite: Authoritative
   catseye: Aristocratic
   beryl: Authoritative
   sugilite: Authoritative
@@ -221,6 +222,7 @@ types:
   crocoite: { image: /images/gem-types/crocoite.webp, credit: Lexariix }
   amazonite: { components: [peridot-era-2a, lapis], threatClass: Elite, image: /images/gem-types/amazonite.webp, credit: Lexariix, alsoFactions: [rogue] }
   green-serpentine: { components: [lapis, scapolite], threatClass: Champion }
+  blue-halite: { components: [lapis, orca-agate], threatClass: Champion, alsoFactions: [rogue], description: "A deep blue gem with small cracks that can be seen inside. It seems to have flowing water inside that shimmers, giving it a striped look." }
   malachite-fusion: { components: [lapis, quartz], threatClass: Champion, image: /images/gem-types/malachite-fusion.webp }
   bluebird-azurite: { components: [ruby, aquamarine], threatClass: Elite, image: /images/gem-types/bluebird-azurite.webp }
   rhodonite: { components: [ruby, pearl], threatClass: Elite, image: /images/gem-types/rhodonite.webp }
