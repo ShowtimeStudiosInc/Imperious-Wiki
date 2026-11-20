@@ -276,10 +276,10 @@ _``ACT Bonus:``_
 _``Latent Ability:``_ 
 `Enhanced Stamina [PASSIVE]` - Strawberry Quartz may learn to run for very long distances without slowing down.
 
-``Strawberry Quartzes are the militia's runners. When a battle cuts off communication, or a message is too important to send over a line someone could be listening to, a Strawberry Quartz carries it by hand. They run orders between squads, bring reports back to Agates and Hessonites, and go for help when a unit is pinned down. They're cheerful, chatty, and always on the move, and most of them know every gem in the barracks by name, since they've delivered something to all of them at least once.``
+``Strawberry Quartzes have two jobs in the militia. On the battlefield they're runners. When a battle cuts off communication, or a message is too important to send over a line someone could be listening to, a Strawberry Quartz carries it by hand, running orders between squads and going for help when a unit is pinned down. Off the battlefield, they train new recruits. Freshly emerged Quartzes usually meet a Strawberry Quartz first, and she teaches them the drills, the routes around the base, and who to salute. The two jobs feed each other, since a gem who has run every route on a base is the best one to show newcomers around it. They're cheerful, chatty, and patient, and most of them know every gem in the barracks by name.``
 
 _``Interactions:``_
-``Strawberry Quartzes take their orders from Agates and Hessonites and carry them out to every squad on the field. Rose Quartzes love them, since a Strawberry Quartz always has news. Cherry Quartzes get along with them a little too well, because a runner hears everything and a Cherry Quartz wants to know all of it.``
+``Strawberry Quartzes take their orders from Agates and Hessonites and carry them out to every squad on the field. Once a recruit knows the basics, a Strawberry Quartz hands her over to an Onyx for weapons training, and a lot of Quartzes still look up to the Strawberry Quartz who trained them first. Rose Quartzes love them, since a Strawberry Quartz always has news. Cherry Quartzes get along with them a little too well, because a runner hears everything and a Cherry Quartz wants to know all of it.``
 
 # TIGER'S EYE [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
