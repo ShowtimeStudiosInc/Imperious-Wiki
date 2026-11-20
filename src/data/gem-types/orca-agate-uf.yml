@@ -1,0 +1,75 @@
+name: Orca Agate
+slug: orca-agate-uf
+rank: null
+side: null
+faction: united-frontier
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 30
+  atk: 7
+  def: 5
+  spd: 7
+  int: 4
+  mag: 2
+abilities:
+  - section: ACT Bonus
+    name: Command
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that give orders work better for her. A Lapis who follows her order gets advantage
+      on their next roll. Underwater, any ally who follows her order gets it too.
+    moves: []
+  - section: Latent Ability
+    name: Aquatic Adaptation
+    tags:
+      - PASSIVE
+      - Minor
+      - Physical
+    cost: null
+    text: >-
+      Orca Agate moves through water as easily as she walks on land. Underwater, moving between Near, Far, and Behind
+      doesn't use her turn, and she never gets disadvantage for fighting in water.
+    moves: []
+  - section: Latent Ability
+    name: Lateral Ampullae
+    tags:
+      - PASSIVE
+      - Minor
+      - Visions
+    cost: null
+    text: >-
+      Orca Agate can feel it when something means harm to her pod, even out of sight. Her party can't be ambushed, and
+      when an enemy attacks one of her Lapis, she can use her Reaction to call out a warning, giving that attack
+      disadvantage.
+    moves: []
+role: >-
+  In the United Frontier, though they still have a group of close friends they call their pods, Orca Agates are often
+  found working as tour guides as well as any job close to water! Nobody is assigned to an Orca Agate in the Frontier,
+  so her pod is whoever she chooses to keep close, and she looks after them just as fiercely. On water colonies she
+  shows visitors and new arrivals around the reefs, harbors, and coastlines, and outside of tours she takes on harbor
+  work, diving jobs, and water rescues. Her old habit of scouting ahead never really goes away, so a tour group that
+  wanders somewhere dangerous usually finds their Orca Agate already standing between them and the trouble.
+interactions: >-
+  Orca Agates and Zebra Jaspers both lead tours in the Frontier, and on a long trip they often split it, with the Zebra
+  Jasper taking the land and the Orca Agate taking over at the water. Almandines call on them for floods and water
+  rescues, since an Orca Agate can reach a trapped gem underwater faster than anyone. Her pod of friends tends to follow
+  her from colony to colony, and they're usually the first to sign up for her tours.
+description: >-
+  Orca Agate is typically a mainly black and white striped or spotted agate, though they can come in with red or brown
+  as their main colors with black and white as complementary colors. They also have white hair with black streaks that
+  ends in shapes that look like fins.
+image: null
+gemstone: /images/gemstones/orca-agate-uf.svg
+credit: null
+updated: '2026-11-20'

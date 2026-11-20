@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<defs><clipPath id="cl-orca-agate"><ellipse cx="100" cy="100" rx="64" ry="84"/></clipPath></defs>
-<ellipse cx="100" cy="100" rx="64" ry="84" fill="#1e1c22"/>
-<g clip-path="url(#cl-orca-agate)">
-<path d="M0,54 C 50,32 110,74 200,44" fill="none" stroke="#f2f0f4" stroke-width="9"/>
-<path d="M0,86 C 50,64 110,106 200,76" fill="none" stroke="#f2f0f4" stroke-width="6"/>
-<path d="M0,118 C 50,96 110,138 200,108" fill="none" stroke="#f2f0f4" stroke-width="9"/>
-<path d="M0,150 C 50,128 110,170 200,140" fill="none" stroke="#f2f0f4" stroke-width="6"/>
-<ellipse cx="108" cy="129.4" rx="60.8" ry="63.0" fill="#131114" opacity="0.28"/>
+<svg viewBox="0 0 200 200" width="200" height="200">
+<ellipse cx="100" cy="100" rx="78" ry="94" fill="#0b0d14"/>
+<clipPath id="orca"><ellipse cx="100" cy="100" rx="69" ry="85"/></clipPath>
+<g clip-path="url(#orca)">
+<rect width="200" height="200" fill="#16181f"/>
+<path d="M 20 128 C 60 104, 120 100, 182 118 L 182 200 L 20 200 Z" fill="#f4f6fa"/>
+<path d="M 20 128 C 52 150, 92 160, 120 150 C 98 150, 66 142, 20 128 Z" fill="#16181f"/>
+<ellipse cx="128" cy="62" rx="22" ry="11" transform="rotate(-28 128 62)" fill="#f4f6fa"/>
+<path d="M 52 70 C 70 52, 90 46, 104 48" fill="none" stroke="#3a3f4c" stroke-width="7" stroke-linecap="round"/>
 </g>
-<ellipse cx="77.6" cy="64.7" rx="16.6" ry="13.4" fill="#c2c2cc" opacity="0.85" transform="rotate(-24 77.6 64.7)"/>
-<ellipse cx="100" cy="100" rx="64" ry="84" fill="none" stroke="#2b2730" stroke-width="9"/>
+</svg>
 </svg>

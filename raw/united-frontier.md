@@ -132,6 +132,26 @@ _``Interactions:``_
 ``Labradorites keep the Frontier's family and community records, working with Iolites on school records and Astrophyllites on career paths. Melanites send them the record of every gem laid to rest, and Yellow Tourmalines rely on them to trace ownership before a trade.``
 
 
+# ORCA AGATE [UNITED FRONTIER GEM-TYPE]
+**``BASE STATS``**
+_``HP:``_ 30
+_``ATK:``_ 7
+_``DEF:``_ 5
+_``SPD:``_ 7
+_``INT:``_ 4
+_``MAG:``_ 2
+_``ACT Bonus:``_ 
+`Command` - <:Act:1568035453842751618>ACTs that give orders work better for her. A Lapis who follows her order gets advantage on their next roll. Underwater, any ally who follows her order gets it too.
+_``Latent Ability:``_ 
+`Aquatic Adaptation [PASSIVE]` [Minor] [Physical] - Orca Agate moves through water as easily as she walks on land. Underwater, moving between Near, Far, and Behind doesn't use her turn, and she never gets disadvantage for fighting in water.
+`Lateral Ampullae [PASSIVE]` [Minor] [Visions] - Orca Agate can feel it when something means harm to her pod, even out of sight. Her party can't be ambushed, and when an enemy attacks one of her Lapis, she can use her Reaction to call out a warning, giving that attack disadvantage.
+
+``In the United Frontier, though they still have a group of close friends they call their pods, Orca Agates are often found working as tour guides as well as any job close to water! Nobody is assigned to an Orca Agate in the Frontier, so her pod is whoever she chooses to keep close, and she looks after them just as fiercely. On water colonies she shows visitors and new arrivals around the reefs, harbors, and coastlines, and outside of tours she takes on harbor work, diving jobs, and water rescues. Her old habit of scouting ahead never really goes away, so a tour group that wanders somewhere dangerous usually finds their Orca Agate already standing between them and the trouble.``
+
+_``Interactions:``_
+``Orca Agates and Zebra Jaspers both lead tours in the Frontier, and on a long trip they often split it, with the Zebra Jasper taking the land and the Orca Agate taking over at the water. Almandines call on them for floods and water rescues, since an Orca Agate can reach a trapped gem underwater faster than anyone. Her pod of friends tends to follow her from colony to colony, and they're usually the first to sign up for her tours.``
+
+
 # CLEAR QUARTZ [UNITED FRONTIER GEM-TYPE] [THE QUARTZ GROUP]
 **``BASE STATS``**
 _``HP:``_ 30

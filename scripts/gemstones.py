@@ -60,7 +60,6 @@ GEMS = {
     'fluorite': ('square', '#9b7ff0', {'multi': ['#9b7ff0', '#6fd8b8']}),
     'jade': ('cabochon', '#3fbf7f', {}),
     'morganite': ('oval', '#f5a3c2', {}),
-    'orca-agate': ('cab-oval', '#1e1c22', {'bands': '#f2f0f4'}),
     'onyx': ('cab-oval', '#2a2730', {'bands': '#e9e6ee'}),
     'polyhedroid-agate': ('hexagon', '#c98bd6', {'split': ['#c98bd6', '#f2e6f6']}),
     # 3.1

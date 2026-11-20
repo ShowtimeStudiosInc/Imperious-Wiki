@@ -201,7 +201,7 @@ for (const [file, rank] of Object.entries(FILE_RANK)) {
 const bySlug = {};
 for (const g of all) {
   g.slug = slugFor(g);
-  if (bySlug[g.slug]) g.slug += '-' + (g.rank || 'lost').replace('.', '-');
+  if (bySlug[g.slug]) g.slug += g.faction === 'united-frontier' ? '-uf' : '-' + (g.rank || 'lost').replace('.', '-');
   bySlug[g.slug] = g;
 }
 
