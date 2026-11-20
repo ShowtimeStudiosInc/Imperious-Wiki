@@ -71,10 +71,41 @@
     </fieldset>
   </div>
 
+  <fieldset class="ia-sp-name">
+    <legend>Name it and export</legend>
+    <div class="ia-sp-name-row">
+      <label>Move name <input name="mname" type="text" placeholder="e.g. Sap Snare" autocomplete="off" /></label>
+      <label>It's a
+        <select name="mkind">
+          <option value="skill">SKILL move</option>
+          <option value="spell">SPELL</option>
+          <option value="item">Item Extra Effect</option>
+        </select>
+      </label>
+      <label>Type
+        <select name="mtype">
+          <option value="offensive">Offensive</option>
+          <option value="defensive">Defensive</option>
+          <option value="buff">Buff</option>
+          <option value="debuff">Debuff</option>
+          <option value="mobility">Mobility</option>
+          <option value="utility">Utility</option>
+        </select>
+      </label>
+    </div>
+    <label>What it does <textarea name="mdesc" rows="3" placeholder="e.g. A glob of sap hits one target. They resist with SPD. If they fail, they are Stuck until the end of their next turn."></textarea></label>
+  </fieldset>
+
   <div class="ia-sp-result" aria-live="polite">
     <div class="total"><span data-total>1</span><small>SP</small></div>
     <ul data-lines></ul>
     <p data-free class="free" hidden></p>
+  </div>
+
+  <div class="ia-sp-export">
+    <div class="ia-sp-preview" data-preview aria-label="Preview"></div>
+    <pre data-code></pre>
+    <button type="button" class="ia-sp-copy" data-copy>Copy for Discord</button>
   </div>
 </div>
 
@@ -131,8 +162,44 @@
       } else free.hidden = true;
     };
 
-    root.addEventListener('input', () => { dice(); calc(); });
+    // Export in the submission format: heading, quoted effect with the Type emoji, then the cost.
+    const EMOJI: Record<string, string> = {
+      skill: '<:Skill:1568035509752561876>', spell: '<:Spell:1568035570641412217>',
+      offensive: '<:offensive:1545460315938885682>', defensive: '<:defensive:1545460376819212298>', buff: '<:buff:1545460423250415726>',
+      debuff: '<:debuff:1545460459854102628>', mobility: '<:mobility:1545460499355803688>', utility: '<:utility:1545600013063692308>',
+    };
+    const img = (code: string) => {
+      const m = code.match(/^<:(\w+):(\d+)>$/);
+      return m ? `<img src="https://cdn.discordapp.com/emojis/${m[2]}.png" alt=":${m[1]}:" width="22" height="22" loading="lazy" onerror="this.remove()" />` : '';
+    };
+    const esc = (t: string) => t.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+    const exportMove = () => {
+      const name = q<HTMLInputElement>('mname').value.trim() || 'Move Name';
+      const desc = q<HTMLTextAreaElement>('mdesc').value.trim().replace(/\s*\n+\s*/g, ' ') || 'What the move does.';
+      const kind = q<HTMLSelectElement>('mkind').value;
+      const type = q<HTMLSelectElement>('mtype').value;
+      const total = Number(root.querySelector('[data-total]')!.textContent) || 0;
+      const free = on('cooldown') && total <= 2;
+      const cost = free ? 'Costs 0 SP. Has a cooldown.' : `Costs ${total} SP.`;
+      const head = EMOJI[kind] ? `${EMOJI[kind]} ` : '';
+      const text = `## ${head}*${name}*\n> ${EMOJI[type]}  ${desc}\n\`${cost}\``;
+      root.querySelector('[data-code]')!.textContent = text;
+      root.querySelector('[data-preview]')!.innerHTML =
+        `<div class="pv-h">${EMOJI[kind] ? img(EMOJI[kind]) : ''}<em>${esc(name)}</em></div>` +
+        `<div class="pv-q">${img(EMOJI[type])}<span>${esc(desc)}</span></div>` +
+        `<code>${esc(cost)}</code>`;
+    };
+    const copyBtn = root.querySelector<HTMLButtonElement>('[data-copy]')!;
+    copyBtn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(root.querySelector('[data-code]')!.textContent || ''); copyBtn.textContent = 'Copied'; }
+      catch { copyBtn.textContent = 'Copy failed, select the text above'; }
+      setTimeout(() => (copyBtn.textContent = 'Copy for Discord'), 1600);
+    });
+
+    root.addEventListener('input', () => { dice(); calc(); exportMove(); });
+    root.addEventListener('change', exportMove);
     root.addEventListener('change', calc);
     calc();
+    exportMove();
   });
 </script>
