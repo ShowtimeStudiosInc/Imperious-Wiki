@@ -211,7 +211,7 @@ function discordPost(pop, result) {
 // ── Saving ───────────────────────────────────────────────────────────────────
 const HEADER = fs.readFileSync(POP, 'utf8').split('\n').filter((l) => l.startsWith('#')).join('\n');
 function save(pop, state) {
-  const ordered = { updated: pop.updated, unrest: pop.unrest, deity: pop.deity, ruling: pop.ruling, regents: pop.regents, log: pop.log };
+  const ordered = { updated: pop.updated, unrest: pop.unrest, deity: pop.deity, ruling: pop.ruling, regents: pop.regents, ...(pop.earlier_news ? { earlier_news: pop.earlier_news } : {}), log: pop.log };
   fs.writeFileSync(POP, HEADER + '\n' + dump(ordered, { lineWidth: -1, quotingType: '"' }).replace(/^(\s+change: )'([+-]?\d+)'/gm, '$1$2'));
   fs.writeFileSync(STATE, JSON.stringify(state, null, 1) + '\n');
 }

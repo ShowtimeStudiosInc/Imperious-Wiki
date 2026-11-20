@@ -5,9 +5,10 @@ import { DIAMONDS } from './diamonds';
 import { url } from './gems';
 
 type Row = { slug: string; name?: string; score: number; previous?: number; votes?: number };
+type News = { title: string; source?: string; unrest?: number; unrest_text?: string; changes?: { who: string; change: number; text: string }[] };
 type Log = { date: string | Date; who: string; change: number; kind: 'event' | 'roll' | 'small' | 'medium' | 'big'; text: string };
 const raw = load(fs.readFileSync('src/data/popularity.yml', 'utf8')) as {
-  updated: string | Date; unrest?: number; deity: Row[]; ruling: Row[]; regents: Row[]; log?: Log[];
+  updated: string | Date; unrest?: number; earlier_news?: News[]; deity: Row[]; ruling: Row[]; regents: Row[]; log?: Log[];
 };
 
 const fmt = (d: string | Date) => new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
@@ -43,6 +44,12 @@ export const groups = [
   { title: 'Ruling Diamonds', rows: rank(raw.ruling) },
   { title: 'Grand Regents', rows: rank(raw.regents) },
 ];
+
+/** Staff-entered news reports from before the automatic events, newest first. Kept for good. */
+export const earlierNews = [...(raw.earlier_news ?? [])].reverse().map((n) => ({
+  ...n,
+  changes: (n.changes ?? []).map((c) => ({ ...c, change: Number(c.change), person: people.get(c.who)! })),
+}));
 
 /** Log grouped by date, newest first. */
 export const logByDate = (() => {
