@@ -1,6 +1,6 @@
 name: Agate
 slug: agate
-rank: '2.3'
+rank: "2.3"
 side: Authoritative
 faction: gempire
 kind: standard
@@ -26,19 +26,19 @@ abilities:
     name: Command
     tags: []
     cost: null
-    text: >-
-      <:Act:1568035453842751618>ACTs that give orders are especially effective for her. A Quartz who follows her order
-      has advantage on their next roll.
+    text: <:Act:1568035453842751618>ACTs that give orders are especially effective
+      for her. A Quartz who follows her order has advantage on their next roll.
     moves: []
-role: >-
-  Agates work as managers of facilities and Quartz, making sure both stay in top condition. This means instructing,
-  training, and assigning work and guard shifts to Quartz, as well as overseeing the daily goings on of a station. They
-  make sure everything runs smoothly and everyone stays on their best behavior.
-interactions: >-
-  Agates work alone, in pairs, or in very small groups. A station or a Quartz facility rarely needs more than two. As
-  the gems in charge, they give Quartzes their daily tasks and assign them to guard shifts or combat.
+role: Agates work as managers of facilities and Quartz, making sure both stay in
+  top condition. This means instructing, training, and assigning work and guard
+  shifts to Quartz, as well as overseeing the daily goings on of a station. They
+  make sure everything runs smoothly and everyone stays on their best behavior..
+interactions: Agates work alone, in pairs, or in very small groups. A station or
+  a Quartz facility rarely needs more than two. As the gems in charge, they give
+  Quartzes their daily tasks and assign them to guard shifts or combat.
 description: null
 image: /images/gem-types/agate.webp
-gemstone: /images/gemstones/agate.svg
 credit: null
-updated: '2026-11-18'
+updated: 2026-11-18
+gemstone: /images/gemstones/agate.svg
+editorLocked: true
