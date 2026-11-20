@@ -51,7 +51,7 @@ export const collections = {
       shiftOf: z.string().optional(),
       descendedFrom: z.string().optional(),
       alsoFactions: z.array(z.string()).optional(),
-      updated: z.string().optional(),
+      updated: z.union([z.string(), z.date()]).transform((v) => (typeof v === 'string' ? v : v.toISOString().slice(0, 10))).optional(),
     }),
   }),
 };
