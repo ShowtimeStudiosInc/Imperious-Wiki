@@ -22,39 +22,64 @@ if not url:
 owner, _, name = os.environ.get("GITHUB_REPOSITORY", "ShowtimeStudiosInc/Imperious-Wiki").partition("/")
 SITE = f"https://{owner.lower()}.github.io/{name}/".lower()
 
-with open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8") as f:
-    event = json.load(f)
+TEST = os.environ.get("DISCORD_TEST") == "1"
+STYLE = (os.environ.get("DISCORD_STYLE") or "plain").strip().lower()
 
-lines = []
-for commit in event.get("commits", []):
-    for raw in commit.get("message", "").splitlines():
-        text = raw.strip().lstrip("-* ").strip()
-        m = LINE.match(text)
-        # Only lines that point at a page on the live site get posted.
-        if m and m.group(1).lower().startswith(SITE) and text not in lines:
-            lines.append(text)
+def log_lines(messages):
+    found = []
+    for message in messages:
+        for raw in message.splitlines():
+            text = raw.strip().lstrip("-* ").strip()
+            m = LINE.match(text)
+            # Only lines that point at a page on the live site get posted.
+            if m and m.group(1).lower().startswith(SITE) and text not in found:
+                found.append(text)
+    return found
+
+if TEST:
+    # Test run: take the newest few update lines from the git history.
+    import subprocess
+    log = subprocess.run(["git", "log", "-n", "40", "--format=%B%x00"], capture_output=True, text=True).stdout
+    lines = log_lines(log.split("\x00"))[:3]
+else:
+    with open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8") as f:
+        event = json.load(f)
+    lines = log_lines(c.get("message", "") for c in event.get("commits", []))
 
 if not lines:
     print("No update log lines in this push.")
     sys.exit(0)
 
-# Discord caps a message at 2000 characters, so send in chunks.
-chunks, current = [], ""
-for text in ("- " + l for l in lines):
-    if current and len(current) + len(text) + 1 > 1900:
-        chunks.append(current)
-        current = ""
-    current = f"{current}\n{text}" if current else text
-chunks.append(current)
-
-for i, body in enumerate(chunks):
-    content = ("**Wiki updated**\n" if i == 0 else "") + body
-    payload = json.dumps({
-        "username": "Imperious Wiki",
-        "content": content,
-        "allowed_mentions": {"parse": []},
-        "flags": 4,  # no link preview cards
-    }).encode()
-    req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json", "User-Agent": "imperious-wiki"})
+def send(payload):
+    payload.update({"username": "Imperious Wiki", "allowed_mentions": {"parse": []}})
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json", "User-Agent": "imperious-wiki"})
     urllib.request.urlopen(req).read()
+
+def chunks(limit):
+    # Discord caps a message at 2000 characters and an embed at 4096, so send in chunks.
+    out, current = [], ""
+    for text in ("- " + l for l in lines):
+        if current and len(current) + len(text) + 1 > limit:
+            out.append(current)
+            current = ""
+        current = f"{current}\n{text}" if current else text
+    out.append(current)
+    return out
+
+def post_plain(heading):
+    for i, body in enumerate(chunks(1900)):
+        send({"content": (heading + "\n" if i == 0 else "") + body, "flags": 4})  # 4 = no link preview cards
+
+def post_embed(title):
+    for i, body in enumerate(chunks(3900)):
+        send({"embeds": [{"title": title if i == 0 else None, "description": body, "color": 0x9D86E9,
+                          "url": SITE if i == 0 else None}]})
+
+if TEST:
+    post_plain("**Wiki updated** (test post, plain style)")
+    post_embed("Wiki updated (test post, card style)")
+elif STYLE == "embed":
+    post_embed("Wiki updated")
+else:
+    post_plain("**Wiki updated**")
 print(f"Posted {len(lines)} update line(s).")

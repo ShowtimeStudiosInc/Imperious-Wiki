@@ -1,0 +1,19 @@
+name: Send a test post to Discord
+
+# Run this by hand from the Actions tab. It posts the newest update lines
+# twice, once as plain text and once as a card, so you can pick a style.
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 40
+      - name: Post test messages
+        run: python3 scripts/announce-updates.py
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_TEST: "1"
