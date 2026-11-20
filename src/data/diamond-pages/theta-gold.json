@@ -1,184 +1,184 @@
 {
-  "slug": "theta-gold",
-  "title": "Theta <span class=\"accent\">Gold</span> Diamond",
-  "courtLine": "Court Theta · Pillar of Time · Rank 1.1 Diamond",
-  "heroSub": "Creator of most Gems in the Gempire.",
-  "quote": "I need you to understand something: this Gempire needs me. I keep the perfect cuts coming in. I keep up production of workers and laborers. I keep up the production of aristocrats and all your little friends. But those defectives? They are not your friends. They are parasites, wastes of resources, and the reason I keep working to prevent more from ever forming. So excuse me if I’m upset with you for bringing one into my court and declaring them your friend before fusing with them before my very eyes. Stop your crying, I shattered them for a good reason and we both know it.",
-  "quoteBy": "Theta Gold Diamond",
-  "art": {
-    "sub": "Redesign sketch",
-    "images": [
-      {
-        "src": "{{BASE}}images/diamonds/theta-gold/page/1.webp",
-        "full": "{{BASE}}images/diamonds/theta-gold/page/1.webp",
-        "title": "Theta Gold Diamond",
-        "note": "Redesign sketch",
-        "alt": "Pencil redesign sketch of Theta Gold Diamond. On the left, his outfit: a sheer top over a shirt with a diamond at the chest, long panels with pockets for work supplies, and no shoes. On the right, a close up of his messy haired head with a monocle, long hair, and the joint lines of a ball jointed doll on his face."
-      }
-    ]
-  },
-  "personality": [
-    "Theta Gold is a total control freak when it comes to his gem productions. He will only take the optimal kindergarten locations for certain gems to be made and refuses to acknowledge any of the defective or off color gems as his creations. Anything less than perfect in his eyes does not belong in his court. Perfect cut gems are his prized possessions, often showing them off to the other Diamonds as a form of flaunting his work.",
-    "Theta Gold will often experiment under the table with different gems developing in different conditions to try and give them certain features or powers to see if he could create the perfect gem for different scenarios. He takes great pride in his work and in his appearance, making sure he looks the best he can be despite having visible joints similar to a ball-jointed doll along with the lines on his face and spots on his hands.",
-    "Theta Gold is very much so a workaholic, so he highly prefers work over social outings or events, to which he sends his Cubic Zirconia as a replacement for himself."
-  ],
-  "purpose": [
-    "Theta Gold Diamond is the creator of most gems. He oversees the production of gems, controlling their quantity, type, and, hopefully, quality as well. He is rarely seen in public due to being deeply buried in his work more often than not. He wants to ensure the absolute quality of his gems and is constantly researching ways to create perfect cut gems more often.",
-    "Theta Gold will take requests from other courts for gem productions and send them the best of the batch while sending the below-average and defective gems to other courts to fill in lesser roles."
-  ],
-  "weakness": [
-    "His greatest weaknesses are how little he understands the world outside his office, his need for perfection, and how deeply he forms attachments to certain gems and metals. If any of these are disrupted, changed, or put into danger, Theta Gold quickly becomes overwhelmed and lets his emotions get the better of him, whether it be stress, grief, or anger."
-  ],
-  "abilities": [
-    {
-      "name": "Absolute Chronokinesis",
-      "level": "Mastered",
-      "meta": {
-        "Parent": "Chronokinesis",
-        "Complexity": "Complex",
-        "Origin": "Domain of Time"
-      },
-      "desc": [
-        "Theta Gold can speed time up, slow it down, wind it back, and stop it, for a single gem or a whole room. He uses it the way he uses everything else: to keep work on schedule."
-      ],
-      "passives": [
-        {
-          "name": "Punctual",
-          "text": "Theta always acts first in the first round of a battle."
-        }
-      ],
-      "spells": [
-        {
-          "name": "Haste",
-          "tier": "Basic",
-          "cost": "2 SP",
-          "text": "Theta speeds up time around one ally. They act first in the next round."
-        },
-        {
-          "name": "Slow",
-          "tier": "Basic",
-          "cost": "2 SP",
-          "text": "Theta slows time around one target. The target resists with INT. If they fail, they act last in the next round."
-        },
-        {
-          "name": "Rewind",
-          "tier": "Standard",
-          "cost": "3 SP",
-          "text": "Theta winds one ally back a few moments. They heal for all the damage they have taken since the end of their last turn."
-        },
-        {
-          "name": "Wear",
-          "tier": "Advanced",
-          "cost": "4 SP",
-          "text": "Theta ages one target’s light form by years in an instant. The target resists with DEF. If they fail, their DEF drops by 4 for 3 turns."
-        },
-        {
-          "name": "Overtime",
-          "tier": "Advanced",
-          "cost": "4 SP",
-          "text": "Theta takes another turn right away. He skips his next turn afterward."
-        },
-        {
-          "name": "Time Stop",
-          "tier": "Mastered",
-          "cost": "7 SP",
-          "text": "Theta stops time for everyone but his party. Every enemy skips their next turn, with no resist."
-        }
-      ],
-      "weakLabel": "Weakness",
-      "weak": "Time cannot undo a Crack or a Shattering, and stopping time takes everything he has. After Time Stop, he cannot use another spell from this ability for 2 turns."
-    },
-    {
-      "name": "Body Part Detachment",
-      "level": "Advanced",
-      "meta": {
-        "Parent": "N/A",
-        "Complexity": "Complex",
-        "Origin": "Domain of Production"
-      },
-      "desc": [
-        "Theta Gold can come apart at the joints like a ball-jointed doll and still control every piece. He can also summon up to ten extra disembodied arms and hands made of light to help with his work, whether that is building, carrying, or fighting."
-      ],
-      "passives": [
-        {
-          "name": "Ball-Jointed",
-          "text": "Effects that hold a limb in place, like Stuck and Entangle, last 1 turn shorter on Theta, since he can just take the limb off."
-        }
-      ],
-      "spells": [
-        {
-          "name": "Long Reach",
-          "tier": "Basic",
-          "cost": "2 SP",
-          "text": "Theta detaches a hand and sends it across the battlefield. It can grab an item, pull one ally to Near, or make a FIGHT against a target who is Far as if they were Near."
-        },
-        {
-          "name": "Helping Hands",
-          "tier": "Standard",
-          "cost": "3 SP",
-          "text": "Theta summons a pair of hands for one ally. For 2 turns, that ally gets one extra FIGHT each turn, dealing half damage."
-        },
-        {
-          "name": "Many Hands",
-          "tier": "Advanced",
-          "cost": "4 SP",
-          "text": "Ten disembodied hands rain down on one target, each dealing 1d4 damage, plus MAG once."
-        }
-      ],
-      "weakLabel": "Weakness",
-      "weak": "A detached limb can be hit on its own. If one of his extra hands is struck while out, he takes the damage too."
-    },
-    {
-      "name": "Mannequin Creation",
-      "level": "Mastered",
-      "meta": {
-        "Parent": "N/A",
-        "Complexity": "Complex",
-        "Origin": "Domain of Production"
-      },
-      "desc": [
-        "Theta Gold can summon physical mannequins at any size to help with his work. Each one is a prototype of the Gem-Type it is sized after, with that type’s base stats at level 1, but no mind of its own and no abilities. Unlike holograms, they are solid. The bigger the mannequin, the fewer he can make."
-      ],
-      "passives": [
-        {
-          "name": "Prototypes",
-          "text": "Mannequins use the base stats of the Gem-Type they are sized after, with no Signature Ability, Era modifier, or Latent Ability. They act on Theta’s turn, can only FIGHT or Defend, and last until they are defeated or the battle ends."
-        }
-      ],
-      "spells": [
-        {
-          "name": "Small Mannequin",
-          "tier": "Basic",
-          "cost": "2 SP",
-          "text": "Theta summons a mannequin sized after any Rank 4 or Rank 5 Gem-Type. There is no limit to how many he can have."
-        },
-        {
-          "name": "Militia Mannequin",
-          "tier": "Standard",
-          "cost": "3 SP",
-          "text": "Theta summons a mannequin sized after any Rank 3 Gem-Type. He can have up to 3 at a time."
-        },
-        {
-          "name": "Aristocrat Mannequin",
-          "tier": "Advanced",
-          "cost": "4 SP",
-          "text": "Theta summons a mannequin sized after any Rank 2 Gem-Type. He can have up to 2 at a time."
-        },
-        {
-          "name": "Grand Mannequin",
-          "tier": "Mastered",
-          "cost": "6 SP",
-          "text": "Theta summons a mannequin the size of a Cubic Zirconia, using the Cubic Zirconia’s base stats. He can only have 1 at a time in battle, or 2 outside of it."
-        }
-      ],
-      "weakLabel": "Weakness",
-      "weak": "Mannequins cannot think for themselves, so they only follow simple orders, and they cannot be healed."
-    }
-  ],
-  "credits": [
-    {
-      "label": "Design",
-      "name": "err0rc0de_blair"
-    }
+ "slug": "theta-gold",
+ "title": "Theta <span class=\"accent\">Gold</span> Diamond",
+ "courtLine": "Court Theta · Pillar of Time · Rank 1.1 Diamond",
+ "heroSub": "Creator of most Gems in the Gempire.",
+ "quote": "I need you to understand something: this Gempire needs me. I keep the perfect cuts coming in. I keep up production of workers and laborers. I keep up the production of aristocrats and all your little friends. But those defectives? They are not your friends. They are parasites, wastes of resources, and the reason I keep working to prevent more from ever forming. So excuse me if I’m upset with you for bringing one into my court and declaring them your friend before fusing with them before my very eyes. Stop your crying, I shattered them for a good reason and we both know it.",
+ "quoteBy": "Theta Gold Diamond",
+ "art": {
+  "sub": "Sketch",
+  "images": [
+   {
+    "src": "{{BASE}}images/diamonds/theta-gold/page/1.webp",
+    "full": "{{BASE}}images/diamonds/theta-gold/page/1.webp",
+    "title": "Theta Gold Diamond",
+    "note": "Head sketch",
+    "alt": "Pencil sketch of Theta Gold Diamond's head on yellow paper: messy curly hair, a rectangular monocle over one eye, ball-jointed doll lines running down the face, a short beard and a high dark collar, with the artist's notes written around him."
+   }
   ]
+ },
+ "personality": [
+  "Theta Gold is a total control freak when it comes to his gem productions. He will only take the optimal kindergarten locations for certain gems to be made and refuses to acknowledge any of the defective or off color gems as his creations. Anything less than perfect in his eyes does not belong in his court. Perfect cut gems are his prized possessions, often showing them off to the other Diamonds as a form of flaunting his work.",
+  "Theta Gold will often experiment under the table with different gems developing in different conditions to try and give them certain features or powers to see if he could create the perfect gem for different scenarios. He takes great pride in his work and in his appearance, making sure he looks the best he can be despite having visible joints similar to a ball-jointed doll along with the lines on his face and spots on his hands.",
+  "Theta Gold is very much so a workaholic, so he highly prefers work over social outings or events, to which he sends his Cubic Zirconia as a replacement for himself."
+ ],
+ "purpose": [
+  "Theta Gold Diamond is the creator of most gems. He oversees the production of gems, controlling their quantity, type, and, hopefully, quality as well. He is rarely seen in public due to being deeply buried in his work more often than not. He wants to ensure the absolute quality of his gems and is constantly researching ways to create perfect cut gems more often.",
+  "Theta Gold will take requests from other courts for gem productions and send them the best of the batch while sending the below-average and defective gems to other courts to fill in lesser roles."
+ ],
+ "weakness": [
+  "His greatest weaknesses are how little he understands the world outside his office, his need for perfection, and how deeply he forms attachments to certain gems and metals. If any of these are disrupted, changed, or put into danger, Theta Gold quickly becomes overwhelmed and lets his emotions get the better of him, whether it be stress, grief, or anger."
+ ],
+ "abilities": [
+  {
+   "name": "Absolute Chronokinesis",
+   "level": "Mastered",
+   "meta": {
+    "Parent": "Chronokinesis",
+    "Complexity": "Complex",
+    "Origin": "Domain of Time"
+   },
+   "desc": [
+    "Theta Gold can speed time up, slow it down, wind it back, and stop it, for a single gem or a whole room. He uses it the way he uses everything else: to keep work on schedule."
+   ],
+   "passives": [
+    {
+     "name": "Punctual",
+     "text": "Theta always acts first in the first round of a battle."
+    }
+   ],
+   "spells": [
+    {
+     "name": "Haste",
+     "tier": "Basic",
+     "cost": "2 SP",
+     "text": "Theta speeds up time around one ally. They act first in the next round."
+    },
+    {
+     "name": "Slow",
+     "tier": "Basic",
+     "cost": "2 SP",
+     "text": "Theta slows time around one target. The target resists with INT. If they fail, they act last in the next round."
+    },
+    {
+     "name": "Rewind",
+     "tier": "Standard",
+     "cost": "3 SP",
+     "text": "Theta winds one ally back a few moments. They heal for all the damage they have taken since the end of their last turn."
+    },
+    {
+     "name": "Wear",
+     "tier": "Advanced",
+     "cost": "4 SP",
+     "text": "Theta ages one target’s light form by years in an instant. The target resists with DEF. If they fail, their DEF drops by 4 for 3 turns."
+    },
+    {
+     "name": "Overtime",
+     "tier": "Advanced",
+     "cost": "4 SP",
+     "text": "Theta takes another turn right away. He skips his next turn afterward."
+    },
+    {
+     "name": "Time Stop",
+     "tier": "Mastered",
+     "cost": "7 SP",
+     "text": "Theta stops time for everyone but his party. Every enemy skips their next turn, with no resist."
+    }
+   ],
+   "weakLabel": "Weakness",
+   "weak": "Time cannot undo a Crack or a Shattering, and stopping time takes everything he has. After Time Stop, he cannot use another spell from this ability for 2 turns."
+  },
+  {
+   "name": "Body Part Detachment",
+   "level": "Advanced",
+   "meta": {
+    "Parent": "N/A",
+    "Complexity": "Complex",
+    "Origin": "Domain of Production"
+   },
+   "desc": [
+    "Theta Gold can come apart at the joints like a ball-jointed doll and still control every piece. He can also summon up to ten extra disembodied arms and hands made of light to help with his work, whether that is building, carrying, or fighting."
+   ],
+   "passives": [
+    {
+     "name": "Ball-Jointed",
+     "text": "Effects that hold a limb in place, like Stuck and Entangle, last 1 turn shorter on Theta, since he can just take the limb off."
+    }
+   ],
+   "spells": [
+    {
+     "name": "Long Reach",
+     "tier": "Basic",
+     "cost": "2 SP",
+     "text": "Theta detaches a hand and sends it across the battlefield. It can grab an item, pull one ally to Near, or make a FIGHT against a target who is Far as if they were Near."
+    },
+    {
+     "name": "Helping Hands",
+     "tier": "Standard",
+     "cost": "3 SP",
+     "text": "Theta summons a pair of hands for one ally. For 2 turns, that ally gets one extra FIGHT each turn, dealing half damage."
+    },
+    {
+     "name": "Many Hands",
+     "tier": "Advanced",
+     "cost": "4 SP",
+     "text": "Ten disembodied hands rain down on one target, each dealing 1d4 damage, plus MAG once."
+    }
+   ],
+   "weakLabel": "Weakness",
+   "weak": "A detached limb can be hit on its own. If one of his extra hands is struck while out, he takes the damage too."
+  },
+  {
+   "name": "Mannequin Creation",
+   "level": "Mastered",
+   "meta": {
+    "Parent": "N/A",
+    "Complexity": "Complex",
+    "Origin": "Domain of Production"
+   },
+   "desc": [
+    "Theta Gold can summon physical mannequins at any size to help with his work. Each one is a prototype of the Gem-Type it is sized after, with that type’s base stats at level 1, but no mind of its own and no abilities. Unlike holograms, they are solid. The bigger the mannequin, the fewer he can make."
+   ],
+   "passives": [
+    {
+     "name": "Prototypes",
+     "text": "Mannequins use the base stats of the Gem-Type they are sized after, with no Signature Ability, Era modifier, or Latent Ability. They act on Theta’s turn, can only FIGHT or Defend, and last until they are defeated or the battle ends."
+    }
+   ],
+   "spells": [
+    {
+     "name": "Small Mannequin",
+     "tier": "Basic",
+     "cost": "2 SP",
+     "text": "Theta summons a mannequin sized after any Rank 4 or Rank 5 Gem-Type. There is no limit to how many he can have."
+    },
+    {
+     "name": "Militia Mannequin",
+     "tier": "Standard",
+     "cost": "3 SP",
+     "text": "Theta summons a mannequin sized after any Rank 3 Gem-Type. He can have up to 3 at a time."
+    },
+    {
+     "name": "Aristocrat Mannequin",
+     "tier": "Advanced",
+     "cost": "4 SP",
+     "text": "Theta summons a mannequin sized after any Rank 2 Gem-Type. He can have up to 2 at a time."
+    },
+    {
+     "name": "Grand Mannequin",
+     "tier": "Mastered",
+     "cost": "6 SP",
+     "text": "Theta summons a mannequin the size of a Cubic Zirconia, using the Cubic Zirconia’s base stats. He can only have 1 at a time in battle, or 2 outside of it."
+    }
+   ],
+   "weakLabel": "Weakness",
+   "weak": "Mannequins cannot think for themselves, so they only follow simple orders, and they cannot be healed."
+  }
+ ],
+ "credits": [
+  {
+   "label": "Design",
+   "name": "err0rc0de_blair"
+  }
+ ]
 }
