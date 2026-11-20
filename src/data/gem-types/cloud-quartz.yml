@@ -1,0 +1,56 @@
+name: Cloud Quartz
+slug: cloud-quartz
+rank: '3.2'
+side: null
+faction: gempire
+kind: sub-type
+parent: quartz
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 8'0"
+stats:
+  hp: 32
+  atk: 8
+  def: 6
+  spd: 6
+  int: 4
+  mag: 4
+abilities:
+  - section: ACT Bonus
+    name: Hide
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that hide, sneak past an enemy, or slip away from a fight are especially effective
+      for her.
+    moves: []
+  - section: Latent Ability
+    name: Fog Generation
+    tags: []
+    cost: null
+    text: >-
+      Cloud Quartz may learn to gather a thin fog around herself, enough to hide a squad for a short while. Its moves
+      and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Cloud Quartzes are Quartz soldiers made for the empire's high places, like stations floating in gas giant skies,
+  landing platforms above the cloud layer, and lookout towers on stormy worlds. They're used to thin air, strong winds,
+  and not being able to see more than a few feet ahead, so they keep watch where other soldiers get lost. Most of them
+  are soft-spoken and a little dreamy, and other Quartzes joke that they live with their heads in the clouds. When a
+  fight does break out, a Cloud Quartz is quick to vanish into the weather and turn up where the enemy least expects
+  her.
+interactions: >-
+  Cloud Quartzes guard Rutiles and other crews scouting stormy planets, calling out what's ahead when no one else can
+  see it. Rose Quartzes tend to look after them, since a Cloud Quartz will forget to come in from watch if nobody
+  reminds her. Citrines love teasing them for being spacey, and most Cloud Quartzes don't even notice.
+description: null
+image: /images/gem-types/cloud-quartz.webp
+gemstone: /images/gemstones/cloud-quartz.svg
+credit: null
+updated: '2026-11-20'

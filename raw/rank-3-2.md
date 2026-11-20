@@ -139,6 +139,24 @@ _``Latent Ability:``_
 _``Interactions:``_
 ``Citrines run with Cherry Quartzes and like to pick on gems who are newer or lower ranked, like Rubies and Eucryptites. Tripping someone up in front of an Agate or a Hessonite is their favorite move, which makes them hard to have in a squad and harder to get rid of. Jaspers are about the only Quartzes who give it right back.``
 
+# CLOUD QUARTZ [SUB-TYPE OF QUARTZ]
+**``BASE STATS``**
+_``HP:``_ 32
+_``ATK:``_ 8
+_``DEF:``_ 6
+_``SPD:``_ 6
+_``INT:``_ 4
+_``MAG:``_ 4
+_``ACT Bonus:``_ 
+`Hide` - <:Act:1568035453842751618>ACTs that hide, sneak past an enemy, or slip away from a fight are especially effective for her.
+_``Latent Ability:``_ 
+`Fog Generation` - Cloud Quartz may learn to gather a thin fog around herself, enough to hide a squad for a short while. Its moves and SP costs are set when it's unlocked.
+
+``Cloud Quartzes are Quartz soldiers made for the empire's high places, like stations floating in gas giant skies, landing platforms above the cloud layer, and lookout towers on stormy worlds. They're used to thin air, strong winds, and not being able to see more than a few feet ahead, so they keep watch where other soldiers get lost. Most of them are soft-spoken and a little dreamy, and other Quartzes joke that they live with their heads in the clouds. When a fight does break out, a Cloud Quartz is quick to vanish into the weather and turn up where the enemy least expects her.``
+
+_``Interactions:``_
+``Cloud Quartzes guard Rutiles and other crews scouting stormy planets, calling out what's ahead when no one else can see it. Rose Quartzes tend to look after them, since a Cloud Quartz will forget to come in from watch if nobody reminds her. Citrines love teasing them for being spacey, and most Cloud Quartzes don't even notice.``
+
 # JASPER [SUB-TYPE OF QUARTZ]
 **``BASE STATS``**
 _``HP:``_ 38

@@ -83,6 +83,7 @@ GEMS = {
     'smoky-quartz': ('quartz', '#8a7a6b', {}),
     'bumblebee-jasper': ('quartz', '#f2b52e', {'bands': '#2a2218'}),
     'bumblebee-jasper-uf': ('quartz', '#f2b52e', {'bands': '#2a2218'}),
+    'cloud-quartz': ('quartz', '#e8e4f2', {'swirl': '#ffffff'}),
     'zebra-jasper': ('quartz', '#ece8df', {'bands': '#2a2730'}),
     # 3.3
     'aragonite': ('hexagon', '#e8a66a', {}),

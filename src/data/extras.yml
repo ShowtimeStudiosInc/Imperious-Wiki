@@ -165,6 +165,7 @@ heights:
   smoky-quartz: 8'0"
   zebra-jasper: 8'0"
   bumblebee-jasper: 8'0"
+  cloud-quartz: 8'0"
   malachite-fusion: 13'10"
   rhodonite: 9'10"
   titanium: 9'0"
@@ -292,10 +293,11 @@ types:
   rutile: { image: /images/gem-types/rutile.webp }
   angelite: { image: /images/gem-types/angelite.webp }
   zircon: { image: /images/gem-types/zircon.webp }
-  quartz: { image: /images/gem-types/quartz.webp, attachments: [clear-quartz, amethyst, aventurine, blue-quartz, bumblebee-jasper, carnelian, cherry-quartz, citrine, jasper, milky-quartz, prasiolite, rose-quartz, smoky-quartz, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
+  quartz: { image: /images/gem-types/quartz.webp, attachments: [clear-quartz, amethyst, aventurine, blue-quartz, bumblebee-jasper, carnelian, cherry-quartz, citrine, cloud-quartz, jasper, milky-quartz, prasiolite, rose-quartz, smoky-quartz, zebra-jasper, rainbow-quartz, titanium-aura-quartz] }
   zebra-jasper: { image: /images/gem-types/zebra-jasper.webp }
   bumblebee-jasper: { image: /images/gem-types/bumblebee-jasper.webp }
   calcite: { image: /images/gem-types/calcite.webp }
+  cloud-quartz: { image: /images/gem-types/cloud-quartz.webp }
   bumblebee-jasper-uf: { description: "Bumblebee Jaspers typically take on a gray appearance with yellow or orange hair. They also bear yellow, orange, and black markings across their bodies, though the majority of their design is gray and yellow." }
   smoky-quartz: { image: /images/gem-types/smoky-quartz.webp }
   rose-quartz: { image: /images/gem-types/rose-quartz.webp }
