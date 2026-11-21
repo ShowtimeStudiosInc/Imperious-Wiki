@@ -1,79 +1,173 @@
-# Nuggets of Lore: small lore pieces Oliver posts on Discord. Text is his, near verbatim.
-# tags drive the filter on the Nuggets page. Nugget 10 (heights) points to the Height Chart.
 nuggets:
   - n: 1
-    tags: [S.T.O.R.M.]
+    tags:
+      - S.T.O.R.M.
     text:
-      - The new order of Era 2A wasn't one Diamond's idea. Each and every one of the ruling Diamonds agreed to it. Many of the freedoms Gems had held since Era 1A ended with it, and the oldest Gems, who remembered them, were the ones who took it hardest.
-      - S.T.O.R.M. had existed for a long time before that. It has never grown faster than it did after.
+      - The new order of Era 2A wasn't one Diamond's idea. Each and every one of
+        the ruling Diamonds agreed to it. Many of the freedoms Gems had held
+        since Era 1A ended with it, and the oldest Gems, who remembered them,
+        were the ones who took it hardest.
+      - S.T.O.R.M. had existed for a long time before that. It has never grown
+        faster than it did after.
   - n: 2
-    tags: [Metals, Maroon Red Diamond]
+    tags:
+      - Metals
+      - Maroon Red Diamond
     text:
-      - Metals weren't part of the Gempire until Era 2A. Maroon Red Diamond was the one who brought them in.
+      - Metals weren't part of the Gempire until Era 2A. Maroon Red Diamond was
+        the one who brought them in.
   - n: 3
-    tags: [Era 0, Gem Production]
+    tags:
+      - Era 0
+      - Gem Production
     text:
-      - The very first way of making Gems was about as simple as it gets. Alpha Black would make her Diamond essence and punch it straight into Homeworld's crust, then leave it to cook into a gemstone. Any Diamond could do it this way, though it's a bit funny to picture.
-      - Injectors, and ways of pulling essence out of a Diamond, only came along after the first Scientific Gems were made.
+      - The very first way of making Gems was about as simple as it gets. Alpha
+        Black would make her Diamond essence and punch it straight into
+        Homeworld's crust, then leave it to cook into a gemstone. Any Diamond
+        could do it this way, though it's a bit funny to picture.
+      - Injectors, and ways of pulling essence out of a Diamond, only came along
+        after the first Scientific Gems were made.
   - n: 4
-    tags: [Metals]
+    tags:
+      - Metals
     text:
-      - Era 2A Metals are made in Gempire kindergartens, and they're very different from the Era 0-1 Metals who came from the Metal Society. Most Gems who know the difference see the newer ones as lower quality than the pure Metals of the past.
-      - The two also see the Gempire differently. Era 2A Metals tend to be loyal to it. Era 0-1 Metals question the system a lot more, since it isn't the one they grew up in, but they go along with it anyway because it's easier than the alternative.
+      - Era 2A Metals are made in Gempire kindergartens, and they're very
+        different from the Era 0-1 Metals who came from the Metal Society. Most
+        Gems who know the difference see the newer ones as lower quality than
+        the pure Metals of the past.
+      - The two also see the Gempire differently. Era 2A Metals tend to be loyal
+        to it. Era 0-1 Metals question the system a lot more, since it isn't the
+        one they grew up in, but they go along with it anyway because it's
+        easier than the alternative.
   - n: 5
-    tags: [United Frontier]
+    tags:
+      - United Frontier
     text:
-      - Gems in the United Frontier don't emerge fully grown. They come out as infants and reach their full height after about twenty years, raised by Gems who asked for a child of their own. Once they're old enough, they choose schools built around what they want to become, and work their way into the career they want on their own merit.
+      - Gems in the United Frontier don't emerge fully grown. They come out as
+        infants and reach their full height after about twenty years, raised by
+        Gems who asked for a child of their own. Once they're old enough, they
+        choose schools built around what they want to become, and work their way
+        into the career they want on their own merit.
   - n: 6
-    tags: [Metal Society, Nightshade Violet Diamond, Maroon Red Diamond]
+    tags:
+      - Metal Society
+      - Nightshade Violet Diamond
+      - Maroon Red Diamond
     text:
-      - The Metal Society sold some of its own people to the Gempire in exchange for being left alone to grow and govern itself. It still does this today.
-      - Maroon Red Diamond was the first to discover the Metals, and he's the one who brought both sides to the table. Nightshade Violet Diamond settled the deal. It was made about seven months before the first Event.
+      - The Metal Society sold some of its own people to the Gempire in exchange
+        for being left alone to grow and govern itself. It still does this
+        today.
+      - Maroon Red Diamond was the first to discover the Metals, and he's the
+        one who brought both sides to the table. Nightshade Violet Diamond
+        settled the deal. It was made about seven months before the first Event.
   - n: 7
-    tags: [United Frontier]
+    tags:
+      - United Frontier
     text:
-      - Following up on Nugget #5. Parents in the United Frontier don't get to choose what Gem-Type their child will be. Since the Frontier is doing well and no type is needed more than another, a roulette wheel picks instead.
+      - "Following up on Nugget #5. Parents in the United Frontier don't get to
+        choose what Gem-Type their child will be. Since the Frontier is doing
+        well and no type is needed more than another, a roulette wheel picks
+        instead."
   - n: 8
-    tags: [Gem-Types, Medicine]
+    tags:
+      - Gem-Types
+      - Medicine
     text:
-      - Perfect Cut Angelites have two sets of wings and come in shades of yellow to gold. They act as administrators over normal Angelites, and they're usually called Arch-Angelites.
-      - You'd think that's the top of the ladder, but two Gem-Types rank higher in medicine, Celestine and Seraphinite. Neither was ever made in the Era 1 or Era 2 Gempire. Both come from the United Frontier.
+      - Perfect Cut Angelites have two sets of wings and come in shades of
+        yellow to gold. They act as administrators over normal Angelites, and
+        they're usually called Arch-Angelites.
+      - You'd think that's the top of the ladder, but two Gem-Types rank higher
+        in medicine, Celestine and Seraphinite. Neither was ever made in the Era
+        1 or Era 2 Gempire. Both come from the United Frontier.
   - n: 9
-    tags: [Cubic Zirconias, Titles]
+    tags:
+      - Cubic Zirconias
+      - Titles
     text:
-      - Every Cubic Zirconia is given the Title of Grand Regent the moment they emerge. They're the only Gems who get a Title without having to earn it. A Cubic Zirconia is addressed as Grand Regent followed by their name, as in Grand Regent Reina.
+      - Every Cubic Zirconia is given the Title of Grand Regent the moment they
+        emerge. They're the only Gems who get a Title without having to earn it.
+        A Cubic Zirconia is addressed as Grand Regent followed by their name, as
+        in Grand Regent Reina.
   - n: 10
-    tags: [Gem-Types, Heights]
+    tags:
+      - Gem-Types
+      - Heights
     text:
-      - The standard heights of each Gem-Type, by rank. Individual Gems can vary a little. Fusions stand as tall as their two halves added together.
-      - A Cubic Zirconia's height depends on their Diamond's. A Diamond's only Cubic Zirconia stands one foot shorter than them. If there are two, each one stands half their Diamond's height.
-    link: { label: See every height on the Height Chart, href: ../height-chart/ }
+      - The standard heights of each Gem-Type, by rank. Individual Gems can vary
+        a little. Fusions stand as tall as their two halves added together.
+      - A Cubic Zirconia's height depends on their Diamond's. A Diamond's only
+        Cubic Zirconia stands one foot shorter than them. If there are two, each
+        one stands half their Diamond's height.
+    link:
+      label: See every height on the Height Chart
+      href: ../height-chart/
   - n: 11
-    tags: [Kindergartens, Gem Production]
+    tags:
+      - Kindergartens
+      - Gem Production
     text:
-      - A Gem that cooks on a planet with extreme conditions can sometimes come out with an ability based on what it had to cook through.
-      - Gems from Heliodor's Kindergarten, for example, have a chance to emerge able to generate Radiation, and can even use it to power up their moves.
-      - On a planet known for its storms, a Gem may gain the ability to generate Lightning if their injection site gets struck while they're still forming. The gemstone soaks up the lightning, and it becomes part of what they can do.
+      - A Gem that cooks on a planet with extreme conditions can sometimes come
+        out with an ability based on what it had to cook through.
+      - Gems from Heliodor's Kindergarten, for example, have a chance to emerge
+        able to generate Radiation, and can even use it to power up their moves.
+      - On a planet known for its storms, a Gem may gain the ability to generate
+        Lightning if their injection site gets struck while they're still
+        forming. The gemstone soaks up the lightning, and it becomes part of
+        what they can do.
   - n: 12
-    tags: [Religion, Deity Diamonds]
+    tags:
+      - Religion
+      - Deity Diamonds
     text:
-      - Gems practice two religions. The first, and by far the most common, is Triadism. It worships the three Deity Diamonds, Alpha Black, Theta Gold, and Epsilon Blue, as the makers of Gemkind and of the universe itself. Each one represents a piece of it, Space, Time, and Energy.
-      - The second is Monolithism. It started as an offshoot of Triadism, and is treated as heresy. Its followers deny that the three are gods at all. They believe in a single being they call Universe Diamond, the true maker of everything, and that the universe itself is her body.
+      - Gems practice two religions. The first, and by far the most common, is
+        Triadism. It worships the three Deity Diamonds, Alpha Black, Theta Gold,
+        and Epsilon Blue, as the makers of Gemkind and of the universe itself.
+        Each one represents a piece of it, Space, Time, and Energy.
+      - The second is Monolithism. It started as an offshoot of Triadism, and is
+        treated as heresy. Its followers deny that the three are gods at all.
+        They believe in a single being they call Universe Diamond, the true
+        maker of everything, and that the universe itself is her body.
   - n: 13
-    tags: [Gems, United Frontier]
+    tags:
+      - Gems
+      - United Frontier
     text:
-      - Stats aren't something Gems can actually see. Most Gems size each other up by Gem-Type, rank, and how they carry themselves, which is really just a guess.
-      - Some Gems can CHECK another Gem though. When they do, they see an aura around that Gem that shows how strong they really are. The bigger and brighter the aura, the more power the Gem has, and it grows as the Gem does. So a Pearl who has spent years fighting will have a far bigger aura than one who hasn't, even if they look exactly the same.
-      - The aura also shows how hurt a Gem is. It dims as they take damage, and right before they poof it starts to flicker, which is where Flickering gets its name.
-    note: The United Frontier doesn't need the ability. Their tech can scan a Gem and turn that aura into a Power Level anyone can read.
+      - Stats aren't something Gems can actually see. Most Gems size each other
+        up by Gem-Type, rank, and how they carry themselves, which is really
+        just a guess.
+      - Some Gems can CHECK another Gem though. When they do, they see an aura
+        around that Gem that shows how strong they really are. The bigger and
+        brighter the aura, the more power the Gem has, and it grows as the Gem
+        does. So a Pearl who has spent years fighting will have a far bigger
+        aura than one who hasn't, even if they look exactly the same.
+      - The aura also shows how hurt a Gem is. It dims as they take damage, and
+        right before they poof it starts to flicker, which is where Flickering
+        gets its name.
+    note: The United Frontier doesn't need the ability. Their tech can scan a Gem
+      and turn that aura into a Power Level anyone can read.
   - n: 14
-    tags: [Alpha Black Diamond, United Frontier]
+    tags:
+      - Alpha Black Diamond
+      - United Frontier
     text:
-      - Back during the war against the White Devil, Alpha Black led the Frontier's army as a general. When the war ended, she stepped down and went back to being an aristocrat, and she's stayed one ever since.
-      - These days she lives on Hades 9 like any other citizen. She has a home of her own, one vote, and, as you can imagine, no seat on the High Council. Not that she'd want one. As for the aristocrat bit, let's just say she's filthy bloody rich. She runs a franchise of clubs across the Frontier, and only the very best, mind you. None of that cheap rubbish.
-      - A lot of the Era 0 Gems who fought under her still stop by to see her. She can vote on anything the rest of the Frontier votes on, as is her duty as a citizen of the United Frontier.
+      - Back during the war against the White Devil, Alpha Black led the
+        Frontier's army as a general. When the war ended, she stepped down and
+        went back to being an aristocrat, and she's stayed one ever since.
+      - These days she lives on Hades 9 like any other citizen. She has a home
+        of her own, one vote, and, as you can imagine, no seat on the High
+        Council. Not that she'd want one. As for the aristocrat bit, let's just
+        say she's filthy bloody rich. She runs a franchise of clubs across the
+        Frontier, and only the very best, mind you. None of that cheap rubbish.
+      - A lot of the Era 0 Gems who fought under her still stop by to see her.
+        She can vote on anything the rest of the Frontier votes on, as is her
+        duty as a citizen of the United Frontier.
   - n: 15
-    tags: [Gems, Metals]
+    tags:
+      - Gems
+      - Metals
     text:
-      - Most Gems emerge with a feminine form. A masculine form can happen, but it's much rarer, a bit like a recessive trait. Feminine is simply the dominant one, so the majority of Gems come out that way.
-      - Metals are a different story. They're a mixed bag, and a Metal is about as likely to come out masculine as feminine.
+      - Most Gems emerge with a feminine form. A masculine form can happen, but
+        it's much rarer, a bit like a recessive trait. Feminine is simply the
+        dominant one, so the majority of Gems come out that way.
+      - Metals are a different story. They're a mixed bag, and a Metal is about
+        as likely to come out masculine as feminine.
