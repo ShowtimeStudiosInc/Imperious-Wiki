@@ -11,11 +11,11 @@
 # and change that gem's `score` to match. `previous` is filled in by the script (score 7 days ago).
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
-updated: '2026-11-20'
-unrest: 58
+updated: '2026-11-21'
+unrest: 57
 deity:
   - slug: alpha-black
-    score: 49
+    score: 48
     previous: 47
     votes: 51300
   - slug: epsilon-blue
@@ -141,9 +141,14 @@ earlier_news:
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.
     changes: []
 log:
+  - date: '2026-11-21'
+    who: alpha-black
+    change: -1
+    kind: small
+    text: Younger gems keep asking why Alpha Black never shows herself anymore. Some of the answers going around aren't kind.
   - date: '2026-11-20'
     who: magda
-    change: +1
+    change: 1
     kind: small
     text: A Tivcral told a crowd that Magda's court once helped her get a better assignment. The story spread fast.
   - date: '2026-11-20'
