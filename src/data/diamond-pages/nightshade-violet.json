@@ -32,7 +32,141 @@
     ]
   },
   "powerList": [],
-  "abilities": [],
+  "abilities": [
+    {
+      "name": "Absolute Sciakinesis",
+      "level": "Advanced",
+      "meta": {
+        "Parent": "Sciakinesis",
+        "Complexity": "Complex",
+        "Origin": "Domain of Night"
+      },
+      "desc": [
+        "Nightshade can shroud a battlefield in shadow anywhere on the same planet as him, leaving his opponents to rely on anything but sight. He can also stretch, harden, and move the shadows that are already there, including the ones his enemies cast. Outside of battle, he shapes his shadows into eyes and places them anywhere on the planet, where they watch like cameras and let him see and hear everything around them. They're invisible to normal gems unless they have a high MAG. It's how he keeps the whole of Homeworld on course."
+      ],
+      "passives": [
+        {
+          "name": "Aura: Long Shadows",
+          "text": "While Nightshade is on the battlefield, the shadows stretch toward him. Enemies who are Far make their attacks with disadvantage."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Long Shadow",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "One target's own shadow lashes out at them, dealing 1d6 + MAG damage, even if they're Far."
+        },
+        {
+          "name": "Cast Shadow",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Shadow falls over one target's eyes. The target resists with INT. If they fail, they're Blinded for 1 turn, and their attacks are made with disadvantage."
+        },
+        {
+          "name": "Shadow Grip",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "One target's shadow holds onto their feet. The target resists with SPD. If they fail, they're Stuck for 2 turns."
+        },
+        {
+          "name": "Shroud",
+          "tier": "Standard",
+          "cost": "5 SP",
+          "text": "Nightshade shrouds the battlefield in shadow. Every enemy resists with INT. Those who fail are Blinded for 2 turns, and their attacks are made with disadvantage."
+        },
+        {
+          "name": "Lights Out",
+          "tier": "Mastered",
+          "cost": "7 SP",
+          "text": "Every enemy's shadow turns on them at once. Each takes 3d6 + MAG damage and resists with INT. Those who fail are Blinded for 1 turn."
+        }
+      ],
+      "weakLabel": "Weakness",
+      "weak": "His shadows and eyes can't reach past the planet he's on, a place with no light at all has no shadows for him to move, and any gem with a high MAG can spot his eyes."
+    },
+    {
+      "name": "Sleep Inducement",
+      "level": "Advanced",
+      "meta": {
+        "Parent": "N/A",
+        "Complexity": "Complex",
+        "Origin": "Domain of Night"
+      },
+      "desc": [
+        "Nightshade can make anyone tired, from a single gem to a crowd, and can solidify that tiredness around a whole group so they have to fight just to stay awake."
+      ],
+      "passives": [],
+      "spells": [
+        {
+          "name": "Yawn",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Nightshade yawns, and it spreads. One target's next roll is made with disadvantage."
+        },
+        {
+          "name": "Drowse",
+          "tier": "Basic",
+          "cost": "3 SP",
+          "text": "One target resists with INT. If they fail, they fall Asleep for 2 turns. Taking damage wakes them."
+        },
+        {
+          "name": "Lullaby",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Every enemy who is Near resists with INT. Those who fail fall Asleep for 1 turn. Taking damage wakes them."
+        },
+        {
+          "name": "Deep Sleep",
+          "tier": "Standard",
+          "cost": "2 SP",
+          "text": "Requires a target who is already Asleep. For 1 turn, taking damage doesn't wake them."
+        },
+        {
+          "name": "Time to Rest",
+          "tier": "Mastered",
+          "cost": "5 SP",
+          "text": "Nightshade solidifies tiredness around the enemy side for 3 turns. Every enemy is fighting off sleep, and their attacks are made with disadvantage."
+        }
+      ],
+      "weakLabel": "Weakness",
+      "weak": "Anything that can't sleep, like a Gem Machine, ignores this power, and damage wakes a sleeping target, so his allies have to hold back to keep them down."
+    },
+    {
+      "name": "Smoke Mimicry",
+      "level": "Advanced",
+      "meta": {
+        "Parent": "N/A",
+        "Complexity": "Complex",
+        "Origin": "Domain of Night"
+      },
+      "desc": [
+        "When Nightshade gets too nervous or shy, his form turns into smoke. He doesn't always mean to, but over time he's learned to use it."
+      ],
+      "passives": [
+        {
+          "name": "Nerves",
+          "text": "The first critical hit against Nightshade each battle turns him to smoke before it lands. He takes no damage from it."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Smoke Bomb..?",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "A Reaction. When an attack targets Nightshade, he gets nervous and turns to smoke. The attack misses, and he can move to Near, Far, or Behind anyone."
+        },
+        {
+          "name": "Smokescreen",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Nightshade lets some of himself drift out as smoke around his allies. For 2 turns, every ally who is Near him can't be targeted by enemies who are Far."
+        }
+      ],
+      "weakLabel": "Weakness",
+      "weak": "Strong wind scatters him. While he's in a windy area, Nerves doesn't work."
+    }
+  ],
   "quoteBy": "Nightshade Violet Diamond",
   "title": "Nightshade <span class=\"accent\">Violet</span> Diamond"
 }
