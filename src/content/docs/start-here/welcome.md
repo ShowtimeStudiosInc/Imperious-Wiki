@@ -1,6 +1,8 @@
 ---
 title: Welcome
 description: What the Imperious Authorities wiki is, and where to start.
+sidebar:
+  order: 1
 ---
 
 This wiki is the one place where every rule, Gem-Type, and piece of lore lives. Discord posts link here instead of holding the full text.
