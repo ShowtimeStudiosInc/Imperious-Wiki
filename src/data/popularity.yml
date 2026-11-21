@@ -12,7 +12,7 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-21'
-unrest: 56
+unrest: 54
 deity:
   - slug: alpha-black
     score: 48
@@ -43,7 +43,7 @@ ruling:
     votes: 33105
   - slug: bi-colored-kandy
     name: Bi-Colored Kandy Diamond
-    score: 68
+    score: 69
     previous: 64
     votes: 31488
 regents:
@@ -141,6 +141,11 @@ earlier_news:
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.
     changes: []
 log:
+  - date: '2026-11-21'
+    who: bi-colored-kandy
+    change: +1
+    kind: small
+    text: Gems in Kandy's colonies say their workload got lighter this month.
   - date: '2026-11-21'
     who: nightshade-violet
     change: -2
