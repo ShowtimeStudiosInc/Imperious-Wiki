@@ -2,6 +2,7 @@
  "flags": {},
  "recent": {
   "small": [
+   "petition-rumor",
    "alpha-questions",
    "reassigned-story",
    "theta-hours"
@@ -66,6 +67,26 @@
     "theta-gold": 57,
     "saturn-light": 80,
     "nightshade-violet": 59,
+    "maroon-red": 62,
+    "bi-colored-kandy": 68,
+    "antton": 74,
+    "florentino": 75,
+    "tethys": 41,
+    "reina": 61,
+    "magda": 67,
+    "law": 57,
+    "ordr": 54,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795279919035,
+   "scores": {
+    "alpha-black": 48,
+    "epsilon-blue": 68,
+    "theta-gold": 57,
+    "saturn-light": 80,
+    "nightshade-violet": 57,
     "maroon-red": 62,
     "bi-colored-kandy": 68,
     "antton": 74,

@@ -12,7 +12,7 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-21'
-unrest: 57
+unrest: 56
 deity:
   - slug: alpha-black
     score: 48
@@ -33,7 +33,7 @@ ruling:
     votes: 38940
   - slug: nightshade-violet
     name: Nightshade Violet Diamond
-    score: 59
+    score: 57
     previous: 52
     votes: 29660
   - slug: maroon-red
@@ -141,6 +141,11 @@ earlier_news:
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.
     changes: []
 log:
+  - date: '2026-11-21'
+    who: nightshade-violet
+    change: -2
+    kind: small
+    text: A rumor says Nightshade hasn't answered a single petition this month. Nobody knows where it started.
   - date: '2026-11-21'
     who: alpha-black
     change: -1
