@@ -12,7 +12,7 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-22'
-unrest: 53
+unrest: 52
 deity:
   - slug: alpha-black
     score: 48
@@ -23,7 +23,7 @@ deity:
     previous: 66
     votes: 49215
   - slug: theta-gold
-    score: 57
+    score: 59
     previous: 55
     votes: 46870
 ruling:
@@ -141,6 +141,11 @@ earlier_news:
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.
     changes: []
 log:
+  - date: '2026-11-22'
+    who: theta-gold
+    change: +2
+    kind: small
+    text: Theta's production numbers came out, and they beat last cycle. Most of the credit is going to the workers in Canopus Reach.
   - date: '2026-11-22'
     who: tethys
     change: -1
