@@ -11,8 +11,8 @@
 # and change that gem's `score` to match. `previous` is filled in by the script (score 7 days ago).
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
-updated: '2026-11-21'
-unrest: 54
+updated: '2026-11-22'
+unrest: 53
 deity:
   - slug: alpha-black
     score: 48
@@ -56,7 +56,7 @@ regents:
     previous: 70
     votes: 9815
   - slug: tethys
-    score: 41
+    score: 40
     previous: 38
     votes: 2117
   - slug: reina
@@ -141,9 +141,14 @@ earlier_news:
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.
     changes: []
 log:
+  - date: '2026-11-22'
+    who: tethys
+    change: -1
+    kind: small
+    text: Gems at court say Tethys can tell when they're lying. Some find that comforting. Others find it creepy.
   - date: '2026-11-21'
     who: bi-colored-kandy
-    change: +1
+    change: 1
     kind: small
     text: Gems in Kandy's colonies say their workload got lighter this month.
   - date: '2026-11-21'
