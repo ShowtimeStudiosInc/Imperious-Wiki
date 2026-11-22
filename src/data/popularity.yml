@@ -52,7 +52,7 @@ regents:
     previous: 68
     votes: 12402
   - slug: florentino
-    score: 75
+    score: 73
     previous: 70
     votes: 9815
   - slug: tethys
@@ -142,8 +142,13 @@ earlier_news:
     changes: []
 log:
   - date: '2026-11-22'
+    who: florentino
+    change: -2
+    kind: small
+    text: Florentino turned down a petition from a group of Service Trade gems in front of everyone.
+  - date: '2026-11-22'
     who: theta-gold
-    change: +2
+    change: 2
     kind: small
     text: Theta's production numbers came out, and they beat last cycle. Most of the credit is going to the workers in Canopus Reach.
   - date: '2026-11-22'
