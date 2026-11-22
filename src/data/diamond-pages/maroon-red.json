@@ -3,7 +3,7 @@
   "title": "Maroon <span class=\"accent\">Red</span> Diamond",
   "courtLine": "Court Maroon · Ruling Diamond · Era 2A",
   "heroSub": "The War Diamond, and one of the four Ruling Diamonds who came into being in Era 2A. The Roaming Eyes that carry Ruby squads around the empire are most often Court Maroon's.",
-  "quote": "",
+  "quote": "\"To fight and win is to give your absolute hardest, any less and you deserve to lose.\"",
   "quoteBy": "Maroon Red Diamond",
   "art": {
     "sub": "",
@@ -24,10 +24,148 @@
       }
     ]
   },
-  "personality": [],
-  "purpose": [],
-  "weakness": [],
-  "abilities": [],
+  "personality": [
+    "This Diamond encourages all his troops to reach their absolute best and will put out punishment if he feels it hasn't been achieved. He will only shatter Gems under him after repeated cases of disobedience as he dislikes the idea of a disloyal soldier. Red cares plenty about his looks, as he believes not looking his best would be a sign of laziness that would rub off on all those around him. Red treats the Diamonds before him with the greatest respect he can give and will sacrifice whatever it takes to form a bright future for Homeworld.\nWhen there's a problem to be solved, Maroon Red will always try to go at it whenever possible, between doing it himself and sending his best soldiers to do it instead. He makes sure to give even his Pearls and Spinels the hardest trainings he can so he knows for sure that they can protect themselves. If a Gem under him fails, he will feel at fault and punish the Gem himself."
+  ],
+  "purpose": [
+    "Maroon Red trains and prepares any and all Gems under him for any enemy in any situation. He gives the hardest of trainings to each of them depending on what type of Gem they are so they each can join the highest of regiments. When a Gem concludes their training, this Red holds a small-scale ceremony in their honor, inviting other gems in the regime to celebrate."
+  ],
+  "weakness": [
+    "Water puts out his fire before it lands."
+  ],
+  "abilities": [
+    {
+      "name": "Absolute Pyrokinesis",
+      "level": "Mastered",
+      "meta": {
+        "Parent": "Pyrokinesis",
+        "Complexity": "Complex",
+        "Origin": "Domain of War"
+      },
+      "desc": [
+        "Maroon can create fire and move it, on his body and through the air. All of his clothing is fireproof. Outside of battle, Gems of his court who share a room with him grow stronger than they should be, and they take any order he gives without question, the way gems do around a Hessonite."
+      ],
+      "passives": [
+        {
+          "name": "Aura: Call to Arms",
+          "text": "While Maroon is on the battlefield, his allies add +2 to their attack rolls."
+        },
+        {
+          "name": "Fireproof",
+          "text": "Maroon can't be Burned."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Ember",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Maroon throws a burst of fire at one target, dealing 1d6 + MAG damage."
+        },
+        {
+          "name": "Firebrand",
+          "tier": "Basic",
+          "cost": "3 SP",
+          "text": "Maroon sets one weapon on fire, his own or an ally's. For 3 turns, its hits deal an extra 1d6 damage."
+        },
+        {
+          "name": "Wall of Fire",
+          "tier": "Standard",
+          "cost": "4 SP",
+          "text": "A wall of fire splits the battlefield. For 2 turns, enemies who are Far can't move Near."
+        },
+        {
+          "name": "Scorched Earth",
+          "tier": "Advanced",
+          "cost": "5 SP",
+          "text": "Fire sweeps across the ground. Several targets take 2d6 + MAG damage and resist with SPD. Those who fail are Burned for 1 turn."
+        },
+        {
+          "name": "Raze",
+          "tier": "Mastered",
+          "cost": "6 SP",
+          "text": "Maroon burns down everything in front of him. Every enemy takes 3d6 + MAG damage that ignores DEF. He can't use Absolute Pyrokinesis on his next turn."
+        }
+      ],
+      "weakLabel": "Weakness",
+      "weak": "Rain or deep water puts out his fire before it lands, and a room with no air leaves him nothing to burn."
+    },
+    {
+      "name": "Holographic Projection",
+      "level": "Basic",
+      "meta": {
+        "Parent": "N/A",
+        "Complexity": "Complex",
+        "Origin": "Domain of War"
+      },
+      "desc": [
+        "Maroon projects smaller light copies of himself. He mostly uses them to train his militia, and outside of battle he can run a hologram at any training ground he controls, even when he isn't there."
+      ],
+      "passives": [],
+      "spells": [
+        {
+          "name": "Decoy",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "A Reaction. When an attack targets Maroon, a hologram takes his place, and the attack hits the hologram instead."
+        },
+        {
+          "name": "Drill",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "A hologram stands beside one ally and calls out openings. For 2 turns, that ally's attacks are made with advantage."
+        },
+        {
+          "name": "Formation",
+          "tier": "Standard",
+          "cost": "4 SP",
+          "text": "Several holograms of Maroon fill the battlefield. For 2 turns, enemies can't tell which one is real, and their attacks against him are made with disadvantage."
+        }
+      ],
+      "weakLabel": "Weakness",
+      "weak": "His holograms can't touch anything or deal damage, and a bright flash breaks every hologram on the field."
+    },
+    {
+      "name": "Gem Space",
+      "level": "Basic",
+      "meta": {
+        "Parent": "N/A",
+        "Complexity": "Complex",
+        "Origin": "Domain of War"
+      },
+      "desc": [
+        "Maroon can store anything smaller than himself inside his gem. He uses it almost entirely for weapons, and keeps one for every kind of fight."
+      ],
+      "passives": [
+        {
+          "name": "Armory",
+          "text": "Switching weapons doesn't use Maroon's turn."
+        }
+      ],
+      "spells": [
+        {
+          "name": "Arm",
+          "tier": "Basic",
+          "cost": "2 SP",
+          "text": "Maroon pulls a weapon from his gem and hands it to one ally. For 3 turns, they get +2 ATK."
+        },
+        {
+          "name": "Confiscate",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Maroon pulls one target's weapon into his gem. The target resists with ATK. If they fail, they can't make weapon attacks for 2 turns."
+        },
+        {
+          "name": "Arsenal",
+          "tier": "Standard",
+          "cost": "4 SP",
+          "text": "Maroon fires weapons from his gem at several targets, dealing 2d6 + ATK damage to each."
+        }
+      ],
+      "weakLabel": "Weakness",
+      "weak": "Nothing bigger than him fits inside, and if his gem is cracked, he can't open it."
+    }
+  ],
   "powerList": [],
   "credits": [
     {
@@ -35,5 +173,5 @@
       "name": "CometCatt (deviantArt)"
     }
   ],
-  "partial": "This page is partial. Only what the server already knows is here, and the rest will be added once Maroon Red's submission arrives."
+  "partial": ""
 }
