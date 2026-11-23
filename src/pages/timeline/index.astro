@@ -1,7 +1,7 @@
 ---
 import Site from '../../layouts/Site.astro';
 import { url } from '../../lib/gems';
-import { pages, layout } from '../../lib/timeline';
+import { pages, layout, EMBLEMS } from '../../lib/timeline';
 import type { Track } from '../../lib/timeline';
 
 // Segment marks (1A, 1B, 2A...) start halfway between the last event of one segment and the first of the next.
@@ -47,13 +47,17 @@ const segments = (t: Track, pos: Map<string, number>) => {
                     const status = e.status ?? 'open';
                     const Tag = status === 'open' && e.link ? 'a' : 'div';
                     return (
-                      <Tag class={`ev ${i % 2 ? 'below' : 'above'} ${status}${e.kind === 'news' ? ' news' : ''}${x > 82 ? ' flip' : ''}`} style={`left:${x}%`} href={Tag === 'a' ? url(e.link!) : undefined}>
-                        <span class="mark" aria-hidden="true" />
+                      <Tag class={`ev ${i % 2 ? 'below' : 'above'} ${status}${e.kind === 'news' ? ' news' : ''}${e.includes?.length ? ' chapter' : ''}${x > 82 ? ' flip' : ''}`} style={`left:${x}%`} href={Tag === 'a' ? url(e.link!) : undefined}>
+                        {e.includes?.length
+                          ? <span class="cmark" aria-hidden="true"><svg viewBox="0 0 100 100" set:html={EMBLEMS[e.emblem ?? 'five'] ?? ''} /></span>
+                          : <span class="mark" aria-hidden="true" />}
                         <span class="txt">
                           {e.current && <span class="cur">Current Event</span>}
                           {e.kind === 'news' && <span class="src">The Homeworld Times</span>}
                           {e.when && <span class="when">{e.when}</span>}
+                          {e.includes?.length && <span class="ck">Chapter</span>}
                           <span class="et">{e.title}</span>
+                          {e.includes?.length && e.tagline && <span class="ctag">{e.tagline}</span>}
                           {status === 'pending' && <span class="st">Recap coming</span>}
                           {status === 'sealed' && <span class="st">Sealed</span>}
                         </span>
@@ -134,6 +138,18 @@ const segments = (t: Track, pos: Map<string, number>) => {
   .mark { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; background: var(--c); transform: rotate(45deg); box-shadow: 0 0 0 4px rgba(13, 8, 24, 0.9); transition: transform 0.2s ease, box-shadow 0.2s ease; }
   .ev.pending .mark, .ev.sealed .mark { background: #0d0818; border: 2px solid var(--c); }
   .ev.sealed { --c: #6f6690; }
+  .cmark { position: absolute; left: -32px; top: -36px; width: 64px; height: 72px; display: grid; place-items: center; color: var(--c); z-index: 1; }
+  .cmark::before, .cmark::after { content: ''; position: absolute; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+  .cmark::before { inset: 0; background: var(--c); }
+  .cmark::after { inset: 3px; background: linear-gradient(160deg, #241a3a, #0d0818 70%); }
+  .cmark svg { position: relative; z-index: 1; width: 50%; height: 50%; fill: currentColor; }
+  .chapter.above .txt { bottom: 44px; }
+  .chapter.below .txt { top: 44px; }
+  .chapter .txt { left: -90px; width: 180px; }
+  .chapter .et { font-size: 0.95rem; letter-spacing: 0.22em; text-transform: uppercase; }
+  .ck { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c); }
+  .ctag { font-size: 0.74rem; color: var(--muted); }
+  a.ev.chapter:hover .cmark { filter: drop-shadow(0 0 12px var(--c)); }
   .ev.news .mark { transform: none; border-radius: 50%; width: 11px; height: 11px; left: -5.5px; top: -5.5px; background: #0d0818; border: 2px solid #ff6b5e; }
   a.ev.news:hover .mark { transform: scale(1.35); }
   .src { font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: #ff8a7e; }
@@ -179,6 +195,8 @@ const segments = (t: Track, pos: Map<string, number>) => {
     .tnote { position: static; transform: none; display: block; }
     .ev { position: relative; display: block; width: auto; height: auto; left: 0 !important; top: 0; padding: 0.35rem 0 0.35rem 1.4rem; }
     .mark { top: 0.7rem; left: 0; width: 10px; height: 10px; }
+    .cmark { position: absolute; left: -10px; top: 0.2rem; width: 26px; height: 29px; }
+    .chapter .txt { width: auto; }
     .txt, .flip .txt { position: static; width: auto; justify-items: start; text-align: left; }
     .arrow { top: auto; bottom: 1rem; transform: none; height: 34px; }
   }

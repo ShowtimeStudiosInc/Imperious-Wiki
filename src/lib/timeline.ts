@@ -2,18 +2,21 @@
 import { load } from 'js-yaml';
 import fs from 'node:fs';
 
-export interface Part { id: string; when: string; title: string; paras: string[] }
+export interface Part { id: string; when: string; title: string; paras: string[]; link?: { href: string; label: string } }
 export interface Era { slug: string; title: string; name: string; tagline: string; emblem: string; heading?: string; parts: Part[] }
 export interface Event {
   id: string; title: string; when?: string; segment?: string; link?: string; at?: string; x?: number;
   status?: 'open' | 'pending' | 'sealed'; current?: boolean; kind?: 'news';
+  page?: number;
+  /** Chapter nodes: the event ids this chapter replaces on the line, plus its own page details. */
+  includes?: string[]; name?: string; tagline?: string; emblem?: string;
 }
 export interface Track {
   key: string; label: string; name?: string; color: string; style?: 'solid' | 'dotted';
   from_left?: boolean; to_right?: boolean; ends_at?: string; note?: string;
   parts?: { slug: string; segment?: string; labels?: Record<string, string>; only?: string }[]; events: Event[];
 }
-export interface Page { key: string; title: string; sub: string; tracks: Track[] }
+export interface Page { key: string; title: string; sub: string; tracks: Track[]; per_page?: number }
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -47,8 +50,8 @@ const raw = load(fs.readFileSync('src/data/timeline.yml', 'utf8')) as { eras: Om
 export const eras: Era[] = raw.eras.map((e) => ({ ...e, ...readParts(e.slug) }));
 const eraBySlug = new Map(eras.map((e) => [e.slug, e]));
 
-/** Pages with every track's events filled in (Era lore sections become events). */
-export const pages: Page[] = raw.pages.map((p) => ({
+/** Every track's events, with lore sections turned into events. */
+const filled: Page[] = raw.pages.map((p) => ({
   ...p,
   tracks: p.tracks.map((t) => ({
     ...t,
@@ -59,6 +62,61 @@ export const pages: Page[] = raw.pages.map((p) => ({
     ],
   })),
 }));
+
+/** Finished chapters. Each one replaces its events on the line with a single node, and gets a page that gathers them. */
+export interface Chapter { slug: string; title: string; name?: string; tagline?: string; emblem: string; parts: Part[] }
+const allEvents = filled.flatMap((p) => p.tracks.flatMap((t) => t.events));
+const byId = new Map(allEvents.map((e) => [e.id, e]));
+export const chapters: Chapter[] = allEvents.filter((e) => e.includes?.length).map((c) => ({
+  slug: c.id, title: c.title, name: c.name, tagline: c.tagline, emblem: c.emblem ?? 'five',
+  parts: (c.includes ?? []).flatMap((id) => {
+    const e = byId.get(id);
+    if (!e) return [];
+    const lore = e.link?.match(/^\/timeline\/([^/#]+)\//)?.[1];
+    const era = lore ? eraBySlug.get(lore) : undefined;
+    if (era) return era.parts.map((pt) => ({ ...pt, id: `${id}-${pt.id}`, when: e.title, title: pt.title }));
+    if (e.kind === 'news') {
+      const slug = e.link?.match(/\/news\/([^/]+)/)?.[1];
+      const file = slug ? `src/data/news/${slug}.yml` : '';
+      const d = file && fs.existsSync(file) ? (load(fs.readFileSync(file, 'utf8')) as { summary?: string }) : {};
+      return [{ id, when: 'The Homeworld Times', title: e.title, paras: d.summary ? [d.summary] : [], link: e.link ? { href: e.link, label: 'Watch the full broadcast' } : undefined }];
+    }
+    return [{ id, when: e.when ?? '', title: e.title, paras: [] }];
+  }),
+}));
+const hidden = new Set(chapters.flatMap((c) => allEvents.find((e) => e.id === c.slug)?.includes ?? []));
+
+const ROMAN = ['', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+
+/**
+ * The pages as shown. Hidden (chaptered) events are removed, and a page with per_page set
+ * spills onto extra pages (Era 2, Era 2 · II, Era 2 · III...) once its busiest line has too many events.
+ * Events on the other lines go on the page holding the event they're lined up with ("at"), or the page set by "page", or the first one.
+ */
+export const pages: Page[] = filled.flatMap((p) => {
+  const tracks = p.tracks.map((t) => ({ ...t, events: t.events.filter((e) => !hidden.has(e.id)).map((e) => (e.includes?.length && !e.link ? { ...e, link: `/timeline/${e.id}/` } : e)) }));
+  const main = tracks.reduce((a, b) => (b.events.length > a.events.length ? b : a), tracks[0]);
+  if (!p.per_page || main.events.length <= p.per_page) return [{ ...p, tracks }];
+  const chunks: string[][] = [];
+  for (let i = 0; i < main.events.length; i += p.per_page) chunks.push(main.events.slice(i, i + p.per_page).map((e) => e.id));
+  return chunks.map((ids, k) => ({
+    ...p,
+    key: k === 0 ? p.key : `${p.key}-${k + 1}`,
+    title: k === 0 ? p.title : `${p.title} · ${ROMAN[k] ?? k + 1}`,
+    tracks: tracks.map((t) => ({
+      ...t,
+      from_left: k > 0 ? true : t.from_left,
+      to_right: k < chunks.length - 1 ? true : t.to_right,
+      ends_at: undefined,
+      events: t === main
+        ? t.events.filter((e) => ids.includes(e.id))
+        : t.events.filter((e) => {
+            const want = e.page != null ? e.page - 1 : e.at ? chunks.findIndex((c) => c.includes(e.at!)) : 0;
+            return (want < 0 ? 0 : want) === k;
+          }),
+    })),
+  }));
+});
 
 /** Where every event on a page sits, in percent. Tracks with lore sections spread evenly; "at" borrows another event's spot; "x" pins it. */
 export function layout(page: Page) {

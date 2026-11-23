@@ -20,6 +20,17 @@
 #                        kind    news for a Homeworld Times broadcast (drawn as a small round marker)
 #                        x       pin the event to a spot on the line, in percent
 #   note               shown on a track with no events yet
+#
+# A page with per_page carries on to extra pages (Era 2, Era 2 · II, Era 2 · III...) once its busiest line passes that many events.
+# Events on its other lines stay on the first page unless they set "at" (the page holding that event) or "page" (1, 2, 3...).
+#
+# Finishing a chapter: add one event for it on the same line, placed where the chapter starts, with
+#   id: the-seven-fractals            (its page will be /timeline/the-seven-fractals/)
+#   title: The Seven Fractals
+#   tagline: one short line
+#   emblem: five                      (any drawing from EMBLEMS)
+#   includes: [orientation-day, gugungagap-disaster, ...]
+# The events it lists vanish from the line and the chapter's page gathers their recaps and broadcasts, in that order.
 
 eras:
   - slug: era-0
@@ -176,6 +187,7 @@ pages:
   - key: era-2
     title: Era 2
     sub: The Age of the Five, and everything the server has lived through.
+    per_page: 8
     tracks:
       - key: gempire
         label: Era 2A

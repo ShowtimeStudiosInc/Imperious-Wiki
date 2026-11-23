@@ -1,14 +1,17 @@
 ---
 import Site from '../../layouts/Site.astro';
 import { url } from '../../lib/gems';
-import { eras, pages, EMBLEMS, PART_ICONS } from '../../lib/timeline';
+import { eras, chapters, pages, EMBLEMS, PART_ICONS } from '../../lib/timeline';
 
 export function getStaticPaths() {
-  return eras.map((n, i) => {
+  const findPage = (slug: string) => pages.find((p) => p.tracks.some((t) => (t.parts ?? []).some((s) => s.slug === slug) || t.events.some((e) => e.link?.startsWith(`/timeline/${slug}/`))));
+  // Finished chapters get a page that gathers every event they replaced.
+  const chapterPaths = chapters.map((c) => ({ params: { slug: c.slug }, props: { node: { ...c, name: c.title, tagline: c.tagline ?? '', title: 'Chapter' }, page: findPage(c.slug), prev: null, next: null } }));
+  return [...chapterPaths, ...eras.map((n, i) => {
     // The Timeline page this Era sits on, for the back link.
     const page = pages.find((p) => p.tracks.some((t) => (t.parts ?? []).some((s) => s.slug === n.slug) || t.events.some((e) => e.link?.startsWith(`/timeline/${n.slug}/`))));
     return { params: { slug: n.slug }, props: { node: n, page, prev: eras[i - 1] ?? null, next: eras[i + 1] ?? null } };
-  });
+  })];
 }
 const { node, page, prev, next } = Astro.props;
 ---
@@ -29,7 +32,7 @@ const { node, page, prev, next } = Astro.props;
         {node.parts.map((p, k) => (
           <a href={`#${p.id}`}>
             <svg viewBox="0 0 24 24" aria-hidden="true" set:html={PART_ICONS[k % PART_ICONS.length]} />
-            <span>{p.title}</span>
+            <span>{node.title === 'Chapter' && p.when ? `${p.when}: ${p.title}` : p.title}</span>
           </a>
         ))}
       </nav>
@@ -45,6 +48,7 @@ const { node, page, prev, next } = Astro.props;
           </div>
         </div>
         {p.paras.map((t) => <p>{t}</p>)}
+        {p.link && <p class="more"><a href={url(p.link.href)}>{p.link.label} ›</a></p>}
       </section>
     ))}
 
@@ -81,6 +85,7 @@ const { node, page, prev, next } = Astro.props;
   .part h2 { margin: 0; font-family: var(--sans); font-size: 1.05rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
   .part p { font-family: var(--serif); font-size: 1rem; line-height: 1.8; margin: 0 0 0.9rem; color: var(--text); }
 
+  .part .more a { font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lav); }
   .next-prev { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
   .next-prev a { display: grid; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text); }
   .next-prev a small { font-family: var(--serif); letter-spacing: 0; text-transform: none; color: var(--muted); font-size: 0.85rem; }
