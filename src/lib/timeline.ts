@@ -3,58 +3,71 @@ import { load } from 'js-yaml';
 import fs from 'node:fs';
 
 export interface Part { id: string; when: string; title: string; paras: string[] }
-export interface Node {
-  slug: string; segment: string; title: string; name?: string; tagline: string; emblem: string;
-  status: 'open' | 'locked' | 'sealed'; current?: boolean; note?: string;
-  heading?: string; parts: Part[];
+export interface Era { slug: string; title: string; name: string; tagline: string; emblem: string; heading?: string; parts: Part[] }
+export interface Event {
+  id: string; title: string; when?: string; segment?: string; link?: string; at?: string; x?: number;
+  status?: 'open' | 'pending' | 'sealed'; current?: boolean;
 }
-export interface Page { key: string; title: string; sub: string; nodes: Node[] }
+export interface Track {
+  key: string; label: string; name?: string; color: string; style?: 'solid' | 'dotted';
+  from_left?: boolean; to_right?: boolean; ends_at?: string; note?: string;
+  parts?: { slug: string; segment: string }[]; events: Event[];
+}
+export interface Page { key: string; title: string; sub: string; tracks: Track[] }
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-/** Reads a node's .md: a "# Heading", then "**WHEN · TITLE**" section lines, each followed by "> " paragraphs. */
+/** Reads an Era's .md: a "# Heading", then "**WHEN · TITLE**" section lines, each followed by "> " paragraphs. */
 function readParts(slug: string): { heading?: string; parts: Part[] } {
   const file = `src/data/timeline/${slug}.md`;
   if (!fs.existsSync(file)) return { parts: [] };
   const parts: Part[] = [];
   let heading: string | undefined;
   let cur: Part | null = null;
-  let para: string[] = [];
-  const flush = () => { if (cur && para.length) cur.paras.push(para.join(' ')); para = []; };
   for (const raw of fs.readFileSync(file, 'utf8').split(/\r?\n/)) {
     const line = raw.trim();
     if (line.startsWith('# ')) { heading = line.slice(2).trim(); continue; }
     const sec = line.match(/^\*\*(.+?)\*\*$/);
     if (sec) {
-      flush();
       const [when, ...rest] = sec[1].split(' · ');
-      const title = rest.join(' · ') || when;
-      cur = { id: slugify(title), when: rest.length ? when.trim() : '', title: title.trim(), paras: [] };
+      const title = (rest.join(' · ') || when).trim();
+      cur = { id: slugify(title), when: rest.length ? when.trim() : '', title, paras: [] };
       parts.push(cur);
       continue;
     }
-    if (line.startsWith('>')) {
-      // Every quoted line is its own paragraph (dialogue lines often sit back to back).
-      const text = line.replace(/^>\s?/, '').trim();
-      flush();
-      if (text) { para.push(text); flush(); }
-      continue;
-    }
-    if (!line) flush();
-    else para.push(line);
+    // Every quoted line is its own paragraph (dialogue lines often sit back to back).
+    const text = line.replace(/^>\s?/, '').trim();
+    if (cur && text) cur.paras.push(text);
   }
-  flush();
   return { heading, parts };
 }
 
-const raw = load(fs.readFileSync('src/data/timeline.yml', 'utf8')) as { pages: Omit<Page, 'nodes'> & { nodes: Omit<Node, 'parts'>[] }[] };
+const raw = load(fs.readFileSync('src/data/timeline.yml', 'utf8')) as { eras: Omit<Era, 'parts'>[]; pages: (Omit<Page, 'tracks'> & { tracks: Omit<Track, 'events'> & { events?: Event[] }[] })[] };
 
+export const eras: Era[] = raw.eras.map((e) => ({ ...e, ...readParts(e.slug) }));
+const eraBySlug = new Map(eras.map((e) => [e.slug, e]));
+
+/** Pages with every track's events filled in (Era lore sections become events). */
 export const pages: Page[] = raw.pages.map((p) => ({
   ...p,
-  nodes: p.nodes.map((n) => ({ ...n, ...readParts(n.slug) })),
+  tracks: p.tracks.map((t) => ({
+    ...t,
+    events: [
+      ...(t.parts ?? []).flatMap((src) =>
+        (eraBySlug.get(src.slug)?.parts ?? []).map((pt) => ({ id: pt.id, title: pt.title, when: pt.when, segment: src.segment, link: `/timeline/${src.slug}/#${pt.id}` }))),
+      ...(t.events ?? []),
+    ],
+  })),
 }));
 
-export const allNodes = pages.flatMap((p) => p.nodes.map((n) => ({ ...n, page: p })));
+/** Where every event on a page sits, in percent. Tracks with lore sections spread evenly; "at" borrows another event's spot; "x" pins it. */
+export function layout(page: Page) {
+  const pos = new Map<string, number>();
+  const spread = (n: number, i: number) => (n === 1 ? 56 : 20 + (i * 74) / (n - 1));
+  for (const t of page.tracks) t.events.forEach((e, i) => { if (e.x != null) pos.set(e.id, e.x); else if (!e.at) pos.set(e.id, spread(t.events.length, i)); });
+  for (const t of page.tracks) for (const e of t.events) if (e.at && e.x == null) pos.set(e.id, pos.get(e.at) ?? 50);
+  return pos;
+}
 
 /** Hex emblems, drawn on a 100 x 100 grid in currentColor. */
 export const EMBLEMS: Record<string, string> = {

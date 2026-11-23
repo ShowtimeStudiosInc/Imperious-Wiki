@@ -1,86 +1,95 @@
 ---
 import Site from '../../layouts/Site.astro';
 import { url } from '../../lib/gems';
-import { pages, EMBLEMS, PART_ICONS } from '../../lib/timeline';
-import type { Node } from '../../lib/timeline';
-// Where each node sits along the line, in percent.
-const xs = (n: number) => (n === 1 ? [46] : n === 2 ? [24, 64] : Array.from({ length: n }, (_, i) => 14 + (i * 66) / (n - 1)));
-// Each stretch of the line (0, Side-B, 1A, 1B, 2A) starts halfway between the last node of one segment and the first of the next.
-const segmentsFor = (nodes: Node[]) => {
-  const x = xs(nodes.length);
-  const out: { label: string; from: number }[] = [];
-  nodes.forEach((n, i) => {
-    if (i === 0) out.push({ label: n.segment, from: 6 });
-    else if (n.segment !== nodes[i - 1].segment) out.push({ label: n.segment, from: (x[i - 1] + x[i]) / 2 });
+import { pages, layout } from '../../lib/timeline';
+import type { Track } from '../../lib/timeline';
+
+// Segment marks (1A, 1B, 2A...) start halfway between the last event of one segment and the first of the next.
+const segments = (t: Track, pos: Map<string, number>) => {
+  const out: { label: string; x: number }[] = [];
+  t.events.forEach((e, i) => {
+    if (!e.segment) return;
+    const prev = t.events[i - 1];
+    if (!prev) out.push({ label: e.segment, x: 15.5 });
+    else if (prev.segment !== e.segment) out.push({ label: e.segment, x: ((pos.get(prev.id) ?? 0) + (pos.get(e.id) ?? 0)) / 2 });
   });
   return out;
 };
 ---
 <Site title="Timeline" description="The history of the Gempire, Era by Era, and the story of the server.">
   <main class="tl-page" data-pagefind-body>
-    <div class="frame">
-      <p class="label">Timeline</p>
-      {pages.map((p, pi) => (
-        <section class={`tl-panel${pi === 0 ? ' on' : ''}`} id={p.key} data-key={p.key} aria-label={p.title}>
+    <p class="label">Timeline</p>
+    {pages.map((p, pi) => {
+      const pos = layout(p);
+      return (
+        <section class={`tl-panel${pi === 0 ? ' on' : ''}`} id={`tl-${p.key}`} data-key={p.key} aria-label={p.title} style={`--rows:${p.tracks.length}`}>
           <header class="ph">
             <h1>{p.title}</h1>
             <p>{p.sub}</p>
           </header>
-          <div class="track">
-            <span class="line" />
-            {segmentsFor(p.nodes).map((s) => (
-              <span class="seg" style={`--x:${s.from}%`}><span>{s.label}</span></span>
-            ))}
-            {p.nodes.map((n, i) => {
-              const x = xs(p.nodes.length)[i];
-              const up = i % 2 === 0;
-              const Tag = n.status === 'open' ? 'a' : 'div';
+          <div class="tracks">
+            {p.tracks.map((t) => {
+              const end = t.ends_at ? pos.get(t.ends_at) : undefined;
               return (
-                <div class={`node ${up ? 'up' : 'down'} ${n.status}${x > 70 ? ' flip' : ''}`} style={`--x:${x}%`}>
-                  <span class="dot" />
-                  <span class="stem" />
-                  <Tag class="medal-link" href={n.status === 'open' ? url(`/timeline/${n.slug}/`) : undefined}>
-                    <span class="medal"><svg viewBox="0 0 100 100" aria-hidden="true" set:html={EMBLEMS[n.emblem] ?? ''} /></span>
-                  </Tag>
-                  <div class="info">
-                    {n.current && <span class="cur">Current Event</span>}
-                    {n.status === 'open' ? <a class="t" href={url(`/timeline/${n.slug}/`)}>{n.title}</a> : <span class="t">{n.title}</span>}
-                    {n.name && <span class="nm">{n.name}</span>}
-                    <span class="tag">{n.tagline}</span>
-                    {n.status !== 'open' && <span class="note">{n.note}</span>}
-                    {n.parts.length > 0 && (
-                      <span class="parts">
-                        {n.parts.map((pt, k) => (
-                          <a href={url(`/timeline/${n.slug}/#${pt.id}`)} title={pt.title} aria-label={pt.title}>
-                            <svg viewBox="0 0 24 24" aria-hidden="true" set:html={PART_ICONS[k % PART_ICONS.length]} />
-                          </a>
-                        ))}
-                      </span>
-                    )}
+                <div class={`track${t.style === 'dotted' ? ' dotted' : ''}${t.events.length > 10 ? ' dense' : ''}`} style={`--c:${t.color}`}>
+                  <div class="tlabel">
+                    <span class="tl-name">{t.label}</span>
+                    {t.name && <span class="tl-sub">{t.name}</span>}
                   </div>
+                  <span class="line" style={`left:${t.from_left ? 0 : 15}%;right:${end != null ? 100 - end : t.to_right ? 0 : 3}%`} />
+                  {t.from_left && <span class="cap in" aria-hidden="true" />}
+                  {t.to_right && <span class="cap out" aria-hidden="true" />}
+                  {end != null && <span class="merge" style={`left:${end}%`} aria-hidden="true" />}
+                  {segments(t, pos).map((s) => <span class="seg" style={`left:${s.x}%`}><span>{s.label}</span></span>)}
+                  {t.events.length === 0 && t.note && <span class="tnote">{t.note}</span>}
+                  {t.events.map((e, i) => {
+                    const x = pos.get(e.id) ?? 50;
+                    const status = e.status ?? 'open';
+                    const Tag = status === 'open' && e.link ? 'a' : 'div';
+                    return (
+                      <Tag class={`ev ${i % 2 ? 'below' : 'above'} ${status}${x > 82 ? ' flip' : ''}`} style={`left:${x}%`} href={Tag === 'a' ? url(e.link!) : undefined}>
+                        <span class="mark" aria-hidden="true" />
+                        <span class="txt">
+                          {e.current && <span class="cur">Current Event</span>}
+                          {e.when && <span class="when">{e.when}</span>}
+                          <span class="et">{e.title}</span>
+                          {status === 'pending' && <span class="st">Recap coming</span>}
+                          {status === 'sealed' && <span class="st">Sealed</span>}
+                        </span>
+                      </Tag>
+                    );
+                  })}
                 </div>
               );
             })}
           </div>
         </section>
-      ))}
-      <button class="arrow prev" type="button" aria-label="Previous page"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M7 1L3 5l4 4z" /></svg></button>
-      <button class="arrow next" type="button" aria-label="Next page"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M3 1l4 4-4 4z" /></svg></button>
-      <nav class="pager" aria-label="Timeline pages">
-        {pages.map((p, pi) => <button type="button" data-go={pi} aria-label={p.title} aria-current={pi === 0 ? 'true' : undefined}><span>{p.title}</span></button>)}
-      </nav>
-    </div>
+      );
+    })}
+    <button class="arrow prev" type="button" aria-label="Previous Era"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M7 1L3 5l4 4z" /></svg></button>
+    <button class="arrow next" type="button" aria-label="Next Era"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M3 1l4 4-4 4z" /></svg></button>
+    <nav class="pager" aria-label="Eras">
+      {pages.map((p, pi) => <button type="button" data-go={pi} aria-current={pi === 0 ? 'true' : undefined}><span class="bar" /><span class="pl">{p.title}</span></button>)}
+    </nav>
   </main>
 </Site>
 
 <script>
+  const fit = () => {
+    const bar = document.querySelector<HTMLElement>('.topbar');
+    document.documentElement.style.setProperty('--tb', `${bar ? bar.offsetHeight : 0}px`);
+  };
+  fit();
+  addEventListener('resize', fit);
   const panels = [...document.querySelectorAll<HTMLElement>('.tl-panel')];
   const tabs = [...document.querySelectorAll<HTMLButtonElement>('.pager button')];
   let at = 0;
   const show = (i: number, push = true) => {
-    at = (i + panels.length) % panels.length;
+    at = Math.max(0, Math.min(panels.length - 1, i));
     panels.forEach((p, k) => p.classList.toggle('on', k === at));
     tabs.forEach((t, k) => (k === at ? t.setAttribute('aria-current', 'true') : t.removeAttribute('aria-current')));
+    document.querySelector('.arrow.prev')?.toggleAttribute('disabled', at === 0);
+    document.querySelector('.arrow.next')?.toggleAttribute('disabled', at === panels.length - 1);
     if (push) history.replaceState(null, '', `#${panels[at].dataset.key}`);
   };
   document.querySelector('.arrow.prev')?.addEventListener('click', () => show(at - 1));
@@ -88,100 +97,86 @@ const segmentsFor = (nodes: Node[]) => {
   tabs.forEach((t, k) => t.addEventListener('click', () => show(k)));
   document.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') show(at - 1); if (e.key === 'ArrowRight') show(at + 1); });
   const start = panels.findIndex((p) => `#${p.dataset.key}` === location.hash);
-  if (start > 0) show(start, false);
+  show(start > 0 ? start : 0, false);
 </script>
 
 <style>
-  .tl-page { padding: 1.4rem clamp(0.6rem, 2vw, 1.6rem) 2.5rem; }
-  .frame { position: relative; max-width: 1280px; margin: 0 auto; min-height: 720px; border: 1px solid var(--line); background:
-      radial-gradient(900px 420px at 50% 52%, rgba(124, 77, 255, 0.16), transparent 70%),
-      linear-gradient(180deg, rgba(8, 5, 16, 0.82), rgba(14, 9, 28, 0.9)); overflow: hidden; }
-  .frame::before, .frame::after { content: ''; position: absolute; width: 22px; height: 22px; border: 1px solid var(--line-strong); pointer-events: none; }
-  .frame::before { top: 8px; left: 8px; border-right: 0; border-bottom: 0; }
-  .frame::after { bottom: 8px; right: 8px; border-left: 0; border-top: 0; }
-  .label { position: absolute; top: 0.9rem; left: 50%; transform: translateX(-50%); margin: 0; font-size: 0.72rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--muted); }
+  .tl-page { position: relative; height: calc(100dvh - var(--tb, 56px)); min-height: 560px; overflow: hidden; background:
+      radial-gradient(1100px 520px at 50% 55%, rgba(124, 77, 255, 0.16), transparent 70%),
+      linear-gradient(180deg, rgba(8, 5, 16, 0.86), rgba(14, 9, 28, 0.94)); border-bottom: 1px solid var(--line); }
+  .label { position: absolute; top: 0.9rem; left: 50%; transform: translateX(-50%); margin: 0; font-size: 0.72rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--muted); z-index: 2; }
 
-  .tl-panel { display: none; position: relative; min-height: 720px; }
+  .tl-panel { display: none; position: absolute; inset: 0; }
   .tl-panel.on { display: block; animation: fade 0.35s ease; }
   @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
-  .ph { position: absolute; top: 2.6rem; left: 3.2rem; max-width: 38rem; }
-  .ph h1 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 1.5rem; letter-spacing: 0.06em; }
-  .ph p { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.9rem; }
+  .ph { position: absolute; top: 1.6rem; left: 3.4rem; max-width: 34rem; z-index: 2; }
+  .ph h1 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(1.4rem, 2.2vw, 1.9rem); letter-spacing: 0.06em; }
+  .ph p { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.88rem; }
 
-  .track { position: absolute; inset: 0; }
-  .line { position: absolute; left: 6%; right: 6%; top: 57%; height: 1px; background: var(--line-strong); }
-  .line::after { content: ''; position: absolute; left: 100%; top: 0; width: 5%; border-top: 1px dashed var(--line); }
+  .tracks { position: absolute; left: 0; right: 0; top: 6.5rem; bottom: 4.2rem; display: grid; grid-template-rows: repeat(var(--rows), 1fr); }
+  .track { position: relative; --c: #e9e1ff; }
+  .tlabel { position: absolute; left: 3.4rem; top: 50%; transform: translateY(-50%); width: calc(15% - 4.4rem); min-width: 120px; display: grid; line-height: 1.25; z-index: 2; padding: 0.3rem 0.6rem 0.3rem 0; background: linear-gradient(90deg, rgba(10, 6, 20, 0.95) 80%, transparent); }
+  .tl-name { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c); }
+  .tl-sub { font-family: var(--serif); font-size: 0.78rem; color: var(--muted); }
+  .line { position: absolute; top: 50%; height: 2px; margin-top: -1px; background: var(--c); opacity: 0.75; }
+  .dotted .line { background: none; border-top: 2px dotted var(--c); height: 0; }
+  .cap { position: absolute; top: 50%; width: 0; height: 0; border: 6px solid transparent; margin-top: -6px; }
+  .cap.in { left: 0; border-left-color: var(--c); }
+  .cap.out { right: 0; border-left-color: var(--c); }
+  .merge { position: absolute; top: 50%; width: 2px; height: calc(50% + 1px); background: linear-gradient(var(--c), transparent); opacity: 0.6; }
+  .seg { position: absolute; top: 50%; height: 0; }
+  .seg::before { content: ''; position: absolute; left: 0; top: -12px; width: 1px; height: 24px; background: var(--c); opacity: 0.8; }
+  .seg span { position: absolute; left: 6px; top: 0.45rem; padding: 0 0.3rem; background: rgba(10, 6, 20, 0.9); line-height: 1.4; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3em; color: var(--gold); }
+  .tnote { position: absolute; left: 50%; top: calc(50% + 0.7rem); transform: translateX(-50%); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dim); }
 
-  .seg { position: absolute; left: var(--x); top: 57%; height: 0; }
-  .seg::before { content: ''; position: absolute; left: 0; top: -9px; width: 1px; height: 18px; background: var(--line-strong); }
-  .seg span { position: absolute; left: 8px; top: 6px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
-  .node { position: absolute; left: var(--x); top: 57%; width: 0; height: 0; --c: #e9e1ff; }
-  .node.locked { --c: #8f86ad; }
-  .node.sealed { --c: #5d5578; }
-  .dot { position: absolute; left: -4px; top: -4px; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
-  .node.open .dot { box-shadow: 0 0 0 4px rgba(233, 225, 255, 0.12); }
-  .stem { position: absolute; left: 0; width: 1px; background: var(--line-strong); }
-  .up .stem { bottom: 0; height: 86px; }
-  .down .stem { top: 0; height: 86px; }
-  .stem::after { content: ''; position: absolute; left: 1px; width: 10px; height: 7px; background: var(--uf); clip-path: polygon(0 0, 100% 50%, 0 100%); }
-  .up .stem::after { top: 14px; }
-  .down .stem::after { bottom: 14px; }
+  .ev { position: absolute; top: 50%; width: 0; height: 0; color: var(--text); text-decoration: none; z-index: 1; }
+  .mark { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; background: var(--c); transform: rotate(45deg); box-shadow: 0 0 0 4px rgba(13, 8, 24, 0.9); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .ev.pending .mark, .ev.sealed .mark { background: #0d0818; border: 2px solid var(--c); }
+  .ev.sealed { --c: #6f6690; }
+  .txt { position: absolute; left: -64px; width: 128px; display: grid; justify-items: center; text-align: center; gap: 0.05rem; }
+  .above .txt { bottom: 14px; }
+  .below .txt { top: 14px; }
+  .flip .txt { left: auto; right: -14px; justify-items: end; text-align: right; }
+  .when { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); line-height: 1.3; }
+  .et { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; line-height: 1.25; color: var(--text); }
+  .st { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--dim); }
+  .cur { font-size: 0.66rem; color: #d8e36a; }
+  .dense .txt { left: -54px; width: 108px; }
+  .dense .et { font-size: 0.74rem; letter-spacing: 0.03em; }
+  .dense .when { font-size: 0.58rem; letter-spacing: 0.06em; }
+  a.ev:hover .mark, a.ev:focus-visible .mark { transform: rotate(45deg) scale(1.35); box-shadow: 0 0 0 4px rgba(13, 8, 24, 0.9), 0 0 14px var(--c); }
+  a.ev:hover .et, a.ev:focus-visible .et { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+  a.ev:focus-visible { outline: none; }
 
-  .medal-link { position: absolute; left: -54px; width: 108px; height: 120px; display: grid; place-items: center; color: var(--c); }
-  .up .medal-link { bottom: 86px; }
-  .down .medal-link { top: 86px; }
-  .medal { position: relative; width: 100%; height: 100%; display: grid; place-items: center; transition: transform 0.25s ease, filter 0.25s ease; }
-  .medal::before, .medal::after { content: ''; position: absolute; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
-  .medal::before { inset: 0; background: var(--c); opacity: 0.55; }
-  .medal::after { inset: 3px; background: linear-gradient(160deg, #241a3a, #0d0818 70%); }
-  .medal svg { position: relative; z-index: 1; width: 52%; height: 52%; fill: currentColor; }
-  .node.locked .medal svg, .node.sealed .medal svg { opacity: 0.55; }
-  a.medal-link:hover .medal, a.medal-link:focus-visible .medal { transform: scale(1.07); filter: drop-shadow(0 0 14px rgba(233, 225, 255, 0.45)); }
-
-  .info { position: absolute; left: 66px; width: clamp(150px, 15vw, 230px); display: grid; gap: 0.15rem; }
-  .up .info { top: -206px; }
-  .down .info { top: 92px; }
-  .node.flip .info { left: auto; right: 66px; text-align: right; }
-  .node.flip .parts { justify-content: flex-end; }
-  .cur { font-size: 0.72rem; color: #d8e36a; letter-spacing: 0.04em; }
-  .t { font-size: 1.02rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--c); line-height: 1.25; }
-  a.t:hover { color: #fff; }
-  .nm { font-family: var(--serif); font-size: 0.82rem; color: var(--muted); }
-  .tag { font-size: 0.85rem; color: var(--text); opacity: 0.9; }
-  .note { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--dim); margin-top: 0.15rem; }
-  .parts { display: flex; flex-wrap: wrap; align-items: center; gap: 0.15rem; margin-top: 0.4rem; }
-  .parts a { display: inline-grid; place-items: center; width: 26px; height: 26px; color: var(--c); opacity: 0.85; }
-  .parts a + a::before { content: ''; width: 6px; height: 1px; background: var(--line-strong); margin-right: 2px; position: relative; left: -4px; }
-  .parts a { position: relative; }
-  .parts a + a { margin-left: 6px; }
-  .parts a + a::before { position: absolute; left: -7px; top: 50%; }
-  .parts a:hover { opacity: 1; color: #fff; }
-  .parts svg { width: 18px; height: 18px; fill: currentColor; }
-
-  .arrow { position: absolute; top: 57%; transform: translateY(-50%); width: 28px; height: 64px; display: grid; place-items: center; background: rgba(13, 8, 24, 0.7); border: 1px solid var(--line-strong); color: var(--text); cursor: pointer; z-index: 3; }
+  .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 30px; height: 70px; display: grid; place-items: center; background: rgba(13, 8, 24, 0.75); border: 1px solid var(--line-strong); color: var(--text); cursor: pointer; z-index: 3; }
   .arrow svg { width: 10px; height: 10px; fill: currentColor; }
-  .arrow:hover { background: rgba(124, 77, 255, 0.3); }
-  .prev { left: 0.8rem; }
-  .next { right: 0.8rem; }
-  .pager { position: absolute; bottom: 1.1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; z-index: 3; }
-  .pager button { background: none; border: 0; padding: 0.4rem 0; cursor: pointer; }
-  .pager span { display: block; width: 38px; height: 3px; background: var(--line); font-size: 0; }
-  .pager button[aria-current] span { background: var(--text); }
+  .arrow:hover:not([disabled]) { background: rgba(124, 77, 255, 0.3); }
+  .arrow[disabled] { opacity: 0.3; cursor: default; }
+  .prev { left: 0.6rem; }
+  .next { right: 0.6rem; }
+  .pager { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 1.2rem; z-index: 3; }
+  .pager button { background: none; border: 0; padding: 0.2rem 0; cursor: pointer; display: grid; justify-items: center; gap: 0.35rem; color: var(--dim); }
+  .pager .bar { display: block; width: 46px; height: 3px; background: var(--line); }
+  .pager .pl { font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase; }
+  .pager button[aria-current] .bar { background: var(--text); }
+  .pager button[aria-current] { color: var(--text); }
 
-  @media (max-width: 860px) {
-    .frame, .tl-panel { min-height: 0; }
+  /* Phones: tracks stack as lists */
+  @media (max-width: 820px) {
+    .tl-page { height: auto; min-height: calc(100dvh - var(--tb, 56px)); overflow: visible; padding-bottom: 5rem; }
+    .tl-panel { position: static; }
     .label { position: static; transform: none; text-align: center; padding-top: 0.9rem; }
-    .ph { position: static; padding: 0.6rem 1.2rem 0; }
-    .track { position: static; padding: 1rem 1.2rem 4.5rem 2.2rem; display: grid; gap: 1.4rem; }
-    .line { display: none; }
-    .line::after { display: none; }
-    .node { position: relative; left: 0 !important; top: 0; width: auto; height: auto; display: grid; grid-template-columns: 72px 1fr; gap: 0.9rem; align-items: center; }
-    .dot, .stem { display: none; }
-    .seg { display: none; }
-    .medal-link { position: static; width: 72px; height: 80px; }
-    .info, .node.flip .info { position: static; width: auto; text-align: left; }
-    .node.flip .parts { justify-content: flex-start; }
-    .arrow { top: auto; bottom: 0.7rem; transform: none; height: 32px; }
+    .ph { position: static; padding: 0.4rem 1.2rem 0.6rem; }
+    .tracks { position: static; display: grid; grid-template-rows: none; gap: 1.4rem; padding: 0 1.2rem; }
+    .tlabel { position: static; transform: none; width: auto; background: none; margin-bottom: 0.5rem; }
+    .line, .cap, .merge, .seg { display: none; }
+    .track { border-left: 2px solid var(--c); padding-left: 0.9rem; }
+    .dotted.track { border-left-style: dotted; }
+    .tnote { position: static; transform: none; display: block; }
+    .ev { position: relative; display: block; width: auto; height: auto; left: 0 !important; top: 0; padding: 0.35rem 0 0.35rem 1.4rem; }
+    .mark { top: 0.7rem; left: 0; width: 10px; height: 10px; }
+    .txt, .flip .txt { position: static; width: auto; justify-items: start; text-align: left; }
+    .arrow { top: auto; bottom: 1rem; transform: none; height: 34px; }
   }
-  @media (prefers-reduced-motion: reduce) { .tl-panel.on { animation: none; } .medal { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .tl-panel.on { animation: none; } .mark { transition: none; } }
 </style>

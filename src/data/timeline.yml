@@ -1,83 +1,143 @@
-# The Timeline page (/timeline/), laid out like a game's timeline screen.
-# One page per Era (0, 1, 2). The line on each page is split into segments (0, Side-B, 1A, 1B, 2A).
-# The server's own events happen during Era 2A, so they sit on the Era 2 page inside the 2A segment.
+# The Timeline (/timeline/), laid out like a game's timeline screen.
 #
-# Each node:
-#   slug      the page it opens (/timeline/<slug>/). Its text lives in src/data/timeline/<slug>.md
-#   segment   which stretch of the line it sits in
-#   title     shown in spaced capitals
-#   name      shown under the title
-#   tagline   one short line
-#   emblem    which drawing goes in the hex (see EMBLEMS in src/lib/timeline.ts)
-#   status    open (has a page), locked (coming later), or sealed (never told)
-#   current   true puts a "Current Event" tag on it
-#   note      the small line shown on a locked or sealed node
-# Parts (the small icons under a node) come from the ** section lines ** in its .md file.
+# eras:   every Era that has its own lore page (/timeline/<slug>/, text in src/data/timeline/<slug>.md).
+# pages:  one page per Era (0, 1, 2). Each page has tracks (lines) stacked top to bottom.
+#
+# A track:
+#   key, label, name   the line's id and the label at its left
+#   color              the line's color
+#   style              solid or dotted
+#   from_left          true if the line carries on from the page before (draws an arrow in)
+#   to_right           true if the line carries on to the next page (draws an arrow out)
+#   ends_at            an event id where the line stops early (the rest of the track is empty)
+#   parts              pull events from an Era's lore sections: a list of { slug, segment }
+#   events             events written by hand: { id, title, when, segment, link, at, status }
+#                        at      line this event up with another event's spot on the page (by id)
+#                        link    where it opens (a page on the wiki)
+#                        status  open (default), pending, or sealed
+#                        x       pin the event to a spot on the line, in percent
+#   note               shown on a track with no events yet
+
+eras:
+  - slug: era-0
+    title: Era 0
+    name: The Age of the Primordial
+    tagline: Four stones, then one, and a war over measurements.
+    emblem: four-stones
+  - slug: era-1a
+    title: Era 1A
+    name: The Age of New Light
+    tagline: A golden stone on a shelf, and a decision to make.
+    emblem: sunstone
+  - slug: era-1b
+    title: Era 1B
+    name: The Age of the Judge
+    tagline: A second Diamond takes her seat.
+    emblem: scales
 
 pages:
   - key: era-0
     title: Era 0
     sub: The beginning of everything, as Alpha Black Diamond tells it.
-    nodes:
-      - slug: era-0
-        segment: '0'
-        title: Era 0
-        name: The Age of the Primordial
-        tagline: Four stones, then one, and a war over measurements.
-        emblem: four-stones
-        status: open
-      - slug: era-0-side-b
-        segment: Side-B
-        title: Era 0 Side-B
+    tracks:
+      - key: side-b
+        label: Era 0 Side-B
         name: The Age of the Hive Queen
-        tagline: Every gem the same distance from the next.
-        emblem: rows
-        status: locked
+        color: '#f4f1ff'
+        ends_at: white-absorbed
+        events:
+          - id: white-stars
+            title: White's Stars
+            when: About 5,500,000,000 BU
+            at: somebody-else-s-stars
+            link: /timeline/era-0/#somebody-else-s-stars
+          - id: white-fleet
+            title: The Fleet in Rows
+            when: 2,000,000 BU
+            at: stars-in-rows
+            link: /timeline/era-0/#stars-in-rows
+          - id: white-border
+            title: The Silent Outpost
+            when: 2,000,000 BU - 500,000 BU
+            at: exactly-on-schedule
+            link: /timeline/era-0/#exactly-on-schedule
+          - id: white-absorbed
+            title: The Crystal Matrix
+            when: 0 BU/AU
+            at: supervisor-pending-adjustment
+            link: /timeline/era-0/#supervisor-pending-adjustment
+      - key: era-0
+        label: Era 0
+        name: The Age of the Primordial
+        color: '#e9e1ff'
+        parts:
+          - { slug: era-0, segment: '0' }
+      - key: metal
+        label: Era 0-1 Metal Society
+        name: The Metal Society
+        color: '#d9a866'
+        to_right: true
         note: Record pending
   - key: era-1
     title: Era 1
     sub: Two Diamonds, then three, and an empire built from bare rock.
-    nodes:
-      - slug: era-1a
-        segment: 1A
-        title: Era 1A
-        name: The Age of New Light
-        tagline: A golden stone on a shelf, and a decision to make.
-        emblem: sunstone
-        status: open
-      - slug: era-1b
-        segment: 1B
-        title: Era 1B
-        name: The Age of the Judge
-        tagline: A second Diamond takes her seat.
-        emblem: scales
-        status: open
+    tracks:
+      - key: gempire
+        label: Era 1
+        name: New Light and the Judge
+        color: '#ffd77a'
+        parts:
+          - { slug: era-1a, segment: 1A }
+          - { slug: era-1b, segment: 1B }
+      - key: metal
+        label: Era 0-1 Metal Society
+        name: The Metal Society
+        color: '#d9a866'
+        from_left: true
+        to_right: true
+        note: Record pending
   - key: era-2
     title: Era 2
     sub: The Age of the Five, and everything the server has lived through.
-    nodes:
-      - slug: era-2a
-        segment: 2A
-        title: Era 2A
+    tracks:
+      - key: gempire
+        label: Era 2A
         name: The Age of the Five
-        tagline: Some things are better left for later.
-        emblem: five
-        status: sealed
-        note: Sealed
-      - slug: orientation-day
-        segment: 2A
-        title: Orientation Day
-        name: In the Beginning
-        tagline: New gems, first assignments, and a figure in an alley.
-        emblem: gate
-        status: locked
-        note: Recap coming
-      - slug: below-the-surface
-        segment: 2A
-        title: Below the Surface
-        name: Part 1
-        tagline: Follow the figure into the city's underside.
-        emblem: hatch
-        status: locked
-        current: true
-        note: Recap coming
+        color: '#ff8fc8'
+        events:
+          - id: era-2a
+            title: The Age of the Five
+            when: Era 2A
+            segment: 2A
+            status: sealed
+            x: 20
+          - id: orientation-day
+            title: Orientation Day
+            when: In the Beginning
+            segment: 2A
+            status: pending
+            x: 58
+          - id: below-the-surface
+            title: Below the Surface
+            when: Part 1
+            segment: 2A
+            status: pending
+            current: true
+            x: 86
+      - key: metal
+        label: Era 0-1 Metal Society
+        name: The Metal Society
+        color: '#d9a866'
+        style: dotted
+        from_left: true
+        events:
+          - id: metals-found
+            title: Maroon Finds the Metals
+            when: Era 2A
+            link: /lore/nuggets/
+            x: 32
+          - id: metal-deal
+            title: The Deal
+            when: Seven months before the first Event
+            link: /lore/nuggets/
+            x: 45
