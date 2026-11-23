@@ -11,6 +11,9 @@
    "alpha-questions",
    "reassigned-story",
    "theta-hours"
+  ],
+  "big": [
+   "solar-flares"
   ]
  },
  "history": [
@@ -203,11 +206,41 @@
     "ordr": 54,
     "dante": 44
    }
+  },
+  {
+   "t": 1795436606210,
+   "scores": {
+    "alpha-black": 46,
+    "epsilon-blue": 70,
+    "theta-gold": 60,
+    "saturn-light": 80,
+    "nightshade-violet": 56,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 71,
+    "tethys": 42,
+    "reina": 61,
+    "magda": 63,
+    "law": 58,
+    "ordr": 52,
+    "dante": 44
+   }
   }
  ],
- "lastMedium": 1795184250522,
- "lastBig": 1795184250522,
- "nextMediumGap": 289165617,
- "post": null,
+ "lastMedium": 1795436606210,
+ "lastBig": 1795436606210,
+ "nextMediumGap": 278906957,
+ "post": {
+  "run": "45173803682",
+  "embeds": [
+   {
+    "title": "Weekly Approval Report",
+    "url": "https://showtimestudiosinc.github.io/Imperious-Wiki/approval-rating/",
+    "color": 16732067,
+    "description": "Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't.\n\n**Deity Diamonds**\n1. Epsilon: 70 (▲ 4)\n2. Theta: 60 (▲ 5)\n3. Alpha: 46 (▼ 1)\n\n**Ruling Diamonds**\n1. Saturn: 80 (▲ 8)\n2. Kandy: 71 (▲ 7)\n3. Maroon: 63 (–)\n4. Nightshade: 56 (▲ 4)\n\n**Grand Regents**\n1. Antton: 72 (▲ 4)\n2. Florentino: 71 (▲ 1)\n3. Magda: 63 (–)\n4. Reina: 61 (–)\n5. Law: 58 (–)\n6. Ordr: 52 (–)\n7. Dante: 44 (–)\n8. Tethys: 42 (▲ 4)\n\nUnrest: **52/100** (Restless)"
+   }
+  ]
+ },
  "appliedNews": []
 }

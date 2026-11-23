@@ -12,73 +12,73 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-23'
-unrest: 51
+unrest: 52
 deity:
   - slug: alpha-black
-    score: 48
+    score: 46
     previous: 47
-    votes: 51300
+    votes: 49083
   - slug: epsilon-blue
-    score: 68
+    score: 70
     previous: 66
-    votes: 49215
+    votes: 51365
   - slug: theta-gold
-    score: 58
+    score: 60
     previous: 55
-    votes: 46870
+    votes: 44814
 ruling:
   - slug: saturn-light
     score: 80
     previous: 72
-    votes: 38940
+    votes: 37555
   - slug: nightshade-violet
     name: Nightshade Violet Diamond
-    score: 57
+    score: 56
     previous: 52
-    votes: 29660
+    votes: 28579
   - slug: maroon-red
     name: Maroon Red Diamond
-    score: 62
+    score: 63
     previous: 63
-    votes: 33105
+    votes: 31709
   - slug: bi-colored-kandy
     name: Bi-Colored Kandy Diamond
-    score: 69
+    score: 71
     previous: 64
-    votes: 31488
+    votes: 31546
 regents:
   - slug: antton
-    score: 74
+    score: 72
     previous: 68
-    votes: 12402
+    votes: 12234
   - slug: florentino
-    score: 73
+    score: 71
     previous: 70
-    votes: 9815
+    votes: 10389
   - slug: tethys
-    score: 40
+    score: 42
     previous: 38
-    votes: 2117
+    votes: 2046
   - slug: reina
     score: 61
     previous: 61
-    votes: 10840
+    votes: 11334
   - slug: magda
-    score: 67
-    previous: 67
-    votes: 8925
+    score: 63
+    previous: 63
+    votes: 9431
   - slug: law
-    score: 57
-    previous: 57
-    votes: 6410
+    score: 58
+    previous: 58
+    votes: 6395
   - slug: ordr
-    score: 54
-    previous: 54
-    votes: 5130
+    score: 52
+    previous: 52
+    votes: 5182
   - slug: dante
     score: 44
     previous: 44
-    votes: 904
+    votes: 928
 earlier_news:
   - title: The Gugungagap Disaster
     news: gugungagap-disaster
@@ -141,6 +141,81 @@ earlier_news:
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.
     changes: []
 log:
+  - date: '2026-11-23'
+    who: magda
+    change: -3
+    kind: big
+    text: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't.
+  - date: '2026-11-23'
+    who: epsilon-blue
+    change: +4
+    kind: big
+    text: Also part of this week's headline.
+  - date: '2026-11-23'
+    who: bi-colored-kandy
+    change: +2
+    kind: big
+    text: Also part of this week's headline.
+  - date: '2026-11-23'
+    who: ordr
+    change: -4
+    kind: big
+    text: Also part of this week's headline.
+  - date: '2026-11-23'
+    who: alpha-black
+    change: -2
+    kind: roll
+    text: Their numbers dipped a little in this week's poll.
+  - date: '2026-11-23'
+    who: epsilon-blue
+    change: -2
+    kind: roll
+    text: Their numbers dipped a little in this week's poll.
+  - date: '2026-11-23'
+    who: theta-gold
+    change: +2
+    kind: roll
+    text: Their numbers went up a little in this week's poll.
+  - date: '2026-11-23'
+    who: nightshade-violet
+    change: -1
+    kind: roll
+    text: Their numbers dipped a little in this week's poll.
+  - date: '2026-11-23'
+    who: maroon-red
+    change: +1
+    kind: roll
+    text: Their numbers went up a little in this week's poll.
+  - date: '2026-11-23'
+    who: antton
+    change: -2
+    kind: roll
+    text: Their numbers dipped a little in this week's poll.
+  - date: '2026-11-23'
+    who: florentino
+    change: -2
+    kind: roll
+    text: Their numbers dipped a little in this week's poll.
+  - date: '2026-11-23'
+    who: tethys
+    change: +2
+    kind: roll
+    text: Their numbers went up a little in this week's poll.
+  - date: '2026-11-23'
+    who: magda
+    change: -1
+    kind: roll
+    text: Their numbers dipped a little in this week's poll.
+  - date: '2026-11-23'
+    who: law
+    change: +1
+    kind: roll
+    text: Their numbers went up a little in this week's poll.
+  - date: '2026-11-23'
+    who: ordr
+    change: +2
+    kind: roll
+    text: Their numbers went up a little in this week's poll.
   - date: '2026-11-23'
     who: theta-gold
     change: -1
