@@ -96,12 +96,12 @@ def gem(shape, base, cx, cy, r, idx):
     out = []
     o = outline(shape, cx, cy, r)
     n = len(o)
-    # table: smaller copy, nudged toward the light
-    tc = (cx - r * 0.06, cy - r * 0.08 if shape != 'kite' else cy - r * 0.34)
-    k = 0.46 if shape != 'kite' else 0.42
-    tbl = [(tc[0] + (x - cx) * k, tc[1] + (y - cy) * k) for x, y in o]
-    if shape == 'kite':
-        tbl = [(tc[0] + (x - cx) * k, tc[1] + (min(y, cy + r * 0.1) - cy) * k * 0.7) for x, y in o]
+    # table: the same shape as the stone, scaled down around its own center
+    # and nudged a little toward the light, so the middle always matches the outline
+    ocx, ocy = centroid(o)
+    k = 0.48
+    tc = (ocx - r * 0.05, ocy - r * 0.06)
+    tbl = [(tc[0] + (x - ocx) * k, tc[1] + (y - ocy) * k) for x, y in o]
 
     # soft colored glow behind the stone
     out.append(f'<circle cx="{cx}" cy="{cy}" r="{r * 1.55:.0f}" fill="url(#glow{idx})"/>')
