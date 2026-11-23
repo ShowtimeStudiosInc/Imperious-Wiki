@@ -1,0 +1,71 @@
+name: Mega Pearl
+slug: mega-pearl-specialty-pearl-variant
+rank: null
+side: null
+faction: rogue
+kind: fusion
+parent: null
+components:
+  - pearl
+  - specialty-pearl
+variant: Specialty Pearl
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Standard
+height: 12'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: From both halves. Works the same as a Pearl's.
+    moves: []
+  - section: Signature Ability
+    name: Hologram Projection
+    tags:
+      - 1 SP
+    cost: 1
+    text: From her Pearl half. Works the same as a Pearl's.
+    moves: []
+  - section: Signature Ability
+    name: Symbiosis
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Specialty Pearl half. Works the same as her Specialty Pearl half's.
+    moves: []
+  - section: Fusion Ability
+    name: Extended Symbiosis
+    tags:
+      - PASSIVE
+    cost: null
+    text: Her Symbiosis also works on allies who are Far.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: >-
+      Any Latent Ability either half has unlocked carries into the fusion. If she has Elemental Affinity, allies hit by
+      her elemental spells also get her Symbiosis support.
+    moves: []
+role: >-
+  This Mega Pearl is a Pearl fused with a Specialty Pearl. Since a Specialty Pearl looks like a certain gem-type, the
+  fusion looks like that type fused with a Pearl. If the Specialty Pearl looked like a Sapphire, the fusion looks like
+  a Tanzanite. That makes her easy to mistake for a real fusion of that type, which is useful for a gem who isn't
+  supposed to exist. Inside the Gempire she only shows up through a licensed marriage, working the job of one of her
+  halves. Most of them live as Rogues in places like Drift or the Rogue Settlement, and they tend to look after gems of
+  the type they resemble, since that's who their support works best on.
+interactions: >-
+  This fusion usually forms between a Specialty Pearl and a regular Pearl who serve the same owner. Specialty Pearls
+  are won at auction, so their owners tend to want them back, and some hire Aquamarines to find them.
+description: null
+image: null
+gemstone: /images/gemstones/mega-pearl-specialty-pearl-variant.svg
+credit: null
+updated: '2026-11-23'

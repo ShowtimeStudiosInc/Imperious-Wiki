@@ -1,0 +1,71 @@
+name: Bi-Color Andean Opal
+slug: bi-color-andean-opal
+rank: null
+side: null
+faction: rogue
+kind: fusion
+parent: null
+components:
+  - agate
+  - pearl
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Elite
+height: 13'4"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: From her Pearl half. Works the same as a Pearl's.
+    moves: []
+  - section: Signature Ability
+    name: Hologram Projection
+    tags:
+      - 1 SP
+    cost: 1
+    text: From her Pearl half. Works the same as a Pearl's.
+    moves: []
+  - section: ACT Bonus
+    name: Command
+    tags: []
+    cost: null
+    text: From her Agate half. Works the same as an Agate's.
+    moves: []
+  - section: Fusion Ability
+    name: Command Display
+    tags:
+      - 3 SP
+    cost: 3
+    text: >-
+      She sends out a hologram of herself to give orders for 3 turns. Any ally who follows its orders gets advantage on
+      their next roll, even if they're Far or aren't a Quartz.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: Any Latent Ability her Pearl half has unlocked carries into the fusion.
+    moves: []
+role: >-
+  An Andean Opal is an Agate fused with a Pearl, and her colors come from whatever colors her two halves were. Since
+  she can't do anything her halves couldn't already do on their own, the Gempire never gave Andean Opals a job. If one
+  ever shows up there, it's through a licensed marriage, and she usually just goes back to working whatever post one of
+  her halves had before. Out in Drift or the Rogue Settlement, it's a different story. Rogue camps have plenty of gems
+  who left their posts and no one telling them what to do, so an Andean Opal ends up running things. She sets the guard
+  shifts, splits up the work, and keeps track of supplies, and her holograms let her be in more than one place while
+  she does it.
+interactions: >-
+  Andean Opals usually form between an Agate and the Pearl assigned to her station. Quartzes who left the Gempire often
+  end up working under one in rogue camps.
+description: null
+image: null
+gemstone: /images/gemstones/bi-color-andean-opal.svg
+credit: null
+updated: '2026-11-23'

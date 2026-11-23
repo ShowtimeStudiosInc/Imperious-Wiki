@@ -1,0 +1,66 @@
+name: Mega Pearl
+slug: mega-pearl
+rank: null
+side: null
+faction: rogue
+kind: fusion
+parent: null
+components:
+  - pearl
+  - pearl
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Standard
+height: 12'0"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: Hammerspace
+    tags:
+      - PASSIVE
+    cost: null
+    text: From both halves. Works the same as a Pearl's, but with twice the room.
+    moves: []
+  - section: Signature Ability
+    name: Hologram Projection
+    tags:
+      - 1 SP
+    cost: 1
+    text: From both halves. Works the same as a Pearl's.
+    moves: []
+  - section: Fusion Ability
+    name: Double Exposure
+    tags:
+      - 3 SP
+    cost: 3
+    text: >-
+      She makes two Holo-Pearls at once, one from each half. They last 3 turns and can
+      <:Fight:1568035371974135940>FIGHT on her turn.
+    moves: []
+  - section: Latent Ability
+    name: null
+    tags: []
+    cost: null
+    text: >-
+      Any Latent Ability either half has unlocked carries into the fusion. If both halves have Elemental Affinity, she
+      can use both elements in the same spell.
+    moves: []
+role: >-
+  A Mega Pearl is two Pearls fused into one, and she's taller than both of her halves put together. The Gempire never
+  found a job for her, since she can't do much more than a regular Pearl. If one ever shows up there, it's through a
+  licensed marriage, and she goes back to one of her halves' old posts. Most Mega Pearls leave instead. In places like
+  Drift or the Rogue Settlement, she's the one holding everything. Supplies, tools, spare clothes, and the camp's
+  records all get stored in her Hammerspace, which makes her the first gem anyone looks for when something goes
+  missing.
+interactions: >-
+  Mega Pearls usually come from two Pearls who worked in the same household. In rogue camps, they often work with
+  Andean Opals to keep things running.
+description: null
+image: null
+gemstone: /images/gemstones/mega-pearl.svg
+credit: null
+updated: '2026-11-23'
