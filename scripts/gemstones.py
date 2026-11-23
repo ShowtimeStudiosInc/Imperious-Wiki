@@ -150,7 +150,7 @@ GEMS = {
     'watermelon-tourmaline': ('emerald-long', '#ff6f9a', {'watermelon': True}),
     # 5.2
     'coal': ('nugget', '#3a3a42', {}),
-    'pebbles': ('cabochon', '#a39cbd', {}),
+    'pebbles': ('cabochon', '#a49dbf', {'rim': '#ddd8ea', 'line': '#111014'}),
     'richterite': ('marquise', '#8a5a4a', {}),
     'salt': ('square', '#f4f4f8', {}),
     'uranium': ('ingot', '#7d8a72', {}),
@@ -343,6 +343,14 @@ def cabochon(cut, base, ex):
         g += fleck_marks(ex['flecks'])
     if ex.get('slit'):
         g.append(f'<path d="M100,{100 - ry + 6} C 112,80 112,120 100,{100 + ry - 6} C 106,120 106,80 100,{100 - ry + 6} Z" fill="{T["hi"]}"/>')
+    if ex.get('rim'):
+        # flat look: a light crescent along the bottom edge, no dome shading or shine
+        g.append(f'<ellipse cx="100" cy="100" rx="{rx}" ry="{ry}" fill="{ex["rim"]}"/>')
+        g.append(f'<ellipse cx="100" cy="{100 - ry * 0.30:.1f}" rx="{rx * 1.25:.1f}" ry="{ry * 0.97:.1f}" fill="{T["base"]}"/>')
+        g.append('</g>')
+        out += g
+        out.append(f'<ellipse cx="100" cy="100" rx="{rx}" ry="{ry}" fill="none" stroke="{ex.get("line", T["outline"])}" stroke-width="9"/>')
+        return out
     # dome shading: a darker lower crescent and a light upper area
     g.append(f'<ellipse cx="108" cy="{100 + ry * 0.35:.1f}" rx="{rx * 0.95:.1f}" ry="{ry * 0.75:.1f}" fill="{T["dark"]}" opacity="0.28"/>')
     g.append('</g>')

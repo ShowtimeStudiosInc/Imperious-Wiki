@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
 <defs><clipPath id="cl-pebbles"><ellipse cx="100" cy="100" rx="76" ry="76"/></clipPath></defs>
-<ellipse cx="100" cy="100" rx="76" ry="76" fill="#a39cbd"/>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="#a49dbf"/>
 <g clip-path="url(#cl-pebbles)">
-<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#624986" opacity="0.28"/>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="#ddd8ea"/>
+<ellipse cx="100" cy="77.2" rx="95.0" ry="73.7" fill="#a49dbf"/>
 </g>
-<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#e7e8ee" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
-<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#2b1b3b" stroke-width="9"/>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#111014" stroke-width="9"/>
 </svg>
