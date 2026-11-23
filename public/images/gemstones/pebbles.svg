@@ -1,16 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<polygon points="178.4,113.0 147.3,142.3 109.6,168.4 67.5,147.1 29.0,126.6 29.4,88.3 41.9,48.0 92.3,44.6 137.4,45.7 167.3,74.8" fill="#5e5752"/>
-<polygon points="178.4,113.0 147.3,142.3 123.7,121.1 139.2,106.5" fill="#5e5752"/>
-<polygon points="147.3,142.3 109.6,168.4 104.8,134.2 123.7,121.1" fill="#5e5752"/>
-<polygon points="109.6,168.4 67.5,147.1 83.8,123.6 104.8,134.2" fill="#5e5752"/>
-<polygon points="67.5,147.1 29.0,126.6 64.5,113.3 83.8,123.6" fill="#9a948c"/>
-<polygon points="29.0,126.6 29.4,88.3 64.7,94.1 64.5,113.3" fill="#c0beb8"/>
-<polygon points="29.4,88.3 41.9,48.0 70.9,74.0 64.7,94.1" fill="#c0beb8"/>
-<polygon points="41.9,48.0 92.3,44.6 96.1,72.3 70.9,74.0" fill="#c0beb8"/>
-<polygon points="92.3,44.6 137.4,45.7 118.7,72.9 96.1,72.3" fill="#c0beb8"/>
-<polygon points="137.4,45.7 167.3,74.8 133.7,87.4 118.7,72.9" fill="#9a948c"/>
-<polygon points="167.3,74.8 178.4,113.0 139.2,106.5 133.7,87.4" fill="#7d756e"/>
-<polygon points="139.2,106.5 123.7,121.1 104.8,134.2 83.8,123.6 64.5,113.3 64.7,94.1 70.9,74.0 96.1,72.3 118.7,72.9 133.7,87.4" fill="#9a948c"/>
-<polygon points="70.9,74.0 96.1,72.3 86.9,88.3" fill="#e6e6e2" opacity="0.9"/>
-<polygon points="178.4,113.0 147.3,142.3 109.6,168.4 67.5,147.1 29.0,126.6 29.4,88.3 41.9,48.0 92.3,44.6 137.4,45.7 167.3,74.8" fill="none" stroke="#2e2929" stroke-width="9" stroke-linejoin="round"/>
+<defs><clipPath id="cl-pebbles"><ellipse cx="100" cy="100" rx="76" ry="76"/></clipPath></defs>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="#a39cbd"/>
+<g clip-path="url(#cl-pebbles)">
+<ellipse cx="108" cy="126.6" rx="72.2" ry="57.0" fill="#624986" opacity="0.28"/>
+</g>
+<ellipse cx="73.4" cy="68.1" rx="19.8" ry="12.2" fill="#e7e8ee" opacity="0.85" transform="rotate(-24 73.4 68.1)"/>
+<ellipse cx="100" cy="100" rx="76" ry="76" fill="none" stroke="#2b1b3b" stroke-width="9"/>
 </svg>
