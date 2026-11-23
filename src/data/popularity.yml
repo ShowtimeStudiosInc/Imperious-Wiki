@@ -11,8 +11,8 @@
 # and change that gem's `score` to match. `previous` is filled in by the script (score 7 days ago).
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
-updated: '2026-11-22'
-unrest: 52
+updated: '2026-11-23'
+unrest: 51
 deity:
   - slug: alpha-black
     score: 48
@@ -23,7 +23,7 @@ deity:
     previous: 66
     votes: 49215
   - slug: theta-gold
-    score: 59
+    score: 58
     previous: 55
     votes: 46870
 ruling:
@@ -141,6 +141,11 @@ earlier_news:
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.
     changes: []
 log:
+  - date: '2026-11-23'
+    who: theta-gold
+    change: -1
+    kind: small
+    text: A report says a kindergarten under Theta made fewer gems than planned this cycle.
   - date: '2026-11-22'
     who: florentino
     change: -2
