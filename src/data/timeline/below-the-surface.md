@@ -26,3 +26,56 @@
 > ⟡ A shaft drops through Homeworld's crust toward the machine levels below.
 > ⟡ A corrupted Aquamarine attacked Pink and Maddy, and is still loose in the facility.
 > ⟡ Dustin forced open the security door, setting off alarms, and the group ran deeper before security could arrive.
+
+**RECAP: PART 2**
+> The door slammed shut behind them, and the group ran down the stairs of another huge shaft, the same kind of drop they had seen from the Access Landing in Zone 1. Catseye screamed that she didn't want to die. Pink told her nobody does, and Graphene said she'd be surprised. At the bottom, Cyrus held a second door open until every single gem was through, then shut it behind them.
+>
+> It opened onto a catwalk over a giant chamber where steel pistons the size of city blocks rose and fell. Cyrus handed out the flashlights he'd collected and warned that they had a few minutes at most to find a place to hide. He took one step forward, and the next piston strike shook the whole catwalk. Half the group was thrown over the side, left hanging from the railing. Morganite and Happy pulled Ciner back up. Cyrus grabbed Emmy and sent out a drone with arms to lift Wasp, who called him an asshole and then flopped onto the walkway. Lappy caught Dustin, Pink pulled Ash up, and Catseye clung to Dustin like an actual cat. Maddy fell, and the drone caught them just in time. Morganite tackled Maddy in a crying hug. Happy joined in and didn't let go for a long time.
+>
+> While everyone recovered, Ciner pulled Pink aside. She said she had nearly fallen too, that she'd been no help when the Aquamarine attacked Pink, and that more of those monsters were surely waiting. Then she asked if they should fuse. Pink told her she had never been dead weight, but that she trusted her.
+>
+> Cyrus spotted a control room on the upper catwalks. He sent Lappy and Flappy flying up to find the off switch, and Lappy found it. The pistons stopped, and everyone ran up the stairs into the booth. Cyrus told them not to touch any buttons. Graphene had already pressed one, and the pistons started back up. Lappy turned them off again.
+>
+> Looking out the window, the group watched the door they'd come through burst open. Security Droids and Drones poured in and started searching the lower catwalks. Cyrus noted that the technology in this room was much older than anything above, and that the deeper they went, the more primitive it seemed to get. Ash plugged her tail into the console. This time the firewall was written in something close to the Gempire's own programming language, and she got in on her first try. She found that the room managed fluid pressure across the whole underground with no gem needed. The floor plans were stranger. This zone didn't stay under District 3. It spread under the entire planet, with power rooms everywhere and four massive engine rooms on the north, south, east, and west sides of Homeworld. Ash asked the obvious question: what if Homeworld was built to move?
+>
+> Tulip looked ahead with her future vision. All she got was a foggy few flashes: a laser being fired, someone falling, and tears. Cyrus said he would not let that happen, and reminded them that a foggy vision can't be fully trusted, since the river's path always splits eventually.
+>
+> While the others argued, Ciner offered Pink her hand, and the two fused. A blue and reddish-pink light filled the room, and Bi-Color Andean Opal stood up, looking over her new body. Cyrus checked her through his monocle and said it was an unrecorded fusion. Then he laid out the escape plan. Morganite would ride on Opal's shoulders, with Happy riding beside her, to shield everyone with bubbles, and Stellar Gold would shoot down anything that chased them. Gold loaded real bullets and pointed out that Ash was a clanker too. Cyrus said at least they were still made of light.
+>
+> Cyrus threw the door open, and everyone sprinted across the upper catwalks. The Drones flew up after them and opened fire. Almost everyone took hits. Cyrus slashed back with arcs of lightning and found that the machines were weak to electricity. Stellar Gold switched to electric bullets, Emmy called down a lightning barrage, Morganite threw bubble shields over the most hurt, and Graphene bit one. One by one, the Drones went down until the last one fell. At the far stairwell, a line of Droids was coming up to meet them. Cyrus drop-kicked the first one and rode it down the stairs like a sled, knocking the rest over. He hopped off at the bottom just before the pile smashed through the railing and fell off the ledge. Catseye's first concern was her hair and clothes.
+>
+> Back on the piston floor, Ash pointed the way to a hatch in the far wall, and Dustin forced it open. Inside was an auxiliary pump station, its back wall lined with huge pumps pulling the same teal fluid down from the rivers above. Graphene drank some of the oil, and Morganite made her stop. Emmy guessed these pumps powered all of Homeworld's rivers. Then Wasp said what she had read on a plaque back in Zone 1: it was coolant. Cyrus finally had everyone share what they'd found. Tulip handed over the logs, and Flappy gave him the strange code from the pipes. Cyrus recognized it as a serial number. He typed it into his holopad, and it built a 3D model of the full coolant network. It ran across the entire planet and all the way down to the core.
+>
+> Morganite asked why a planet's core would need cooling when it is supposed to be hot. Cyrus said maybe it isn't the planet's core that needs it. Ash asked whether there even is a core. Nobody had an answer, so they moved on.
+>
+> The next chamber was split by a wide underground river of glowing coolant, and the drawbridge across it was raised. Opal suggested just wading across. Morganite asked for a stick to check the depth first, so Stellar Gold shaped a gold javelin and tossed it to Cyrus. The river came up to half of it, and when he pulled it out, it was frozen solid. No one waded. Cyrus went into a small booth by the bridge, found a set of thermal blankets, and started the bridge lowering. The terminal warned that the hinges were worn, so it moved very slowly.
+>
+> While they waited, the group finally talked. Morganite told Tulip how she had ended up here. Emmy asked Opal what gem she was now and admitted she had never been part of a fusion. Ash told Dustin that her body and gem were fully machine, and that only her mind had stayed the same.
+>
+> Then scurrying sounds came from both sides of the river, and a swarm of twelve corrupted Aquamarines flooded in. The tight alcove froze over. Two of them pinned Cyrus against the rock, another hooked Wasp's chain to drag her toward the river, two slammed into Maddy to get at Morganite, and the rest came at everyone else. Dustin kicked two straight into the coolant. Opal blasted one with freezing snow before it could push anyone off the edge, and Rhody smacked one with Gold's javelin. Stellar Gold put a full revolver round into one, three bullets to the gem, and shattered it.
+>
+> Cyrus called for Emmy to send everything she had into his blades. She poured her lightning into them, and Cyrus swung two enormous slashes in a wide cone. They called it Thunderhead Requiem. Emmy's lightning barrage finished off the rest. When it was over, Cyrus gathered the gems that were still whole, bubbled them, and sent them to the Agency. Three had been shattered, all by Gold. Tulip was badly shaken that they had killed gems at all. Rhody reminded her they had been warned at the start. Cyrus was honest with them: in this line of work, it's do or die. Corrupted gems can't be reasoned with, but they should still try to reason with any gem who can think. Gold told them thinking in battle gets you killed. Happy called that terrible advice. Tulip went silent and stayed that way.
+>
+> The bridge settled into place, and the group crossed. Wasp told Cyrus and Emmy that if they kissed, she would throw up. Emmy pointed out that they had only just met.
+>
+> In the next vault, glass pipes carried the coolant further down into the planet. Cyrus said it hadn't even been a full day yet, though night was starting on the surface. Wasp and Catseye were at each other's throats by now, and Dustin had to step between them. Morganite had gone quiet, and Maddy stayed close to cheer her up.
+>
+> The catwalk ended in a three-way fork. Left was the Secondary Hydraulic Manifold, right was Maintenance Observation Post 2-D, and straight ahead was Engineering Checkpoint Delta. Cyrus split them up. Wasp took Ash, Morganite, Dustin, and Catseye right, and everyone else went left with Cyrus. When Wasp asked for tape for Catseye's mouth, Opal pulled some out of her Pearl gem.
+>
+> In the Manifold, Cyrus found a heavy wrench and had Opal store it. He said it would come in handy once they met up with someone named Marlowe. Stellar Gold found an ingot of gold and shaped it into a crown, Opal found a small sheet of scrap metal, and Tulip checked her future again. This time she saw a corrupted gem right in her face.
+>
+> In the Observation Post, Morganite grabbed a stack of old log sheets. Ash ate them like a ticket muncher and read them back from a holopad in her eye. The station was once used by engineering supervisors to watch over something beyond the glass, and the logs listed other facilities next to their names. Ash also found a metal pipe to use as a weapon. Catseye, still taped, kicked her off Dustin's shoulders.
+>
+> The two groups met back at the fork. With every side path searched, Cyrus led everyone down the middle path toward Engineering Checkpoint Delta.
+
+**PART 2 HIGHLIGHTS**
+> ⟡ The group crossed the Piston Chamber, where a shockwave nearly threw half of them to their deaths.
+> ⟡ Light Pink Agate and Ciner fused for the first time, forming Bi-Color Andean Opal, a fusion no one has recorded before.
+> ⟡ Records in the control room show Zone 2 spreads under the entire planet, with four massive engine rooms on Homeworld's north, south, east, and west sides. Ash suspects Homeworld was built to move.
+> ⟡ The technology gets older the deeper the group goes. One firewall was written in a language close to the Gempire's own.
+> ⟡ The teal fluid in Homeworld's rivers is coolant. A serial number on the pipes revealed a network that covers the whole planet and runs down to the core.
+> ⟡ A swarm of twelve corrupted Aquamarines attacked at the Grand Canal Main Artery. Three were shattered and the rest were bubbled and sent to the Agency.
+> ⟡ Cyrus and Emmy pulled off their first combo attack, Thunderhead Requiem.
+> ⟡ Tulip's visions warn of a laser, someone falling, tears, and more corrupted gems ahead.
+> ⟡ Cyrus is carrying a wrench for someone named Marlowe, who the group has yet to meet.
+> ⟡ The group is now heading toward Engineering Checkpoint Delta.
