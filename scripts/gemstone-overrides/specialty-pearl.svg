@@ -1,14 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<defs><clipPath id="c"><ellipse cx="100" cy="100" rx="64" ry="80"/></clipPath>
-<mask id="sh" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"><rect width="200" height="200" fill="#fff"/><ellipse cx="90" cy="88" rx="64" ry="80" fill="#000"/></mask></defs>
-<ellipse cx="100" cy="100" rx="75" ry="91" fill="#050505"/>
-<ellipse cx="100" cy="100" rx="64" ry="80" fill="#fbf7fb"/>
-<g clip-path="url(#c)">
-<path d="M30,96 C60,84 90,112 120,98 C140,90 156,96 176,90 L176,112 C156,118 140,112 120,120 C90,134 60,106 30,118 Z" fill="#dcefff"/>
-<path d="M30,126 C60,116 90,140 120,128 C140,120 156,126 176,120 L176,138 C156,144 140,138 120,146 C90,158 60,134 30,146 Z" fill="#ffe0f0"/>
-<path d="M30,150 C60,142 90,162 120,152 L176,146 L176,164 C140,170 90,180 30,168 Z" fill="#dff7ea"/>
-<ellipse cx="100" cy="100" rx="64" ry="80" fill="#c9a8cf" opacity=".6" mask="url(#sh)"/>
+<defs><clipPath id="spc"><ellipse cx="100" cy="100" rx="64" ry="80"/></clipPath></defs>
+<ellipse cx="100" cy="100" rx="70" ry="86" fill="#050505"/>
+<g clip-path="url(#spc)">
+<ellipse cx="100" cy="100" rx="64" ry="80" fill="#cdeedf"/>
+<ellipse cx="108" cy="94" rx="64" ry="80" fill="#d6e4fb"/>
+<ellipse cx="116" cy="88" rx="64" ry="80" fill="#f6d9ec"/>
+<ellipse cx="126" cy="80" rx="66" ry="80" fill="#fffdf8"/>
 </g>
-<path d="M50,84 C52,60 66,42 88,34" stroke="#ffffff" stroke-width="9" fill="none" stroke-linecap="round"/>
-<circle cx="106" cy="32" r="5" fill="#ffffff"/>
+<path d="M140,52 Q142,61 151,63 Q142,65 140,74 Q138,65 129,63 Q138,61 140,52 Z" fill="#e3d6f2"/>
 </svg>
