@@ -11,7 +11,7 @@ export interface Event {
 export interface Track {
   key: string; label: string; name?: string; color: string; style?: 'solid' | 'dotted';
   from_left?: boolean; to_right?: boolean; ends_at?: string; note?: string;
-  parts?: { slug: string; segment: string }[]; events: Event[];
+  parts?: { slug: string; segment: string; labels?: Record<string, string> }[]; events: Event[];
 }
 export interface Page { key: string; title: string; sub: string; tracks: Track[] }
 
@@ -54,7 +54,7 @@ export const pages: Page[] = raw.pages.map((p) => ({
     ...t,
     events: [
       ...(t.parts ?? []).flatMap((src) =>
-        (eraBySlug.get(src.slug)?.parts ?? []).map((pt) => ({ id: pt.id, title: pt.title, when: pt.when, segment: src.segment, link: `/timeline/${src.slug}/#${pt.id}` }))),
+        (eraBySlug.get(src.slug)?.parts ?? []).map((pt) => ({ id: pt.id, title: src.labels?.[pt.id] ?? pt.title, when: pt.when, segment: src.segment, link: `/timeline/${src.slug}/#${pt.id}` }))),
       ...(t.events ?? []),
     ],
   })),

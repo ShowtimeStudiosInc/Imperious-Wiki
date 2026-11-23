@@ -10,7 +10,8 @@
 #   from_left          true if the line carries on from the page before (draws an arrow in)
 #   to_right           true if the line carries on to the next page (draws an arrow out)
 #   ends_at            an event id where the line stops early (the rest of the track is empty)
-#   parts              pull events from an Era's lore sections: a list of { slug, segment }
+#   parts              pull events from an Era's lore sections: a list of { slug, segment, labels }
+#                        labels  the name each section gets on the line (by section id); the lore page keeps its own headings
 #   events             events written by hand: { id, title, when, segment, link, at, status }
 #                        at      line this event up with another event's spot on the page (by id)
 #                        link    where it opens (a page on the wiki)
@@ -47,22 +48,22 @@ pages:
         ends_at: white-absorbed
         events:
           - id: white-stars
-            title: White's Stars
+            title: Omega White Emerges
             when: About 5,500,000,000 BU
             at: somebody-else-s-stars
             link: /timeline/era-0/#somebody-else-s-stars
           - id: white-fleet
-            title: The Fleet in Rows
+            title: White Meets Alpha
             when: 2,000,000 BU
             at: stars-in-rows
             link: /timeline/era-0/#stars-in-rows
           - id: white-border
-            title: The Silent Outpost
+            title: White Takes a Border Outpost
             when: 2,000,000 BU - 500,000 BU
             at: exactly-on-schedule
             link: /timeline/era-0/#exactly-on-schedule
           - id: white-absorbed
-            title: The Crystal Matrix
+            title: White Is Defeated
             when: 0 BU/AU
             at: supervisor-pending-adjustment
             link: /timeline/era-0/#supervisor-pending-adjustment
@@ -71,7 +72,17 @@ pages:
         name: The Age of the Primordial
         color: '#e9e1ff'
         parts:
-          - { slug: era-0, segment: '0' }
+          - slug: era-0
+            segment: '0'
+            labels:
+              four-then-one: Alpha Black Emerges
+              somebody-else-s-stars: Alpha Settles on Homeworld
+              mostly-snow-now: Phosphophyllite Emerges
+              eleven-banners: The Frontier Is Founded
+              stars-in-rows: Alpha Meets Omega White
+              exactly-on-schedule: Trouble at the Border
+              supervisor-pending-adjustment: The War with Omega White
+              one-stone-left-to-find: The Golden Stone Is Found
       - key: metal
         label: Era 0-1 Metal Society
         name: The Metal Society
@@ -87,8 +98,27 @@ pages:
         name: New Light and the Judge
         color: '#ffd77a'
         parts:
-          - { slug: era-1a, segment: 1A }
-          - { slug: era-1b, segment: 1B }
+          - slug: era-1a
+            segment: 1A
+            labels:
+              4-847-to-1-923: The Frontier Leaves Homeworld
+              that-s-right-isn-t-it: Theta Gold Emerges
+              no-two: Rebuilding Homeworld
+              all-ten-answered: The First Injector
+              where-the-animals-grow-crystal: Solstice Is Founded
+              seven-other-alphas: Meeting the Haelan
+          - slug: era-1b
+            segment: 1B
+            labels:
+              three-thousand-years-for-a-shuttle: The Shuttle Cases
+              hester-was-bored: The Search for the Last Stone
+              the-readings-don-t-make-sense: The Stone in Sector Blue-7
+              they-ll-manage: The Stone Is Taken
+              that-was-wrong: Epsilon Blue Emerges
+              we-are-still-paying: Epsilon Writes the Law
+              marked-twice: First Signs of S.T.O.R.M.
+              yes-before-i-d-finished-asking: The Agency Is Founded
+              the-3-900th-floor: Alpha Withdraws
       - key: metal
         label: Era 0-1 Metal Society
         name: The Metal Society
@@ -106,8 +136,8 @@ pages:
         color: '#ff8fc8'
         events:
           - id: era-2a
-            title: The Age of the Five
-            when: Era 2A
+            title: Era 2A Begins
+            when: The Age of the Five
             segment: 2A
             status: sealed
             x: 20
@@ -132,12 +162,12 @@ pages:
         from_left: true
         events:
           - id: metals-found
-            title: Maroon Finds the Metals
+            title: Maroon Discovers the Metals
             when: Era 2A
             link: /lore/nuggets/
             x: 32
           - id: metal-deal
-            title: The Deal
+            title: The Metal Society Deal
             when: Seven months before the first Event
             link: /lore/nuggets/
             x: 45
