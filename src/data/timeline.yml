@@ -12,6 +12,7 @@
 #   ends_at            an event id where the line stops early (the rest of the track is empty)
 #   parts              pull events from an Era's lore sections: a list of { slug, segment, labels }
 #                        labels  the name each section gets on the line (by section id); the lore page keeps its own headings
+#                        only    BU or AU: only take the sections whose date has it (one lore page split across two Eras)
 #   events             events written by hand: { id, title, when, segment, link, at, status }
 #                        at      line this event up with another event's spot on the page (by id)
 #                        link    where it opens (a page on the wiki)
@@ -35,6 +36,11 @@ eras:
     name: The Age of the Judge
     tagline: A second Diamond takes her seat.
     emblem: scales
+  - slug: metal-society
+    title: Era 0-1
+    name: The Metal Society
+    tagline: A furnace that never goes out, and a council that never changes.
+    emblem: anvil
 
 pages:
   - key: era-0
@@ -88,7 +94,22 @@ pages:
         name: The Metal Society
         color: '#d9a866'
         to_right: true
-        note: Record pending
+        parts:
+          - slug: metal-society
+            only: BU
+            labels:
+              the-first-metal: The First Metal
+              the-first-metals-are-made: The First Metals Are Made
+              the-first-metal-walks-into-the-fire: The First Metal Walks Into the Fire
+              the-first-towns: The First Towns
+              the-bronze-war: The Bronze War
+              the-alloy-experiments: The Alloy Experiments
+              engines: Engines
+              the-burning-of-cinder: The Burning of Cinder
+              the-pattern-law: The Pattern Law
+              the-council-never-changes: The Council Never Changes
+              golds-for-hire: Golds for Hire
+              the-society-stands-still: The Society Stands Still
   - key: era-1
     title: Era 1
     sub: Two Diamonds, then three, and an empire built from bare rock.
@@ -125,7 +146,22 @@ pages:
         color: '#d9a866'
         from_left: true
         to_right: true
-        note: Record pending
+        parts:
+          - slug: metal-society
+            only: AU
+            labels:
+              the-first-metal: The First Metal
+              the-first-metals-are-made: The First Metals Are Made
+              the-first-metal-walks-into-the-fire: The First Metal Walks Into the Fire
+              the-first-towns: The First Towns
+              the-bronze-war: The Bronze War
+              the-alloy-experiments: The Alloy Experiments
+              engines: Engines
+              the-burning-of-cinder: The Burning of Cinder
+              the-pattern-law: The Pattern Law
+              the-council-never-changes: The Council Never Changes
+              golds-for-hire: Golds for Hire
+              the-society-stands-still: The Society Stands Still
   - key: era-2
     title: Era 2
     sub: The Age of the Five, and everything the server has lived through.

@@ -11,7 +11,7 @@ export interface Event {
 export interface Track {
   key: string; label: string; name?: string; color: string; style?: 'solid' | 'dotted';
   from_left?: boolean; to_right?: boolean; ends_at?: string; note?: string;
-  parts?: { slug: string; segment: string; labels?: Record<string, string> }[]; events: Event[];
+  parts?: { slug: string; segment?: string; labels?: Record<string, string>; only?: string }[]; events: Event[];
 }
 export interface Page { key: string; title: string; sub: string; tracks: Track[] }
 
@@ -54,7 +54,7 @@ export const pages: Page[] = raw.pages.map((p) => ({
     ...t,
     events: [
       ...(t.parts ?? []).flatMap((src) =>
-        (eraBySlug.get(src.slug)?.parts ?? []).map((pt) => ({ id: pt.id, title: src.labels?.[pt.id] ?? pt.title, when: pt.when, segment: src.segment, link: `/timeline/${src.slug}/#${pt.id}` }))),
+        (eraBySlug.get(src.slug)?.parts ?? []).filter((pt) => !src.only || pt.when.includes(src.only)).map((pt) => ({ id: pt.id, title: src.labels?.[pt.id] ?? pt.title, when: pt.when, segment: src.segment, link: `/timeline/${src.slug}/#${pt.id}` }))),
       ...(t.events ?? []),
     ],
   })),
@@ -83,6 +83,8 @@ export const EMBLEMS: Record<string, string> = {
   five: [0, 1, 2, 3, 4].map((i) => { const a = -Math.PI / 2 + (i * 2 * Math.PI) / 5; return `<path transform="translate(${50 + 30 * Math.cos(a)} ${50 + 30 * Math.sin(a)})" d="M0 -9l6 9-6 9-6-9z"/>`; }).join('') + '<circle cx="50" cy="50" r="6" opacity=".6"/>',
   // a gate
   gate: '<g fill="none" stroke="currentColor" stroke-width="5"><path d="M24 84V44a26 26 0 0 1 52 0v40"/><path d="M36 84V48a14 14 0 0 1 28 0v36"/></g><path d="M16 84h68v6H16z"/>',
+  // an anvil
+  anvil: '<path d="M14 34h54c0 10 8 14 18 14v8H66c-4 0-6 3-6 7v5h8v8H32v-8h8v-5c0-6-4-9-10-9H14z"/>',
   // a hatch with a ladder going down
   hatch: '<g fill="none" stroke="currentColor" stroke-width="5"><circle cx="50" cy="34" r="20"/><path d="M50 14v40M30 34h40"/><path d="M40 62v26M60 62v26M40 70h20M40 80h20"/></g>',
 };
