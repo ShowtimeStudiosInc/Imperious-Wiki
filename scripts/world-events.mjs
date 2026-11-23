@@ -152,7 +152,10 @@ function tick(pop, state, now, forceTier) {
     const hit = ev.targets === 'all' ? candidates : [...candidates].sort(() => Math.random() - 0.5).slice(0, ev.targets || 3);
     // The headline goes in the log once, under the first gem it hits, with the others listed after it.
     const changes = hit.map((p) => ({ p, n: rand(ev.change[0], ev.change[1]) }));
-    for (const [i, { p, n }] of changes.entries()) move(p, n, 'big', i === 0 ? ev.text : 'Also part of this week\'s headline.', i === 0);
+    const real = changes.map(({ p, n }, i) => ({ who: p.slug, change: move(p, n, 'big', i === 0 ? ev.text : `Also part of this week's headline: ${ev.text}`, i === 0) }));
+    // Weekly headlines are also kept for good on the timeline, next to the Homeworld Times broadcasts.
+    const when = new Date(now).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: BIG_TZ });
+    pop.earlier_news = [...(pop.earlier_news || []), { title: `Weekly Report, ${when}`, weekly: true, headline: ev.text, unrest: ev.unrest || 0, changes: real.filter((c) => c.change) }];
     // Then the weekly update roll for everyone.
     for (const p of all) {
       const n = weighted([-2, -1, 0, 1, 2], (k) => (k === 0 ? 1.2 : 1) * (k > 0 ? (101 - p.row.score) / 50 : k < 0 ? p.row.score / 50 : 1));

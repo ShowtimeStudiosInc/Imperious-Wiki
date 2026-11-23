@@ -5,7 +5,7 @@ import { DIAMONDS } from './diamonds';
 import { url } from './gems';
 
 type Row = { slug: string; name?: string; score: number; previous?: number; votes?: number };
-type News = { title: string; news?: string; source?: string; unrest?: number; unrest_text?: string; changes?: { who: string; change: number; text: string }[] };
+type News = { title: string; news?: string; source?: string; weekly?: boolean; headline?: string; unrest?: number; unrest_text?: string; changes?: { who: string; change: number; text?: string }[] };
 type Log = { date: string | Date; who: string; change: number; kind: 'event' | 'roll' | 'small' | 'medium' | 'big'; text: string };
 const raw = load(fs.readFileSync('src/data/popularity.yml', 'utf8')) as {
   updated: string | Date; unrest?: number; earlier_news?: News[]; deity: Row[]; ruling: Row[]; regents: Row[]; log?: Log[];
@@ -48,7 +48,7 @@ export const groups = [
   { title: 'Grand Regents', rows: rank(raw.regents) },
 ];
 
-/** Staff-entered news reports from before the automatic events, newest first. Kept for good. */
+/** The permanent timeline: Homeworld Times broadcasts and weekly headlines, newest first. Kept for good. */
 export const earlierNews = [...(raw.earlier_news ?? [])].reverse().map((n) => ({
   ...n,
   changes: (n.changes ?? []).map((c) => ({ ...c, change: Number(c.change), person: people.get(c.who)! })),

@@ -140,6 +140,19 @@ earlier_news:
     unrest: 6
     unrest_text: The cosmic storm passed most of the outer colonies and is heading for the inner colonies of Saturn and Maroon. Homeworld expects the first impacts in two weeks, with about a month of communication losses after.
     changes: []
+  - title: Weekly Report, November 23, 2026
+    weekly: true
+    headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't.
+    unrest: 2
+    changes:
+      - who: magda
+        change: -3
+      - who: epsilon-blue
+        change: 4
+      - who: bi-colored-kandy
+        change: 2
+      - who: ordr
+        change: -4
 log:
   - date: '2026-11-23'
     who: magda
@@ -150,17 +163,17 @@ log:
     who: epsilon-blue
     change: +4
     kind: big
-    text: Also part of this week's headline.
+    text: "Also part of this week's headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't."
   - date: '2026-11-23'
     who: bi-colored-kandy
     change: +2
     kind: big
-    text: Also part of this week's headline.
+    text: "Also part of this week's headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't."
   - date: '2026-11-23'
     who: ordr
     change: -4
     kind: big
-    text: Also part of this week's headline.
+    text: "Also part of this week's headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't."
   - date: '2026-11-23'
     who: alpha-black
     change: -2
