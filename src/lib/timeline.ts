@@ -6,7 +6,7 @@ export interface Part { id: string; when: string; title: string; paras: string[]
 export interface Era { slug: string; title: string; name: string; tagline: string; emblem: string; heading?: string; parts: Part[] }
 export interface Event {
   id: string; title: string; when?: string; segment?: string; link?: string; at?: string; x?: number;
-  status?: 'open' | 'pending' | 'sealed'; current?: boolean;
+  status?: 'open' | 'pending' | 'sealed'; current?: boolean; kind?: 'news';
 }
 export interface Track {
   key: string; label: string; name?: string; color: string; style?: 'solid' | 'dotted';

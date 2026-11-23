@@ -17,6 +17,7 @@
 #                        at      line this event up with another event's spot on the page (by id)
 #                        link    where it opens (a page on the wiki)
 #                        status  open (default), pending, or sealed
+#                        kind    news for a Homeworld Times broadcast (drawn as a small round marker)
 #                        x       pin the event to a spot on the line, in percent
 #   note               shown on a track with no events yet
 
@@ -186,20 +187,47 @@ pages:
             when: The Age of the Five
             segment: 2A
             status: sealed
-            x: 20
           - id: orientation-day
             title: Orientation Day
             when: In the Beginning…
             segment: 2A
             link: /timeline/orientation-day/
-            x: 58
+          - id: gugungagap-disaster
+            kind: news
+            title: The Gugungagap Disaster
+            when: Before the mission
+            segment: 2A
+            link: /news/gugungagap-disaster/
+          - id: survivors-of-gugungagap
+            kind: news
+            title: Survivors of Gugungagap
+            when: Late morning
+            segment: 2A
+            link: /news/survivors-of-gugungagap/
           - id: below-the-surface
             title: Below the Surface
-            when: Part 1
+            when: High noon
             segment: 2A
             link: /timeline/below-the-surface/
             current: true
-            x: 86
+          - id: colony-crackdown-and-storm-warning
+            kind: news
+            title: A Storm Warning
+            when: Mid afternoon
+            segment: 2A
+            link: /news/colony-crackdown-and-storm-warning/
+          - id: outer-rim-evacuation
+            kind: news
+            title: The Outer Rim Evacuation
+            when: Later that afternoon
+            segment: 2A
+            link: /news/outer-rim-evacuation/
+          - id: storm-reaches-inner-colonies
+            kind: news
+            title: The Storm Reaches the Inner Colonies
+            when: After Below the Surface
+            segment: 2A
+            link: /news/storm-reaches-inner-colonies/
       - key: metal
         label: Era 0-1 Metal Society
         name: The Metal Society
@@ -211,9 +239,9 @@ pages:
             title: Maroon Discovers the Metals
             when: Era 2A
             link: /lore/nuggets/
-            x: 32
+            x: 17
           - id: metal-deal
             title: The Metal Society Deal
             when: Seven months before the first Event
             link: /lore/nuggets/
-            x: 45
+            x: 26

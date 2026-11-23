@@ -47,10 +47,11 @@ const segments = (t: Track, pos: Map<string, number>) => {
                     const status = e.status ?? 'open';
                     const Tag = status === 'open' && e.link ? 'a' : 'div';
                     return (
-                      <Tag class={`ev ${i % 2 ? 'below' : 'above'} ${status}${x > 82 ? ' flip' : ''}`} style={`left:${x}%`} href={Tag === 'a' ? url(e.link!) : undefined}>
+                      <Tag class={`ev ${i % 2 ? 'below' : 'above'} ${status}${e.kind === 'news' ? ' news' : ''}${x > 82 ? ' flip' : ''}`} style={`left:${x}%`} href={Tag === 'a' ? url(e.link!) : undefined}>
                         <span class="mark" aria-hidden="true" />
                         <span class="txt">
                           {e.current && <span class="cur">Current Event</span>}
+                          {e.kind === 'news' && <span class="src">The Homeworld Times</span>}
                           {e.when && <span class="when">{e.when}</span>}
                           <span class="et">{e.title}</span>
                           {status === 'pending' && <span class="st">Recap coming</span>}
@@ -133,6 +134,9 @@ const segments = (t: Track, pos: Map<string, number>) => {
   .mark { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; background: var(--c); transform: rotate(45deg); box-shadow: 0 0 0 4px rgba(13, 8, 24, 0.9); transition: transform 0.2s ease, box-shadow 0.2s ease; }
   .ev.pending .mark, .ev.sealed .mark { background: #0d0818; border: 2px solid var(--c); }
   .ev.sealed { --c: #6f6690; }
+  .ev.news .mark { transform: none; border-radius: 50%; width: 11px; height: 11px; left: -5.5px; top: -5.5px; background: #0d0818; border: 2px solid #ff6b5e; }
+  a.ev.news:hover .mark { transform: scale(1.35); }
+  .src { font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: #ff8a7e; }
   .txt { position: absolute; left: -64px; width: 128px; display: grid; justify-items: center; text-align: center; gap: 0.05rem; }
   .above .txt { bottom: 14px; }
   .below .txt { top: 14px; }
