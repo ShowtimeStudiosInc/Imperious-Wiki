@@ -1,0 +1,82 @@
+name: Tiffany Stone
+slug: tiffany-stone
+rank: '2.3'
+side: Authoritative
+faction: gempire
+kind: fusion
+parent: null
+components:
+  - rose-quartz
+  - orange-spodumene
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: Standard
+height: 13'9"
+stats: null
+abilities:
+  - section: Signature Ability
+    name: pH Reader
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      From her Orange Spodumene half. A Tiffany Stone can consume plant life to get a greater sense of the environment
+      they're in.
+    moves:
+      - name: Camouflage
+        tags:
+          - 3 SP
+        cost: 3
+        text: >-
+          Only after eating plant life, she shifts her color to better match her environment. It costs more as a fusion,
+          since Quartzes were never meant to camouflage.
+  - section: ACT Bonus
+    name: Rally
+    tags: []
+    cost: null
+    text: >-
+      From her Rose Quartz half. <:Act:1568035453842751618>ACTs that lift group morale are especially effective for
+      her.
+    moves: []
+  - section: Fusion Ability
+    name: Root Empathy
+    tags:
+      - PASSIVE
+    cost: null
+    text: >-
+      The fusion of a Rose Quartz's empathy and an Orange Spodumene's pH Reader. She can see whatever a plant she
+      consumes has seen in the past 42 hours.
+    moves: []
+  - section: Latent Ability
+    name: Rapid Fire
+    tags:
+      - 3 SP
+      - Base
+      - Physical
+    cost: 3
+    text: >-
+      An evolution of her Orange Spodumene half's Acid Spit. Only after eating plant life, she expels it as a ranged
+      barrage of acidic plant matter, dealing 3d4 + MAG Corrosive damage to one target. If she tries it on an empty
+      stomach, she takes 1d5 damage instead.
+    moves: []
+role: >-
+  A Tiffany Stone doesn't have one set job, rather the placement can entirely depend on its components. Most often
+  they're either assigned to scout on dangerous missions as both muscle and a way to collect data, or sent to encourage
+  and invigorate troops. They are considered a Low Authoritative figure due to their overall sense of empathy and
+  responsibility regarding troops, as well as the abilities given to them surpassing the average Quartz. As a fusion,
+  they do not have a specific set court, and are instead variable based on where their components originate. This
+  often results in them being a part of Theta Gold's court, due to the majority of Orange Spodumenes being from there.
+interactions: >-
+  Quartzes assigned to Tiffany Stones are often excitable in their presence, as they bring an invigorating and joyful
+  feeling to the mission. Tiffany Stones get along well with Orange Spodumenes, most often exchanging stories of
+  dangerous colonies and being in battle. The relationship between most Tiffany Stones and Agates is one of passive
+  aggression, with the Agate considering it a disrespect to their status and a sort of "loophole."
+description: null
+image: null
+gemstone: /images/gemstones/tiffany-stone.svg
+credit: null
+updated: '2026-11-23'

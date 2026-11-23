@@ -150,6 +150,7 @@ GEMS = {
     'watermelon-tourmaline': ('emerald-long', '#ff6f9a', {'watermelon': True}),
     # 5.2
     'coal': ('nugget', '#3a3a42', {}),
+    'pebbles': ('nugget', '#9a948c', {}),
     'richterite': ('marquise', '#8a5a4a', {}),
     'salt': ('square', '#f4f4f8', {}),
     'uranium': ('ingot', '#7d8a72', {}),

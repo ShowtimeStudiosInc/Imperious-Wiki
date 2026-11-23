@@ -1,0 +1,71 @@
+name: Pebbles
+slug: pebbles
+rank: '5.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: null
+stats:
+  hp: 32
+  atk: 2
+  def: 6
+  spd: 2
+  int: 4
+  mag: 3
+abilities:
+  - section: Signature Ability
+    name: Dressmaking
+    tags:
+      - PASSIVE
+      - Base
+      - Alteration
+    cost: null
+    text: >-
+      The ability to quickly construct delicate and detailed costumes, gowns, and suits out of raw materials.
+    moves: []
+  - section: ACT Bonus
+    name: Burrow
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that involve digging, hiding, or sneaking through tight spaces are especially
+      effective for them, and become quicker the more Pebbles there are present.
+    moves: []
+  - section: Latent Ability
+    name: Takes a Team!
+    tags:
+      - 2 SP
+      - Enhanced
+      - Shapeshifting
+    cost: 2
+    text: >-
+      2 to 5 Pebbles fuse in battle. Every Pebble beyond the first two only adds +1 DEF and -1 SPD.
+    moves: []
+role: >-
+  Pebbles are rarely made intentionally, as they're often the result of injector byproduct/kindergarten byproduct and
+  thus are treated with very little respect outside of their job as the assistants to Rhodochrosites. As the assistants
+  to Rhodochrosites, their job is to do artisanal detail-oriented outfits for the upper class. Since Rhodochrosites
+  aren't tied to one court, Pebbles usually stay in the court they were made in and work for whichever Rhodochrosite is
+  present in the court.
+interactions: >-
+  Pebbles work in small groups under a Rhodochrosite, doing the stitching and detail work while she designs. Most gems
+  barely notice them, but a Rhodochrosite who loses her Pebbles finds out fast how much they were doing. When a Ruby is
+  the guard for a Rhodochrosite, a Pebble may become attached to her in hopes of kinship in their height and
+  insignificance, and the Rubies often find them irritating. Bismuths sometimes stumble upon small holes and burrows in
+  their architecture while working on improvements, making it potentially unstable for expansion, so most of them see
+  Pebbles as vandals. Pearls can sometimes be found acting as models for Pebbles, in a mutual understanding of what it
+  means to be a servant, with the Pebble getting practice and the Pearl receiving a fashionable new look.
+description: null
+image: null
+gemstone: /images/gemstones/pebbles.svg
+credit: null
+updated: '2026-11-23'

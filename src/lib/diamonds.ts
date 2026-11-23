@@ -644,7 +644,7 @@ export const DIAMONDS: Diamond[] = [
     height: "80'2\"",
     color: "Red",
     domains: ['War', 'Fire'],
-    subDomains: ['Honor, Duty & Valor', 'Conquest & Dominion', 'Defense & Guardianship', 'Weapons & Forge', 'Blood & Slaughter', 'Victory & Triumph', 'Strife & Discord', 'Fear & Terror', 'Ruination & Desolation', 'Storms & Thunder', 'Fire & Flame', 'Oaths & Contracts', 'Justice / Vengeance'],
+    subDomains: ['Honor, Duty & Valor', 'Conquest & Dominion', 'Defense & Guardianship', 'Weapons & Forge', 'Blood & Slaughter', 'Victory & Triumph', 'Strife & Discord', 'Fear & Terror', 'Ruination & Desolation', 'Storms & Thunder', 'Oaths & Contracts', 'Justice / Vengeance'],
     court: 'Maroon',
     personality:
       "This Diamond encourages all his troops to reach their absolute best and will put out punishment if he feels it hasn't been achieved. He will only shatter Gems under him after repeated cases of disobedience as he dislikes the idea of a disloyal soldier. Red cares plenty about his looks, as he believes not looking his best would be a sign of laziness that would rub off on all those around him. Red treats the Diamonds before him with the greatest respect he can give and will sacrifice whatever it takes to form a bright future for Homeworld. When there's a problem to be solved, Maroon Red will always try to go at it whenever possible, between doing it himself and sending his best soldiers to do it instead. He makes sure to give even his Pearls and Spinels the hardest trainings he can so he knows for sure that they can protect themselves. If a Gem under him fails, he will feel at fault and punish the Gem himself.",
