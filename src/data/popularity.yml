@@ -1,8 +1,8 @@
 # Diamond Approval Rating: how the Gempire as a whole feels about each Diamond and Grand Regent.
 # This is in-world standing, not a member vote.
 #
-# It updates by itself. Every 3 hours scripts/world-events.mjs rolls a small event from
-# src/data/events/pool.yml, every few days a medium one, and once a week a weekly report
+# It updates by itself. Every 2 hours scripts/world-events.mjs rolls a small event from
+# src/data/events/pool.yml, every few days a medium one, and every Sunday morning a weekly report
 # (a big event, an update roll for everyone, and a new poll). Medium and weekly ones post to Discord.
 # To run one by hand: GitHub, Actions, "World events", Run workflow.
 #

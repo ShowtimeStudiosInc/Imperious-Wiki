@@ -20,6 +20,14 @@ const SITE = 'https://showtimestudiosinc.github.io/Imperious-Wiki';
 const HOUR = 3600e3, DAY = 24 * HOUR;
 const MEDIUM_EVERY = [2.5 * DAY, 3.5 * DAY]; // "every few days"
 const BIG_EVERY = 7 * DAY;
+// The weekly report lands on Sunday morning, Eastern time (6 AM to noon).
+const BIG_TZ = 'America/New_York';
+function isSundayMorning(now) {
+  const parts = new Intl.DateTimeFormat('en-US', { timeZone: BIG_TZ, weekday: 'short', hour: 'numeric', hourCycle: 'h23' }).formatToParts(new Date(now));
+  const day = parts.find((x) => x.type === 'weekday').value;
+  const hour = Number(parts.find((x) => x.type === 'hour').value);
+  return day === 'Sun' && hour >= 6 && hour < 12;
+}
 const LOG_DAYS = 14;
 const ACTS_WEIGHT = 0.35; // events where they act themselves come up about a third as often
 
@@ -94,7 +102,8 @@ function tick(pop, state, now, forceTier) {
   state.nextMediumGap ??= rand(MEDIUM_EVERY[0], MEDIUM_EVERY[1]);
 
   let tier = forceTier;
-  if (!tier) tier = now - state.lastBig >= BIG_EVERY ? 'big' : now - state.lastMedium >= state.nextMediumGap ? 'medium' : 'small';
+  // Big: Sunday morning, once (no other big in the last 2 days). Medium: every few days. Otherwise small.
+  if (!tier) tier = isSundayMorning(now) && now - state.lastBig >= 2 * DAY ? 'big' : now - state.lastMedium >= state.nextMediumGap ? 'medium' : 'small';
   if (tier === 'big') state.lastBig = now;
   if (tier === 'medium' || tier === 'big') { state.lastMedium = now; state.nextMediumGap = rand(MEDIUM_EVERY[0], MEDIUM_EVERY[1]); }
 
@@ -262,7 +271,7 @@ if (arg('--announce')) {
   const pop = loadPop(), state = loadState();
   let now = Date.now();
   const tiers = { small: 0, medium: 0, big: 0 };
-  for (let i = 0; i < runs; i++, now += 3 * HOUR) {
+  for (let i = 0; i < runs; i++, now += 2 * HOUR) {
     const r = tick(pop, state, now);
     tiers[r.tier]++;
     if (i < 12 || r.tier !== 'small') console.log(new Date(now).toISOString().slice(0, 13), r.tier.padEnd(6), `U${pop.unrest}`, r.lines.filter((l) => l.kind !== 'roll').map((l) => `${l.who} ${l.change}: ${l.text}`).join(' | ').slice(0, 220));
