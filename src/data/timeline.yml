@@ -41,6 +41,16 @@ eras:
     name: The Metal Society
     tagline: A furnace that never goes out, and a council that never changes.
     emblem: anvil
+  - slug: orientation-day
+    title: Orientation Day
+    name: In the Beginning…
+    tagline: New gems, first assignments, and a figure in an alley.
+    emblem: gate
+  - slug: below-the-surface
+    title: Below the Surface
+    name: Below the Surface…
+    tagline: Follow the figure into the city's underside.
+    emblem: hatch
 
 pages:
   - key: era-0
@@ -179,15 +189,15 @@ pages:
             x: 20
           - id: orientation-day
             title: Orientation Day
-            when: In the Beginning
+            when: In the Beginning…
             segment: 2A
-            status: pending
+            link: /timeline/orientation-day/
             x: 58
           - id: below-the-surface
             title: Below the Surface
             when: Part 1
             segment: 2A
-            status: pending
+            link: /timeline/below-the-surface/
             current: true
             x: 86
       - key: metal

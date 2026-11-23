@@ -6,7 +6,7 @@ import { eras, pages, EMBLEMS, PART_ICONS } from '../../lib/timeline';
 export function getStaticPaths() {
   return eras.map((n, i) => {
     // The Timeline page this Era sits on, for the back link.
-    const page = pages.find((p) => p.tracks.some((t) => (t.parts ?? []).some((s) => s.slug === n.slug)));
+    const page = pages.find((p) => p.tracks.some((t) => (t.parts ?? []).some((s) => s.slug === n.slug) || t.events.some((e) => e.link?.startsWith(`/timeline/${n.slug}/`))));
     return { params: { slug: n.slug }, props: { node: n, page, prev: eras[i - 1] ?? null, next: eras[i + 1] ?? null } };
   });
 }
