@@ -21,6 +21,7 @@ const start = dests.find((d) => d.id === 'start')!;
 const others = dests.filter((d) => d.id !== 'start');
 
 const quick = [
+  { href: '/timeline/', name: 'Timeline', icon: 'timeline' },
   { href: '/lore/glossary/', name: 'Glossary', icon: 'book' },
   { href: '/lore/height-chart/', name: 'Height Chart', icon: 'bars' },
   { href: '/rules/status-effects/', name: 'Status Effects', icon: 'bolt' },
@@ -128,6 +129,7 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
         <a href={url(q.href)} aria-label={q.name}>
           <span class="hex" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              {q.icon === 'timeline' && <><line x1="2" y1="12" x2="22" y2="12" /><circle cx="6" cy="12" r="2" /><circle cx="18" cy="12" r="2" /><line x1="6" y1="10" x2="6" y2="5" /><line x1="18" y1="14" x2="18" y2="19" /><line x1="12" y1="12" x2="12" y2="12" /></>}
               {q.icon === 'book' && <><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" /><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5" /></>}
               {q.icon === 'bars' && <><line x1="5" y1="20" x2="5" y2="12" /><line x1="10" y1="20" x2="10" y2="6" /><line x1="15" y1="20" x2="15" y2="9" /><line x1="20" y1="20" x2="20" y2="3" /></>}
               {q.icon === 'bolt' && <path d="M13 2 4 14h7l-1 8 9-12h-7z" />}

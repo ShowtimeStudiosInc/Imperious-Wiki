@@ -39,6 +39,7 @@ export default defineConfig({
           label: 'Lore',
           items: [
             { label: 'Lore Overview', link: '/lore/overview/' },
+            { label: 'Timeline', link: '/timeline/' },
             { label: 'Factions', collapsed: false, items: [{ autogenerate: { directory: 'lore/factions' } }] },
             { label: 'Gempire Life', collapsed: false, items: [{ autogenerate: { directory: 'lore/gempire-life' } }] },
             { label: 'How Gems Work', collapsed: false, items: [{ autogenerate: { directory: 'lore/how-gems-work' } }] },

@@ -1,0 +1,89 @@
+---
+import Site from '../../layouts/Site.astro';
+import { url } from '../../lib/gems';
+import { allNodes, EMBLEMS, PART_ICONS } from '../../lib/timeline';
+
+export function getStaticPaths() {
+  const open = allNodes.filter((n) => n.status === 'open');
+  return open.map((n) => {
+    const i = open.findIndex((o) => o.slug === n.slug);
+    return { params: { slug: n.slug }, props: { node: n, prev: open[i - 1] ?? null, next: open[i + 1] ?? null } };
+  });
+}
+const { node, prev, next } = Astro.props;
+---
+<Site title={`${node.title}: ${node.name ?? ''}`} description={node.tagline}>
+  <main class="era-page" data-pagefind-body>
+    <a class="back" href={url(`/timeline/#${node.page.key}`)}>‹ Timeline · {node.page.title}</a>
+    <header class="hero">
+      <span class="medal"><svg viewBox="0 0 100 100" aria-hidden="true" set:html={EMBLEMS[node.emblem] ?? ''} /></span>
+      <div>
+        <p class="kicker">{node.title}</p>
+        <h1>{node.name}</h1>
+        <p class="tag">{node.tagline}</p>
+      </div>
+    </header>
+
+    {node.parts.length > 1 && (
+      <nav class="toc" aria-label="Parts">
+        {node.parts.map((p, k) => (
+          <a href={`#${p.id}`}>
+            <svg viewBox="0 0 24 24" aria-hidden="true" set:html={PART_ICONS[k % PART_ICONS.length]} />
+            <span>{p.title}</span>
+          </a>
+        ))}
+      </nav>
+    )}
+
+    {node.parts.map((p, k) => (
+      <section class="part" id={p.id}>
+        <div class="ph">
+          <svg viewBox="0 0 24 24" aria-hidden="true" set:html={PART_ICONS[k % PART_ICONS.length]} />
+          <div>
+            {p.when && <p class="when">{p.when}</p>}
+            <h2>{p.title}</h2>
+          </div>
+        </div>
+        {p.paras.map((t) => <p>{t}</p>)}
+      </section>
+    ))}
+
+    <nav class="next-prev">
+      {prev ? <a href={url(`/timeline/${prev.slug}/`)}>‹ {prev.title}<small>{prev.name}</small></a> : <span />}
+      {next ? <a class="r" href={url(`/timeline/${next.slug}/`)}>{next.title} ›<small>{next.name}</small></a> : <span />}
+    </nav>
+  </main>
+</Site>
+
+<style>
+  .era-page { max-width: 760px; margin: 0 auto; padding: 1.6rem 1.2rem 3rem; }
+  .back { font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .back:hover { color: #fff; }
+  .hero { display: grid; grid-template-columns: 96px 1fr; gap: 1.2rem; align-items: center; margin: 1.4rem 0 1.6rem; }
+  .medal { position: relative; width: 96px; height: 106px; display: grid; place-items: center; color: #e9e1ff; }
+  .medal::before, .medal::after { content: ''; position: absolute; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+  .medal::before { inset: 0; background: currentColor; opacity: 0.55; }
+  .medal::after { inset: 3px; background: linear-gradient(160deg, #241a3a, #0d0818 70%); }
+  .medal svg { position: relative; z-index: 1; width: 52%; height: 52%; fill: currentColor; }
+  .kicker { margin: 0; font-size: 0.78rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); }
+  .hero h1 { margin: 0.1rem 0 0.2rem; font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 4vw, 2.2rem); }
+  .tag { margin: 0; color: var(--muted); }
+
+  .toc { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; padding: 0.8rem 0; margin-bottom: 0.6rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .toc a { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; color: var(--lav); }
+  .toc a:hover { color: #fff; }
+  .toc svg { width: 14px; height: 14px; fill: currentColor; flex: none; }
+
+  .part { padding-top: 1.6rem; scroll-margin-top: 1rem; }
+  .ph { display: grid; grid-template-columns: 26px 1fr; gap: 0.7rem; align-items: center; margin-bottom: 0.6rem; }
+  .ph svg { width: 22px; height: 22px; fill: var(--lav); }
+  .part .when { margin: 0; font-family: var(--sans); line-height: 1.4; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
+  .part h2 { margin: 0; font-family: var(--sans); font-size: 1.05rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
+  .part p { font-family: var(--serif); font-size: 1rem; line-height: 1.8; margin: 0 0 0.9rem; color: var(--text); }
+
+  .next-prev { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .next-prev a { display: grid; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text); }
+  .next-prev a small { font-family: var(--serif); letter-spacing: 0; text-transform: none; color: var(--muted); font-size: 0.85rem; }
+  .next-prev a.r { text-align: right; }
+  .next-prev a:hover { color: #fff; }
+</style>

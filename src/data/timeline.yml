@@ -1,0 +1,83 @@
+# The Timeline page (/timeline/), laid out like a game's timeline screen.
+# One page per Era (0, 1, 2). The line on each page is split into segments (0, Side-B, 1A, 1B, 2A).
+# The server's own events happen during Era 2A, so they sit on the Era 2 page inside the 2A segment.
+#
+# Each node:
+#   slug      the page it opens (/timeline/<slug>/). Its text lives in src/data/timeline/<slug>.md
+#   segment   which stretch of the line it sits in
+#   title     shown in spaced capitals
+#   name      shown under the title
+#   tagline   one short line
+#   emblem    which drawing goes in the hex (see EMBLEMS in src/lib/timeline.ts)
+#   status    open (has a page), locked (coming later), or sealed (never told)
+#   current   true puts a "Current Event" tag on it
+#   note      the small line shown on a locked or sealed node
+# Parts (the small icons under a node) come from the ** section lines ** in its .md file.
+
+pages:
+  - key: era-0
+    title: Era 0
+    sub: The beginning of everything, as Alpha Black Diamond tells it.
+    nodes:
+      - slug: era-0
+        segment: '0'
+        title: Era 0
+        name: The Age of the Primordial
+        tagline: Four stones, then one, and a war over measurements.
+        emblem: four-stones
+        status: open
+      - slug: era-0-side-b
+        segment: Side-B
+        title: Era 0 Side-B
+        name: The Age of the Hive Queen
+        tagline: Every gem the same distance from the next.
+        emblem: rows
+        status: locked
+        note: Record pending
+  - key: era-1
+    title: Era 1
+    sub: Two Diamonds, then three, and an empire built from bare rock.
+    nodes:
+      - slug: era-1a
+        segment: 1A
+        title: Era 1A
+        name: The Age of New Light
+        tagline: A golden stone on a shelf, and a decision to make.
+        emblem: sunstone
+        status: open
+      - slug: era-1b
+        segment: 1B
+        title: Era 1B
+        name: The Age of the Judge
+        tagline: A second Diamond takes her seat.
+        emblem: scales
+        status: open
+  - key: era-2
+    title: Era 2
+    sub: The Age of the Five, and everything the server has lived through.
+    nodes:
+      - slug: era-2a
+        segment: 2A
+        title: Era 2A
+        name: The Age of the Five
+        tagline: Some things are better left for later.
+        emblem: five
+        status: sealed
+        note: Sealed
+      - slug: orientation-day
+        segment: 2A
+        title: Orientation Day
+        name: In the Beginning
+        tagline: New gems, first assignments, and a figure in an alley.
+        emblem: gate
+        status: locked
+        note: Recap coming
+      - slug: below-the-surface
+        segment: 2A
+        title: Below the Surface
+        name: Part 1
+        tagline: Follow the figure into the city's underside.
+        emblem: hatch
+        status: locked
+        current: true
+        note: Recap coming
