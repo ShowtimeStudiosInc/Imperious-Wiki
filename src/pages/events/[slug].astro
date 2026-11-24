@@ -1,0 +1,255 @@
+---
+import Site from '../../layouts/Site.astro';
+import { url } from '../../lib/gems';
+import { storylines } from '../../lib/storylines';
+
+export function getStaticPaths() {
+  return storylines.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+const open = s.quests.filter((q) => q.status !== 'locked');
+const locked = s.quests.filter((q) => q.status === 'locked');
+const STATUS: Record<string, string> = { open: 'Open', taken: 'Taken', done: 'Done', locked: 'Locked' };
+const kinds = [...new Set(s.locations.map((l) => l.kind))];
+const TABS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'story', label: 'Story So Far' },
+  { id: 'quests', label: 'Quest Board' },
+  { id: 'settlement', label: 'The Settlement' },
+  { id: 'tools', label: 'Tools' },
+];
+---
+<Site title={s.title} description={s.tagline} current="events">
+  <main class="ev" data-pagefind-body>
+    <a class="back" href={url('/events/')}>‹ Events</a>
+    <header class="ev-hero">
+      <p class="kicker">{s.kind} · {s.era} · <span class="live">{s.status}</span></p>
+      <h1>{s.title}</h1>
+      <p class="tag">{s.tagline}</p>
+      {s.theme && <p class="theme">“{s.theme}”</p>}
+    </header>
+
+    <nav class="ev-tabs" role="tablist" aria-label="Sections">
+      {TABS.map((t, i) => <button role="tab" id={`tab-${t.id}`} aria-controls={`ev-${t.id}`} aria-selected={i === 0 ? 'true' : 'false'} data-tab={t.id}>{t.label}{t.id === 'quests' && open.filter((q) => q.status === 'open').length > 0 && <b>{open.filter((q) => q.status === 'open').length}</b>}</button>)}
+    </nav>
+
+    <section class="ev-panel" id="ev-overview" role="tabpanel" aria-labelledby="tab-overview">
+      <p class="lead">{s.summary}</p>
+      {s.lore.map((l) => (
+        <div class="block">
+          <h2>{l.title}</h2>
+          {l.paras.map((p) => <p>{p}</p>)}
+        </div>
+      ))}
+      {s.how_to_join && (
+        <aside class="join">
+          <h3>Joining the storyline</h3>
+          <p>{s.how_to_join}</p>
+          <p><a href={url('/lore/factions/rogues-and-rebels/')}>Rogues &amp; Rebels ›</a> · <a href={url('/gem-types/tier/rogues/')}>Rogue Gem-Types ›</a></p>
+        </aside>
+      )}
+    </section>
+
+    <section class="ev-panel" id="ev-story" role="tabpanel" aria-labelledby="tab-story" hidden>
+      <ol class="chapters">
+        {s.chapters.map((c, i) => (
+          <li>
+            <a href={url(`/timeline/${c.slug}/`)}>
+              <span class="n">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                {c.when && <small>{c.when}</small>}
+                <h3>{c.title}</h3>
+                <p>{c.summary}</p>
+              </div>
+              <span class="go">Read the recap ›</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <p class="note">Each part of the storyline also sits on the <a href={url('/timeline/')}>Timeline</a>, on the Side Story line of Era 2.</p>
+    </section>
+
+    <section class="ev-panel" id="ev-quests" role="tabpanel" aria-labelledby="tab-quests" hidden>
+      <div class="board">
+        <p class="board-head">Posted at the Guild Hall</p>
+        <div class="cards">
+          {open.map((q) => (
+            <article class={`card ${q.status}`}>
+              <span class="pin" aria-hidden="true"></span>
+              <span class="stamp">{STATUS[q.status]}</span>
+              <h3>{q.title}</h3>
+              {q.text && <p>{q.text}</p>}
+              <dl>
+                {q.giver && <><dt>Posted by</dt><dd>{q.giver}</dd></>}
+                {q.location && <><dt>Where</dt><dd>{q.location}</dd></>}
+                {q.reward && <><dt>Reward</dt><dd>{q.reward}</dd></>}
+                {q.party?.length ? <><dt>Taken by</dt><dd>{q.party.join(', ')}</dd></> : null}
+              </dl>
+            </article>
+          ))}
+          {locked.map((q) => (
+            <article class="card locked">
+              <span class="pin" aria-hidden="true"></span>
+              <span class="lock" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0 1 10 0v3h1.5v11h-13V10zm2 0h6V7a3 3 0 0 0-6 0z"/></svg></span>
+              <h3>{q.title || 'Not yet posted'}</h3>
+              <p>{q.hint}</p>
+            </article>
+          ))}
+        </div>
+        {open.length === 0 && <p class="empty">No jobs are open yet. Check back once the guild hall starts posting.</p>}
+      </div>
+    </section>
+
+    <section class="ev-panel" id="ev-settlement" role="tabpanel" aria-labelledby="tab-settlement" hidden>
+      <h2>Who runs it</h2>
+      <div class="npcs">
+        {s.npcs.map((n) => (
+          <div class="npc">
+            <small>{n.role}</small>
+            <h3>{n.name || 'Name not yet revealed'}</h3>
+            <p class="gem">{n.gem}</p>
+            <p>{n.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2>Places</h2>
+      {kinds.map((k) => (
+        <div class="places">
+          <h3 class="kind">{k}</h3>
+          {s.locations.filter((l) => l.kind === k).map((l) => (
+            <div class="place">
+              <h4>{l.name}</h4>
+              <p>{l.text}</p>
+              {l.thread ? <a href={l.thread} target="_blank" rel="noopener">Open the Discord thread ›</a> : <span class="soon">No thread yet</span>}
+            </div>
+          ))}
+        </div>
+      ))}
+
+      <h2>Who's here</h2>
+      <ul class="roster">
+        {s.rogues.map((r) => <li><b>{r.name}</b>{r.visitor && <em>Visitor</em>}<span>{r.note}</span></li>)}
+      </ul>
+    </section>
+
+    <section class="ev-panel" id="ev-tools" role="tabpanel" aria-labelledby="tab-tools" hidden>
+      <p class="lead">What this tab can do now, and what's being built for it.</p>
+      <div class="tools">
+        {s.tools.map((t) => (
+          <div class={`tool ${t.status}`}>
+            <span class="st">{t.status === 'live' ? 'Live' : 'Planned'}</span>
+            <h3>{t.name}</h3>
+            <p>{t.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Site>
+
+<script>
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('.ev-tabs [data-tab]')];
+  const show = (id: string, push = true) => {
+    if (!tabs.some((t) => t.dataset.tab === id)) id = 'overview';
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === id)));
+    document.querySelectorAll<HTMLElement>('.ev-panel').forEach((p) => (p.hidden = p.id !== `ev-${id}`));
+    if (push) history.replaceState(null, '', `#${id}`);
+  };
+  tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.tab!)));
+  if (location.hash) show(location.hash.slice(1), false);
+  addEventListener('hashchange', () => show(location.hash.slice(1), false));
+</script>
+
+<style>
+  .ev { --ice: #8fe3ff; --frost: rgba(143, 227, 255, 0.16); max-width: 1000px; margin: 0 auto; padding: 32px 22px 90px; }
+  .back { font: 600 12px/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+  .back:hover { color: var(--ice); }
+  .ev-hero { margin: 26px 0 26px; padding: 34px 30px; border: 1px solid var(--frost); border-radius: 6px;
+    background: radial-gradient(120% 140% at 100% 0%, rgba(143, 227, 255, 0.14), transparent 55%), linear-gradient(180deg, rgba(20, 30, 54, 0.9), rgba(16, 12, 34, 0.9)); position: relative; overflow: hidden; }
+  .kicker { font: 600 11px/1 var(--sans); letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice); margin: 0 0 12px; }
+  .kicker .live { color: #b9f6c7; }
+  .ev-hero h1 { font: 400 40px/1.1 var(--serif); margin: 0 0 10px; color: var(--text); }
+  .tag { color: var(--muted); margin: 0; max-width: 60ch; }
+  .theme { margin: 18px 0 0; font: italic 16px/1.4 var(--serif); color: #dff6ff; }
+
+  .ev-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 26px; overflow-x: auto; }
+  .ev-tabs button { all: unset; cursor: pointer; padding: 12px 16px; font: 600 12px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid transparent; white-space: nowrap; }
+  .ev-tabs button:hover { color: var(--text); }
+  .ev-tabs button[aria-selected='true'] { color: var(--ice); border-bottom-color: var(--ice); }
+  .ev-tabs b { margin-left: 8px; background: var(--ice); color: #0d1424; border-radius: 9px; padding: 2px 6px; font-size: 10px; }
+
+  .ev-panel h2 { font: 400 24px/1.2 var(--serif); margin: 34px 0 14px; color: var(--text); }
+  .ev-panel h2:first-child { margin-top: 0; }
+  .ev-panel p { color: #d9d3ee; line-height: 1.75; }
+  .lead { font-size: 17px; color: var(--text) !important; }
+  .block { padding: 4px 0 6px; border-top: 1px solid var(--line); }
+  .block h2 { margin-top: 22px; }
+  .join { margin-top: 30px; padding: 20px 22px; border-left: 3px solid var(--ice); background: var(--frost); border-radius: 4px; }
+  .join h3 { margin: 0 0 6px; font: 600 13px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ice); }
+  .join a, .note a, .place a { color: var(--ice); }
+
+  .chapters { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .chapters a { display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; padding: 18px 20px; border: 1px solid var(--frost); border-radius: 6px; background: var(--panel); text-decoration: none; color: inherit; }
+  .chapters a:hover { border-color: var(--ice); }
+  .chapters .n { font: 400 30px/1 var(--serif); color: var(--ice); }
+  .chapters small { font: 600 11px/1 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .chapters h3 { margin: 6px 0 4px; font: 600 18px/1.2 var(--sans); color: var(--text); }
+  .chapters p { margin: 0; color: var(--muted); }
+  .chapters .go { font: 600 12px/1 var(--sans); color: var(--ice); white-space: nowrap; }
+  .note { color: var(--muted) !important; font-size: 14px; }
+
+  .board { padding: 26px 22px 30px; border-radius: 6px; background: linear-gradient(180deg, #3a2a1e, #2c1f16); border: 1px solid #5a432f; box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.45); }
+  .board-head { margin: 0 0 18px; text-align: center; font: 600 12px/1 var(--sans) !important; letter-spacing: 0.3em; text-transform: uppercase; color: #e9d3b0 !important; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+  .card { position: relative; padding: 22px 18px 16px; background: #efe4cf; color: #2a2118; border-radius: 2px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4); transform: rotate(-0.6deg); }
+  .card:nth-child(even) { transform: rotate(0.8deg); }
+  .card .pin { position: absolute; top: 8px; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: #b5463b; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); }
+  .card h3 { margin: 4px 0 8px; font: 700 17px/1.25 var(--serif); color: #2a2118; }
+  .card p { color: #4a3d2e !important; font-size: 14px; line-height: 1.5; margin: 0 0 10px; }
+  .card dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; margin: 0; font-size: 13px; }
+  .card dt { font-weight: 600; color: #7a6650; }
+  .card dd { margin: 0; color: #2a2118; }
+  .card .stamp { position: absolute; top: 14px; right: 12px; font: 700 10px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 6px; border: 2px solid currentColor; border-radius: 3px; transform: rotate(6deg); }
+  .card.open .stamp { color: #2f7a46; }
+  .card.taken .stamp { color: #b07a1c; }
+  .card.done { opacity: 0.7; }
+  .card.done .stamp { color: #6a6a6a; }
+  .card.locked { background: #cbbfa9; text-align: center; padding-top: 30px; }
+  .card.locked h3 { color: #5d5142; font-style: italic; }
+  .card.locked .lock svg { width: 26px; height: 26px; fill: #6e604d; }
+  .empty { text-align: center; margin: 20px 0 0; color: #d6c3a3 !important; font-size: 14px; }
+
+  .npcs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .npc { padding: 18px 20px; border: 1px solid var(--frost); border-radius: 6px; background: var(--panel); }
+  .npc small { font: 600 11px/1 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ice); }
+  .npc h3 { margin: 8px 0 2px; font: 400 20px/1.2 var(--serif); color: var(--text); }
+  .npc .gem { margin: 0 0 8px; color: var(--gold) !important; font-size: 14px; }
+  .npc p { margin: 0; font-size: 15px; }
+  .places { margin-bottom: 8px; }
+  .kind { font: 600 12px/1 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 18px 0 10px; }
+  .place { padding: 14px 0; border-top: 1px solid var(--line); }
+  .place h4 { margin: 0 0 4px; font: 600 16px/1.3 var(--sans); color: var(--text); }
+  .place p { margin: 0 0 6px; }
+  .place a, .soon { font-size: 13px; }
+  .soon { color: var(--dim); }
+  .roster { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px 22px; }
+  .roster li { padding: 10px 0; border-top: 1px solid var(--line); }
+  .roster b { color: var(--text); margin-right: 8px; }
+  .roster em { font: 600 10px/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; font-style: normal; color: var(--gold); border: 1px solid currentColor; padding: 2px 5px; border-radius: 3px; }
+  .roster span { display: block; color: var(--muted); font-size: 14px; margin-top: 3px; }
+
+  .tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .tool { padding: 18px 20px; border: 1px dashed var(--line); border-radius: 6px; }
+  .tool.live { border: 1px solid var(--ice); background: var(--frost); }
+  .tool .st { font: 600 10px/1 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
+  .tool.live .st { color: var(--ice); }
+  .tool h3 { margin: 8px 0 6px; font: 600 16px/1.3 var(--sans); color: var(--text); }
+  .tool p { margin: 0; font-size: 14px; line-height: 1.6; }
+
+  @media (max-width: 640px) {
+    .ev-hero h1 { font-size: 30px; }
+    .chapters a { grid-template-columns: auto 1fr; }
+    .chapters .go { grid-column: 2; }
+  }
+</style>

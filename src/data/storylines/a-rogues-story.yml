@@ -1,0 +1,148 @@
+# A Rogue's Story: the event tab at /events/a-rogues-story/
+#
+# Everything on that page comes from this file. To update it:
+#   quests     add one entry per job on the guild hall's board
+#                status   locked (shows only the hint), open, taken, or done
+#                hint     what a locked quest shows instead of its details
+#                party    who took it (for taken or done)
+#   locations  places in and around the settlement; thread links back to the Discord thread
+#   npcs       the settlement's own gems; name can stay '' until they're revealed
+#   rogues     player characters who live at or are visiting the settlement
+#   chapters   the storyline's recaps, oldest first (each one is a page on the Timeline)
+#   tools      features planned for this tab; status planned or live
+
+slug: a-rogues-story
+title: A Rogue's Story
+kind: Side Story
+era: Era 2A
+status: In progress
+theme: Be careful who you trust.
+tagline: Life out in the Wilds of Homeworld, at a settlement the Gempire would rather forget.
+summary: >-
+  A storyline about the Rogues who live out in the Wilds, away from the city and the Diamonds. It is told through
+  events, quests posted at the guild hall, and plenty of time for characters to simply live there. The main story
+  takes a break while it runs.
+how_to_join: >-
+  Make a Rogue of your own who isn't tied to any of your other characters. The easiest way in is a fresh Rogue who
+  only recently defected and has just arrived at the settlement. Rogues can be played freely. Rebels and S.T.O.R.M.
+  members need staff approval.
+
+lore:
+  - title: The Rogue Settlement
+    paras:
+      - >-
+        The Rogue Settlement sits on a snowy plateau 230 miles south-east of the city of Homeworld. It is a spread of
+        buildings rather than a town with walls, and the cold out here is dangerous enough that most of the Gempire
+        never bothers to come looking. For a lot of the gems and Metals who live here, it is the first place that has
+        ever felt like home.
+      - >-
+        Nobody arrives with a job waiting for them. Pearls who left their owners, Off-Colors and Defectives who were
+        afraid of what the Gempire would do with them, old gems who stopped recognizing the empire they served, and
+        Metals who walked off their posts all end up here, and all of them have to find their own place.
+  - title: Who Runs It
+    paras:
+      - >-
+        The settlement's chief is a Mega Pearl. Supplies, tools, spare clothes, and the camp's records are all stored
+        in her Hammerspace, so nothing leaves the settlement without her say.
+      - >-
+        Work goes through the guild hall, run by a Bi-Color Andean Opal. She decides what jobs get posted, who takes
+        them, and what they are paid in. Anyone who needs something done, or wants to earn their keep, starts with her.
+  - title: How Rogues Live
+    paras:
+      - >-
+        Fusions here don't need a license. Gems who would be split apart in the city live openly in the settlement's
+        fusion quarter. Metals live here too: Bronzes handle most of the building and repair work, and the settlement's
+        Uraniums are given quarters of their own, away from everyone else, because of how dangerous they are to be near.
+      - >-
+        Leaving one's post is still a crime, but the Gempire rarely chases Rogues who keep their heads down. A Rogue
+        becomes a Rebel the moment she acts against the Imperious Authority, and that line is thinner than most of
+        the settlement would like to admit.
+
+chapters:
+  - slug: the-crash
+    title: The Crash
+    when: That night
+    summary: A ship disguised as a space rock comes down a few miles from the settlement, and its pilot is from the United Frontier.
+
+quests:
+  - id: first-posting
+    status: locked
+    title: ''
+    hint: The guild hall is preparing its first job.
+
+locations:
+  - name: Rogue Settlement - Outside
+    kind: Settlement
+    text: >-
+      A settlement made up of several buildings spread across a snowy plateau, 230 miles south-east of the city of
+      Homeworld.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1552047566424637581
+  - name: The Guild Hall
+    kind: Settlement
+    text: Where the settlement's work is posted and handed out, run by a Bi-Color Andean Opal.
+  - name: The Fusion Quarter
+    kind: Settlement
+    text: The part of the settlement where its fusions live, including the chief.
+  - name: Crash Site
+    kind: The Wilds
+    text: >-
+      A fresh crater a few miles from the settlement, where Cole von Falken's ship came down. The ship is still
+      there, cloaked to look like an ordinary space rock.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1552078744368455760
+  - name: Lancaster's Divot
+    kind: The Wilds
+    text: >-
+      A large crater a few miles north of the settlement, filled with a wide field of snow and ice, with a small
+      frozen-over lake at its center.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1552076088992342026
+
+npcs:
+  - role: Chief of the Settlement
+    gem: Mega Pearl
+    name: ''
+    text: Keeps the settlement's supplies and records in her Hammerspace, and has the final say on what leaves it.
+  - role: Head of the Guild Hall
+    gem: Bi-Color Andean Opal
+    name: ''
+    text: Posts the settlement's jobs and decides who takes them.
+
+rogues:
+  - name: Idris
+    note: An old Metal who knows everyone. Led Cole back to the settlement.
+  - name: Stephany
+    note: A Steel with twin revolvers and a lasso. Calls everyone doll.
+  - name: Guy
+    note: A Uranium who is sure the Diamonds are behind everything.
+  - name: Cove
+    note: A Malachite who keeps the peace when weapons come out.
+  - name: Bellatrix
+    note: The settlement's healer.
+  - name: Velveteen
+    note: A fusion who lives at the settlement.
+  - name: Odelia
+    note: An assassin who mostly keeps to herself.
+  - name: Neoni
+    note: A shy Uranium living in the community dumpster.
+  - name: Loki
+    note: An Emerald, visiting from outside the settlement.
+    visitor: true
+  - name: Cole von Falken
+    note: A pilot from the United Frontier, stranded after his ship crashed.
+    visitor: true
+
+tools:
+  - name: Quest Board
+    status: live
+    text: Jobs posted at the guild hall, with locked teasers for what's coming.
+  - name: Settlement Ledger
+    status: planned
+    text: What the chief has in her Hammerspace, and what the settlement is short on.
+  - name: Trust Board
+    status: planned
+    text: Who the settlement trusts, who it doesn't, and how that changes as the story goes on.
+  - name: Map of the Wilds
+    status: planned
+    text: The settlement and the places around it, unlocked as characters find them.
+  - name: Bounty Board
+    status: planned
+    text: Gems and creatures with a price on them, posted alongside the guild hall's jobs.
