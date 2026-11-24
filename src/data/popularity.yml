@@ -12,7 +12,7 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-24'
-unrest: 51
+unrest: 50
 deity:
   - slug: alpha-black
     score: 46
@@ -68,8 +68,8 @@ regents:
     previous: 63
     votes: 9431
   - slug: law
-    score: 58
-    previous: 58
+    score: 56
+    previous: 56
     votes: 6395
   - slug: ordr
     score: 53
@@ -155,8 +155,13 @@ earlier_news:
         change: -4
 log:
   - date: '2026-11-24'
+    who: law
+    change: -2
+    kind: small
+    text: Gems who have dealt with Law say he is hard to please and harder to argue with. Not everyone means it as a compliment.
+  - date: '2026-11-24'
     who: ordr
-    change: +1
+    change: 1
     kind: small
     text: Work schedules sent out by Ordr's office are clearer than the old ones. Gems in Court Theta noticed.
   - date: '2026-11-23'

@@ -2,6 +2,7 @@
  "flags": {},
  "recent": {
   "small": [
+   "law-hard",
    "ordr-schedules",
    "kindergarten-short",
    "turned-down",
@@ -244,6 +245,26 @@
     "reina": 61,
     "magda": 63,
     "law": 58,
+    "ordr": 53,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795515655490,
+   "scores": {
+    "alpha-black": 46,
+    "epsilon-blue": 70,
+    "theta-gold": 60,
+    "saturn-light": 80,
+    "nightshade-violet": 56,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 71,
+    "tethys": 42,
+    "reina": 61,
+    "magda": 63,
+    "law": 56,
     "ordr": 53,
     "dante": 44
    }
