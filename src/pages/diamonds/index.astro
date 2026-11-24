@@ -161,8 +161,6 @@ const regentCourt = (r: any) => r.facts.find((f: any) => f[0] === 'Court')?.[1];
               </>}
               <image href={artSrc(w.d.slug, w.d.art)} x="26" y="36" width="148" height={w.H - 62} preserveAspectRatio="xMidYMin slice" style={w.art?.mode === 'paper' ? 'mix-blend-mode:multiply' : undefined} />
               <rect width="200" height={w.H} fill={`url(#t-${w.d.slug})`} />
-              <path d={`M26,${Math.round(w.H * 0.62)} Q100,${Math.round(w.H * 0.58)} 174,${Math.round(w.H * 0.62)}`} stroke="#0c0913" stroke-width="2" stroke-opacity="0.55" fill="none" />
-              <path d={`M100,36 L100,${Math.round(w.H * 0.2)}`} stroke="#0c0913" stroke-width="2" stroke-opacity="0.45" />
             </g>
             <path d={w.inner} fill="none" stroke="#0c0913" stroke-width="6" />
             <path d={w.inner} fill="none" stroke={w.g.b} stroke-width="1.4" stroke-opacity="0.7" transform="translate(0 0)" />
