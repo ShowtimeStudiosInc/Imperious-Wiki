@@ -2,6 +2,10 @@
  "flags": {},
  "recent": {
   "small": [
+   "alpha-ring",
+   "nightshade-rest",
+   "reina-couch",
+   "florentino-nicknames",
    "law-hard",
    "ordr-schedules",
    "kindergarten-short",
@@ -268,11 +272,92 @@
     "ordr": 53,
     "dante": 44
    }
+  },
+  {
+   "t": 1795524708884,
+   "scores": {
+    "alpha-black": 46,
+    "epsilon-blue": 70,
+    "theta-gold": 60,
+    "saturn-light": 80,
+    "nightshade-violet": 56,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 73,
+    "tethys": 42,
+    "reina": 61,
+    "magda": 63,
+    "law": 56,
+    "ordr": 53,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795531908884,
+   "scores": {
+    "alpha-black": 46,
+    "epsilon-blue": 70,
+    "theta-gold": 60,
+    "saturn-light": 80,
+    "nightshade-violet": 56,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 73,
+    "tethys": 42,
+    "reina": 59,
+    "magda": 63,
+    "law": 56,
+    "ordr": 53,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795539108884,
+   "scores": {
+    "alpha-black": 46,
+    "epsilon-blue": 70,
+    "theta-gold": 60,
+    "saturn-light": 80,
+    "nightshade-violet": 58,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 73,
+    "tethys": 42,
+    "reina": 59,
+    "magda": 63,
+    "law": 56,
+    "ordr": 53,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795546308884,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 70,
+    "theta-gold": 60,
+    "saturn-light": 80,
+    "nightshade-violet": 58,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 73,
+    "tethys": 42,
+    "reina": 59,
+    "magda": 63,
+    "law": 56,
+    "ordr": 53,
+    "dante": 44
+   }
   }
  ],
  "lastMedium": 1795436606210,
  "lastBig": 1795436606210,
  "nextMediumGap": 278906957,
  "post": null,
- "appliedNews": []
+ "appliedNews": [],
+ "lastRun": 1795546308884
 }
