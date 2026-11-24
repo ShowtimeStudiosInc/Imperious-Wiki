@@ -1,7 +1,7 @@
 ---
 import Site from '../layouts/Site.astro';
 import { url } from '../lib/gems';
-import { groups, updated, logByDate, changeLabel, changeClass, votesLabel, unrest, unrestLevel, kindLabel, earlierNews } from '../lib/popularity';
+import { groups, updated, logByDate, changeLabel, changeClass, votesLabel, unrest, unrestLevel, kindLabel, earlierNews, alert, decreeTypes, pendingDecrees } from '../lib/popularity';
 const boards = groups;
 ---
 <Site title="Diamond Approval Rating" description="How the Gempire feels about its Diamonds and Grand Regents, and what changed it.">
@@ -18,6 +18,12 @@ const boards = groups;
         <span class="ur-bar" role="img" aria-label={`Unrest ${unrest} out of 100, ${unrestLevel(unrest)}`}><span style={`width:${unrest}%`} /><i style="left:25%" /><i style="left:50%" /><i style="left:75%" /></span>
         <div class="ur-scale"><span>Calm</span><span>Uneasy</span><span>Restless</span><span>Boiling</span></div>
         <p>How restless the Gempire is as a whole. It climbs when the Diamonds are unpopular and when bad news piles up. The higher it gets, the worse the events that can happen.</p>
+        {alert && (
+          <div class="ur-alert">
+            <strong>⚠ {alert.text}</strong>
+            {alert.hooks.length > 0 && <ul>{alert.hooks.map((h) => <li>{h}</li>)}</ul>}
+          </div>
+        )}
       </section>
     )}
 
@@ -42,6 +48,20 @@ const boards = groups;
         </section>
       ))}
     </div>
+
+    <section class="decrees">
+      <h2>Decrees</h2>
+      <p>Once a week, the player of each Diamond or Grand Regent can issue one decree. Post it in Discord, and it takes effect with the Sunday weekly report.</p>
+      <ul class="dc-types">
+        {decreeTypes.map((t) => <li><strong>{t.name}</strong><span>{t.about}</span></li>)}
+      </ul>
+      {pendingDecrees.length > 0 && <>
+        <h3>Announced for this Sunday</h3>
+        <ul class="dc-pending">
+          {pendingDecrees.map((d) => <li><strong>{d.person!.name}</strong> · {d.type!.name}{d.note && <span> · {d.note}</span>}</li>)}
+        </ul>
+      </>}
+    </section>
 
     <section class="log">
       <h2>What moved the numbers</h2>
@@ -133,6 +153,19 @@ const boards = groups;
   .ch.up { color: var(--mint); } .ch.down { color: #ff8a8a; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .log { margin-top: 2rem; }
+  .ur-alert { margin-top: 0.8rem; padding: 0.7rem 0.9rem; border-radius: 8px; border: 1px solid var(--ur); background: color-mix(in srgb, var(--ur) 12%, transparent); }
+  .ur-alert strong { color: var(--ur); font-size: 0.95rem; }
+  .ur-alert ul { margin: 0.5rem 0 0; padding-left: 1.1rem; color: var(--text); font-size: 0.88rem; }
+  .ur-alert li + li { margin-top: 0.25rem; }
+  .decrees { max-width: 46rem; margin: 2rem auto 0; padding: 1rem 1.2rem; border: 2px solid rgba(201, 184, 255, 0.25); border-radius: 12px; background: rgba(29, 13, 46, 0.55); }
+  .decrees h2 { margin: 0 0 0.4rem; font-family: 'Pixelify Sans', var(--serif), monospace; color: var(--pink); font-size: 1.4rem; letter-spacing: 0.05em; }
+  .decrees h3 { margin: 1rem 0 0.4rem; font-family: 'Pixelify Sans', var(--serif), monospace; color: var(--mint); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .decrees p { margin: 0 0 0.8rem; color: var(--muted); font-size: 0.9rem; }
+  .dc-types { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr)); gap: 0.6rem; }
+  .dc-types li { padding: 0.6rem 0.75rem; border: 1px solid rgba(201, 184, 255, 0.15); border-radius: 8px; }
+  .dc-types strong { display: block; color: #f3e8ff; font-size: 0.92rem; }
+  .dc-types span { display: block; margin-top: 0.2rem; color: var(--muted); font-size: 0.82rem; line-height: 1.4; }
+  .dc-pending { margin: 0; padding-left: 1.1rem; color: var(--text); font-size: 0.9rem; }
   .unrest { margin: 0 auto 1.4rem; max-width: 46rem; padding: 0.9rem 1.2rem 1rem; border-radius: 12px; border: 2px solid var(--ur, #e8c46a);
     background: radial-gradient(ellipse at 50% 0%, #2b1745, #120a1e 85%); --ur: #e8c46a; }
   .unrest[data-level='calm'] { --ur: #7fe0a8; } .unrest[data-level='restless'] { --ur: #ff9b5c; } .unrest[data-level='boiling'] { --ur: #ff4f6a; }

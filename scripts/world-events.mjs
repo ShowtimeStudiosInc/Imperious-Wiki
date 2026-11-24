@@ -16,6 +16,7 @@ import { load, dump } from 'js-yaml';
 const POP = 'src/data/popularity.yml';
 const POOL = 'src/data/events/pool.yml';
 const STATE = 'src/data/events/state.json';
+const DECREES = 'src/data/events/decrees.yml';
 const SITE = 'https://showtimestudiosinc.github.io/Imperious-Wiki';
 const HOUR = 3600e3, DAY = 24 * HOUR;
 const MEDIUM_EVERY = [2.5 * DAY, 3.5 * DAY]; // "every few days"
@@ -47,6 +48,7 @@ const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
 // ── Loading ──────────────────────────────────────────────────────────────────
 const pool = load(fs.readFileSync(POOL, 'utf8'));
 const loadPop = () => load(fs.readFileSync(POP, 'utf8'));
+const loadDecrees = () => (fs.existsSync(DECREES) ? load(fs.readFileSync(DECREES, 'utf8')) || {} : {});
 const loadState = () => (fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : {});
 
 const gemNames = fs.readdirSync('src/data/gem-types').flatMap((f) => {
@@ -146,6 +148,11 @@ function tick(pop, state, now, forceTier) {
   const tilt = (p, sign) => Math.pow(sign >= 0 ? 101 - p.row.score : p.row.score, 1.5);
 
   let candidates = all.filter((p) => inGroup(p, ev.who) && allowed(p, ev));
+  // Gems lying low after a decree don't get random bad news until the next weekly report.
+  if (leaning(ev) < 0) {
+    const open = candidates.filter((p) => !((state.shield || {})[p.slug] > now));
+    if (open.length) candidates = open;
+  }
   if (ev.needs) candidates = candidates.filter((p) => (state.flags[ev.needs] || []).includes(p.slug));
 
   if (tier === 'big') {
@@ -156,6 +163,8 @@ function tick(pop, state, now, forceTier) {
     // Weekly headlines are also kept for good on the timeline, next to the Homeworld Times broadcasts.
     const when = new Date(now).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: BIG_TZ });
     pop.earlier_news = [...(pop.earlier_news || []), { title: `Weekly Report, ${when}`, weekly: true, headline: ev.text, unrest: ev.unrest || 0, changes: real.filter((c) => c.change) }];
+    // Decrees from the players, and last week's Reforms paying off.
+    for (const l of applyDecrees(state, all, now, move)) pop.earlier_news.at(-1).changes.push(l);
     // Then the weekly update roll for everyone.
     for (const p of all) {
       const n = weighted([-2, -1, 0, 1, 2], (k) => (k === 0 ? 1.2 : 1) * (k > 0 ? (101 - p.row.score) / 50 : k < 0 ? p.row.score / 50 : 1));
@@ -178,7 +187,8 @@ function tick(pop, state, now, forceTier) {
 
   // Unrest follows how the Diamonds are doing overall, plus whatever the event did.
   const target = unrestTarget(all);
-  pop.unrest = clamp(Math.round(pop.unrest + (target - pop.unrest) * 0.05 + (ev.unrest || 0)), 0, 100);
+  pop.unrest = clamp(Math.round(pop.unrest + (target - pop.unrest) * 0.05 + (ev.unrest || 0) + (state.pendingUnrest || 0)), 0, 100);
+  delete state.pendingUnrest;
 
   // "Change" on the boards = change over the last 7 days.
   state.history.push({ t: now, scores: Object.fromEntries(all.map((p) => [p.slug, p.row.score])) });
@@ -191,6 +201,80 @@ function tick(pop, state, now, forceTier) {
   pop.updated = date;
   pop.log = [...lines, ...(pop.log || [])].filter((l) => now - new Date(l.date).getTime() <= LOG_DAYS * DAY);
   return { tier, ev, lines, all };
+}
+
+// ── Decrees ──────────────────────────────────────────────────────────────────
+// Player decrees (src/data/events/decrees.yml) take effect with the weekly report. Returns {who, change, text} for the headline.
+function applyDecrees(state, all, now, move) {
+  const file = loadDecrees();
+  const types = Object.fromEntries((file.types || []).map((t) => [t.id, t]));
+  const done = [];
+  const fillD = (text, p, note) => text.replaceAll('{short}', p.short).replaceAll('{note}', note || '').trim();
+  state.reforms ||= {};
+  state.decreeUsed ||= {};
+  for (const [slug, f] of Object.entries(state.reforms)) {
+    const p = all.find((x) => x.slug === slug);
+    delete state.reforms[slug];
+    if (!p) continue;
+    const real = move(p, rand(f.follow[0], f.follow[1]), 'decree', fillD(f.text, p));
+    done.push({ who: slug, change: real, text: 'Reform paid off' });
+  }
+  const seen = new Set();
+  for (const d of file.pending || []) {
+    const p = all.find((x) => x.slug === d?.who), t = types[d?.decree];
+    if (!p || !t || seen.has(p.slug)) { console.log('Skipped decree:', JSON.stringify(d)); continue; }
+    const last = state.decreeUsed[p.slug]?.[t.id];
+    if (last && now - last < (t.cooldown || 1) * BIG_EVERY - DAY) { console.log(`Skipped decree on cooldown: ${p.slug} ${t.id}`); continue; }
+    seen.add(p.slug);
+    (state.decreeUsed[p.slug] ||= {})[t.id] = now;
+    const bad = t.risk && Math.random() < t.risk;
+    const range = bad ? t.bad_change : t.change;
+    const text = `Decree, ${t.name}: ${fillD(bad ? t.bad_text : t.text, p, d.note)}`;
+    const real = move(p, rand(range[0], range[1]), 'decree', text);
+    if (t.unrest) state.pendingUnrest = (state.pendingUnrest || 0) + t.unrest;
+    if (t.follow) state.reforms[p.slug] = { follow: t.follow, text: t.follow_text };
+    if (t.shield) (state.shield ||= {})[p.slug] = now + BIG_EVERY;
+    done.push({ who: p.slug, change: real, text: `Decree: ${t.name}` });
+  }
+  // Clear the pending list now that it's been applied.
+  if ((file.pending || []).length) fs.writeFileSync(DECREES, fs.readFileSync(DECREES, 'utf8').replace(/^pending:[\s\S]*$/m, 'pending: []\n'));
+  return done;
+}
+
+// ── Unrest alerts ────────────────────────────────────────────────────────────
+// Crossing into Restless (50) or Boiling (75) raises an alert on the page and in Discord, with story hooks
+// staff can turn into RP. Falling back to Calm gets its own post.
+const DISTRICTS = { 'nightshade-violet': 'District 1', 'maroon-red': 'District 2', 'bi-colored-kandy': 'District 3', 'saturn-light': 'District 4' };
+const LEVELS = ['Calm', 'Uneasy', 'Restless', 'Boiling'];
+function checkUnrest(pop, state, now) {
+  const level = unrestLevel(pop.unrest);
+  const prev = state.unrestLevel ?? (LEVELS.indexOf(level) >= 2 ? 'Uneasy' : level);
+  state.unrestLevel = level;
+  if (LEVELS.indexOf(level) < 2) delete pop.alert;
+  const rose = LEVELS.indexOf(level) > LEVELS.indexOf(prev) && LEVELS.indexOf(level) >= 2;
+  const calmed = level === 'Calm' && prev !== 'Calm';
+  if (!rose && !calmed) return null;
+  const date = new Date(now).toISOString().slice(0, 10);
+  if (calmed) return { level, date, text: 'Unrest has settled back down to Calm. The streets are quiet again, for now.', hooks: [] };
+  const ruling = people(pop).filter((p) => DISTRICTS[p.slug]).sort((a, b) => a.row.score - b.row.score)[0];
+  const where = DISTRICTS[ruling.slug], who = ruling.short;
+  const hooks = level === 'Boiling'
+    ? [
+        `Riots have broken out in ${where}. ${who}'s court is struggling to keep order.`,
+        'S.T.O.R.M. recruiters are openly signing up gems in the colonies. Their numbers are growing fast.',
+        'Curfews are going up across Homeworld. Warp hubs close at nightfall until further notice.',
+      ]
+    : [
+        `Protests are gathering in ${where}, where ${who} is the least trusted of the Ruling Diamonds.`,
+        'S.T.O.R.M. leaflets are turning up in warp hubs across Homeworld.',
+        'Guard patrols have doubled on Homeworld. Gems are being stopped and questioned more often.',
+      ];
+  pop.alert = { level, date, text: level === 'Boiling' ? 'Unrest is Boiling. The Gempire is close to breaking point.' : 'Unrest is Restless. Gems are losing patience with the Diamonds.', hooks };
+  return pop.alert;
+}
+function alertEmbed(a) {
+  const color = a.level === 'Boiling' ? 0xff4f6a : a.level === 'Restless' ? 0xff9b5c : 0x7fe0a8;
+  return { title: `Unrest: ${a.level}`, url: `${SITE}/approval-rating/`, color, description: `${a.text}${a.hooks.length ? '\n\n' + a.hooks.map((h) => `◈ ${h}`).join('\n') : ''}` };
 }
 
 // ── News broadcasts ──────────────────────────────────────────────────────────
@@ -240,12 +324,13 @@ function discordPost(pop, result) {
   }
   if (tier === 'big') {
     const head = lines.find((l) => l.kind === 'big');
+    const decrees = lines.filter((l) => l.kind === 'decree').map((l) => `◈ ${l.text} (${byslug[l.who].short} ${l.change})`);
     const board = [['Deity Diamonds', pop.deity], ['Ruling Diamonds', pop.ruling], ['Grand Regents', pop.regents]].map(([t, rows]) =>
       `**${t}**\n` + [...rows].sort((a, b) => b.score - a.score).map((r, i) => `${i + 1}. ${byslug[r.slug].short}: ${r.score} (${arrow(r.score - (r.previous ?? r.score))})`).join('\n'));
     return {
       embeds: [{
         title: 'Weekly Approval Report', url: link, color: 0xff4fa3,
-        description: `${head.text}\n\n${board.join('\n\n')}\n\n${unrest}`,
+        description: `${head.text}${decrees.length ? `\n\n**Decrees**\n${decrees.join('\n')}` : ''}\n\n${board.join('\n\n')}\n\n${unrest}`,
       }],
     };
   }
@@ -255,7 +340,7 @@ function discordPost(pop, result) {
 // ── Saving ───────────────────────────────────────────────────────────────────
 const HEADER = fs.readFileSync(POP, 'utf8').split('\n').filter((l) => l.startsWith('#')).join('\n');
 function save(pop, state) {
-  const ordered = { updated: pop.updated, unrest: pop.unrest, deity: pop.deity, ruling: pop.ruling, regents: pop.regents, ...(pop.earlier_news ? { earlier_news: pop.earlier_news } : {}), log: pop.log };
+  const ordered = { updated: pop.updated, unrest: pop.unrest, ...(pop.alert ? { alert: pop.alert } : {}), deity: pop.deity, ruling: pop.ruling, regents: pop.regents, ...(pop.earlier_news ? { earlier_news: pop.earlier_news } : {}), log: pop.log };
   fs.writeFileSync(POP, HEADER + '\n' + dump(ordered, { lineWidth: -1, quotingType: '"' }).replace(/^(\s+change: )'([+-]?\d+)'/gm, '$1$2'));
   fs.writeFileSync(STATE, JSON.stringify(state, null, 1) + '\n');
 }
@@ -298,10 +383,13 @@ if (arg('--announce')) {
   if (caught.length) console.log(`Caught up ${caught.length} missed small event(s).`);
   const result = tick(pop, state, now, arg('--tier'));
   state.lastRun = now;
-  const post = discordPost(pop, result);
+  for (const k of Object.keys(state.shield || {})) if (state.shield[k] <= now) delete state.shield[k];
+  let post = discordPost(pop, result);
+  const alert = checkUnrest(pop, state, now);
+  if (alert) post = { embeds: [...(post?.embeds || []), alertEmbed(alert)] };
   state.post = post ? { run: process.env.GITHUB_RUN_ID || 'local', ...post } : null;
   save(pop, state);
   const out = process.env.GITHUB_OUTPUT;
-  if (out) fs.appendFileSync(out, `tier=${result.tier}\n`);
+  if (out) fs.appendFileSync(out, `tier=${result.tier}\nannounce=${post ? 'true' : 'false'}\n`);
   console.log(result.tier, result.lines.map((l) => `${l.who} ${l.change}: ${l.text}`).join('\n'));
 }
