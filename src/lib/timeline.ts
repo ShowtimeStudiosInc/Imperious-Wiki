@@ -13,7 +13,7 @@ export interface Event {
 }
 export interface Track {
   key: string; label: string; name?: string; color: string; style?: 'solid' | 'dotted';
-  from_left?: boolean; to_right?: boolean; ends_at?: string; note?: string;
+  from_left?: boolean; to_right?: boolean; ends_at?: string; note?: string; starts_on?: number;
   parts?: { slug: string; segment?: string; labels?: Record<string, string>; only?: string }[]; events: Event[];
 }
 export interface Page { key: string; title: string; sub: string; tracks: Track[]; per_page?: number }
@@ -103,9 +103,9 @@ export const pages: Page[] = filled.flatMap((p) => {
     ...p,
     key: k === 0 ? p.key : `${p.key}-${k + 1}`,
     title: k === 0 ? p.title : `${p.title} · ${ROMAN[k] ?? k + 1}`,
-    tracks: tracks.map((t) => ({
+    tracks: tracks.filter((t) => !t.starts_on || k >= t.starts_on - 1).map((t) => ({
       ...t,
-      from_left: k > 0 ? true : t.from_left,
+      from_left: t.starts_on && k === t.starts_on - 1 ? t.from_left : k > 0 ? true : t.from_left,
       to_right: k < chunks.length - 1 ? true : t.to_right,
       ends_at: undefined,
       events: t === main
@@ -146,6 +146,8 @@ export const EMBLEMS: Record<string, string> = {
   // a hatch with a ladder going down
   // a gem breaking apart into shards
   shards: '<path d="M50 16l18 22-18 22-18-22z"/><path d="M22 66l9 4-4 9-8-5z" opacity=".75"/><path d="M76 64l7 7-8 6-5-8z" opacity=".75"/><path d="M48 76l8 3-3 9-8-3z" opacity=".55"/><path d="M34 54l5 3-3 5-5-3z" opacity=".5"/><path d="M64 52l5 2-2 6-5-2z" opacity=".5"/>',
+  // a comet streaking down
+  comet: '<circle cx="66" cy="34" r="12"/><g stroke="currentColor" stroke-width="5" stroke-linecap="round"><path d="M56 44L20 80" /><path d="M50 36L26 60" opacity=".6"/><path d="M64 50L40 74" opacity=".6"/></g>',
   hatch: '<g fill="none" stroke="currentColor" stroke-width="5"><circle cx="50" cy="34" r="20"/><path d="M50 14v40M30 34h40"/><path d="M40 62v26M60 62v26M40 70h20M40 80h20"/></g>',
 };
 

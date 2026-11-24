@@ -10,6 +10,7 @@
 #   from_left          true if the line carries on from the page before (draws an arrow in)
 #   to_right           true if the line carries on to the next page (draws an arrow out)
 #   ends_at            an event id where the line stops early (the rest of the track is empty)
+#   starts_on          on a page that spills over, the page number (1, 2, 3...) where this line first appears
 #   parts              pull events from an Era's lore sections: a list of { slug, segment, labels }
 #                        labels  the name each section gets on the line (by section id); the lore page keeps its own headings
 #                        only    BU or AU: only take the sections whose date has it (one lore page split across two Eras)
@@ -68,6 +69,11 @@ eras:
     name: A Public Execution
     tagline: A STORM official answers for their crimes in front of the whole Agency.
     emblem: shards
+  - slug: the-crash
+    title: The Crash
+    name: A Rogue's Story
+    tagline: Something falls out of the sky near the Rogue Settlement.
+    emblem: comet
 
 pages:
   - key: era-0
@@ -243,13 +249,26 @@ pages:
             when: That evening
             segment: 2A
             link: /timeline/the-execution/
-            current: true
           - id: storm-reaches-inner-colonies
             kind: news
             title: The Storm Reaches the Inner Colonies
             when: After Below the Surface
             segment: 2A
             link: /news/storm-reaches-inner-colonies/
+      - key: rogues
+        label: Side Story
+        name: A Rogue's Story
+        color: '#8fe3ff'
+        starts_on: 2
+        events:
+          - id: the-crash
+            title: The Crash
+            when: That night
+            segment: 2A
+            link: /timeline/the-crash/
+            page: 2
+            x: 74
+            current: true
       - key: metal
         label: Era 0-1 Metal Society
         name: The Metal Society
