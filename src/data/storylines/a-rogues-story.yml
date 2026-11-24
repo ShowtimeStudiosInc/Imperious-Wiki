@@ -96,7 +96,10 @@ locations:
     thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574828590439075900
   - name: The Fusion Quarter
     kind: Settlement
-    text: The part of the settlement where its fusions live, including the chief.
+    text: >-
+      A cluster of homes built taller and wider than the rest, with doorways high enough that nobody has to duck. The
+      settlement's fusions live here, including Chief Nova, and nobody looks twice.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574830319075459102
   - name: Crash Site
     kind: The Wilds
     text: >-
