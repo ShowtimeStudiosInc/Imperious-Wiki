@@ -113,8 +113,11 @@ locations:
 npcs:
   - role: Chief of the Settlement
     gem: Mega Pearl
-    name: ''
-    text: Keeps the settlement's supplies and records in her Hammerspace, and has the final say on what leaves it.
+    name: Chief Nova
+    text: >-
+      A permafusion of a Silver Pearl and a Specialty Pearl who ran from the Gempire together. She keeps the
+      settlement's supplies and records in her Hammerspace, knows what came in every crate, and has the final say on
+      what leaves it.
   - role: Head of the Guild Hall
     gem: Bi-Color Andean Opal
     name: ''
