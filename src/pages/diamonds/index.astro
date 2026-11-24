@@ -21,7 +21,9 @@ const SLOTS: Record<string, (string | null)[]> = {
 const DIAMOND_PEARLS: Record<string, (string | null)[]> = {
   'alpha-black': ['Seraph', 'Cherub', 'Ophan'],
 };
-const REGENT_PEARLS: Record<string, string | null> = {};
+const REGENT_PEARLS: Record<string, string | null> = {
+  reina: 'Milo',
+};
 const pearlsFor = (slug: string) => { const p = DIAMOND_PEARLS[slug] ?? []; return [0, 1, 2].map((i) => p[i] ?? null); };
 
 // Glass colors for each Diamond's window: two glass tones, a dark tone, and the glow.
