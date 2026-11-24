@@ -1,0 +1,50 @@
+# Holovision: every show on the wiki's TV destination (/tv/).
+#
+# A show either links to a section that already exists (`href`, like The Homeworld Times at /news/),
+# or keeps its episodes in src/data/tv/episodes/<slug>/, one .yml file per episode.
+# An episode file looks like a Homeworld Times broadcast:
+#   title, date (YYYY-MM-DD), host, guests (list), credits, summary, and transcript.
+# The transcript uses the same markers as news broadcasts:
+#   [ON AIR]          a line in square brackets is an on-screen card
+#   * She leans in.   a line starting with "* " is an action or camera note
+#   @Alina            switches who is talking
+#
+# status: on-air (has episodes or a page), coming-soon (shown with a "Coming soon" tag)
+# order sets the order on the guide.
+
+- slug: crystal-hour
+  name: The Crystal Hour
+  tagline: The Gempire's favorite talk show. Gossip, guests, and whatever Alina feels like saying.
+  host: Alina
+  where: The Crystal Hour Studio, Saturn Light's district
+  network: Court Saturn
+  kind: Talk show
+  color: '#c46bff'
+  accent: '#ffd27a'
+  status: on-air
+  order: 1
+
+- slug: homeworld-times
+  name: The Homeworld Times
+  tagline: Trust US! With your News.
+  host: Vevila Dei
+  where: The Homeworld Times newsroom
+  network: Homeworld
+  kind: News
+  color: '#ff3d4f'
+  accent: '#ffd27a'
+  status: on-air
+  href: /news/
+  order: 2
+
+- slug: anttons-game-show
+  name: Antton's Game Show
+  tagline: Grand Regent Antton hosts. Contestants play for prizes, and the house always has a trick ready.
+  host: Grand Regent Antton
+  where: Court Nightshade
+  network: Court Nightshade
+  kind: Game show
+  color: '#8a4fd8'
+  accent: '#7fe0a8'
+  status: coming-soon
+  order: 3

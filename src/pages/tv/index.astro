@@ -1,0 +1,39 @@
+---
+import Site from '../../layouts/Site.astro';
+import { getShows } from '../../lib/tv';
+import { airDate } from '../../lib/news';
+import '../../styles/tv.css';
+const shows = getShows();
+const onAir = shows.filter((s) => s.status === 'on-air').length;
+---
+<Site title="Holovision" description="Every show on Homeworld's holovision: talk shows, news, and game shows.">
+  <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" />
+  <main class="wrap hv" data-pagefind-body>
+    <div class="hv-set">
+      <span class="ant l" aria-hidden="true"></span><span class="ant r" aria-hidden="true"></span>
+      <div class="hv-screen">
+        <h1>Holovision</h1>
+        <p>What's on across the Gempire tonight.</p>
+        <div class="hv-strip"><span>{onAir} on air</span><span>{shows.length} channels</span></div>
+      </div>
+    </div>
+    <ul class="hv-guide">
+      {shows.map((s, i) => (
+        <li>
+          <a class="hv-ch" href={s.href} style={`--c:${s.color};--a:${s.accent}`}>
+            <span class="top"><span class="num">CH {String(i + 1).padStart(2, '0')} · {s.kind}</span>
+              {s.status === 'on-air' ? <span class="hv-tag on">On air</span> : <span class="hv-tag soon">Coming soon</span>}</span>
+            <span class="body">
+              <h2>{s.name}</h2>
+              <span class="who">Hosted by {s.host}</span>
+              <p class="tagline">{s.tagline}</p>
+              {s.latest
+                ? <span class="latest"><small>Latest · {airDate(s.latest.date)}</small>{s.latest.title}</span>
+                : <span class="latest"><small>Latest</small>{s.status === 'on-air' ? 'First episode coming soon' : 'Not on air yet'}</span>}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Site>

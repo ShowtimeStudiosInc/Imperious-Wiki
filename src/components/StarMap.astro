@@ -13,13 +13,13 @@ import { liveEvents } from '../lib/storylines';
 const events = liveEvents();
 
 const dests = [
-  { id: 'gems', href: '/gem-types/', name: 'Gem-Types', x: 50, y: 25, size: 128, color: '#b69cff' },
-  { id: 'diamonds', href: '/diamonds/', name: 'Know Your Diamond', x: 34, y: 34, size: 112, color: '#f2e9ff' },
-  { id: 'lore', href: '/lore/overview/', name: 'Lore', x: 66, y: 34, size: 112, color: '#f0b27a' },
-  { id: 'rules', href: '/rules/overview/', name: 'Rules', x: 38, y: 58, size: 96, color: '#7fb6ff' },
-  { id: 'nuggets', href: '/lore/nuggets/', name: 'Nuggets of Lore', x: 62, y: 58, size: 96, color: '#f2cd6a' },
+  { id: 'gems', href: '/gem-types/', name: 'Gem-Types', x: 50, y: 23, size: 124, color: '#b69cff' },
+  { id: 'diamonds', href: '/diamonds/', name: 'Know Your Diamond', x: 31, y: 33, size: 112, color: '#f2e9ff' },
+  { id: 'lore', href: '/lore/overview/', name: 'Lore', x: 69, y: 33, size: 112, color: '#f0b27a' },
+  { id: 'rules', href: '/rules/overview/', name: 'Rules', x: 35, y: 58, size: 96, color: '#7fb6ff' },
+  { id: 'nuggets', href: '/lore/nuggets/', name: 'Nuggets of Lore', x: 65, y: 58, size: 96, color: '#f2cd6a' },
   { id: 'start', href: '/start-here/welcome/', name: 'Start Here', x: 50, y: 71, size: 104, color: '#a8f0e0' },
-  { id: 'news', href: '/news/', name: 'The Homeworld Times', x: 50, y: 46, size: 92, color: '#ff7a86' },
+  { id: 'tv', href: '/tv/', name: 'Holovision', x: 50, y: 45, size: 100, color: '#ff6fae' },
 ];
 const start = dests.find((d) => d.id === 'start')!;
 const others = dests.filter((d) => d.id !== 'start');
@@ -108,7 +108,7 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
                 <polygon points="34,46 42,38 52,42 48,52 38,52" fill="currentColor" fill-opacity=".22" />
                 <path d="M20 14 l1 2.4 2.4 1 -2.4 1 -1 2.4 -1 -2.4 -2.4 -1 2.4 -1z" fill="currentColor" stroke="none" />
               </>}
-              {d.id === 'news' && <>
+              {d.id === 'tv' && <>
                 <rect x="10" y="22" width="44" height="30" rx="4" fill="currentColor" fill-opacity=".14" />
                 <line x1="24" y1="22" x2="18" y2="10" /><line x1="40" y1="22" x2="46" y2="10" />
                 <circle cx="32" cy="37" r="7" /><path d="M32 30 a7 7 0 0 1 7 7" stroke-width="3" />
@@ -244,6 +244,8 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
   .dest:hover, .dest:focus-visible { z-index: 4; outline: none; }
   .dest:hover .medal, .dest:focus-visible .medal { transform: scale(1.08); filter: drop-shadow(0 0 16px var(--c)) brightness(1.2); }
   .dest:hover .ring, .dest:focus-visible .ring { animation-duration: 8s; }
+  /* Holovision sits where the routes cross, so its name gets a backing plate to stay readable. */
+  .dest-tv .name { padding: 0.18rem 0.7rem; border-radius: 999px; background: rgba(11, 6, 22, 0.88); border: 1px solid rgba(255, 111, 174, 0.35); }
   .dest:hover .name, .dest:focus-visible .name { color: var(--c); letter-spacing: 0.3em; }
 
   .quick { position: absolute; left: 50%; bottom: 3.5%; transform: translateX(-50%); display: flex; gap: clamp(0.5rem, 1.4vw, 1.1rem); z-index: 3; }

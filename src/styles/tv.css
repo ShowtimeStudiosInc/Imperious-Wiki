@@ -1,0 +1,58 @@
+/* Holovision: the TV guide (/tv/) and each show's pages. Episode transcripts reuse the Homeworld Times
+   styles (news.css) with the show's own colors swapped in through --ht-red and --ht-gold. */
+.hv { --hv-ink: #0b0714; --hv-line: rgba(201, 184, 255, 0.18); --hv-text: #f1eaff; --hv-muted: rgba(241, 234, 255, 0.62);
+  --hv-pixel: 'Pixelify Sans', var(--ht-mono, ui-monospace), monospace; color: var(--hv-text); padding-bottom: 4rem; }
+.hv a { color: inherit; }
+
+/* Guide header: a TV set with the Holovision name on screen */
+.hv-set { position: relative; margin: 1.6rem auto 2rem; max-width: 46rem; padding: 12px; border-radius: 18px;
+  background: linear-gradient(160deg, #3a1a52, #160b26); border: 2px solid #c9b8ff; box-shadow: 0 0 0 2px #160b26, 0 0 30px rgba(170, 130, 255, 0.35); }
+.hv-set .ant { position: absolute; top: -18px; width: 4px; height: 20px; background: #c9b8ff; }
+.hv-set .ant::after { content: ''; position: absolute; top: -5px; left: -3px; width: 10px; height: 7px; background: #7fe0a8; }
+.hv-set .ant.l { left: 40%; transform: rotate(-24deg); } .hv-set .ant.r { right: 40%; transform: rotate(24deg); }
+.hv-screen { position: relative; overflow: hidden; border-radius: 10px; padding: 1.6rem 1.2rem 1.3rem; text-align: center;
+  background: radial-gradient(ellipse at 50% 30%, #2d1a4a, #0f0819 75%); border: 1px solid rgba(127, 224, 168, 0.35); }
+.hv-screen::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 3px); }
+.hv-screen h1 { margin: 0; font-family: var(--hv-pixel); font-weight: 600; font-size: clamp(2rem, 6vw, 3.4rem); letter-spacing: 0.12em; text-transform: uppercase;
+  color: #f3e8ff; text-shadow: 0 0 14px rgba(196, 107, 255, 0.7); }
+.hv-screen p { margin: 0.5rem 0 0; color: var(--hv-muted); }
+.hv-strip { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 0.8rem; font-family: var(--hv-pixel); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7fe0a8; }
+
+/* Channel cards */
+.hv-guide { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); gap: 1rem; }
+.hv-ch { position: relative; display: flex; flex-direction: column; height: 100%; text-decoration: none; border-radius: 14px; overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); background: linear-gradient(170deg, color-mix(in srgb, var(--c) 18%, #120a1e), #0c0715 70%);
+  transition: transform 0.2s, box-shadow 0.2s; }
+.hv-ch:hover, .hv-ch:focus-visible { transform: translateY(-3px); box-shadow: 0 0 26px color-mix(in srgb, var(--c) 45%, transparent); }
+.hv-ch .top { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0.9rem; font-family: var(--hv-pixel); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.hv-ch .num { color: var(--c); }
+.hv-tag { padding: 0.12rem 0.45rem; border-radius: 3px; font-size: 0.68rem; }
+.hv-tag.on { background: #ff3d4f; color: #fff; } .hv-tag.soon { border: 1px solid var(--hv-line); color: var(--hv-muted); }
+.hv-ch .body { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; padding: 0.2rem 0.9rem 1rem; }
+.hv-ch h2 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 1.55rem; line-height: 1.1; color: #fff; }
+.hv-ch .who { font-size: 0.82rem; color: var(--a); }
+.hv-ch .tagline { margin: 0; color: var(--hv-muted); font-size: 0.92rem; line-height: 1.5; }
+.hv-ch .latest { margin-top: auto; padding-top: 0.7rem; border-top: 1px solid var(--hv-line); font-size: 0.85rem; }
+.hv-ch .latest small { display: block; font-family: var(--hv-pixel); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hv-muted); margin-bottom: 0.15rem; }
+
+/* Show page */
+.hv-back { display: inline-block; margin-top: 1.2rem; font-family: var(--hv-pixel); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--hv-muted) !important; }
+.hv-hero { margin: 1rem 0 1.8rem; padding: 1.6rem 1.4rem; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  background: radial-gradient(ellipse at 20% 0%, color-mix(in srgb, var(--c) 35%, transparent), transparent 60%), #100a1b; }
+.hv-hero .kind { font-family: var(--hv-pixel); font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); }
+.hv-hero h1 { margin: 0.4rem 0 0.5rem; font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; }
+.hv-hero p { margin: 0; max-width: 44rem; color: var(--hv-muted); line-height: 1.55; }
+.hv-facts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; margin-top: 1rem; font-size: 0.86rem; }
+.hv-facts b { color: var(--a); font-weight: 600; margin-right: 0.35rem; }
+.hv-eps { list-style: none; margin: 0; padding: 0; }
+.hv-eps li { border-bottom: 1px solid var(--hv-line); }
+.hv-eps a { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr) auto; gap: 1rem; padding: 1rem 0.2rem; text-decoration: none; }
+.hv-eps a:hover h3 { color: var(--a); }
+.hv-eps time, .hv-eps .len { font-family: var(--hv-pixel); font-size: 0.74rem; letter-spacing: 0.08em; color: var(--hv-muted); padding-top: 0.2rem; }
+.hv-eps h3 { margin: 0 0 0.3rem; font-family: var(--serif); font-weight: 400; font-size: 1.25rem; }
+.hv-eps p { margin: 0; color: var(--hv-muted); font-size: 0.9rem; line-height: 1.5; }
+.hv-empty { padding: 1.4rem; border: 1px dashed var(--hv-line); border-radius: 12px; text-align: center; color: var(--hv-muted); }
+.hv-section { display: flex; align-items: center; gap: 0.8rem; margin: 2rem 0 0.4rem; font-family: var(--hv-pixel); font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--a); }
+.hv-section::after { content: ''; flex: 1; height: 1px; background: var(--hv-line); }
+
+@media (max-width: 760px) { .hv-eps a { grid-template-columns: 1fr; gap: 0.3rem; } }

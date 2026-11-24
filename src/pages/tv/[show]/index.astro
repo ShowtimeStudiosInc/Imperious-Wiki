@@ -1,0 +1,41 @@
+---
+import Site from '../../../layouts/Site.astro';
+import { getShows } from '../../../lib/tv';
+import { airDate } from '../../../lib/news';
+import { url } from '../../../lib/gems';
+import '../../../styles/tv.css';
+export function getStaticPaths() {
+  return getShows().filter((s) => !s.external).map((s) => ({ params: { show: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+const [latest, ...rest] = s.episodes;
+---
+<Site title={`${s.name} · Holovision`} description={s.tagline}>
+  <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" />
+  <main class="wrap hv" style={`--c:${s.color};--a:${s.accent}`} data-pagefind-body>
+    <a class="hv-back" href={url('/tv/')}>← Holovision</a>
+    <header class="hv-hero">
+      <span class="kind">{s.kind}{s.status === 'coming-soon' ? ' · Coming soon' : ' · On air'}</span>
+      <h1>{s.name}</h1>
+      <p>{s.tagline}</p>
+      <div class="hv-facts">
+        <span><b>Host</b>{s.host}</span>
+        {s.where && <span><b>Filmed at</b>{s.where}</span>}
+        {s.network && <span><b>Network</b>{s.network}</span>}
+        {s.episodes.length > 0 && <span><b>Episodes</b>{s.episodes.length}</span>}
+      </div>
+    </header>
+    {s.episodes.length === 0 ? (
+      <p class="hv-empty">{s.status === 'coming-soon' ? `${s.name} isn't on air yet. Episodes will show up here once it starts.` : 'The first episode is coming soon.'}</p>
+    ) : (
+      <>
+        <h2 class="hv-section">Latest episode</h2>
+        <ul class="hv-eps"><li><a href={latest.href}><time datetime={latest.date}>{airDate(latest.date)}</time><div><h3>{latest.title}</h3><p>{latest.summary}</p></div><span class="len">{latest.minutes} min</span></a></li></ul>
+        {rest.length > 0 && (<>
+          <h2 class="hv-section">Every episode</h2>
+          <ul class="hv-eps">{rest.map((e) => <li><a href={e.href}><time datetime={e.date}>{airDate(e.date)}</time><div><h3>{e.title}</h3><p>{e.summary}</p></div><span class="len">{e.minutes} min</span></a></li>)}</ul>
+        </>)}
+      </>
+    )}
+  </main>
+</Site>

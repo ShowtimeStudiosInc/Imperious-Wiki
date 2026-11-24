@@ -1,0 +1,53 @@
+---
+import Site from '../../../layouts/Site.astro';
+import { getShows } from '../../../lib/tv';
+import { airDate } from '../../../lib/news';
+import { url } from '../../../lib/gems';
+import '../../../styles/news.css';
+import '../../../styles/tv.css';
+export function getStaticPaths() {
+  return getShows().filter((s) => !s.external).flatMap((s) =>
+    s.episodes.map((e, i) => ({ params: { show: s.slug, ep: e.slug }, props: { s, e, newer: s.episodes[i - 1] ?? null, older: s.episodes[i + 1] ?? null } })));
+}
+const { s, e, newer, older } = Astro.props;
+const guests = new Set(e.guests);
+const host = e.host || s.host;
+const isGuest = (n: string | null) => !!n && n !== host;
+const role = (n: string | null) => (n === host ? 'Host' : guests.has(n ?? '') ? 'Guest' : 'On air');
+---
+<Site title={`${e.title} · ${s.name}`} description={e.summary}>
+  <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" />
+  <main class="wrap ht hv" style={`--ht-red:${s.color};--ht-gold:${s.accent};--c:${s.color};--a:${s.accent}`} data-pagefind-body>
+    <a class="ht-back" href={url(`/tv/${s.slug}/`)}>← {s.name}</a>
+    <header class="ht-head">
+      <span class="ht-meta">{s.name} · Aired {airDate(e.date)} · About {e.minutes} minutes</span>
+      <h1>{e.title}</h1>
+      {e.summary && <p class="summary">{e.summary}</p>}
+      <div class="ht-plates">
+        <span class="ht-plate"><b>{host}</b><em>Host</em></span>
+        {e.guests.map((g) => <span class="ht-plate guest"><b>{g}</b><em>Guest</em></span>)}
+      </div>
+      {e.credits && <p class="credits">Written by {e.credits}</p>}
+    </header>
+    <article class="ht-script">
+      {e.beats.map((beat) =>
+        beat.kind === 'card' ? <div class="ht-card"><span>{beat.text}</span></div>
+        : beat.kind === 'action' ? <p class="ht-action">{beat.text}</p>
+        : (
+          <div class={`ht-speech${isGuest(beat.speaker) ? ' guest' : ''}`}>
+            {beat.speaker && <span class={`ht-plate${isGuest(beat.speaker) ? ' guest' : ''}`}><b>{beat.speaker}</b><em>{role(beat.speaker)}</em></span>}
+            {beat.lines.map((l) => <p>{l}</p>)}
+          </div>
+        ))}
+    </article>
+    {(newer || older) && (
+      <nav class="ht-pager" aria-label="More episodes">
+        {older && <a href={older.href}><small>← Earlier episode</small>{older.title}</a>}
+        {newer && <a class="next" href={newer.href}><small>Later episode →</small>{newer.title}</a>}
+      </nav>
+    )}
+  </main>
+</Site>
+<style is:global>
+  body:has(.ht.hv) { background: #0a0612; }
+</style>
