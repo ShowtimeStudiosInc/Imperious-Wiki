@@ -58,28 +58,44 @@
 > Then, at a public event in Homeworld's town square, Cherub Gold shattered where he stood. A golden barrier rose around his remains. Homeworld went silent for half an hour. Then the first trumpet sounded across the universe. A third of the inhabited worlds were destroyed, and two beings broke into reality: War, out of Purgatory, and the Monolith, out of Hell. The first seal was broken. The lower angel who turned against the kingdom was Madam Gold.
 
 **THE FALL**
-> At Homeworld's Cathedral floated the Angelic Heart, the artifact that gave wings to the faithful. Pyrope, a gem who believed she was made to bring the end of the world, walked in disguised as a White Sapphire beside Celeste Diamond, who had come to pray. While Celeste prayed, a mark of two doves appeared on her forehead. In the next room, Pyrope's brother Lucius was pouring darkness into the Angelic Heart.
+> Pyrope's true name was Lilith. She was Universe's firstborn, who had rebelled against her and raised an army of demons, and she believed she was made to bring the end of the world. Her children were the corrupted gems, and the Seven Deadly Sins were hers.
+>
+> At Homeworld's Cathedral floated the Angelic Heart, the artifact that gave wings to the faithful. Pyrope walked in disguised as a White Sapphire beside Celeste Diamond, who had come to pray. While Celeste prayed, a mark of two doves appeared on her forehead. In the next room, Pyrope's brother Lucius was pouring darkness into the Angelic Heart.
 >
 > A hologram of Universe appeared over every part of Homeworld. Someone had defiled the Heart, she said, and so every gem had lost its connection to Eden. They would fall to the world of those they had looked down on. Homeworld's surface folded into a ship, threw every gem out into space, and vanished. Portals swallowed them all and dropped them on Xenon 93B6 and on Earth, powerless, unable to shapeshift more than once, and barely able to speak to the humans around them. The angels had lost their wings.
 
-**THE SECOND AND THIRD SEALS**
-> Lucius looked like a silent child, but he was the Trumpet Bearer. He blew the second trumpet into his fist. The sky went white for half an hour, then fire fell into the seas of every living world, and a third of the oceans turned red.
+**THE SECOND SEAL**
+> On Xenon 93B6, Pyrope had been waiting for this in an underground base she built long ago. She called the corrupted gems her children, and she had recruited War, the first of the Calamities, to hunt down her old enemy Madam Gold.
 >
-> He traveled with Jack McGuffin, a human detective who called him son and believed in Universe's plan. They had already killed War themselves. They took Celeste and Celestial White Sapphire along with them, disguised as humans. Celeste went by Estelle Itri. In a town on the edge of a plain, Lucius burned the mayor's office down with the mayor inside, then blew the third trumpet. A star fell and brought a plague with it. Humans fell sick, and gems turned green and cold as their light drained away. Lucius told Celeste the Diamonds were false angels, and that the true ones were still out there, watching over anyone who sought redemption.
+> The day after the Fall, Lucius blew the second trumpet into his fist. The sky went white for half an hour, then fire fell into the seas of every living world, and a third of the oceans turned red. On Earth, gems fell from the sky in fire. Humans called them Skin Shifters, and paranoia spread. Eight revelations appeared carved into the eight tallest mountains on Earth, with the last on Everest.
+
+**THE LUCIUS GROUP · THE TRUMPET BEARER**
+> Celeste woke up in the Malice Kindergarten with no powers, and beside her was the gem who had caused all of it. Lucius looked like a silent child and spoke through words on a holoscreen. He told her he was a guardian, that he had never needed the Angelic Heart for his powers, and that his big sister was named Lilith. Celeste had never heard the name, and had no idea she had already met her. She chose to trust him anyway. They took human forms, and she went by Estelle Itri. On the way they found Celestial White Sapphire hiding in a hole, as powerless and as frightened as they were, and blind.
 >
-> On Earth, gems fell from the sky in fire. Humans called them Skin Shifters, and paranoia spread. Eight revelations appeared carved into the eight tallest mountains on Earth, with the last on Everest. Humanity began rebuilding, mixing gem technology with its own, and made ready to stand against whoever was writing their fate across their land: Universe.
+> Lucius set a wrecked car alight with hellfire and turned it into a limousine with a shade at the wheel. In the city of New Hurricane, a woman named Eleanor gave Sapphire back her sight. In the back of the limo, Lucius leaned over and whispered something to Celeste that no gem had ever been told: Heaven was the core of Homeworld. It was at Her core.
+>
+> At the edge of a small town on a plain, a woman named Vivienne Hale stepped out of the woods, petted Lucius like a child, and told him the mayor was at Town Hall. Lucius walked in, burned every holy symbol in the building, pinned the mayor to the wall, and left the office in hellfire. Back in the limo, he blew the third trumpet. A star fell and brought a plague with it. Humans fell sick, and gems turned green and cold as their light drained away. Lucius wrote out the words "I am the Trumpet Bearer," and told Celeste the Diamonds were false angels. The true ones were still out there, he said, watching over anyone who sought redemption.
+>
+> Lucius did not travel alone. Jack McGuffin, a human detective, drove with him and called him son. Together they had already killed War, ripping the Calamity's gem out of her chest and shattering it. When their limo was run off a mountain road, an archangel named Gabriel pulled everyone out of the wreck. He told Jack that he did not agree with what Universe had the boy doing, and that one of the Calamities would come to help them the next day.
+>
+> They went on to Winter Hill, Lucius's home town on Earth. There he was known as the son of Senator Wagner and the only survivor of the fire at Dante Manor, and the townspeople whispered that he had killed his parents. Jack pinned a picture of a mural to his case board. It showed five figures standing under five stars, and Jack believed the next seals depended on finding five leaders who fit them. Lucius photographed and took notes on every person in town, then walked into Town Hall and took hold of the judge's mind.
+
+**THE DEAN GROUP · THE CHURCH OF UNIVERSE**
+> Silver Grey Diamond came down on Xenon 93B6 as a falling angel. His wings withered, he crashed into a kindergarten, and he could no longer speak any language but Angelic. Sunni Mayflower, the first Sunstone, found him there. She took a human form, and Silver became a tall, limping man named Seth. A human scientist named Lucy took the stranded gems into her laboratory, along with Coral Reef Diamond, Centenary Diamond, and their servants.
+>
+> Silver went out with Sunni to look for Celeste and ran straight into Pyrope's magenta warship and her swarm of corrupted gems. A human named Dean Davidson was driving home from New Hurricane when he saw the fight, and he pulled them all into his car. His mansion was already covered in crosses and notes on the revelations, and he had stopped sleeping trying to understand them. Dean and his wife Bernadette, a military general, took the gems in. Sunni told him the truth: they were the angels, and the pink gem was letting loose the Four Horsemen.
+>
+> Two of those Horsemen came for them. Famine and Pestilence, a masked plague doctor, broke into the house, blamed the gems for War's death, and dragged Dean away to lure Silver out. As Sunni wept, she saw a figure with golden eyes, great wings, and a spear watching her through the window. In Pyrope's base, a holy strike began to gather overhead and was called off. Then Vivienne Hale walked Dean home. She had shown him Eden, healed his wounds with a snap, and given him the Ring of War, which held the dead Calamity's power.
+
+**REDEMPTION**
+> The plague, it turned out, could be cured by redemption. Dean, Seth, and Sunni rebuilt a ruined church on Earth as the Church of Universe, a refuge for gems and humans alike. Seth came to see that ruling his court by fear had been his sin. He had never been loved by anyone before Dean.
+>
+> Not everyone made it. Centenary Diamond was close to starting down that road when one of her Pearls screamed at her, and she shattered herself. The Pearl did the same. Demons came for the church. Sunni, carrying the Mark of the Universe, linked to the Angel Core for the first time, grew wings of light, and drove them off. One of them was still trying to break the next seal.
 
 **EDEN**
 > Universe returned to the empty site where Homeworld had stood and rebuilt it. Around Cherub Gold's remains she raised Yggdrasil, a tree so large its leaves covered much of the planet, and bound a gem named Eden to it as the planet's avatar. The new Homeworld was called Eden.
 >
 > Gems who had lived in Eden began turning up among the rebels on Xenon 93B6. The rebels took them in despite everything, and some of them received the Mark of the Universe for it. They shared a vision: five leaders would die, Death would walk the land, a child called the Nephilim would be born to the traitor angel and try to save everyone and fail, and the Mother of all demons would be slain.
-
-**REDEMPTION**
-> Some of the fallen started to change. Silver Grey Diamond crashed into a kindergarten on Xenon 93B6, his wings gone, and took a human form called Seth. A human named Dean Winchester and his wife Bernadette sheltered him. With Sunni Mayflower, the first Sunstone in human form, they rebuilt a ruined church on Earth as the Church of Universe, a refuge for gems and humans. Seth came to see that ruling his court by fear had been his sin.
->
-> The plague, it turned out, could be cured by redemption. Not everyone made it. Centenary Diamond was close to starting down that road when one of her Pearls screamed at her, and she shattered herself. Demons came for the church. Sunni, carrying the Mark of the Universe, linked to the Angel Core for the first time, grew wings of light, and drove them off. One of them was still trying to break the next seal.
->
-> Universe, meanwhile, walked Earth as a woman named Vivienne Hale. She healed Dean and gave him the Ring of War, which held the dead Calamity's power.
 
 **HOW SHE FEELS**
 > Late in this timeline, a poem began turning up between books in libraries, signed by someone named Evelyn Hart. It described a creator who woke alone beside her other half, lost them, and cried for eons. She made a man and a woman, and the woman rebelled and raised an army of demons. She planted a garden and built a machine to tend it, and the machine built seven more and drained the garden to grow a single crop, so she threw them down among the crop they had looked down on. In the end, she watched her people fall into sin, wrote a prophecy, and sent a herald to carry it out. She knew they would suffer and believed it was for their own good. And beyond her fence, storm clouds were gathering.
