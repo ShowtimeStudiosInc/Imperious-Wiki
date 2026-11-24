@@ -85,4 +85,6 @@
 > Late in this timeline, a poem began turning up between books in libraries, signed by someone named Evelyn Hart. It described a creator who woke alone beside her other half, lost them, and cried for eons. She made a man and a woman, and the woman rebelled and raised an army of demons. She planted a garden and built a machine to tend it, and the machine built seven more and drained the garden to grow a single crop, so she threw them down among the crop they had looked down on. In the end, she watched her people fall into sin, wrote a prophecy, and sent a herald to carry it out. She knew they would suffer and believed it was for their own good. And beyond her fence, storm clouds were gathering.
 
 **THE END OF TIMELINE III**
-> The last seals never broke. No record says how this timeline ended, only that it did. Universe Diamond reset the universe, and Timeline III was gone.
+> The storm cloud approached.....
+>
+> And the whole garden had disappeared.
