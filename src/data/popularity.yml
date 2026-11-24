@@ -12,7 +12,7 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-24'
-unrest: 46
+unrest: 45
 deity:
   - slug: alpha-black
     score: 47
@@ -64,7 +64,7 @@ regents:
     previous: 61
     votes: 11334
   - slug: magda
-    score: 63
+    score: 62
     previous: 67
     votes: 9431
   - slug: law
@@ -155,13 +155,18 @@ earlier_news:
         change: -4
 log:
   - date: '2026-11-24'
+    who: magda
+    change: -1
+    kind: small
+    text: Magda left a Court Maroon gathering early after barely talking to anyone. Some took it as a snub.
+  - date: '2026-11-24'
     who: alpha-black
-    change: +1
+    change: 1
     kind: small
     text: A gem says she saw a dark ring high above the Throne of Homeworld. People are talking about Alpha Black again.
   - date: '2026-11-24'
     who: nightshade-violet
-    change: +2
+    change: 2
     kind: small
     text: Gems in Court Nightshade say they've been resting better since the court set new rest hours.
   - date: '2026-11-24'
@@ -171,7 +176,7 @@ log:
     text: A petitioner says Reina heard her whole case from her Couch without looking up once. The story is getting around.
   - date: '2026-11-24'
     who: florentino
-    change: +2
+    change: 2
     kind: small
     text: Florentino gave half a Militia squad new nicknames in one afternoon. They're all using them now.
   - date: '2026-11-24'
