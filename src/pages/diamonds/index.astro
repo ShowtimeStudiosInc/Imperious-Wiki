@@ -18,11 +18,12 @@ const SLOTS: Record<string, (string | null)[]> = {
 
 // Pearl slots: every Diamond has 3, and every Cubic Zirconia has 1. Members can claim an open slot by
 // submitting a Pearl for it. A string is a Pearl already in the slot; null is still open.
+// A name ending in " *" is a claimable character: staff made the basics, and a member can claim and play them.
 const DIAMOND_PEARLS: Record<string, (string | null)[]> = {
   'alpha-black': ['Seraph', 'Cherub', 'Ophan'],
 };
 const REGENT_PEARLS: Record<string, string | null> = {
-  reina: 'Milo',
+  reina: 'Milo *',
 };
 const pearlsFor = (slug: string) => { const p = DIAMOND_PEARLS[slug] ?? []; return [0, 1, 2].map((i) => p[i] ?? null); };
 
@@ -249,11 +250,11 @@ const regentCourt = (r: any) => r.facts.find((f: any) => f[0] === 'Court')?.[1];
             <h3 class="regents-head">Pearls<span>3 for the Diamond · 1 for each Cubic Zirconia</span></h3>
             <ul class="pearls">
               {pearlsFor(d.slug).map((p, i) => (
-                <li class={p ? 'pearl' : 'pearl open'}><i aria-hidden="true"></i><b>{p ?? 'Open'}</b><small>{d.name.replace(' Diamond', '')}'s Pearl {i + 1}</small></li>
+                <li class={p ? (p.endsWith(' *') ? 'pearl claim' : 'pearl') : 'pearl open'}><i aria-hidden="true"></i><b>{p ? p.replace(/ \*$/, '') : 'Open'}{p?.endsWith(' *') && <em>Claimable</em>}</b><small>{d.name.replace(' Diamond', '')}'s Pearl {i + 1}</small></li>
               ))}
               {slots.filter((rs): rs is string => !!rs && !!regents[rs]).map((rs) => {
                 const p = REGENT_PEARLS[rs] ?? null;
-                return <li class={p ? 'pearl' : 'pearl open'}><i aria-hidden="true"></i><b>{p ?? 'Open'}</b><small>{regents[rs].redacted ? 'A Regent' : regents[rs].name.replace(/^Grand Regent /, '')}'s Pearl</small></li>;
+                return <li class={p ? (p.endsWith(' *') ? 'pearl claim' : 'pearl') : 'pearl open'}><i aria-hidden="true"></i><b>{p ? p.replace(/ \*$/, '') : 'Open'}{p?.endsWith(' *') && <em>Claimable</em>}</b><small>{regents[rs].redacted ? 'A Regent' : regents[rs].name.replace(/^Grand Regent /, '')}'s Pearl</small></li>;
               })}
             </ul>
           </div>}
@@ -361,6 +362,7 @@ const regentCourt = (r: any) => r.facts.find((f: any) => f[0] === 'Court')?.[1];
   .pearl b { font-family: var(--serif); font-weight: 400; font-size: 0.92rem; }
   .pearl small { color: var(--muted); font-size: 0.68rem; }
   .pearl.open { border-style: dashed; opacity: 0.72; }
+  .pearl em { margin-left: 0.45rem; padding: 0.02rem 0.4rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--wb) 60%, transparent); font-family: var(--sans); font-style: normal; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wb); vertical-align: middle; }
   .pearl.open i { background: none; border: 1px dashed color-mix(in srgb, var(--wb) 60%, transparent); box-shadow: none; }
 
   .forthcoming { margin: 0.6rem 0 0; padding-left: 1.1rem; color: #ddd5f5; }
