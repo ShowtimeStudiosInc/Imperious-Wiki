@@ -36,7 +36,7 @@ Equipping or switching an item uses your turn, unless an ability says otherwise.
 ## How a FIGHT rolls
 
 1. **Roll to hit.** Roll 1d20. You need to meet or beat your weapon's **Hit Number**, plus the target's SPD ÷ 4 (rounded down). The number needed can never go above 18. A natural 20 always hits, and a natural 1 always misses.
-2. **Count the hits.** Roll how many times your weapon hits, anywhere in its **Hits** range (the combat bot rolls this for you). Crits never add hits. They make each hit deal more damage instead.
+2. **Count the hits.** Your weapon hits its **Hit Count** number of times. Every weapon has one fixed Hit Count, picked from its type's **Hits** range when the weapon is made. A Ranged weapon could have a Hit Count of 2, 4 or 6, but whatever it has, it hits that many times on every FIGHT. Crits never add hits. They make each hit deal more damage instead.
 3. **Roll damage.** Roll the weapon's damage die once for each hit, then add your ATK (your own plus your weapon's) **once** to the total.
 4. **The target soaks it.** Each hit that lands is reduced by the target's DEF ÷ 4 (rounded down), but always deals at least 1 damage.
 
@@ -58,11 +58,13 @@ A Ruby (ATK 10) swings a Slash weapon (+1 ATK) at a Pearl (SPD 5, DEF 3). Slash 
 | **Ranged** | Guns, bows, anything that strikes from a distance | 2 to 6 | 1d6 per hit | 12 | 17 |
 | **Shield** | Shields of any kind | 1 | 1d4 per hit | 4 | None, shields can't crit |
 
+The **Hits** column is the range a weapon's Hit Count can be picked from. A weapon only ever has one number from it.
+
 **Crits:** meeting or beating your weapon's Crit Number makes every hit of that FIGHT stronger. Roll each hit's damage die twice and add them together. The number of hits doesn't change.
 
 Ranged is the only type that can hit a target who is **Far**. Every other type can only hit targets who are **Near**.
 
-What each type is good at, in short: Slash is one clean, reliable hit. Quickslash is easy to land with a chance at a second cut. Punch is many small hits, which high DEF wears down. Blunt is a heavy single hit with a rare flurry. Metal-Blunt is hard to land and brutal when it does. Ranged trades damage for reach.
+What each type is good at, in short: Slash is one clean, reliable hit. Quickslash is easy to land, with one cut or two. Punch is many small hits, which high DEF wears down. Blunt hits hard, anywhere from one big swing to a flurry of four. Metal-Blunt is hard to land and brutal when it does. Ranged trades damage for reach.
 
 ### Weapon ATK
 

@@ -86,6 +86,7 @@ weapon: |
   - *`Owner:`* (Signature items only)
   - *`Type:`*
   - *`ATK:`* (Weapons) / *`DEF:`* (Shields)
+  - *`Hit Count:`* (One number from its type's Hits range)
   - *`Weight:`* (Optional)
   - *`Extra Effects:`* (Optional)
   - *`Description/Flavor Text:`*
