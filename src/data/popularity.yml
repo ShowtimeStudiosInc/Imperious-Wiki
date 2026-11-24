@@ -11,8 +11,8 @@
 # and change that gem's `score` to match. `previous` is filled in by the script (score 7 days ago).
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
-updated: '2026-11-23'
-unrest: 52
+updated: '2026-11-24'
+unrest: 51
 deity:
   - slug: alpha-black
     score: 46
@@ -72,8 +72,8 @@ regents:
     previous: 58
     votes: 6395
   - slug: ordr
-    score: 52
-    previous: 52
+    score: 53
+    previous: 53
     votes: 5182
   - slug: dante
     score: 44
@@ -154,6 +154,11 @@ earlier_news:
       - who: ordr
         change: -4
 log:
+  - date: '2026-11-24'
+    who: ordr
+    change: +1
+    kind: small
+    text: Work schedules sent out by Ordr's office are clearer than the old ones. Gems in Court Theta noticed.
   - date: '2026-11-23'
     who: magda
     change: -3
@@ -161,19 +166,19 @@ log:
     text: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't.
   - date: '2026-11-23'
     who: epsilon-blue
-    change: +4
+    change: 4
     kind: big
-    text: "Also part of this week's headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't."
+    text: 'Also part of this week''s headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn''t.'
   - date: '2026-11-23'
     who: bi-colored-kandy
-    change: +2
+    change: 2
     kind: big
-    text: "Also part of this week's headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't."
+    text: 'Also part of this week''s headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn''t.'
   - date: '2026-11-23'
     who: ordr
     change: -4
     kind: big
-    text: "Also part of this week's headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn't."
+    text: 'Also part of this week''s headline: Solar flares knocked out warp pads across many colonies for days. Gems praised the courts that fixed theirs fast and blamed the ones that didn''t.'
   - date: '2026-11-23'
     who: alpha-black
     change: -2
@@ -186,7 +191,7 @@ log:
     text: Their numbers dipped a little in this week's poll.
   - date: '2026-11-23'
     who: theta-gold
-    change: +2
+    change: 2
     kind: roll
     text: Their numbers went up a little in this week's poll.
   - date: '2026-11-23'
@@ -196,7 +201,7 @@ log:
     text: Their numbers dipped a little in this week's poll.
   - date: '2026-11-23'
     who: maroon-red
-    change: +1
+    change: 1
     kind: roll
     text: Their numbers went up a little in this week's poll.
   - date: '2026-11-23'
@@ -211,7 +216,7 @@ log:
     text: Their numbers dipped a little in this week's poll.
   - date: '2026-11-23'
     who: tethys
-    change: +2
+    change: 2
     kind: roll
     text: Their numbers went up a little in this week's poll.
   - date: '2026-11-23'
@@ -221,12 +226,12 @@ log:
     text: Their numbers dipped a little in this week's poll.
   - date: '2026-11-23'
     who: law
-    change: +1
+    change: 1
     kind: roll
     text: Their numbers went up a little in this week's poll.
   - date: '2026-11-23'
     who: ordr
-    change: +2
+    change: 2
     kind: roll
     text: Their numbers went up a little in this week's poll.
   - date: '2026-11-23'
