@@ -42,6 +42,7 @@ eras:
     name: Apocalyptic Revelries
     tagline: Plunged into depravity, the Gempire is punished for its sins through Tribulation.
     emblem: wings
+    library: /timeline/library/#timeline-3
   - slug: timeline-4
     title: Timeline IV
     name: The Hydra's Crown
@@ -92,6 +93,7 @@ pages:
   - key: past-timelines
     title: The Timelines
     sub: The universe has run before. Universe Diamond reset it each time. These are the records that survived, and the timeline still running.
+    link: { href: /timeline/library/, label: The Imperial Library }
     tracks:
       - key: past
         label: Every Timeline

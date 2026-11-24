@@ -1,0 +1,151 @@
+---
+/**
+ * The Imperial Library: lore documents from each timeline (how things worked, scriptures, poems),
+ * kept apart from the Timeline pages, which only tell what happened. One shelf per file in
+ * src/data/library/<timeline slug>.md, written like a Timeline lore file:
+ *   # SHELF TITLE
+ *   > a note under the shelf title
+ *   **KIND · TITLE**   then "> " paragraphs (each line is its own paragraph)
+ */
+import fs from 'node:fs';
+import Site from '../../layouts/Site.astro';
+import { url } from '../../lib/gems';
+import { readDoc, eras } from '../../lib/timeline';
+import '../../styles/timeline-themes.css';
+
+const SMALL = new Set(['a', 'an', 'and', 'the', 'of', 'by', 'in', 'on', 'to', 'for']);
+const titleCase = (t: string) => t.toLowerCase().split(' ').map((w, i) => (/\d/.test(w) ? w.replace(/^[^']+/, (m) => m.toUpperCase()) : i > 0 && SMALL.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1))).join(' ');
+
+const dir = 'src/data/library';
+const shelves = fs.readdirSync(dir).filter((f) => f.endsWith('.md')).sort().map((f) => {
+  const slug = f.replace(/\.md$/, '');
+  return { slug, era: eras.find((e) => e.slug === slug), ...readDoc(`${dir}/${f}`) };
+});
+---
+<Site title="The Imperial Library" description="Records, scriptures, and poems from timelines that no longer exist.">
+  {/* The library hall itself: tall shelves, arched windows, candlelight. */}
+  <div class="hall-bg" aria-hidden="true">
+    <div class="windows"></div>
+    <div class="stacks left"></div>
+    <div class="stacks right"></div>
+    <div class="candles"></div>
+    <div class="motes"></div>
+  </div>
+  <main class="lib" data-pagefind-body>
+    <a class="back" href={url('/timeline/#past-timelines')}>‹ Timeline · The Timelines</a>
+    <header class="hall">
+      <p class="kicker">Records of the Timelines</p>
+      <h1>The Imperial Library</h1>
+      <p class="sub">The Timeline tells what happened. These shelves hold everything else: how each timeline worked, what its people believed, and what they wrote down.</p>
+    </header>
+
+    {shelves.map((s) => (
+      <section class="shelf" id={s.slug}>
+        <div class={`tt tt-${s.slug}`} aria-hidden="true"></div>
+        <div class="shelf-head">
+          <h2>{s.heading}</h2>
+          {s.era && <a href={url(`/timeline/${s.slug}/`)}>Read the events of {s.era.title} ›</a>}
+        </div>
+        {s.intro.map((t) => <p class="note">{t}</p>)}
+        <div class="books">
+          {s.parts.map((p) => (
+            <details class="book" id={`${s.slug}-${p.id}`}>
+              <summary>
+                <span class="spine" aria-hidden="true"></span>
+                <span class="kind">{p.when}</span>
+                <span class="title">{titleCase(p.title)}</span>
+              </summary>
+              <div class="page">{p.paras.map((t) => <p>{t}</p>)}</div>
+            </details>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+</Site>
+
+<script>
+  // Opening a link to a book opens that book.
+  const open = () => { const el = location.hash && document.getElementById(location.hash.slice(1)); if (el instanceof HTMLDetailsElement) { el.open = true; el.scrollIntoView({ block: 'start' }); } };
+  addEventListener('hashchange', open);
+  open();
+</script>
+
+<style>
+  :global(html:has(.hall-bg)) { background: #0c0805; }
+  :global(body:has(.hall-bg)) { background: transparent; }
+  :global(body:has(.hall-bg))::before, :global(body:has(.hall-bg) .season-fx) { display: none; }
+  .hall-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+    background: radial-gradient(70% 60% at 50% 35%, #2b1c10, #140d07 70%, #0a0604); }
+  /* three tall arched windows with moonlight */
+  .windows { position: absolute; left: 50%; top: 6%; width: min(900px, 80vw); height: 58%; transform: translateX(-50%);
+    background:
+      radial-gradient(50% 30% at 50% 22%, rgba(170, 190, 255, 0.22), transparent 70%) 0 0 / 33.3% 100% repeat-x,
+      linear-gradient(180deg, rgba(120, 140, 210, 0.16), rgba(120, 140, 210, 0.03)) 0 0 / 33.3% 100% repeat-x;
+    mask: radial-gradient(50% 18% at 50% 18%, #000 98%, transparent) 0 0 / 33.3% 100% repeat-x, linear-gradient(#000, #000) 0 18% / 33.3% 82% no-repeat;
+    -webkit-mask: radial-gradient(42% 16% at 50% 17%, #000 98%, transparent 100%) 0 0 / 33.3% 100% repeat-x;
+    opacity: 0.9; }
+  .windows::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 calc(16.6% - 2px), rgba(10, 6, 3, 0.9) calc(16.6% - 2px) 16.6%); }
+  /* bookcases along both walls */
+  .stacks { position: absolute; top: 0; bottom: 0; width: 22vw; max-width: 320px;
+    background:
+      repeating-linear-gradient(180deg, transparent 0 86px, #3a2614 86px 96px),
+      repeating-linear-gradient(90deg, #5a2e22 0 9px, #2d4a3a 9px 16px, #6b5024 16px 24px, #3b2a4a 24px 31px, #4e1f1a 31px 38px, #1f1a14 38px 41px);
+    opacity: 0.55; }
+  .stacks.left { left: 0; mask-image: linear-gradient(90deg, #000, transparent); -webkit-mask-image: linear-gradient(90deg, #000, transparent); }
+  .stacks.right { right: 0; mask-image: linear-gradient(270deg, #000, transparent); -webkit-mask-image: linear-gradient(270deg, #000, transparent); }
+  .candles { position: absolute; inset: 0;
+    background: radial-gradient(18% 22% at 12% 70%, rgba(255, 170, 80, 0.18), transparent 70%), radial-gradient(18% 22% at 88% 70%, rgba(255, 170, 80, 0.18), transparent 70%);
+    animation: flicker 4s ease-in-out infinite alternate; }
+  .motes { position: absolute; inset: 0; opacity: 0.5;
+    background-image: radial-gradient(1.2px 1.2px at 20% 30%, #ffe3b0, transparent), radial-gradient(1px 1px at 60% 50%, #ffe3b0, transparent), radial-gradient(1.4px 1.4px at 80% 20%, #ffe3b0, transparent), radial-gradient(1px 1px at 40% 80%, #ffe3b0, transparent);
+    background-size: 300px 300px; animation: drift 40s linear infinite; }
+  @keyframes flicker { from { opacity: 0.75; } to { opacity: 1; } }
+  @keyframes drift { from { background-position: 0 0; } to { background-position: 60px -300px; } }
+  @media (prefers-reduced-motion: reduce) { .candles, .motes { animation: none; } }
+
+  .lib { max-width: 1000px; margin: 0 auto; padding: 32px 22px 90px; }
+  .back { font: 600 12px/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .hall { margin: 26px 0 34px; padding: 34px 32px; border: 1px solid #6b5233; border-radius: 6px; text-align: center;
+    background: radial-gradient(90% 120% at 50% 0%, rgba(255, 200, 120, 0.14), transparent 60%), linear-gradient(180deg, #2a1d12, #18110b); }
+  .kicker { margin: 0 0 10px; font: 600 11px/1 var(--sans); letter-spacing: 0.3em; text-transform: uppercase; color: #d9b27a; }
+  .hall h1 { margin: 0 0 10px; font: 400 clamp(2rem, 5vw, 2.8rem)/1.1 var(--serif); color: #f6e7cc; letter-spacing: 0.04em; }
+  .sub { margin: 0 auto; max-width: 56ch; color: #cbb594; }
+
+  .shelf { position: relative; margin-bottom: 42px; padding: 26px 26px 28px; border: 1px solid rgba(217, 178, 122, 0.35); border-radius: 6px; overflow: hidden; isolation: isolate; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5); }
+  .shelf > :not(.tt) { position: relative; z-index: 1; }
+  .shelf-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding-bottom: 10px; border-bottom: 3px solid #5a4329; box-shadow: 0 6px 10px -8px rgba(0, 0, 0, 0.8); }
+  .shelf-head h2 { margin: 0; font: 400 1.4rem/1.2 var(--serif); color: #f6e7cc; letter-spacing: 0.06em; }
+  .shelf-head a { font: 600 11px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: #d9b27a; }
+  .note { color: #d6cbe0; font-style: italic; margin: 12px 0 18px; }
+
+  .books { display: grid; gap: 10px; }
+  .book { border-radius: 3px; background: linear-gradient(90deg, #3a2a1a, #2b1f14); border: 1px solid #5a4329; overflow: hidden; }
+  .book summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto auto 1fr; align-items: center; gap: 14px; padding: 14px 18px 14px 0; }
+  .book summary::-webkit-details-marker { display: none; }
+  .spine { width: 10px; align-self: stretch; margin: -14px 0; background: linear-gradient(180deg, #b8894c, #7a5427); }
+  .kind { font: 600 10px/1 var(--sans); letter-spacing: 0.22em; text-transform: uppercase; color: #d9b27a; min-width: 110px; }
+  .title { font: 400 1.1rem/1.3 var(--serif); color: #f6e7cc; }
+  .book summary:hover .title { color: #fff; }
+  .book[open] summary { border-bottom: 1px solid #5a4329; }
+  .page { padding: 18px 26px 10px; background: #efe4cf; color: #2a2118; }
+  .page p { margin: 0 0 12px; line-height: 1.7; font-family: var(--serif); font-size: 1rem; }
+
+  /* each timeline's books are bound to match its look */
+  #timeline-3 .book { background: linear-gradient(90deg, rgba(74, 62, 96, 0.92), rgba(48, 40, 70, 0.92)); border-color: rgba(255, 230, 170, 0.4); }
+  #timeline-3 .spine { background: linear-gradient(180deg, #fff1c8, #c9a24e); }
+  #timeline-3 .kind { color: #ffe3a1; }
+  #timeline-3 .page { background: #f7f0de; }
+  #timeline-4 .book { background: linear-gradient(90deg, rgba(30, 20, 52, 0.94), rgba(16, 10, 30, 0.94)); border-color: rgba(205, 184, 255, 0.35); }
+  #timeline-4 .spine { background: linear-gradient(180deg, #cdb8ff, #5c3fa8); }
+  #timeline-4 .kind { color: #cdb8ff; }
+  #timeline-4 .page { background: #e9e3f5; color: #1d1530; }
+  #timeline-4 .shelf-head a, #timeline-4 .shelf-head h2 { color: #e6dcff; }
+
+  @media (max-width: 640px) {
+    .book summary { grid-template-columns: auto 1fr; }
+    .kind { grid-column: 2; min-width: 0; }
+    .title { grid-column: 2; }
+    .page { padding: 16px 16px 6px; }
+  }
+</style>

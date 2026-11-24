@@ -2,6 +2,9 @@
 import Site from '../../layouts/Site.astro';
 import { url } from '../../lib/gems';
 import { eras, chapters, pages, EMBLEMS, PART_ICONS } from '../../lib/timeline';
+import '../../styles/timeline-themes.css';
+// Past timelines have their own background (src/styles/timeline-themes.css).
+const THEMED = ['timeline-3', 'timeline-4'];
 
 export function getStaticPaths() {
   const findPage = (slug: string) => pages.find((p) => p.tracks.some((t) => (t.parts ?? []).some((s) => s.slug === slug) || t.events.some((e) => e.link?.startsWith(`/timeline/${slug}/`))));
@@ -16,6 +19,7 @@ export function getStaticPaths() {
 const { node, page, prev, next } = Astro.props;
 ---
 <Site title={`${node.title}: ${node.name ?? ''}`} description={node.tagline}>
+  {THEMED.includes(node.slug) && <div class={`tt tt-page tt-${node.slug}`} aria-hidden="true"></div>}
   <main class="era-page" data-pagefind-body>
     <a class="back" href={url(`/timeline/#${page?.key ?? ''}`)}>‹ Timeline · {page?.title}</a>
     <header class="hero">
@@ -27,7 +31,7 @@ const { node, page, prev, next } = Astro.props;
       </div>
     </header>
 
-    {node.intro?.length > 0 && <div class="intro">{node.intro.map((t: string) => <p>{t}</p>)}</div>}
+    {node.intro?.length > 0 && <div class="intro">{node.intro.map((t: string) => <p>{t}</p>)}{node.library && <a class="lib" href={url(node.library)}>Visit the Imperial Library ›</a>}</div>}
 
     {node.parts.length > 1 && (
       <nav class="toc" aria-label="Parts">
@@ -62,6 +66,9 @@ const { node, page, prev, next } = Astro.props;
 </Site>
 
 <style>
+  :global(body:has(.tt-page)) { background: transparent; }
+  :global(body:has(.tt-page))::before, :global(body:has(.tt-page) .season-fx) { display: none; }
+  :global(html:has(.tt-page)) { background: #0b0816; }
   .era-page { max-width: 760px; margin: 0 auto; padding: 1.6rem 1.2rem 3rem; }
   .back { font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
   .back:hover { color: #fff; }
@@ -75,6 +82,7 @@ const { node, page, prev, next } = Astro.props;
   .hero h1 { margin: 0.1rem 0 0.2rem; font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 4vw, 2.2rem); }
   .tag { margin: 0; color: var(--muted); }
   .intro { margin: 0 0 1.6rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--line, rgba(255,255,255,.25)); background: rgba(255,255,255,.03); border-radius: 0 10px 10px 0; }
+  .intro .lib { display: inline-block; margin-top: 0.5rem; font: 600 0.72rem/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--lav); }
   .intro p { margin: 0.3rem 0; color: var(--muted); font-style: italic; }
 
   .toc { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; padding: 0.8rem 0; margin-bottom: 0.6rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }

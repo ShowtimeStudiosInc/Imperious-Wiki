@@ -7,6 +7,10 @@
  * on phones the destinations become a grid.
  */
 import { url } from '../lib/gems';
+import { liveEvents } from '../lib/storylines';
+
+// Limited time events get their own destination, styled by the event's look (see src/data/storylines/).
+const events = liveEvents();
 
 const dests = [
   { id: 'gems', href: '/gem-types/', name: 'Gem-Types', x: 50, y: 25, size: 128, color: '#b69cff' },
@@ -124,6 +128,38 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
       </a>
     ))}
 
+
+    {events.map((e) => (
+      <a class={`ltm ltm-${e.look ?? 'wilds'}`} href={url(`/events/${e.slug}/`)} style={`--x:${e.home!.x}%;--y:${e.home!.y}%`} data-ends={e.home!.ends || undefined} aria-label={`Limited time event: ${e.title}`}>
+        <span class="ltm-tag"><i aria-hidden="true"></i>Limited Time Event</span>
+        <span class="ltm-card">
+          {(e.look ?? 'wilds') === 'wilds' && (
+            <svg class="ltm-art" viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="w-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#061322" /><stop offset=".6" stop-color="#0f2a3f" /><stop offset="1" stop-color="#1d4258" /></linearGradient>
+                <linearGradient id="w-aur" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5ff2c8" stop-opacity="0" /><stop offset=".35" stop-color="#5ff2c8" stop-opacity=".55" /><stop offset=".7" stop-color="#8fe3ff" stop-opacity=".45" /><stop offset="1" stop-color="#8fe3ff" stop-opacity="0" /></linearGradient>
+                <linearGradient id="w-snow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8f7ff" /><stop offset="1" stop-color="#9cc6dc" /></linearGradient>
+              </defs>
+              <rect width="240" height="140" fill="url(#w-sky)" />
+              <path class="aur" d="M-10 38 C40 10 80 52 130 28 S210 8 250 30 L250 46 C210 26 170 48 130 44 S40 30 -10 56 Z" fill="url(#w-aur)" />
+              <g fill="#dff6ff">{[[18,14],[52,30],[96,12],[150,20],[204,12],[226,40],[70,8],[176,44]].map(([x, y]) => <circle cx={x} cy={y} r=".9" />)}</g>
+              <path d="M150 6 L176 26" stroke="#ffe7b8" stroke-width="1.6" stroke-linecap="round" opacity=".9" /><circle cx="177" cy="27" r="2.2" fill="#fff4dc" />
+              <path d="M0 92 L34 60 L58 80 L92 46 L128 84 L160 58 L196 86 L222 66 L240 78 L240 140 L0 140 Z" fill="#20425a" />
+              <path d="M92 46 L104 58 L98 58 L110 70 L84 62 Z M160 58 L170 68 L156 66 Z" fill="#d6eef8" opacity=".8" />
+              <path d="M0 108 Q60 96 120 104 T240 100 L240 140 L0 140 Z" fill="url(#w-snow)" />
+              <g fill="#0b1c29">{[[14,112,16],[30,108,22],[204,104,20],[222,110,15],[188,110,13]].map(([x, y, h]) => <path d={`M${x} ${y - h} L${x + h * 0.32} ${y} L${x - h * 0.32} ${y} Z`} />)}</g>
+              <g><rect x="104" y="96" width="14" height="9" fill="#3a2a22" /><path d="M102 97 L111 90 L120 97 Z" fill="#e8f7ff" /><rect x="109" y="99" width="3" height="3" fill="#ffc46b" />
+                <rect x="126" y="99" width="10" height="7" fill="#33261f" /><path d="M124 100 L131 95 L138 100 Z" fill="#e8f7ff" /><rect x="130" y="101" width="2.4" height="2.4" fill="#ffc46b" /></g>
+            </svg>
+          )}
+          <span class="ltm-flakes" aria-hidden="true"></span>
+          <span class="ltm-fade" aria-hidden="true"></span>
+          <span class="ltm-title"><small>{e.title.split(' ').slice(0, -1).join(' ')}</small>{e.title.split(' ').slice(-1)[0]}</span>
+        </span>
+        {e.theme && <span class="ltm-sub">“{e.theme}”</span>}
+      </a>
+    ))}
+
     <nav class="quick" aria-label="Quick travel">
       {quick.map((q) => (
         <a href={url(q.href)} aria-label={q.name}>
@@ -148,6 +184,9 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
 </section>
 
 <script>
+  // A limited time event leaves the map after its end date, even before the site rebuilds.
+  const today = new Date().toISOString().slice(0, 10);
+  document.querySelectorAll<HTMLElement>('.ltm[data-ends]').forEach((el) => { if (el.dataset.ends! < today) el.remove(); });
   const wrap = document.querySelector<HTMLElement>('.map-wrap');
   if (wrap && matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     wrap.addEventListener('pointermove', (e) => {
@@ -221,6 +260,29 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
   .side-left { left: clamp(1rem, 2.2vw, 2.2rem); }
   .side-right { right: clamp(1rem, 2.2vw, 2.2rem); }
 
+
+  /* Limited time event destination: its own look, kept apart from the routes. */
+  .ltm { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%) translate(calc(var(--px, 0) * 22px), calc(var(--py, 0) * 22px)); transition: transform 0.3s ease-out; display: grid; justify-items: center; gap: 0.45rem; z-index: 3; text-decoration: none; color: #e8f7ff; }
+  .ltm-tag { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.28rem 0.7rem 0.26rem; font: 700 0.62rem/1 var(--sans); letter-spacing: 0.22em; text-transform: uppercase; color: #061322; background: linear-gradient(90deg, #8fe3ff, #c9f6ff); clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+  .ltm-tag i { width: 6px; height: 6px; border-radius: 50%; background: #0b6b4f; box-shadow: 0 0 0 0 rgba(11, 107, 79, 0.6); animation: ltm-live 1.6s ease-out infinite; }
+  .ltm-card { position: relative; display: block; width: 232px; height: 136px; clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); background: #8fe3ff; padding: 2px; animation: ltm-float 6s ease-in-out infinite; filter: drop-shadow(0 0 18px rgba(143, 227, 255, 0.45)); }
+  .ltm-art { display: block; width: 100%; height: 100%; clip-path: polygon(13px 0, 100% 0, 100% calc(100% - 13px), calc(100% - 13px) 100%, 0 100%, 0 13px); }
+  .ltm-art .aur { animation: ltm-aur 7s ease-in-out infinite alternate; transform-origin: center; }
+  .ltm-flakes { position: absolute; inset: 2px; pointer-events: none; clip-path: inherit;
+    background-image: radial-gradient(1.4px 1.4px at 12% 20%, #fff 60%, transparent), radial-gradient(1.2px 1.2px at 38% 60%, #fff 60%, transparent), radial-gradient(1.6px 1.6px at 66% 30%, #fff 60%, transparent), radial-gradient(1.1px 1.1px at 84% 72%, #fff 60%, transparent), radial-gradient(1.3px 1.3px at 52% 8%, #fff 60%, transparent);
+    background-size: 100% 70px; animation: ltm-snow 5s linear infinite; opacity: 0.8; }
+  .ltm-fade { position: absolute; inset: 2px; clip-path: inherit; pointer-events: none; background: linear-gradient(180deg, transparent 38%, rgba(3, 12, 22, 0.82)); }
+  .ltm-title { position: absolute; left: 14px; bottom: 10px; display: grid; font: 400 1.55rem/0.95 var(--serif); letter-spacing: 0.04em; color: #f4fcff; text-shadow: 0 2px 10px rgba(3, 12, 22, 0.9); text-transform: uppercase; }
+  .ltm-title small { font: 600 0.62rem/1.2 var(--sans); letter-spacing: 0.32em; color: #bfeeff; }
+  .ltm-sub { font: italic 0.8rem/1.2 var(--serif); color: #bfeeff; text-shadow: 0 1px 6px #000; white-space: nowrap; }
+  .ltm:hover .ltm-card, .ltm:focus-visible .ltm-card { filter: drop-shadow(0 0 26px rgba(143, 227, 255, 0.8)) brightness(1.12); }
+  .ltm:focus-visible { outline: none; }
+  @keyframes ltm-float { 0%, 100% { transform: translateY(0) rotate(-1.5deg); } 50% { transform: translateY(-6px) rotate(-0.5deg); } }
+  @keyframes ltm-live { 0% { box-shadow: 0 0 0 0 rgba(11, 107, 79, 0.6); } 100% { box-shadow: 0 0 0 7px rgba(11, 107, 79, 0); } }
+  @keyframes ltm-aur { from { transform: translateX(-6px) scaleY(0.9); opacity: 0.7; } to { transform: translateX(6px) scaleY(1.15); opacity: 1; } }
+  @keyframes ltm-snow { from { background-position: 0 -70px; } to { background-position: 10px 0; } }
+  @media (prefers-reduced-motion: reduce) { .ltm-card, .ltm-flakes, .ltm-art .aur, .ltm-tag i { animation: none !important; }
+  }
   @media (prefers-reduced-motion: reduce) { .ring, .pulse, .aurora, .dest-start .emblem::after { animation: none !important; } .pulse { display: none; } .sky, .dest, .routes, .horizon { transition: none; } }
   @media (max-height: 780px) and (min-width: 761px) { .emblem { scale: 0.82; } .dest { gap: 0.25rem; } }
 
@@ -237,6 +299,8 @@ const lights = Array.from({ length: 240 }, () => { const x = rnd() * 1600; const
     .routes, .horizon, .aurora { display: none; }
     .dest { position: static; transform: none !important; padding: 0.8rem 0.4rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(14, 9, 28, 0.6); }
     .dest-start { order: -1; grid-column: 1 / -1; }
+    .ltm { position: static; transform: none !important; order: -2; grid-column: 1 / -1; margin-bottom: 0.4rem; }
+    .ltm-card { width: min(100%, 320px); height: 150px; }
     .emblem { width: 72px; height: 72px; }
     .name { font-size: 0.72rem; letter-spacing: 0.14em; white-space: normal; text-align: center; }
     .quick { position: static; transform: none; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4rem; margin-top: 0.4rem; }

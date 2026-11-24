@@ -3,7 +3,7 @@ import { load } from 'js-yaml';
 import fs from 'node:fs';
 
 export interface Part { id: string; when: string; title: string; paras: string[]; link?: { href: string; label: string } }
-export interface Era { slug: string; title: string; name: string; tagline: string; emblem: string; heading?: string; intro?: string[]; parts: Part[] }
+export interface Era { slug: string; title: string; name: string; tagline: string; emblem: string; heading?: string; intro?: string[]; parts: Part[]; library?: string }
 export interface Event {
   id: string; title: string; when?: string; segment?: string; link?: string; at?: string; x?: number;
   status?: 'open' | 'pending' | 'sealed'; current?: boolean; kind?: 'news';
@@ -18,13 +18,16 @@ export interface Track {
   from_left?: boolean; to_right?: boolean; ends_at?: string; note?: string; starts_on?: number;
   parts?: { slug: string; segment?: string; labels?: Record<string, string>; only?: string }[]; events: Event[];
 }
-export interface Page { key: string; title: string; sub: string; tracks: Track[]; per_page?: number; start?: boolean }
+export interface Page { key: string; title: string; sub: string; tracks: Track[]; per_page?: number; start?: boolean; link?: { href: string; label: string } }
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 /** Reads an Era's .md: a "# Heading", then "**WHEN · TITLE**" section lines, each followed by "> " paragraphs. */
-function readParts(slug: string): { heading?: string; intro: string[]; parts: Part[] } {
-  const file = `src/data/timeline/${slug}.md`;
+/** Reads any lore file in the same format (used by the Imperial Library). */
+export function readDoc(file: string) { return readParts('', file); }
+
+function readParts(slug: string, path?: string): { heading?: string; intro: string[]; parts: Part[] } {
+  const file = path ?? `src/data/timeline/${slug}.md`;
   if (!fs.existsSync(file)) return { intro: [], parts: [] };
   const parts: Part[] = [];
   const intro: string[] = [];

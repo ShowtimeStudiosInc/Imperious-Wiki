@@ -11,9 +11,15 @@ export interface Storyline {
   npcs: { role: string; gem: string; name?: string; text: string }[];
   rogues: { name: string; note: string; visitor?: boolean }[];
   tools: { name: string; status: 'live' | 'planned'; text: string }[];
+  look?: string;
+  home?: { live: boolean; ends?: string; x: number; y: number };
 }
 
 const dir = 'src/data/storylines';
 export const storylines: Storyline[] = fs.existsSync(dir)
   ? fs.readdirSync(dir).filter((f) => f.endsWith('.yml')).map((f) => load(fs.readFileSync(`${dir}/${f}`, 'utf8')) as Storyline)
   : [];
+
+/** Events shown as limited time destinations on the home page: live, and not past their end date. */
+export const liveEvents = (today = new Date().toISOString().slice(0, 10)) =>
+  storylines.filter((s) => s.home?.live && (!s.home.ends || s.home.ends >= today));

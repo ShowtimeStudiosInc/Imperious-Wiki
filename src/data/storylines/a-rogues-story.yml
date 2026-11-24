@@ -10,6 +10,11 @@
 #   rogues     player characters who live at or are visiting the settlement
 #   chapters   the storyline's recaps, oldest first (each one is a page on the Timeline)
 #   tools      features planned for this tab; status planned or live
+#   home       the limited time destination on the home page's star map
+#                live     true shows it on the home page, false hides it
+#                ends     optional date (YYYY-MM-DD); the destination disappears after that day
+#                x, y     where it sits on the map, in percent
+#   look       which hand-made theme the event uses (its home tile and its page): wilds
 
 slug: a-rogues-story
 title: A Rogue's Story
@@ -17,6 +22,12 @@ kind: Side Story
 era: Era 2A
 status: In progress
 theme: Be careful who you trust.
+look: wilds
+home:
+  live: true
+  ends: ''
+  x: 84
+  y: 20
 tagline: Life out in the Wilds of Homeworld, at a settlement the Gempire would rather forget.
 summary: >-
   A storyline about the Rogues who live out in the Wilds, away from the city and the Diamonds. It is told through

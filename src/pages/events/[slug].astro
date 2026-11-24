@@ -11,29 +11,74 @@ const open = s.quests.filter((q) => q.status !== 'locked');
 const locked = s.quests.filter((q) => q.status === 'locked');
 const STATUS: Record<string, string> = { open: 'Open', taken: 'Taken', done: 'Done', locked: 'Locked' };
 const kinds = [...new Set(s.locations.map((l) => l.kind))];
-const TABS = [
-  { id: 'overview', label: 'Overview' },
-  { id: 'story', label: 'Story So Far' },
-  { id: 'quests', label: 'Quest Board' },
-  { id: 'settlement', label: 'The Settlement' },
-  { id: 'tools', label: 'Tools' },
+const openCount = open.filter((q) => q.status === 'open').length;
+const MENU = [
+  { id: 'story', label: 'Story So Far', sub: 'Every part of the storyline, with recaps', icon: '<path d="M4 5h11a3 3 0 0 1 3 3v12H7a3 3 0 0 1-3-3z"/><path d="M8 9h6M8 13h6"/>' },
+  { id: 'quests', label: 'Quest Board', sub: 'Jobs posted at the guild hall', icon: '<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M9 9h6M9 13h4"/><circle cx="12" cy="4" r="1.2"/>' },
+  { id: 'settlement', label: 'The Settlement', sub: 'Who runs it, where things are, who lives there', icon: '<path d="M3 20h18"/><path d="M5 20v-7l5-4 5 4v7"/><path d="M15 20v-5l3-2 3 2v5"/><path d="M9 20v-3h2v3"/>' },
+  { id: 'lore', label: 'Rogue Lore', sub: 'Life out in the Wilds, and how to join', icon: '<path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/>' },
+  { id: 'tools', label: 'Tools', sub: 'What this event can do, and what is coming', icon: '<path d="M14 7l3-3 3 3-3 3"/><path d="M17 4L8 13"/><path d="M4 20l4-4 3 3-4 4z"/>' },
 ];
 ---
 <Site title={s.title} description={s.tagline} current="events">
-  <main class="ev" data-pagefind-body>
-    <a class="back" href={url('/events/')}>‹ Events</a>
-    <header class="ev-hero">
-      <p class="kicker">{s.kind} · {s.era} · <span class="live">{s.status}</span></p>
-      <h1>{s.title}</h1>
-      <p class="tag">{s.tagline}</p>
-      {s.theme && <p class="theme">“{s.theme}”</p>}
-    </header>
+  {/* The event's own world, behind everything (replaces the wiki background on this page). */}
+  <div class={`world look-${s.look ?? 'wilds'}`} aria-hidden="true">
+    <div class="w-sky"></div>
+    <div class="w-stars"></div>
+    <div class="w-aurora a1"></div>
+    <div class="w-aurora a2"></div>
+    <svg class="w-land" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice">
+      <path d="M0 420 L120 330 L210 380 L330 250 L450 360 L560 300 L700 390 L820 280 L940 350 L1060 260 L1200 370 L1320 300 L1460 380 L1600 320 L1600 600 L0 600 Z" fill="#1b3a52" />
+      <path d="M330 250 L360 277 L344 274 L330 286 L318 272 L302 276 Z M820 280 L842 300 L828 298 L816 306 L806 294 Z M1060 260 L1088 286 L1072 284 L1058 296 L1046 282 L1030 286 Z" fill="#cfe9f5" opacity=".6" />
+      <path d="M0 470 L160 410 L300 450 L470 395 L640 455 L800 420 L980 460 L1150 405 L1330 450 L1480 420 L1600 440 L1600 600 L0 600 Z" fill="#24465f" />
+      <path d="M0 520 Q400 486 800 506 T1600 500 L1600 600 L0 600 Z" fill="#d7ecf5" />
+      <path d="M0 540 Q420 516 820 532 T1600 528 L1600 600 L0 600 Z" fill="#b6d4e3" />
+      <g fill="#071521">{[[40,560,90],[110,552,120],[180,566,70],[1380,556,110],[1450,548,140],[1530,562,90],[1240,566,60]].map(([x, y, h]) => <path d={`M${x} ${y - h} L${x + h * 0.3} ${y} L${x - h * 0.3} ${y} Z`} />)}</g>
+      <g><rect x="700" y="490" width="44" height="28" fill="#2b2019" /><path d="M694 492 L722 470 L750 492 Z" fill="#e8f6fc" /><rect x="716" y="498" width="10" height="9" fill="#ffc46b" />
+        <rect x="770" y="496" width="32" height="22" fill="#261c16" /><path d="M765 498 L786 482 L807 498 Z" fill="#e8f6fc" /><rect x="782" y="503" width="8" height="7" fill="#ffc46b" />
+        <rect x="826" y="500" width="24" height="18" fill="#2b2019" /><path d="M822 502 L838 490 L854 502 Z" fill="#e8f6fc" /></g>
+    </svg>
+    <div class="w-snow s1"></div>
+    <div class="w-snow s2"></div>
+    <div class="w-shade"></div>
+  </div>
 
-    <nav class="ev-tabs" role="tablist" aria-label="Sections">
-      {TABS.map((t, i) => <button role="tab" id={`tab-${t.id}`} aria-controls={`ev-${t.id}`} aria-selected={i === 0 ? 'true' : 'false'} data-tab={t.id}>{t.label}{t.id === 'quests' && open.filter((q) => q.status === 'open').length > 0 && <b>{open.filter((q) => q.status === 'open').length}</b>}</button>)}
-    </nav>
+  <main class={`ev look-${s.look ?? 'wilds'}`} data-pagefind-body>
+    {/* Main menu */}
+    <section class="menu" id="ev-menu" aria-label={`${s.title} main menu`}>
+      <div class="m-left">
+        <a class="back" href={url('/')}>‹ Leave the event</a>
+        <p class="kicker"><span class="ltd">Limited Time Event</span>{s.kind} · {s.era}</p>
+        <h1 class="logo"><small>{s.title.split(' ').slice(0, -1).join(' ')}</small>{s.title.split(' ').slice(-1)[0]}</h1>
+        {s.theme && <p class="theme">“{s.theme}”</p>}
+        <p class="tag">{s.tagline}</p>
+        {s.chapters.length > 0 && (
+          <a class="now" href={url(`/timeline/${s.chapters[s.chapters.length - 1].slug}/`)}>
+            <span class="now-k">Now playing · Part {s.chapters.length}</span>
+            <span class="now-t">{s.chapters[s.chapters.length - 1].title}</span>
+            <span class="now-s">{s.chapters[s.chapters.length - 1].summary}</span>
+          </a>
+        )}
+      </div>
+      <nav class="m-right" aria-label="Event menu">
+        {MENU.map((m, i) => (
+          <a class="m-item" href={`#${m.id}`} style={`--i:${i}`}>
+            <span class="m-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" set:html={m.icon} /></span>
+            <span class="m-txt"><b>{m.label}</b><small>{m.sub}</small></span>
+            {m.id === 'quests' && openCount > 0 && <span class="m-badge">{openCount} new</span>}
+            <span class="m-go" aria-hidden="true">›</span>
+          </a>
+        ))}
+      </nav>
+    </section>
 
-    <section class="ev-panel" id="ev-overview" role="tabpanel" aria-labelledby="tab-overview">
+    {/* Sections, opened from the menu */}
+    <div class="sections" hidden>
+      <div class="s-bar">
+        <a class="s-back" href="#menu">‹ Main Menu</a>
+        <h2 class="s-title" id="s-title"></h2>
+      </div>
+<section class="ev-panel" id="ev-lore" data-title="Rogue Lore">
       <p class="lead">{s.summary}</p>
       {s.lore.map((l) => (
         <div class="block">
@@ -50,7 +95,7 @@ const TABS = [
       )}
     </section>
 
-    <section class="ev-panel" id="ev-story" role="tabpanel" aria-labelledby="tab-story" hidden>
+    <section class="ev-panel" id="ev-story" data-title="Story So Far" hidden>
       <ol class="chapters">
         {s.chapters.map((c, i) => (
           <li>
@@ -69,7 +114,7 @@ const TABS = [
       <p class="note">Each part of the storyline also sits on the <a href={url('/timeline/')}>Timeline</a>, on the Side Story line of Era 2.</p>
     </section>
 
-    <section class="ev-panel" id="ev-quests" role="tabpanel" aria-labelledby="tab-quests" hidden>
+    <section class="ev-panel" id="ev-quests" data-title="Quest Board" hidden>
       <div class="board">
         <p class="board-head">Posted at the Guild Hall</p>
         <div class="cards">
@@ -100,7 +145,7 @@ const TABS = [
       </div>
     </section>
 
-    <section class="ev-panel" id="ev-settlement" role="tabpanel" aria-labelledby="tab-settlement" hidden>
+    <section class="ev-panel" id="ev-settlement" data-title="The Settlement" hidden>
       <h2>Who runs it</h2>
       <div class="npcs">
         {s.npcs.map((n) => (
@@ -133,7 +178,7 @@ const TABS = [
       </ul>
     </section>
 
-    <section class="ev-panel" id="ev-tools" role="tabpanel" aria-labelledby="tab-tools" hidden>
+    <section class="ev-panel" id="ev-tools" data-title="Tools" hidden>
       <p class="lead">What this tab can do now, and what's being built for it.</p>
       <div class="tools">
         {s.tools.map((t) => (
@@ -145,43 +190,97 @@ const TABS = [
         ))}
       </div>
     </section>
+    </div>
   </main>
 </Site>
 
 <script>
-  const tabs = [...document.querySelectorAll<HTMLButtonElement>('.ev-tabs [data-tab]')];
-  const show = (id: string, push = true) => {
-    if (!tabs.some((t) => t.dataset.tab === id)) id = 'overview';
-    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === id)));
-    document.querySelectorAll<HTMLElement>('.ev-panel').forEach((p) => (p.hidden = p.id !== `ev-${id}`));
-    if (push) history.replaceState(null, '', `#${id}`);
+  // The menu is the event's home screen. Each menu item opens one section; "#menu" (or no hash) goes back.
+  const menu = document.getElementById('ev-menu')!;
+  const sections = document.querySelector<HTMLElement>('.sections')!;
+  const title = document.getElementById('s-title')!;
+  const show = () => {
+    const id = location.hash.slice(1);
+    const panel = id && document.getElementById(`ev-${id}`);
+    menu.hidden = !!panel;
+    sections.hidden = !panel;
+    document.querySelectorAll<HTMLElement>('.ev-panel').forEach((p) => (p.hidden = p !== panel));
+    if (panel) { title.textContent = panel.dataset.title ?? ''; scrollTo({ top: 0 }); }
   };
-  tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.tab!)));
-  if (location.hash) show(location.hash.slice(1), false);
-  addEventListener('hashchange', () => show(location.hash.slice(1), false));
+  addEventListener('hashchange', show);
+  show();
 </script>
 
 <style>
-  .ev { --ice: #8fe3ff; --frost: rgba(143, 227, 255, 0.16); max-width: 1000px; margin: 0 auto; padding: 32px 22px 90px; }
-  .back { font: 600 12px/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
-  .back:hover { color: var(--ice); }
-  .ev-hero { margin: 26px 0 26px; padding: 34px 30px; border: 1px solid var(--frost); border-radius: 6px;
-    background: radial-gradient(120% 140% at 100% 0%, rgba(143, 227, 255, 0.14), transparent 55%), linear-gradient(180deg, rgba(20, 30, 54, 0.9), rgba(16, 12, 34, 0.9)); position: relative; overflow: hidden; }
-  .kicker { font: 600 11px/1 var(--sans); letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice); margin: 0 0 12px; }
-  .kicker .live { color: #b9f6c7; }
-  .ev-hero h1 { font: 400 40px/1.1 var(--serif); margin: 0 0 10px; color: var(--text); }
-  .tag { color: var(--muted); margin: 0; max-width: 60ch; }
-  .theme { margin: 18px 0 0; font: italic 16px/1.4 var(--serif); color: #dff6ff; }
+  /* ---------- The event's world (look: wilds) ---------- */
+  :global(html:has(.world)) { background: #050d17; }
+  :global(body:has(.world)) { background: transparent; }
+  :global(body:has(.world))::before, :global(body:has(.world) .stars), :global(body:has(.world) .season-fx) { display: none; }
+  :global(body:has(.world) .topbar) { background: rgba(4, 12, 22, 0.72); border-bottom-color: rgba(143, 227, 255, 0.18); }
+  :global(body:has(.world) footer.site) { background: transparent; color: #7fa8bd; border-top-color: rgba(143, 227, 255, 0.14); }
+  .world { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .w-sky { position: absolute; inset: 0; background: linear-gradient(180deg, #030a14 0%, #08192a 38%, #12324a 70%, #1d4a63 100%); }
+  .w-stars { position: absolute; inset: 0 0 40% 0; opacity: 0.8;
+    background-image: radial-gradient(1px 1px at 8% 12%, #fff, transparent), radial-gradient(1px 1px at 22% 30%, #dff6ff, transparent), radial-gradient(1.4px 1.4px at 37% 8%, #fff, transparent), radial-gradient(1px 1px at 51% 22%, #fff, transparent), radial-gradient(1.2px 1.2px at 64% 6%, #dff6ff, transparent), radial-gradient(1px 1px at 76% 26%, #fff, transparent), radial-gradient(1.4px 1.4px at 88% 14%, #fff, transparent), radial-gradient(1px 1px at 95% 34%, #dff6ff, transparent), radial-gradient(1px 1px at 4% 40%, #fff, transparent), radial-gradient(1px 1px at 44% 44%, #fff, transparent);
+    background-size: 420px 300px; }
+  .w-aurora { position: absolute; left: -10%; right: -10%; height: 34%; filter: blur(30px); mix-blend-mode: screen; opacity: 0.95; }
+  .w-aurora.a1 { top: 4%; height: 30%; background: radial-gradient(60% 40% at 30% 50%, rgba(95, 242, 200, 0.6), transparent 70%), radial-gradient(50% 35% at 68% 40%, rgba(143, 227, 255, 0.5), transparent 70%); transform-origin: center; animation: w-aur 16s ease-in-out infinite alternate; }
+  .w-aurora.a2 { top: 14%; height: 26%; opacity: 0.6; background: radial-gradient(45% 35% at 55% 50%, rgba(160, 130, 255, 0.55), transparent 70%), radial-gradient(40% 30% at 85% 60%, rgba(95, 242, 200, 0.45), transparent 70%); animation: w-aur 22s ease-in-out infinite alternate-reverse; }
+  .w-land { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 62%; }
+  .w-snow { position: absolute; inset: -100px 0 0 0;
+    background-image: radial-gradient(2px 2px at 10% 10%, #fff 50%, transparent), radial-gradient(1.6px 1.6px at 30% 50%, #fff 50%, transparent), radial-gradient(2.4px 2.4px at 55% 25%, #fff 50%, transparent), radial-gradient(1.4px 1.4px at 75% 70%, #fff 50%, transparent), radial-gradient(2px 2px at 90% 40%, #fff 50%, transparent);
+    background-size: 360px 360px; animation: w-fall 14s linear infinite; opacity: 0.7; }
+  .w-snow.s2 { background-size: 220px 220px; animation-duration: 9s; opacity: 0.45; filter: blur(0.5px); }
+  .w-shade { position: absolute; inset: 0; background: radial-gradient(90% 70% at 70% 45%, transparent 30%, rgba(3, 10, 18, 0.55)); }
+  @keyframes w-aur { from { transform: translateX(-5%) skewX(-8deg); } to { transform: translateX(5%) skewX(8deg); } }
+  @keyframes w-fall { from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; } to { background-position: 40px 360px, -30px 360px, 20px 360px, -40px 360px, 30px 360px; } }
+  .w-snow.s2 { animation-name: w-fall2; }
+  @keyframes w-fall2 { from { background-position: 0 0; } to { background-position: -30px 220px, 20px 220px, -20px 220px, 30px 220px, -10px 220px; } }
 
-  .ev-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 26px; overflow-x: auto; }
-  .ev-tabs button { all: unset; cursor: pointer; padding: 12px 16px; font: 600 12px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid transparent; white-space: nowrap; }
-  .ev-tabs button:hover { color: var(--text); }
-  .ev-tabs button[aria-selected='true'] { color: var(--ice); border-bottom-color: var(--ice); }
-  .ev-tabs b { margin-left: 8px; background: var(--ice); color: #0d1424; border-radius: 9px; padding: 2px 6px; font-size: 10px; }
+  /* ---------- Main menu ---------- */
+  .ev { --ice: #8fe3ff; --frost: rgba(143, 227, 255, 0.16); --glass: rgba(6, 18, 30, 0.72); max-width: 1180px; margin: 0 auto; padding: 28px 28px 90px; color: #e8f7ff; }
+  .menu { min-height: calc(100vh - 140px); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  .menu[hidden], .sections[hidden] { display: none; }
+  .back { font: 600 11px/1 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; color: #9cc9dd; text-decoration: none; }
+  .back:hover { color: var(--ice); }
+  .kicker { display: flex; align-items: center; gap: 12px; margin: 26px 0 18px; font: 600 11px/1 var(--sans); letter-spacing: 0.22em; text-transform: uppercase; color: #9cc9dd; }
+  .ltd { padding: 6px 10px 5px; color: #061322; background: linear-gradient(90deg, #8fe3ff, #d6f7ff); clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+  .logo { margin: 0; display: grid; font: 400 clamp(3.6rem, 8vw, 6.4rem)/0.9 var(--serif); text-transform: uppercase; letter-spacing: 0.03em; color: #f4fcff;
+    text-shadow: 0 0 30px rgba(143, 227, 255, 0.35), 0 4px 0 #0c2a3e, 0 10px 30px rgba(0, 0, 0, 0.6); }
+  .logo small { font: 600 clamp(0.9rem, 1.6vw, 1.15rem)/1.4 var(--sans); letter-spacing: 0.5em; color: var(--ice); text-shadow: none; }
+  .theme { margin: 22px 0 6px; font: italic 1.2rem/1.4 var(--serif); color: #dff6ff; }
+  .tag { margin: 0; max-width: 46ch; color: #a9cadb; }
+  .now { display: grid; gap: 4px; margin-top: 30px; max-width: 460px; padding: 16px 18px; border-left: 3px solid var(--ice); background: linear-gradient(90deg, rgba(143, 227, 255, 0.16), rgba(143, 227, 255, 0.02)); text-decoration: none; color: inherit; }
+  .now:hover { background: linear-gradient(90deg, rgba(143, 227, 255, 0.26), rgba(143, 227, 255, 0.04)); }
+  .now-k { font: 600 10px/1 var(--sans); letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice); }
+  .now-t { font: 400 1.35rem/1.2 var(--serif); color: #f4fcff; }
+  .now-s { font-size: 0.9rem; color: #a9cadb; }
+
+  .m-right { display: grid; gap: 10px; }
+  .m-item { position: relative; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 16px; padding: 16px 18px; text-decoration: none; color: #e8f7ff;
+    background: linear-gradient(90deg, rgba(8, 26, 42, 0.86), rgba(8, 26, 42, 0.6)); border: 1px solid rgba(143, 227, 255, 0.2);
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px); backdrop-filter: blur(6px);
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease; animation: m-in 0.5s ease both; animation-delay: calc(var(--i) * 70ms); }
+  .m-item:hover, .m-item:focus-visible { outline: none; transform: translateX(-6px); border-color: var(--ice); background: linear-gradient(90deg, rgba(143, 227, 255, 0.24), rgba(8, 26, 42, 0.7)); }
+  .m-ic { display: grid; place-items: center; width: 44px; height: 44px; color: var(--ice); border: 1px solid rgba(143, 227, 255, 0.35); transform: rotate(45deg); }
+  .m-ic svg { width: 22px; height: 22px; transform: rotate(-45deg); }
+  .m-txt { display: grid; gap: 3px; }
+  .m-txt b { font: 600 0.95rem/1.2 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; }
+  .m-txt small { font-size: 0.82rem; color: #9cc0d2; }
+  .m-badge { font: 700 10px/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 7px; color: #061322; background: #ffd27a; }
+  .m-go { font-size: 1.4rem; color: var(--ice); opacity: 0.6; }
+  @keyframes m-in { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+
+  /* ---------- Sections ---------- */
+  .sections { max-width: 1000px; margin: 0 auto; padding: 26px 30px 34px; background: var(--glass); border: 1px solid rgba(143, 227, 255, 0.18); backdrop-filter: blur(10px); clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px); }
+  .s-bar { display: flex; align-items: baseline; gap: 18px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 1px solid rgba(143, 227, 255, 0.2); }
+  .s-back { font: 600 11px/1 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ice); text-decoration: none; white-space: nowrap; }
+  .s-title { margin: 0; font: 400 1.8rem/1.1 var(--serif); color: #f4fcff; text-transform: uppercase; letter-spacing: 0.06em; }
+  .sections :global(.ev-panel) { --line: rgba(143, 227, 255, 0.16); --panel: rgba(10, 30, 46, 0.6); --muted: #9cc0d2; --text: #f0faff; }
 
   .ev-panel h2 { font: 400 24px/1.2 var(--serif); margin: 34px 0 14px; color: var(--text); }
   .ev-panel h2:first-child { margin-top: 0; }
-  .ev-panel p { color: #d9d3ee; line-height: 1.75; }
+  .ev-panel p { color: #d3e9f3; line-height: 1.75; }
   .lead { font-size: 17px; color: var(--text) !important; }
   .block { padding: 4px 0 6px; border-top: 1px solid var(--line); }
   .block h2 { margin-top: 22px; }
@@ -247,8 +346,15 @@ const TABS = [
   .tool h3 { margin: 8px 0 6px; font: 600 16px/1.3 var(--sans); color: var(--text); }
   .tool p { margin: 0; font-size: 14px; line-height: 1.6; }
 
+  @media (prefers-reduced-motion: reduce) { .w-aurora, .w-snow, .m-item { animation: none !important; } }
+  @media (max-width: 900px) {
+    .menu { grid-template-columns: 1fr; gap: 26px; min-height: 0; padding-top: 10px; }
+    .m-item:hover { transform: none; }
+  }
   @media (max-width: 640px) {
-    .ev-hero h1 { font-size: 30px; }
+    .ev { padding: 18px 14px 70px; }
+    .sections { padding: 18px 16px 24px; }
+    .s-title { font-size: 1.3rem; }
     .chapters a { grid-template-columns: auto 1fr; }
     .chapters .go { grid-column: 2; }
   }
