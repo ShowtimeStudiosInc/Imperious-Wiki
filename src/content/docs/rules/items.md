@@ -36,11 +36,11 @@ Equipping or switching an item uses your turn, unless an ability says otherwise.
 ## How a FIGHT rolls
 
 1. **Roll to hit.** Roll 1d20. You need to meet or beat your weapon's **Hit Number**, plus the target's SPD ÷ 4 (rounded down). The number needed can never go above 18. A natural 20 always hits, and a natural 1 always misses.
-2. **Count the hits.** Your weapon hits its **Hit Count** number of times. Every weapon has one fixed Hit Count, picked from its type's **Hits** range when the weapon is made. A Ranged weapon could have a Hit Count of 2, 4 or 6, but whatever it has, it hits that many times on every FIGHT. Crits never add hits. They make each hit deal more damage instead.
+2. **Count the hits.** Your weapon hits its **Hit Count** number of times. Every weapon has one fixed Hit Count, picked from its type's **Hits** range when the weapon is made. A Ranged weapon could have a Hit Count of 2, 4 or 6, but whatever it has, it hits that many times on every FIGHT. Crits never add hits. They boost the damage of each hit instead (see Crits below).
 3. **Roll damage.** Roll the weapon's damage die once for each hit, then add your ATK (your own plus your weapon's) **once** to the total.
 4. **The target soaks it.** Each hit that lands is reduced by the target's DEF ÷ 4 (rounded down), but always deals at least 1 damage.
 
-Reaching your weapon's Crit Number counts as a **critical hit**, which adds a mark to the Star Gauge.
+Reaching your weapon's Crit Number counts as a **critical hit**. It boosts your damage for that FIGHT and adds a mark to the Star Gauge.
 
 :::note[Example]
 A Ruby (ATK 10) swings a Slash weapon (+1 ATK) at a Pearl (SPD 5, DEF 3). Slash needs a 7, plus 1 for the Pearl's SPD, so the Ruby needs an 8. She rolls 11 and hits. She rolls 1d8 for 5, adds her ATK of 11, and deals 16. The Pearl's DEF of 3 soaks 0, so she takes all 16.
@@ -60,7 +60,9 @@ A Ruby (ATK 10) swings a Slash weapon (+1 ATK) at a Pearl (SPD 5, DEF 3). Slash 
 
 The **Hits** column is the range a weapon's Hit Count can be picked from. A weapon only ever has one number from it.
 
-**Crits:** meeting or beating your weapon's Crit Number makes every hit of that FIGHT stronger. Roll each hit's damage die twice and add them together. The number of hits doesn't change.
+**Crits:** meeting or beating your weapon's Crit Number is a temporary attack boost. For that one FIGHT, every hit lands harder, so the target takes more damage from each one: roll each hit's damage die twice and add them together. The number of hits doesn't change, and the boost ends when the FIGHT does.
+
+Because the crit already boosts your damage, a weapon never lists its own crit bonus. Write its normal ATK only, not something like "ATK 4, 6 on a nat 20".
 
 Ranged is the only type that can hit a target who is **Far**. Every other type can only hit targets who are **Near**.
 
