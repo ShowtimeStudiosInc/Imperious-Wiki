@@ -10,7 +10,7 @@
 
 **THE HEAVENLY DIAMONDS**
 > Universe stopped ruling day to day long ago. The Diamonds below her took titles from the choirs of angels, and every gem in the empire knew them by those titles:
-> Emerald Diamond, the Seraphim of Innovation, in charge of technology, weapons, and expansion. She was the first Diamond Universe made in this timeline, the only one who could visit her whenever she liked, and she called her Mom. After Emerald, Universe withdrew and handed every new Diamond's Paragon Core to Emerald to bring to life.
+> Emerald Diamond, the Seraphim of Innovation, in charge of technology, weapons, and expansion. She was the first Diamond Universe made in this timeline, and the only one who could visit her whenever she liked. After Emerald, Universe withdrew and handed every new Diamond's Paragon Core to Emerald to bring to life.
 > Cherub Gold Diamond, the All Seeing Cherubim, the eyes and the fist of Homeworld. His golden lights watched every corner of the empire, and he wrote the ranking system the empire lived by.
 > Celeste Diamond, the All Knowing Throne, the Supreme Judge and the empire's diplomat. She could tell when a gem was lying, and she called every gem "starlight."
 > Bubblegum Diamond, the Dominion of Harmony, who ran the builders and the terraformers.
