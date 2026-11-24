@@ -16,6 +16,14 @@ const SLOTS: Record<string, (string | null)[]> = {
   'bi-colored-kandy': [null, null],
 };
 
+// Pearl slots: every Diamond has 3, and every Cubic Zirconia has 1. Members can claim an open slot by
+// submitting a Pearl for it. A string is a Pearl already in the slot; null is still open.
+const DIAMOND_PEARLS: Record<string, (string | null)[]> = {
+  'alpha-black': ['Seraph', 'Cherub', 'Ophan'],
+};
+const REGENT_PEARLS: Record<string, string | null> = {};
+const pearlsFor = (slug: string) => { const p = DIAMOND_PEARLS[slug] ?? []; return [0, 1, 2].map((i) => p[i] ?? null); };
+
 // Glass colors for each Diamond's window: two glass tones, a dark tone, and the glow.
 const GLASS: Record<string, { a: string; b: string; dark: string; glow: string }> = {
   'alpha-black': { a: '#2b3350', b: '#e8c46a', dark: '#0b0d18', glow: '#7fa8ff' },
@@ -234,6 +242,19 @@ const regentCourt = (r: any) => r.facts.find((f: any) => f[0] === 'Court')?.[1];
                 })}
               </div>
           </div>}
+
+          {d.slug !== 'omega-white' && <div class="court-pearls">
+            <h3 class="regents-head">Pearls<span>3 for the Diamond · 1 for each Cubic Zirconia</span></h3>
+            <ul class="pearls">
+              {pearlsFor(d.slug).map((p, i) => (
+                <li class={p ? 'pearl' : 'pearl open'}><i aria-hidden="true"></i><b>{p ?? 'Open'}</b><small>{d.name.replace(' Diamond', '')}'s Pearl {i + 1}</small></li>
+              ))}
+              {slots.filter((rs): rs is string => !!rs && !!regents[rs]).map((rs) => {
+                const p = REGENT_PEARLS[rs] ?? null;
+                return <li class={p ? 'pearl' : 'pearl open'}><i aria-hidden="true"></i><b>{p ?? 'Open'}</b><small>{regents[rs].redacted ? 'A Regent' : regents[rs].name.replace(/^Grand Regent /, '')}'s Pearl</small></li>;
+              })}
+            </ul>
+          </div>}
         </section>
       );
     })}
@@ -328,6 +349,18 @@ const regentCourt = (r: any) => r.facts.find((f: any) => f[0] === 'Court')?.[1];
   .pane.open { opacity: 0.7; }
   .pane.open .pane-glass { border-style: dashed; background: rgba(255, 255, 255, 0.02); }
 
+  .court-pearls { grid-column: 2 / -1; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .court-pearls .regents-head { margin-top: 0; }
+  .pearls { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .pearl { display: grid; grid-template-columns: auto 1fr; column-gap: 0.55rem; align-items: center; min-width: 9.5rem; padding: 0.45rem 0.8rem 0.45rem 0.55rem;
+    border: 1px solid color-mix(in srgb, var(--wb) 45%, transparent); border-radius: 999px; background: rgba(255, 255, 255, 0.03); }
+  .pearl i { grid-row: span 2; width: 1.4rem; height: 1.4rem; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff, color-mix(in srgb, var(--wb) 55%, #f4eefc) 45%, color-mix(in srgb, var(--wa) 60%, #3a2f4a)); box-shadow: 0 0 8px color-mix(in srgb, var(--glow) 40%, transparent); }
+  .pearl b { font-family: var(--serif); font-weight: 400; font-size: 0.92rem; }
+  .pearl small { color: var(--muted); font-size: 0.68rem; }
+  .pearl.open { border-style: dashed; opacity: 0.72; }
+  .pearl.open i { background: none; border: 1px dashed color-mix(in srgb, var(--wb) 60%, transparent); box-shadow: none; }
+
   .forthcoming { margin: 0.6rem 0 0; padding-left: 1.1rem; color: #ddd5f5; }
   .forthcoming li + li { margin-top: 0.3rem; }
 
@@ -343,6 +376,7 @@ const regentCourt = (r: any) => r.facts.find((f: any) => f[0] === 'Court')?.[1];
     h1 { font-size: 1.8rem; }
     .court { grid-template-columns: 1fr; }
     .court-regents { grid-column: auto; }
+    .court-pearls { grid-column: auto; }
     .court-art { width: 62%; max-width: 220px; margin: 0 auto; }
     .pane { width: calc(50% - 0.5rem); }
   }
