@@ -1,8 +1,9 @@
 # Decrees for the Diamond Approval Rating.
 #
-# Once a week, the player of each Diamond or Grand Regent may pick ONE decree. They post it in Discord,
-# and staff add it under `pending` at the bottom of this file. Every pending decree takes effect with the
-# Sunday weekly report, shows up in the Approval Rating log, and is cleared from the list afterwards.
+# Once a week, the player of each Diamond or Grand Regent may pick ONE decree with Astrid's /decree command.
+# Astrid checks `players` below to see who they play, then adds the decree under `pending` at the bottom of
+# this file. Every pending decree takes effect with the Sunday weekly report, shows up in the Approval Rating
+# log, and is cleared from the list afterwards. Staff can also add one by hand.
 #
 # A pending entry looks like this:
 #   - who: nightshade-violet        (their slug, as in popularity.yml)
@@ -65,4 +66,24 @@ types:
     shield: true
     text: "{short} kept out of the public eye this week. {note}"
 
+# Who plays whom: each slug lists the Discord user IDs allowed to issue decrees for that character.
+# (In Discord: turn on Developer Mode, right-click the member, Copy User ID.) Leave a list empty if nobody plays them.
+players:
+  alpha-black: []
+  epsilon-blue: []
+  theta-gold: []
+  nightshade-violet: []
+  maroon-red: []
+  bi-colored-kandy: []
+  saturn-light: []
+  dante: []
+  ordr: []
+  tethys: []
+  law: []
+  reina: []
+  antton: []
+  magda: []
+  florentino: []
+
+# Keep `pending` as the last thing in this file. Astrid and the weekly run both expect it here.
 pending: []
