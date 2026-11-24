@@ -1,12 +1,13 @@
-/** The wiki's main menu. Every top bar (site pages, Rules/Lore docs, Diamond and Regent pages) reads this list. */
-export const NAV = [
+/** The wiki's main menu. `short` is shown instead of `label` on narrow screens.
+ * Every top bar (site pages, Rules/Lore docs, Diamond and Regent pages) reads this list. */
+export const NAV: { href: string; label: string; short?: string; key: string }[] = [
   { href: '/gem-types/', label: 'Gem-Types', key: 'gem-types' },
   { href: '/diamonds/', label: 'Diamonds', key: 'diamonds' },
   { href: '/start-here/welcome/', label: 'Start Here', key: 'start' },
   { href: '/rules/overview/', label: 'Rules', key: 'rules' },
   { href: '/lore/overview/', label: 'Lore', key: 'lore' },
   { href: '/events/', label: 'Events', key: 'events' },
-  { href: '/gem-builder/', label: 'Gem Builder', key: 'builder' },
+  { href: '/gem-builder/', label: 'Submission Builder', short: 'Builder', key: 'builder' },
 ];
 
 /** Which menu item a page belongs to, from its path. */

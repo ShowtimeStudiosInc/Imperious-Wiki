@@ -36,7 +36,7 @@ const nav = NAV;
       <header class="topbar">
         <a class="brand" href={url('/')}><img class="mark-logo" src={url('/images/brand/logo-white.png')} alt="" width="22" height="27" /> Imperious Authorities</a>
         <nav aria-label="Main">
-          {nav.map((n) => <a href={url(n.href)} aria-current={(current ?? navKey(Astro.url.pathname)) === n.key ? 'page' : undefined}>{n.label}</a>)}
+          {nav.map((n) => <a href={url(n.href)} aria-current={(current ?? navKey(Astro.url.pathname)) === n.key ? 'page' : undefined}>{n.short ? <><span class="nl-full">{n.label}</span><span class="nl-short">{n.short}</span></> : n.label}</a>)}
         </nav>
         <SiteSearch />
       </header>

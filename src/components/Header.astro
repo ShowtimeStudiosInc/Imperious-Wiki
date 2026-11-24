@@ -12,7 +12,7 @@ const here = navKey(Astro.url.pathname);
 <div class="ia-header">
   <a class="ia-brand" href={base}><img src={link('/images/brand/logo-white.png')} alt="" width="22" height="27" /> Imperious Authorities</a>
   <nav class="ia-nav" aria-label="Main">
-    {NAV.map((n) => <a href={link(n.href)} aria-current={here === n.key ? 'page' : undefined}>{n.label}</a>)}
+    {NAV.map((n) => <a href={link(n.href)} aria-current={here === n.key ? 'page' : undefined}>{n.short ? <><span class="nl-full">{n.label}</span><span class="nl-short">{n.short}</span></> : n.label}</a>)}
   </nav>
   <div class="ia-search print:hidden"><Search /></div>
 </div>

@@ -1,0 +1,52 @@
+# Fusion Ability ideas for the Submission Builder.
+# Each idea is for one pair of halves (order doesn't matter). The builder shows the
+# ideas for the pair someone picks first, then ideas from other pairs that share a half.
+# These are only starting points. Staff set the real moves and SP costs.
+
+- halves: [Ruby, Lapis]
+  name: Steam Burst
+  idea: She heats the water she controls until it bursts into a cloud of scalding steam. Enemies inside take a burn and can barely see, while she can still feel where the water is.
+
+- halves: [Sapphire, Lapis]
+  name: Glacier Shaping
+  idea: She freezes large amounts of water as she moves it, building ice walls, bridges and spikes that stay solid until she lets them melt.
+
+- halves: [Peridot, Sapphire]
+  name: Predictive Override
+  idea: She glimpses what a machine is about to do a moment before it happens, then takes control of it first. Turrets turn around mid-shot and doors shut on whoever was about to walk through.
+
+- halves: [Copper, Cobalt]
+  name: Railcharge
+  idea: She magnetizes a piece of metal, runs a current through it and fires it in a straight line. It hits hard and keeps going through anything thin.
+
+- halves: [Iron, Cobalt]
+  name: Lodestone Bulwark
+  idea: She pulls nearby scrap metal onto her body as extra plating. Each piece takes one hit for her and falls off when it breaks.
+
+- halves: [Hessonite, Sapphire]
+  name: Nightfall Foresight
+  idea: She covers an area in her own darkness and can see everything inside it, including where each enemy is about to step next.
+
+- halves: [Spinel, Pearl]
+  name: Long Reach Vault
+  idea: She stretches an arm across the room and pulls an item out of her gem at the far end, so she can hand off tools or swap gear without moving.
+
+- halves: [Aquamarine, Sapphire]
+  name: Frostwing Flight
+  idea: Her water wings freeze solid. She flies a little slower but sheds sharp ice shards on anything she passes over.
+
+- halves: [Emerald, Agate]
+  name: Unbroken Order
+  idea: Her commands carry a wave of dread. Allies who follow her order shake off fear, and enemies who hear it have a harder time acting against her.
+
+- halves: [Ruby, Carnelian]
+  name: Glassforge
+  idea: If her Carnelian half has learned to shape sand, she melts it into glass as she moves it, making shields, blades or walls that shatter into sharp pieces when broken.
+
+- halves: [Lapis, Hessonite]
+  name: Black Tide
+  idea: She darkens the water she controls until it looks like ink. Anyone caught in the wave is blinded until they get out of it.
+
+- halves: [Topaz, Bismuth]
+  name: Living Fortress
+  idea: She raises a wall of cover in the middle of a fight and holds it with her own body. Allies behind it are hard to reach until she is knocked back.

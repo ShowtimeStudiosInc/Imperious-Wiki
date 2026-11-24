@@ -1,4 +1,4 @@
-// Ported from the Imperious-Gem-Builder repo. The database is built from the wiki's own data.
+// Submission Builder. The database is built from the wiki's own data (src/lib/builder-data.ts).
 const database = window.GEM_DATABASE;
 if (!database) throw new Error('Gem database did not load before the application.');
 
@@ -32,12 +32,8 @@ const fusionAbilityExamples = gems.filter(record => record.fusion).flatMap(recor
     }))
 );
 
-const $ = id => document.getElementById(id); const factionEl = $('faction'), gemEl = $('gem'), prismEl = $('prism'), eraEl = $('era'), cutEl = $('cut'), defectStatAEl = $('defect-stat-a'), defectStatBEl = $('defect-stat-b'), fusionAEl = $('fusion-a'), fusionBEl = $('fusion-b');
 function option(value, label = value) { const node = document.createElement('option'); node.value = value; node.textContent = label; return node; }
 function choices(el, items, label = x => x, value = x => (typeof x === 'string' ? x : x.name)) { el.replaceChildren(...items.map(x => option(value(x), label(x)))); }
-function activeRecord() { return gems.find(g => g.slug === gemEl.value); }
-function rankFor(record) { return record.rank || (record.faction === 'United Frontier' ? 'United Frontier' : 'Not assigned'); }
-function heightFor(record) { return record.height || 'Not assigned'; }
 function combine(...sources) { const out = {}; S.forEach(k => out[k] = sources.reduce((sum, source) => sum + (source?.[k] || 0), 0)); return out; }
 function detailNames(details = []) { return [...new Set(details.flatMap(detail => detail.names?.length ? detail.names : [detail.name]).filter(Boolean))]; }
 function recordAbilities(record) { return record.abilities?.length ? record.abilities : detailNames(record.abilityDetails); }
@@ -64,35 +60,6 @@ function expToNextLevel(level) {
   if (level >= database.rules.levelCap) return null;
   const { firstThreshold, increasePerLevel } = database.rules.experience;
   return firstThreshold + (level - 1) * increasePerLevel;
-}
-function refreshGems() {
-  const selected = gemEl.value;
-  const list = gems.filter(g => g.faction === factionEl.value).sort((a, b) => a.name.localeCompare(b.name) || (a.rank || '').localeCompare(b.rank || ''));
-  const dupes = new Set(list.filter((g, i) => list.findIndex(o => o.name === g.name) !== i).map(g => g.name));
-  choices(gemEl, list, g => dupes.has(g.name) ? `${g.name} (${g.tags.find(t => t.startsWith('Era')) || g.rank || g.slug})` : g.name, g => g.slug);
-  if (list.some(g => g.slug === selected)) gemEl.value = selected;
-  refresh();
-}
-function fusionId(record) { return record.slug || `${record.faction}|${record.name}`; }
-function fusionRecords() {
-  const clearQuartz = gems.find(record => record.name === 'Clear Quartz' && record.faction === 'United Frontier');
-  const quartzTypes = clearQuartz ? quartz.map(shift => ({
-    ...shift,
-    stats: combine(clearQuartz.stats, shift.statModifier),
-    isQuartzSubtype: true
-  })) : [];
-  return [...gems.filter(record => !record.fusion && record.stats), ...quartzTypes]
-    .sort((a, b) => `${a.faction}:${a.name}`.localeCompare(`${b.faction}:${b.name}`));
-}
-function fusionComponent(el) { return fusionRecords().find(record => fusionId(record) === el.value); }
-function populateFusionSelect(el, selected) {
-  const records = fusionRecords();
-  el.replaceChildren(...records.map(record => option(fusionId(record), `${record.faction}: ${record.name}${record.isQuartzSubtype ? ' (Quartz subtype)' : ''}`)));
-  if (records.some(record => fusionId(record) === selected)) el.value = selected;
-}
-function showFusionAbilities(target, record) {
-  const abilities = recordAbilities(record);
-  target.replaceChildren(...abilities.map(text => { const item = document.createElement('li'); item.textContent = text; return item; }));
 }
 function fusionAbilityOptions(record) {
   const details = (record.abilityDetails || []).filter(detail => ['Signature Ability', 'Fusion Ability'].includes(detail.type));
@@ -219,263 +186,12 @@ function checkAbilityOverlap() {
   }
 }
 
-function refreshFusion() {
-  const first = fusionComponent(fusionAEl);
-  const second = fusionComponent(fusionBEl);
-  if (!first || !second) return;
-  const combined = combine(first.stats, second.stats);
-  $('fusion-a-name').textContent = `${first.name} abilities`;
-  $('fusion-b-name').textContent = `${second.name} abilities`;
-  $('fusion-stats').replaceChildren(...S.map(key => {
-    const div = document.createElement('div');
-    div.className = 'stat';
-    const label = document.createElement('span');
-    label.textContent = key;
-    const value = document.createElement('strong');
-    value.textContent = combined[key];
-    const note = document.createElement('div');
-    note.className = 'change';
-    note.textContent = 'Base stat total';
-    div.append(label, value, note);
-    return div;
-  }));
-  showFusionAbilities($('fusion-a-abilities'), first);
-  showFusionAbilities($('fusion-b-abilities'), second);
-  const suggestionsContainer = $('fusion-suggestions');
-  suggestionsContainer.replaceChildren(...generateAbilitySuggestions(first, second).map(suggestion => {
-    const article = document.createElement('article');
-    article.className = 'suggestion-card';
-    const heading = document.createElement('h4');
-    heading.textContent = suggestion.name;
-    const description = document.createElement('p');
-    description.textContent = suggestion.description;
-    article.append(heading, description);
-    return article;
-  }));
-}
-function initialiseFusionTool() { const first = fusionAEl.value; const second = fusionBEl.value; populateFusionSelect(fusionAEl, first); populateFusionSelect(fusionBEl, second); if (!fusionAEl.value) fusionAEl.selectedIndex = 0; if (!fusionBEl.value) { const firstName = fusionAEl.selectedOptions[0]?.textContent.split(': ').pop(); const other = [...fusionBEl.options].findIndex(o => o.textContent.split(': ').pop() !== firstName); fusionBEl.selectedIndex = Math.max(0, other); } refreshFusion(); }
 function isMetal(record) { return record.kind === 'Metal' || record.tags?.includes('Metal Society'); }
 function modifierApplies(modifier, record) {
   const kindMatches = !modifier.applicableKinds || modifier.applicableKinds.some(kind => kind === 'Metal' ? isMetal(record) : record.kind === kind);
   const tagMatches = !modifier.applicableTags || modifier.applicableTags.every(tag => record.tags?.includes(tag));
   return kindMatches && tagMatches;
 }
-function refreshDefectStatOptions() {
-  const first = defectStatAEl.value;
-  const second = defectStatBEl.value;
-  choices(defectStatAEl, S);
-  if (S.includes(first)) defectStatAEl.value = first;
-  choices(defectStatBEl, S.filter(statName => statName !== defectStatAEl.value));
-  if (defectStatBEl.options.length && [...defectStatBEl.options].some(option => option.value === second)) defectStatBEl.value = second;
-}
-function appendRuleList(container, title, values) {
-  const heading = document.createElement('h3');
-  heading.textContent = title;
-  const list = document.createElement('ul');
-  values.forEach(value => {
-    const item = document.createElement('li');
-    item.textContent = value;
-    list.appendChild(item);
-  });
-  container.append(heading, list);
-}
-function renderItemsRules() {
-  const rules = database.rules.items;
-  const root = $('item-rules-content');
-  const introduction = document.createElement('p');
-  introduction.textContent = rules.description;
-  root.appendChild(introduction);
-  appendRuleList(root, 'Item types', rules.types.map(type => `${type.name}: ${type.description}`));
-  appendRuleList(root, 'Equipment slots', [...rules.equipment.slots, `Switching equipment uses your turn: ${rules.equipment.switchUsesTurn ? 'yes' : 'no'}`, `Unarmed fighting uses ${rules.equipment.unarmedType} with no weapon ATK.`]);
-
-  const fightHeading = document.createElement('h3');
-  fightHeading.textContent = 'How a FIGHT rolls';
-  root.appendChild(fightHeading);
-  appendRuleList(root, 'Roll, damage, and critical rules', Object.values(rules.fight));
-
-  const table = document.createElement('table');
-  table.className = 'weapon-rules-table';
-  const header = document.createElement('tr');
-  ['Weapon type', 'Hits', 'Damage', 'Hit Number', 'Crit Number'].forEach(text => {
-    const cell = document.createElement('th');
-    cell.textContent = text;
-    header.appendChild(cell);
-  });
-  table.appendChild(header);
-  rules.weaponTypes.forEach(weapon => {
-    const row = document.createElement('tr');
-    [weapon.name, weapon.hits, weapon.damage, weapon.hitNumber, weapon.critNumber].forEach(text => {
-      const cell = document.createElement('td');
-      cell.textContent = text;
-      row.appendChild(cell);
-    });
-    table.appendChild(row);
-  });
-  root.appendChild(table);
-  appendRuleList(root, 'Weapon types', rules.weaponTypes.map(weapon => `${weapon.name}: ${weapon.description}`));
-  appendRuleList(root, 'Shields and Defend', [
-    rules.defend,
-    `Shield: ${rules.shield.hits} hit; ${rules.shield.damage}; Hit Number ${rules.shield.hitNumber}; ${rules.shield.critNumber}`,
-    rules.shield.defend,
-    rules.shield.stale
-  ]);
-  appendRuleList(root, 'Armor, weight, and extra effects', [
-    rules.armor,
-    rules.weight,
-    rules.weaponAttack,
-    rules.extraEffects
-  ]);
-  appendRuleList(root, 'Consumables', rules.consumables);
-  Object.entries(rules.templates).forEach(([name, fields]) => {
-    appendRuleList(root, `${name} template`, Array.isArray(fields) ? fields : [fields]);
-  });
-}
-function refresh() {
-  const record = activeRecord(); if (!record) return;
-  const prismActive = record.name === 'Clear Quartz' && record.faction === 'United Frontier'; $('prism-step').classList.toggle('hidden', !prismActive);
-  const modifier = modifiers.find(m => m.name === eraEl.value) || modifiers[0];
-  if (!modifierApplies(modifier, record)) eraEl.value = modifiers[0].name;
-  [...eraEl.options].forEach(option => {
-    const optionModifier = modifiers.find(item => item.name === option.value);
-    option.disabled = optionModifier ? !modifierApplies(optionModifier, record) : false;
-  });
-  const currentModifier = modifiers.find(m => m.name === eraEl.value) || modifiers[0];
-  const rank = rankFor(record);
-  const shift = prismActive && prismEl.value !== 'Unshifted' ? quartz.find(q => q.name === prismEl.value) : null;
-  const base = shift ? combine(record.stats, shift.statModifier) : record.stats;
-  const polishAllowed = isMetal(record);
-  const cutAllowed = !polishAllowed;
-  if (cutEl.value === 'Perfect Polish' && !polishAllowed) cutEl.value = 'Perfect Cut'; if (cutEl.value === 'Perfect Cut' && !cutAllowed) cutEl.value = 'Perfect Polish';
-  refreshDefectStatOptions();
-  $('defect-stats-step').classList.toggle('hidden', cutEl.value !== 'Defective');
-  const level = Math.min(database.rules.levelCap, Math.max(1, Number.parseInt($('level').value, 10) || 1));
-  const cutData = cuts[cutEl.value] || cuts.Standard;
-  const defectPenalty = cutEl.value === 'Defective' ? {
-    [defectStatAEl.value]: -1,
-    [defectStatBEl.value]: -1
-  } : zero;
-  const modifierOnlyProfile = !record.stats && Boolean(record.statModifier);
-  const growth = levelGrowth(level, record.classification);
-  const adjustments = combine(currentModifier.stats, cutData.stats, growth, shift?.statModifier, defectPenalty);
-  const final = combine(base, currentModifier.stats, cutData.stats, growth, defectPenalty);
-  const displayDetails = shift?.abilityDetails || record.abilityDetails || [];
-  const allAbilityNames = shift ? recordAbilities(shift) : recordAbilities(record);
-  const signatureNames = detailNames(displayDetails.filter(detail => detail.type === 'Signature Ability'));
-  let baseAbilities = allAbilityNames;
-  if (shift) baseAbilities = allAbilityNames.filter(ability => ability !== 'Prism');
-  if (cutEl.value === 'Defective') {
-    baseAbilities = baseAbilities.filter(ability => !signatureNames.includes(ability));
-    baseAbilities.push('Twisted signature ability (staff-selected)');
-  } else if (cutEl.value.startsWith('Perfect')) {
-    baseAbilities = baseAbilities.map(ability => signatureNames.includes(ability) ? `Enhanced signature: ${ability}` : ability);
-  }
-  const cutAbilities = cutEl.value.startsWith('Perfect') || cutEl.value === 'Defective' ? [] : detailNames(cutData.abilityDetails);
-  const abilityList = [...baseAbilities, ...detailNames(currentModifier.abilityDetails), ...cutAbilities];
-  $('result-name').textContent = shift ? shift.name : record.name;
-  const page = shift || record; const link = $('result-link'); if (link) { link.href = page.href || '#'; link.hidden = !page.href; }
-  const stone = $('result-stone'); if (stone) { stone.src = page.gemstone || ''; stone.hidden = !page.gemstone; }
-  $('rank').textContent = rank.replace(/\//g, ' / ');
-  $('rank-label').textContent = 'Rank';
-  $('height').textContent = heightFor(record);
-  $('result-level').textContent = `${level} / ${database.rules.levelCap}`;
-  $('next-exp').textContent = expToNextLevel(level) === null ? 'Level cap reached' : expToNextLevel(level).toLocaleString();
-  $('total-exp').textContent = totalExpForLevel(level).toLocaleString();
-  $('badges').replaceChildren(...[record.faction, ...(record.tags || []), currentModifier.unique ? 'Unique modifier' : ''].filter(Boolean).map(text => { const badge = document.createElement('span'); badge.textContent = text; return badge; }));
-  $('stats').replaceChildren(...S.map(key => {
-    const div = document.createElement('div');
-    div.className = 'stat';
-    const label = document.createElement('span');
-    label.textContent = key;
-    const value = document.createElement('strong');
-    const sourceModifier = record.statModifier?.[key] || 0;
-    if (record.fusion) value.textContent = record.componentStats ? record.componentStats[key] : '?';
-    else if (modifierOnlyProfile) value.textContent = sourceModifier > 0 ? `+${sourceModifier}` : sourceModifier;
-    else value.textContent = Math.max(0, final[key]);
-    const change = document.createElement('div');
-    change.className = 'change';
-    change.textContent = record.fusion ? (record.componentStats ? 'Both halves added' : 'Component-derived') : modifierOnlyProfile ? 'Source modifier; base unknown' : adjustments[key] ? `${adjustments[key] > 0 ? '+' : ''}${adjustments[key]} adjustment` : 'Base value';
-    div.append(label, value, change);
-    return div;
-  }));
-  $('abilities').replaceChildren(...abilityList.map(text => { const li = document.createElement('li'); li.textContent = text; return li; }));
-  const notes = [];
-  if (record.fusion) notes.push(`A fusion's stats are her two halves added together. These are the base Gem-Type stats of ${record.components.join(' + ')}. For a real fusion, add up the two characters' own sheets instead.`);
-  if (currentModifier.unique) notes.push('This is a unique modifier; use it only for an approved case-by-case record.');
-  if (cutEl.value.startsWith('Perfect')) notes.push('The selected cut applies its stat changes and enhances the signature ability.');
-  if (cutEl.value === 'Defective') notes.push(`Defective applies -1 to ${defectStatAEl.value} and ${defectStatBEl.value}; the twisted signature ability must be selected by staff.`);
-  if (shift) notes.push('The selected United Frontier Quartz shift applies its stat change to Clear Quartz base stats.');
-  if (modifierOnlyProfile) notes.push('This profile provides stat modifiers but no absolute base stats. The stat panel shows the source modifiers; final stats cannot be calculated from the supplied data.');
-  else notes.push('Level gains follow the level-up rules on the Stats page.');
-  $('notice').textContent = notes.join(' ');
-  const latent = new Set(detailNames(displayDetails.filter(d => d.type === 'Latent Ability')));
-  const eraTag = (record.tags || []).find(t => /^Era /.test(t)) || '';
-  const shown = S.map(k => record.fusion ? (record.componentStats ? record.componentStats[k] : '') : modifierOnlyProfile ? '' : Math.max(0, final[k]));
-  lastSheet = { name: shift ? shift.name : record.name, era: currentModifier.name === 'No modifier' ? eraTag : currentModifier.name,
-    abilities: abilityList.filter(a => !latent.has(a)), stats: Object.fromEntries(S.map((k, i) => [k, shown[i]])),
-    level, exp: 0, height: heightFor(record) === 'Not assigned' ? '' : heightFor(record), cut: cutEl.value };
-}
-let lastSheet = null;
-function characterSheet() {
-  const x = lastSheet; if (!x) return '';
-  const code = [$('facet-result')?.textContent, $('cut-result')?.textContent].filter(t => t && t !== '---');
-  const st = k => x.stats[k] === '' ? '' : x.stats[k];
-  return [
-    '## Gem Information', '- _`Name:`_ ', `- _\`Facet & Cut:\`_ ${code.length === 2 ? code.join(' - ') : ''}`, `- _\`Era:\`_ ${x.era}`, '- _`Nicknames:`_ ', '- _`Pronouns:`_ ', '- _`Affiliation:`_ ',
-    '## Behavior', '- _`Personality:`_ ', '- _`Likes:`_ ', '- _`Dislikes:`_ ', '- _`Attraction towards(Male Presenting or Female Presenting Gems?):`_ ', '- _`Relationships:`_ ', '- _`Fear:`_ ', '- _`Alignment:`_ ',
-    '## Capabilities', `- _\`Gem Type:\`_ ${x.name}${x.cut && x.cut !== 'Standard' ? ` (${x.cut})` : ''}`, '- _`Gem Placement:`_ ', '- _`Place of Birth:`_', `- _\`Powers & Abilities:\`_ ${x.abilities.join(', ')}`,
-    '## Stats', `- _\`HP:\`_ ${st('HP')}`, `- _\`ATK:\`_ ${st('ATK')}`, '  - _`Weapon 1 (Optional):`_ ', '  - _`Weapon 2 (Optional):`_ ', `- _\`DEF:\`_ ${st('DEF')}`, '  - _`Armor (Optional):`_ ', '  - _`Accessories 1 (Optional):`_', '  - _`Accessories 2 (Optional):`_',
-    `- _\`SPD:\`_ ${st('SPD')}`, `- _\`INT:\`_ ${st('INT')}`, `- _\`MAG:\`_ ${st('MAG')}`, `- _\`LVL:\`_ ${x.level}`, `  - _\`EXP:\`_ ${x.exp}`,
-    '## Appearance', `- _\`Natural Height:\`_ ${x.height}`, '- _`Appearance (Image/Description):`_',
-  ].join('\n');
-}
-document.getElementById('copy-sheet')?.addEventListener('click', e => copyToClipboard(characterSheet(), e.currentTarget));
-choices(factionEl, factions); choices(eraEl, modifiers, m => m.name); choices(prismEl, ['Unshifted', ...quartz.map(q => q.name)]); choices(cutEl, Object.keys(cuts)); refreshDefectStatOptions();
-factionEl.addEventListener('change', refreshGems); [gemEl, prismEl, eraEl, cutEl, defectStatAEl, defectStatBEl, $('level')].forEach(el => el.addEventListener('input', refresh));
-// Tidy the level box only when you leave it, so you can clear it and type a new number.
-$('level').addEventListener('change', () => { const el = $('level'); el.value = Math.min(database.rules.levelCap, Math.max(1, Number.parseInt(el.value, 10) || 1)); refresh(); });
-refreshGems();
-// Gem-Type pages link here with ?type=<slug> to open that Gem-Type straight away.
-(() => {
-  const want = new URLSearchParams(location.search).get('type');
-  if (!want) return;
-  const shift = quartz.find(q => q.slug === want);
-  const record = shift ? gems.find(g => g.name === 'Clear Quartz' && g.faction === 'United Frontier') : gems.find(g => g.slug === want);
-  if (!record) return;
-  factionEl.value = record.faction; refreshGems();
-  gemEl.value = record.slug;
-  if (shift) prismEl.value = shift.name;
-  refresh();
-})();
-fusionAEl.addEventListener('change', refreshFusion); fusionBEl.addEventListener('change', refreshFusion); initialiseFusionTool();
-
-// Ability Checker event listeners - wrapped in DOMContentLoaded to ensure elements exist
-const wireExtras = () => {
-  const searchBtn = $('ability-search-btn');
-  const searchInput = $('ability-search-input');
-  if (searchBtn) searchBtn.addEventListener('click', checkAbilityOverlap);
-  if (searchInput) searchInput.addEventListener('input', checkAbilityOverlap);
-  
-  // Facet & Cut Generator event listeners
-  const generateBtn = $('generate-codes-btn');
-  if (generateBtn) generateBtn.addEventListener('click', generateCodes);
-  
-  // Copy button listeners
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      const targetElement = $(targetId);
-      if (targetElement) {
-        copyToClipboard(targetElement.textContent, btn);
-      }
-    });
-  });
-  
-  // Submission Validator event listener
-  const validateBtn = $('validate-btn');
-  if (validateBtn) validateBtn.addEventListener('click', runValidation);
-};
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireExtras); else setTimeout(wireExtras, 0);
-
 // Diamond mapping for Facet codes
 const diamondCodes = {
   'Alpha Black Diamond': '0',
@@ -488,59 +204,6 @@ const diamondCodes = {
   'Bi-Colored Kandy Diamond': '5',
   'Saturn Light Diamond': '6'
 };
-
-// Social standing mapping (rank without decimal)
-const socialStandingMap = {
-  '5.2': '5',
-  '5.1': '5',
-  '4.3': '4',
-  '4.2': '4',
-  '4.1': '4',
-  '3.3': '3',
-  '3.2': '3',
-  '3.1': '3',
-  '2.3': '2',
-  '2.2': '2',
-  '2.1': '2',
-  '1.2': '1',
-  'United Frontier': 'UF',
-  'Titan': 'T',
-  'Standard': 'S',
-  'Elite': 'E',
-  'Champion': 'C',
-  'Minion': 'M'
-};
-
-// Facet & Cut Generator functions
-function generateFacetCode(diamond, kindergarten, socialStanding, randomLetter) {
-  const diamondCode = diamondCodes[diamond] || '?';
-  const kindergartenLetter = kindergarten.charAt(0).toUpperCase() || '?';
-  const socialCode = socialStandingMap[socialStanding] || socialStanding.charAt(0) || '?';
-  const randomFacetLetter = randomLetter.toUpperCase() || '?';
-  
-  return `${diamondCode}${kindergartenLetter}${socialCode}${randomFacetLetter}`;
-}
-
-function generateCutCode(atkStat, randomLetter) {
-  const atkCode = atkStat.toString();
-  const cutCode = `${atkCode}X${randomLetter.toUpperCase()}`;
-  return cutCode;
-}
-
-function generateCodes() {
-  const diamond = $('diamond-select').value;
-  const kindergarten = $('kindergarten-input').value;
-  const socialStanding = $('social-standing-select').value;
-  const randomFacetLetter = $('facet-random-letter').value;
-  const randomCutLetter = $('cut-random-letter').value;
-  const atkStat = $('atk-stat-input').value;
-  
-  const facetCode = generateFacetCode(diamond, kindergarten, socialStanding, randomFacetLetter);
-  const cutCode = generateCutCode(atkStat, randomCutLetter);
-  
-  $('facet-result').textContent = facetCode;
-  $('cut-result').textContent = cutCode;
-}
 
 function copyToClipboard(text, button) {
   navigator.clipboard.writeText(text).then(() => {
@@ -662,3 +325,506 @@ function runValidation() {
   html += list('validation-success', 'What it found', notes);
   resultsContainer.innerHTML = html;
 }
+
+// ---------------------------------------------------------------------------
+// Submission Builder
+// Everything the person picks or types lives in `state`. It is saved to this
+// device's localStorage on every change, so a half-built character survives a
+// closed tab with no account. Clearing it is always the person's choice.
+// ---------------------------------------------------------------------------
+const $ = id => document.getElementById(id);
+const DRAFT_KEY = 'ia-submission-draft-v1';
+const ufClearQuartz = gems.find(g => g.name === 'Clear Quartz' && g.faction === 'United Frontier');
+const pickable = gems.filter(g => !g.fusion && (g.stats || g.statModifier));
+const fusionTypes = gems.filter(g => g.fusion);
+
+const blankGem = (faction = factions[0]) => ({ faction, slug: '', prism: 'Unshifted', era: 'No modifier', cut: 'Standard', defA: 'HP', defB: 'ATK', level: 1 });
+const blankState = () => ({
+  v: 1, mode: 'single',
+  single: blankGem(), a: blankGem(), b: blankGem(),
+  facet: { diamond: '', kg: '', fl: '', cl: '' },
+  fusionFacet: '', fusionType: '', fusionAbilityName: '', fusionAbilityDesc: '', dropped: [],
+  fields: {}, updated: 0
+});
+let state = blankState();
+let storageWorks = true;
+
+function loadDraft() {
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY);
+    if (!raw) return false;
+    const saved = JSON.parse(raw);
+    if (!saved || saved.v !== 1) return false;
+    const base = blankState();
+    state = { ...base, ...saved, single: { ...base.single, ...saved.single }, a: { ...base.a, ...saved.a }, b: { ...base.b, ...saved.b }, facet: { ...base.facet, ...saved.facet }, fields: { ...saved.fields }, dropped: saved.dropped || [] };
+    return true;
+  } catch { return false; }
+}
+let saveTimer = null;
+function save() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    state.updated = Date.now();
+    try { localStorage.setItem(DRAFT_KEY, JSON.stringify(state)); storageWorks = true; }
+    catch { storageWorks = false; }
+    showDraftStatus();
+  }, 250);
+}
+function showDraftStatus(restored = false) {
+  const el = $('draft-status');
+  if (!storageWorks) { el.textContent = 'This browser is blocking saving, so copy your submission before you leave the page.'; $('draft-bar').classList.add('warn'); return; }
+  $('draft-bar').classList.remove('warn');
+  if (!state.updated) { el.textContent = 'Your work saves on this device as you type. No account needed.'; return; }
+  const when = new Date(state.updated);
+  const time = when.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  const day = when.toDateString() === new Date().toDateString() ? 'today' : when.toLocaleDateString([], { month: 'short', day: 'numeric' });
+  el.textContent = restored
+    ? `Welcome back. Your draft from ${day} at ${time} is restored.`
+    : `Draft saved on this device ${day} at ${time}.`;
+}
+
+// Two clicks to erase, so nobody loses a character by accident.
+function armButton(button, label, armedLabel, action) {
+  let armed = false, timer = null;
+  button.addEventListener('click', () => {
+    if (!armed) {
+      armed = true; button.textContent = armedLabel; button.classList.add('armed');
+      timer = setTimeout(() => { armed = false; button.textContent = label; button.classList.remove('armed'); }, 4000);
+      return;
+    }
+    clearTimeout(timer); armed = false; button.textContent = label; button.classList.remove('armed');
+    action();
+  });
+}
+function clearDraft(message) {
+  try { localStorage.removeItem(DRAFT_KEY); } catch {}
+  state = blankState();
+  writeInputs(); renderAll();
+  $('draft-status').textContent = message;
+}
+
+// ----- one Gem -------------------------------------------------------------
+function computeGem(cfg) {
+  const record = pickable.find(g => g.slug === cfg.slug);
+  if (!record) return null;
+  const prismActive = record === ufClearQuartz;
+  const shift = prismActive && cfg.prism !== 'Unshifted' ? quartz.find(q => q.name === cfg.prism) : null;
+  let modifier = modifiers.find(m => m.name === cfg.era) || modifiers[0];
+  if (!modifierApplies(modifier, record)) modifier = modifiers[0];
+  const metal = isMetal(record);
+  let cut = cuts[cfg.cut] ? cfg.cut : 'Standard';
+  if (cut === 'Perfect Polish' && !metal) cut = 'Perfect Cut';
+  if (cut === 'Perfect Cut' && metal) cut = 'Perfect Polish';
+  const defA = S.includes(cfg.defA) ? cfg.defA : 'HP';
+  const defB = S.includes(cfg.defB) && cfg.defB !== defA ? cfg.defB : S.find(k => k !== defA);
+  const level = Math.min(database.rules.levelCap, Math.max(1, Number.parseInt(cfg.level, 10) || 1));
+  const cutData = cuts[cut] || cuts.Standard;
+  const defectPenalty = cut === 'Defective' ? { [defA]: -1, [defB]: -1 } : zero;
+  const modifierOnly = !record.stats && Boolean(record.statModifier);
+  const base = shift ? combine(record.stats, shift.statModifier) : record.stats;
+  const growth = levelGrowth(level, record.classification);
+  const adjustments = combine(modifier.stats, cutData.stats, growth, shift?.statModifier, defectPenalty);
+  const raw = combine(base, modifier.stats, cutData.stats, growth, defectPenalty);
+  const final = Object.fromEntries(S.map(k => [k, Math.max(0, raw[k])]));
+
+  const details = shift?.abilityDetails || record.abilityDetails || [];
+  const signature = detailNames(details.filter(d => d.type === 'Signature Ability'));
+  const latent = new Set(detailNames(details.filter(d => d.type === 'Latent Ability')));
+  let own = shift ? recordAbilities(shift).filter(a => a !== 'Prism') : recordAbilities(record);
+  if (cut === 'Defective') own = [...own.filter(a => !signature.includes(a)), 'Twisted signature ability (staff-selected)'];
+  else if (cut.startsWith('Perfect')) own = own.map(a => signature.includes(a) ? `Enhanced signature: ${a}` : a);
+  const cutAbilities = cut.startsWith('Perfect') || cut === 'Defective' ? [] : detailNames(cutData.abilityDetails);
+  const abilities = [...own, ...detailNames(modifier.abilityDetails), ...cutAbilities];
+
+  const eraTag = (record.tags || []).find(t => /^Era /.test(t)) || '';
+  const notes = [];
+  if (modifier.unique) notes.push(`${modifier.name} is a unique modifier. Only use it if staff have approved it for your character.`);
+  if (cut.startsWith('Perfect')) notes.push(`${cut} changes her stats and makes her signature ability stronger.`);
+  if (cut === 'Defective') notes.push(`Defective takes 1 from ${defA} and ${defB}. Staff pick her twisted signature ability.`);
+  if (shift) notes.push(`${shift.name} is a Prism shift, so its changes are added to Clear Quartz's base stats.`);
+  if (modifierOnly) notes.push('This Gem-Type only lists stat changes, not full base stats, so ask staff for her final numbers.');
+  return {
+    cfg, record, shift, modifier, cut, defA, defB, level, prismActive, metal, modifierOnly,
+    name: shift ? shift.name : record.name,
+    page: shift || record,
+    final, adjustments, abilities,
+    sheetAbilities: abilities.filter(a => !latent.has(a)),
+    rank: record.rank || (record.faction === 'United Frontier' ? 'United Frontier' : ''),
+    height: record.height && !/depends/i.test(record.height) ? record.height : '',
+    heightNote: record.height && /depends/i.test(record.height) ? record.height : '',
+    era: modifier.name === 'No modifier' ? eraTag : modifier.name,
+    atkAfterEra: base ? combine(base, modifier.stats).ATK : null,
+    noFacet: record.faction === 'United Frontier' || /cubic zirconia/i.test(record.name),
+    notes
+  };
+}
+
+// ----- the pickers ---------------------------------------------------------
+const pickers = {};
+function makePicker(key, root) {
+  const id = name => `${key}-${name}`;
+  root.innerHTML = `
+    <div class="pf"><label for="${id('faction')}">Faction</label><select id="${id('faction')}" data-f="faction"></select></div>
+    <div class="pf"><label for="${id('gem')}">Gem-Type</label><select id="${id('gem')}" data-f="slug"></select></div>
+    <div class="pf" data-show="prism"><label for="${id('prism')}">Prism shift</label><select id="${id('prism')}" data-f="prism"></select></div>
+    <div class="pf"><label for="${id('era')}">Era or modifier</label><select id="${id('era')}" data-f="era"></select></div>
+    <div class="pf"><label for="${id('cut')}">Cut quality</label><select id="${id('cut')}" data-f="cut"></select></div>
+    <div class="pf" data-show="defect"><label for="${id('defA')}">First defective stat</label><select id="${id('defA')}" data-f="defA"></select></div>
+    <div class="pf" data-show="defect"><label for="${id('defB')}">Second defective stat</label><select id="${id('defB')}" data-f="defB"></select></div>
+    <div class="pf"><label for="${id('level')}">Level</label><input id="${id('level')}" data-f="level" type="number" min="1" max="${database.rules.levelCap}" inputmode="numeric" /></div>`;
+  const el = name => root.querySelector(`[data-f="${name}"]`);
+  choices(el('faction'), factions);
+  choices(el('prism'), ['Unshifted', ...quartz.map(q => q.name)]);
+  choices(el('cut'), Object.keys(cuts));
+  root.addEventListener('input', event => {
+    const f = event.target.dataset.f; if (!f) return;
+    const cfg = state[key];
+    if (f === 'level') { cfg.level = event.target.value; }
+    else cfg[f] = event.target.value;
+    if (f === 'faction') cfg.slug = '';
+    sync(); renderAll(); save();
+  });
+  el('level').addEventListener('change', () => { sync(); renderAll(); save(); });
+  function sync() {
+    const cfg = state[key];
+    if (!factions.includes(cfg.faction)) cfg.faction = factions[0];
+    el('faction').value = cfg.faction;
+    const list = pickable.filter(g => g.faction === cfg.faction).sort((a, b) => a.name.localeCompare(b.name) || (a.rank || '').localeCompare(b.rank || ''));
+    const dupes = new Set(list.filter((g, i) => list.findIndex(o => o.name === g.name) !== i).map(g => g.name));
+    choices(el('slug'), list, g => dupes.has(g.name) ? `${g.name} (${g.tags.find(t => t.startsWith('Era')) || g.rank || g.slug})` : g.name, g => g.slug);
+    if (!list.some(g => g.slug === cfg.slug)) cfg.slug = list[0]?.slug || '';
+    el('slug').value = cfg.slug;
+    const record = list.find(g => g.slug === cfg.slug);
+    choices(el('era'), modifiers, m => m.name);
+    [...el('era').options].forEach(o => { const m = modifiers.find(x => x.name === o.value); o.disabled = record ? !modifierApplies(m, record) : false; });
+    const done = computeGem(cfg);
+    if (done) { cfg.era = done.modifier.name; cfg.cut = done.cut; cfg.defA = done.defA; cfg.defB = done.defB; }
+    el('era').value = cfg.era;
+    el('cut').value = cfg.cut;
+    el('prism').value = cfg.prism;
+    choices(el('defA'), S); el('defA').value = cfg.defA;
+    choices(el('defB'), S.filter(k => k !== cfg.defA)); el('defB').value = cfg.defB;
+    if (document.activeElement !== el('level')) el('level').value = done ? done.level : 1;
+    root.querySelector('[data-show="prism"]').hidden = !done?.prismActive;
+    root.querySelectorAll('[data-show="defect"]').forEach(n => { n.hidden = cfg.cut !== 'Defective'; });
+    el('level').closest('.pf').hidden = key !== 'single';
+  }
+  pickers[key] = { sync };
+}
+
+// ----- small DOM helpers ---------------------------------------------------
+function h(tag, attrs = {}, ...kids) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (v === false || v == null) continue;
+    if (k === 'class') node.className = v; else if (k === 'text') node.textContent = v; else node.setAttribute(k, v);
+  }
+  node.append(...kids.flat().filter(k => k !== null && k !== undefined && k !== false));
+  return node;
+}
+const signed = n => (n > 0 ? `+${n}` : `${n}`);
+function statTiles(target, values, noteFor) {
+  target.replaceChildren(...S.map(k => h('div', { class: 'stat' }, h('span', { text: k }), h('strong', { text: values[k] }), h('div', { class: 'change', text: noteFor(k) }))));
+}
+function metaCards(target, cards) {
+  target.replaceChildren(...cards.map(([label, value]) => h('div', { class: 'meta-card' }, h('span', { text: label }), h('strong', { text: value || 'Not set' }))));
+}
+
+// ----- render: single ------------------------------------------------------
+function renderSingle(g) {
+  const card = $('card-s');
+  if (!g) { card.replaceChildren(h('p', { class: 'field-note', text: 'Pick a Gem-Type to see her stats.' })); $('notice-s').textContent = ''; return; }
+  const head = h('div', { class: 'gem-card-head' },
+    g.page.gemstone ? h('img', { src: g.page.gemstone, alt: '', class: 'stone' }) : null,
+    h('div', {}, h('h3', { class: 'gem-name', text: g.name }),
+      h('div', { class: 'badges' }, [g.record.faction, ...(g.record.tags || []), g.cut !== 'Standard' ? g.cut : ''].filter(Boolean).map(t => h('span', { text: t })))),
+    g.page.href ? h('a', { class: 'btn', href: g.page.href, text: 'Gem-Type page' }) : null);
+  const profile = h('div', { class: 'profile' });
+  const next = expToNextLevel(g.level);
+  metaCards(profile, [['Rank', g.rank.replace(/\//g, ' / ')], ['Height', g.height || g.heightNote], ['Level', `${g.level} / ${database.rules.levelCap}`], ['EXP to next level', next === null ? 'Level cap reached' : next.toLocaleString()]]);
+  const stats = h('div', { class: 'stats' });
+  if (g.modifierOnly) statTiles(stats, Object.fromEntries(S.map(k => [k, signed(g.record.statModifier?.[k] || 0)])), () => 'Change only');
+  else statTiles(stats, g.final, k => g.adjustments[k] ? `${signed(g.adjustments[k])} from Era, cut and level` : 'Base value');
+  const abil = h('div', { class: 'abilities' }, h('h3', { text: 'Abilities' }), h('ul', {}, g.abilities.map(a => h('li', { text: a }))));
+  card.replaceChildren(head, profile, stats, abil);
+  $('notice-s').textContent = [...g.notes, 'Level gains follow the level-up rules on the Stats page.'].join(' ');
+}
+
+// ----- render: fusion ------------------------------------------------------
+const inches = text => { const m = String(text || '').match(/(\d+)\s*'\s*(\d+)?/); return m ? Number(m[1]) * 12 + Number(m[2] || 0) : null; };
+const feet = total => `${Math.floor(total / 12)}'${total % 12}"`;
+function nameMatches(component, g) {
+  const c = norm(component);
+  const names = [g.name, g.record.name, g.record === ufClearQuartz || /quartz/i.test(g.name) ? 'Quartz' : ''].filter(Boolean).map(norm);
+  if (names.includes(c)) return 2;
+  return names.some(n => n.split(' ').includes(c) || (c.includes(' ') && n.includes(c))) ? 1 : 0;
+}
+function fusionMatches(A, B) {
+  return fusionTypes.map(t => {
+    const [c1, c2] = t.components || [];
+    if (!c1 || !c2) return null;
+    const score = Math.max(
+      nameMatches(c1, A) && nameMatches(c2, B) ? nameMatches(c1, A) + nameMatches(c2, B) : 0,
+      nameMatches(c1, B) && nameMatches(c2, A) ? nameMatches(c1, B) + nameMatches(c2, A) : 0);
+    return score ? { t, score } : null;
+  }).filter(Boolean).sort((x, y) => y.score - x.score).map(x => x.t);
+}
+const abilityKey = (half, name) => `${half}:${name}`;
+function computeFusion() {
+  // A fusion starts at LVL 1 and doesn't inherit her halves' level gains.
+  const A = computeGem({ ...state.a, level: 1 }), B = computeGem({ ...state.b, level: 1 });
+  if (!A || !B) return null;
+  const matches = fusionMatches(A, B);
+  const typed = state.fusionType.trim();
+  const chosen = matches.find(t => norm(t.name) === norm(typed)) || (!typed ? matches[0] : null);
+  const name = typed || chosen?.name || '';
+  const sum = inches(A.height) !== null && inches(B.height) !== null ? feet(inches(A.height) + inches(B.height)) : '';
+  const height = chosen?.height || sum;
+  const stats = combine(A.final, B.final);
+  const halves = [['a', A], ['b', B]];
+  const kept = halves.flatMap(([half, g]) => g.sheetAbilities.filter(n => !state.dropped.includes(abilityKey(half, n))));
+  const fusionAbility = state.fusionAbilityName.trim();
+  const abilities = [...new Set(kept), fusionAbility ? `${fusionAbility} (Fusion Ability)` : ''].filter(Boolean);
+  const metalClash = A.metal !== B.metal;
+  const eras = [...new Set([A.era, B.era].filter(Boolean))];
+  return { A, B, matches, chosen, name, height, sumHeight: sum, stats, abilities, metalClash, eras, noFacet: A.noFacet && B.noFacet };
+}
+function halfSummary(target, g) {
+  if (!g) { target.replaceChildren(); return; }
+  target.replaceChildren(
+    h('div', { class: 'half-name' }, g.page.gemstone ? h('img', { src: g.page.gemstone, alt: '' }) : null, h('strong', { text: g.name }), h('span', { text: g.height ? ` · ${g.height}` : '' })),
+    h('div', { class: 'mini-stats' }, S.map(k => h('span', {}, h('em', { text: k }), ` ${g.final[k]}`))));
+}
+function renderFusion(F) {
+  halfSummary($('sum-a'), F?.A); halfSummary($('sum-b'), F?.B);
+  if (!F) return;
+  const typeInput = $('fusion-type');
+  typeInput.placeholder = F.matches[0]?.name || `Name her Gem-Type, e.g. ${F.A.name}-${F.B.name} fusion`;
+  $('fusion-matches').replaceChildren(...(F.matches.length
+    ? [h('span', { class: 'field-note', text: 'Fusion Gem-Types on the wiki for this pair:' }), ...F.matches.map(t => {
+        const b = h('button', { type: 'button', class: `chip${F.chosen === t ? ' on' : ''}`, text: `${t.name} (${t.components.join(' + ')})` });
+        b.addEventListener('click', () => { state.fusionType = t.name; typeInput.value = t.name; renderAll(); save(); });
+        return b;
+      })]
+    : [h('span', { class: 'field-note', text: 'No fusion Gem-Type on the wiki matches this pair yet. Type the one you are submitting.' })]));
+  metaCards($('fusion-profile'), [['Gem-Type', F.name], ['Height', F.height], ['Era', F.eras.join(' / ')], ['Halves', `${F.A.name} + ${F.B.name}`]]);
+  statTiles($('fusion-stats'), F.stats, k => `${F.A.final[k]} + ${F.B.final[k]}`);
+  $('fusion-ability-picks').replaceChildren(...[['a', F.A], ['b', F.B]].map(([half, g]) => h('article', {},
+    h('h3', { text: `From ${g.name}` }),
+    g.sheetAbilities.length ? h('div', { class: 'ability-ticks' }, g.sheetAbilities.map(n => {
+      const box = h('input', { type: 'checkbox' });
+      box.checked = !state.dropped.includes(abilityKey(half, n));
+      box.addEventListener('change', () => {
+        const k = abilityKey(half, n);
+        state.dropped = box.checked ? state.dropped.filter(x => x !== k) : [...new Set([...state.dropped, k])];
+        renderAll(); save();
+      });
+      return h('label', { class: 'tick' }, box, h('span', { text: n }));
+    })) : h('p', { class: 'field-note', text: 'No listed abilities.' }))));
+  const notes = [];
+  if (F.metalClash) notes.push('A Gem and a Metal can never fuse. Metals can only fuse with other Metals.');
+  if (F.chosen && F.chosen.height && F.sumHeight && F.chosen.height !== F.sumHeight) notes.push(`${F.chosen.name}'s Gem-Type page lists her at ${F.chosen.height}, so that is used instead of the halves added together (${F.sumHeight}).`);
+  if (!F.height) notes.push('One half has no set height, so type her Natural Height yourself in Step 3.');
+  notes.push('Her stats are both halves added together, including each half\'s Era and cut. A fusion always starts at LVL 1, so her halves\' levels don\'t count. A fusion that is played again needs her own sheet, and a permanent fusion needs staff approval.');
+  $('notice-f').textContent = notes.join(' ');
+  $('notice-f').classList.toggle('bad', F.metalClash);
+  $('fusion-suggestions').replaceChildren(...fusionIdeasFor(F.A, F.B).map(s => h('article', { class: `suggestion-card${s.tag === 'For this pair' ? ' pair' : ''}` },
+    h('span', { class: 'idea-tag', text: s.tag }), h('h4', { text: s.name }), h('p', { text: s.description }))));
+  $('ideas').open = $('ideas').open || fusionIdeasFor(F.A, F.B)[0]?.tag === 'For this pair';
+}
+
+// Written ideas from src/data/fusion-ideas.yml come first: this exact pair, then other pairs
+// that share one of her halves. The old generated ideas fill in after them.
+const fusionIdeas = database.fusionIdeas || [];
+function fusionIdeasFor(A, B) {
+  const has = (idea, g) => idea.halves.some(n => nameMatches(n, g));
+  const pairOf = idea => idea.halves.join(' + ');
+  const exact = fusionIdeas.filter(i => i.halves.length === 2 && ((nameMatches(i.halves[0], A) && nameMatches(i.halves[1], B)) || (nameMatches(i.halves[0], B) && nameMatches(i.halves[1], A))));
+  const shared = fusionIdeas.filter(i => !exact.includes(i) && (has(i, A) || has(i, B))).slice(0, 2);
+  const out = [
+    ...exact.map(i => ({ tag: 'For this pair', name: i.name, description: i.idea })),
+    ...shared.map(i => ({ tag: `From ${pairOf(i)}`, name: i.name, description: i.idea }))
+  ];
+  const generated = generateAbilitySuggestions(A.page, B.page).map(s => ({ tag: 'Mix and match', ...s }));
+  return [...out, ...generated].slice(0, Math.max(3, out.length + 1));
+}
+
+// ----- Facet & Cut ---------------------------------------------------------
+function facetCode(g) {
+  if (!g || g.noFacet) return '';
+  const f = state.facet;
+  const d = diamondCodes[f.diamond];
+  const k = f.kg.trim().charAt(0).toUpperCase();
+  const r = (g.rank.match(/^\d/) || [''])[0];
+  const fl = f.fl.trim().toUpperCase(), cl = f.cl.trim().toUpperCase();
+  if (!d || !k || !r || !fl || !cl || g.atkAfterEra === null) return '';
+  return `${d}${k}${r}${fl} - ${g.atkAfterEra}X${cl}`;
+}
+function renderFacet(g, F) {
+  const fusion = state.mode === 'fusion';
+  const none = fusion ? !!F?.noFacet : !!g?.noFacet;
+  $('facet-single').hidden = fusion || none;
+  $('facet-fusion').hidden = !fusion || none;
+  $('facet-none').hidden = !none;
+  if (fusion || !g) return;
+  const r = (g.rank.match(/^\d/) || [''])[0];
+  $('facet-auto').textContent = r
+    ? `Filled in for you: rank number ${r} from ${g.record.name}'s Rank ${g.rank}, and ${g.atkAfterEra} for her ATK after her Era (level gains don't count).`
+    : `${g.record.name} has no Rank on the wiki yet, so ask staff for the rank number.`;
+  $('facet-result').textContent = facetCode(g) || '---';
+}
+
+// ----- Step 3 fields -------------------------------------------------------
+const FIELD_GROUPS = [
+  ['Gem Information', [
+    { k: 'name', label: 'Name', need: true, ph: 'What does she go by?' },
+    { k: 'nicknames', label: 'Nicknames', ph: 'Optional' },
+    { k: 'pronouns', label: 'Pronouns', need: true, ph: 'e.g. she/her' },
+    { k: 'affiliation', label: 'Affiliation', need: true, ph: 'Who she answers to or works for' }]],
+  ['Behavior', [
+    { k: 'personality', label: 'Personality', need: true, area: true, ph: 'How does she act, talk and treat others?' },
+    { k: 'likes', label: 'Likes' },
+    { k: 'dislikes', label: 'Dislikes' },
+    { k: 'attraction', label: 'Attraction towards', ph: 'Male Presenting or Female Presenting Gems?' },
+    { k: 'relationships', label: 'Relationships', area: true, ph: 'Friends, rivals, family, partners' },
+    { k: 'fear', label: 'Fear' },
+    { k: 'alignment', label: 'Alignment', ph: 'e.g. Lawful Neutral' }]],
+  ['Capabilities', [
+    { k: 'placement', label: 'Gem Placement', need: true, ph: 'Where her gem sits, e.g. left palm' },
+    { k: 'birthplace', label: 'Place of Birth', need: true, ph: 'e.g. a colony or Kindergarten' },
+    { k: 'extraPowers', label: 'Other powers or SKILLs', ph: 'Optional. Added after her Gem-Type abilities' }]],
+  ['Equipment', [
+    { k: 'weapon1', label: 'Weapon 1', ph: 'Optional' },
+    { k: 'weapon2', label: 'Weapon 2', ph: 'Optional' },
+    { k: 'armor', label: 'Armor', ph: 'Optional' },
+    { k: 'acc1', label: 'Accessory 1', ph: 'Optional' },
+    { k: 'acc2', label: 'Accessory 2', ph: 'Optional' }]],
+  ['Appearance', [
+    { k: 'height', label: 'Natural Height', ph: '' },
+    { k: 'appearance', label: 'Appearance', need: true, area: true, ph: 'An image link, a description, or both' }]]
+];
+function buildFields() {
+  $('detail-fields').replaceChildren(...FIELD_GROUPS.map(([title, list]) => h('fieldset', { class: 'fgroup' },
+    h('legend', { text: title }),
+    h('div', { class: 'fgrid' }, list.map(f => h('div', { class: `pf${f.area ? ' wide' : ''}` },
+      h('label', { for: `fld-${f.k}` }, f.label, f.need ? h('span', { class: 'need', title: 'Needed', text: ' •' }) : null),
+      h(f.area ? 'textarea' : 'input', { id: `fld-${f.k}`, 'data-save': `fields.${f.k}`, placeholder: f.ph || '', autocomplete: 'off', ...(f.area ? { rows: 4 } : { type: 'text' }) })))))));
+}
+
+// Inputs with data-save="a.b" read and write that path in state.
+function getPath(path) { return path.split('.').reduce((o, k) => o?.[k], state); }
+function setPath(path, value) { const keys = path.split('.'); const last = keys.pop(); const obj = keys.reduce((o, k) => (o[k] ??= {}), state); obj[last] = value; }
+function writeInputs() {
+  document.querySelectorAll('[data-save]').forEach(el => { el.value = getPath(el.dataset.save) ?? ''; });
+}
+document.addEventListener('input', event => {
+  const path = event.target.dataset?.save; if (!path) return;
+  setPath(path, event.target.value);
+  renderAll(); save();
+});
+
+// ----- the submission ------------------------------------------------------
+function buildSheet() {
+  const fusion = state.mode === 'fusion';
+  const g = fusion ? null : computeGem(state.single);
+  const F = fusion ? computeFusion() : null;
+  const v = k => (state.fields[k] || '').trim();
+  let gemType = '', era = '', facet = '', powers = [], stats = null, lvl = 1, autoHeight = '', noFacet = false;
+  if (g) {
+    gemType = `${g.name}${g.cut !== 'Standard' ? ` (${g.cut})` : ''}`;
+    era = g.era; facet = facetCode(g); noFacet = g.noFacet;
+    powers = g.sheetAbilities; stats = g.modifierOnly ? null : g.final; lvl = g.level; autoHeight = g.height;
+  }
+  if (F) {
+    gemType = F.name ? `${F.name} (Fusion of ${F.A.name} + ${F.B.name})` : '';
+    era = F.eras.join(' / '); facet = state.fusionFacet.trim(); noFacet = F.noFacet;
+    powers = F.abilities; stats = F.stats; autoHeight = F.height;
+  }
+  if (v('extraPowers')) powers = [...powers, v('extraPowers')];
+  const height = v('height') || autoHeight;
+  const st = k => (stats ? stats[k] : '');
+  const line = (label, value = '') => `- _\`${label}:\`_ ${value}`.trimEnd();
+  const sub = (label, value = '') => `  - _\`${label}:\`_ ${value}`.trimEnd();
+  const text = [
+    '## Gem Information', line('Name', v('name')), line('Facet & Cut', noFacet ? '' : facet), line('Era', era), line('Nicknames', v('nicknames')), line('Pronouns', v('pronouns')), line('Affiliation', v('affiliation')),
+    '## Behavior', line('Personality', v('personality')), line('Likes', v('likes')), line('Dislikes', v('dislikes')), line('Attraction towards(Male Presenting or Female Presenting Gems?)', v('attraction')), line('Relationships', v('relationships')), line('Fear', v('fear')), line('Alignment', v('alignment')),
+    '## Capabilities', line('Gem Type', gemType), line('Gem Placement', v('placement')), line('Place of Birth', v('birthplace')), line('Powers & Abilities', powers.join(', ')),
+    '## Stats', line('HP', st('HP')), line('ATK', st('ATK')), sub('Weapon 1 (Optional)', v('weapon1')), sub('Weapon 2 (Optional)', v('weapon2')), line('DEF', st('DEF')), sub('Armor (Optional)', v('armor')), sub('Accessories 1 (Optional)', v('acc1')), sub('Accessories 2 (Optional)', v('acc2')),
+    line('SPD', st('SPD')), line('INT', st('INT')), line('MAG', st('MAG')), line('LVL', fusion ? 1 : lvl), sub('EXP', 0),
+    '## Appearance', line('Natural Height', height), line('Appearance (Image/Description)', v('appearance'))
+  ].join('\n');
+  const checks = [
+    ['Gem-Type', !!gemType],
+    ...(fusion ? [['Halves can fuse', !F?.metalClash]] : []),
+    ['Facet & Cut', noFacet || !!facet],
+    ['Era', !!era],
+    ['Stats', !!stats],
+    ...FIELD_GROUPS.flatMap(([, list]) => list.filter(f => f.need).map(f => [f.label, !!v(f.k)])),
+    ['Natural Height', !!height]
+  ];
+  return { text, checks, g, F, autoHeight };
+}
+function renderSubmission(built) {
+  const done = built.checks.filter(([, ok]) => ok).length;
+  const all = built.checks.length;
+  $('progress-count').textContent = `${done} / ${all}`;
+  $('progress-bar').style.width = `${Math.round(done / all * 100)}%`;
+  $('checklist').replaceChildren(...built.checks.map(([label, ok]) => h('li', { class: ok ? 'ok' : 'todo' }, h('span', { 'aria-hidden': 'true', text: ok ? '✓' : '○' }), ` ${label}`)));
+  $('sheet-preview').textContent = built.text;
+  const n = built.text.length;
+  $('char-count').textContent = n > 2000 ? `${n} characters. Discord's limit is 2000, so post it in two messages.` : `${n} / 2000 characters`;
+  $('char-count').classList.toggle('over', n > 2000);
+  $('finish-draft').disabled = done < all;
+  $('fld-height').placeholder = built.autoHeight ? `${built.autoHeight} (from her Gem-Type)` : 'e.g. 6\'2"';
+}
+
+// ----- everything ----------------------------------------------------------
+function renderAll() {
+  const fusion = state.mode === 'fusion';
+  document.querySelectorAll('.mode-toggle button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode)));
+  $('single-area').hidden = fusion;
+  $('fusion-area').hidden = !fusion;
+  const g = fusion ? null : computeGem(state.single);
+  const F = fusion ? computeFusion() : null;
+  if (fusion) renderFusion(F); else renderSingle(g);
+  renderFacet(g, F);
+  renderSubmission(buildSheet());
+}
+document.querySelectorAll('.mode-toggle button').forEach(b => b.addEventListener('click', () => { state.mode = b.dataset.mode; renderAll(); save(); }));
+
+// Gem-Type pages link here with ?type=<slug>. It only changes the Gem-Type, never the rest of a saved draft.
+function applyTypeParam() {
+  const want = new URLSearchParams(location.search).get('type');
+  if (!want) return;
+  const shift = quartz.find(q => q.slug === want);
+  const record = gems.find(g => g.slug === want);
+  if (shift && ufClearQuartz) { state.mode = 'single'; Object.assign(state.single, { faction: ufClearQuartz.faction, slug: ufClearQuartz.slug, prism: shift.name }); }
+  else if (record?.fusion) {
+    state.mode = 'fusion'; state.fusionType = record.name;
+    (record.components || []).slice(0, 2).forEach((c, i) => {
+      const half = i ? state.b : state.a;
+      const best = pickable.map(g => ({ g, s: nameMatches(c, { name: g.name, record: g }) })).filter(x => x.s).sort((x, y) => y.s - x.s)[0]?.g;
+      if (best) Object.assign(half, { faction: best.faction, slug: best.slug });
+    });
+  } else if (record) { state.mode = 'single'; Object.assign(state.single, { faction: record.faction, slug: record.slug, prism: 'Unshifted' }); }
+  history.replaceState(null, '', location.pathname + location.hash);
+}
+
+const restored = loadDraft();
+applyTypeParam();
+buildFields();
+['single', 'a', 'b'].forEach(key => makePicker(key, $(key === 'single' ? 'pick-s' : `pick-${key}`)));
+// Start the second half on a different Gem-Type so a new fusion isn't one Gem fused with herself.
+if (!state.b.slug) { const first = pickable.find(g => g.faction === state.b.faction); const other = pickable.find(g => g.faction === state.b.faction && g !== first); if (other) state.b.slug = other.slug; }
+Object.values(pickers).forEach(p => p.sync());
+writeInputs();
+renderAll();
+showDraftStatus(restored && state.updated);
+
+$('copy-sheet').addEventListener('click', e => copyToClipboard(buildSheet().text, e.currentTarget));
+armButton($('start-over'), 'Start over', 'Click again to erase', () => clearDraft('Started over. Your old draft is gone.'));
+armButton($('finish-draft'), "I've submitted it, clear my draft", 'Click again to clear', () => clearDraft('Draft cleared. Good luck with your submission!'));
+document.querySelectorAll('.copy-btn').forEach(btn => btn.addEventListener('click', () => copyToClipboard($(btn.dataset.target).textContent, btn)));
+$('ability-search-btn').addEventListener('click', checkAbilityOverlap);
+$('ability-search-input').addEventListener('input', checkAbilityOverlap);
+$('validate-btn').addEventListener('click', runValidation);

@@ -96,7 +96,7 @@ const nav = NAV;
     <header class="ia-top">
       <a class="ia-brand" href={url('/')}><img src={url('/images/brand/logo-white.png')} alt="" width="22" height="27" /> Imperious Authorities</a>
       <nav aria-label="Main">
-        {nav.map((n) => <a href={url(n.href)} aria-current={n.key === navKey(Astro.url.pathname) ? 'page' : undefined}>{n.label}</a>)}
+        {nav.map((n) => <a href={url(n.href)} aria-current={n.key === navKey(Astro.url.pathname) ? 'page' : undefined}>{n.short ? <><span class="nl-full">{n.label}</span><span class="nl-short">{n.short}</span></> : n.label}</a>)}
       </nav>
       <SiteSearch />
     </header>

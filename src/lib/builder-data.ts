@@ -103,9 +103,12 @@ export async function builderDatabase() {
     cuts[m.name] = { name: m.name, stats: toStats(m.stats || {}), abilityDetails: special(m), description: plain(m.statsText || '') };
   }
 
+  const fusionIdeas = (load(readFileSync(process.cwd() + '/src/data/fusion-ideas.yml', 'utf8')) as any[]) || [];
+
   return {
     gems,
     quartzShifts,
+    fusionIdeas,
     modifiers,
     cuts,
     rules: {

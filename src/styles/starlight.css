@@ -148,3 +148,7 @@ body { background: #0b0814 url('../images/brand/background.webp') center / cover
 :root { --sl-color-bg: transparent; }
 .right-sidebar { background: rgba(11, 8, 20, 0.45); }
 .content-panel + .content-panel { border-top-color: rgba(201, 184, 255, 0.14); }
+
+/* Main menu: long labels get a short form on narrow screens (see src/lib/nav.ts). */
+.nl-short { display: none; }
+@media (max-width: 760px) { .nl-full { display: none; } .nl-short { display: inline; } }

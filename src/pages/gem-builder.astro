@@ -18,157 +18,179 @@ const diamonds = [
   ['Bi-Colored Kandy Diamond', '5'],
   ['Saturn Light Diamond', '6'],
 ];
-const ranks = [
-  ['5.2', 'Low Servant'], ['5.1', 'High Servant'],
-  ['4.3', 'Low Service Trade'], ['4.2', 'Median Service Trade'], ['4.1', 'High Service Trade'],
-  ['3.3', 'Low Militia'], ['3.2', 'Median Militia'], ['3.1', 'High Militia'],
-  ['2.3', 'Low Authoritative/Aristocratic'], ['2.2', 'Median Authoritative/Aristocratic'], ['2.1', 'High Authoritative/Aristocratic'],
-  ['1.2', 'Transcendent'],
-];
 ---
-<Site title="Gem Builder" description="Build a Gem from any Gem-Type on the wiki, add an Era and cut, and see the stats and abilities you end up with.">
+<Site title="Submission Builder" description="Build your character submission for a single Gem or a fusion. Stats, abilities, Facet & Cut and the full Gem Template, saved on your device as you go.">
   <link slot="head" rel="stylesheet" href={url('/gem-builder/builder.css')} />
   <main class="wrap gb" data-pagefind-body>
     <header class="gb-head">
-      <h1>Gem Builder</h1>
-      <p>Pick a Gem-Type, an Era and a cut, and see the stats and abilities your Gem starts with. Every list here comes from the wiki, so new Gem-Types show up as soon as they are added.</p>
-      <nav class="gb-jump" aria-label="Tools on this page">
-        <a class="btn" href="#builder">Builder</a>
-        <a class="btn" href="#fusion">Fusion Stats</a>
+      <h1>Submission Builder</h1>
+      <p>Build your whole character submission in one place. Pick a Gem-Type or two halves of a fusion, fill in who she is, and copy the finished Gem Template into Discord. Every list here comes from the wiki, so new Gem-Types show up as soon as they are added.</p>
+      <div class="draft-bar" id="draft-bar">
+        <span class="draft-dot" aria-hidden="true"></span>
+        <span id="draft-status">Your work saves on this device as you type. No account needed.</span>
+        <button type="button" class="mini-btn" id="start-over">Start over</button>
+      </div>
+      <nav class="gb-jump" aria-label="Parts of this page">
+        <a class="btn" href="#gem">1. The Gem</a>
+        <a class="btn" href="#facet">2. Facet &amp; Cut</a>
+        <a class="btn" href="#details">3. Details</a>
+        <a class="btn" href="#submission">4. Submission</a>
         <a class="btn" href="#abilities-check">Ability Checker</a>
-        <a class="btn" href="#facet">Facet &amp; Cut</a>
         <a class="btn" href="#sheet">Sheet Checker</a>
       </nav>
     </header>
 
-    <section class="builder" id="builder" aria-label="Gem builder">
-      <div class="step">
-        <span class="step-number">1</span>
+    <section class="result" id="gem" aria-label="The Gem">
+      <div class="result-heading">
         <div>
-          <label for="faction">Faction</label>
-          <select id="faction"></select>
+          <p class="eyebrow">STEP 1</p>
+          <h2>The Gem</h2>
+          <p class="lede">Is your character one Gem, or a fusion of two? A fusion's stats are both halves added together, so you build each half first.</p>
         </div>
       </div>
-      <div class="step">
-        <span class="step-number">2</span>
-        <div>
-          <label for="gem">Gem-Type</label>
-          <select id="gem"></select>
-        </div>
+      <div class="mode-toggle" role="group" aria-label="Character kind">
+        <button type="button" data-mode="single" aria-pressed="true">◇ Single Gem</button>
+        <button type="button" data-mode="fusion" aria-pressed="false">◈ Fusion</button>
       </div>
-      <div class="step hidden" id="prism-step">
-        <span class="step-number">3</span>
-        <div>
-          <label for="prism">Prism shift</label>
-          <select id="prism"></select>
-          <p class="field-note">Leave unshifted to keep Clear Quartz base stats.</p>
-        </div>
+
+      <div id="single-area">
+        <div class="picker" id="pick-s"></div>
+        <div class="notice" id="notice-s" aria-live="polite"></div>
+        <div class="gem-card" id="card-s"></div>
       </div>
-      <div class="step">
-        <span class="step-number">4</span>
-        <div>
-          <label for="era">Era or unique modifier</label>
-          <select id="era"></select>
-          <p class="field-note">Era 0-1 Metal Society is only for Metal Gem-Types.</p>
+
+      <div id="fusion-area" hidden>
+        <div class="halves">
+          <article class="half">
+            <h3>First half</h3>
+            <div class="picker compact" id="pick-a"></div>
+            <div class="half-sum" id="sum-a"></div>
+          </article>
+          <article class="half">
+            <h3>Second half</h3>
+            <div class="picker compact" id="pick-b"></div>
+            <div class="half-sum" id="sum-b"></div>
+          </article>
         </div>
-      </div>
-      <div class="step">
-        <span class="step-number">5</span>
-        <div>
-          <label for="cut">Cut quality</label>
-          <select id="cut"></select>
-        </div>
-      </div>
-      <div class="step hidden" id="defect-stats-step">
-        <span class="step-number">5a</span>
-        <div class="defect-stat-selects">
-          <div>
-            <label for="defect-stat-a">First defective stat</label>
-            <select id="defect-stat-a"></select>
+        <div class="notice" id="notice-f" aria-live="polite"></div>
+        <div class="fusion-out">
+          <div class="pf wide">
+            <label for="fusion-type">Fusion Gem-Type</label>
+            <input id="fusion-type" data-save="fusionType" type="text" autocomplete="off" />
+            <div class="match-row" id="fusion-matches"></div>
           </div>
-          <div>
-            <label for="defect-stat-b">Second defective stat</label>
-            <select id="defect-stat-b"></select>
+          <div class="profile" id="fusion-profile"></div>
+          <div class="stats" id="fusion-stats"></div>
+          <h3 class="fusion-heading">Abilities</h3>
+          <p class="field-note">Untick anything she doesn't keep. Abilities that work well together can merge into one combined ability, and a fusion may have one Fusion Ability of her own.</p>
+          <div class="fusion-abilities" id="fusion-ability-picks"></div>
+          <div class="fa-grid">
+            <div class="pf">
+              <label for="fusion-ability-name">Fusion Ability name (optional)</label>
+              <input id="fusion-ability-name" data-save="fusionAbilityName" type="text" autocomplete="off" />
+            </div>
+            <div class="pf">
+              <label for="fusion-ability-desc">What it does</label>
+              <input id="fusion-ability-desc" data-save="fusionAbilityDesc" type="text" autocomplete="off" />
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-number">6</span>
-        <div>
-          <label for="level">Level</label>
-          <input id="level" type="number" min="1" max="30" value="1" />
+          <details class="ideas" id="ideas">
+            <summary>Ideas for a Fusion Ability</summary>
+            <div class="fusion-suggestions" id="fusion-suggestions"></div>
+            <p class="field-note">These are only places to start, not rules. See <a href={url('/rules/fusion/')}>Fusion</a> for how fusions work.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="notice" id="notice" aria-live="polite"></section>
-
-    <section class="result" aria-live="polite">
+    <section class="result" id="facet" aria-label="Facet and Cut">
       <div class="result-heading">
         <div>
-          <p class="eyebrow">RESULT</p>
-          <h2 id="result-name">Choose a Gem-Type</h2>
-        </div>
-        <div class="result-links">
-          <img id="result-stone" alt="" hidden />
-          <button id="copy-sheet" class="btn" type="button">⧉ Copy Character Sheet</button>
-          <a id="result-link" class="btn" hidden>Open Gem-Type page</a>
-          <div class="badges" id="badges"></div>
+          <p class="eyebrow">STEP 2</p>
+          <h2>Facet &amp; Cut</h2>
+          <p class="lede">Where your Gem came from and how she was made. See <a href={url('/lore/how-gems-work/facet-and-cut/')}>Facet &amp; Cut</a> for what each part means.</p>
         </div>
       </div>
-      <div class="profile">
-        <div class="meta-card"><span id="rank-label">Rank</span><strong id="rank">Not assigned</strong></div>
-        <div class="meta-card"><span>Height</span><strong id="height">Not assigned</strong></div>
-        <div class="meta-card"><span>Level</span><strong id="result-level">1</strong></div>
-        <div class="meta-card"><span>EXP to next level</span><strong id="next-exp">100</strong></div>
-        <div class="meta-card"><span>Total EXP required</span><strong id="total-exp">0</strong></div>
+      <div id="facet-single">
+        <div class="code-generator-inputs">
+          <div class="input-group">
+            <label for="diamond-select">Diamond</label>
+            <select id="diamond-select" data-save="facet.diamond">
+              <option value="">Choose a Diamond</option>
+              {diamonds.map(([name, code]) => <option value={name}>{name} ({code})</option>)}
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="kindergarten-input">Kindergarten name</label>
+            <input id="kindergarten-input" data-save="facet.kg" type="text" placeholder="e.g. Beta Prime" autocomplete="off" />
+          </div>
+          <div class="input-group">
+            <label for="facet-random-letter">Facet letter (any)</label>
+            <input id="facet-random-letter" data-save="facet.fl" type="text" maxlength="1" placeholder="e.g. A" autocomplete="off" />
+          </div>
+          <div class="input-group">
+            <label for="cut-random-letter">Cut letter (any)</label>
+            <input id="cut-random-letter" data-save="facet.cl" type="text" maxlength="1" placeholder="e.g. C" autocomplete="off" />
+          </div>
+        </div>
+        <p class="field-note" id="facet-auto"></p>
+        <div class="code-results">
+          <div class="code-result-item">
+            <label>Your Facet &amp; Cut</label>
+            <div class="code-display">
+              <span id="facet-result">---</span>
+              <button class="copy-btn" type="button" data-target="facet-result">Copy</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="stats" id="stats"></div>
-      <div class="abilities">
-        <h3>Abilities</h3>
-        <ul id="abilities"></ul>
+      <div id="facet-fusion" hidden>
+        <div class="pf">
+          <label for="fusion-facet">Both halves' Facet &amp; Cut codes</label>
+          <input id="fusion-facet" data-save="fusionFacet" type="text" placeholder="e.g. 4M2O - 11XA / 2B3K - 9XC" autocomplete="off" />
+          <p class="field-note">Copy each half's code from her own sheet. Leave out any half from the United Frontier or a Cubic Zirconia, since they don't have one.</p>
+        </div>
       </div>
+      <p class="field-note" id="facet-none" hidden>United Frontier Gems and Cubic Zirconias don't have a Facet &amp; Cut, so you can skip this step.</p>
     </section>
 
-    <section class="result fusion-tool" id="fusion" aria-label="Fusion stat combiner">
+    <section class="result" id="details" aria-label="Character details">
       <div class="result-heading">
         <div>
-          <p class="eyebrow">FUSION</p>
-          <h2>Fusion Stats</h2>
-          <p class="lede">Pick two Gem-Types to add up their base stats and see their abilities side by side.</p>
+          <p class="eyebrow">STEP 3</p>
+          <h2>Who She Is</h2>
+          <p class="lede">The rest of the <a href={url('/rules/templates/')}>Gem Template</a>. Fields marked with a dot are needed before you submit.</p>
         </div>
       </div>
-      <div class="fusion-selects">
+      <div id="detail-fields"></div>
+    </section>
+
+    <section class="result" id="submission" aria-label="Your submission">
+      <div class="result-heading">
         <div>
-          <label for="fusion-a">First half</label>
-          <select id="fusion-a"></select>
+          <p class="eyebrow">STEP 4</p>
+          <h2>Your Submission</h2>
+          <p class="lede">This is exactly what gets pasted into Discord. Staff still review every sheet.</p>
         </div>
-        <div>
-          <label for="fusion-b">Second half</label>
-          <select id="fusion-b"></select>
+        <div class="progress-box">
+          <strong id="progress-count">0 / 0</strong>
+          <span>needed fields filled</span>
         </div>
       </div>
-      <h3 class="fusion-heading">Combined base stats</h3>
-      <div class="stats" id="fusion-stats"></div>
-      <div class="fusion-abilities">
-        <article>
-          <h3 id="fusion-a-name">First half's abilities</h3>
-          <ul id="fusion-a-abilities"></ul>
-        </article>
-        <article>
-          <h3 id="fusion-b-name">Second half's abilities</h3>
-          <ul id="fusion-b-abilities"></ul>
-        </article>
+      <div class="progress"><span id="progress-bar"></span></div>
+      <ul class="checklist" id="checklist"></ul>
+      <pre class="sheet-preview" id="sheet-preview"></pre>
+      <div class="submit-row">
+        <button id="copy-sheet" class="btn" type="button">⧉ Copy Submission</button>
+        <span class="field-note" id="char-count"></span>
+        <button id="finish-draft" class="mini-btn" type="button" disabled>I've submitted it, clear my draft</button>
       </div>
-      <h3 class="fusion-heading">Ideas for fusion abilities</h3>
-      <div class="fusion-suggestions" id="fusion-suggestions"></div>
-      <p class="field-note">These are only ideas to start from, not rules. See <a href={url('/rules/fusion/')}>Fusion</a> for how fusions actually work.</p>
     </section>
 
     <section class="result ability-checker" id="abilities-check" aria-label="Ability overlap checker">
       <div class="result-heading">
         <div>
-          <p class="eyebrow">ABILITIES</p>
+          <p class="eyebrow">TOOLS</p>
           <h2>Ability Checker</h2>
           <p class="lede">Type an ability name or what it does to see if a Gem-Type already has something like it.</p>
         </div>
@@ -183,74 +205,12 @@ const ranks = [
       </div>
     </section>
 
-    <section class="result facet-cut-generator" id="facet" aria-label="Facet and cut generator">
-      <div class="result-heading">
-        <div>
-          <p class="eyebrow">FACET &amp; CUT</p>
-          <h2>Facet &amp; Cut Maker</h2>
-          <p class="lede">Make your Facet &amp; Cut code. United Frontier Gems and Cubic Zirconias don't have one. See <a href={url('/lore/how-gems-work/facet-and-cut/')}>Facet &amp; Cut</a> for what each part means.</p>
-        </div>
-      </div>
-
-      <div class="code-generator-inputs">
-        <div class="input-group">
-          <label for="diamond-select">Diamond</label>
-          <select id="diamond-select">
-            <option value="">Choose a Diamond</option>
-            {diamonds.map(([name, code]) => <option value={name}>{name} ({code})</option>)}
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="kindergarten-input">Kindergarten name</label>
-          <input id="kindergarten-input" type="text" placeholder="e.g. Beta Prime" />
-        </div>
-        <div class="input-group">
-          <label for="social-standing-select">Rank</label>
-          <select id="social-standing-select">
-            <option value="">Choose a rank</option>
-            {ranks.map(([n, label]) => <option value={n}>{n} {label}</option>)}
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="facet-random-letter">Facet letter (any)</label>
-          <input id="facet-random-letter" type="text" maxlength="1" placeholder="e.g. A" />
-        </div>
-        <div class="input-group">
-          <label for="atk-stat-input">ATK after your Era</label>
-          <input id="atk-stat-input" type="number" placeholder="e.g. 12" />
-        </div>
-        <div class="input-group">
-          <label for="cut-random-letter">Cut letter (any)</label>
-          <input id="cut-random-letter" type="text" maxlength="1" placeholder="e.g. C" />
-        </div>
-      </div>
-
-      <button id="generate-codes-btn" class="generate-btn">Make code</button>
-
-      <div class="code-results">
-        <div class="code-result-item">
-          <label>Facet</label>
-          <div class="code-display">
-            <span id="facet-result">---</span>
-            <button class="copy-btn" data-target="facet-result">Copy</button>
-          </div>
-        </div>
-        <div class="code-result-item">
-          <label>Cut</label>
-          <div class="code-display">
-            <span id="cut-result">---</span>
-            <button class="copy-btn" data-target="cut-result">Copy</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="result submission-validator" id="sheet" aria-label="Character sheet checker">
       <div class="result-heading">
         <div>
-          <p class="eyebrow">SUBMISSIONS</p>
+          <p class="eyebrow">TOOLS</p>
           <h2>Sheet Checker</h2>
-          <p class="lede">Paste a filled-in <a href={url('/rules/templates/')}>Gem Template</a>. It checks for missing fields, compares your stats and height to your Gem-Type, and checks your Facet &amp; Cut. Staff still review everything.</p>
+          <p class="lede">Already have a sheet? Paste a filled-in <a href={url('/rules/templates/')}>Gem Template</a>. It checks for missing fields, compares your stats and height to your Gem-Type, and checks your Facet &amp; Cut.</p>
         </div>
       </div>
       <div class="validator-input">
