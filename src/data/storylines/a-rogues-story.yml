@@ -100,6 +100,51 @@ locations:
       A cluster of homes built taller and wider than the rest, with doorways high enough that nobody has to duck. The
       settlement's fusions live here, including Chief Nova, and nobody looks twice.
     thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574830319075459102
+  - name: The Forge
+    kind: Settlement
+    text: >-
+      A row of workshops near the edge of the settlement, where the Blacksmiths turn salvage and ore into tools and plating. On cold nights the doors are left open so anyone passing by can warm up.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574838492070940762
+  - name: Supply Depot
+    kind: Settlement
+    text: >-
+      A wide storehouse where crates from the other settlements are opened, counted, and logged by hand on a board by the door.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574838623134679172
+  - name: The Mines
+    kind: Settlement
+    text: >-
+      A shaft cut deep under the plateau, worked in shifts by the Snowflake Obsidians. Some of the side tunnels have been boarded up, and none of the miners agree on why.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574838891935047680
+  - name: Infirmary
+    kind: Settlement
+    text: >-
+      Where cracked Rogues get patched up with salvaged, mismatched tools, since none of them can walk into a Gempire medbay.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574839021992153193
+  - name: The Bunkhouse
+    kind: Settlement
+    text: >-
+      A long hall of bunks stacked three high, where new arrivals stay until they have earned a home. Almost everyone in the settlement started here.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574839133623423189
+  - name: Trading Post
+    kind: Settlement
+    text: >-
+      A covered yard by the gates where caravans from the other settlements unload. Goods are traded, not sold, and prices change depending on who is asking.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574839221477310544
+  - name: Scrapfield
+    kind: The Wilds
+    text: >-
+      A stretch of snow scattered with crashed ships nobody came back for, where most of the settlement's hull plating comes from. New wreckage still turns up every so often.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574839285662621747
+  - name: Freezing Shrines
+    kind: The Wilds
+    text: >-
+      Old structures half buried in the ice, older than anyone in the settlement, carved with markings nobody can read. The settlers give them a wide berth.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574839434514407504
+  - name: Drifting Roads
+    kind: The Wilds
+    text: >-
+      Trails marked with poles and scrap flags that run to the other Rogue camps. Storms bury the markers fast, and not every caravan arrives.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574839538323431485
   - name: Crash Site
     kind: The Wilds
     text: >-
