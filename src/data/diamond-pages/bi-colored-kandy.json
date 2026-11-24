@@ -3,7 +3,7 @@
  "title": "Bi-Colored <span class=\"accent\">Kandy</span> Diamond",
  "courtLine": "Court Kandy · Ruling Diamond · Era 2A",
  "heroSub": "The Tech Diamond, and one of the four Ruling Diamonds who came into being in Era 2A.",
- "quote": "",
+ "quote": "Oh crap, that shouldn't smoke… Hey Peri! Can you get an extinguisher, or a Lapis? Broke? Nah, don't worry about it, I'll get this puppy back up and running in no time!",
  "quoteBy": "Bi-Colored Kandy Diamond",
  "art": {
   "sub": "Sketch",
@@ -17,16 +17,170 @@
    }
   ]
  },
- "personality": [],
- "purpose": [],
- "weakness": [],
- "abilities": [],
+ "personality": [
+  "Kandy is a genuinely whimsical gem, though she's serious most of the time, the kind of serious you can still joke with. A big thing with her is that she's one of the biggest tech nerds in the whole Gempire. She makes a group of Peridots look like a frat group. I mean, it is her job. Once someone tells her something is 'impossible' to make, she refuses to believe it and will do anything in her power to prove it can be done. She sees her Peridots as equals in the realm of invention, since more minds means more ideas and more progress. And when something fails... she cries. I mean, she goes back to square one and starts over, changing the design until it works."
+ ],
+ "purpose": [
+  "She is the Diamond who focuses on technology and archaeology and on advancing both, while also making more Kindergartens for her builders and Peridots and whatever the hell else, and making sure the tech gets better, the buildings prettier, and her gems happier."
+ ],
+ "weakness": [
+  "She overthinks things too much for her own good. She also can't say no to an invention idea: she's too prideful to turn one down, out of fear it'll look like she can't make it. And she's terrible at telling if someone's lying."
+ ],
+ "abilities": [
+  {
+   "name": "Absolute Technokinesis",
+   "level": "Mastered",
+   "meta": {
+    "Parent": "Technokinesis",
+    "Complexity": "Complex",
+    "Origin": "Domain of Technology"
+   },
+   "desc": [
+    "Kandy can talk to machines, and they listen. She can take apart, repair, upgrade, or take over anything that was built, from a holopad to a warship, and she understands how a machine works just by touching it. It takes focus, though. Spook her while she's holding up a heavy piece of tech and it's coming down."
+   ],
+   "passives": [
+    {
+     "name": "Aura: Brainstorm",
+     "text": "While Kandy is on the battlefield, every ally who is Near her gains +3 INT. Allies who aren't from Court Kandy aren't used to it, so they also get -1 SPD while they're in it."
+    },
+    {
+     "name": "Tabs Open",
+     "text": "Kandy always has a wall of holopads open around her. She can CHECK one target each round without using her turn."
+    }
+   ],
+   "spells": [
+    {
+     "name": "Short Circuit",
+     "tier": "Basic",
+     "cost": "2 SP",
+     "text": "Kandy sends a jolt through the tech on one target. They take 2d4 + MAG Electric damage."
+    },
+    {
+     "name": "Patch Job",
+     "tier": "Basic",
+     "cost": "3 SP",
+     "text": "Kandy fixes up one ally's armor on the spot. They get +2 DEF for 2 turns. If the ally is a Gem Machine, it heals 2d6 HP instead."
+    },
+    {
+     "name": "Overclock",
+     "tier": "Standard",
+     "cost": "2 SP",
+     "text": "Kandy pushes one ally's weapon past its limits. For 2 turns, every hit of their FIGHT deals 2 more damage. When it ends, the weapon has to cool down, and they can't FIGHT on their next turn."
+    },
+    {
+     "name": "Override",
+     "tier": "Advanced",
+     "cost": "4 SP",
+     "text": "Kandy takes over one machine: a Gem Machine, a turret, a ship, or anything else that was built. It resists with INT. If it fails, it fights on her side for 2 turns."
+    },
+    {
+     "name": "System Crash",
+     "tier": "Mastered",
+     "cost": "7 SP",
+     "text": "Every piece of enemy tech shuts down at once. Every enemy resists with INT. Those who fail lose the ATK and DEF from their weapons and armor for 2 turns, and any Gem Machine that fails skips its next turn."
+    }
+   ],
+   "weakLabel": "Weakness",
+   "weak": "It only works on things that were built. Gems and organics aren't machines, though Gem Machines are. It also takes focus: if Kandy takes a critical hit, any Technokinesis spell she has running ends."
+  },
+  {
+   "name": "Hologram Generation",
+   "level": "Advanced",
+   "meta": {
+    "Parent": "N/A",
+    "Complexity": "Advanced",
+    "Origin": "Domain of Technology"
+   },
+   "desc": [
+    "Like a Pearl, Kandy can project holograms of herself, but hers are hard light and can actually pick things up. She can make them anywhere from her own size down to the size of a Ruby, and she uses them to hold things, show her gems how a job is done, or just be in six places at once."
+   ],
+   "passives": [
+    {
+     "name": "Six at Once",
+     "text": "Kandy can keep up to 6 holograms out at a time. Each one has 1 HP and can't FIGHT unless a spell says so. If 6 are already out, she can't make more until one pops."
+    }
+   ],
+   "spells": [
+    {
+     "name": "Hold This",
+     "tier": "Basic",
+     "cost": "2 SP",
+     "text": "A hologram steps in front of one ally. The next hit that would land on them hits the hologram instead, and the hologram pops."
+    },
+    {
+     "name": "Show and Tell",
+     "tier": "Basic",
+     "cost": "2 SP",
+     "text": "A small hologram of Kandy shows one ally exactly how it's done. Their next roll is made with advantage."
+    },
+    {
+     "name": "Decoy",
+     "tier": "Standard",
+     "cost": "3 SP",
+     "text": "Kandy splits into three copies and shuffles them around. For 2 turns, attacks against her are made with disadvantage."
+    },
+    {
+     "name": "Work Crew",
+     "tier": "Advanced",
+     "cost": "3 SP",
+     "text": "Kandy sends out up to 3 holograms, each at a different target or all at the same one. Each hologram deals 1d6 + 2 damage, then pops."
+    },
+    {
+     "name": "Full House",
+     "tier": "Mastered",
+     "cost": "5 SP",
+     "text": "Kandy fills the battlefield with all 6 holograms. For 2 turns, every ally who is Near her has a hologram guarding them that takes the next hit against them, then pops."
+    }
+   ],
+   "weakLabel": "Weakness",
+   "weak": "Her holograms pop from a single hit, and she can never have more than six out. Anything that cuts her off from her light, like being Poofed, makes every hologram vanish."
+  },
+  {
+   "name": "Holoprint",
+   "level": "Advanced",
+   "meta": {
+    "Parent": "Hologram Generation",
+    "Complexity": "Advanced",
+    "Origin": "Domain of Architecture"
+   },
+   "desc": [
+    "Kandy can picture a building in her head and throw the whole blueprint up as a hologram: every wall, pipe, and support beam. She can also do it backward, looking at anything already built and seeing its blueprint, weak spots included. Outside of battle, it's how her court plans every spire and Kindergarten. In battle, it's how she knows exactly where a wall will break."
+   ],
+   "passives": [
+    {
+     "name": "Blueprint Eye",
+     "text": "Kandy always knows the full layout of any building she's in, including hidden rooms, vents, and exits."
+    }
+   ],
+   "spells": [
+    {
+     "name": "Weak Point",
+     "tier": "Basic",
+     "cost": "2 SP",
+     "text": "Kandy pulls up the blueprint of one target's armor and marks where it gives. The next FIGHT against them ignores DEF."
+    },
+    {
+     "name": "Hard-Light Wall",
+     "tier": "Standard",
+     "cost": "3 SP",
+     "text": "Kandy prints a wall between her party and the enemy. For 2 turns, enemies who are Far can't target anyone in her party."
+    },
+    {
+     "name": "Demolition",
+     "tier": "Advanced",
+     "cost": "5 SP",
+     "text": "Kandy finds the support beam that holds everything up and pulls it out. Every enemy who is Near takes 3d6 damage and resists with SPD. Those who fail are Stuck under the rubble for 1 turn."
+    }
+   ],
+   "weakLabel": "Weakness",
+   "weak": "Living things have no blueprint. Holoprint can't read a gem's body or an organic, only what they wear and carry. Demolition also needs a building or structure nearby to bring down."
+  }
+ ],
  "powerList": [],
  "credits": [
   {
    "label": "Art",
    "name": "Blair"
   }
- ],
- "partial": "This page is partial. Only what the server already knows is here, and the rest will be added once Bi-Colored Kandy's submission arrives."
+ ]
 }
