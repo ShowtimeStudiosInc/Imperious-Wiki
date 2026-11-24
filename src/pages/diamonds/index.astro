@@ -26,6 +26,7 @@ const DIAMOND_PEARLS: Record<string, (string | null)[]> = {
 };
 const REGENT_PEARLS: Record<string, string | null> = {
   reina: 'Milo *',
+  tethys: 'Cloud Pearl *',
 };
 const pearlsFor = (slug: string) => { const p = DIAMOND_PEARLS[slug] ?? []; return [0, 1, 2].map((i) => p[i] ?? null); };
 
