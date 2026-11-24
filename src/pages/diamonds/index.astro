@@ -31,7 +31,7 @@ const GLASS: Record<string, { a: string; b: string; dark: string; glow: string }
 // How each picture sits in the glass. 'glass': the art has no background, so a glass mural shows behind it
 // (src points at a cutout from scripts/glass_cutout.py when the original had a flat color behind it).
 // 'paper': a sketch on paper, so the paper takes on the glass color. Anything not listed keeps its own background.
-const ART: Record<string, { mode: 'glass' | 'paper'; src?: string; fit?: 'contain' }> = {
+const ART: Record<string, { mode: 'glass' | 'paper'; src?: string; pos?: string }> = {
   'alpha-black': { mode: 'glass' },
   'theta-gold': { mode: 'paper' },
   'nightshade-violet': { mode: 'glass', src: '/images/glass/nightshade-violet.webp' },
@@ -39,7 +39,7 @@ const ART: Record<string, { mode: 'glass' | 'paper'; src?: string; fit?: 'contai
   'bi-colored-kandy': { mode: 'paper' },
   florentino: { mode: 'glass' },
   antton: { mode: 'glass' },
-  magda: { mode: 'glass', fit: 'contain' },
+  magda: { mode: 'glass', pos: '50% 40%' },
   tethys: { mode: 'glass', src: '/images/glass/tethys.webp' },
 };
 const artSrc = (key: string, fallback: string) => url(ART[key]?.src ?? fallback);
@@ -226,7 +226,7 @@ const regentCourt = (r: any) => r.facts.find((f: any) => f[0] === 'Court')?.[1];
                   );
                   return (
                     <a class="pane" href={url(`/regents/${r.slug}/`)}>
-                      <div class={`pane-glass${ART[r.slug] ? ` on-glass ${ART[r.slug].mode}${ART[r.slug].fit ? ' fit' : ''}` : ''}`} style={ART[r.slug] ? `background-image:${muralURI(d.slug, 132, 185, r.slug)}` : undefined}><img src={ART[r.slug]?.src ? url(ART[r.slug].src!) : regentArt(r)} alt={`${r.name} art`} loading="lazy" /></div>
+                      <div class={`pane-glass${ART[r.slug] ? ` on-glass ${ART[r.slug].mode}` : ''}`} style={ART[r.slug] ? `background-image:${muralURI(d.slug, 132, 185, r.slug)}` : undefined}><img src={ART[r.slug]?.src ? url(ART[r.slug].src!) : regentArt(r)} alt={`${r.name} art`} loading="lazy" style={ART[r.slug]?.pos ? `object-position:${ART[r.slug].pos}` : undefined} /></div>
                       <strong>{r.name}</strong>
                       <small>{r.facts[0][1]}</small>
                     </a>
@@ -296,7 +296,6 @@ const regentCourt = (r: any) => r.facts.find((f: any) => f[0] === 'Court')?.[1];
   .court-art:hover { box-shadow: 0 0 34px color-mix(in srgb, var(--glow) 55%, transparent); transform: translateY(-3px); }
   .on-glass { background-size: cover; background-position: center; }
   .on-glass.paper img { mix-blend-mode: multiply; }
-  .pane-glass.fit img { object-fit: contain; padding: 12% 6% 4%; }
   .court-art img { display: block; width: 100%; aspect-ratio: 3 / 4.4; object-fit: cover; object-position: center 15%; }
   .court-kicker { margin: 0 0 0.3rem; color: var(--wb); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
   .court h2 { margin: 0 0 0.8rem; font-size: 1.7rem; }
