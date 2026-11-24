@@ -184,7 +184,9 @@ function tick(pop, state, now, forceTier) {
   state.history.push({ t: now, scores: Object.fromEntries(all.map((p) => [p.slug, p.row.score])) });
   const weekAgo = [...state.history].reverse().find((h) => h.t <= now - BIG_EVERY) || state.history[0];
   state.history = state.history.filter((h) => h.t >= weekAgo.t);
-  for (const p of all) p.row.previous = weekAgo.scores[p.slug] ?? p.row.score;
+  // Someone added to the boards after that snapshot is compared to their first recorded score instead.
+  const firstSeen = (slug) => state.history.find((h) => h.scores[slug] != null)?.scores[slug];
+  for (const p of all) p.row.previous = weekAgo.scores[p.slug] ?? firstSeen(p.slug) ?? p.row.score;
 
   pop.updated = date;
   pop.log = [...lines, ...(pop.log || [])].filter((l) => now - new Date(l.date).getTime() <= LOG_DAYS * DAY);
@@ -286,7 +288,16 @@ if (arg('--announce')) {
   const pop = loadPop(), state = loadState();
   const applied = applyNews(pop, state);
   if (applied.length) console.log('Applied news:', applied.join(', '));
-  const result = tick(pop, state, Date.now(), arg('--tier'));
+  // GitHub often runs the 2-hour schedule late or skips runs, so the boards would barely move.
+  // Catch up: roll a small event for each missed 2-hour slot since the last run (up to 5), dated when it should have happened.
+  const now = Date.now();
+  state.lastRun ??= state.history?.at(-1)?.t ?? now;
+  const missed = arg('--tier') ? 0 : Math.min(5, Math.floor((now - state.lastRun) / (2 * HOUR)) - 1);
+  const caught = [];
+  for (let k = missed; k >= 1; k--) caught.push(tick(pop, state, now - k * 2 * HOUR, 'small'));
+  if (caught.length) console.log(`Caught up ${caught.length} missed small event(s).`);
+  const result = tick(pop, state, now, arg('--tier'));
+  state.lastRun = now;
   const post = discordPost(pop, result);
   state.post = post ? { run: process.env.GITHUB_RUN_ID || 'local', ...post } : null;
   save(pop, state);
