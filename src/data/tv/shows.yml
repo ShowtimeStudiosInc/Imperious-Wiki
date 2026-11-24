@@ -48,3 +48,15 @@
   accent: '#7fe0a8'
   status: coming-soon
   order: 3
+
+- slug: gem-and-i
+  name: Gem and I
+  tagline: Details coming soon.
+  host: To be announced
+  where: ''
+  network: ''
+  kind: Show
+  color: '#7fd4ff'
+  accent: '#ffd27a'
+  status: coming-soon
+  order: 4
