@@ -1,5 +1,5 @@
 # Random events for the Diamond Approval Rating. The world-events workflow picks from this list:
-# a small event every 3 hours, a medium event every few days, and a weekly report once a week.
+# a small event every 2 hours, a medium event every few days, and a weekly report once a week.
 #
 # Fields:
 #   id:      unique name (used so the same event doesn't repeat too soon)
@@ -611,3 +611,800 @@
   targets: 4
   change: [-3, 3]
   text: The kindergarten output report came out. Courts that met their numbers got praise, and the rest got questions.
+
+# ── MORE SMALL EVENTS (added 2026-11-24) ─────────────────────────────────────
+
+- id: kind-word-shift
+  tier: small
+  who: any
+  change: [1, 2]
+  text: "{a_gem} on a night crew says {short} stopped to thank her crew by name. She hasn't stopped telling people."
+
+- id: wrong-name
+  tier: small
+  who: any
+  change: [-1, -1]
+  text: "{short} called {a_gem} by the wrong name at a public event. The clip has been shared all week."
+
+- id: holo-interview-good
+  tier: small
+  who: any
+  change: [1, 2]
+  text: A short Holovision interview with {short} went better than anyone expected. Viewers liked how plainly they answered.
+
+- id: holo-interview-bad
+  tier: small
+  who: any
+  change: [-2, -1]
+  text: A short Holovision interview with {short} was cut off early. Nobody has explained why, which only made gems talk more.
+
+- id: colony-thanks
+  tier: small
+  who: diamond
+  change: [1, 2]
+  text: A colony sent {short}'s court a thank-you message signed by every gem living there.
+
+- id: colony-complaint
+  tier: small
+  who: diamond
+  change: [-2, -1]
+  text: A colony sent {short}'s court a list of complaints. It was nine pages long.
+
+- id: slow-reply
+  tier: small
+  who: any
+  change: [-1, -1]
+  text: Gems say messages sent to {short}'s office take weeks to get an answer.
+
+- id: fast-reply
+  tier: small
+  who: any
+  change: [1, 1]
+  text: Gems say {short}'s office has been answering messages the same day. Nobody is sure what changed.
+
+- id: pearl-praise
+  tier: small
+  who: any
+  change: [1, 2]
+  text: Pearls who have served in {short}'s court say they were treated well there. Word gets around among Pearls fast.
+
+- id: pearl-complaint
+  tier: small
+  who: any
+  change: [-2, -1]
+  text: A Pearl who left {short}'s court says the hours were impossible. Other Pearls are passing the story along.
+
+- id: lost-shipment-found
+  tier: small
+  who: diamond
+  change: [1, 1]
+  text: A shipment that went missing in {short}'s territory turned up a week later with nothing gone. Gems were relieved.
+
+- id: statue-vandal
+  tier: small
+  who: diamond
+  change: [-1, -1]
+  min_unrest: 35
+  unrest: 1
+  text: Someone painted over the face of a statue of {short} in a colony square. It was cleaned off by morning.
+
+- id: statue-polished
+  tier: small
+  who: diamond
+  change: [1, 1]
+  max_unrest: 45
+  text: Gems in a colony square polished a statue of {short} on their own time, just because.
+
+- id: crowd-cheer
+  tier: small
+  who: any
+  change: [1, 2]
+  text: A crowd cheered when {short} passed through a warp hub. {short} looked surprised.
+
+- id: crowd-silent
+  tier: small
+  who: any
+  change: [-1, -1]
+  text: When {short} passed through a busy warp hub, nobody said a word. Gems are reading a lot into the silence.
+
+- id: kindergarten-visit
+  tier: small
+  who: diamond
+  acts: true
+  change: [1, 2]
+  text: "{short} visited a kindergarten and spent time with the newest gems. The staff there are still talking about it."
+
+- id: off-color-helped
+  tier: small
+  who: any
+  change: [1, 2]
+  text: Word is going around that {short}'s court quietly helped an off-color gem find work instead of turning her in.
+
+- id: off-color-reported
+  tier: small
+  who: any
+  change: [-2, -1]
+  text: Word is going around that {short}'s court reported an off-color gem who had asked them for help.
+
+- id: holo-ad
+  tier: small
+  who: any
+  change: [-1, 1]
+  text: A Holovision ad featuring {short} started playing between every show. Some gems like it. Some are very tired of it.
+
+- id: game-show-mention
+  tier: small
+  who: any
+  change: [1, 1]
+  text: "{short} came up as a question on a Holovision game show. The contestant got it right and the crowd went wild."
+
+- id: misquoted-numbers
+  tier: small
+  who: diamond
+  change: [-1, -1]
+  text: A report from {short}'s court had the wrong numbers in it. The fix came out quickly, but the first version spread further.
+
+- id: helpful-guide
+  tier: small
+  who: diamond
+  change: [1, 1]
+  text: "{short}'s court put out a guide for new gems in their territory. It's short, clear, and actually useful."
+
+- id: confusing-rule
+  tier: small
+  who: diamond
+  change: [-1, -1]
+  text: A new rule from {short}'s court has gems confused. Three different offices gave three different answers about it.
+
+- id: rule-clarified
+  tier: small
+  who: diamond
+  change: [1, 1]
+  text: "{short}'s court cleared up a confusing rule with one plain announcement. Gems appreciated not having to guess."
+
+- id: warp-delay
+  tier: small
+  who: diamond
+  change: [-1, -1]
+  text: Warp pads in {short}'s territory ran hours behind all day. Most gems blamed the court, fair or not.
+
+- id: gift-returned
+  tier: small
+  who: any
+  change: [1, 2]
+  text: "{a_gem} sent {short} a handmade gift and got a short note back. She has it framed now."
+
+- id: gift-ignored
+  tier: small
+  who: any
+  change: [-1, -1]
+  text: "{a_gem} says she sent {short} a gift months ago and never heard anything back."
+
+- id: crowd-fight-handled
+  tier: small
+  who: any
+  change: [1, 2]
+  text: A fight broke out at an event in {short}'s name, and their guards settled it without anyone getting poofed.
+
+- id: crowd-fight-poorly
+  tier: small
+  who: any
+  change: [-2, -1]
+  unrest: 1
+  text: A fight broke out at an event in {short}'s name, and two gems were poofed before the guards stepped in.
+
+- id: same-outfit
+  tier: small
+  who: any
+  change: [1, 1]
+  text: Gems all over Homeworld have started copying an outfit {short} wore last week.
+
+- id: old-promise
+  tier: small
+  who: any
+  change: [-2, -1]
+  text: Someone dug up a promise {short} made a long time ago and never kept. It's being passed around again.
+
+- id: old-promise-kept
+  tier: small
+  who: any
+  change: [1, 2]
+  text: Someone dug up a promise {short} made a long time ago. Turns out it was kept, quietly, years back.
+
+- id: sculpture-contest
+  tier: small
+  who: any
+  change: [1, 1]
+  text: "{a_gem} won a sculpture contest with a piece shaped like {short}. It's on display near the warp hub."
+
+- id: parody-song
+  tier: small
+  who: any
+  change: [-1, -1]
+  text: A parody song about {short} is going around the colonies. It isn't kind, but it is catchy.
+
+- id: recruits-asked
+  tier: small
+  who: diamond
+  change: [1, 1]
+  text: More newly emerged gems than usual asked to be placed in {short}'s court this month.
+
+- id: transfers-out
+  tier: small
+  who: diamond
+  change: [-1, -1]
+  text: A small group of gems asked to transfer out of {short}'s court this month. None of them said why.
+
+- id: help-after-storm
+  tier: small
+  who: diamond
+  change: [1, 2]
+  text: After a dust storm hit a colony, {short}'s court had crews there before the storm had even finished.
+
+- id: missed-storm
+  tier: small
+  who: diamond
+  change: [-2, -1]
+  text: After a dust storm hit a colony, it took {short}'s court three days to send anyone. Gems there remember.
+
+- id: thank-you-crowd
+  tier: small
+  who: any
+  acts: true
+  change: [1, 1]
+  text: "{short} sent a short message thanking the gems who keep the warp hubs running. It was posted at every hub."
+
+- id: ignored-question
+  tier: small
+  who: any
+  change: [-1, -1]
+  text: "{a_gem} asked {short} a question in public and was walked past without an answer. The moment was caught on a recording."
+
+- id: answered-question
+  tier: small
+  who: any
+  acts: true
+  change: [1, 2]
+  text: "{a_gem} asked {short} a question in public, and {short} stopped to answer it properly. The crowd noticed."
+
+# ── MORE SMALL EVENTS: one person each ───────────────────────────────────────
+
+- id: alpha-sighting
+  tier: small
+  who: [alpha-black]
+  change: [-1, 1]
+  text: Someone claims to have seen Alpha Black in District 0 late at night. Half the gems who hear it don't believe it.
+
+- id: alpha-old-gem
+  tier: small
+  who: [alpha-black]
+  change: [1, 2]
+  text: An old Era 0 gem told a crowd that Alpha Black once saved her colony. She wouldn't say how.
+
+- id: alpha-empty-seat
+  tier: small
+  who: [alpha-black]
+  change: [-2, -1]
+  text: Alpha Black's seat sat empty at another public ceremony. Gems are starting to ask what she's for.
+
+- id: epsilon-witness
+  tier: small
+  who: [epsilon-blue]
+  change: [1, 2]
+  text: A gem who testified in Epsilon's courtroom says she felt heard for the first time in her life.
+
+- id: epsilon-strict-sentence
+  tier: small
+  who: [epsilon-blue]
+  change: [-2, -1]
+  text: A sentence handed down in Epsilon's court is being called too harsh by gems who knew the accused.
+
+- id: epsilon-sees-through
+  tier: small
+  who: [epsilon-blue]
+  change: [1, 1]
+  text: A gem tried to lie in Epsilon's courtroom and was caught in seconds. The story is being retold with a lot of enjoyment.
+
+- id: theta-perfect-batch
+  tier: small
+  who: [theta-gold]
+  change: [1, 2]
+  text: A new batch of Perfect Cut gems came out of one of Theta's kindergartens. His court made sure everyone knew.
+
+- id: theta-defect-turned-away
+  tier: small
+  who: [theta-gold]
+  change: [-2, -1]
+  text: A defective gem from one of Theta's kindergartens was turned away from his court. Others saw it happen.
+
+- id: theta-workaholic
+  tier: small
+  who: [theta-gold]
+  change: [-1, 1]
+  text: Theta sent his Cubic Zirconia to another social event in his place. Some gems respect the work ethic. Some feel brushed off.
+
+- id: nightshade-early-work
+  tier: small
+  who: [nightshade-violet]
+  change: [1, 2]
+  text: Every report Court Nightshade owed this month was handed in early. Again.
+
+- id: nightshade-no-show
+  tier: small
+  who: [nightshade-violet]
+  change: [-1, -1]
+  text: Nightshade's Pearls spoke at an event Nightshade was supposed to attend. Gems are wondering when they last saw her in person.
+
+- id: nightshade-eyes-help
+  tier: small
+  who: [nightshade-violet]
+  change: [1, 2]
+  text: A lost gem in District 1 says one of Nightshade's watching eyes led her guards right to her.
+
+- id: nightshade-eyes-creepy
+  tier: small
+  who: [nightshade-violet]
+  change: [-2, -1]
+  text: Gems in District 1 have started covering their windows. They say they're tired of being watched.
+
+- id: maroon-veterans
+  tier: small
+  who: [maroon-red]
+  change: [1, 2]
+  text: Maroon's court set aside new quarters for gems retired from the Militia. Veterans are grateful.
+
+- id: maroon-injuries
+  tier: small
+  who: [maroon-red]
+  change: [-2, -1]
+  text: Too many recruits came back cracked from a Court Maroon training camp. Gems are asking if the drills went too far.
+
+- id: maroon-speech
+  tier: small
+  who: [maroon-red]
+  acts: true
+  change: [1, 2]
+  text: Maroon gave a short speech to a squad heading out on a hard mission. Gems who were there say it stuck with them.
+
+- id: kandy-gadget
+  tier: small
+  who: [bi-colored-kandy]
+  change: [1, 2]
+  text: A small gadget from Kandy's labs that keeps warp pads clean is now in every hub. Gems love it.
+
+- id: kandy-lab-noise
+  tier: small
+  who: [bi-colored-kandy]
+  change: [-1, -1]
+  text: Gems living near Kandy's labs in District 3 say the noise hasn't stopped in four days.
+
+- id: kandy-dig-find
+  tier: small
+  who: [bi-colored-kandy]
+  change: [1, 2]
+  text: One of Kandy's digs turned up an old Era 0 tool that still works. The find is on display in District 3.
+
+- id: kandy-coffee
+  tier: small
+  who: [bi-colored-kandy]
+  change: [-1, 1]
+  text: Kandy's labs ran out of coffee for a whole day. District 3 is calling it the worst day of the year.
+
+- id: saturn-free-drinks
+  tier: small
+  who: [saturn-light]
+  change: [1, 2]
+  text: Saturn's club offered a free round to every gem who worked through the holidays. The line went around the block.
+
+- id: saturn-noise
+  tier: small
+  who: [saturn-light]
+  change: [-2, -1]
+  text: Gems near District 4 are complaining that the music from Saturn's venues never seems to stop.
+
+- id: saturn-healer
+  tier: small
+  who: [saturn-light]
+  acts: true
+  change: [1, 2]
+  text: Saturn stopped at an accident near a warp hub and patched up three gems himself before medics arrived.
+
+- id: dante-sealed
+  tier: small
+  who: [dante]
+  change: [-1, 1]
+  text: A gem says a HUNTER patrol with Dante's mark on it passed through her colony at night. Nobody else saw it.
+
+- id: dante-feared
+  tier: small
+  who: [dante]
+  change: [-2, -1]
+  text: Parents in the colonies have started using Grand Regent Dante's name to scare young gems into behaving.
+
+- id: ordr-tidy
+  tier: small
+  who: [ordr]
+  change: [1, 1]
+  text: Ordr reorganized Court Theta's public records. For the first time, gems can actually find what they're looking for.
+
+- id: ordr-strict-time
+  tier: small
+  who: [ordr]
+  change: [-1, -1]
+  text: A gem was sent home from a meeting with Ordr's office for arriving two minutes late. She's telling everyone.
+
+- id: tethys-library
+  tier: small
+  who: [tethys]
+  change: [1, 2]
+  text: Tethys opened part of Court Epsilon's library to the public. Gems lined up to read old court records.
+
+- id: tethys-unsettling
+  tier: small
+  who: [tethys]
+  change: [-1, -1]
+  text: Gems who met Tethys say they couldn't tell what Tethys was thinking, and it left them uneasy.
+
+- id: law-fair
+  tier: small
+  who: [law]
+  change: [1, 2]
+  text: Law ruled against one of his own court's gems in a dispute. Gems were surprised he didn't take her side.
+
+- id: law-lecture
+  tier: small
+  who: [law]
+  change: [-1, -1]
+  text: Law gave a crowd a long lecture about following the rules. Most of them were only trying to get to the warp pad.
+
+- id: reina-drink
+  tier: small
+  who: [reina]
+  change: [-1, 1]
+  text: Reina threw her drink at a broken machine to fix it. It worked. Nobody knows how.
+
+- id: reina-games
+  tier: small
+  who: [reina]
+  change: [1, 2]
+  text: A mobile game Reina was seen playing shot to the top of the Holovision charts overnight.
+
+- id: reina-sweetie
+  tier: small
+  who: [reina]
+  change: [-1, -1]
+  text: A senior gem in Court Nightshade did not enjoy being called "Sweetie" by Reina in front of her crew.
+
+- id: antton-rerun
+  tier: small
+  who: [antton]
+  change: [1, 1]
+  text: Reruns of Antton's game show are pulling in more viewers than most new shows.
+
+- id: antton-prank
+  tier: small
+  who: [antton]
+  change: [-2, -1]
+  text: A prank on Antton's show went too far, and the contestant left in tears. Some viewers stopped watching.
+
+- id: antton-shows-up
+  tier: small
+  who: [antton]
+  acts: true
+  change: [1, 2]
+  text: Antton cut a broadcast short when his sibling needed him. Gems who usually find him annoying respected it.
+
+- id: florentino-race
+  tier: small
+  who: [florentino]
+  change: [1, 2]
+  text: Florentino raced a delivery crew across District 4 for fun and lost. He paid for their whole night out.
+
+- id: florentino-crash
+  tier: small
+  who: [florentino]
+  change: [-1, -1]
+  text: Florentino ran into a market stall at full speed. He apologized and paid for it, but the stall owner is still annoyed.
+
+- id: magda-ranks
+  tier: small
+  who: [magda]
+  change: [1, 2]
+  text: Gems who trained under Magda keep getting promoted. Court Maroon has noticed the pattern.
+
+- id: magda-blunt
+  tier: small
+  who: [magda]
+  change: [-1, -1]
+  text: Magda told a group of new recruits exactly what she thought of their form. Some of them are still recovering.
+
+# ── MORE MEDIUM EVENTS (added 2026-11-24) ────────────────────────────────────
+
+- id: colony-founded
+  tier: medium
+  who: diamond
+  change: [3, 5]
+  text: A new colony was founded under {short}'s banner. Gems who moved there say it's off to a good start.
+
+- id: colony-abandoned
+  tier: medium
+  who: diamond
+  change: [-5, -3]
+  unrest: 2
+  text: A colony under {short} was abandoned after its supplies ran out. Gems are asking why nobody noticed sooner.
+
+- id: kindergarten-collapse
+  tier: medium
+  who: diamond
+  change: [-5, -3]
+  unrest: 2
+  sets: collapse
+  text: Part of a kindergarten under {short} caved in. Nobody was shattered, but some gems that were growing there were lost.
+
+- id: kindergarten-collapse-follow-up
+  tier: medium
+  who: diamond
+  needs: collapse
+  change: [2, 4]
+  unrest: -1
+  text: "{short}'s court rebuilt the kindergarten that caved in and put new safety checks in place. Gems call it a fair answer."
+
+- id: corruption-found
+  tier: medium
+  who: diamond
+  change: [-5, -3]
+  unrest: 2
+  sets: corruption
+  text: An official in {short}'s court was found selling assignments to the highest bidder.
+
+- id: corruption-follow-up
+  tier: medium
+  who: diamond
+  needs: corruption
+  change: [2, 4]
+  text: The official caught selling assignments in {short}'s court was removed, and every assignment they sold is being looked at again.
+
+- id: rescue-mission
+  tier: medium
+  who: any
+  change: [3, 5]
+  text: A crew sent by {short}'s court brought back gems stranded on a dead moon. Holovision covered every step of it.
+
+- id: holovision-documentary
+  tier: medium
+  who: any
+  change: [-1, 4]
+  text: Holovision aired a long documentary about {short}. Gems are arguing about whether it was fair.
+
+- id: monument-unveiled
+  tier: medium
+  who: diamond
+  change: [2, 4]
+  max_unrest: 55
+  text: A new monument to {short} was unveiled in a colony square. Gems came from three systems to see it.
+
+- id: monument-protest
+  tier: medium
+  who: diamond
+  change: [-4, -2]
+  min_unrest: 50
+  unrest: 2
+  text: A new monument to {short} was unveiled, and a crowd showed up to protest it. Guards had to keep the two groups apart.
+
+- id: border-dispute
+  tier: medium
+  who: diamond
+  change: [-3, -2]
+  other: [2, 3]
+  text: A border dispute between {short} and {other} over a mining moon was settled in {other}'s favor.
+
+- id: joint-rescue
+  tier: medium
+  who: any
+  change: [2, 3]
+  other: [2, 3]
+  text: "{short} and {other} sent crews together to help a colony hit by quakes. Gems liked seeing them work side by side."
+
+- id: public-snub
+  tier: medium
+  who: any
+  change: [-3, -2]
+  other: [1, 2]
+  text: "{other} left an event early right as {short} stood up to speak. Gems have been arguing about it for days."
+
+- id: holo-hack
+  tier: medium
+  who: diamond
+  change: [-4, -2]
+  min_unrest: 40
+  unrest: 2
+  text: Holovision broadcasts in {short}'s territory were cut into by someone playing anti-Diamond messages for ten minutes.
+
+- id: shattering-scare
+  tier: medium
+  who: any
+  change: [-4, -3]
+  unrest: 2
+  text: A gem was found shattered near {short}'s court. The investigation is ongoing, and gems are uneasy.
+
+- id: famous-gem-joins
+  tier: medium
+  who: diamond
+  change: [3, 4]
+  text: A well-known performer from District 4 announced she's joining {short}'s court. Her fans followed.
+
+- id: famous-gem-leaves
+  tier: medium
+  who: diamond
+  change: [-4, -3]
+  text: A well-known performer quit {short}'s court and told Holovision why. It wasn't flattering.
+
+- id: storm-arrests
+  tier: medium
+  who: diamond
+  min_unrest: 50
+  change: [-2, 3]
+  unrest: 3
+  text: "{short}'s court arrested a group they say were S.T.O.R.M. members. Some gems cheered. Others say most of them were just protesters."
+
+- id: storm-cell-found
+  tier: medium
+  who: [nightshade-violet, maroon-red, epsilon-blue]
+  min_unrest: 40
+  change: [3, 5]
+  unrest: -2
+  text: "{short}'s court found and broke up a S.T.O.R.M. cell before it could act. Gems feel a little safer this week."
+
+- id: open-court
+  tier: medium
+  who: diamond
+  acts: true
+  change: [3, 5]
+  unrest: -1
+  text: "{short} held an open court where any gem could bring a problem straight to them. The line ran for hours."
+
+- id: harsh-decree
+  tier: medium
+  who: diamond
+  acts: true
+  change: [-4, -2]
+  unrest: 2
+  text: "{short} put a curfew on part of their territory after a string of break-ins. The break-ins stopped, but gems aren't happy."
+
+- id: supply-surplus
+  tier: medium
+  who: diamond
+  change: [2, 4]
+  text: "{short}'s territory had a surplus this season, and the extra was sent to colonies that came up short."
+
+- id: regent-rescue
+  tier: medium
+  who: regent
+  change: [3, 5]
+  text: "{short} stepped in to stop a collapse at a warp hub and got everyone out. Gems who were there won't stop talking about it."
+
+- id: regent-overreach
+  tier: medium
+  who: regent
+  change: [-4, -2]
+  text: "{short} gave an order that gems say only their Diamond should have given. People are asking who's really in charge."
+
+- id: regent-sibling-feud
+  tier: medium
+  who: regent
+  change: [-3, -2]
+  other: [-2, -1]
+  text: "{short} and {other} were heard arguing loudly in a court hallway. Neither will say what started it."
+
+- id: nightshade-authority-meeting
+  tier: medium
+  who: [nightshade-violet]
+  change: [2, 4]
+  other: [1, 2]
+  text: Nightshade called every Ruling Diamond together and settled three disputes in one sitting. {other} said it was the most useful meeting in months.
+
+- id: kandy-blackout
+  tier: medium
+  who: [bi-colored-kandy]
+  change: [-5, -3]
+  unrest: 2
+  text: A test in Kandy's labs knocked out power to half of District 3 for a full day.
+
+- id: maroon-victory
+  tier: medium
+  who: [maroon-red]
+  change: [3, 5]
+  text: A Court Maroon squad cleared out a nest of corrupted gems that had been threatening a mining colony for months.
+
+- id: saturn-party-poofs
+  tier: medium
+  who: [saturn-light]
+  change: [-4, -2]
+  text: A party in District 4 went badly wrong, and several gems were poofed. Saturn's venues are being looked at closely.
+
+- id: epsilon-public-trial
+  tier: medium
+  who: [epsilon-blue]
+  change: [-2, 4]
+  text: Epsilon allowed a trial to be shown on Holovision for the first time. The whole Gempire watched, and everyone has an opinion.
+
+- id: theta-new-type
+  tier: medium
+  who: [theta-gold]
+  change: [3, 5]
+  text: Theta's court announced a new Gem-Type in testing. Gems are excited and a little nervous.
+
+# ── MORE WEEKLY HEADLINES (added 2026-11-24) ─────────────────────────────────
+
+- id: meteor-shower
+  tier: big
+  who: any
+  targets: 3
+  change: [-3, 3]
+  text: A meteor shower damaged colonies across several systems. Some courts sent help within hours. Others took days.
+
+- id: holovision-poll
+  tier: big
+  who: any
+  targets: all
+  change: [-2, 2]
+  text: Holovision ran its biggest public poll of the year. The results moved almost everyone a little.
+
+- id: unity-day
+  tier: big
+  who: diamond
+  targets: all
+  max_unrest: 45
+  change: [1, 3]
+  unrest: -3
+  text: Unity Day brought gems from every court together on Homeworld. It went off without a single fight.
+
+- id: unity-day-tense
+  tier: big
+  who: diamond
+  targets: all
+  min_unrest: 46
+  change: [-2, 1]
+  unrest: 2
+  text: Unity Day went ahead, but the crowds were thinner than usual and the guards were everywhere.
+
+- id: corruption-sweep
+  tier: big
+  who: diamond
+  targets: 3
+  change: [-4, 2]
+  unrest: -1
+  text: Epsilon's court ran a sweep for corrupt officials across every court. Some courts came out clean. Some didn't.
+
+- id: off-color-debate
+  tier: big
+  who: any
+  targets: 4
+  change: [-3, 3]
+  unrest: 1
+  text: A debate over how off-color gems should be treated took over Holovision all week. Where each ruler stands is now very public.
+
+- id: supply-crisis
+  tier: big
+  who: diamond
+  targets: 4
+  min_unrest: 40
+  change: [-4, -1]
+  unrest: 3
+  text: A shortage of building materials hit every territory at once. Gems are lining up for rations of supplies.
+
+- id: storm-attack
+  tier: big
+  who: any
+  targets: 4
+  min_unrest: 65
+  change: [-4, -1]
+  unrest: 4
+  text: S.T.O.R.M. took credit for an attack on a supply depot. Gems are scared, and they want to know who failed to stop it.
+
+- id: regent-summit
+  tier: big
+  who: regent
+  targets: all
+  change: [-1, 3]
+  text: Every Grand Regent met in the same room for the first time in years. Gems are reading a lot into who sat where.
