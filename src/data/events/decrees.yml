@@ -87,4 +87,8 @@ players:
   florentino: ["394625411377528833"]
 
 # Keep `pending` as the last thing in this file. Astrid and the weekly run both expect it here.
-pending: []
+pending:
+  - who: "alpha-black"
+    decree: "lie-low"
+    by: "394625411377528833"
+    at: "2026-11-24T19:44:02.783Z"
