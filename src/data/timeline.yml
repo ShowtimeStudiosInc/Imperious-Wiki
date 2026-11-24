@@ -63,6 +63,11 @@ eras:
     name: Below the Surface…
     tagline: Follow the figure into the city's underside.
     emblem: hatch
+  - slug: the-execution
+    title: The Execution
+    name: A Public Execution
+    tagline: A STORM official answers for their crimes in front of the whole Agency.
+    emblem: shards
 
 pages:
   - key: era-0
@@ -221,7 +226,6 @@ pages:
             when: High noon
             segment: 2A
             link: /timeline/below-the-surface/
-            current: true
           - id: colony-crackdown-and-storm-warning
             kind: news
             title: A Storm Warning
@@ -234,6 +238,12 @@ pages:
             when: Later that afternoon
             segment: 2A
             link: /news/outer-rim-evacuation/
+          - id: the-execution
+            title: The Execution
+            when: That evening
+            segment: 2A
+            link: /timeline/the-execution/
+            current: true
           - id: storm-reaches-inner-colonies
             kind: news
             title: The Storm Reaches the Inner Colonies

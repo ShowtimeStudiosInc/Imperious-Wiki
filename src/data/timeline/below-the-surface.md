@@ -79,3 +79,41 @@
 > ⟡ Tulip's visions warn of a laser, someone falling, tears, and more corrupted gems ahead.
 > ⟡ Cyrus is carrying a wrench for someone named Marlowe, who the group has yet to meet.
 > ⟡ The group is now heading toward Engineering Checkpoint Delta.
+
+**RECAP: PART 3**
+> The middle path ended at Engineering Checkpoint Delta, a heavy security gate between Zone 2 and Zone 3. Its keypad flashed a red override error, and magnetic bars held the blast panels shut. Ash ran at it with her new pipe and bounced right off. This door couldn't be forced, so Cyrus attached his holopad to the keypad and started hacking. It took a near-perfect hack to get through, and Cyrus came close a few times. In the end, it was Ash who cracked it. She said the firewall had been simpler for some reason. Emmy said she thought Cyrus was the only good hacker in the group. Ash replied that the two of them clearly had each other hypnotized, and the gate slid open.
+>
+> Past the gate, a ladder dropped into a sealed vestibule. Its blast doors hung open on warped hinges, and scorch marks spread out from the frames, left by explosions long ago. Ash's signal was falling apart, and she warned Cyrus she would disconnect if she went any lower. Gold told her to leave, then, since all she did was get carried around. Cyrus mentioned there was supposed to be an execution on the surface that day, and Wasp realized she had missed it.
+>
+> Ash filled them in on the news from up top. A massive cosmic storm was sweeping the outer colonies, and it knocked out technology wherever it hit. Every colony in the outer rim was being evacuated, and something had destroyed an entire town in the middle of its evacuation. Lappy pointed out quietly that a storm like that is why the two of them were here at all. That storm was Ash's problem too. The datacenter hosting her consciousness sat out in those same outer colonies, and it was going dark. She took one step onto the ladder, lost her connection completely, and dropped like a sack of potatoes. Cyrus had Rhody store her in her gem.
+>
+> Wasp panicked. Her Pearl, Cream, was still up there. Morganite told her Cream had surely been evacuated. Cyrus reminded Wasp that she had left Cream at the base, and that there was no way back the way they came anyway. Emmy started worrying about her own ship and crew. Dustin flipped Catseye around to carry her in his arms, and she hid her blushing face in her hair.
+>
+> Beyond the vestibule, a short hall ended at another door, and this one had been welded shut from the inside. Thick beads of melted metal lined the frame, and the keypad was destroyed. Whoever had been down here in the facility's final hours had not wanted anyone to reach what was on the other side. Cyrus pulled out a glowing circular saw and started cutting a hole. Gold suggested they fuse and make a plasma torch instead, then announced she was stealing Emmy's man. Wasp offered to fuse with Emmy in front of Cyrus to get even. Cyrus said he was almost done anyway, and that he would rather save his first fusion for someone close to him. Then he kicked the cut piece in, and it fell.
+>
+> The room beyond was dark and damp. The only light came from a large hologram of Homeworld floating over a console in the middle. Morganite asked Rhody to light the way, and Rhody's gem lit up the room. The floor, walls, and ceiling were covered in hive resin. In the dark, pair after pair of glowing eyes opened. It was a nest.
+>
+> Seventeen corrupted gems came at them all at once: six Rubies, five Quartzes, two Peridots, three Agates, and a massive Jasper leading them. The Rubies swept fire across Cyrus, Emmy, and Morganite. The Quartzes body-slammed the front line. The Peridots tore metal panels off the server columns and threw them as shrapnel, and the Agates let out a roar that drove the whole nest into a frenzy. The Jasper charged straight into Opal and threw her across the floor. She got back up and froze it with a blast of snow. Gold took a hit that cost her half her health. Cyrus answered with two lightning slashes that tore through three of the Rubies. Morganite was too scared to fight back, but her fear made her harder to hurt. When a Quartz charged at Wasp, she grabbed Catseye out of Dustin's arms and used her as a shield.
+>
+> Then Lappy and Flappy pulled every drop of moisture out of the damp air, and Tulip added her ice. Together they raised a huge tidal wave full of ice spikes and sent it through the room. It wiped out the entire nest in one hit.
+>
+> Cyrus stared at the Lapises and said he was glad he wasn't on the other end of that water. He gathered the poofed gems, bubbled them, and sent them off. Gold quietly pocketed a few for herself, and Morganite asked if she was sure she should be taking those.
+>
+> Dustin was furious. He screamed at Wasp that she could have gotten Catseye killed. Wasp yelled back that she already had a cracked gem and wasn't risking another, and that Catseye needed to learn to fight for herself instead of complaining while Dustin doted on her. Dustin told her that throwing someone in front of a monster doesn't teach them anything, and that they were supposed to be a team. As he shouted, black smoke started pouring off his body. Wasp began coughing hard and backed away. Lappy and Flappy dampened the air around him until it settled.
+>
+> Cyrus told Dustin to save it for after they got out, and went to the console. With some work, the hologram of Homeworld split open and showed what was inside: rooms, engines, and machinery running all through it. Homeworld isn't just a planet with machines buried in it. The planet itself is a machine.
+>
+> Then red dots began appearing across the hologram, scattered all through the planet's underground, including the room they were standing in. Each was a corrupted nest. Holopads popped up beside them, all showing one date. It was the date of Alpha Black Diamond's birthday. Tulip noted that it was coming up soon. Cyrus looked horrified. "They're everywhere," he said. "Nests, everywhere." Then he told them they had to leave, now. He kicked down the nearest door and ran through it, and everyone followed. Dustin grabbed Wasp and Catseye on the way out, even after everything.
+>
+> The door opened onto an emergency borehole cut steeply up through the rock, with steel rungs bolted into the wall and starlight showing far above. Cyrus climbed first. As he went, he dropped a drone down to the group carrying a message: meet him at the General Docking Bay in a couple of days. One by one, the group climbed out into the freezing tundra of Sector Null. Opal said a follow-up didn't sound so bad. Stellar Gold said she was not doing that, since she had nearly died down there and gotten nothing for it. At the top, Rhody reached into her gem and pulled out Ash, along with all the gear she'd been holding. Ash was still completely shut down.
+
+**PART 3 HIGHLIGHTS**
+> ⟡ Ash hacked through Engineering Checkpoint Delta, the gate between Zone 2 and Zone 3.
+> ⟡ A cosmic storm is knocking out technology across the outer colonies, which are being evacuated. The datacenter hosting Ash's consciousness was caught in it, and her body has been shut down since.
+> ⟡ A door deep in Zone 3 was welded shut from the inside during the facility's final hours.
+> ⟡ A nest of seventeen corrupted gems attacked in the Terminal Central Chamber. Lappy, Flappy, and Tulip wiped it out with a single tidal wave.
+> ⟡ Wasp used Catseye as a shield, and the fight that followed between Wasp and Dustin is not settled.
+> ⟡ The central console revealed that Homeworld itself is a machine.
+> ⟡ Corrupted nests are spread all through Homeworld's underground, each marked with the date of Alpha Black Diamond's birthday, which is coming up soon.
+> ⟡ The group escaped through a borehole into the tundra of Sector Null.
+> ⟡ Cyrus has asked the group to meet him at the General Docking Bay in a couple of days.

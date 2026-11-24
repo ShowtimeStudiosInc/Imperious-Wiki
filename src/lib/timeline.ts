@@ -144,6 +144,8 @@ export const EMBLEMS: Record<string, string> = {
   // an anvil
   anvil: '<path d="M14 34h54c0 10 8 14 18 14v8H66c-4 0-6 3-6 7v5h8v8H32v-8h8v-5c0-6-4-9-10-9H14z"/>',
   // a hatch with a ladder going down
+  // a gem breaking apart into shards
+  shards: '<path d="M50 16l18 22-18 22-18-22z"/><path d="M22 66l9 4-4 9-8-5z" opacity=".75"/><path d="M76 64l7 7-8 6-5-8z" opacity=".75"/><path d="M48 76l8 3-3 9-8-3z" opacity=".55"/><path d="M34 54l5 3-3 5-5-3z" opacity=".5"/><path d="M64 52l5 2-2 6-5-2z" opacity=".5"/>',
   hatch: '<g fill="none" stroke="currentColor" stroke-width="5"><circle cx="50" cy="34" r="20"/><path d="M50 14v40M30 34h40"/><path d="M40 62v26M60 62v26M40 70h20M40 80h20"/></g>',
 };
 
