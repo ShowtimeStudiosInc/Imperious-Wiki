@@ -42,7 +42,7 @@
         "Origin": "Domain of Night"
       },
       "desc": [
-        "Nightshade can shroud a battlefield in shadow anywhere on the same planet as him, leaving his opponents to rely on anything but sight. He can also stretch, harden, and move the shadows that are already there, including the ones his enemies cast. Outside of battle, he shapes his shadows into eyes and places them anywhere on the planet, where they watch like cameras and let him see and hear everything around them. They're invisible to normal gems unless they have a high MAG. It's how he keeps the whole of Homeworld on course."
+        "Nightshade can shroud a battlefield in shadow anywhere on the same planet as him, leaving his opponents to rely on anything but sight. He can also stretch, harden, and move the shadows that are already there, including the ones his enemies cast."
       ],
       "passives": [
         {
@@ -83,7 +83,7 @@
         }
       ],
       "weakLabel": "Weakness",
-      "weak": "His shadows and eyes can't reach past the planet he's on, a place with no light at all has no shadows for him to move, and any gem with a high MAG can spot his eyes."
+      "weak": "His shadows can't reach past the planet he's on, and a place with no light at all has no shadows for him to move."
     },
     {
       "name": "Sleep Inducement",
@@ -165,6 +165,53 @@
       ],
       "weakLabel": "Weakness",
       "weak": "Strong wind scatters him. While he's in a windy area, Nerves doesn't work."
+    },
+    {
+      "name": "Witchcraft",
+      "level": "Advanced",
+      "meta": {
+        "Parent": "N/A",
+        "Complexity": "Complex",
+        "Origin": "Domain of Witchcraft"
+      },
+      "desc": [
+        "Nightshade practices witchcraft: hexes, brews, curses, and familiars made from her own shadow. It's also how she watches over Homeworld. Her enchanted eyes sit all over the planet and report back to her, which is how her work always gets done before anyone asks."
+      ],
+      "passives": [],
+      "spells": [
+        {
+          "name": "All-Seeing Eyes",
+          "tier": "Basic",
+          "cost": "Outside of combat",
+          "text": "Nightshade enchants small eyes out of shadow and places them anywhere on the same planet as her. Each one sees and hears everything around it and reports back to her. Gems without a high MAG can't see them."
+        },
+        {
+          "name": "Hex",
+          "tier": "Basic",
+          "cost": "3 SP",
+          "text": "One target resists with INT. If they fail, they have Attack Down for 2 turns."
+        },
+        {
+          "name": "Witch's Brew",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Nightshade mixes a brew on the spot and hands it to one ally. They heal 2d8 + MAG HP."
+        },
+        {
+          "name": "Familiar",
+          "tier": "Standard",
+          "cost": "3 SP",
+          "text": "Nightshade pulls a black cat out of her own shadow. For 3 turns, at the end of each of her turns, it pounces on one enemy for 1d8 damage."
+        },
+        {
+          "name": "Grand Curse",
+          "tier": "Mastered",
+          "cost": "5 SP",
+          "text": "Every enemy resists with INT. Those who fail are under Pressure for 3 turns. They act later, and their spells cost more SP."
+        }
+      ],
+      "weakLabel": "Weakness",
+      "weak": "Her spells have to be spoken out loud, so Hush stops her from casting them, and any gem with a high MAG can spot her eyes."
     }
   ],
   "quoteBy": "Nightshade Violet Diamond",
