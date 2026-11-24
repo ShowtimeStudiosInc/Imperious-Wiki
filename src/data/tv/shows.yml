@@ -51,12 +51,12 @@
 
 - slug: gem-and-i
   name: Gem and I
-  tagline: Details coming soon.
-  host: To be announced
-  where: ''
-  network: ''
-  kind: Show
-  color: '#7fd4ff'
+  tagline: Shady sits down with one gem at a time and gets them talking. On camera she's all jokes and charm. Off camera, nobody wants to find out.
+  host: Shady
+  where: Court Saturn
+  network: Court Saturn
+  kind: Interview show
+  color: '#ff8a5c'
   accent: '#ffd27a'
   status: coming-soon
   order: 4
