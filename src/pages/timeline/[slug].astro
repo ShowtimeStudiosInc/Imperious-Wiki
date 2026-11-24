@@ -27,6 +27,8 @@ const { node, page, prev, next } = Astro.props;
       </div>
     </header>
 
+    {node.intro?.length > 0 && <div class="intro">{node.intro.map((t: string) => <p>{t}</p>)}</div>}
+
     {node.parts.length > 1 && (
       <nav class="toc" aria-label="Parts">
         {node.parts.map((p, k) => (
@@ -72,6 +74,8 @@ const { node, page, prev, next } = Astro.props;
   .kicker { margin: 0; font-size: 0.78rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); }
   .hero h1 { margin: 0.1rem 0 0.2rem; font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 4vw, 2.2rem); }
   .tag { margin: 0; color: var(--muted); }
+  .intro { margin: 0 0 1.6rem; padding: 0.9rem 1.1rem; border-left: 2px solid var(--line, rgba(255,255,255,.25)); background: rgba(255,255,255,.03); border-radius: 0 10px 10px 0; }
+  .intro p { margin: 0.3rem 0; color: var(--muted); font-style: italic; }
 
   .toc { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; padding: 0.8rem 0; margin-bottom: 0.6rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .toc a { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; color: var(--lav); }

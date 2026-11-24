@@ -5,6 +5,8 @@ import { pages, layout, EMBLEMS } from '../../lib/timeline';
 import type { Track } from '../../lib/timeline';
 
 // Segment marks (1A, 1B, 2A...) start halfway between the last event of one segment and the first of the next.
+// The page the Timeline opens on (a page with start: true, else the first).
+const startAt = Math.max(0, pages.findIndex((p) => p.start));
 const segments = (t: Track, pos: Map<string, number>) => {
   const out: { label: string; x: number }[] = [];
   t.events.forEach((e, i) => {
@@ -22,7 +24,7 @@ const segments = (t: Track, pos: Map<string, number>) => {
     {pages.map((p, pi) => {
       const pos = layout(p);
       return (
-        <section class={`tl-panel${pi === 0 ? ' on' : ''}`} id={`tl-${p.key}`} data-key={p.key} aria-label={p.title} style={`--rows:${p.tracks.length}`}>
+        <section class={`tl-panel${pi === startAt ? ' on' : ''}`} data-start={pi === startAt ? '' : undefined} id={`tl-${p.key}`} data-key={p.key} aria-label={p.title} style={`--rows:${p.tracks.length}`}>
           <header class="ph">
             <h1>{p.title}</h1>
             <p>{p.sub}</p>
@@ -43,21 +45,22 @@ const segments = (t: Track, pos: Map<string, number>) => {
                   {segments(t, pos).map((s) => <span class="seg" style={`left:${s.x}%`}><span>{s.label}</span></span>)}
                   {t.events.length === 0 && t.note && <span class="tnote">{t.note}</span>}
                   {t.events.map((e, i) => {
+                    const big = !!(e.includes?.length || e.big);
                     const x = pos.get(e.id) ?? 50;
                     const status = e.status ?? 'open';
                     const Tag = status === 'open' && e.link ? 'a' : 'div';
                     return (
-                      <Tag class={`ev ${i % 2 ? 'below' : 'above'} ${status}${e.kind === 'news' ? ' news' : ''}${e.includes?.length ? ' chapter' : ''}${x > 82 ? ' flip' : ''}`} style={`left:${x}%`} href={Tag === 'a' ? url(e.link!) : undefined}>
-                        {e.includes?.length
+                      <Tag class={`ev ${i % 2 ? 'below' : 'above'} ${status}${e.kind === 'news' ? ' news' : ''}${big ? ' chapter' : ''}${e.big ? ' huge' : ''}${x > 82 ? ' flip' : ''}`} style={`left:${x}%`} href={Tag === 'a' ? url(e.link!) : undefined}>
+                        {big
                           ? <span class="cmark" aria-hidden="true"><svg viewBox="0 0 100 100" set:html={EMBLEMS[e.emblem ?? 'five'] ?? ''} /></span>
                           : <span class="mark" aria-hidden="true" />}
                         <span class="txt">
                           {e.current && <span class="cur">Current Event</span>}
                           {e.kind === 'news' && <span class="src">The Homeworld Times</span>}
                           {e.when && <span class="when">{e.when}</span>}
-                          {e.includes?.length && <span class="ck">Chapter</span>}
+                          {big && <span class="ck">{e.kicker ?? 'Chapter'}</span>}
                           <span class="et">{e.title}</span>
-                          {e.includes?.length && e.tagline && <span class="ctag">{e.tagline}</span>}
+                          {big && e.tagline && <span class="ctag">{e.tagline}</span>}
                           {status === 'pending' && <span class="st">Recap coming</span>}
                           {status === 'sealed' && <span class="st">Sealed</span>}
                         </span>
@@ -74,7 +77,7 @@ const segments = (t: Track, pos: Map<string, number>) => {
     <button class="arrow prev" type="button" aria-label="Previous Era"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M7 1L3 5l4 4z" /></svg></button>
     <button class="arrow next" type="button" aria-label="Next Era"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M3 1l4 4-4 4z" /></svg></button>
     <nav class="pager" aria-label="Eras">
-      {pages.map((p, pi) => <button type="button" data-go={pi} aria-current={pi === 0 ? 'true' : undefined}><span class="bar" /><span class="pl">{p.title}</span></button>)}
+      {pages.map((p, pi) => <button type="button" data-go={pi} aria-current={pi === startAt ? 'true' : undefined}><span class="bar" /><span class="pl">{p.title}</span></button>)}
     </nav>
   </main>
 </Site>
@@ -102,7 +105,8 @@ const segments = (t: Track, pos: Map<string, number>) => {
   tabs.forEach((t, k) => t.addEventListener('click', () => show(k)));
   document.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') show(at - 1); if (e.key === 'ArrowRight') show(at + 1); });
   const start = panels.findIndex((p) => `#${p.dataset.key}` === location.hash);
-  show(start > 0 ? start : 0, false);
+  const home = Math.max(0, panels.findIndex((p) => p.hasAttribute('data-start')));
+  show(start >= 0 ? start : home, false);
 </script>
 
 <style>
@@ -149,6 +153,11 @@ const segments = (t: Track, pos: Map<string, number>) => {
   .chapter .et { font-size: 0.95rem; letter-spacing: 0.22em; text-transform: uppercase; }
   .ck { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c); }
   .ctag { font-size: 0.74rem; color: var(--muted); }
+  .huge .cmark { left: -48px; top: -54px; width: 96px; height: 108px; }
+  .huge.above .txt { bottom: 64px; }
+  .huge.below .txt { top: 64px; }
+  .huge .txt { left: -150px; width: 300px; }
+  .huge .et { font-size: 1.15rem; }
   a.ev.chapter:hover .cmark { filter: drop-shadow(0 0 12px var(--c)); }
   .ev.news .mark { transform: none; border-radius: 50%; width: 11px; height: 11px; left: -5.5px; top: -5.5px; background: #0d0818; border: 2px solid #ff6b5e; }
   a.ev.news:hover .mark { transform: scale(1.35); }
@@ -197,6 +206,10 @@ const segments = (t: Track, pos: Map<string, number>) => {
     .mark { top: 0.7rem; left: 0; width: 10px; height: 10px; }
     .cmark { position: absolute; left: -10px; top: 0.2rem; width: 26px; height: 29px; }
     .chapter .txt { width: auto; }
+    .huge .cmark { left: -14px; top: 0.1rem; width: 34px; height: 38px; }
+    .huge { padding-left: 1.9rem; margin: 0.4rem 0; }
+    .huge .txt { left: auto; width: auto; }
+    .huge .et { font-size: 1rem; }
     .txt, .flip .txt { position: static; width: auto; justify-items: start; text-align: left; }
     .arrow { top: auto; bottom: 1rem; transform: none; height: 34px; }
   }

@@ -3,28 +3,31 @@ import { load } from 'js-yaml';
 import fs from 'node:fs';
 
 export interface Part { id: string; when: string; title: string; paras: string[]; link?: { href: string; label: string } }
-export interface Era { slug: string; title: string; name: string; tagline: string; emblem: string; heading?: string; parts: Part[] }
+export interface Era { slug: string; title: string; name: string; tagline: string; emblem: string; heading?: string; intro?: string[]; parts: Part[] }
 export interface Event {
   id: string; title: string; when?: string; segment?: string; link?: string; at?: string; x?: number;
   status?: 'open' | 'pending' | 'sealed'; current?: boolean; kind?: 'news';
   page?: number;
   /** Chapter nodes: the event ids this chapter replaces on the line, plus its own page details. */
   includes?: string[]; name?: string; tagline?: string; emblem?: string;
+  /** A big node like a chapter's, without gathering other events: kicker is the small word above its title. */
+  big?: boolean; kicker?: string;
 }
 export interface Track {
   key: string; label: string; name?: string; color: string; style?: 'solid' | 'dotted';
   from_left?: boolean; to_right?: boolean; ends_at?: string; note?: string; starts_on?: number;
   parts?: { slug: string; segment?: string; labels?: Record<string, string>; only?: string }[]; events: Event[];
 }
-export interface Page { key: string; title: string; sub: string; tracks: Track[]; per_page?: number }
+export interface Page { key: string; title: string; sub: string; tracks: Track[]; per_page?: number; start?: boolean }
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 /** Reads an Era's .md: a "# Heading", then "**WHEN · TITLE**" section lines, each followed by "> " paragraphs. */
-function readParts(slug: string): { heading?: string; parts: Part[] } {
+function readParts(slug: string): { heading?: string; intro: string[]; parts: Part[] } {
   const file = `src/data/timeline/${slug}.md`;
-  if (!fs.existsSync(file)) return { parts: [] };
+  if (!fs.existsSync(file)) return { intro: [], parts: [] };
   const parts: Part[] = [];
+  const intro: string[] = [];
   let heading: string | undefined;
   let cur: Part | null = null;
   for (const raw of fs.readFileSync(file, 'utf8').split(/\r?\n/)) {
@@ -41,8 +44,10 @@ function readParts(slug: string): { heading?: string; parts: Part[] } {
     // Every quoted line is its own paragraph (dialogue lines often sit back to back).
     const text = line.replace(/^>\s?/, '').trim();
     if (cur && text) cur.paras.push(text);
+    // Quoted lines before the first section are the page's opening note.
+    else if (!cur && text) intro.push(text);
   }
-  return { heading, parts };
+  return { heading, intro, parts };
 }
 
 const raw = load(fs.readFileSync('src/data/timeline.yml', 'utf8')) as { eras: Omit<Era, 'parts'>[]; pages: (Omit<Page, 'tracks'> & { tracks: Omit<Track, 'events'> & { events?: Event[] }[] })[] };
@@ -129,6 +134,10 @@ export function layout(page: Page) {
 
 /** Hex emblems, drawn on a 100 x 100 grid in currentColor. */
 export const EMBLEMS: Record<string, string> = {
+  // a pair of wings around a small diamond (Timeline III)
+  wings: '<path d="M50 40l7 10-7 10-7-10z"/><path d="M40 50c-8-14-20-20-30-20 4 10 6 22 18 30 4 3 8 3 12-2z" opacity=".8"/><path d="M60 50c8-14 20-20 30-20-4 10-6 22-18 30-4 3-8 3-12-2z" opacity=".8"/><path d="M38 58c-6 6-16 8-24 6 6 6 14 10 22 6z" opacity=".5"/><path d="M62 58c6 6 16 8 24 6-6 6-14 10-22 6z" opacity=".5"/>',
+  // an hourglass, the timeline turned back (Timeline IV)
+  hourglass: '<path d="M30 14h40v6H30z"/><path d="M30 80h40v6H30z"/><path d="M34 20h32c0 14-10 22-16 30 6 8 16 16 16 30H34c0-14 10-22 16-30-6-8-16-16-16-30z" opacity=".35"/><path d="M42 26h16c-2 8-8 14-8 14s-6-6-8-14z"/><path d="M50 62c4 4 10 8 12 14H38c2-6 8-10 12-14z"/>',
   // four stones drifting apart from one point
   'four-stones': '<circle cx="50" cy="50" r="9"/><path d="M50 14l6 10-6 10-6-10z"/><path d="M86 50l-10 6-10-6 10-6z" opacity=".75"/><path d="M50 86l-6-10 6-10 6 10z" opacity=".55"/><path d="M14 50l10-6 10 6-10 6z" opacity=".35"/>',
   // stars lined up in rows
