@@ -44,8 +44,8 @@ const ART: Record<string, { mode: 'glass' | 'paper'; src?: string; fit?: 'contai
 };
 const artSrc = (key: string, fallback: string) => url(ART[key]?.src ?? fallback);
 
-// The hall's order: Ruling Diamonds on the outside, the four Deity Diamonds in the middle.
-const HALL = ['maroon-red', 'saturn-light', 'theta-gold', 'alpha-black', 'omega-white', 'epsilon-blue', 'nightshade-violet', 'bi-colored-kandy'];
+// The hall's order: the four Deity Diamonds in the middle, and the Ruling Diamonds in rank order reading left to right (Nightshade, head of the Authority, first, then Maroon, Kandy and Saturn).
+const HALL = ['nightshade-violet', 'maroon-red', 'theta-gold', 'alpha-black', 'omega-white', 'epsilon-blue', 'bi-colored-kandy', 'saturn-light'];
 const bySlug = (s: string) => DIAMONDS.find((d) => d.slug === s)!;
 const hall = HALL.map(bySlug).filter(Boolean);
 const COURTS = [...DIAMONDS.filter((d) => d.group === 'deity'), ...DIAMONDS.filter((d) => d.group === 'ruling')];

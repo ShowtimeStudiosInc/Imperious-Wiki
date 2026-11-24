@@ -290,105 +290,6 @@ export const DIAMONDS: Diamond[] = [
     updated: '2026-11-18',
   },
   {
-    slug: 'saturn-light',
-    group: 'ruling',
-    name: 'Saturn Light Diamond',
-    pronouns: 'He/him',
-    height: "30'0\"",
-    color: 'Brown',
-    domains: ['Vitality', 'Force'],
-    subDomains: ['Health', 'Revelry', 'Endurance', 'Strength', 'Motion', 'Impact'],
-    court: 'Saturn',
-    personality:
-      'Saturn Light is the sweet summer child who stands at the bottom of the Diamond pyramid. He views the world in a playful light, almost the same way a Spinel does. He does not take things as seriously as he should, and he believes that bringing people together is the easiest way to resolve a conflict, whether that is by force or not. He is by far the laziest Diamond, always choosing to hang out at his club instead of doing important paperwork. Saturn is also kind of naive. He is aware of the way certain Gems get treated, and he is highly against how some servant Gems get treated, but at the same time he will turn a blind eye to it, because at the end of the day, is it really a problem he has to deal with? Those Gems do not belong to him personally, so he sees no reason to bother interfering. Saturn is not the type to easily show mercy to his court. Well, he is. He sees those in his court as his children. But if a Gem does something that goes against Saturn, or is simply really bad, the Gem will be shattered. No questions asked.',
-    purpose:
-      'Saturn has a bunch of jobs. He is in charge of organizing events between the other Diamonds and for the entire Gempire, overseeing the production and distribution of Pearls, Spinels, and other servant Gems, and scouting out new potential planets for colonization and overseeing terraformer Gems. Some of these tasks he takes more seriously than others. Organizing events and meetings is one he takes incredibly great pride in. Some might even say no one has ever thrown a better party than Saturn Light himself. As for his other two tasks, Saturn normally leaves finding suitable planets up to his Pearl, as he finds it extremely boring. He does like overseeing servants and terraformers, though.',
-    powers: [
-      { name: 'Absolute Restoration', level: 'Mastered' },
-      { name: 'Absolute Psychokinesis', level: 'Mastered' },
-    ],
-    weaknesses:
-      'Saturn\'s greatest weakness would either be himself, because one day he will be his own greatest downfall. The way he does things is not the same way everyone else does their job. As a Diamond he should be respected and disciplined, because who would want to listen to a Diamond who slacks off all day?',
-    quote: 'Whatever life throws at you, duck and let it hit someone else.',
-    art: '/images/diamonds/saturn-light/outfit.webp',
-    artCaption: 'Appearance collection: outfit, hair, eyes, and earrings',
-    references: [
-      { label: 'Outfit', image: '/images/diamonds/saturn-light/outfit.webp', caption: 'Brown open shirt, gold necklaces, patterned shawl, gold belt, and a black briefcase' },
-      { label: 'Hair', image: '/images/diamonds/saturn-light/hair.webp', caption: 'Curly black hair with blonde highlights' },
-      { label: 'Eyes', image: '/images/diamonds/saturn-light/eyes.webp', caption: 'Yellow star eye makeup, one yellow iris and one dark iris' },
-      { label: 'Earrings', image: '/images/diamonds/saturn-light/earrings.webp', caption: 'Gold star earrings with pearls' },
-    ],
-    theme: {
-      bg: '#1a0f06',
-      glow: '#8a5a2b',
-      accent: '#e8c46a',
-      accent2: '#ff9a5a',
-      meteors: false,
-      rings: true,
-      backgroundLabel: 'A warm summer party: gold light, brown and gold, with Saturn rings that drift as you scroll and move',
-    },
-    abilities: [
-      {
-        name: 'Absolute Restoration',
-        parent: 'Restoration',
-        complexity: 'Complex',
-        origin: "Saturn Light Diamond's Domain of Vitality",
-        level: 'Mastered',
-        description:
-          'Saturn Light can restore anything to the way it was before it was hurt: mending light forms, reviving drained ground, putting broken things back together, and keeping a tired Gem on her feet long past when she should have dropped. Outside of battle, he can even mend a Cracked gem, which few Gems in the empire can do. He prefers using it on others.',
-        passives: [
-          {
-            name: 'Rallying Aura',
-            text: "While Saturn Light is on the battlefield, his party's Star Gauge gains 3 marks at the start of each round instead of 2.",
-          },
-          {
-            name: 'Overflow',
-            text: "Healing from this ability that goes past an ally's max HP becomes Overflow, extra HP that's lost first when they're hit. An ally can hold up to 10 Overflow, and it fades when the battle ends.",
-          },
-        ],
-        spells: [
-          { name: 'Pick-Me-Up', cost: 2, kind: 'buff', text: 'Saturn heals one ally for [1d6 + MAG].' },
-          { name: 'Second Wind', cost: 2, kind: 'buff', text: 'Saturn clears one negative status from one ally, like [[Poison]], [[Burn]], [[Stunned]], or [[Frightened]].' },
-          { name: 'Toast', cost: 3, kind: 'buff', text: 'Saturn raises a glass, and every ally who is Near heals for [1d4 + MAG].' },
-          { name: 'Hype Up', cost: 3, kind: 'buff', text: 'Saturn gets one ally fired up. Their ATK goes up by 2 for 2 turns.' },
-          { name: 'Encore', cost: 5, kind: 'buff', text: 'One ally who is [[Flickering]] gets back up with half their max HP.' },
-          { name: 'Life of the Party', cost: 7, kind: 'buff', text: 'For 3 turns, Saturn and every ally heal [1d6 + MAG] at the start of each of their turns, and none of them can drop below 1 HP.' },
-        ],
-        statChanges: 'None',
-        weaknesses:
-          "Saturn can't use his healing on himself, except through Life of the Party. Mending a Cracked gem takes time and can't be done in battle, and it can't bring back a Shattered one.",
-      },
-      {
-        name: 'Absolute Psychokinesis',
-        parent: 'Psychokinesis',
-        complexity: 'Complex',
-        origin: "Saturn Light Diamond's Domain of Force",
-        level: 'Mastered',
-        description:
-          "Saturn Light can push, pull, lift, and throw anything with his mind, from a single chair to a crowd of Gems who've had too much fun. Every party he's ever thrown has ended with him moving someone out of the way.",
-        passives: [
-          {
-            name: 'Momentum',
-            text: 'Each spell from this ability that lands gives Saturn 1 Momentum, up to 3. His next spell that deals damage uses all of it, adding +2 damage for each Momentum spent.',
-          },
-        ],
-        spells: [
-          { name: 'Shove', cost: 2, kind: 'mobility', text: 'Saturn pushes one target who is Near back to Far.' },
-          { name: 'Yank', cost: 2, kind: 'debuff', text: "Saturn pulls one target's weapon out of their hands. The target resists with SPD. If they fail, they're [[Disarmed]] until they spend a turn getting it back." },
-          { name: 'Bouncer', cost: 3, kind: 'defensive', text: 'Saturn puts a wall of force around one ally. The next attack against them is stopped completely, and the attacker is pushed back to Far.' },
-          { name: 'Mosh Pit', cost: 3, kind: 'offensive', text: 'Saturn throws every enemy who is Near into each other, dealing [1d6 + MAG] Psychic damage to each.' },
-          { name: 'Heavy Hand', cost: 3, kind: 'debuff', text: "Saturn presses one target flat. The target resists with DEF. If they fail, they're [[Knocked Down]] for 2 turns." },
-          { name: 'Impact', cost: 4, kind: 'offensive', text: "Saturn hits one target with everything he's got, dealing [3d6 + MAG] Psychic damage." },
-          { name: 'Bass Drop', cost: 7, kind: 'offensive', text: "Saturn slams the ground with a wave of force. Every enemy takes [4d6 + MAG] Psychic damage and resists with DEF. Those who fail are [[Knocked Down]]." },
-        ],
-        statChanges: 'None',
-        weaknesses:
-          "Saturn's force can't move a Deity Diamond, and anything Far is too far for his strongest pushes. Momentum is also lost if he goes a turn without using a Force spell.",
-      },
-    ],
-    updated: '2026-11-18',
-  },
-  {
     slug: 'epsilon-blue',
     group: 'deity',
     name: 'Epsilon Blue Diamond',
@@ -682,6 +583,105 @@ export const DIAMONDS: Diamond[] = [
     theme: { bg: '', glow: '', accent: '', accent2: '', meteors: false, backgroundLabel: '' },
     abilities: [],
     updated: '2026-11-19',
+  },
+  {
+    slug: 'saturn-light',
+    group: 'ruling',
+    name: 'Saturn Light Diamond',
+    pronouns: 'He/him',
+    height: "30'0\"",
+    color: 'Brown',
+    domains: ['Vitality', 'Force'],
+    subDomains: ['Health', 'Revelry', 'Endurance', 'Strength', 'Motion', 'Impact'],
+    court: 'Saturn',
+    personality:
+      'Saturn Light is the sweet summer child who stands at the bottom of the Diamond pyramid. He views the world in a playful light, almost the same way a Spinel does. He does not take things as seriously as he should, and he believes that bringing people together is the easiest way to resolve a conflict, whether that is by force or not. He is by far the laziest Diamond, always choosing to hang out at his club instead of doing important paperwork. Saturn is also kind of naive. He is aware of the way certain Gems get treated, and he is highly against how some servant Gems get treated, but at the same time he will turn a blind eye to it, because at the end of the day, is it really a problem he has to deal with? Those Gems do not belong to him personally, so he sees no reason to bother interfering. Saturn is not the type to easily show mercy to his court. Well, he is. He sees those in his court as his children. But if a Gem does something that goes against Saturn, or is simply really bad, the Gem will be shattered. No questions asked.',
+    purpose:
+      'Saturn has a bunch of jobs. He is in charge of organizing events between the other Diamonds and for the entire Gempire, overseeing the production and distribution of Pearls, Spinels, and other servant Gems, and scouting out new potential planets for colonization and overseeing terraformer Gems. Some of these tasks he takes more seriously than others. Organizing events and meetings is one he takes incredibly great pride in. Some might even say no one has ever thrown a better party than Saturn Light himself. As for his other two tasks, Saturn normally leaves finding suitable planets up to his Pearl, as he finds it extremely boring. He does like overseeing servants and terraformers, though.',
+    powers: [
+      { name: 'Absolute Restoration', level: 'Mastered' },
+      { name: 'Absolute Psychokinesis', level: 'Mastered' },
+    ],
+    weaknesses:
+      'Saturn\'s greatest weakness would either be himself, because one day he will be his own greatest downfall. The way he does things is not the same way everyone else does their job. As a Diamond he should be respected and disciplined, because who would want to listen to a Diamond who slacks off all day?',
+    quote: 'Whatever life throws at you, duck and let it hit someone else.',
+    art: '/images/diamonds/saturn-light/outfit.webp',
+    artCaption: 'Appearance collection: outfit, hair, eyes, and earrings',
+    references: [
+      { label: 'Outfit', image: '/images/diamonds/saturn-light/outfit.webp', caption: 'Brown open shirt, gold necklaces, patterned shawl, gold belt, and a black briefcase' },
+      { label: 'Hair', image: '/images/diamonds/saturn-light/hair.webp', caption: 'Curly black hair with blonde highlights' },
+      { label: 'Eyes', image: '/images/diamonds/saturn-light/eyes.webp', caption: 'Yellow star eye makeup, one yellow iris and one dark iris' },
+      { label: 'Earrings', image: '/images/diamonds/saturn-light/earrings.webp', caption: 'Gold star earrings with pearls' },
+    ],
+    theme: {
+      bg: '#1a0f06',
+      glow: '#8a5a2b',
+      accent: '#e8c46a',
+      accent2: '#ff9a5a',
+      meteors: false,
+      rings: true,
+      backgroundLabel: 'A warm summer party: gold light, brown and gold, with Saturn rings that drift as you scroll and move',
+    },
+    abilities: [
+      {
+        name: 'Absolute Restoration',
+        parent: 'Restoration',
+        complexity: 'Complex',
+        origin: "Saturn Light Diamond's Domain of Vitality",
+        level: 'Mastered',
+        description:
+          'Saturn Light can restore anything to the way it was before it was hurt: mending light forms, reviving drained ground, putting broken things back together, and keeping a tired Gem on her feet long past when she should have dropped. Outside of battle, he can even mend a Cracked gem, which few Gems in the empire can do. He prefers using it on others.',
+        passives: [
+          {
+            name: 'Rallying Aura',
+            text: "While Saturn Light is on the battlefield, his party's Star Gauge gains 3 marks at the start of each round instead of 2.",
+          },
+          {
+            name: 'Overflow',
+            text: "Healing from this ability that goes past an ally's max HP becomes Overflow, extra HP that's lost first when they're hit. An ally can hold up to 10 Overflow, and it fades when the battle ends.",
+          },
+        ],
+        spells: [
+          { name: 'Pick-Me-Up', cost: 2, kind: 'buff', text: 'Saturn heals one ally for [1d6 + MAG].' },
+          { name: 'Second Wind', cost: 2, kind: 'buff', text: 'Saturn clears one negative status from one ally, like [[Poison]], [[Burn]], [[Stunned]], or [[Frightened]].' },
+          { name: 'Toast', cost: 3, kind: 'buff', text: 'Saturn raises a glass, and every ally who is Near heals for [1d4 + MAG].' },
+          { name: 'Hype Up', cost: 3, kind: 'buff', text: 'Saturn gets one ally fired up. Their ATK goes up by 2 for 2 turns.' },
+          { name: 'Encore', cost: 5, kind: 'buff', text: 'One ally who is [[Flickering]] gets back up with half their max HP.' },
+          { name: 'Life of the Party', cost: 7, kind: 'buff', text: 'For 3 turns, Saturn and every ally heal [1d6 + MAG] at the start of each of their turns, and none of them can drop below 1 HP.' },
+        ],
+        statChanges: 'None',
+        weaknesses:
+          "Saturn can't use his healing on himself, except through Life of the Party. Mending a Cracked gem takes time and can't be done in battle, and it can't bring back a Shattered one.",
+      },
+      {
+        name: 'Absolute Psychokinesis',
+        parent: 'Psychokinesis',
+        complexity: 'Complex',
+        origin: "Saturn Light Diamond's Domain of Force",
+        level: 'Mastered',
+        description:
+          "Saturn Light can push, pull, lift, and throw anything with his mind, from a single chair to a crowd of Gems who've had too much fun. Every party he's ever thrown has ended with him moving someone out of the way.",
+        passives: [
+          {
+            name: 'Momentum',
+            text: 'Each spell from this ability that lands gives Saturn 1 Momentum, up to 3. His next spell that deals damage uses all of it, adding +2 damage for each Momentum spent.',
+          },
+        ],
+        spells: [
+          { name: 'Shove', cost: 2, kind: 'mobility', text: 'Saturn pushes one target who is Near back to Far.' },
+          { name: 'Yank', cost: 2, kind: 'debuff', text: "Saturn pulls one target's weapon out of their hands. The target resists with SPD. If they fail, they're [[Disarmed]] until they spend a turn getting it back." },
+          { name: 'Bouncer', cost: 3, kind: 'defensive', text: 'Saturn puts a wall of force around one ally. The next attack against them is stopped completely, and the attacker is pushed back to Far.' },
+          { name: 'Mosh Pit', cost: 3, kind: 'offensive', text: 'Saturn throws every enemy who is Near into each other, dealing [1d6 + MAG] Psychic damage to each.' },
+          { name: 'Heavy Hand', cost: 3, kind: 'debuff', text: "Saturn presses one target flat. The target resists with DEF. If they fail, they're [[Knocked Down]] for 2 turns." },
+          { name: 'Impact', cost: 4, kind: 'offensive', text: "Saturn hits one target with everything he's got, dealing [3d6 + MAG] Psychic damage." },
+          { name: 'Bass Drop', cost: 7, kind: 'offensive', text: "Saturn slams the ground with a wave of force. Every enemy takes [4d6 + MAG] Psychic damage and resists with DEF. Those who fail are [[Knocked Down]]." },
+        ],
+        statChanges: 'None',
+        weaknesses:
+          "Saturn's force can't move a Deity Diamond, and anything Far is too far for his strongest pushes. Momentum is also lost if he goes a turn without using a Force spell.",
+      },
+    ],
+    updated: '2026-11-18',
   },
 ];
 
