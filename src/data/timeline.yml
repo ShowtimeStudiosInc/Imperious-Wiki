@@ -90,11 +90,11 @@ eras:
 
 pages:
   - key: past-timelines
-    title: Past Timelines
-    sub: The universe has run before. Universe Diamond reset it each time, and these are the records that survived.
+    title: The Timelines
+    sub: The universe has run before. Universe Diamond reset it each time. These are the records that survived, and the timeline still running.
     tracks:
       - key: past
-        label: Before Timeline V
+        label: Every Timeline
         name: Reset by Universe Diamond
         color: '#cdb8ff'
         style: dotted
@@ -108,7 +108,7 @@ pages:
             emblem: wings
             tagline: Plunged into depravity, the Gempire is punished for its sins through Tribulation.
             link: /timeline/timeline-3/
-            x: 35
+            x: 22
           - id: timeline-4-node
             title: The Hydra's Crown
             kicker: Timeline IV
@@ -116,7 +116,15 @@ pages:
             emblem: hourglass
             tagline: Met with the threat of the oncoming STORM, a ragtag team of gems join the Agency to attempt to prevent disaster from falling upon their people.
             link: /timeline/timeline-4/
-            x: 70
+            x: 50
+          - id: timeline-5-node
+            title: Timeline V
+            kicker: The Current Timeline
+            big: true
+            emblem: five
+            tagline: Met with resurfacing Ancient Evils, a ragtag team of gems go through the many obstacles that come their way in order to prevent disaster from befalling them.
+            link: /timeline/#era-0
+            x: 78
   - key: era-0
     start: true
     title: Era 0

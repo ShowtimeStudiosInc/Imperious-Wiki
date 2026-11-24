@@ -105,6 +105,7 @@ const segments = (t: Track, pos: Map<string, number>) => {
   tabs.forEach((t, k) => t.addEventListener('click', () => show(k)));
   document.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') show(at - 1); if (e.key === 'ArrowRight') show(at + 1); });
   const start = panels.findIndex((p) => `#${p.dataset.key}` === location.hash);
+  addEventListener('hashchange', () => { const k = panels.findIndex((p) => `#${p.dataset.key}` === location.hash); if (k >= 0) show(k, false); });
   const home = Math.max(0, panels.findIndex((p) => p.hasAttribute('data-start')));
   show(start >= 0 ? start : home, false);
 </script>
