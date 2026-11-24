@@ -3,93 +3,240 @@ import Site from '../../layouts/Site.astro';
 import { DIAMONDS, FORTHCOMING_DIAMONDS } from '../../lib/diamonds';
 import { url } from '../../lib/gems';
 const regentData = import.meta.glob('../../data/regents/*.json', { import: 'default', eager: true }) as Record<string, any>;
-const groups = [
-  { id: 'deity', title: 'Deity Diamonds', text: 'The four Diamonds who were never made. They emerged on their own, and each holds a Pillar of existence.', rows: DIAMONDS.filter((d) => d.group === 'deity') },
-  { id: 'ruling', title: 'Ruling Diamonds', text: 'The Diamonds who came into being in Era 2A, each made from a Paragon Core.', rows: DIAMONDS.filter((d) => d.group === 'ruling') },
-];
 const regents = Object.fromEntries(Object.values(regentData).map((r: any) => [r.slug, r]));
+
 // Every Diamond's Cubic Zirconia slots, in order. null = slot still open. Omega White's is left out on purpose.
-const SLOTS: [string, (string | null)[]][] = [
-  ['alpha-black', ['dante']],
-  ['theta-gold', ['ordr']],
-  ['epsilon-blue', ['tethys', 'law']],
-  ['saturn-light', ['florentino']],
-  ['nightshade-violet', ['reina', 'antton']],
-  ['maroon-red', ['magda', null]],
-  ['bi-colored-kandy', [null, null]],
-];
-const court = (slug: string) => DIAMONDS.find((d) => d.slug === slug);
+const SLOTS: Record<string, (string | null)[]> = {
+  'alpha-black': ['dante'],
+  'theta-gold': ['ordr'],
+  'epsilon-blue': ['tethys', 'law'],
+  'saturn-light': ['florentino'],
+  'nightshade-violet': ['reina', 'antton'],
+  'maroon-red': ['magda', null],
+  'bi-colored-kandy': [null, null],
+};
+
+// Glass colors for each Diamond's window: two glass tones, a dark tone, and the glow.
+const GLASS: Record<string, { a: string; b: string; dark: string; glow: string }> = {
+  'alpha-black': { a: '#2b3350', b: '#e8c46a', dark: '#0b0d18', glow: '#7fa8ff' },
+  'omega-white': { a: '#e9ecf5', b: '#aab6cf', dark: '#5d6478', glow: '#f4f6ff' },
+  'theta-gold': { a: '#f2c94c', b: '#ffe9a8', dark: '#7a5a12', glow: '#f2c94c' },
+  'epsilon-blue': { a: '#3f7fe0', b: '#bfe3ff', dark: '#13305f', glow: '#7fb3ff' },
+  'saturn-light': { a: '#e8a24a', b: '#ffd28a', dark: '#6b3a14', glow: '#ff9a5a' },
+  'nightshade-violet': { a: '#7d4fc2', b: '#c9a8f0', dark: '#2a1544', glow: '#9b6bd6' },
+  'maroon-red': { a: '#a3223a', b: '#ff8a5a', dark: '#40101a', glow: '#e0455a' },
+  'bi-colored-kandy': { a: '#ff7ab8', b: '#6ec6ff', dark: '#3a2050', glow: '#ff9ad0' },
+};
+
+// How each picture sits in the glass. 'glass': the art has no background, so a glass mural shows behind it
+// (src points at a cutout from scripts/glass_cutout.py when the original had a flat color behind it).
+// 'paper': a sketch on paper, so the paper takes on the glass color. Anything not listed keeps its own background.
+const ART: Record<string, { mode: 'glass' | 'paper'; src?: string; fit?: 'contain' }> = {
+  'alpha-black': { mode: 'glass' },
+  'theta-gold': { mode: 'paper' },
+  'nightshade-violet': { mode: 'glass', src: '/images/glass/nightshade-violet.webp' },
+  'maroon-red': { mode: 'glass', src: '/images/glass/maroon-red.webp' },
+  'bi-colored-kandy': { mode: 'paper' },
+  florentino: { mode: 'glass' },
+  antton: { mode: 'glass' },
+  magda: { mode: 'glass', fit: 'contain' },
+  tethys: { mode: 'glass', src: '/images/glass/tethys.webp' },
+};
+const artSrc = (key: string, fallback: string) => url(ART[key]?.src ?? fallback);
+
+// The hall's order: Ruling Diamonds on the outside, the four Deity Diamonds in the middle.
+const HALL = ['maroon-red', 'saturn-light', 'theta-gold', 'alpha-black', 'omega-white', 'epsilon-blue', 'nightshade-violet', 'bi-colored-kandy'];
+const bySlug = (s: string) => DIAMONDS.find((d) => d.slug === s)!;
+const hall = HALL.map(bySlug).filter(Boolean);
+const COURTS = [...DIAMONDS.filter((d) => d.group === 'deity'), ...DIAMONDS.filter((d) => d.group === 'ruling')];
+
+// A small seeded random, so each window's glass pattern is the same on every build.
+function rng(seed: string) {
+  let h = 2166136261;
+  for (const c of seed) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return () => ((h = Math.imul(h ^ (h >>> 15), 2246822507), h = Math.imul(h ^ (h >>> 13), 3266489909), (h ^= h >>> 16) >>> 0) / 4294967296);
+}
+
+// Cuts the window into jittered triangles of colored glass.
+function mosaic(slug: string, height: number, opts: { seed?: string; width?: number; cell?: number; light?: boolean } = {}) {
+  const r = rng(slug + (opts.seed ?? ''));
+  const g = GLASS[slug];
+  const W = opts.width ?? 200;
+  const cell = opts.cell ?? 42;
+  const cols = Math.max(2, Math.round(W / cell)), rows = Math.max(2, Math.round(height / cell));
+  const pts: [number, number][][] = [];
+  for (let y = 0; y <= rows; y++) {
+    pts.push([]);
+    for (let x = 0; x <= cols; x++) {
+      const edgeX = x === 0 || x === cols, edgeY = y === 0 || y === rows;
+      const px = (x / cols) * W + (edgeX ? 0 : (r() - 0.5) * cell * 0.62);
+      const py = (y / rows) * height + (edgeY ? 0 : (r() - 0.5) * cell * 0.52);
+      pts[y].push([Math.round(px), Math.round(py)]);
+    }
+  }
+  const palette = opts.light ? [g.b, g.a, g.b, g.b, g.a, '#ffffff'] : [g.a, g.a, g.b, g.dark, g.a, g.b];
+  const tris: { d: string; fill: string; op: number }[] = [];
+  for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+    const [p1, p2, p3, p4] = [pts[y][x], pts[y][x + 1], pts[y + 1][x + 1], pts[y + 1][x]];
+    const flip = r() > 0.5;
+    const a = flip ? [p1, p2, p3] : [p1, p2, p4];
+    const b = flip ? [p1, p3, p4] : [p2, p3, p4];
+    for (const t of [a, b]) tris.push({ d: `M${t.map((p) => p.join(',')).join('L')}Z`, fill: palette[Math.floor(r() * palette.length)], op: opts.light ? 0.22 + r() * 0.3 : 0.55 + r() * 0.4 });
+  }
+  return tris;
+}
+
+// The same glass as a standalone picture, for CSS backgrounds behind the court art and Regent panes.
+function muralURI(slug: string, w: number, h: number, seed: string, paper = false) {
+  const g = GLASS[slug];
+  const tris = mosaic(slug, h, { seed, width: w, cell: paper ? 52 : 30, light: true });
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${w} ${h}' preserveAspectRatio='none'><rect width='${w}' height='${h}' fill='${paper ? '#f4efe6' : g.dark}'/><radialGradient id='h' cx='.5' cy='.38' r='.55'><stop offset='0' stop-color='${g.b}' stop-opacity='.55'/><stop offset='1' stop-color='${g.b}' stop-opacity='0'/></radialGradient>${tris.map((t) => `<path d='${t.d}' fill='${t.fill}' fill-opacity='${t.op.toFixed(2)}' stroke='%230c0913' stroke-opacity='${paper ? 0.15 : 1}' stroke-width='2'/>`).join('')}<rect width='${w}' height='${h}' fill='url(%23h)'/></svg>`;
+  return `url("data:image/svg+xml,${svg.replace(/#/g, '%23').replace(/"/g, "'").replace(/</g, '%3C').replace(/>/g, '%3E')}")`;
+}
+const stripURI = (slug: string) => {
+  const g = GLASS[slug];
+  const tris = mosaic(slug, 14, { seed: 'strip', width: 600, cell: 16 });
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 14' preserveAspectRatio='none'><rect width='600' height='14' fill='${g.dark}'/>${tris.map((t) => `<path d='${t.d}' fill='${t.fill}' fill-opacity='${t.op.toFixed(2)}' stroke='%230c0913' stroke-width='1.4'/>`).join('')}</svg>`;
+  return `url("data:image/svg+xml,${svg.replace(/#/g, '%23').replace(/</g, '%3C').replace(/>/g, '%3E')}")`;
+};
+
+const tall = (d: any) => (d.group === 'deity' ? 460 : 380);
+const windows = hall.map((d) => {
+  const H = tall(d);
+  return {
+    d, H, g: GLASS[d.slug],
+    tris: mosaic(d.slug, H),
+    mural: ART[d.slug] ? mosaic(d.slug, H, { seed: 'mural', cell: ART[d.slug].mode === 'paper' ? 46 : 26, light: true }) : [],
+    lead: ART[d.slug]?.mode === 'paper' ? 0.16 : 1,
+    art: ART[d.slug],
+    outer: `M0,${H} L0,100 A100,100 0 0 1 200,100 L200,${H} Z`,
+    inner: `M26,${H - 26} L26,110 A74,74 0 0 1 174,110 L174,${H - 26} Z`,
+  };
+});
+// Long quotes are cut at a sentence so the court banner stays short. The full quote is on the Diamond's page.
+function shortQuote(q: string) {
+  const t = q.trim().replace(/^"|"$/g, '');
+  if (t.length <= 170) return `“${t}”`;
+  let cut = '';
+  for (const part of t.match(/[^.!?]+[.!?]+/g) ?? [t]) { if ((cut + part).length > 170) break; cut += part; }
+  return `“${(cut || t.slice(0, 160)).trim()} …”`;
+}
+const regentArt = (r: any) => r.art.src.replace('{{BASE}}', url('/'));
+const regentCourt = (r: any) => r.facts.find((f: any) => f[0] === 'Court')?.[1];
 ---
 
-<Site title="Know Your Diamond" description="Rank 1.1: the Diamonds of the Gempire." current="diamonds">
-  <main class="wrap">
-    <p class="crumbs"><a href={url('/lore/overview/')}>Lore</a> <span>/</span> Rank 1.1</p>
-    <h1>Know Your Diamond</h1>
-    <p class="intro">
-      The Diamonds are Rank 1.1. They founded the Gempire and made the first of its Gems.
-    </p>
+<Site title="Know Your Diamond" description="Rank 1.1: the Diamonds of the Gempire, and the Grand Regents of each court." current="diamonds">
+  <div class="hall">
+    <div class="hall-light" aria-hidden="true"></div>
+    <header class="hall-head wrap">
+      <p class="crumbs"><a href={url('/lore/overview/')}>Lore</a> <span>/</span> Rank 1.1</p>
+      <h1>Know Your Diamond</h1>
+      <p class="intro">The Diamonds founded the Gempire and made the first of its Gems. Choose a window to visit their court.</p>
+      <div class="ornament" aria-hidden="true">◈</div>
+    </header>
+
+    <nav class="windows" aria-label="The Diamonds">
+      {windows.map((w) => (
+        <a class={`win ${w.d.group}`} href={`#court-${w.d.slug}`} style={`--glow:${w.g.glow};--wa:${w.g.a};--wb:${w.g.b}`}>
+          <svg viewBox={`0 0 200 ${w.H}`} role="img" aria-label={w.d.name}>
+            <defs>
+              <clipPath id={`o-${w.d.slug}`}><path d={w.outer} /></clipPath>
+              <clipPath id={`i-${w.d.slug}`}><path d={w.inner} /></clipPath>
+              <radialGradient id={`h-${w.d.slug}`}><stop offset="0" stop-color="#fff8e8" stop-opacity="0.5" /><stop offset="1" stop-color={w.g.b} stop-opacity="0" /></radialGradient>
+              <linearGradient id={`t-${w.d.slug}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color={w.g.b} stop-opacity="0.35" />
+                <stop offset="0.45" stop-color={w.g.a} stop-opacity="0.08" />
+                <stop offset="1" stop-color={w.g.dark} stop-opacity="0.45" />
+              </linearGradient>
+            </defs>
+            <g clip-path={`url(#o-${w.d.slug})`}>
+              <rect width="200" height={w.H} fill={w.g.dark} />
+              {w.tris.map((t) => <path d={t.d} fill={t.fill} fill-opacity={t.op} stroke="#0c0913" stroke-width="2.6" stroke-linejoin="round" />)}
+            </g>
+            <path d={w.inner} fill={w.art?.mode === 'paper' ? '#f4efe6' : w.art ? w.g.dark : '#06040b'} />
+            <g clip-path={`url(#i-${w.d.slug})`} style="isolation:isolate">
+              {w.art && <>
+                {w.mural.map((t) => <path d={t.d} fill={t.fill} fill-opacity={t.op} stroke="#0c0913" stroke-opacity={w.lead} stroke-width="1.6" stroke-linejoin="round" />)}
+                <ellipse cx="100" cy={Math.round(w.H * 0.36)} rx="70" ry={Math.round(w.H * 0.3)} fill={`url(#h-${w.d.slug})`} />
+              </>}
+              <image href={artSrc(w.d.slug, w.d.art)} x="26" y="36" width="148" height={w.H - 62} preserveAspectRatio="xMidYMin slice" style={w.art?.mode === 'paper' ? 'mix-blend-mode:multiply' : undefined} />
+              <rect width="200" height={w.H} fill={`url(#t-${w.d.slug})`} />
+              <path d={`M26,${Math.round(w.H * 0.62)} Q100,${Math.round(w.H * 0.58)} 174,${Math.round(w.H * 0.62)}`} stroke="#0c0913" stroke-width="2" stroke-opacity="0.55" fill="none" />
+              <path d={`M100,36 L100,${Math.round(w.H * 0.2)}`} stroke="#0c0913" stroke-width="2" stroke-opacity="0.45" />
+            </g>
+            <path d={w.inner} fill="none" stroke="#0c0913" stroke-width="6" />
+            <path d={w.inner} fill="none" stroke={w.g.b} stroke-width="1.4" stroke-opacity="0.7" transform="translate(0 0)" />
+            <path d={w.outer} fill="none" stroke="#0c0913" stroke-width="8" />
+          </svg>
+          <span class="plate">
+            <strong>{w.d.name.replace(' Diamond', '')}</strong>
+            <small>{w.d.pillar ? `Pillar of ${w.d.pillar}` : w.d.domains.join(' & ')}</small>
+          </span>
+        </a>
+      ))}
+    </nav>
+    <p class="legend wrap"><span>The tall windows are the four Deity Diamonds. The rest are the Ruling Diamonds.</span></p>
+  </div>
+
+  <main class="wrap courts">
     <p class="intro muted">
-      Pages marked Partial only have what the server already knows. They fill in as submissions arrive.
+      Each Diamond's court is below, with their Grand Regents, the Cubic Zirconias who emerged beside them as siblings. Pages marked Partial only have what the server already knows.
     </p>
 
-    {groups.map((g) => (
-      <>
-        <h2 id={g.id}>{g.title}</h2>
-        <p class="intro">{g.text}</p>
-        <div class="grid">
-          {g.rows.map((d) => (
-            <a class="card diamond-card" href={url(`/diamonds/${d.slug}/`)}>
-              <img class="thumb" src={url(d.art)} alt={`${d.name} art`} />
-              <span class="name">{d.name}{(d.status || d.partial) && <span class="tag">{d.status ?? 'Partial'}</span>}</span>
-              {d.domains.length > 0 && <span class="sub">{d.pillar ? `Pillar of ${d.pillar} · ` : ''}{d.domains.join(' and ')}</span>}
-              <span class="sub">Court {d.court}{d.height ? ` · ${d.height}` : ''}</span>
-            </a>
-          ))}
-        </div>
-      </>
-    ))}
-
-    <h2 id="regents">Grand Regents</h2>
-    <p class="intro">
-      Cubic Zirconias are Rank 1.2. Each one emerges beside their Diamond as a sibling, carries a fragment of their essence, and is given the Title of Grand Regent.
-    </p>
-    {SLOTS.map(([dslug, slots]) => {
-      const d = court(dslug);
+    {COURTS.map((d) => {
+      const g = GLASS[d.slug];
+      const slots = SLOTS[d.slug] ?? [];
       return (
-        <>
-          <h3 class="court-head">{d ? <a href={url(`/diamonds/${dslug}/`)}>{d.name}</a> : dslug}<span>{slots.length === 1 ? '1 Cubic Zirconia' : `${slots.length} Cubic Zirconias`}</span></h3>
-          <div class="grid regent-grid">
-            {slots.map((rs, i) => {
-              const r = rs ? regents[rs] : null;
-              if (!r) return (
-                <div class="card diamond-card open-slot">
-                  <div class="thumb ph" aria-hidden="true"><span>+</span></div>
-                  <span class="name">Slot open</span>
-                  <span class="sub">Cubic Zirconia {i + 1} of {d?.name ?? dslug}</span>
-                </div>
-              );
-              if (r.pending) return (
-                <a class={`card diamond-card${r.redacted ? ' sealed' : ''}`} href={url(`/regents/${r.slug}/`)}>
-                  <div class="thumb ph" aria-hidden="true">
-                    <svg viewBox="0 0 100 130"><circle cx="50" cy="36" r="20" /><path d="M14 128 C14 88 30 66 50 66 C70 66 86 88 86 128 Z" /></svg>
-                    {r.redacted && <em>[REDACTED]</em>}
-                  </div>
-                  <span class="name">{r.name}<span class="tag">{r.status}</span></span>
-                  <span class="sub">{r.facts[0][1]}</span>
-                  <span class="sub">Court {r.facts.find((f: any) => f[0] === 'Court')?.[1]}</span>
-                </a>
-              );
-              return (
-                <a class="card diamond-card" href={url(`/regents/${r.slug}/`)}>
-                  <img class="thumb" src={r.art.src.replace('{{BASE}}', url('/'))} alt={`${r.name} art`} />
-                  <span class="name">{r.name}</span>
-                  <span class="sub">{r.facts[0][1]}</span>
-                  <span class="sub">Court {r.facts.find((f: any) => f[0] === 'Court')[1]} &middot; {r.chips.find((c: any) => c[0] === 'Height')?.[1]}</span>
-                </a>
-              );
-            })}
+        <section class="court" id={`court-${d.slug}`} style={`--wa:${g.a};--wb:${g.b};--wd:${g.dark};--glow:${g.glow};--strip:${stripURI(d.slug)}`}>
+          <a class={`court-art${ART[d.slug] ? ` on-glass ${ART[d.slug].mode}` : ''}`} href={url(`/diamonds/${d.slug}/`)} style={ART[d.slug] ? `background-image:${muralURI(d.slug, 260, 380, 'court', ART[d.slug].mode === 'paper')}` : undefined}>
+            <img src={artSrc(d.slug, d.art)} alt={`${d.name} art`} loading="lazy" />
+          </a>
+          <div class="court-body">
+            <p class="court-kicker">{d.group === 'deity' ? 'Deity Diamond' : 'Ruling Diamond'} · Court {d.court}</p>
+            <h2><a href={url(`/diamonds/${d.slug}/`)}>{d.name}</a>{(d.status || d.partial) && <span class="tag">{d.status ?? 'Partial'}</span>}</h2>
+            <dl class="facts">
+              {d.pillar && <div><dt>Pillar</dt><dd>{d.pillar}</dd></div>}
+              {d.domains.length > 0 && <div><dt>{d.domains.length > 1 ? 'Domains' : 'Domain'}</dt><dd>{d.domains.join(' and ')}</dd></div>}
+              {d.height && <div><dt>Height</dt><dd>{d.height}</dd></div>}
+              <div><dt>Color</dt><dd>{d.color}</dd></div>
+            </dl>
+            {d.quote && <blockquote class="court-quote">{shortQuote(d.quote)}</blockquote>}
+            <a class="court-link" href={url(`/diamonds/${d.slug}/`)}>Visit {d.name.replace(' Diamond', '')}'s page ›</a>
           </div>
-        </>
+
+          {slots.length > 0 && <div class="court-regents">
+              <h3 class="regents-head">Grand Regents<span>{slots.length === 1 ? '1 Cubic Zirconia' : `${slots.length} Cubic Zirconias`}</span></h3>
+              <div class="regents">
+                {slots.map((rs, i) => {
+                  const r = rs ? regents[rs] : null;
+                  if (!r) return (
+                    <div class="pane open">
+                      <div class="pane-glass"><span aria-hidden="true">+</span></div>
+                      <strong>Seat open</strong>
+                      <small>Cubic Zirconia {i + 1}</small>
+                    </div>
+                  );
+                  if (r.pending) return (
+                    <a class={`pane${r.redacted ? ' sealed' : ''}`} href={url(`/regents/${r.slug}/`)}>
+                      <div class="pane-glass">
+                        <svg viewBox="0 0 100 130" aria-hidden="true"><circle cx="50" cy="40" r="19" /><path d="M16 130 C16 92 31 70 50 70 C69 70 84 92 84 130 Z" /></svg>
+                        {r.redacted && <em>[REDACTED]</em>}
+                      </div>
+                      <strong>{r.name}</strong>
+                      <small>{r.status}</small>
+                    </a>
+                  );
+                  return (
+                    <a class="pane" href={url(`/regents/${r.slug}/`)}>
+                      <div class={`pane-glass${ART[r.slug] ? ` on-glass ${ART[r.slug].mode}${ART[r.slug].fit ? ' fit' : ''}` : ''}`} style={ART[r.slug] ? `background-image:${muralURI(d.slug, 132, 185, r.slug)}` : undefined}><img src={ART[r.slug]?.src ? url(ART[r.slug].src!) : regentArt(r)} alt={`${r.name} art`} loading="lazy" /></div>
+                      <strong>{r.name}</strong>
+                      <small>{r.facts[0][1]}</small>
+                    </a>
+                  );
+                })}
+              </div>
+          </div>}
+        </section>
       );
     })}
 
@@ -106,24 +253,100 @@ const court = (slug: string) => DIAMONDS.find((d) => d.slug === slug);
 </Site>
 
 <style>
+  /* ---- The hall of windows ---- */
+  .hall { position: relative; overflow: hidden; padding: 1.6rem 0 1.2rem; background:
+      radial-gradient(ellipse 70% 55% at 50% 30%, rgba(124, 77, 255, 0.12), transparent 70%),
+      linear-gradient(180deg, #07050d 0%, #0c0818 55%, #07050d 100%);
+    border-bottom: 1px solid var(--line); }
+  .hall-light { position: absolute; inset: 0; pointer-events: none; background:
+      repeating-linear-gradient(100deg, transparent 0 9%, rgba(255, 240, 210, 0.025) 9% 11%, transparent 11% 13%);
+    mask-image: linear-gradient(180deg, transparent 20%, #000 60%, transparent 100%); }
+  .hall-head { position: relative; text-align: center; }
+  .hall-head .intro { margin: 0 auto; }
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin: 1rem auto 0; color: #c9b8ff; opacity: 0.7; }
+  .ornament::before, .ornament::after { content: ''; width: min(140px, 20vw); height: 1px; background: linear-gradient(90deg, transparent, currentColor); }
+  .ornament::after { transform: scaleX(-1); }
+  .windows::before { content: ''; position: absolute; left: -10%; right: -10%; bottom: 2.1rem; height: 1px; background: linear-gradient(90deg, transparent, rgba(201, 184, 255, 0.35), transparent); }
   .crumbs { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.06em; margin: 0 0 0.8rem; }
   .crumbs span { margin: 0 0.3rem; }
-  h1 { margin: 0 0 0.6rem; font-size: 2rem; }
-  h2 { margin: 2rem 0 0.4rem; font-size: 1.5rem; scroll-margin-top: 70px; }
+  h1 { margin: 0 0 0.6rem; font-size: 2.2rem; letter-spacing: 0.02em; }
   .intro { max-width: 62ch; color: #ddd5f5; }
   .intro.muted { color: var(--muted); font-size: 0.92rem; }
-  .grid { margin: 1.2rem 0; }
-  .diamond-card .thumb { aspect-ratio: 3 / 4; object-position: center 18%; }
-  .tag { display: inline-block; margin-left: 0.45rem; padding: 0.05rem 0.45rem; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); vertical-align: middle; }
-  .court-head { display: flex; align-items: baseline; gap: 0.7rem; margin: 1.6rem 0 0; font-family: var(--serif); font-weight: 400; font-size: 1.1rem; }
-  .court-head a { color: var(--text); }
-  .court-head span { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .regent-grid { margin-top: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(180px, 220px)); }
-  .thumb.ph { position: relative; display: grid; place-items: center; width: calc(100% + 1.7rem); margin: -0.85rem -0.85rem 0.1rem; aspect-ratio: 3 / 4; border-bottom: 1px solid var(--line); background: radial-gradient(ellipse at 50% 30%, rgba(124, 77, 255, 0.18), rgba(7, 5, 13, 0.6)); }
-  .thumb.ph svg { width: 46%; fill: rgba(201, 184, 255, 0.1); stroke: rgba(201, 184, 255, 0.3); stroke-width: 1.2; }
-  .thumb.ph em { position: absolute; left: 10%; right: 10%; top: 44%; padding: 0.3rem; background: #050407; color: #8a8076; text-align: center; font-style: normal; letter-spacing: 0.2em; font-size: 0.72rem; transform: rotate(-6deg); }
-  .open-slot { border-style: dashed; opacity: 0.75; }
-  .open-slot .thumb.ph span { font-size: 2.4rem; color: rgba(201, 184, 255, 0.4); }
+
+  .windows { position: relative; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); align-items: end; gap: clamp(0.4rem, 1.2vw, 1.1rem);
+    max-width: 1240px; margin: 2rem auto 0; padding: 0 1.2rem; }
+  .win { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--text); }
+  .win svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--glow) 45%, transparent)) brightness(0.92);
+    transition: filter 0.25s ease, transform 0.25s ease; }
+  .win:hover svg, .win:focus-visible svg { filter: drop-shadow(0 0 26px var(--glow)) brightness(1.1); transform: translateY(-4px); }
+  .win::after { content: ''; width: 120%; height: 34px; margin-top: -6px; background: radial-gradient(ellipse at 50% 0, color-mix(in srgb, var(--glow) 35%, transparent), transparent 70%); pointer-events: none; }
+  .plate { order: 3; margin-top: -20px; text-align: center; line-height: 1.2; }
+  .plate strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(0.78rem, 1.1vw, 1rem); }
+  .plate small { display: block; margin-top: 0.15rem; color: var(--muted); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .legend { margin-top: 1rem; text-align: center; color: var(--muted); font-size: 0.78rem; }
+
+  /* ---- The courts ---- */
+  .courts { padding-top: 1.6rem; }
+  .court { position: relative; display: grid; grid-template-columns: minmax(180px, 240px) minmax(0, 1fr) auto; align-items: start; gap: 1.8rem; margin: 1.8rem 0; padding: 1.9rem 1.5rem 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--wa) 45%, transparent); border-radius: 14px; scroll-margin-top: 80px;
+    background: linear-gradient(120deg, color-mix(in srgb, var(--wd) 70%, #07050d) 0%, #0a0712 55%, #07050d 100%); overflow: hidden; }
+  .court::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 10px; background: var(--strip) center / 100% 100%; border-bottom: 2px solid #0c0913; opacity: 0.9; }
+  .court:target { box-shadow: 0 0 0 1px var(--glow), 0 0 30px color-mix(in srgb, var(--glow) 35%, transparent); }
+  .court-art { display: block; align-self: start; border: 5px solid #0c0913; border-radius: 999px 999px 10px 10px; overflow: hidden;
+    outline: 1px solid color-mix(in srgb, var(--wb) 70%, transparent); outline-offset: -9px; box-shadow: 0 0 22px color-mix(in srgb, var(--glow) 30%, transparent); }
+  .court-art { transition: box-shadow 0.25s ease, transform 0.25s ease; }
+  .court-art:hover { box-shadow: 0 0 34px color-mix(in srgb, var(--glow) 55%, transparent); transform: translateY(-3px); }
+  .on-glass { background-size: cover; background-position: center; }
+  .on-glass.paper img { mix-blend-mode: multiply; }
+  .pane-glass.fit img { object-fit: contain; padding: 12% 6% 4%; }
+  .court-art img { display: block; width: 100%; aspect-ratio: 3 / 4.4; object-fit: cover; object-position: center 15%; }
+  .court-kicker { margin: 0 0 0.3rem; color: var(--wb); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  .court h2 { margin: 0 0 0.8rem; font-size: 1.7rem; }
+  .court h2 a { color: var(--text); text-decoration: none; }
+  .court h2 a:hover { color: var(--wb); }
+  .facts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 0.9rem; }
+  .facts div { padding: 0.4rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 255, 255, 0.03); }
+  .facts dt { color: var(--muted); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .facts dd { margin: 0.1rem 0 0; font-size: 0.9rem; }
+  .court-link { color: var(--wb); font-size: 0.86rem; }
+  .court-quote { margin: 0 0 0.9rem; padding: 0.2rem 0 0.2rem 0.9rem; border-left: 2px solid color-mix(in srgb, var(--wb) 60%, transparent); color: #e4dcf6; font-family: var(--serif); font-style: italic; font-size: 1rem; line-height: 1.5; max-width: 52ch; }
+  .court-regents { min-width: 0; padding-left: 1.4rem; border-left: 1px solid var(--line); }
+  .court-regents .regents-head { margin-top: 0; }
+  .tag { display: inline-block; margin-left: 0.55rem; padding: 0.05rem 0.5rem; border: 1px solid var(--line-strong); border-radius: 999px; font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); vertical-align: middle; }
+
+  .regents-head { display: flex; align-items: baseline; gap: 0.7rem; margin: 1.3rem 0 0.7rem; font-family: var(--serif); font-weight: 400; font-size: 1.05rem; }
+  .regents-head span { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .regents { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .pane { width: 132px; display: flex; flex-direction: column; align-items: center; text-align: center; color: var(--text); text-decoration: none; }
+  .pane-glass { position: relative; width: 100%; aspect-ratio: 3 / 4.2; display: grid; place-items: center; overflow: hidden;
+    border: 4px solid #0c0913; border-radius: 999px 999px 8px 8px; outline: 1px solid color-mix(in srgb, var(--wb) 60%, transparent); outline-offset: -7px;
+    background: radial-gradient(ellipse at 50% 30%, color-mix(in srgb, var(--wa) 30%, transparent), #07050d 75%); transition: box-shadow 0.2s ease, transform 0.2s ease; }
+  a.pane:hover .pane-glass { box-shadow: 0 0 18px color-mix(in srgb, var(--glow) 55%, transparent); transform: translateY(-3px); }
+  .pane-glass img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+  .pane-glass svg { width: 52%; fill: rgba(201, 184, 255, 0.1); stroke: rgba(201, 184, 255, 0.3); stroke-width: 1.2; }
+  .pane-glass em { position: absolute; left: 8%; right: 8%; top: 46%; padding: 0.25rem; background: #050407; color: #8a8076; font-style: normal; letter-spacing: 0.18em; font-size: 0.62rem; transform: rotate(-6deg); }
+  .pane-glass > span { font-size: 2rem; color: rgba(201, 184, 255, 0.35); }
+  .pane strong { margin-top: 0.45rem; font-family: var(--serif); font-weight: 400; font-size: 0.95rem; }
+  .pane small { color: var(--muted); font-size: 0.72rem; line-height: 1.3; }
+  .pane.open { opacity: 0.7; }
+  .pane.open .pane-glass { border-style: dashed; background: rgba(255, 255, 255, 0.02); }
+
   .forthcoming { margin: 0.6rem 0 0; padding-left: 1.1rem; color: #ddd5f5; }
   .forthcoming li + li { margin-top: 0.3rem; }
+
+  @media (max-width: 1080px) {
+    .court { grid-template-columns: minmax(170px, 230px) minmax(0, 1fr); }
+    .court-regents { grid-column: 2; padding-left: 0; border-left: 0; }
+  }
+  @media (max-width: 860px) {
+    .windows { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 1.4rem; }
+    .win.deity { order: -1; }
+  }
+  @media (max-width: 620px) {
+    h1 { font-size: 1.8rem; }
+    .court { grid-template-columns: 1fr; }
+    .court-regents { grid-column: auto; }
+    .court-art { width: 62%; max-width: 220px; margin: 0 auto; }
+    .pane { width: calc(50% - 0.5rem); }
+  }
 </style>
