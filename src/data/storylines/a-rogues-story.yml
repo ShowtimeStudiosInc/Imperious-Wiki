@@ -90,7 +90,10 @@ locations:
     thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1552047566424637581
   - name: The Guild Hall
     kind: Settlement
-    text: Where the settlement's work is posted and handed out, run by a Bi-Color Andean Opal.
+    text: >-
+      The tallest building in the settlement, and the only one with a proper sign out front. One whole wall is covered
+      in job postings, and a Bi-Color Andean Opal works the counter, deciding who gets which job.
+    thread: https://discord.com/channels/1101619639265525782/1552046885668388965/threads/1574828590439075900
   - name: The Fusion Quarter
     kind: Settlement
     text: The part of the settlement where its fusions live, including the chief.
