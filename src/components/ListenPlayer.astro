@@ -272,8 +272,17 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
         audio = a;
         a.playbackRate = Number(rateSel.value);
         a.onended = () => { if (myToken === token) setTimeout(() => advance(1, myToken), el.dataset.tts === 'card' ? 350 : 150); };
-        a.onerror = () => { if (myToken !== token) return; api = false; tip.textContent = 'The TTS voices are resting right now, so your device voices are reading instead.'; speakDevice(el, myToken); };
-        a.play().catch(() => { if (myToken === token) { api = false; speakDevice(el, myToken); } });
+        // If this one line isn't available, read just this line with the device voice.
+        // The TTS voices stay on, so the next line goes back to them if it's ready.
+        let fellBack = false;
+        const fallback = () => {
+          if (myToken !== token || fellBack) return;
+          fellBack = true;
+          tip.textContent = 'Some lines aren\'t voiced yet, so your device reads those ones. Click any line to start there.';
+          speakDevice(el, myToken);
+        };
+        a.onerror = fallback;
+        a.play().catch((err) => { if (err && err.name === 'NotAllowedError') { api = false; } fallback(); });
         prefetch(el);
         return;
       }
