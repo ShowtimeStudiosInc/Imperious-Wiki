@@ -1,0 +1,56 @@
+name: Andesine
+slug: andesine
+rank: '4.2'
+side: null
+faction: gempire
+kind: standard
+parent: null
+components: null
+variant: null
+era: null
+species: gem
+status: []
+traits: []
+court: null
+threatClass: null
+height: 7'3"
+stats:
+  hp: 34
+  atk: 7
+  def: 8
+  spd: 4
+  int: 3
+  mag: 3
+abilities:
+  - section: ACT Bonus
+    name: Clear the Way
+    tags: []
+    cost: null
+    text: >-
+      <:Act:1568035453842751618>ACTs that bring down cover, open a path, collapse a tunnel, or knock an obstacle out of
+      the way are especially effective for her.
+    moves: []
+  - section: Latent Ability
+    name: Seismic Sense
+    tags: []
+    cost: null
+    text: >-
+      Andesine may learn to feel movement through rock and soil, sensing weak points, hollow spaces, and anything
+      moving under her feet. Its moves and SP costs are set when it's unlocked.
+    moves: []
+role: >-
+  Andesines serve the Gempire as demolition workers and excavators. They're stationed at colony sites and sent in to
+  clear land for building. With heavy tools and blasting charges, they break down boulders and rubble. Their job is
+  only to take things apart, so other gems harvest or refine whatever they dig up.
+interactions: >-
+  Andesines work in pairs or small teams of three to five, along with other geoformers, depending on how big the site
+  is. They're usually sent to active dig zones and old, shut-down structures to clear a path. They take direct orders
+  from Sugilites and Blastoids, who run the sites and decide where and when a charge can go off, so the planet and the
+  site aren't damaged.
+description: >-
+  Most Andesines are medium to tall, with a sturdy build made to take shockwaves and falling rubble. They wear utility
+  belts, visors, goggles, or hardhats.
+image: /images/gem-types/andesine.webp
+gemstone: /images/gemstones/andesine.svg
+credit: Lexariix
+updated: '2026-11-25'

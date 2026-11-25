@@ -107,6 +107,7 @@ GEMS = {
     'willemite': ('hexagon', '#5fe0a8', {}),
     'zircon': ('diamond', '#5a8bff', {}),
     # 4.2
+    'andesine': ('emerald', '#c9462f', {'flecks': '#f0a04a'}),
     'bismuth': ('square', '#ff8fd0', {'multi': ['#ff8fd0', '#7fd6ff', '#ffd27f']}),
     'blue-tourmaline-indicolite-era-2a': ('emerald-long', '#3f7fe0', {}),
     'blue-tourmaline-indicolite-era-1': ('emerald-long', '#3f7fe0', {}),
