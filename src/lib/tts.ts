@@ -7,6 +7,7 @@ export interface Line { kind: 'say' | 'card' | 'note'; who: string; text: string
  * The words the voice actually reads, when they need to differ from what's on the page.
  * Cards are written in capitals with dots between parts, so they're turned into normal sentences.
  * "Live" as in "on air" is spelled "lyve", so it rhymes with "five" instead of "give".
+ * "Gempire" is spelled "Gem-pyre", so it's read as gem plus the end of empire.
  */
 export function speakable(text: string, kind: Line['kind']) {
   let t = text;
@@ -16,7 +17,8 @@ export function speakable(text: string, kind: Line['kind']) {
   }
   t = t.replace(/\blive (from|on|holovision|tonight|shows?|broadcasts?|audiences?|music|sets?)\b/gi, (m, w) => `lyve ${w}`)
        .replace(/\b(we're|we are|you're|you are|is|are|was|go|goes|going|went) live\b/gi, (m, w) => `${w} lyve`)
-       .replace(/\bLIVE\b/g, 'lyve');
+       .replace(/\bLIVE\b/g, 'lyve')
+       .replace(/\bGempire/g, 'Gem-pyre'); // Gem as in gemstone, pire as in empire
   return t;
 }
 
