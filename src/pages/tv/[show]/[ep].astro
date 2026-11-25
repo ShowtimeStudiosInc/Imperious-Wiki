@@ -14,6 +14,8 @@ const { s, e, newer, older } = Astro.props;
 const guests = new Set(e.guests);
 const host = e.host || s.host;
 const isGuest = (n: string | null) => !!n && n !== host;
+let lineNo = 0;
+const n = () => lineNo++;
 const role = (n: string | null) => (n === host ? 'Host' : guests.has(n ?? '') ? 'Guest' : 'On air');
 ---
 <Site title={`${e.title} · ${s.name}`} description={e.summary}>
@@ -29,16 +31,16 @@ const role = (n: string | null) => (n === host ? 'Host' : guests.has(n ?? '') ? 
         {e.guests.map((g) => <span class="ht-plate guest"><b>{g}</b><em>Guest</em></span>)}
       </div>
       {e.credits && <p class="credits">Written by {e.credits}</p>}
-      <ListenPlayer host={host} />
+      <ListenPlayer host={host} episode={`${s.slug}/${e.slug}`} />
     </header>
     <article class="ht-script">
       {e.beats.map((beat) =>
-        beat.kind === 'card' ? <div class="ht-card"><span data-tts="card">{beat.text}</span></div>
-        : beat.kind === 'action' ? <p class="ht-action" data-tts="note">{beat.text}</p>
+        beat.kind === 'card' ? <div class="ht-card"><span data-tts="card" data-i={n()}>{beat.text}</span></div>
+        : beat.kind === 'action' ? <p class="ht-action" data-tts="note" data-i={n()}>{beat.text}</p>
         : (
           <div class={`ht-speech${isGuest(beat.speaker) ? ' guest' : ''}`}>
             {beat.speaker && <span class={`ht-plate${isGuest(beat.speaker) ? ' guest' : ''}`}><b>{beat.speaker}</b><em>{role(beat.speaker)}</em></span>}
-            {beat.lines.map((l) => <p data-tts="say" data-who={beat.speaker ?? ''}>{l}</p>)}
+            {beat.lines.map((l) => <p data-tts="say" data-who={beat.speaker ?? ''} data-i={n()}>{l}</p>)}
           </div>
         ))}
     </article>

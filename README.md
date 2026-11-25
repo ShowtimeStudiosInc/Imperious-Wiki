@@ -119,6 +119,24 @@ Never share the client secret. If it leaks, generate a new one in the OAuth app 
 
 The Gem Builder can load `https://<owner>.github.io/<repo>/gem-types.json` instead of its own list. Each entry has `slug`, `displayName`, `rank`, `stats`, and `abilities`. The "Open in Gem Builder" button on each entry links to `?type=<slug>`, so the builder can preselect it once it reads that parameter.
 
+## Listen button voices (`/tts`)
+
+Every Holovision episode has a Listen button. It reads the script out loud in one of two ways:
+
+- **AI voices**, from Deepgram Aura-2 on Cloudflare Workers AI, served by the `/tts` route of the `ia-wiki-presence` Worker (`workers/presence`). The Worker only voices lines that are published in an episode's `lines.json`, so nobody can use it to voice other text. Each line is made once and then saved.
+- **Device voices**, the reader's own phone or computer voices. The button uses these whenever the Worker can't answer, so it always works.
+
+Each character's voice is set in `src/data/tv/voices.yml`. Give recurring characters a voice there and keep it.
+
+To turn the AI voices on (whoever owns the Cloudflare account does this once):
+
+1. In the Cloudflare dashboard, open **AI → Workers AI** and turn it on.
+2. Optional, but it keeps every voiced line forever: run `npx wrangler kv namespace create TTS_CACHE` in `workers/presence`, then paste the id it prints into `wrangler.toml` and remove the `#` signs on those three lines.
+3. In `workers/presence`, run `npx wrangler deploy`.
+4. Open `https://ia-wiki-presence.<your-name>.workers.dev/tts/health` from the wiki. It should say `{"ok":true}`.
+
+Aura-2 costs $0.03 per 1,000 characters past Workers AI's free daily allowance. One episode is about 20,000 characters, and each line is only paid for the first time anyone plays it. When the allowance runs out for the day, the button quietly switches to device voices.
+
 ## Seasonal themes
 The wiki is always dark. On top of that, it changes its accent colors and adds a light falling or floating effect for the time of year:
 

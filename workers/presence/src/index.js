@@ -2,6 +2,8 @@
 // Each wiki page gets its own Durable Object room. Every open tab holds one WebSocket to its
 // page's room, and the room sends the current count to everyone whenever someone joins or leaves.
 // Nothing about the viewer is stored: the room only knows how many sockets are open.
+//
+// It also serves /tts, the voices for the Listen button on Holovision episodes (see ttsRoute below).
 import { DurableObject } from 'cloudflare:workers';
 
 const ALLOWED = ['https://showtimestudiosinc.github.io', 'http://localhost:4321'];
@@ -32,9 +34,82 @@ export class PageRoom extends DurableObject {
   }
 }
 
+// ---------- /tts: voices for the Listen button ----------
+// The page asks for "line N of episode X". The Worker reads that line from the episode's published
+// lines.json on the wiki, so it can only ever voice text that is really on the wiki. Each line is made
+// once with Deepgram Aura-2 on Workers AI and saved, so every listener after the first gets the saved copy.
+const SITE = 'https://showtimestudiosinc.github.io/Imperious-Wiki';
+const MODEL = '@cf/deepgram/aura-2-en';
+const VOICES = new Set(['amalthea', 'andromeda', 'apollo', 'arcas', 'aries', 'asteria', 'athena', 'atlas', 'aurora', 'callista', 'cora',
+  'cordelia', 'delia', 'draco', 'electra', 'harmonia', 'helena', 'hera', 'hermes', 'hyperion', 'iris', 'janus', 'juno', 'jupiter', 'luna',
+  'mars', 'minerva', 'neptune', 'odysseus', 'ophelia', 'orion', 'orpheus', 'pandora', 'phoebe', 'pluto', 'saturn', 'thalia', 'theia', 'vesta', 'zeus']);
+
+const cors = (origin) => ({ 'Access-Control-Allow-Origin': origin, 'Vary': 'Origin' });
+
+async function sha(text) {
+  const d = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return [...new Uint8Array(d)].map((b) => b.toString(16).padStart(2, '0')).join('').slice(0, 32);
+}
+
+async function ttsRoute(request, env, ctx, url, origin) {
+  const head = cors(origin);
+  if (url.pathname === '/tts/health') {
+    return Response.json({ ok: !!env.AI }, { headers: { ...head, 'Cache-Control': 'no-store' } });
+  }
+  if (!env.AI) return new Response('Voices are not set up', { status: 503, headers: head });
+  const ep = (url.searchParams.get('ep') || '').toLowerCase();
+  const i = Number(url.searchParams.get('i'));
+  if (!/^[a-z0-9-]+\/[a-z0-9-]+$/.test(ep) || !Number.isInteger(i) || i < 0 || i > 5000) {
+    return new Response('Bad request', { status: 400, headers: head });
+  }
+
+  // The episode's line list, cached at the edge for 10 minutes.
+  const listRes = await fetch(`${SITE}/tv/${ep}/lines.json`, { cf: { cacheTtl: 600, cacheEverything: true } });
+  if (!listRes.ok) return new Response('No such episode', { status: 404, headers: head });
+  const line = ((await listRes.json()).lines || [])[i];
+  if (!line || !line.text) return new Response('No such line', { status: 404, headers: head });
+  const voice = VOICES.has(line.voice) ? line.voice : 'asteria';
+  const text = String(line.text).slice(0, 1500);
+
+  const key = `tts/v1/${voice}/${await sha(text)}.mp3`;
+  const audioHeaders = { ...head, 'Content-Type': 'audio/mpeg', 'Cache-Control': 'public, max-age=31536000, immutable' };
+
+  // 1. Saved copy from KV (if a TTS_CACHE namespace is bound), shared by every data center.
+  if (env.TTS_CACHE) {
+    const saved = await env.TTS_CACHE.get(key, 'arrayBuffer');
+    if (saved) return new Response(saved, { headers: { ...audioHeaders, 'X-TTS': 'saved' } });
+  }
+  // 2. Saved copy in this data center's cache.
+  const cacheKey = new Request(`https://tts.cache/${key}`);
+  const cached = await caches.default.match(cacheKey);
+  if (cached) {
+    const buf = await cached.arrayBuffer();
+    if (env.TTS_CACHE) ctx.waitUntil(env.TTS_CACHE.put(key, buf));
+    return new Response(buf, { headers: { ...audioHeaders, 'X-TTS': 'cached' } });
+  }
+  // 3. Make it.
+  let buf;
+  try {
+    const out = await env.AI.run(MODEL, { text, speaker: voice, encoding: 'mp3' });
+    buf = out instanceof ArrayBuffer ? out : await new Response(out).arrayBuffer();
+  } catch (err) {
+    // Usually the daily free allowance running out. The page falls back to the device voices.
+    return new Response('Voice unavailable', { status: 503, headers: { ...head, 'Cache-Control': 'no-store' } });
+  }
+  if (!buf || buf.byteLength < 200) return new Response('Voice unavailable', { status: 503, headers: head });
+  ctx.waitUntil(caches.default.put(cacheKey, new Response(buf, { headers: { 'Cache-Control': 'public, max-age=31536000' } })));
+  if (env.TTS_CACHE) ctx.waitUntil(env.TTS_CACHE.put(key, buf));
+  return new Response(buf, { headers: { ...audioHeaders, 'X-TTS': 'new' } });
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    if (url.pathname === '/tts' || url.pathname === '/tts/health') {
+      const origin = request.headers.get('Origin') || '';
+      if (!ALLOWED.includes(origin)) return new Response('Not allowed', { status: 403 });
+      return ttsRoute(request, env, ctx, url, origin);
+    }
     if (url.pathname !== '/room') return new Response('Imperious Wiki presence', { status: 200 });
     if (request.headers.get('Upgrade') !== 'websocket') return new Response('Expected a WebSocket', { status: 426 });
     const origin = request.headers.get('Origin') || '';

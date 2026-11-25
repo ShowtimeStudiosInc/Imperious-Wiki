@@ -1,0 +1,30 @@
+# Voices for the Listen button, from Deepgram Aura-2 on Cloudflare Workers AI.
+# Give every recurring character one voice and keep it, so they sound the same in every episode.
+# Anyone not listed gets a voice picked from the pools below, the same one every time.
+# All the voice names: amalthea, andromeda, apollo, arcas, aries, asteria, athena, atlas, aurora, callista,
+# cora, cordelia, delia, draco, electra, harmonia, helena, hera, hermes, hyperion, iris, janus, juno, jupiter,
+# luna, mars, minerva, neptune, odysseus, ophelia, orion, orpheus, pandora, phoebe, pluto, saturn, thalia,
+# theia, vesta, zeus.
+
+narrator: asteria   # reads on-screen cards and, if turned on, camera notes
+
+cast:
+  Alina: thalia
+  Tambour: orpheus
+  Rook: mars
+  Joss: zeus
+  # Episode 1
+  Sable: andromeda
+  Chet: apollo
+  Nia: iris
+  Vale: athena
+  # Episode 2
+  Vik: arcas
+  Ira: luna
+  Remy: hermes
+  Dex: aries
+  Ray: atlas
+  Greer: hera
+
+# Fallback pool for anyone without a voice above.
+pool: [aurora, orion, callista, odysseus, cora, jupiter, electra, neptune, harmonia, hyperion, ophelia, saturn]

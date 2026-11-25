@@ -9,3 +9,14 @@ class_name = "PageRoom"
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["PageRoom"]
+
+# Voices for the Listen button (/tts). Workers AI must be turned on for the account.
+[ai]
+binding = "AI"
+
+# Optional: a KV namespace that keeps every voiced line forever, so each line is only made once.
+# Make it with:  npx wrangler kv namespace create TTS_CACHE
+# then paste the id it prints below and remove the # signs.
+# [[kv_namespaces]]
+# binding = "TTS_CACHE"
+# id = "PASTE_THE_ID_HERE"

@@ -1,9 +1,10 @@
 ---
 // Optional read-aloud player for TV episodes. Uses the browser's own text to speech,
 // so nothing is recorded or stored on the server. Hidden on browsers that can't speak.
-const { host = '' } = Astro.props;
+const { host = '', episode = '' } = Astro.props;
+const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrodriguez091.workers.dev/tts';
 ---
-<div class="lp" data-lp data-host={host} hidden>
+<div class="lp" data-lp data-host={host} data-ep={episode} data-tts-url={TTS} hidden>
   <button type="button" class="lp-open" data-lp-open aria-expanded="false">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     Listen
@@ -28,7 +29,7 @@ const { host = '' } = Astro.props;
       </label>
       <label class="lp-check"><input type="checkbox" data-lp-notes /> Read camera notes</label>
     </div>
-    <p class="lp-tip">Voices come from your device. Click any line to start there.</p>
+    <p class="lp-tip" data-lp-tip>Voices come from your device. Click any line to start there.</p>
   </div>
 </div>
 
@@ -129,6 +130,37 @@ const { host = '' } = Astro.props;
       return out;
     };
 
+    // Better voices from the wiki's voice service, when it's up. Otherwise the device voices are used.
+    const ttsUrl = root.dataset.ttsUrl || '';
+    const ep = root.dataset.ep || '';
+    const tip = $<HTMLElement>('[data-lp-tip]');
+    let api = false;
+    let apiChecked = false;
+    const checkApi = async () => {
+      if (apiChecked || !ttsUrl || !ep) return;
+      apiChecked = true;
+      try {
+        const r = await fetch(ttsUrl + '/health', { cache: 'no-store' });
+        api = r.ok && (await r.json()).ok === true;
+      } catch { api = false; }
+      tip.textContent = api
+        ? 'AI voices (Deepgram Aura). New lines can take a second to load. Click any line to start there.'
+        : 'Voices come from your device. Click any line to start there.';
+    };
+    const lineUrl = (el: HTMLElement) => `${ttsUrl}?ep=${encodeURIComponent(ep)}&i=${el.dataset.i}`;
+    let audio: HTMLAudioElement | null = null;
+    const warm = new Map<string, HTMLAudioElement>();
+    const prefetch = (from: HTMLElement) => {
+      if (!api) return;
+      const list = playable(); const at = list.indexOf(from);
+      for (const el of list.slice(at + 1, at + 3)) {
+        const u = lineUrl(el);
+        if (warm.has(u)) continue;
+        const a = new Audio(); a.preload = 'auto'; a.src = u; warm.set(u, a);
+        if (warm.size > 6) warm.delete(warm.keys().next().value!);
+      }
+    };
+
     let index = -1;
     let playing = false;
     let token = 0;
@@ -149,6 +181,22 @@ const { host = '' } = Astro.props;
     };
 
     const speakEl = (el: HTMLElement, myToken: number) => {
+      if (api && el.dataset.i) {
+        const u = lineUrl(el);
+        const a = warm.get(u) || new Audio(u);
+        warm.delete(u);
+        audio = a;
+        a.playbackRate = Number(rateSel.value);
+        a.onended = () => { if (myToken === token) setTimeout(() => advance(1, myToken), el.dataset.tts === 'card' ? 350 : 150); };
+        a.onerror = () => { if (myToken !== token) return; api = false; tip.textContent = 'The AI voices are resting right now, so your device voices are reading instead.'; speakDevice(el, myToken); };
+        a.play().catch(() => { if (myToken === token) { api = false; speakDevice(el, myToken); } });
+        prefetch(el);
+        return;
+      }
+      speakDevice(el, myToken);
+    };
+
+    const speakDevice = (el: HTMLElement, myToken: number) => {
       const t = el.dataset.tts;
       const who = t === 'say' ? (el.dataset.who || NARRATOR) : NARRATOR;
       const v = who === NARRATOR ? { voice: voices[1 % Math.max(voices.length, 1)], pitch: 0.95 } : voiceFor(who);
@@ -176,6 +224,7 @@ const { host = '' } = Astro.props;
     const playFrom = (el: HTMLElement) => {
       token++;
       synth.cancel();
+      if (audio) { audio.pause(); audio.onended = null; audio.onerror = null; audio = null; }
       const list = playable();
       index = list.indexOf(el);
       if (index < 0) return;
@@ -199,6 +248,7 @@ const { host = '' } = Astro.props;
     const pause = () => {
       token++;
       synth.cancel();
+      if (audio) { audio.pause(); audio.onended = null; audio.onerror = null; audio = null; }
       playing = false;
       playBtn.textContent = '▶'; playBtn.setAttribute('aria-label', 'Play');
     };
@@ -215,6 +265,7 @@ const { host = '' } = Astro.props;
       bar.hidden = !open;
       openBtn.setAttribute('aria-expanded', String(open));
       document.body.classList.toggle('lp-on', open);
+      if (open) checkApi();
       if (!open) stop();
     });
     playBtn.addEventListener('click', () => {
@@ -225,7 +276,7 @@ const { host = '' } = Astro.props;
     $('[data-lp-next]').addEventListener('click', () => advance(1));
     $('[data-lp-prev]').addEventListener('click', () => advance(-1));
     $('[data-lp-stop]').addEventListener('click', stop);
-    rateSel.addEventListener('change', () => { store.set('rate', rateSel.value); const cur = document.querySelector<HTMLElement>('.lp-current'); if (playing && cur) playFrom(cur); });
+    rateSel.addEventListener('change', () => { store.set('rate', rateSel.value); if (audio) audio.playbackRate = Number(rateSel.value); const cur = document.querySelector<HTMLElement>('.lp-current'); if (playing && cur) playFrom(cur); });
     notesBox.addEventListener('change', () => store.set('notes', notesBox.checked ? '1' : '0'));
     items.forEach((el) => el.addEventListener('click', () => {
       if (!document.body.classList.contains('lp-on')) return;
