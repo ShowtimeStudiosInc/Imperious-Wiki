@@ -12,7 +12,7 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-25'
-unrest: 44
+unrest: 43
 deity:
   - slug: alpha-black
     score: 47
@@ -28,12 +28,12 @@ deity:
     votes: 44814
 ruling:
   - slug: saturn-light
-    score: 80
+    score: 78
     previous: 72
     votes: 37555
   - slug: nightshade-violet
     name: Nightshade Violet Diamond
-    score: 58
+    score: 60
     previous: 52
     votes: 28579
   - slug: maroon-red
@@ -43,7 +43,7 @@ ruling:
     votes: 31709
   - slug: bi-colored-kandy
     name: Bi-Colored Kandy Diamond
-    score: 71
+    score: 70
     previous: 64
     votes: 31546
 regents:
@@ -52,7 +52,7 @@ regents:
     previous: 68
     votes: 12234
   - slug: florentino
-    score: 72
+    score: 71
     previous: 70
     votes: 10389
   - slug: tethys
@@ -60,7 +60,7 @@ regents:
     previous: 38
     votes: 2046
   - slug: reina
-    score: 59
+    score: 61
     previous: 61
     votes: 11334
   - slug: magda
@@ -155,6 +155,36 @@ earlier_news:
         change: -4
 log:
   - date: '2026-11-25'
+    who: saturn-light
+    change: -1
+    kind: small
+    text: Warp pads in Saturn's territory ran hours behind all day. Most gems blamed the court, fair or not.
+  - date: '2026-11-25'
+    who: florentino
+    change: -1
+    kind: small
+    text: Florentino told an Aristocrat to her face that she was lying to herself. Her friends are not happy about it.
+  - date: '2026-11-25'
+    who: bi-colored-kandy
+    change: -1
+    kind: small
+    text: Kandy called An Andesine by the wrong name at a public event. The clip has been shared all week.
+  - date: '2026-11-25'
+    who: nightshade-violet
+    change: +2
+    kind: small
+    text: Nightshade visited a kindergarten and spent time with the newest gems. The staff there are still talking about it.
+  - date: '2026-11-25'
+    who: saturn-light
+    change: -1
+    kind: small
+    text: A fight broke out in the line outside Club Imperious. Gems blame the club for letting it get that crowded.
+  - date: '2026-11-25'
+    who: reina
+    change: +2
+    kind: small
+    text: A mobile game Reina was seen playing shot to the top of the Holovision charts overnight.
+  - date: '2026-11-25'
     who: florentino
     change: -1
     kind: small
@@ -166,12 +196,12 @@ log:
     text: A defective gem from one of Theta's kindergartens was turned away from his court. Others saw it happen.
   - date: '2026-11-25'
     who: ordr
-    change: +1
+    change: 1
     kind: small
     text: Ordr reorganized Court Theta's public records. For the first time, gems can actually find what they're looking for.
   - date: '2026-11-24'
     who: theta-gold
-    change: +1
+    change: 1
     kind: small
     text: Theta sent his Cubic Zirconia to another social event in his place. Some gems respect the work ethic. Some feel brushed off.
   - date: '2026-11-24'
