@@ -1,0 +1,60 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-body: "Nunito", system-ui, sans-serif;
+    --font-display: "Orbitron", system-ui, sans-serif;
+    --bg: #0d0b24; --bg-deep: #241a4a;
+    --panel: rgba(30, 22, 62, .9); --panel-2: rgba(30, 22, 62, .9); --panel-solid: rgba(20, 15, 44, .92);
+    --ink: #fff4fa; --ink-soft: #f0cfe2; --ink-faint: #b7a3cc;
+    --gold: #ff9ccc; --gold-bright: #8fdcf2; --gold-pale: #ffc2df;
+    --brown-deep: rgba(16, 12, 36, .95);
+    --line: rgba(255, 156, 204, .18); --line-strong: rgba(143, 220, 242, .42);
+    --chip: rgba(255, 156, 204, .15);
+    --quote-bg: rgba(16, 12, 36, .9); --quote-ink: #fff4fa;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .45);
+    --sp: #241a4a; --sp-bg: #8fdcf2; --badge-ink: #241a4a;
+  }
+  body { background: var(--bg); }
+  h1 { text-shadow: 0 0 18px rgba(255, 156, 204, .45); }
+  .hero { border-top-color: var(--gold-bright) !important; }
+  /* Cotton candy space: pastel nebula clouds, little stars, and morse code drifting across the sky */
+  .cc-sky { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    background:
+      radial-gradient(ellipse 55% 40% at 18% 82%, rgba(255, 156, 204, .28), transparent 70%),
+      radial-gradient(ellipse 50% 38% at 85% 70%, rgba(143, 220, 242, .24), transparent 70%),
+      radial-gradient(ellipse 40% 30% at 60% 20%, rgba(255, 194, 223, .12), transparent 70%),
+      linear-gradient(180deg, #0d0b24 0%, #1d1640 60%, #2b1c52 100%); }
+  .cc-star { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff; opacity: .7; animation: twinkle 5s ease-in-out infinite; }
+  .cc-star.p { background: #ff9ccc; } .cc-star.b { background: #8fdcf2; }
+  .cc-morse { position: absolute; left: -40%; font: 700 22px/1 "Orbitron", monospace; letter-spacing: .35em; white-space: nowrap; color: rgba(255, 156, 204, .18); animation: drift 70s linear infinite; }
+  .cc-morse.b { color: rgba(143, 220, 242, .16); animation-duration: 95s; }
+  @keyframes twinkle { 0%, 100% { opacity: .25; } 50% { opacity: .95; } }
+  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(180vw); } }
+  @media (prefers-reduced-motion: reduce) { .cc-sky * { animation: none !important; } .cc-morse { left: 5%; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="190" height="190" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="52" r="34" fill="#ff9ccc"/><ellipse cx="50" cy="54" rx="22" ry="18" fill="#8fdcf2"/><circle cx="24" cy="18" r="12" fill="#ffc2df"/><circle cx="76" cy="18" r="12" fill="#8fdcf2"/></svg>
+<!--/mark-->
+<div class="cc-sky" id="cc-sky" aria-hidden="true"></div>
+<script>
+  (function () {
+    var sky = document.getElementById('cc-sky'); if (!sky) return;
+    for (var i = 0; i < 60; i++) {
+      var s = document.createElement('span');
+      s.className = 'cc-star' + (i % 3 === 1 ? ' p' : i % 3 === 2 ? ' b' : '');
+      s.style.left = Math.random() * 100 + '%'; s.style.top = Math.random() * 100 + '%';
+      s.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
+      sky.appendChild(s);
+    }
+    // "HI / BOO", "CECE / HI" and "PRANK" in morse code, since that is the only way Cece talks
+    var lines = [['.... ..  /  -... --- ---', 18, ''], ['-.-. . -.-. .  /  .... ..', 46, ' b'], ['.--. .-. .- -. -.-', 74, '']];
+    lines.forEach(function (l, i) {
+      var m = document.createElement('div'); m.className = 'cc-morse' + l[2];
+      m.textContent = l[0]; m.style.top = l[1] + '%'; m.style.animationDelay = (-i * 22) + 's';
+      sky.appendChild(m);
+    });
+  })();
+</script>

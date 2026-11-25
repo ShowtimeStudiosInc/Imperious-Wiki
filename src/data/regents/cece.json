@@ -1,0 +1,200 @@
+{
+ "slug": "cece",
+ "name": "Grand Regent Cece",
+ "shortName": "Cece",
+ "diamond": "bi-colored-kandy",
+ "diamondName": "Bi-Colored Kandy Diamond",
+ "title": "Grand Regent <span class=\"accent\">Cece</span>",
+ "courtLine": "Court Kandy · Grand Regent · Rank 1.2",
+ "heroSub": "Cotton Candy Cubic Zirconia of Court Kandy, who never says a word out loud and talks only in morse code.",
+ "chips": [
+  [
+   "Sub-Domain",
+   "Signals"
+  ],
+  [
+   "Era",
+   "2A"
+  ],
+  [
+   "Height",
+   "46'0\""
+  ],
+  [
+   "Pronouns",
+   "She / Any"
+  ]
+ ],
+ "facts": [
+  [
+   "Gem-Type",
+   "Cotton Candy Cubic Zirconia"
+  ],
+  [
+   "Era",
+   "2A (Bi-Colored Kandy Sole Essence)"
+  ],
+  [
+   "Pronouns",
+   "She / Any"
+  ],
+  [
+   "Height",
+   "46'0\""
+  ],
+  [
+   "Court",
+   "Kandy"
+  ],
+  [
+   "Gem Placement",
+   "Chest"
+  ],
+  [
+   "Place of Birth",
+   "Bi-Colored Kandy Diamond's birthplace"
+  ],
+  [
+   "Alignment",
+   "Chaotic Neutral"
+  ],
+  [
+   "Facet & Cut",
+   "None (Cubic Zirconia)"
+  ],
+  [
+   "Nicknames",
+   "Cece, Pigtails"
+  ]
+ ],
+ "stats": [
+  [
+   "HP",
+   "44"
+  ],
+  [
+   "ATK",
+   "10"
+  ],
+  [
+   "DEF",
+   "13"
+  ],
+  [
+   "SPD",
+   "4"
+  ],
+  [
+   "INT",
+   "10"
+  ],
+  [
+   "MAG",
+   "7"
+  ],
+  [
+   "Level",
+   "1"
+  ]
+ ],
+ "equipment": [
+  [
+   "Weapon",
+   "Tech Gauntlets"
+  ],
+  [
+   "Armor",
+   "Space Helmet"
+  ],
+  [
+   "Accessory",
+   "Hover Boots"
+  ]
+ ],
+ "personality": [
+  "Cece is quite the… quiet gem actually! Like really. You will <i>never</i> hear them talk. But why? Is it a defect? An event upon emergence that traumatized her into silence?",
+  "No, she just doesn't like to talk, dunce head! On the occasions when she actually communicates, it's specifically in morse code. Despite her silence, she's rather expressive, often exaggerating her body language to convey how she's feeling! Cece holds great pride about the technological advancements she and her siblings have achieved and strives to create more inventions to benefit the Gempire! Despite her position, Cece can be rather mischievous or downright childish at times, pulling the occasional pranks on her underlings!"
+ ],
+ "likes": [
+  "Robots",
+  "Programming",
+  "The \"Rule of Cool\"",
+  "Blueprinting",
+  "Making sound effects"
+ ],
+ "dislikes": [
+  "Being ignored",
+  "Devices crashing",
+  "Slow internet",
+  "Being quiet or standing still for too long"
+ ],
+ "fear": "Cece fears a catastrophe caused by her inventions. If her projects were to fail, she's afraid it would destroy her credibility as a Grand Regent.",
+ "relationships": [
+  [
+   "Bi-Colored Kandy Diamond",
+   "Her #1!! Her ride or die! She highly respects her sister and always tries to give her advice! Even if she is… a bit pushy about it."
+  ],
+  [
+   "Grand Regent Cotton",
+   "Despite being opposite in personality, she thinks she's SUUPPPERRR cool, like in that older sister way! She enjoys sending funny videos to her!"
+  ],
+  [
+   "Saturn Light Diamond",
+   "#1 FRENEMY!! Some days they get along great, gossiping about the latest news at Club Imperious, ooor they insult each other during a meeting. It's a coin flip really."
+  ]
+ ],
+ "abilities": [
+  {
+   "name": "Signal Manipulation",
+   "label": "Sub-Domain: Signals · Standard",
+   "desc": [
+    "Cece can manipulate the signals of devices and other technology, like amplifying or jamming communication!",
+    "<b>Weakness:</b> It's <i>kinda</i> useless if the devices have RF shielding or filtering built into them."
+   ],
+   "passives": [],
+   "spells": [
+    {
+     "name": "Broadcast Warning!",
+     "kind": "Buff",
+     "cost": "2 SP",
+     "text": "Cece sends a message to an ally of her choosing about the incoming attacks of an enemy! The enemy's next attack against that ally has disadvantage."
+    },
+    {
+     "name": "Brain Blast!! WA-CHAM!",
+     "kind": "Offensive",
+     "cost": "5 SP",
+     "text": "She sends a blast of static at an enemy's mind, dealing 1d12 + MAG electric damage! The enemy must resist with INT or they will have disadvantage on their next attack."
+    }
+   ],
+   "outside": []
+  },
+  {
+   "name": "Holoprint",
+   "label": "Bi-Colored Kandy Sole Essence",
+   "desc": [
+    "She can picture a structure and project a blueprint of it in hard light, then make it real for a short time!"
+   ],
+   "passives": [],
+   "spells": [
+    {
+     "name": "Holoprint Barrier",
+     "kind": "Defensive",
+     "cost": "2 SP",
+     "text": "She builds a hard light wall beside herself or an ally! Anyone behind it counts as Behind. The wall has 5 + MAG HP and takes hits meant for whoever it covers until it breaks or 3 turns pass."
+    }
+   ],
+   "outside": []
+  }
+ ],
+ "art": {
+  "src": "{{BASE}}images/regents/cece/1.webp",
+  "alt": "Cece's reference sheet: a pink and white gem in a round space helmet with a blue visor, pink and blue pigtail buns, a big white bow, robot gauntlets and hover boots, plus her color palette and a small sketch of the face under her helmet",
+  "caption": ""
+ },
+ "credits": [
+  {
+   "label": "Art",
+   "name": "Goofykat13"
+  }
+ ]
+}
