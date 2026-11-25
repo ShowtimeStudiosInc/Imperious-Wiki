@@ -57,14 +57,19 @@ abilities:
     text: '`Self-Duplication` and `Elemental Affinity` - Any Latent Ability either half has unlocked carries into the fusion.'
     moves: []
 role: >-
-  Rhodonites are not much more than souped up Rubies, their biggest edge being higher health. They usually show up mid
-  battle when a Pearl joins a squad of Rubies, and serve as support soldiers and guards. Most fight with a dagger-staff,
-  used for both attack and defense. Court Maroon is where they show up most, though they can appear in any court.
+  Rhodonites are fusions of a Ruby and a Pearl who serve as support soldiers and guards. Most of the time, a Ruby fuses
+  with her Pearl to handle a fight more easily when things get bad, though they can fuse for other reasons too. In
+  practice, a Rhodonite isn't much more than a souped up Ruby, and her biggest edge is extra health. She fights with a
+  dagger-staff, used for both attack and defense, and guards whatever gem she's assigned to. Court Maroon is where they
+  show up most, though they can appear in any court.
 interactions: >-
-  Because of her Ruby half, a Rhodonite often fights with the rest of that Ruby's squad. If her Pearl half serves a
-  higher-up, the fusion works alone instead, guarding that gem, often a Sapphire or another aristocrat.
-description: null
+  Because of her Ruby half, a Rhodonite often fights alongside that Ruby's squad. If her Pearl half serves a higher-up,
+  the fusion works alone instead. Depending on the situation, she either joins the battle or acts as a bodyguard for
+  that higher-up, often a Sapphire or another aristocrat or authority.
+description: >-
+  Most Rhodonites are medium height, with a build that reflects both halves: the strength of a Ruby and the height of a
+  Pearl.
 image: /images/gem-types/rhodonite.webp
 gemstone: /images/gemstones/rhodonite.svg
-credit: null
-updated: '2026-11-18'
+credit: Lexariix + Lexicrista
+updated: '2026-11-25'
