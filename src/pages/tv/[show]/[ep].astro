@@ -3,6 +3,7 @@ import Site from '../../../layouts/Site.astro';
 import { getShows } from '../../../lib/tv';
 import { airDate } from '../../../lib/news';
 import { url } from '../../../lib/gems';
+import ListenPlayer from '../../../components/ListenPlayer.astro';
 import '../../../styles/news.css';
 import '../../../styles/tv.css';
 export function getStaticPaths() {
@@ -28,15 +29,16 @@ const role = (n: string | null) => (n === host ? 'Host' : guests.has(n ?? '') ? 
         {e.guests.map((g) => <span class="ht-plate guest"><b>{g}</b><em>Guest</em></span>)}
       </div>
       {e.credits && <p class="credits">Written by {e.credits}</p>}
+      <ListenPlayer host={host} />
     </header>
     <article class="ht-script">
       {e.beats.map((beat) =>
-        beat.kind === 'card' ? <div class="ht-card"><span>{beat.text}</span></div>
-        : beat.kind === 'action' ? <p class="ht-action">{beat.text}</p>
+        beat.kind === 'card' ? <div class="ht-card"><span data-tts="card">{beat.text}</span></div>
+        : beat.kind === 'action' ? <p class="ht-action" data-tts="note">{beat.text}</p>
         : (
           <div class={`ht-speech${isGuest(beat.speaker) ? ' guest' : ''}`}>
             {beat.speaker && <span class={`ht-plate${isGuest(beat.speaker) ? ' guest' : ''}`}><b>{beat.speaker}</b><em>{role(beat.speaker)}</em></span>}
-            {beat.lines.map((l) => <p>{l}</p>)}
+            {beat.lines.map((l) => <p data-tts="say" data-who={beat.speaker ?? ''}>{l}</p>)}
           </div>
         ))}
     </article>

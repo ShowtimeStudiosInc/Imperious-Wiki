@@ -1,0 +1,225 @@
+---
+// Optional read-aloud player for TV episodes. Uses the browser's own text to speech,
+// so nothing is recorded or stored on the server. Hidden on browsers that can't speak.
+const { host = '' } = Astro.props;
+---
+<div class="lp" data-lp data-host={host} hidden>
+  <button type="button" class="lp-open" data-lp-open aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    Listen to this episode
+  </button>
+  <div class="lp-bar" data-lp-bar hidden>
+    <div class="lp-controls">
+      <button type="button" data-lp-prev aria-label="Previous line">⏮</button>
+      <button type="button" class="lp-play" data-lp-play aria-label="Play">▶</button>
+      <button type="button" data-lp-next aria-label="Next line">⏭</button>
+      <button type="button" data-lp-stop aria-label="Stop">■</button>
+    </div>
+    <div class="lp-now" data-lp-now aria-live="polite">Press play to start.</div>
+    <div class="lp-opts">
+      <label>Speed
+        <select data-lp-rate>
+          <option value="0.85">0.85×</option>
+          <option value="1" selected>1×</option>
+          <option value="1.15">1.15×</option>
+          <option value="1.3">1.3×</option>
+          <option value="1.5">1.5×</option>
+        </select>
+      </label>
+      <label class="lp-check"><input type="checkbox" data-lp-notes /> Read camera notes</label>
+    </div>
+    <p class="lp-tip">Voices come from your own device, so they sound different on every phone and computer. Click any line in the script to start from there.</p>
+  </div>
+</div>
+
+<style>
+  .lp { margin: 1.1rem 0 0; }
+  .lp-open { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--c, #c46bff);
+    background: color-mix(in srgb, var(--c, #c46bff) 18%, transparent); color: #fff; font: 600 .95rem/1 inherit; cursor: pointer; }
+  .lp-open svg { width: 18px; height: 18px; fill: currentColor; }
+  .lp-open:hover, .lp-open[aria-expanded="true"] { background: color-mix(in srgb, var(--c, #c46bff) 35%, transparent); }
+  .lp-bar { position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%); width: min(920px, calc(100vw - 1.5rem)); z-index: 50; padding: .8rem 1rem; border-radius: 14px;
+    background: rgba(18, 10, 30, .94); border: 1px solid color-mix(in srgb, var(--c, #c46bff) 55%, transparent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45); display: grid; grid-template-columns: auto 1fr auto; gap: .5rem 1rem; align-items: center; }
+  .lp-controls { display: flex; gap: .35rem; }
+  .lp-controls button { width: 2.3rem; height: 2.3rem; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .2); background: rgba(255, 255, 255, .06);
+    color: #fff; font-size: .95rem; cursor: pointer; }
+  .lp-controls .lp-play { background: var(--c, #c46bff); border-color: transparent; }
+  .lp-now { font-size: .92rem; color: #efe6f7; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lp-now b { color: var(--a, #ffd27a); }
+  .lp-opts { display: flex; gap: .9rem; align-items: center; font-size: .85rem; color: #cbbedb; }
+  .lp-opts select { margin-left: .3rem; background: #1d1330; color: #fff; border: 1px solid rgba(255, 255, 255, .2); border-radius: 6px; padding: .15rem .3rem; }
+  .lp-check { display: flex; gap: .35rem; align-items: center; cursor: pointer; }
+  .lp-tip { grid-column: 1 / -1; margin: 0; font-size: .78rem; color: #9d8fb0; }
+  @media (max-width: 720px) { .lp-bar { grid-template-columns: 1fr; } .lp-now { white-space: normal; } }
+  :global(body.lp-on) { padding-bottom: 9rem; }
+  :global(.ht-script [data-tts]) { cursor: default; border-radius: 6px; transition: background .2s; }
+  :global(.lp-on .ht-script [data-tts]) { cursor: pointer; }
+  :global(.lp-on .ht-script [data-tts]:hover) { background: rgba(255, 255, 255, .04); }
+  :global(.ht-script .lp-current) { background: color-mix(in srgb, var(--c, #c46bff) 22%, transparent) !important; outline: 1px solid color-mix(in srgb, var(--c, #c46bff) 60%, transparent); }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-lp]');
+  const synth = window.speechSynthesis;
+  if (root && synth && 'SpeechSynthesisUtterance' in window) {
+    root.hidden = false;
+    const $ = <T extends Element>(s: string) => root.querySelector<T>(s)!;
+    const openBtn = $<HTMLButtonElement>('[data-lp-open]');
+    const bar = $<HTMLElement>('[data-lp-bar]');
+    const playBtn = $<HTMLButtonElement>('[data-lp-play]');
+    const now = $<HTMLElement>('[data-lp-now]');
+    const rateSel = $<HTMLSelectElement>('[data-lp-rate]');
+    const notesBox = $<HTMLInputElement>('[data-lp-notes]');
+    const host = root.dataset.host || '';
+
+    const store = {
+      get(k: string) { try { return localStorage.getItem('lp-' + k); } catch { return null; } },
+      set(k: string, v: string) { try { localStorage.setItem('lp-' + k, v); } catch { /* storage off */ } },
+    };
+    if (store.get('rate')) rateSel.value = store.get('rate')!;
+    notesBox.checked = store.get('notes') === '1';
+
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.ht-script [data-tts]'));
+    const playable = () => items.filter((el) => notesBox.checked || el.dataset.tts === 'say' || el.dataset.tts === 'card');
+
+    // Give every speaker their own voice: a voice from the device list plus a pitch, picked the same way every time.
+    let voices: SpeechSynthesisVoice[] = [];
+    const loadVoices = () => {
+      const all = synth.getVoices();
+      const en = all.filter((v) => /^en/i.test(v.lang));
+      voices = en.length ? en : all;
+    };
+    loadVoices();
+    synth.addEventListener?.('voiceschanged', loadVoices);
+    const hash = (s: string) => { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h; };
+    const PITCHES = [1, 0.8, 1.25, 0.9, 1.15, 0.7, 1.35];
+    const cast = new Map<string, { voice?: SpeechSynthesisVoice; pitch: number }>();
+    const voiceFor = (who: string) => {
+      if (!cast.has(who)) {
+        const n = cast.size;
+        const h = hash(who);
+        cast.set(who, {
+          voice: voices.length ? voices[(who === host ? 0 : h) % voices.length] : undefined,
+          pitch: who === host ? 1.1 : PITCHES[(n + h) % PITCHES.length],
+        });
+      }
+      return cast.get(who)!;
+    };
+    const NARRATOR = '__narrator__';
+
+    // Long lines get cut off by some browsers, so speak a sentence or two at a time.
+    const chunks = (text: string) => {
+      const parts = text.match(/[^.!?]+[.!?]+["”)]*\s*|[^.!?]+$/g) || [text];
+      const out: string[] = []; let cur = '';
+      for (const p of parts) { if ((cur + p).length > 180 && cur) { out.push(cur.trim()); cur = ''; } cur += p; }
+      if (cur.trim()) out.push(cur.trim());
+      return out;
+    };
+
+    let index = -1;
+    let playing = false;
+    let token = 0;
+
+    const mark = (el: HTMLElement | null) => {
+      document.querySelectorAll('.lp-current').forEach((n) => n.classList.remove('lp-current'));
+      if (!el) return;
+      el.classList.add('lp-current');
+      const r = el.getBoundingClientRect();
+      if (r.top < 120 || r.bottom > window.innerHeight - 170) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    const label = (el: HTMLElement) => {
+      const t = el.dataset.tts;
+      if (t === 'say') return `<b>${el.dataset.who || ''}</b> ${el.textContent}`;
+      if (t === 'card') return `<b>${el.textContent}</b>`;
+      return `<i>${el.textContent}</i>`;
+    };
+
+    const speakEl = (el: HTMLElement, myToken: number) => {
+      const t = el.dataset.tts;
+      const who = t === 'say' ? (el.dataset.who || NARRATOR) : NARRATOR;
+      const v = who === NARRATOR ? { voice: voices[1 % Math.max(voices.length, 1)], pitch: 0.95 } : voiceFor(who);
+      const pieces = chunks(el.textContent || '');
+      let i = 0;
+      const next = () => {
+        if (myToken !== token) return;
+        if (i >= pieces.length) { advance(1, myToken); return; }
+        const u = new SpeechSynthesisUtterance(pieces[i++]);
+        if (v.voice) u.voice = v.voice;
+        u.pitch = v.pitch;
+        u.rate = Number(rateSel.value) * (t === 'say' ? 1 : 1.05);
+        u.volume = t === 'say' ? 1 : 0.85;
+        u.onend = () => { if (myToken === token) setTimeout(next, t === 'card' ? 350 : 120); };
+        u.onerror = (ev) => {
+          if (myToken !== token || ev.error === 'interrupted' || ev.error === 'canceled') return;
+          pause();
+          now.textContent = 'Your browser couldn\'t play that line. Try another browser, or check that your device has a voice installed.';
+        };
+        synth.speak(u);
+      };
+      next();
+    };
+
+    const playFrom = (el: HTMLElement) => {
+      token++;
+      synth.cancel();
+      const list = playable();
+      index = list.indexOf(el);
+      if (index < 0) return;
+      playing = true;
+      playBtn.textContent = '❚❚'; playBtn.setAttribute('aria-label', 'Pause');
+      mark(el);
+      now.innerHTML = label(el);
+      speakEl(el, token);
+    };
+
+    const advance = (step: number, myToken = token) => {
+      if (myToken !== token) return;
+      const list = playable();
+      const cur = document.querySelector<HTMLElement>('.lp-current');
+      const at = cur ? list.indexOf(cur) : index;
+      const nextEl = list[at + step];
+      if (!nextEl) { stop(); now.textContent = 'That\'s the end of the episode.'; return; }
+      playFrom(nextEl);
+    };
+
+    const pause = () => {
+      token++;
+      synth.cancel();
+      playing = false;
+      playBtn.textContent = '▶'; playBtn.setAttribute('aria-label', 'Play');
+    };
+
+    const stop = () => {
+      pause();
+      index = -1;
+      mark(null);
+      now.textContent = 'Press play to start.';
+    };
+
+    openBtn.addEventListener('click', () => {
+      const open = bar.hidden;
+      bar.hidden = !open;
+      openBtn.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('lp-on', open);
+      if (!open) stop();
+    });
+    playBtn.addEventListener('click', () => {
+      if (playing) { pause(); return; }
+      const cur = document.querySelector<HTMLElement>('.lp-current');
+      playFrom(cur && playable().includes(cur) ? cur : playable()[0]);
+    });
+    $('[data-lp-next]').addEventListener('click', () => advance(1));
+    $('[data-lp-prev]').addEventListener('click', () => advance(-1));
+    $('[data-lp-stop]').addEventListener('click', stop);
+    rateSel.addEventListener('change', () => { store.set('rate', rateSel.value); const cur = document.querySelector<HTMLElement>('.lp-current'); if (playing && cur) playFrom(cur); });
+    notesBox.addEventListener('change', () => store.set('notes', notesBox.checked ? '1' : '0'));
+    items.forEach((el) => el.addEventListener('click', () => {
+      if (!document.body.classList.contains('lp-on')) return;
+      if (el.dataset.tts === 'note' && !notesBox.checked) { notesBox.checked = true; store.set('notes', '1'); }
+      playFrom(el);
+    }));
+    window.addEventListener('pagehide', () => synth.cancel());
+  }
+</script>
