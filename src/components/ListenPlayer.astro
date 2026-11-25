@@ -133,6 +133,7 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
       [/gasp/i, 'gasp', 0.8],
       [/"a+w+/i, 'aww', 1.0],
       [/"o+h+|"wow|"o+o+h/i, 'ooh', 0.8],
+      [/applause is a little thinner|polite applause|thin applause/i, 'applause-light', 1.0],
       [/clapping|applau|claps/i, 'applause', 1.2],
     ];
     const sfxBase = root.dataset.sfx || '';
@@ -143,6 +144,8 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
       for (const [re, name, wait] of CUES) {
         if (!re.test(text)) continue;
         if (name === 'cymbal' && out.some((c) => c.name === 'drumroll')) continue;
+        if (name === 'keys' && out.some((c) => c.name === 'sour')) continue;
+        if (name === 'applause' && out.some((c) => c.name === 'applause-light')) continue;
         if (name === 'whistle' && out.some((c) => c.name === 'whistle2')) continue;
         if (name === 'cheer' && out.some((c) => c.name === 'cheer')) continue;
         if (name === 'laugh' && out.some((c) => c.name === 'laugh-big')) continue;
@@ -256,6 +259,11 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
     };
 
     const speakEl = (el: HTMLElement, myToken: number) => {
+      // A [BREAK] card isn't read out. The band plays a sting instead, like a cut to commercial.
+      if (el.dataset.tts === 'card' && /^break$/i.test((el.textContent || '').trim())) {
+        playCues('band sting', myToken).then(() => setTimeout(() => advance(1, myToken), 600));
+        return;
+      }
       if (api && el.dataset.i) {
         const u = lineUrl(el);
         const a = warm.get(u) || Object.assign(new Audio(), { crossOrigin: 'anonymous', src: u });
