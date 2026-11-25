@@ -6,7 +6,7 @@ const { host = '' } = Astro.props;
 <div class="lp" data-lp data-host={host} hidden>
   <button type="button" class="lp-open" data-lp-open aria-expanded="false">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    Listen to this episode
+    Listen
   </button>
   <div class="lp-bar" data-lp-bar hidden>
     <div class="lp-controls">
@@ -28,35 +28,43 @@ const { host = '' } = Astro.props;
       </label>
       <label class="lp-check"><input type="checkbox" data-lp-notes /> Read camera notes</label>
     </div>
-    <p class="lp-tip">Voices come from your own device, so they sound different on every phone and computer. Click any line in the script to start from there.</p>
+    <p class="lp-tip">Voices come from your device. Click any line to start there.</p>
   </div>
 </div>
 
 <style>
   .lp { margin: 1.1rem 0 0; }
-  .lp-open { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--c, #c46bff);
-    background: color-mix(in srgb, var(--c, #c46bff) 18%, transparent); color: #fff; font: 600 .95rem/1 inherit; cursor: pointer; }
-  .lp-open svg { width: 18px; height: 18px; fill: currentColor; }
-  .lp-open:hover, .lp-open[aria-expanded="true"] { background: color-mix(in srgb, var(--c, #c46bff) 35%, transparent); }
-  .lp-bar { position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%); width: min(920px, calc(100vw - 1.5rem)); z-index: 50; padding: .8rem 1rem; border-radius: 14px;
-    background: rgba(18, 10, 30, .94); border: 1px solid color-mix(in srgb, var(--c, #c46bff) 55%, transparent);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .45); display: grid; grid-template-columns: auto 1fr auto; gap: .5rem 1rem; align-items: center; }
-  .lp-controls { display: flex; gap: .35rem; }
-  .lp-controls button { width: 2.3rem; height: 2.3rem; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .2); background: rgba(255, 255, 255, .06);
-    color: #fff; font-size: .95rem; cursor: pointer; }
+  :global(.lp-float) { margin: 0; }
+  .lp-open { display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .85rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--c, #c46bff) 60%, transparent);
+    background: transparent; color: #e9dcf5; font: 600 .85rem/1 inherit; cursor: pointer; }
+  .lp-open svg { width: 16px; height: 16px; fill: currentColor; }
+  .lp-open:hover, .lp-open[aria-expanded="true"] { background: color-mix(in srgb, var(--c, #c46bff) 25%, transparent); color: #fff; }
+
+  /* The player sits in the empty left margin on wide screens, and drops to a slim bottom bar on small ones. */
+  .lp-bar { position: fixed; z-index: 50; left: max(.75rem, calc(50vw - 615px)); top: 50%; transform: translateY(-50%);
+    width: 190px; padding: .75rem; border-radius: 14px; background: rgba(18, 10, 30, .82); backdrop-filter: blur(6px);
+    border: 1px solid color-mix(in srgb, var(--c, #c46bff) 35%, transparent); display: grid; gap: .6rem; }
+  .lp-controls { display: flex; gap: .3rem; justify-content: space-between; }
+  .lp-controls button { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .05);
+    color: #fff; font-size: .8rem; cursor: pointer; }
   .lp-controls .lp-play { background: var(--c, #c46bff); border-color: transparent; }
-  .lp-now { font-size: .92rem; color: #efe6f7; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .lp-now b { color: var(--a, #ffd27a); }
-  .lp-opts { display: flex; gap: .9rem; align-items: center; font-size: .85rem; color: #cbbedb; }
-  .lp-opts select { margin-left: .3rem; background: #1d1330; color: #fff; border: 1px solid rgba(255, 255, 255, .2); border-radius: 6px; padding: .15rem .3rem; }
+  .lp-now { font-size: .8rem; line-height: 1.35; color: #d9cbe8; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .lp-now b { color: var(--a, #ffd27a); display: block; }
+  .lp-opts { display: grid; gap: .4rem; font-size: .78rem; color: #b9abcb; }
+  .lp-opts select { margin-left: .3rem; background: #1d1330; color: #fff; border: 1px solid rgba(255, 255, 255, .18); border-radius: 6px; padding: .1rem .25rem; font-size: .78rem; }
   .lp-check { display: flex; gap: .35rem; align-items: center; cursor: pointer; }
-  .lp-tip { grid-column: 1 / -1; margin: 0; font-size: .78rem; color: #9d8fb0; }
-  @media (max-width: 720px) { .lp-bar { grid-template-columns: 1fr; } .lp-now { white-space: normal; } }
-  :global(body.lp-on) { padding-bottom: 9rem; }
-  :global(.ht-script [data-tts]) { cursor: default; border-radius: 6px; transition: background .2s; }
-  :global(.lp-on .ht-script [data-tts]) { cursor: pointer; }
+  .lp-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: #8a7d9c; }
+  @media (max-width: 1260px) {
+    .lp-bar { left: 50%; top: auto; bottom: .75rem; transform: translateX(-50%); width: min(560px, calc(100vw - 1.5rem));
+      grid-template-columns: auto 1fr; align-items: center; padding: .55rem .75rem; }
+    .lp-now { -webkit-line-clamp: 2; } .lp-now b { display: inline; margin-right: .3rem; }
+    .lp-opts { display: none; }
+    .lp-tip { display: none; }
+    :global(body.lp-on) { padding-bottom: 7rem; }
+  }
+  :global(.lp-on .ht-script [data-tts]) { cursor: pointer; border-radius: 6px; }
   :global(.lp-on .ht-script [data-tts]:hover) { background: rgba(255, 255, 255, .04); }
-  :global(.ht-script .lp-current) { background: color-mix(in srgb, var(--c, #c46bff) 22%, transparent) !important; outline: 1px solid color-mix(in srgb, var(--c, #c46bff) 60%, transparent); }
+  :global(.ht-script .lp-current) { background: color-mix(in srgb, var(--c, #c46bff) 18%, transparent) !important; box-shadow: -6px 0 0 color-mix(in srgb, var(--c, #c46bff) 70%, transparent); }
 </style>
 
 <script>
@@ -64,7 +72,7 @@ const { host = '' } = Astro.props;
   const synth = window.speechSynthesis;
   if (root && synth && 'SpeechSynthesisUtterance' in window) {
     root.hidden = false;
-    const $ = <T extends Element>(s: string) => root.querySelector<T>(s)!;
+    const $ = <T extends Element>(s: string) => (root.querySelector<T>(s) || document.querySelector<T>(s))!;
     const openBtn = $<HTMLButtonElement>('[data-lp-open]');
     const bar = $<HTMLElement>('[data-lp-bar]');
     const playBtn = $<HTMLButtonElement>('[data-lp-play]');
@@ -72,6 +80,10 @@ const { host = '' } = Astro.props;
     const rateSel = $<HTMLSelectElement>('[data-lp-rate]');
     const notesBox = $<HTMLInputElement>('[data-lp-notes]');
     const host = root.dataset.host || '';
+    // Keep the floating player out of any transformed parent, so it pins to the screen itself.
+    const wrap = document.createElement('div'); wrap.className = 'lp lp-float';
+    const mainEl = root.closest('main'); if (mainEl) { wrap.style.setProperty('--c', getComputedStyle(mainEl).getPropertyValue('--c')); wrap.style.setProperty('--a', getComputedStyle(mainEl).getPropertyValue('--a')); }
+    document.body.appendChild(wrap); wrap.appendChild(bar);
 
     const store = {
       get(k: string) { try { return localStorage.getItem('lp-' + k); } catch { return null; } },
@@ -126,7 +138,7 @@ const { host = '' } = Astro.props;
       if (!el) return;
       el.classList.add('lp-current');
       const r = el.getBoundingClientRect();
-      if (r.top < 120 || r.bottom > window.innerHeight - 170) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (r.top < 120 || r.bottom > window.innerHeight - (window.innerWidth <= 1260 ? 150 : 60)) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
 
     const label = (el: HTMLElement) => {
