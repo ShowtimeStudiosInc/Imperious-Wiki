@@ -6,19 +6,23 @@
  "diamondName": "Nightshade Violet Diamond",
  "title": "Grand Regent <span class=\"accent\">Reina</span>",
  "courtLine": "Court Nightshade · Grand Regent · Rank 1.2",
- "heroSub": "Wisteria Violet Cubic Zirconia, sister of Nightshade Violet Diamond and Grand Regent Antton.",
+ "heroSub": "Wisteria Violet Cubic Zirconia, sister of Nightshade Violet Diamond and Grand Regent Antton, and the only gem in the Gempire who refuses to walk.",
  "chips": [
   [
-   "Court",
-   "Nightshade"
+   "Sub-Domain",
+   "Sleep"
+  ],
+  [
+   "Era",
+   "2A"
+  ],
+  [
+   "Height",
+   "48'0\""
   ],
   [
    "Pronouns",
-   "She / Her"
-  ],
-  [
-   "Rank",
-   "1.2"
+   "She / Her / Hers"
   ]
  ],
  "facts": [
@@ -27,27 +31,222 @@
    "Wisteria Violet Cubic Zirconia"
   ],
   [
+   "Era",
+   "2A (Nightshade Violet Sole Essence)"
+  ],
+  [
+   "Pronouns",
+   "She / Her / Hers"
+  ],
+  [
+   "Height",
+   "48'0\""
+  ],
+  [
    "Court",
    "Nightshade"
   ],
   [
-   "Pronouns",
-   "She / Her"
+   "Gem Placement",
+   "Navel"
   ],
   [
-   "Siblings",
-   "Nightshade Violet Diamond, Grand Regent Antton"
+   "Place of Birth",
+   "Same planet as Nightshade Violet Diamond"
+  ],
+  [
+   "Alignment",
+   "Chaotic Good"
+  ],
+  [
+   "Facet & Cut",
+   "None (Cubic Zirconia)"
+  ],
+  [
+   "Nicknames",
+   "Queenie, Sis (by Nightshade), High-Speed Calculator"
   ]
  ],
- "pending": true,
- "status": "Submission pending",
- "redacted": false,
- "known": [
-  "Reina is one of Nightshade Violet Diamond's two Cubic Zirconias, alongside Grand Regent Antton. Much of Court Nightshade's business runs through her.",
-  "She wears a visor that flashes text when she has something to add, calls her throne her Couch, and is rarely seen without a can of Highly Volatile Green Liquid Energy.",
-  "She and Bi-Colored Kandy Diamond are tinkering buddies.",
-  "Her full page goes up when her updated submission is done."
+ "stats": [
+  [
+   "HP",
+   "44"
+  ],
+  [
+   "ATK",
+   "9"
+  ],
+  [
+   "DEF",
+   "12"
+  ],
+  [
+   "SPD",
+   "5"
+  ],
+  [
+   "INT",
+   "11"
+  ],
+  [
+   "MAG",
+   "7"
+  ],
+  [
+   "Level",
+   "1"
+  ]
  ],
- "sections": [],
+ "equipment": [
+  [
+   "Weapon",
+   "Endless Glass of Highly Volatile Green Liquid Energy"
+  ],
+  [
+   "Armor",
+   "Royal Couch"
+  ],
+  [
+   "Accessory",
+   "Night Owl"
+  ]
+ ],
+ "personality": [
+  "Reina is eccentric, aggressively confident, and theatrical to a fault. She lives for the spotlight, carrying herself with an unshakeable belief that she is the most entertaining person in any room. She is incredibly loud and expressive, yet she communicates often, rather intentionally, as if she is being very selective with her wording choice. She has a very dry, sarcastic sense of humor and absolutely zero patience for boring, repetitive conversations. When she gets bored, she simply tunes people out to play games on her visor.",
+  "Despite her dramatic and self-absorbed exterior, Reina is remarkably sharp-witted and observant. She doesn't easily lose her temper; instead, she handles stressful situations very smugly, playfully, and calmly, which typically infuriates the opposing party. She is fiercely independent and highly protective, showing a lot of patience only to those she genuinely cares about. Which is to say that to everyone else, she is a puzzle who refuses to take anything seriously."
+ ],
+ "likes": [
+  "Nightshade being happy",
+  "Flashy holographic displays",
+  "Drinking Highly Volatile Green Liquid Energy from fancy glasses",
+  "Making random machines",
+  "Dramatic exits",
+  "Mobile games",
+  "Calling everyone \"Sweetie\" or \"Valued Citizen\""
+ ],
+ "dislikes": [
+  "People stressing her sibling",
+  "Slow internet and data transmission speeds",
+  "Boring Gem politics",
+  "Standing on her own feet (walking is for peasants)",
+  "Quiet rooms that don't have background music",
+  "Anyone claiming they are cooler than her"
+ ],
+ "fear": "Nightshade getting shattered, or worse: Nightshade being forced to give a 3-hour public speech without her there to rescue him.",
+ "relationships": [
+  [
+   "Nightshade Violet Diamond",
+   "Her brother."
+  ],
+  [
+   "Grand Regent Antton",
+   "Her other sibling."
+  ],
+  [
+   "Bi-Colored Kandy Diamond",
+   "Her tinkering buddy."
+  ],
+  [
+   "Milo",
+   "Her Pearl."
+  ]
+ ],
+ "abilities": [
+  {
+   "name": "Sleep Manipulation",
+   "label": "Sub-Domain: Sleep · Advanced",
+   "desc": [
+    "Reina can pull a mind down into true sleep and walk right into its dreams. Once she's inside, she can read the dream, turn it into a nightmare, or make the sleeper get up and move without ever waking them. The sleeper thinks every step was their own idea. To everyone watching, it just looks like Reina is lounging on her couch, barely paying attention.",
+    "<b>Weakness:</b> Anything that can't sleep, like a Gem Machine, ignores this power. Most of her spells need a target who is already Asleep, so when Pacify fails, she has very little to work with."
+   ],
+   "passives": [
+    {
+     "name": "Dream Reader",
+     "tag": "Passive",
+     "text": "Whenever an enemy falls Asleep, Reina gets a look at their dream and learns their stats and spells, as if she had CHECKed them."
+    },
+    {
+     "name": "Blind Spot Sense",
+     "tag": "Sole Essence",
+     "text": "Reina always knows where nobody is looking. In any room, crowd, or battlefield, she can tell exactly where she could be without being seen. Her first attack from Behind or from hiding has advantage. While she's in the party, darkness doesn't slow the Star Gauge."
+    }
+   ],
+   "spells": [
+    {
+     "name": "Pacify",
+     "kind": "Debuff",
+     "cost": "3 SP",
+     "text": "Reina reaches into one target's mind and drags it down into true sleep. The target resists with INT. If they fail, they fall Asleep for 2 turns and can't act or dodge. Any damage wakes them up early."
+    },
+    {
+     "name": "Rude Awakening",
+     "kind": "Offensive",
+     "cost": "3 SP",
+     "text": "Requires a target who is Asleep. Reina yanks them out of their dream from the inside. They wake up and take 3d6 damage."
+    },
+    {
+     "name": "Power Nap",
+     "kind": "Buff",
+     "cost": "2 SP",
+     "text": "Reina puts one ally into a short, perfect nap. They're Asleep until their next turn and can't act or dodge. When they wake up, they heal 1/4 of their max HP. If they take damage first, they wake up early and don't heal."
+    },
+    {
+     "name": "Bad Dream",
+     "kind": "Debuff",
+     "cost": "3 SP",
+     "text": "Requires a target who is Asleep. Reina turns their dream into a nightmare they won't shake off. After they wake up, they're Frightened for 2 turns, and their attacks are made with disadvantage."
+    },
+    {
+     "name": "Ruler of the Dreaming",
+     "kind": "Debuff",
+     "cost": "4 SP",
+     "text": "Reina takes over the dreams of up to 3 Asleep targets. They get up and sleepwalk over to her side, sure that fighting for her was their own choice. While they sleepwalk, their stats and damage are halved. A sleepwalker wakes up and stops fighting for her when they drop below 35% HP, get poofed, or are hit by an ability that wakes sleepers."
+    }
+   ],
+   "outside": []
+  },
+  {
+   "name": "Engineering",
+   "label": "SKILL · Advanced",
+   "desc": [
+    "Engineering is tinkering and experimenting with gem tech, using whatever tech is around in the moment. Outside of battle, Reina uses it to craft tools, supplies, and a pile of random machines nobody asked for.",
+    "<b>Weakness:</b> Engineering is slow and leaves Reina open to attack unless she's somewhere safe, like a closed space or the middle of her party. Anything she builds can also malfunction."
+   ],
+   "passives": [],
+   "spells": [
+    {
+     "name": "Throw",
+     "kind": "Offensive",
+     "cost": "2 SP",
+     "text": "Reina throws a hunk of machinery at one target. It deals 1d5 damage."
+    },
+    {
+     "name": "Hotwire",
+     "kind": "Utility",
+     "cost": "2 SP",
+     "text": "Reina patches up one Gem Machine or item for 1d6, or jams one enemy machine so its next attack has disadvantage."
+    },
+    {
+     "name": "Reinforce",
+     "kind": "Buff",
+     "cost": "3 SP",
+     "text": "Reina bolts extra plating onto one ally. They get +2 DEF for 2 turns."
+    },
+    {
+     "name": "Booby Trap",
+     "kind": "Debuff",
+     "cost": "2 SP",
+     "text": "Reina sets a trap where she is. The next enemy who moves Near her resists with SPD, or they're Stuck for 1 turn."
+    },
+    {
+     "name": "Scrap Bomb",
+     "kind": "Offensive",
+     "cost": "3 SP",
+     "text": "Reina throws a homemade explosive. Every enemy who is Near takes 2d6 damage and resists with SPD. Those who pass take half."
+    }
+   ],
+   "outside": []
+  }
+ ],
  "credits": []
 }

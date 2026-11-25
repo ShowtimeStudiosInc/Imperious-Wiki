@@ -218,6 +218,7 @@ const nav = NAV;
         </main>
 
         <aside>
+          {art ? (
           <section class="artbox" id="appearance">
             <div class="artbox-head">
               <h2>Appearance</h2>
@@ -229,6 +230,14 @@ const nav = NAV;
               </figure>
             </div>
           </section>
+          ) : (
+          <section class="artbox" id="appearance">
+            <div class="artbox-head"><h2>Appearance</h2><p>No art on the wiki.</p></div>
+            <div class="no-art" aria-hidden="true">
+              <svg viewBox="0 0 100 130"><circle cx="50" cy="36" r="20" /><path d="M14 128 C14 88 30 66 50 66 C70 66 86 88 86 128 Z" /><polygon points="50,24 57,34 50,46 43,34" class="gem" /></svg>
+            </div>
+          </section>
+          )}
 
           <section class="facts-wrap" aria-label={`${p.name} facts`}>
             <h2>At a glance</h2>
