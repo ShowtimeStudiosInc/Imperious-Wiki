@@ -9,14 +9,14 @@
 narrator: asteria   # reads on-screen cards and, if turned on, camera notes
 
 cast:
-  Alina: thalia
+  Alina: electra     # energetic and dynamic. Voice kit: warm, bright, theatrical, always smiling
   Tambour: orpheus
   Rook: mars
   Joss: zeus
   # Episode 1
-  Sable: andromeda
+  Sable: iris        # bright and engaging. Voice kit: bubbly, talks fast when nervous
   Chet: apollo
-  Nia: iris
+  Nia: helena        # Voice kit: young, bouncy, a little raspy
   Vale: athena
   # Episode 2
   Vik: arcas
@@ -27,4 +27,4 @@ cast:
   Greer: hera
 
 # Fallback pool for anyone without a voice above.
-pool: [aurora, orion, callista, odysseus, cora, jupiter, electra, neptune, harmonia, hyperion, ophelia, saturn]
+pool: [aurora, orion, callista, odysseus, cora, jupiter, thalia, neptune, harmonia, hyperion, ophelia, saturn]

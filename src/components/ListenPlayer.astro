@@ -2,9 +2,10 @@
 // Optional read-aloud player for TV episodes. Uses the browser's own text to speech,
 // so nothing is recorded or stored on the server. Hidden on browsers that can't speak.
 const { host = '', episode = '' } = Astro.props;
+const SFX = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}audio/sfx/`;
 const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrodriguez091.workers.dev/tts';
 ---
-<div class="lp" data-lp data-host={host} data-ep={episode} data-tts-url={TTS} hidden>
+<div class="lp" data-lp data-host={host} data-ep={episode} data-tts-url={TTS} data-sfx={SFX} hidden>
   <button type="button" class="lp-open" data-lp-open aria-expanded="false">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     Listen
@@ -27,6 +28,7 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
           <option value="1.5">1.5×</option>
         </select>
       </label>
+      <label class="lp-check"><input type="checkbox" data-lp-fx checked /> Audience and band</label>
       <label class="lp-check"><input type="checkbox" data-lp-notes /> Read camera notes</label>
     </div>
     <p class="lp-tip" data-lp-tip>Voices come from your device. Click any line to start there.</p>
@@ -41,10 +43,13 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
   .lp-open svg { width: 16px; height: 16px; fill: currentColor; }
   .lp-open:hover, .lp-open[aria-expanded="true"] { background: color-mix(in srgb, var(--c, #c46bff) 25%, transparent); color: #fff; }
 
-  /* The player sits in the empty left margin on wide screens, and drops to a slim bottom bar on small ones. */
-  .lp-bar { position: fixed; z-index: 50; left: max(.75rem, calc(50vw - 615px)); top: 50%; transform: translateY(-50%);
-    width: 190px; padding: .75rem; border-radius: 14px; background: rgba(18, 10, 30, .82); backdrop-filter: blur(6px);
+  /* Wide screens: the player rides in the empty gutter to the left of the script, from the script's first line
+     to its last, so it never covers the header, the pager, or anything else. Small screens: a slim bar docked at the bottom. */
+  .lp-bar { padding: .75rem; border-radius: 14px; background: rgba(18, 10, 30, .82); backdrop-filter: blur(6px);
     border: 1px solid color-mix(in srgb, var(--c, #c46bff) 35%, transparent); display: grid; gap: .6rem; }
+  .lp-bar.rail { position: sticky; top: 6.5rem; width: 100%; }
+  .lp-bar.dock { position: fixed; z-index: 50; left: 50%; bottom: .75rem; transform: translateX(-50%); width: min(560px, calc(100vw - 1.5rem));
+    grid-template-columns: auto 1fr; align-items: center; padding: .55rem .75rem; }
   .lp-controls { display: flex; gap: .3rem; justify-content: space-between; }
   .lp-controls button { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .05);
     color: #fff; font-size: .8rem; cursor: pointer; }
@@ -55,14 +60,12 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
   .lp-opts select { margin-left: .3rem; background: #1d1330; color: #fff; border: 1px solid rgba(255, 255, 255, .18); border-radius: 6px; padding: .1rem .25rem; font-size: .78rem; }
   .lp-check { display: flex; gap: .35rem; align-items: center; cursor: pointer; }
   .lp-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: #8a7d9c; }
-  @media (max-width: 1260px) {
-    .lp-bar { left: 50%; top: auto; bottom: .75rem; transform: translateX(-50%); width: min(560px, calc(100vw - 1.5rem));
-      grid-template-columns: auto 1fr; align-items: center; padding: .55rem .75rem; }
-    .lp-now { -webkit-line-clamp: 2; } .lp-now b { display: inline; margin-right: .3rem; }
-    .lp-opts { display: none; }
-    .lp-tip { display: none; }
-    :global(body.lp-on) { padding-bottom: 7rem; }
-  }
+  .lp-bar.dock .lp-now { -webkit-line-clamp: 2; } .lp-bar.dock .lp-now b { display: inline; margin-right: .3rem; }
+  .lp-bar.dock .lp-opts, .lp-bar.dock .lp-tip { display: none; }
+  :global(body.lp-docked) { padding-bottom: 7rem; }
+  :global(.lp-zone) { position: relative; }
+  :global(.lp-rail) { position: absolute; top: 0; bottom: 0; left: 0; width: 150px; display: none; }
+  @media (min-width: 1180px) { :global(.lp-on .lp-rail) { display: block; } }
   :global(.lp-on .ht-script [data-tts]) { cursor: pointer; border-radius: 6px; }
   :global(.lp-on .ht-script [data-tts]:hover) { background: rgba(255, 255, 255, .04); }
   :global(.ht-script .lp-current) { background: color-mix(in srgb, var(--c, #c46bff) 18%, transparent) !important; box-shadow: -6px 0 0 color-mix(in srgb, var(--c, #c46bff) 70%, transparent); }
@@ -84,7 +87,18 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
     // Keep the floating player out of any transformed parent, so it pins to the screen itself.
     const wrap = document.createElement('div'); wrap.className = 'lp lp-float';
     const mainEl = root.closest('main'); if (mainEl) { wrap.style.setProperty('--c', getComputedStyle(mainEl).getPropertyValue('--c')); wrap.style.setProperty('--a', getComputedStyle(mainEl).getPropertyValue('--a')); }
-    document.body.appendChild(wrap); wrap.appendChild(bar);
+    document.body.appendChild(wrap);
+    const rail = document.querySelector<HTMLElement>('[data-lp-rail]');
+    const wide = window.matchMedia('(min-width: 1180px)');
+    const place = () => {
+      const useRail = !!rail && wide.matches;
+      (useRail ? rail! : wrap).appendChild(bar);
+      bar.classList.toggle('rail', useRail);
+      bar.classList.toggle('dock', !useRail);
+      document.body.classList.toggle('lp-docked', !useRail && document.body.classList.contains('lp-on'));
+    };
+    place();
+    wide.addEventListener('change', place);
 
     const store = {
       get(k: string) { try { return localStorage.getItem('lp-' + k); } catch { return null; } },
@@ -92,6 +106,66 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
     };
     if (store.get('rate')) rateSel.value = store.get('rate')!;
     notesBox.checked = store.get('notes') === '1';
+    const fxBox = $<HTMLInputElement>('[data-lp-fx]');
+    fxBox.checked = store.get('fx') !== '0';
+    fxBox.addEventListener('change', () => store.set('fx', fxBox.checked ? '1' : '0'));
+
+    // Audience and band sounds. Each camera note is checked against these, and the matching sounds play
+    // between lines. "wait" is how long the next line holds off; anything longer keeps playing under it.
+    // Only sounds listed in audio/sfx/manifest.json are played, so a missing clip is simply skipped.
+    const CUES: [RegExp, string, number][] = [
+      [/theme/i, 'theme', 4.6],
+      [/fanfare/i, 'fanfare', 2.0],
+      [/drum roll/i, 'drumroll', 2.2],
+      [/cymbal/i, 'cymbal', 0.6],
+      [/sting/i, 'sting', 1.0],
+      [/trombone/i, 'trombone', 2.7],
+      [/sour chord/i, 'sour', 1.2],
+      [/low,? slow notes|on the bass/i, 'bassdrop', 1.4],
+      [/notes of the shoe song|plays .* on the keys/i, 'keys', 1.2],
+      [/whistle (twice|two)/i, 'whistle2', 1.0],
+      [/whistle/i, 'whistle', 0.6],
+      [/erupts|on its feet|to its feet/i, 'cheer', 2.0],
+      [/cheer/i, 'cheer', 1.5],
+      [/bursts out laughing|laughs harder|big laugh/i, 'laugh-big', 1.5],
+      [/(audience|gems|crowd|studio|front row|few gems)[^.]*laugh|laughs a little/i, 'laugh', 1.0],
+      [/groan/i, 'groan', 1.0],
+      [/gasp/i, 'gasp', 0.8],
+      [/"a+w+/i, 'aww', 1.0],
+      [/"o+h+|"wow|"o+o+h/i, 'ooh', 0.8],
+      [/clapping|applau|claps/i, 'applause', 1.2],
+    ];
+    const sfxBase = root.dataset.sfx || '';
+    let sfxHave: Set<string> | null = null;
+    fetch(sfxBase + 'manifest.json').then((r) => r.json()).then((list) => { sfxHave = new Set(list); }).catch(() => { sfxHave = new Set(); });
+    const cuesFor = (text: string) => {
+      const out: { name: string; wait: number }[] = [];
+      for (const [re, name, wait] of CUES) {
+        if (!re.test(text)) continue;
+        if (name === 'cymbal' && out.some((c) => c.name === 'drumroll')) continue;
+        if (name === 'whistle' && out.some((c) => c.name === 'whistle2')) continue;
+        if (name === 'cheer' && out.some((c) => c.name === 'cheer')) continue;
+        if (name === 'laugh' && out.some((c) => c.name === 'laugh-big')) continue;
+        out.push({ name, wait });
+      }
+      return out;
+    };
+    const playing_fx: HTMLAudioElement[] = [];
+    const playCues = (text: string, myToken: number) => new Promise<void>((done) => {
+      const cues = fxBox.checked && sfxHave ? cuesFor(text).filter((c) => sfxHave!.has(c.name)) : [];
+      if (!cues.length) { done(); return; }
+      let wait = 0;
+      for (const c of cues) {
+        const a = new Audio(sfxBase + c.name + '.mp3');
+        a.volume = /laugh|cheer|applause|aww|ooh|gasp|groan/.test(c.name) ? 0.45 : 0.6;
+        a.play().catch(() => {});
+        playing_fx.push(a);
+        a.onended = () => { const k = playing_fx.indexOf(a); if (k >= 0) playing_fx.splice(k, 1); };
+        wait = Math.max(wait, c.wait);
+      }
+      setTimeout(() => { if (myToken === token) done(); }, wait * 1000 / Number(rateSel.value));
+    });
+    const stopFx = () => { while (playing_fx.length) { const a = playing_fx.pop()!; a.pause(); } };
 
     const items = Array.from(document.querySelectorAll<HTMLElement>('.ht-script [data-tts]'));
     const playable = () => items.filter((el) => notesBox.checked || el.dataset.tts === 'say' || el.dataset.tts === 'card');
@@ -144,7 +218,7 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
         api = r.ok && (await r.json()).ok === true;
       } catch { api = false; }
       tip.textContent = api
-        ? 'AI voices (Deepgram Aura). New lines can take a second to load. Click any line to start there.'
+        ? 'TTS voices. New lines can take a second to load. Click any line to start there.'
         : 'Voices come from your device. Click any line to start there.';
     };
     const lineUrl = (el: HTMLElement) => `${ttsUrl}?ep=${encodeURIComponent(ep)}&i=${el.dataset.i}`;
@@ -171,7 +245,7 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
       if (!el) return;
       el.classList.add('lp-current');
       const r = el.getBoundingClientRect();
-      if (r.top < 120 || r.bottom > window.innerHeight - (window.innerWidth <= 1260 ? 150 : 60)) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (r.top < 120 || r.bottom > window.innerHeight - (bar.classList.contains('dock') ? 150 : 60)) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
 
     const label = (el: HTMLElement) => {
@@ -189,7 +263,7 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
         audio = a;
         a.playbackRate = Number(rateSel.value);
         a.onended = () => { if (myToken === token) setTimeout(() => advance(1, myToken), el.dataset.tts === 'card' ? 350 : 150); };
-        a.onerror = () => { if (myToken !== token) return; api = false; tip.textContent = 'The AI voices are resting right now, so your device voices are reading instead.'; speakDevice(el, myToken); };
+        a.onerror = () => { if (myToken !== token) return; api = false; tip.textContent = 'The TTS voices are resting right now, so your device voices are reading instead.'; speakDevice(el, myToken); };
         a.play().catch(() => { if (myToken === token) { api = false; speakDevice(el, myToken); } });
         prefetch(el);
         return;
@@ -243,7 +317,12 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
       const at = cur ? list.indexOf(cur) : index;
       const nextEl = list[at + step];
       if (!nextEl) { stop(); now.textContent = 'That\'s the end of the episode.'; return; }
-      playFrom(nextEl);
+      if (step !== 1 || !cur) { playFrom(nextEl); return; }
+      // Sounds from the camera notes between this line and the next (or this note, if notes are read aloud).
+      const from = items.indexOf(cur), to = items.indexOf(nextEl);
+      const between = items.slice(notesBox.checked ? from : from + 1, notesBox.checked ? from + 1 : to).filter((el) => el.dataset.tts === 'note');
+      const text = between.map((el) => el.textContent || '').join(' ');
+      playCues(text, myToken).then(() => { if (myToken === token) playFrom(nextEl); });
     };
 
     const pause = () => {
@@ -256,6 +335,7 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
 
     const stop = () => {
       pause();
+      stopFx();
       index = -1;
       mark(null);
       now.textContent = 'Press play to start.';
@@ -266,13 +346,22 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
       bar.hidden = !open;
       openBtn.setAttribute('aria-expanded', String(open));
       document.body.classList.toggle('lp-on', open);
+      place();
       if (open) checkApi();
       if (!open) stop();
     });
     playBtn.addEventListener('click', () => {
       if (playing) { pause(); return; }
       const cur = document.querySelector<HTMLElement>('.lp-current');
-      playFrom(cur && playable().includes(cur) ? cur : playable()[0]);
+      const first = cur && playable().includes(cur) ? cur : playable()[0];
+      if (!cur && first) {
+        const myToken = ++token;
+        const lead = items.slice(0, items.indexOf(first) + 1).filter((el) => el.dataset.tts === 'note').map((el) => el.textContent || '').join(' ');
+        playBtn.textContent = '❚❚'; playing = true; mark(first); now.innerHTML = label(first);
+        playCues(lead, myToken).then(() => { if (myToken === token) playFrom(first); });
+        return;
+      }
+      playFrom(first);
     });
     $('[data-lp-next]').addEventListener('click', () => advance(1));
     $('[data-lp-prev]').addEventListener('click', () => advance(-1));

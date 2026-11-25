@@ -33,6 +33,8 @@ const role = (n: string | null) => (n === host ? 'Host' : guests.has(n ?? '') ? 
       {e.credits && <p class="credits">Written by {e.credits}</p>}
       <ListenPlayer host={host} episode={`${s.slug}/${e.slug}`} />
     </header>
+    <div class="lp-zone">
+    <div class="lp-rail" data-lp-rail></div>
     <article class="ht-script">
       {e.beats.map((beat) =>
         beat.kind === 'card' ? <div class="ht-card"><span data-tts="card" data-i={n()}>{beat.text}</span></div>
@@ -44,6 +46,7 @@ const role = (n: string | null) => (n === host ? 'Host' : guests.has(n ?? '') ? 
           </div>
         ))}
     </article>
+    </div>
     {(newer || older) && (
       <nav class="ht-pager" aria-label="More episodes">
         {older && <a href={older.href}><small>← Earlier episode</small>{older.title}</a>}
