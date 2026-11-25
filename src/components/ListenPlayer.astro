@@ -45,26 +45,27 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
 
   /* Wide screens: the player rides in the empty gutter to the left of the script, from the script's first line
      to its last, so it never covers the header, the pager, or anything else. Small screens: a slim bar docked at the bottom. */
-  .lp-bar { padding: .75rem; border-radius: 14px; background: rgba(18, 10, 30, .82); backdrop-filter: blur(6px);
+  .lp-bar { padding: .65rem; border-radius: 14px; box-sizing: border-box; min-width: 0; overflow: hidden; background: rgba(18, 10, 30, .82); backdrop-filter: blur(6px);
     border: 1px solid color-mix(in srgb, var(--c, #c46bff) 35%, transparent); display: grid; gap: .6rem; }
   .lp-bar.rail { position: sticky; top: 6.5rem; width: 100%; }
   .lp-bar.dock { position: fixed; z-index: 50; left: 50%; bottom: .75rem; transform: translateX(-50%); width: min(560px, calc(100vw - 1.5rem));
     grid-template-columns: auto 1fr; align-items: center; padding: .55rem .75rem; }
-  .lp-controls { display: flex; gap: .3rem; justify-content: space-between; }
-  .lp-controls button { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .05);
+  .lp-controls { display: flex; gap: .2rem; justify-content: space-between; }
+  .lp-controls button { width: 1.8rem; height: 1.8rem; flex: none; padding: 0; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .05);
     color: #fff; font-size: .8rem; cursor: pointer; }
   .lp-controls .lp-play { background: var(--c, #c46bff); border-color: transparent; }
-  .lp-now { font-size: .8rem; line-height: 1.35; color: #d9cbe8; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .lp-now { font-size: .76rem; overflow-wrap: anywhere; line-height: 1.35; color: #d9cbe8; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .lp-now b { color: var(--a, #ffd27a); display: block; }
-  .lp-opts { display: grid; gap: .4rem; font-size: .78rem; color: #b9abcb; }
+  .lp-opts { display: grid; gap: .45rem; font-size: .74rem; color: #b9abcb; min-width: 0; }
   .lp-opts select { margin-left: .3rem; background: #1d1330; color: #fff; border: 1px solid rgba(255, 255, 255, .18); border-radius: 6px; padding: .1rem .25rem; font-size: .78rem; }
-  .lp-check { display: flex; gap: .35rem; align-items: center; cursor: pointer; }
+  .lp-check { display: flex; gap: .35rem; align-items: flex-start; cursor: pointer; line-height: 1.25; }
+  .lp-check input { margin: .1rem 0 0; flex: none; }
   .lp-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: #8a7d9c; }
   .lp-bar.dock .lp-now { -webkit-line-clamp: 2; } .lp-bar.dock .lp-now b { display: inline; margin-right: .3rem; }
   .lp-bar.dock .lp-opts, .lp-bar.dock .lp-tip { display: none; }
   :global(body.lp-docked) { padding-bottom: 7rem; }
   :global(.lp-zone) { position: relative; }
-  :global(.lp-rail) { position: absolute; top: 0; bottom: 0; left: 0; width: 150px; display: none; }
+  :global(.lp-rail) { position: absolute; top: 0; bottom: 0; left: 0; width: 138px; display: none; }
   @media (min-width: 1180px) { :global(.lp-on .lp-rail) { display: block; } }
   :global(.lp-on .ht-script [data-tts]) { cursor: pointer; border-radius: 6px; }
   :global(.lp-on .ht-script [data-tts]:hover) { background: rgba(255, 255, 255, .04); }
@@ -224,7 +225,7 @@ const TTS = import.meta.env.PUBLIC_TTS_URL || 'https://ia-wiki-presence.dilanrod
         ? 'TTS voices. New lines can take a second to load. Click any line to start there.'
         : 'Voices come from your device. Click any line to start there.';
     };
-    const lineUrl = (el: HTMLElement) => `${ttsUrl}?ep=${encodeURIComponent(ep)}&i=${el.dataset.i}`;
+    const lineUrl = (el: HTMLElement) => `${ttsUrl}?ep=${encodeURIComponent(ep)}&i=${el.dataset.i}&v=${el.dataset.v || ''}`;
     let audio: HTMLAudioElement | null = null;
     const warm = new Map<string, HTMLAudioElement>();
     // crossOrigin makes the browser send the page's address with the request, which the voice service checks.

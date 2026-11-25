@@ -63,13 +63,23 @@ async function ttsRoute(request, env, ctx, url, origin) {
     return new Response('Bad request', { status: 400, headers: head });
   }
 
-  // The episode's line list, cached at the edge for 10 minutes.
-  const listRes = await fetch(`${SITE}/tv/${ep}/lines.json`, { cf: { cacheTtl: 600, cacheEverything: true } });
-  if (!listRes.ok) return new Response('No such episode', { status: 404, headers: head });
-  const line = ((await listRes.json()).lines || [])[i];
+  // The episode's line list, cached at the edge for 10 minutes. The page sends each line's fingerprint (v),
+  // and if the cached list doesn't match it, the episode was just edited, so fetch the list fresh.
+  const want = (url.searchParams.get('v') || '').toLowerCase();
+  const getLine = async (fresh) => {
+    const res = await fetch(`${SITE}/tv/${ep}/lines.json${fresh ? `?t=${Date.now()}` : ''}`, fresh ? { cf: { cacheTtl: 0 } } : { cf: { cacheTtl: 600, cacheEverything: true } });
+    if (!res.ok) return null;
+    return ((await res.json()).lines || [])[i] || null;
+  };
+  let line = await getLine(false);
+  if (line && want && line.v !== want) line = await getLine(true);
   if (!line || !line.text) return new Response('No such line', { status: 404, headers: head });
+  if (want && line.v && line.v !== want) {
+    // The page and the published list still disagree (the site is mid-update). Don't voice old text.
+    return new Response('Line changed', { status: 409, headers: { ...head, 'Cache-Control': 'no-store' } });
+  }
   const voice = VOICES.has(line.voice) ? line.voice : 'asteria';
-  const text = String(line.text).slice(0, 1500);
+  const text = String(line.say || line.text).slice(0, 1500); // `say` is the spoken version, when it differs
 
   const key = `tts/v1/${voice}/${await sha(text)}.mp3`;
   const audioHeaders = { ...head, 'Content-Type': 'audio/mpeg', 'Cache-Control': 'public, max-age=31536000, immutable' };
