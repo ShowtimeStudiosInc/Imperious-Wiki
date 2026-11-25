@@ -120,3 +120,8 @@ pending:
     decree: "appearance"
     by: "1020713744562651207"
     at: "2026-11-24T23:11:45.764Z"
+  - who: "epsilon-blue"
+    decree: "aid"
+    note: "The recent outage of the outer colonies has gone on for long enough. Early crews should arrive for reconnection shortly."
+    by: "605362338329264170"
+    at: "2026-11-25T01:00:07.388Z"
