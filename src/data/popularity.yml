@@ -11,8 +11,8 @@
 # and change that gem's `score` to match. `previous` is filled in by the script (score 7 days ago).
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
-updated: '2026-11-24'
-unrest: 45
+updated: '2026-11-25'
+unrest: 44
 deity:
   - slug: alpha-black
     score: 47
@@ -52,7 +52,7 @@ regents:
     previous: 68
     votes: 12234
   - slug: florentino
-    score: 73
+    score: 72
     previous: 70
     votes: 10389
   - slug: tethys
@@ -72,7 +72,7 @@ regents:
     previous: 57
     votes: 6395
   - slug: ordr
-    score: 53
+    score: 54
     previous: 54
     votes: 5182
   - slug: dante
@@ -154,6 +154,26 @@ earlier_news:
       - who: ordr
         change: -4
 log:
+  - date: '2026-11-25'
+    who: florentino
+    change: -1
+    kind: small
+    text: Florentino ran into a market stall at full speed. He apologized and paid for it, but the stall owner is still annoyed.
+  - date: '2026-11-25'
+    who: theta-gold
+    change: -1
+    kind: small
+    text: A defective gem from one of Theta's kindergartens was turned away from his court. Others saw it happen.
+  - date: '2026-11-25'
+    who: ordr
+    change: +1
+    kind: small
+    text: Ordr reorganized Court Theta's public records. For the first time, gems can actually find what they're looking for.
+  - date: '2026-11-24'
+    who: theta-gold
+    change: +1
+    kind: small
+    text: Theta sent his Cubic Zirconia to another social event in his place. Some gems respect the work ethic. Some feel brushed off.
   - date: '2026-11-24'
     who: magda
     change: -1

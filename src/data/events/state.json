@@ -2,6 +2,10 @@
  "flags": {},
  "recent": {
   "small": [
+   "florentino-crash",
+   "theta-defect-turned-away",
+   "ordr-tidy",
+   "theta-workaholic",
    "magda-quiet",
    "alpha-ring",
    "nightshade-rest",
@@ -373,6 +377,86 @@
     "ordr": 53,
     "dante": 44
    }
+  },
+  {
+   "t": 1795561189364,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 70,
+    "theta-gold": 61,
+    "saturn-light": 80,
+    "nightshade-violet": 58,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 73,
+    "tethys": 42,
+    "reina": 59,
+    "magda": 62,
+    "law": 56,
+    "ordr": 53,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795568389364,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 70,
+    "theta-gold": 61,
+    "saturn-light": 80,
+    "nightshade-violet": 58,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 73,
+    "tethys": 42,
+    "reina": 59,
+    "magda": 62,
+    "law": 56,
+    "ordr": 54,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795575589364,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 70,
+    "theta-gold": 60,
+    "saturn-light": 80,
+    "nightshade-violet": 58,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 73,
+    "tethys": 42,
+    "reina": 59,
+    "magda": 62,
+    "law": 56,
+    "ordr": 54,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795582789364,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 70,
+    "theta-gold": 60,
+    "saturn-light": 80,
+    "nightshade-violet": 58,
+    "maroon-red": 63,
+    "bi-colored-kandy": 71,
+    "antton": 72,
+    "florentino": 72,
+    "tethys": 42,
+    "reina": 59,
+    "magda": 62,
+    "law": 56,
+    "ordr": 54,
+    "dante": 44
+   }
   }
  ],
  "lastMedium": 1795436606210,
@@ -380,6 +464,6 @@
  "nextMediumGap": 278906957,
  "post": null,
  "appliedNews": [],
- "lastRun": 1795553397778,
+ "lastRun": 1795582789364,
  "unrestLevel": "Uneasy"
 }
