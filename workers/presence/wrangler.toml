@@ -14,9 +14,8 @@ new_sqlite_classes = ["PageRoom"]
 [ai]
 binding = "AI"
 
-# Optional: a KV namespace that keeps every voiced line forever, so each line is only made once.
-# Make it with:  npx wrangler kv namespace create TTS_CACHE
-# then paste the id it prints below and remove the # signs.
-# [[kv_namespaces]]
-# binding = "TTS_CACHE"
-# id = "PASTE_THE_ID_HERE"
+# A KV namespace that keeps every voiced line forever, so each line is only made once.
+# Made with:  npx wrangler kv namespace create TTS_CACHE
+[[kv_namespaces]]
+binding = "TTS_CACHE"
+id = "02200312ff6d41f2b568e62dadfbcc0c"

@@ -131,7 +131,7 @@ Each character's voice is set in `src/data/tv/voices.yml`. Give recurring charac
 To turn the AI voices on (whoever owns the Cloudflare account does this once):
 
 1. In the Cloudflare dashboard, open **AI → Workers AI** and turn it on.
-2. Optional, but it keeps every voiced line forever: run `npx wrangler kv namespace create TTS_CACHE` in `workers/presence`, then paste the id it prints into `wrangler.toml` and remove the `#` signs on those three lines.
+2. The KV namespace that saves every voiced line (`TTS_CACHE`) is already made, and its id is in `wrangler.toml`.
 3. In `workers/presence`, run `npx wrangler deploy`.
 4. Open `https://ia-wiki-presence.<your-name>.workers.dev/tts/health` from the wiki. It should say `{"ok":true}`.
 
