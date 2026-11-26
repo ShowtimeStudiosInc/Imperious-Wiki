@@ -23,7 +23,7 @@ deity:
     previous: 66
     votes: 51365
   - slug: theta-gold
-    score: 59
+    score: 53
     previous: 55
     votes: 44814
 ruling:
@@ -33,7 +33,7 @@ ruling:
     votes: 37555
   - slug: nightshade-violet
     name: Nightshade Violet Diamond
-    score: 61
+    score: 62
     previous: 52
     votes: 28579
   - slug: maroon-red
@@ -52,11 +52,11 @@ regents:
     previous: 68
     votes: 12234
   - slug: florentino
-    score: 69
+    score: 70
     previous: 70
     votes: 10389
   - slug: tethys
-    score: 42
+    score: 41
     previous: 38
     votes: 2046
   - slug: reina
@@ -155,6 +155,31 @@ earlier_news:
         change: -4
 log:
   - date: '2026-11-26'
+    who: theta-gold
+    change: -5
+    kind: medium
+    text: A whole batch from one of Theta's kindergartens came out off-color. The court is looking into what went wrong.
+  - date: '2026-11-26'
+    who: nightshade-violet
+    change: +1
+    kind: small
+    text: Every report Court Nightshade owed this month was handed in early. Again.
+  - date: '2026-11-26'
+    who: florentino
+    change: +1
+    kind: small
+    text: Florentino raced a delivery crew across District 4 for fun and lost. He paid for their whole night out.
+  - date: '2026-11-26'
+    who: tethys
+    change: -1
+    kind: small
+    text: Gems at court say Tethys can tell when they're lying. Some find that comforting. Others find it creepy.
+  - date: '2026-11-26'
+    who: theta-gold
+    change: -1
+    kind: small
+    text: A fight broke out at an event in Theta's name, and two gems were poofed before the guards stepped in.
+  - date: '2026-11-26'
     who: bi-colored-kandy
     change: -1
     kind: small
@@ -166,12 +191,12 @@ log:
     text: Someone painted over the face of a statue of Theta in a colony square. It was cleaned off by morning.
   - date: '2026-11-26'
     who: alpha-black
-    change: +1
+    change: 1
     kind: small
     text: Someone claims to have seen Alpha Black in District 0 late at night. Half the gems who hear it don't believe it.
   - date: '2026-11-26'
     who: ordr
-    change: +2
+    change: 2
     kind: small
     text: A Holovision segment ranked the best-dressed rulers in the Gempire. Ordr came in first.
   - date: '2026-11-26'
