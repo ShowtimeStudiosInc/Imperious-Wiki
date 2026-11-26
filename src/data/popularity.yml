@@ -12,10 +12,10 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-26'
-unrest: 43
+unrest: 44
 deity:
   - slug: alpha-black
-    score: 47
+    score: 48
     previous: 47
     votes: 49083
   - slug: epsilon-blue
@@ -23,7 +23,7 @@ deity:
     previous: 66
     votes: 51365
   - slug: theta-gold
-    score: 60
+    score: 59
     previous: 55
     votes: 44814
 ruling:
@@ -43,7 +43,7 @@ ruling:
     votes: 31709
   - slug: bi-colored-kandy
     name: Bi-Colored Kandy Diamond
-    score: 70
+    score: 69
     previous: 64
     votes: 31546
 regents:
@@ -72,7 +72,7 @@ regents:
     previous: 57
     votes: 6395
   - slug: ordr
-    score: 54
+    score: 56
     previous: 54
     votes: 5182
   - slug: dante
@@ -155,8 +155,28 @@ earlier_news:
         change: -4
 log:
   - date: '2026-11-26'
-    who: nightshade-violet
+    who: bi-colored-kandy
+    change: -1
+    kind: small
+    text: Gems living near Kandy's labs in District 3 say the noise hasn't stopped in four days.
+  - date: '2026-11-26'
+    who: theta-gold
+    change: -1
+    kind: small
+    text: Someone painted over the face of a statue of Theta in a colony square. It was cleaned off by morning.
+  - date: '2026-11-26'
+    who: alpha-black
     change: +1
+    kind: small
+    text: Someone claims to have seen Alpha Black in District 0 late at night. Half the gems who hear it don't believe it.
+  - date: '2026-11-26'
+    who: ordr
+    change: +2
+    kind: small
+    text: A Holovision segment ranked the best-dressed rulers in the Gempire. Ordr came in first.
+  - date: '2026-11-26'
+    who: nightshade-violet
+    change: 1
     kind: small
     text: A lost gem in District 1 says one of Nightshade's watching eyes led her guards right to her.
   - date: '2026-11-25'
@@ -171,7 +191,7 @@ log:
     text: A parody song about Antton is going around the colonies. It isn't kind, but it is catchy.
   - date: '2026-11-25'
     who: epsilon-blue
-    change: +1
+    change: 1
     kind: small
     text: A gem who testified in Epsilon's courtroom says she felt heard for the first time in her life.
   - date: '2026-11-25'
