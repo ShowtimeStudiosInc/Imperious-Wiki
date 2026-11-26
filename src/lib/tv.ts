@@ -10,6 +10,8 @@ import { parseTranscript, getBroadcasts, type Beat } from './news';
 
 export interface Episode {
   show: string; slug: string; title: string; date: string; host: string; guests: string[];
+  /** When it airs in the story: the storyline it falls in and the in-roleplay time. */
+  story: { arc: string; arcTitle: string; when: string; href: string } | null;
   credits: string; summary: string; beats: Beat[]; href: string; minutes: number;
 }
 export interface Show {
@@ -32,9 +34,15 @@ export function getEpisodes(show: string): Episode[] {
     const slug = f.replace(/\.ya?ml$/, '');
     const d = (load(fs.readFileSync(`${dir}/${f}`, 'utf8')) as any) || {};
     const beats = parseTranscript(d.transcript || '');
+    let story = null;
+    if (d.story && d.story.arc) {
+      const file = `src/data/storylines/${d.story.arc}.yml`;
+      const arc = fs.existsSync(file) ? ((load(fs.readFileSync(file, 'utf8')) as any) || {}) : {};
+      story = { arc: d.story.arc, arcTitle: arc.title || d.story.arc, when: d.story.when || '', href: url(`/events/${d.story.arc}/`) };
+    }
     return {
       show, slug, title: d.title || slug, date: iso(d.date), host: d.host || '', guests: d.guests || [],
-      credits: d.credits || '', summary: d.summary || '', beats, href: url(`/tv/${show}/${slug}/`), minutes: runtime(beats),
+      credits: d.credits || '', summary: d.summary || '', story, beats, href: url(`/tv/${show}/${slug}/`), minutes: runtime(beats),
     };
   }).sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 }

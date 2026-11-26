@@ -1,6 +1,9 @@
 title: I Thought It Was About a Boat
 date: 2026-11-25
 host: Alina
+story:
+  arc: a-rogues-story
+  when: Night, almost midnight
 guests:
   - Vik
   - Ira

@@ -30,10 +30,10 @@ const [latest, ...rest] = s.episodes;
     ) : (
       <>
         <h2 class="hv-section">Latest episode</h2>
-        <ul class="hv-eps"><li><a href={latest.href}><time datetime={latest.date}>{airDate(latest.date)}</time><div><h3>{latest.title}</h3><p>{latest.summary}</p></div><span class="len">{latest.minutes} min</span></a></li></ul>
+        <ul class="hv-eps"><li><a href={latest.href}><time datetime={latest.date}>{airDate(latest.date)}</time><div><h3>{latest.title}</h3>{latest.story && <small class="hv-when">{latest.story.arcTitle}{latest.story.when && ` · ${latest.story.when}`}</small>}<p>{latest.summary}</p></div><span class="len">{latest.minutes} min</span></a></li></ul>
         {rest.length > 0 && (<>
           <h2 class="hv-section">Every episode</h2>
-          <ul class="hv-eps">{rest.map((e) => <li><a href={e.href}><time datetime={e.date}>{airDate(e.date)}</time><div><h3>{e.title}</h3><p>{e.summary}</p></div><span class="len">{e.minutes} min</span></a></li>)}</ul>
+          <ul class="hv-eps">{rest.map((e) => <li><a href={e.href}><time datetime={e.date}>{airDate(e.date)}</time><div><h3>{e.title}</h3>{e.story && <small class="hv-when">{e.story.arcTitle}{e.story.when && ` · ${e.story.when}`}</small>}<p>{e.summary}</p></div><span class="len">{e.minutes} min</span></a></li>)}</ul>
         </>)}
       </>
     )}

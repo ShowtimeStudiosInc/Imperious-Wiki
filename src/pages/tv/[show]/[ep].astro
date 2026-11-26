@@ -30,6 +30,7 @@ const role = (n: string | null) => (n === host ? 'Host' : guests.has(n ?? '') ? 
     <header class="ht-head">
       <span class="ht-meta">{s.name} · Aired {airDate(e.date)} · About {e.minutes} minutes</span>
       <h1>{e.title}</h1>
+      {e.story && <a class="hv-story" href={e.story.href}><span>In the story</span><b>{e.story.arcTitle}</b>{e.story.when && <em>{e.story.when}</em>}</a>}
       {e.summary && <p class="summary">{e.summary}</p>}
       <div class="ht-plates">
         <span class="ht-plate"><b>{host}</b><em>Host</em></span>

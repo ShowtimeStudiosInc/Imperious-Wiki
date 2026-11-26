@@ -56,3 +56,13 @@
 .hv-section::after { content: ''; flex: 1; height: 1px; background: var(--hv-line); }
 
 @media (max-width: 760px) { .hv-eps a { grid-template-columns: 1fr; gap: 0.3rem; } }
+
+/* In-story time stamp on episodes: which storyline it airs during, and the roleplay time. */
+.hv-story { display: inline-flex; align-items: center; gap: .55rem; margin: .5rem 0 .2rem; padding: .3rem .75rem; border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--a, #ffd27a) 45%, transparent); background: rgba(0, 0, 0, .25);
+  color: #efe6f7; font-size: .82rem; text-decoration: none; }
+.hv-story span { text-transform: uppercase; letter-spacing: .1em; font-size: .68rem; color: var(--a, #ffd27a); }
+.hv-story em { font-style: normal; color: #cbbedb; }
+.hv-story em::before { content: "·"; margin-right: .55rem; color: #8a7d9c; }
+.hv-story:hover { border-color: var(--a, #ffd27a); }
+.hv-when { display: block; margin: .1rem 0 .25rem; font-size: .75rem; color: var(--a, #ffd27a); letter-spacing: .02em; }
