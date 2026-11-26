@@ -11,7 +11,7 @@
 # and change that gem's `score` to match. `previous` is filled in by the script (score 7 days ago).
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
-updated: '2026-11-25'
+updated: '2026-11-26'
 unrest: 43
 deity:
   - slug: alpha-black
@@ -19,7 +19,7 @@ deity:
     previous: 47
     votes: 49083
   - slug: epsilon-blue
-    score: 70
+    score: 71
     previous: 66
     votes: 51365
   - slug: theta-gold
@@ -33,7 +33,7 @@ ruling:
     votes: 37555
   - slug: nightshade-violet
     name: Nightshade Violet Diamond
-    score: 60
+    score: 61
     previous: 52
     votes: 28579
   - slug: maroon-red
@@ -48,11 +48,11 @@ ruling:
     votes: 31546
 regents:
   - slug: antton
-    score: 72
+    score: 71
     previous: 68
     votes: 12234
   - slug: florentino
-    score: 71
+    score: 69
     previous: 70
     votes: 10389
   - slug: tethys
@@ -154,6 +154,26 @@ earlier_news:
       - who: ordr
         change: -4
 log:
+  - date: '2026-11-26'
+    who: nightshade-violet
+    change: +1
+    kind: small
+    text: A lost gem in District 1 says one of Nightshade's watching eyes led her guards right to her.
+  - date: '2026-11-25'
+    who: florentino
+    change: -2
+    kind: small
+    text: Someone dug up a promise Florentino made a long time ago and never kept. It's being passed around again.
+  - date: '2026-11-25'
+    who: antton
+    change: -1
+    kind: small
+    text: A parody song about Antton is going around the colonies. It isn't kind, but it is catchy.
+  - date: '2026-11-25'
+    who: epsilon-blue
+    change: +1
+    kind: small
+    text: A gem who testified in Epsilon's courtroom says she felt heard for the first time in her life.
   - date: '2026-11-25'
     who: saturn-light
     change: -1
@@ -171,7 +191,7 @@ log:
     text: Kandy called An Andesine by the wrong name at a public event. The clip has been shared all week.
   - date: '2026-11-25'
     who: nightshade-violet
-    change: +2
+    change: 2
     kind: small
     text: Nightshade visited a kindergarten and spent time with the newest gems. The staff there are still talking about it.
   - date: '2026-11-25'
@@ -181,7 +201,7 @@ log:
     text: A fight broke out in the line outside Club Imperious. Gems blame the club for letting it get that crowded.
   - date: '2026-11-25'
     who: reina
-    change: +2
+    change: 2
     kind: small
     text: A mobile game Reina was seen playing shot to the top of the Holovision charts overnight.
   - date: '2026-11-25'
