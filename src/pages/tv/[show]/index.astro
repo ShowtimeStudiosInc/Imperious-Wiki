@@ -3,6 +3,7 @@ import Site from '../../../layouts/Site.astro';
 import { getShows } from '../../../lib/tv';
 import { airDate } from '../../../lib/news';
 import { url } from '../../../lib/gems';
+import CrystalHourRoom from '../../../components/CrystalHourRoom.astro';
 import '../../../styles/tv.css';
 export function getStaticPaths() {
   return getShows().filter((s) => !s.external).map((s) => ({ params: { show: s.slug }, props: { s } }));
@@ -12,7 +13,8 @@ const [latest, ...rest] = s.episodes;
 ---
 <Site title={`${s.name} · Holovision`} description={s.tagline}>
   <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" />
-  <main class="wrap hv" style={`--c:${s.color};--a:${s.accent}`} data-pagefind-body>
+  <main class={`wrap hv show-${s.slug}`} style={`--c:${s.color};--a:${s.accent}`} data-pagefind-body>
+    {s.slug === 'crystal-hour' && <CrystalHourRoom />}
     <a class="hv-back" href={url('/tv/')}>← Holovision</a>
     <header class="hv-hero">
       <span class="kind">{s.kind}{s.status === 'coming-soon' ? ' · Coming soon' : ' · On air'}</span>

@@ -1,0 +1,89 @@
+---
+// The Crystal Hour's set: the red-lit hallway behind the studio. Red tube lights along the ceiling,
+// one hanging lamp throwing warm light down the middle, peeling paint, and posters taped up in the margins.
+// Purely decorative, sits behind the page, and only draws the posters where there's room for them.
+---
+<div class="ch-room" aria-hidden="true">
+  <div class="ch-wall"></div>
+  <div class="ch-tube t1"></div>
+  <div class="ch-tube t2"></div>
+  <div class="ch-lamp"><span class="cord"></span><span class="shade"></span><span class="bulb"></span></div>
+  <div class="ch-pool"></div>
+  <div class="ch-peel p1"></div>
+  <div class="ch-peel p2"></div>
+  <div class="ch-peel p3"></div>
+
+  <div class="ch-poster a"><i class="tape"></i><b>Club Imperious</b><span>Every night<br/>District 4</span><em>Tambour &amp; the House Band</em></div>
+  <div class="ch-poster b"><i class="tape"></i><span class="big">Fourth<br/>Night</span><em>Dance contest · hosted by Sable</em></div>
+  <div class="ch-poster c dark"><i class="tape"></i><b>The Hollow Choir</b><span>Now showing</span><em>Best Cast · Gem Awards</em></div>
+  <div class="ch-poster d"><i class="tape"></i><span class="big">Shoe<br/>Song</span><em>Nia · out now on her crystal-cast</em></div>
+  <div class="ch-poster e dark"><i class="tape"></i><b>Colosseum</b><span>District 2 · Light division</span><em>Champion vs. challenger</em></div>
+  <div class="ch-grain"></div>
+</div>
+
+<style>
+  .ch-room { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+  :global(main.show-crystal-hour) { position: relative; z-index: 1; }
+
+  /* Dark red walls, brighter toward the lamp, almost black at the edges */
+  .ch-wall { position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 55% at 50% 30%, rgba(120, 8, 18, .55), transparent 70%),
+      linear-gradient(90deg, #0a0204 0%, #1c0408 18%, #24060b 50%, #1c0408 82%, #0a0204 100%); }
+
+  /* Fluorescent tubes along the top, with their red spill on the walls */
+  .ch-tube { position: absolute; height: 7px; border-radius: 4px; background: #ff4a52;
+    box-shadow: 0 0 6px #ff2030, 0 0 22px 6px rgba(255, 24, 40, .7), 0 0 120px 40px rgba(255, 10, 30, .32); }
+  .ch-tube.t1 { top: 62px; left: -2%; width: 19%; transform: rotate(7deg); }
+  .ch-tube.t2 { top: 60px; right: -3%; width: 19%; transform: rotate(-7deg); animation: flicker 9s infinite; }
+
+  /* The hanging lamp and the warm pool of light it throws */
+  .ch-lamp { position: absolute; top: 0; left: 50%; transform: translateX(-50%) scale(.62); transform-origin: top center; width: 220px; height: 170px; }
+  .ch-lamp .cord { position: absolute; left: 50%; top: 0; width: 3px; height: 60px; margin-left: -1.5px; background: #120305; }
+  .ch-lamp .shade { position: absolute; left: 50%; top: 56px; width: 200px; height: 82px; margin-left: -100px;
+    background: linear-gradient(180deg, #2a090d, #120305); border-radius: 50% 50% 8px 8px / 90% 90% 8px 8px; box-shadow: inset 0 -8px 14px rgba(0, 0, 0, .6); }
+  .ch-lamp .bulb { position: absolute; left: 50%; top: 126px; width: 190px; height: 26px; margin-left: -95px; border-radius: 50%;
+    background: radial-gradient(ellipse at center, #fffbd2 0%, #f1ec8f 45%, #c9c45a 100%); box-shadow: 0 0 30px 10px rgba(242, 236, 140, .45); }
+  .ch-pool { position: absolute; top: 90px; left: 50%; transform: translateX(-50%); width: min(1100px, 95vw); height: 85vh;
+    background: radial-gradient(ellipse 45% 60% at 50% 0%, rgba(255, 238, 160, .16), rgba(255, 200, 120, .05) 50%, transparent 75%); }
+
+  /* Patches where the paint has come away */
+  .ch-peel { position: absolute; background: rgba(214, 176, 120, .16); filter: blur(.4px);
+    clip-path: polygon(10% 0, 40% 8%, 62% 0, 90% 14%, 100% 46%, 84% 70%, 96% 100%, 52% 88%, 24% 100%, 0 70%, 8% 40%); }
+  .ch-peel.p1 { left: 3%; top: 62%; width: 70px; height: 120px; }
+  .ch-peel.p2 { right: 4%; top: 78%; width: 50px; height: 60px; transform: rotate(30deg); }
+  .ch-peel.p3 { left: 12%; top: 88%; width: 34px; height: 30px; }
+
+  /* Posters taped up in the side margins */
+  .ch-poster { position: absolute; display: none; width: 158px; padding: 1.1rem .8rem .9rem; color: #2a0a0e; text-align: center;
+    background: linear-gradient(rgba(170, 20, 35, .42), rgba(110, 0, 15, .5)), linear-gradient(160deg, #f2d7b0, #d9a978);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .55), inset 0 0 40px rgba(60, 0, 8, .45);
+    font: 600 .7rem/1.25 'Inter', system-ui, sans-serif; letter-spacing: .04em; opacity: .82; }
+  .ch-poster b { display: block; font: 800 1rem/1.1 Georgia, serif; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .35rem; }
+  .ch-poster .big { display: block; font: 900 1.7rem/0.95 Georgia, serif; text-transform: uppercase; margin-bottom: .4rem; }
+  .ch-poster span { display: block; }
+  .ch-poster em { display: block; margin-top: .5rem; font-style: normal; font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; }
+  .ch-poster.dark { background: linear-gradient(160deg, #2b1418, #120608); color: #f0c8b8; opacity: .75; }
+  .ch-poster .tape { position: absolute; top: -9px; left: 50%; width: 54px; height: 18px; margin-left: -27px; background: rgba(240, 225, 190, .55); transform: rotate(-4deg); }
+  .ch-poster.a { left: calc(50% - 760px); top: 200px; transform: rotate(-3deg); }
+  .ch-poster.b { left: calc(50% - 735px); top: 470px; transform: rotate(2deg); }
+  .ch-poster.c { left: calc(50% - 770px); top: 720px; transform: rotate(-1.5deg); }
+  .ch-poster.d { right: calc(50% - 755px); top: 240px; transform: rotate(3deg); }
+  .ch-poster.e { right: calc(50% - 770px); top: 540px; transform: rotate(-2.5deg); }
+  @media (min-width: 1560px) { .ch-poster { display: block; } }
+
+  /* A little film grain over everything */
+  .ch-grain { position: absolute; inset: -50%; opacity: .07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  @keyframes flicker { 0%, 92%, 95%, 100% { opacity: 1; } 93% { opacity: .35; } 94% { opacity: .8; } 96% { opacity: .5; } }
+  @media (prefers-reduced-motion: reduce) { .ch-tube { animation: none !important; } }
+
+  /* Page pieces in the room's colors: red neon cards, warm lamp-yellow details */
+  :global(.show-crystal-hour .ht-card span) { border-color: #ff3442; color: #ffd3d6; background: rgba(60, 0, 6, .55);
+    box-shadow: 0 0 10px rgba(255, 40, 55, .55), inset 0 0 10px rgba(255, 40, 55, .25); text-shadow: 0 0 6px rgba(255, 60, 75, .8); }
+  :global(.show-crystal-hour .ht-action) { border-left-color: #b8a85a !important; color: #d8c7b0; }
+  :global(.show-crystal-hour .hv-hero h1), :global(.show-crystal-hour .ht-head h1) { text-shadow: 0 0 22px rgba(255, 40, 55, .45); }
+  :global(.show-crystal-hour .hv-eps a), :global(.show-crystal-hour .hv-facts span) { background: rgba(20, 3, 6, .78); }
+  :global(.show-crystal-hour .hv-hero) { background: linear-gradient(135deg, rgba(110, 10, 22, .55), rgba(18, 3, 6, .88) 60%) !important; border-color: rgba(255, 52, 66, .55) !important; }
+</style>

@@ -3,6 +3,7 @@ import Site from '../../../layouts/Site.astro';
 import { getShows } from '../../../lib/tv';
 import { airDate } from '../../../lib/news';
 import { url } from '../../../lib/gems';
+import CrystalHourRoom from '../../../components/CrystalHourRoom.astro';
 import ListenPlayer from '../../../components/ListenPlayer.astro';
 import fs from 'node:fs';
 import { load } from 'js-yaml';
@@ -25,7 +26,8 @@ const role = (n: string | null) => (n === host ? 'Host' : guests.has(n ?? '') ? 
 ---
 <Site title={`${e.title} · ${s.name}`} description={e.summary}>
   <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" />
-  <main class="wrap ht hv" style={`--ht-red:${s.color};--ht-gold:${s.accent};--c:${s.color};--a:${s.accent}`} data-pagefind-body>
+  <main class={`wrap ht hv show-${s.slug}`} style={`--ht-red:${s.color};--ht-gold:${s.accent};--c:${s.color};--a:${s.accent}`} data-pagefind-body>
+    {s.slug === 'crystal-hour' && <CrystalHourRoom />}
     <a class="ht-back" href={url(`/tv/${s.slug}/`)}>← {s.name}</a>
     <header class="ht-head">
       <span class="ht-meta">{s.name} · Aired {airDate(e.date)} · About {e.minutes} minutes</span>

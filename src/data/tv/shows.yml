@@ -19,8 +19,8 @@
   where: The Crystal Hour Studio, Saturn Light's district
   network: Court Saturn
   kind: Talk show
-  color: '#c46bff'
-  accent: '#ffd27a'
+  color: '#ff3442'
+  accent: '#f3e98f'
   status: on-air
   order: 1
 
