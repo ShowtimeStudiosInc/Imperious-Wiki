@@ -12,59 +12,59 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-27'
-unrest: 45
+unrest: 47
 deity:
   - slug: alpha-black
-    score: 48
-    previous: 47
+    score: 47
+    previous: 49
     votes: 49083
   - slug: epsilon-blue
     score: 73
-    previous: 66
+    previous: 68
     votes: 51365
   - slug: theta-gold
     score: 53
-    previous: 55
+    previous: 57
     votes: 44814
 ruling:
   - slug: saturn-light
     score: 78
-    previous: 72
+    previous: 80
     votes: 37555
   - slug: nightshade-violet
     name: Nightshade Violet Diamond
     score: 62
-    previous: 52
+    previous: 59
     votes: 28579
   - slug: maroon-red
     name: Maroon Red Diamond
     score: 63
-    previous: 63
+    previous: 62
     votes: 31709
   - slug: bi-colored-kandy
     name: Bi-Colored Kandy Diamond
     score: 70
-    previous: 64
+    previous: 68
     votes: 31546
 regents:
   - slug: antton
-    score: 71
-    previous: 68
+    score: 69
+    previous: 74
     votes: 12234
   - slug: florentino
     score: 70
-    previous: 70
+    previous: 75
     votes: 10389
   - slug: tethys
-    score: 40
-    previous: 38
+    score: 42
+    previous: 41
     votes: 2046
   - slug: reina
     score: 58
     previous: 61
     votes: 11334
   - slug: magda
-    score: 63
+    score: 62
     previous: 67
     votes: 9431
   - slug: law
@@ -155,6 +155,26 @@ earlier_news:
         change: -4
 log:
   - date: '2026-11-27'
+    who: antton
+    change: -2
+    kind: small
+    text: Someone painted Antton's symbol on a wall in the Service Trade quarter with a crack drawn through it.
+  - date: '2026-11-27'
+    who: alpha-black
+    change: -1
+    kind: small
+    text: Younger gems keep asking why Alpha Black never shows herself anymore. Some of the answers going around aren't kind.
+  - date: '2026-11-27'
+    who: magda
+    change: -1
+    kind: small
+    text: Magda told a group of new recruits exactly what she thought of their form. Some of them are still recovering.
+  - date: '2026-11-27'
+    who: tethys
+    change: +2
+    kind: small
+    text: Someone dug up a promise Tethys made a long time ago. Turns out it was kept, quietly, years back.
+  - date: '2026-11-27'
     who: reina
     change: -2
     kind: small
@@ -166,12 +186,12 @@ log:
     text: A short Holovision interview with Reina was cut off early. Nobody has explained why, which only made gems talk more.
   - date: '2026-11-27'
     who: epsilon-blue
-    change: +2
+    change: 2
     kind: small
     text: A crowd cheered when Epsilon passed through a warp hub. Epsilon looked surprised.
   - date: '2026-11-27'
     who: magda
-    change: +1
+    change: 1
     kind: small
     text: A squad back from training under Magda beat every other squad at a Militia sports day. Others are asking to be put under her.
   - date: '2026-11-27'
