@@ -2,6 +2,10 @@
  "flags": {},
  "recent": {
   "small": [
+   "turned-down",
+   "holo-interview-bad",
+   "crowd-cheer",
+   "magda-drills",
    "tethys-unsettling",
    "law-hard",
    "kandy-coffee",
@@ -17,11 +21,7 @@
    "old-promise",
    "parody-song",
    "epsilon-witness",
-   "warp-delay",
-   "florentino-honest",
-   "wrong-name",
-   "kindergarten-visit",
-   "club-line"
+   "warp-delay"
   ],
   "big": [
    "solar-flares"
@@ -900,6 +900,86 @@
     "ordr": 56,
     "dante": 44
    }
+  },
+  {
+   "t": 1795767172211,
+   "scores": {
+    "alpha-black": 48,
+    "epsilon-blue": 71,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 70,
+    "antton": 71,
+    "florentino": 70,
+    "tethys": 40,
+    "reina": 61,
+    "magda": 63,
+    "law": 54,
+    "ordr": 56,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795774372211,
+   "scores": {
+    "alpha-black": 48,
+    "epsilon-blue": 73,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 70,
+    "antton": 71,
+    "florentino": 70,
+    "tethys": 40,
+    "reina": 61,
+    "magda": 63,
+    "law": 54,
+    "ordr": 56,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795781572211,
+   "scores": {
+    "alpha-black": 48,
+    "epsilon-blue": 73,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 70,
+    "antton": 71,
+    "florentino": 70,
+    "tethys": 40,
+    "reina": 60,
+    "magda": 63,
+    "law": 54,
+    "ordr": 56,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795788772211,
+   "scores": {
+    "alpha-black": 48,
+    "epsilon-blue": 73,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 70,
+    "antton": 71,
+    "florentino": 70,
+    "tethys": 40,
+    "reina": 58,
+    "magda": 63,
+    "law": 54,
+    "ordr": 56,
+    "dante": 44
+   }
   }
  ],
  "lastMedium": 1795729887898,
@@ -907,6 +987,6 @@
  "nextMediumGap": 282807231,
  "post": null,
  "appliedNews": [],
- "lastRun": 1795753704441,
+ "lastRun": 1795788772211,
  "unrestLevel": "Uneasy"
 }

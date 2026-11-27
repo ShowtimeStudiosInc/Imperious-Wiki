@@ -12,14 +12,14 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-27'
-unrest: 44
+unrest: 45
 deity:
   - slug: alpha-black
     score: 48
     previous: 47
     votes: 49083
   - slug: epsilon-blue
-    score: 71
+    score: 73
     previous: 66
     votes: 51365
   - slug: theta-gold
@@ -60,11 +60,11 @@ regents:
     previous: 38
     votes: 2046
   - slug: reina
-    score: 61
+    score: 58
     previous: 61
     votes: 11334
   - slug: magda
-    score: 62
+    score: 63
     previous: 67
     votes: 9431
   - slug: law
@@ -155,6 +155,26 @@ earlier_news:
         change: -4
 log:
   - date: '2026-11-27'
+    who: reina
+    change: -2
+    kind: small
+    text: Reina turned down a petition from a group of Service Trade gems in front of everyone.
+  - date: '2026-11-27'
+    who: reina
+    change: -1
+    kind: small
+    text: A short Holovision interview with Reina was cut off early. Nobody has explained why, which only made gems talk more.
+  - date: '2026-11-27'
+    who: epsilon-blue
+    change: +2
+    kind: small
+    text: A crowd cheered when Epsilon passed through a warp hub. Epsilon looked surprised.
+  - date: '2026-11-27'
+    who: magda
+    change: +1
+    kind: small
+    text: A squad back from training under Magda beat every other squad at a Militia sports day. Others are asking to be put under her.
+  - date: '2026-11-27'
     who: tethys
     change: -1
     kind: small
@@ -166,7 +186,7 @@ log:
     text: Gems who have dealt with Law say he is hard to please and harder to argue with. Not everyone means it as a compliment.
   - date: '2026-11-27'
     who: bi-colored-kandy
-    change: +1
+    change: 1
     kind: small
     text: Kandy's labs ran out of coffee for a whole day. District 3 is calling it the worst day of the year.
   - date: '2026-11-26'
