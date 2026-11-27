@@ -11,7 +11,7 @@
 # and change that gem's `score` to match. `previous` is filled in by the script (score 7 days ago).
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
-updated: '2026-11-26'
+updated: '2026-11-27'
 unrest: 44
 deity:
   - slug: alpha-black
@@ -43,7 +43,7 @@ ruling:
     votes: 31709
   - slug: bi-colored-kandy
     name: Bi-Colored Kandy Diamond
-    score: 69
+    score: 70
     previous: 64
     votes: 31546
 regents:
@@ -56,7 +56,7 @@ regents:
     previous: 70
     votes: 10389
   - slug: tethys
-    score: 41
+    score: 40
     previous: 38
     votes: 2046
   - slug: reina
@@ -68,7 +68,7 @@ regents:
     previous: 67
     votes: 9431
   - slug: law
-    score: 56
+    score: 54
     previous: 57
     votes: 6395
   - slug: ordr
@@ -154,6 +154,21 @@ earlier_news:
       - who: ordr
         change: -4
 log:
+  - date: '2026-11-27'
+    who: tethys
+    change: -1
+    kind: small
+    text: Gems who met Tethys say they couldn't tell what Tethys was thinking, and it left them uneasy.
+  - date: '2026-11-27'
+    who: law
+    change: -2
+    kind: small
+    text: Gems who have dealt with Law say he is hard to please and harder to argue with. Not everyone means it as a compliment.
+  - date: '2026-11-27'
+    who: bi-colored-kandy
+    change: +1
+    kind: small
+    text: Kandy's labs ran out of coffee for a whole day. District 3 is calling it the worst day of the year.
   - date: '2026-11-26'
     who: theta-gold
     change: -5
@@ -161,12 +176,12 @@ log:
     text: A whole batch from one of Theta's kindergartens came out off-color. The court is looking into what went wrong.
   - date: '2026-11-26'
     who: nightshade-violet
-    change: +1
+    change: 1
     kind: small
     text: Every report Court Nightshade owed this month was handed in early. Again.
   - date: '2026-11-26'
     who: florentino
-    change: +1
+    change: 1
     kind: small
     text: Florentino raced a delivery crew across District 4 for fun and lost. He paid for their whole night out.
   - date: '2026-11-26'

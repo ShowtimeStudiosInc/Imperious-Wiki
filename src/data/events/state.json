@@ -2,6 +2,9 @@
  "flags": {},
  "recent": {
   "small": [
+   "tethys-unsettling",
+   "law-hard",
+   "kandy-coffee",
    "nightshade-early-work",
    "florentino-race",
    "tethys-lies",
@@ -18,10 +21,7 @@
    "florentino-honest",
    "wrong-name",
    "kindergarten-visit",
-   "club-line",
-   "reina-games",
-   "florentino-crash",
-   "theta-defect-turned-away"
+   "club-line"
   ],
   "big": [
    "solar-flares"
@@ -840,23 +840,73 @@
     "ordr": 56,
     "dante": 44
    }
+  },
+  {
+   "t": 1795739304441,
+   "scores": {
+    "alpha-black": 48,
+    "epsilon-blue": 71,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 70,
+    "antton": 71,
+    "florentino": 70,
+    "tethys": 41,
+    "reina": 61,
+    "magda": 62,
+    "law": 56,
+    "ordr": 56,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795746504441,
+   "scores": {
+    "alpha-black": 48,
+    "epsilon-blue": 71,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 70,
+    "antton": 71,
+    "florentino": 70,
+    "tethys": 41,
+    "reina": 61,
+    "magda": 62,
+    "law": 54,
+    "ordr": 56,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795753704441,
+   "scores": {
+    "alpha-black": 48,
+    "epsilon-blue": 71,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 70,
+    "antton": 71,
+    "florentino": 70,
+    "tethys": 40,
+    "reina": 61,
+    "magda": 62,
+    "law": 54,
+    "ordr": 56,
+    "dante": 44
+   }
   }
  ],
  "lastMedium": 1795729887898,
  "lastBig": 1795436606210,
  "nextMediumGap": 282807231,
- "post": {
-  "run": "45900933060",
-  "embeds": [
-   {
-    "title": "Gempire News",
-    "url": "https://showtimestudiosinc.github.io/Imperious-Wiki/approval-rating/",
-    "color": 16732067,
-    "description": "A whole batch from one of Theta's kindergartens came out off-color. The court is looking into what went wrong.\n\n**Theta** -5\nUnrest: **44/100** (Uneasy)"
-   }
-  ]
- },
+ "post": null,
  "appliedNews": [],
- "lastRun": 1795729887898,
+ "lastRun": 1795753704441,
  "unrestLevel": "Uneasy"
 }
