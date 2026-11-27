@@ -34,11 +34,13 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: utility
         text: Morganite bubbles one enemy who is ready to be spared, capturing them.
       - name: Safekeeping
         tags:
           - 2 SP
         cost: 2
+        category: defensive
         text: Morganite bubbles a Poofed ally's gemstone. It can't be Cracked or Shattered until the bubble is popped.
 role: >-
   Morganites are one of the many aristocrats of Homeworld. They serve the gempire as bubble keepers and maintainers,

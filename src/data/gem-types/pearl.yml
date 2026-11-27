@@ -36,6 +36,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: utility
     text: >-
       A Pearl makes a harmless image of light appear, for showing information or fooling the eye. One enemy who doesn't
       see through it attacks the image instead of its real target.
@@ -45,10 +46,17 @@ abilities:
     tags:
       - 2 SP
     cost: 2
+    category: utility
     text: >-
       In rare cases, a Pearl can make a short lived copy of herself out of light, called a Holo-Pearl. It lasts 3 turns
       and can <:Fight:1568035371974135940>FIGHT on her turn.
-    moves: []
+    moves:
+      - name: Holo-Pearl
+        tags:
+          - 2 SP
+        cost: 2
+        category: utility
+        text: Makes a Holo-Pearl that lasts 3 turns and can FIGHT on her turn.
   - section: Latent Ability
     name: Elemental Affinity
     tags: []

@@ -28,6 +28,7 @@ abilities:
       - 2 SP
       - REACTION
     cost: 2
+    category: defensive
     text: Titanium calls up a shield to block one hit aimed at herself or an ally Near her. That hit deals no damage.
     moves: []
 role: >-

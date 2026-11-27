@@ -26,6 +26,7 @@ abilities:
         tags:
           - 4 SP
         cost: 4
+        category: debuff
         text: >-
           Mist spreads across the battlefield. Every enemy resists with INT. Those who fail fall
           <:Asleep:1569712124043857941>Asleep for 2 turns, and any damage wakes them. Allies in the mist don't fall

@@ -32,6 +32,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: utility
         text: >-
           Peridot takes control of one machine, drone, turret, or construct for 2 turns. If a gem is controlling it,
           that gem resists with INT.
@@ -45,12 +46,14 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: offensive
         text: Peridot flings a nearby piece of metal at one target for 1d6 + MAG damage.
   - section: Latent Ability
     name: Electrical Transportation
     tags:
       - 2 SP
     cost: 2
+    category: mobility
     text: >-
       Peridot may learn to turn herself into electricity and travel through a power grid, reforming anywhere along it.
       In battle, she can move to Near, Far, or Behind anyone standing by a powered machine.

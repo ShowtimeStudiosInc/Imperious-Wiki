@@ -40,12 +40,14 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A spike of rock bursts up under one target for 2d4 + MAG damage.
   - section: Signature Ability
     name: Toxin Absorption
     tags:
       - 1 SP
     cost: 1
+    category: utility
     text: >-
       From her Malachite half. She pulls poison or corrosion out of the air, the ground, or an ally, ending that effect.
       She can't be poisoned herself.
@@ -55,6 +57,7 @@ abilities:
     tags:
       - 3 SP
     cost: 3
+    category: mobility
     text: >-
       Velvet Malachite moves from Far or Behind to Near one target and <:Fight:1568035371974135940>FIGHTs them in the
       same turn. If the target hasn't acted yet this round, the FIGHT has advantage.

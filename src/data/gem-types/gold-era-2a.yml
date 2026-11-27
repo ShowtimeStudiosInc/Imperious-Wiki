@@ -32,6 +32,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A beam of sunlight strikes one target for 2d4 + MAG Light damage.
   - section: Signature Ability
     name: Corrosion Resistance

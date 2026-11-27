@@ -32,6 +32,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: debuff
         text: >-
           Every enemy who is Near resists with INT. Those who fail are <:Frightened:1568074311229644951>Frightened for 2
           turns.

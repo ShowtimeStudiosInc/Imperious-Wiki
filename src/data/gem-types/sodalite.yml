@@ -28,6 +28,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A lance of ice strikes one target for 2d4 + MAG Ice damage.
   - section: Signature Ability
     name: Hydrokinesis
@@ -39,12 +40,14 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A whip of water strikes one target for 2d4 + MAG damage.
   - section: Fusion Ability
     name: Frozen Spire
     tags:
       - 3 SP
     cost: 3
+    category: debuff
     text: >-
       Sodalite pulls up a column of water and freezes it into a spire. Every enemy who is Near resists with SPD. Those
       who fail are <:Stuck:1569710918638510141>Stuck until the end of their next turn.

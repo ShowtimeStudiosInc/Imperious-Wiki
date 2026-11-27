@@ -31,6 +31,7 @@ abilities:
           - 2 SP
           - REACTION
         cost: 2
+        category: defensive
         text: >-
           When an attack targets her, she saw it coming. The attack has disadvantage, and if it misses, she can
           <:Fight:1568035371974135940>FIGHT the attacker right away.

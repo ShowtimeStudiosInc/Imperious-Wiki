@@ -34,11 +34,13 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: buff
         text: Stellite applies nanites to an ally's weapon. For 3 turns, it gains +2 ATK.
       - name: Merge
         tags:
           - 4 SP
         cost: 4
+        category: utility
         text: >-
           Stellite dissolves into nanites and merges with a vehicle or machine for up to 5 turns, then rolls 1d20. On a
           1 to 4, the merge backfires and she takes 3d3 Electric damage. On a 5 to 8, it fails. On a 9 or higher, the

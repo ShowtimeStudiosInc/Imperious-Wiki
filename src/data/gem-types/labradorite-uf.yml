@@ -36,6 +36,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: utility
         text: She touches one target who is Near and learns their HP, their statuses, and one of their abilities.
   - section: ACT Bonus
     name: Recall

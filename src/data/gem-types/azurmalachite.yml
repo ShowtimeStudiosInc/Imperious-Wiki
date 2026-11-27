@@ -36,11 +36,13 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: debuff
         text: The ground drops out from under one target. The target resists with SPD. If they fail, they're Knocked Down.
       - name: Upheaval
         tags:
           - 3 SP
         cost: 3
+        category: offensive
         text: The ground buckles under every enemy who is Near, dealing [1d6 + MAG] EARTH damage to each.
   - section: Signature Ability
     name: Flight

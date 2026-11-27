@@ -29,6 +29,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: offensive
         text: Blue Quartz throws a shard of ice at one target for 1d6 + MAG Ice damage.
 role: >-
   A Clear Quartz shifts into a Blue Quartz when drawn to water systems, coastal towns, dive rescue, and planets with

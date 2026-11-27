@@ -32,6 +32,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: >-
           A crystal bolt fired from her weapon hits one target for 2d4 + MAG damage. The target's SPD doesn't make it
           any harder to hit.
@@ -49,6 +50,7 @@ abilities:
     tags:
       - 2 SP
     cost: 2
+    category: utility
     text: >-
       Using her wand, Beryl traps one item or one enemy who is ready to be spared inside a solid bubble, holding them
       secure until she can bring them in. This counts as the Bubble option under <:Mercy:1568035723469127771>MERCY.

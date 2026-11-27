@@ -32,6 +32,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: debuff
         text: >-
           One target resists with INT. If they fail, they forget how to use one of their Abilities, chosen by Hematite,
           for 2 turns.

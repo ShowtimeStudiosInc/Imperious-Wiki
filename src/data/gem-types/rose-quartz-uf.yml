@@ -26,6 +26,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: utility
         text: >-
           Rose Quartz ends one emotion-based status, like <:Frightened:1568074311229644951>Frightened or
           <:Charged:1568077100014112898>Charged, on anyone, ally or enemy.

@@ -34,11 +34,13 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: buff
         text: Heals one ally for 3d6 + MAG, and mends their cracks.
       - name: Mass Restore
         tags:
           - 4 SP
         cost: 4
+        category: buff
         text: Heals every ally who is Near for 2d6 + MAG, and mends their cracks.
   - section: Signature Ability
     name: Flight

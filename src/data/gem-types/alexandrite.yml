@@ -28,6 +28,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: defensive
         text: Works the same as her Sapphire half's Foresight.
   - section: Signature Ability
     name: Cryokinesis

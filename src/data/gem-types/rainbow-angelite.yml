@@ -35,6 +35,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: buff
         text: Heals one ally, who can be Near or Far, for 2d4 + MAG, and removes one negative status from them.
 role: >-
   Rainbow Angelites were a specialized medical subtype produced within Omega White Diamond's empire. Their bodies were

@@ -35,6 +35,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: mobility
         text: >-
           Almandine lifts one ally out of danger, moving them Behind or Far and freeing them if they're
           <:Stuck:1569710918638510141>Stuck.

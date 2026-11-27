@@ -34,6 +34,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: utility
         text: >-
           Once per battle, Opal searches her library for one enemy. The party learns one of its Abilities and one of its
           weaknesses.

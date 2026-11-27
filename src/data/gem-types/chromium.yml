@@ -27,6 +27,7 @@ abilities:
     tags:
       - 2 SP
     cost: 2
+    category: defensive
     text: >-
       Chromium hardens anything she touches, including walls, gear, and another gem's form. For 2 turns, every physical
       hit on the target is reduced by 2 more.

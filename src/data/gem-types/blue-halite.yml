@@ -32,6 +32,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A whip of water strikes one target for 2d4 + MAG damage.
   - section: ACT Bonus
     name: null
@@ -46,6 +47,7 @@ abilities:
     tags:
       - 3 SP
     cost: 3
+    category: offensive
     text: >-
       Blue Halite drives a jet of water down into the floor in front of her. Every enemy who is Near takes 1d6 + MAG
       damage. If she's underwater, they're also pushed Far.

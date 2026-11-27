@@ -27,6 +27,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: utility
     text: >-
       Coal can warm parts of her body until they glow, giving off light and heat. She can't throw or shape it, only
       produce it from herself.

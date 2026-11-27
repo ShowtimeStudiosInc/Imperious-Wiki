@@ -33,6 +33,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: Gold shapes a blade or spike of gold and strikes one target for 2d4 + MAG damage.
   - section: Signature Ability
     name: Corrosion Immunity

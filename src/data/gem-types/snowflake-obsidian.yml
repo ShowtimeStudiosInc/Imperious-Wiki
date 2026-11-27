@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: Chunks of metal-heavy rock burst out of the ground at one target for 2d4 + MAG damage.
   - section: ACT Bonus
     name: Dig

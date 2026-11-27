@@ -38,6 +38,7 @@ abilities:
     tags:
       - 3 SP
     cost: 3
+    category: offensive
     text: >-
       Sugilite brings her axe down on one target for 2d6 + MAG damage. Any barrier, construct, or cover the strike hits
       is destroyed.

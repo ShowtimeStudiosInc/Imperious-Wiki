@@ -38,11 +38,13 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: Compressed psychic crystal strikes one target for 2d4 + MAG Psychic damage.
       - name: Pressure
         tags:
           - 2 SP
         cost: 2
+        category: debuff
         text: >-
           One target resists with INT. If they fail, they act last in the round, and their party's abilities cost 1 more
           SP while they're affected, for 2 turns. It can stack up to 3 times.

@@ -36,6 +36,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: buff
         text: Heals one ally for 2d4 + MAG. If they're Cracked, the crack can't get any worse for the rest of the battle.
   - section: ACT Bonus
     name: Diagnose

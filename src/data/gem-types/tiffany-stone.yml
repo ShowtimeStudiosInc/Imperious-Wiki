@@ -31,6 +31,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: defensive
         text: >-
           Only after eating plant life, she shifts her color to better match her environment. It costs more as a fusion,
           since Quartzes were never meant to camouflage.
@@ -58,6 +59,7 @@ abilities:
       - Base
       - Physical
     cost: 3
+    category: offensive
     text: >-
       An evolution of her Orange Spodumene half's Acid Spit. Only after eating plant life, she expels it as a ranged
       barrage of acidic plant matter, dealing 3d4 + MAG Corrosive damage to one target. If she tries it on an empty

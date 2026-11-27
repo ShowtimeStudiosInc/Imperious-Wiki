@@ -32,6 +32,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: debuff
         text: >-
           One target resists with INT. If they fail, they can't speak, sing, or use <:Act:1568035453842751618>ACTs for 2
           turns.

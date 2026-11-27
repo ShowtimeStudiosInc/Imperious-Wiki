@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: >-
           Indicolite releases stored charge through a target she's touching, dealing 2d4 + MAG Electric damage. She must
           have drawn power from something since her last Discharge, like a machine, an ally such as a Silver or Copper,

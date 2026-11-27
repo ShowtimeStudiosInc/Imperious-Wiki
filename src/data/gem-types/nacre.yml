@@ -42,6 +42,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: buff
         text: >-
           Heals one Pearl, or a fusion with a Pearl half, for 2d4 + MAG. Unlike other healing, it can also mend a
           Pearl's cracks.

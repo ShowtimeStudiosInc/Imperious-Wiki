@@ -32,6 +32,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: utility
     text: >-
       From her Pearl half. Opal makes a harmless image of light appear. One enemy who doesn't see through it attacks the
       image instead of its real target.
@@ -49,6 +50,7 @@ abilities:
     tags:
       - 3 SP
     cost: 3
+    category: offensive
     text: Opal looses a spread of light arrows. Every enemy, even ones who are Far, takes 1d6 + MAG damage.
     moves: []
   - section: Latent Ability

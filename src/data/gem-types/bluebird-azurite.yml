@@ -30,6 +30,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: Her weapon lashes a jet of water at one target, even one who is Far, for 2d4 + MAG damage.
   - section: Signature Ability
     name: Fairy Wings
@@ -52,6 +53,7 @@ abilities:
     tags:
       - 3 SP
     cost: 3
+    category: defensive
     text: >-
       Bluebird Azurite heats her water until it boils into a thick cloud of steam around herself and one ally. Until her
       next turn, both of them count as Behind, and the first attack aimed at each of them has disadvantage. If her party

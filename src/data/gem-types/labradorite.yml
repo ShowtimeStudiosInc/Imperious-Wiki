@@ -43,6 +43,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: offensive
         text: >-
           The Labradorite spins around, spinning paint everywhere to hit all enemies for 2d4 + MAG damage! Opposing
           units hit must roll a 1d20 to determine whether they become <:Blinded:1568081577429176350>Blinded for 2 turns.

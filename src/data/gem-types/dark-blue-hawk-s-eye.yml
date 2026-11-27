@@ -39,6 +39,7 @@ abilities:
     tags:
       - 3 SP
     cost: 3
+    category: debuff
     text: >-
       Dark Blue Hawk's Eye puts her full strength into one blow against a target who is Near. The target resists with
       DEF. If they fail, they're Defense Broken for 2 turns.

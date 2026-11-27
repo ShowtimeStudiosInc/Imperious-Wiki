@@ -28,6 +28,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A whip of water strikes one target for 2d4 + MAG damage.
   - section: Signature Ability
     name: Ferrokinesis
@@ -56,6 +57,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: offensive
         text: >-
           A sudden storm hits the battlefield. Every enemy who is Near resists with SPD. Those who fail take 1d6 + MAG
           damage and are knocked Far.

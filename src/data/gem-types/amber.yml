@@ -32,6 +32,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: debuff
         text: >-
           A glob of sap from her weapon hits one target. They resist with SPD. If they fail, they are
           <:Stuck:1569710918638510141> Stuck until the end of their next turn.

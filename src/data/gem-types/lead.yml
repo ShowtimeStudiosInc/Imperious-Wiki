@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: defensive
         text: >-
           Lead makes her body extremely heavy until her next turn. She can't be Knocked Down or moved, and every
           physical hit on her is reduced by 1 more.
@@ -41,6 +42,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: She flicks a small, heavy pellet of lead at one target, even one who is Far, for 1d6 + ATK damage.
   - section: Latent Ability
     name: Poisonous Touch

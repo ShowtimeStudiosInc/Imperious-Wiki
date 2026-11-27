@@ -28,6 +28,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: >-
           Citrine burns a target she's touching for 2d4 + MAG Corrosive damage. Their DEF drops by 1 for 2 turns,
           stacking up to 3 times.

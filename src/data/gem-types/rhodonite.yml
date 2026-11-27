@@ -39,6 +39,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: utility
     text: >-
       From her Pearl half. Rhodonite makes a harmless image of light appear. One enemy who doesn't see through it
       attacks the image instead of its real target.
@@ -48,6 +49,7 @@ abilities:
     tags:
       - 2 SP
     cost: 2
+    category: offensive
     text: Rhodonite launches a ball of fire at one target for 2d4 + MAG Fire damage.
     moves: []
   - section: Latent Ability

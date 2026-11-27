@@ -29,6 +29,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: offensive
         text: >-
           Amethyst cuts into a target she's touching for 1d6 + MAG Fire damage. She can also cut straight through a
           metal barrier.

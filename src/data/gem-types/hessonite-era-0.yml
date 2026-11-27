@@ -36,6 +36,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: utility
         text: >-
           Darkness wraps around her. She is hidden until she attacks or her next turn ends, and her next attack has
           advantage. While the Shroud lasts, the area around her counts as dim.

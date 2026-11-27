@@ -34,6 +34,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: utility
         text: >-
           Rhodochrosite dresses herself or an ally in a holographic uniform of any court. ACTs that rely on the disguise
           have advantage until someone sees through it.

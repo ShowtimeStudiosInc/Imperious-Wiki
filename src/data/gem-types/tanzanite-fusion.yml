@@ -29,6 +29,7 @@ abilities:
           - 2 SP
           - REACTION
         cost: 2
+        category: defensive
         text: >-
           When an attack targets her, she saw it coming. The attack has disadvantage, and if it misses, she can
           <:Fight:1568035371974135940>FIGHT the attacker right away.
@@ -51,6 +52,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: utility
     text: From her Pearl half. One enemy who doesn't see through the image attacks it instead of its real target.
     moves: []
   - section: Fusion Ability
@@ -58,6 +60,7 @@ abilities:
     tags:
       - 3 SP
     cost: 3
+    category: defensive
     text: >-
       Tanzanite projects her vision of the future out of her gemstone so the party can see what's coming. Until her next
       turn, the first attack against each ally has disadvantage.

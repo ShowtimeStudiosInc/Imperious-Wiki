@@ -28,6 +28,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: debuff
         text: >-
           Thorny vines burst up around her. Every enemy who is Near resists with SPD. Those who fail are
           <:Stuck:1569710918638510141>Stuck until the end of their next turn.

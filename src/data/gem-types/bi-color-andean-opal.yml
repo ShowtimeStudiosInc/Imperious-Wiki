@@ -30,6 +30,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: utility
     text: From her Pearl half. Works the same as a Pearl's.
     moves: []
   - section: ACT Bonus
@@ -43,6 +44,7 @@ abilities:
     tags:
       - 3 SP
     cost: 3
+    category: utility
     text: >-
       She sends out a hologram of herself to give orders for 3 turns. Any ally who follows its orders gets advantage on
       their next roll, even if they're Far or aren't a Quartz.

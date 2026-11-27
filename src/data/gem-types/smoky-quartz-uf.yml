@@ -28,6 +28,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: offensive
         text: Smoky Quartz shakes the ground, dealing 1d6 + MAG damage to every enemy who is Near.
 role: >-
   A Clear Quartz shifts into a Smoky Quartz when she gravitates toward heavy, grounded labor like excavation, demolition

@@ -32,6 +32,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: defensive
         text: >-
           A burst of confetti and streamers fills the area. Until the end of the round, attacks against allies Near her
           need +1 to hit.

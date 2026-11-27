@@ -27,6 +27,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: defensive
     text: >-
       Brown Tourmaline anchors a structure or an ally firmly to the ground. For 2 turns, they can't be knocked back or
       moved against their will.

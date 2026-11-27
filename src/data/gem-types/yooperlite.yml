@@ -33,6 +33,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: offensive
         text: Lava floods the ground in front of her, dealing 2d4 + MAG Fire damage to every enemy who is Near.
   - section: Signature Ability
     name: Bioluminescence

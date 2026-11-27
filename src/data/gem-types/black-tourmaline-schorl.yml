@@ -27,6 +27,7 @@ abilities:
     tags:
       - 2 SP
     cost: 2
+    category: defensive
     text: >-
       Black Tourmaline throws up an invisible barrier around one ally. For 2 turns, the next hit aimed at that ally
       lands on her instead, reduced by 2 more.

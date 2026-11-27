@@ -35,6 +35,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: debuff
         text: >-
           Hematite turns a blinding show light on one target. They resist with SPD. If they fail, they are
           <:Blinded:1568081577429176350>Blinded for 1 turn.

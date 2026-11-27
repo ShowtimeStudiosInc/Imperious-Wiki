@@ -38,6 +38,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: utility
     text: From her Pearl half. One enemy who doesn't see through the image attacks it instead of its real target.
     moves: []
   - section: ACT Bonus

@@ -47,6 +47,7 @@ abilities:
       - Enhanced
       - Shapeshifting
     cost: 2
+    category: utility
     text: >-
       2 to 5 Pebbles fuse in battle. Every Pebble beyond the first two only adds +1 DEF and -1 SPD.
     moves: []

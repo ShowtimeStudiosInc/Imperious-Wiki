@@ -35,6 +35,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: buff
         text: Heals every ally who is Near for 1d6 + MAG.
 role: >-
   Polyhedroid Agates mostly work as co heads for stations, taking charge of healing Quartz soldiers, or as an extra

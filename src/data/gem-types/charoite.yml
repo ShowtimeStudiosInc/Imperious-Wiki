@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: buff
         text: The next ability one ally uses this round deals or heals 1d6 more.
 role: >-
   Charoites are respected for their ability to boost the aura and powers of other gems. They serve as enhancers within

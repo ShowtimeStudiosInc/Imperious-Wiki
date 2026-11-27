@@ -8,6 +8,7 @@ const move = z.object({
   tags: z.array(z.string()).default([]),
   cost: z.number().nullable().default(null),
   text: z.string(),
+  category: z.string().nullable().optional(),
 });
 const ability = move.extend({
   section: z.string(),

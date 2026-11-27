@@ -34,12 +34,14 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: offensive
         text: A blast of flame hits every enemy who is Near for 2d4 + MAG Fire damage.
   - section: Signature Ability
     name: Scaled Hide
     tags:
       - 1 SP
     cost: 1
+    category: defensive
     text: >-
       Fire Opal hardens patches of her skin into heat resistant plating. For 2 turns, every hit on her is reduced by 2
       more, and her own flames can't hurt her.

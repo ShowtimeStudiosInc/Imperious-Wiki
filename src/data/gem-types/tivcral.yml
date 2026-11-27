@@ -37,6 +37,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: buff
     text: >-
       Once per battle, Tivcral can trade durability for speed. She loses half her current HP, and her SPD doubles for 3
       turns.

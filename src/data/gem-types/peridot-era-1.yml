@@ -32,6 +32,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: offensive
         text: Peridot flings a nearby piece of metal at one target for 1d6 + MAG damage.
   - section: ACT Bonus
     name: Tinker

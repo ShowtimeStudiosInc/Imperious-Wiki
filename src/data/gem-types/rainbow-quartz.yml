@@ -33,6 +33,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A bolt of energy hits one target for 2d4 + MAG damage, in any element she chooses.
 role: >-
   Rainbow Quartz were a highly specialized Quartz subtype from Omega White Diamond's original empire. Rather than being

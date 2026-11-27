@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: debuff
         text: >-
           Cobalt yanks a metal weapon out of a target's hands. The target resists with DEF. If they fail, they're
           disarmed until they spend a turn getting their weapon back.

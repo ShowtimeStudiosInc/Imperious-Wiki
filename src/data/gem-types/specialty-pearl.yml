@@ -46,6 +46,7 @@ abilities:
     tags:
       - 2 SP
     cost: 2
+    category: utility
     text: >-
       In rare cases, a Specialty Pearl can make a short lived copy of herself out of light. It lasts 3 turns and can
       <:Fight:1568035371974135940>FIGHT on her turn.

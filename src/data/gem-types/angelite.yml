@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: buff
         text: Heals one ally for 2d4 + MAG. A Poofed ally healed above 0 HP reforms right away.
 role: >-
   Created to serve the Empire as healers and combat medics, Angelites will always help those in need! Angelites may be

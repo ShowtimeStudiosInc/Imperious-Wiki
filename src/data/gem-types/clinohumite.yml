@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A burst of fire hits one target for 2d4 + MAG Fire damage.
   - section: Signature Ability
     name: Heat Resistance

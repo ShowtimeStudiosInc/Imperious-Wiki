@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A whip of water strikes one target for 2d4 + MAG damage.
 role: >-
   Lapis Lazulis are the pride of the Empire's terraforming forces, used mostly for large, destructive projects. Work

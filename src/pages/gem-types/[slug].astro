@@ -21,6 +21,29 @@ const sections = [...new Set(g.abilities.map((a) => a.section))].sort((a, b) => 
   return (ia < 0 ? 0.5 : ia) - (ib < 0 ? 0.5 : ib);
 });
 
+// Discord spell format pieces, for the copy-ready sheet text on active abilities.
+const SPELL_EMOJI = '<:Spell:1568035570641412217>';
+const CATS: Record<string, string> = {
+  offensive: '<:offensive:1545460315938885682>',
+  defensive: '<:defensive:1545460376819212298>',
+  debuff: '<:debuff:1545460459854102628>',
+  utility: '<:utility:1545600013063692308>',
+  buff: '<:buff:1545460423250415726>',
+  mobility: '<:mobility:1545460499355803688>',
+  summoning: '<:summoning:1545467552854056980>',
+  elements: '<:elements:1545467786501947462>',
+};
+// The Discord-format text a member copies from an ability card: one spell block
+// per move, or the ability itself when it has no moves. Empty when the ability
+// is passive or has no category set, so those cards get no copy button.
+const sheetText = (a: Gem['abilities'][number]): string => {
+  const units = a.moves.length > 0 ? a.moves : [a];
+  return units
+    .filter((u) => u.cost != null && CATS[(u.category ?? a.category) ?? ''])
+    .map((u) => [`## ${SPELL_EMOJI} *${u.name}*`, `> ${CATS[(u.category ?? a.category) as string]}  ${u.text}`, '`Costs ' + u.cost + ' SP.`'].join('\n'))
+    .join('\n\n');
+};
+
 // Related: parent, sub-types, fusions it's part of, same-name variants, fusion halves.
 const parent = g.kind === 'sub-type' ? resolveSlug(all, g.parent) : null;
 const children = all.filter((x) => x.kind === 'sub-type' && resolveSlug(all, x.parent)?.slug === g.slug);
@@ -84,6 +107,7 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
                 <h3>{sec}{sec === 'Latent Ability' && <span class="hint"> · may unlock through story or training</span>}</h3>
                 {g.abilities.filter((a) => a.section === sec).map((a) => (
                   <article class="spell">
+                    {sheetText(a) && <button class="copybtn" type="button" data-copy={sheetText(a)}>⧉ Copy</button>}
                     {a.name && (
                       <header>
                         <span class="sname">{a.name}</span>
@@ -239,9 +263,9 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
   .abilities h3 { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lav-2); margin: 0.2rem 0 0.5rem; font-weight: 600; }
   .ab-group + .ab-group { margin-top: 1rem; }
   .hint { text-transform: none; letter-spacing: 0; color: var(--dim); font-weight: 400; }
-  .spell { border: 1px solid var(--line); border-left: 3px solid var(--lav-2); background: rgba(10, 6, 20, 0.45); padding: 0.6rem 0.75rem; }
+  .spell { position: relative; border: 1px solid var(--line); border-left: 3px solid var(--lav-2); background: rgba(10, 6, 20, 0.45); padding: 0.6rem 0.75rem; }
   .spell + .spell { margin-top: 0.5rem; }
-  .spell header { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin-bottom: 0.3rem; }
+  .spell header { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin-bottom: 0.3rem; padding-right: 4.4rem; }
   .sname { font-family: var(--serif); font-size: 1rem; }
   .stag { font-size: 0.66rem; letter-spacing: 0.08em; padding: 0.06rem 0.4rem; border: 1px solid var(--line); color: var(--muted); border-radius: 2px; }
   .stag.cost { color: var(--gold); border-color: #e8c46a66; }
@@ -251,6 +275,8 @@ const desc = g.role.split('. ').slice(0, 2).join('. ').slice(0, 200);
   .moves { list-style: none; margin: 0.5rem 0 0; padding: 0; }
   .moves li { padding: 0.45rem 0.6rem; background: rgba(124, 77, 255, 0.1); border: 1px dashed var(--line); font-size: 0.92rem; }
   .moves li + li { margin-top: 0.35rem; }
+  .copybtn { position: absolute; top: 0.45rem; right: 0.5rem; font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; background: none; border: 1px solid var(--line); color: var(--lav-2); padding: 0.18rem 0.55rem; cursor: pointer; border-radius: 3px; }
+  .copybtn:hover { color: #fff; border-color: var(--lav-2); }
   .mname { font-weight: 600; color: #fff; margin-right: 0.2rem; }
   .table-list { margin: 0; padding: 0; list-style: none; font-size: 0.9rem; }
   .table-list li { padding: 0.25rem 0; border-bottom: 1px solid rgba(201, 184, 255, 0.1); }

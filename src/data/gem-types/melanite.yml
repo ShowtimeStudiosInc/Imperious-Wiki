@@ -34,6 +34,7 @@ abilities:
         tags:
           - 3 SP
         cost: 3
+        category: offensive
         text: >-
           Melanite grips one target who is Near and drains them, dealing [1d6 + MAG] WITHER damage. They heal for half
           the damage dealt, rounded up.
@@ -41,6 +42,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: >-
           Melanite makes a <:Fight:1568035371974135940>FIGHT against one target. If it lands, one ally heals for half
           the damage dealt, rounded up.

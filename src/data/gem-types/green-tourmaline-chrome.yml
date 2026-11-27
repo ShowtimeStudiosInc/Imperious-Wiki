@@ -34,6 +34,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: debuff
         text: >-
           Vines tangle one enemy who is Near. The target resists with SPD. If they fail, they are
           <:Stuck:1569710918638510141>Stuck until the end of their next turn.

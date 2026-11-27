@@ -35,6 +35,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: defensive
         text: >-
           Only after eating plant life, she changes her color to match her surroundings. The next attack against her has
           disadvantage.
@@ -43,6 +44,7 @@ abilities:
     tags:
       - 2 SP
     cost: 2
+    category: offensive
     text: >-
       Orange Spodumene may learn to spray the acid she uses to digest plants, dealing 2d4 + MAG Corrosive damage to one
       target, who resists with DEF or gets Corrosion for 2 turns. She takes 1d5 damage herself.

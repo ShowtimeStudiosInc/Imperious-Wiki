@@ -35,6 +35,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: utility
         text: >-
           She draws one card at random (roll 1d20), and its outcome affects the battle. She can draw up to 5 times per
           battle.
@@ -48,6 +49,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: offensive
         text: A small burst of fire hits one target who is Near for 1d4 + MAG Fire damage.
 extraBlocks:
   - title: Fated Draw

@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: >-
           A flare of fire hits one target for 2d4 + MAG Fire damage. Using it two turns in a row burns Sunstone for 1d4
           damage.

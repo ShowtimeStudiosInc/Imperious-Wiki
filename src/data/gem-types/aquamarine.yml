@@ -32,6 +32,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: Her weapon lashes a jet of water at one target, even one who is Far, for 2d4 + MAG damage.
   - section: Signature Ability
     name: Fairy Wings

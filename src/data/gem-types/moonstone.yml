@@ -30,6 +30,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A whip of water strikes one target for 2d4 + MAG damage.
   - section: Signature Ability
     name: Hammerspace
@@ -45,6 +46,7 @@ abilities:
     tags:
       - 1 SP
     cost: 1
+    category: utility
     text: >-
       From her Pearl half. Moonstone makes a harmless image of light appear. One enemy who doesn't see through it
       attacks the image instead of its real target.

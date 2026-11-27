@@ -34,6 +34,7 @@ abilities:
         tags:
           - 1 SP
         cost: 1
+        category: offensive
         text: Silver shocks a target she's touching for 1d6 + MAG Electric damage.
 role: >-
   Silvers are one of the many technical gems in the Empire. These guys serve the Empire as electrical generators and

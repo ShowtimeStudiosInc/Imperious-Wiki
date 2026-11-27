@@ -34,6 +34,7 @@ abilities:
         tags:
           - 2 SP
         cost: 2
+        category: offensive
         text: A lance of ice strikes one target for 2d4 + MAG Ice damage.
 role: >-
   Larimars split their time between two kinds of work. Some are sent out with terraforming crews to freeze over land or
