@@ -36,7 +36,7 @@ const season = { force: cfg.force ?? null, holidays: cfg.holidays ?? [], seasons
       const fx = document.createElement('div');
       fx.className = 'season-fx';
       fx.setAttribute('aria-hidden', 'true');
-      const count = window.innerWidth < 700 ? 10 : 18;
+      const count = window.innerWidth < 700 ? 14 : 26;
       for (let i = 0; i < count; i++) {
         const p = document.createElement('i');
         p.style.left = Math.round(Math.random() * 100) + '%';
@@ -48,6 +48,35 @@ const season = { force: cfg.force ?? null, holidays: cfg.holidays ?? [], seasons
         fx.appendChild(p);
       }
       document.body.appendChild(fx);
+      // Fixed decorations that sit over the page edges (lights, icicles, fog, fireworks).
+      // The look of each one lives in seasons.css; only the Christmas lights and the
+      // New Year fireworks need real elements, the rest is pure CSS on .season-decor.
+      const decor = document.createElement('div');
+      decor.className = 'season-decor';
+      decor.setAttribute('aria-hidden', 'true');
+      if (pick === 'winter-holidays') {
+        // A string of lights across the top: bulbs hang from short stems, longer
+        // stems in the middle of each swag so the string sags like a real one.
+        const per = window.innerWidth < 700 ? 6 : 9;
+        const total = Math.max(12, Math.min(36, Math.round(window.innerWidth / 52)));
+        for (let i = 0; i < total; i++) {
+          const bulb = document.createElement('span');
+          bulb.className = 'bulb b' + (i % 5);
+          bulb.style.left = ((i + 0.5) * (100 / total)).toFixed(2) + '%';
+          const phase = (i % per) / (per - 1);
+          bulb.style.setProperty('--stem', Math.round(4 + Math.sin(phase * Math.PI) * 15) + 'px');
+          bulb.style.animationDelay = (i % 7) * 0.35 + 's';
+          decor.appendChild(bulb);
+        }
+      }
+      if (pick === 'new-year') {
+        for (let i = 0; i < 3; i++) {
+          const burst = document.createElement('span');
+          burst.className = 'burst f' + i;
+          decor.appendChild(burst);
+        }
+      }
+      document.body.appendChild(decor);
     };
     if (document.body) add(); else document.addEventListener('DOMContentLoaded', add);
   })();

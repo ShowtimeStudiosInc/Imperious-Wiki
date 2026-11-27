@@ -134,5 +134,151 @@
 [data-season='thanksgiving'] .season-fx i.p1 { background: var(--fx-2); }
 [data-season='thanksgiving'] .season-fx i.p2 { background: var(--fx-3); width: 5px; height: 12px; border-radius: 50%; }
 
+/* ---------- Decorations ---------- */
+/* A fixed layer over the page edges. The script adds .season-decor next to .season-fx.
+   Most decorations are pure CSS here. The Christmas lights and the New Year fireworks
+   are real elements the script drops in. Nothing here takes clicks. */
+.season-decor { position: fixed; inset: 0; z-index: 60; overflow: hidden; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .season-decor { display: none; } }
+
+/* Soft glow along the top of the page, in each theme's own color. */
+.season-decor::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 180px;
+  background: radial-gradient(120% 100% at 50% 0%, var(--glow) 0%, transparent 60%); opacity: 0.35; }
+
+/* Text selection takes the theme color too. */
+:root[data-season] ::selection { background: var(--a); color: #fff; }
+
+/* Winter: an ice ledge with icicles along the top, frost creeping up from the
+   bottom corners, and a soft back layer of snow for depth. */
+[data-season='winter'] .season-decor::before { height: 40px; opacity: 1;
+  filter: drop-shadow(0 2px 3px rgba(160, 205, 255, 0.35));
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='38' viewBox='0 0 260 38'%3E%3Crect width='260' height='4' fill='%23eaf6ff'/%3E%3Cpath d='M6 4 L13 4 L9.5 24 Z' fill='%23dff2ff'/%3E%3Cpath d='M30 4 L39 4 L34.5 34 Z' fill='%23bfe3ff'/%3E%3Cpath d='M58 4 L64 4 L61 18 Z' fill='%23eaf6ff'/%3E%3Cpath d='M84 4 L92 4 L88 28 Z' fill='%23cfeaff'/%3E%3Cpath d='M112 4 L118 4 L115 15 Z' fill='%23dff2ff'/%3E%3Cpath d='M138 4 L147 4 L142.5 32 Z' fill='%23bfe3ff'/%3E%3Cpath d='M168 4 L174 4 L171 20 Z' fill='%23eaf6ff'/%3E%3Cpath d='M196 4 L204 4 L200 26 Z' fill='%23cfeaff'/%3E%3Cpath d='M226 4 L232 4 L229 16 Z' fill='%23dff2ff'/%3E%3Cpath d='M246 4 L254 4 L250 30 Z' fill='%23bfe3ff'/%3E%3C/svg%3E")
+    repeat-x left top / auto 40px,
+    radial-gradient(120% 100% at 50% 0%, var(--glow) 0%, transparent 60%); }
+[data-season='winter'] .season-decor::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 130px;
+  background:
+    radial-gradient(45% 100% at 0% 100%, rgba(230, 246, 255, 0.20), transparent 70%),
+    radial-gradient(45% 100% at 100% 100%, rgba(230, 246, 255, 0.20), transparent 70%); }
+[data-season='winter'] .season-fx i.p2, [data-season='winter-holidays'] .season-fx i.p2 { filter: blur(1px); opacity: 0.35; }
+
+/* Winter Holidays: red and green glow at the top corners, and a string of lights
+   across the top of the page. Bulbs hang from short stems; the stems are longer in
+   the middle of each swag so the string sags. Bulbs twinkle one after another. */
+[data-season='winter-holidays'] .season-decor::before { height: 210px; opacity: 1;
+  background:
+    radial-gradient(42% 100% at 10% 0%, rgba(200, 50, 60, 0.30), transparent 70%),
+    radial-gradient(42% 100% at 90% 0%, rgba(47, 122, 74, 0.32), transparent 70%); }
+[data-season='winter-holidays'] .bulb { position: absolute; top: 0; width: 9px; height: 9px; border-radius: 50%;
+  transform: translateX(-50%); animation: bulb-twinkle 1.8s ease-in-out infinite alternate; }
+[data-season='winter-holidays'] .bulb::before { content: ''; position: absolute; left: 50%; bottom: 100%;
+  width: 2px; height: var(--stem, 8px); transform: translateX(-50%); background: rgba(24, 42, 28, 0.85); }
+[data-season='winter-holidays'] .bulb.b0 { background: #ff6a5e; box-shadow: 0 0 12px 4px rgba(255, 90, 80, 0.55); }
+[data-season='winter-holidays'] .bulb.b1 { background: #ffd95c; box-shadow: 0 0 12px 4px rgba(255, 217, 92, 0.55); }
+[data-season='winter-holidays'] .bulb.b2 { background: #63dd7f; box-shadow: 0 0 12px 4px rgba(90, 220, 120, 0.5); }
+[data-season='winter-holidays'] .bulb.b3 { background: #6ab8ff; box-shadow: 0 0 12px 4px rgba(100, 170, 255, 0.55); }
+[data-season='winter-holidays'] .bulb.b4 { background: #ff8ad4; box-shadow: 0 0 12px 4px rgba(255, 140, 210, 0.5); }
+@keyframes bulb-twinkle { from { filter: brightness(0.7); } to { filter: brightness(1.3); } }
+
+/* Summer: a warm sun glow in the top corner. */
+[data-season='summer'] .season-decor::before { opacity: 1; height: 240px;
+  background: radial-gradient(36% 70% at 88% 0%, rgba(255, 214, 120, 0.5), transparent 70%); }
+
+/* Halloween: low fog drifting along the bottom of the page. */
+[data-season='halloween'] .season-decor::after { content: ''; position: absolute; left: -20%; right: -20%; bottom: -34px; height: 160px;
+  filter: blur(6px); animation: fog-drift 26s ease-in-out infinite alternate;
+  background:
+    radial-gradient(55% 100% at 28% 100%, rgba(214, 202, 235, 0.17), transparent 70%),
+    radial-gradient(50% 100% at 72% 100%, rgba(214, 202, 235, 0.13), transparent 70%); }
+@keyframes fog-drift { from { transform: translateX(-3%); } to { transform: translateX(3%); } }
+
+/* New Year: fireworks over the top of the page, one burst after another. */
+[data-season='new-year'] .burst { position: absolute; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--fx); opacity: 0; animation: burst-core 5.4s ease-out infinite; }
+[data-season='new-year'] .burst::before, [data-season='new-year'] .burst::after { content: ''; position: absolute; inset: 0;
+  border-radius: 50%; border: 2px solid var(--fx); opacity: 0; animation: burst-ring 5.4s ease-out infinite; }
+[data-season='new-year'] .burst.f0 { left: 17%; top: 15%; }
+[data-season='new-year'] .burst.f1 { left: 54%; top: 9%; background: var(--fx-2); animation-delay: 1.8s; }
+[data-season='new-year'] .burst.f1::before, [data-season='new-year'] .burst.f1::after { border-color: var(--fx-2); animation-delay: 1.8s; }
+[data-season='new-year'] .burst.f2 { left: 82%; top: 17%; background: var(--fx-3); animation-delay: 3.6s; }
+[data-season='new-year'] .burst.f2::before, [data-season='new-year'] .burst.f2::after { border-color: var(--fx-3); animation-delay: 3.6s; }
+[data-season='new-year'] .burst.f0::after { animation-delay: 0.3s; }
+[data-season='new-year'] .burst.f1::after { animation-delay: 2.1s; }
+[data-season='new-year'] .burst.f2::after { animation-delay: 3.9s; }
+@keyframes burst-ring { 0% { transform: scale(0.2); opacity: 0; } 7% { opacity: 0.9; } 42% { transform: scale(9); opacity: 0; } 100% { transform: scale(9); opacity: 0; } }
+@keyframes burst-core { 0% { transform: scale(0.4); opacity: 0; } 5% { opacity: 1; } 26% { transform: scale(1.15); opacity: 0; } 100% { opacity: 0; } }
+
+/* Valentine's: the hearts float up instead of falling. */
+[data-season='valentines'] .season-fx i { top: 0; animation-name: season-rise; }
+
+/* ---------- Header scenes ---------- */
+/* Each theme turns the section bars (.bar) into a small scene with soft,
+   uneven shapes, instead of a flat gradient. The scene is one stretched SVG
+   over a base gradient, with a darker wash on the left so the bar's label
+   stays easy to read. */
+[data-season] .bar { background-size: auto, 100% 100%, auto; background-repeat: no-repeat; }
+
+/* Winter: a snow cap with icicles, a drift along the bottom, deep blue under it. */
+[data-season='winter'] .bar { background-image:
+  linear-gradient(90deg, rgba(8, 4, 16, 0.32), rgba(8, 4, 16, 0.05) 55%, rgba(8, 4, 16, 0) 80%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H400 V7 C360 12 330 4 290 8 C250 12 220 5 180 9 C140 13 110 5 70 9 C40 12 15 8 0 11 Z' fill='%23f4faff'/%3E%3Cpath d='M30 9 L36 9 L33 17 Z' fill='%23dff2ff'/%3E%3Cpath d='M120 10 L127 10 L123.5 19 Z' fill='%23dff2ff'/%3E%3Cpath d='M210 8 L216 8 L213 15 Z' fill='%23dff2ff'/%3E%3Cpath d='M320 9 L327 9 L323.5 18 Z' fill='%23dff2ff'/%3E%3Cpath d='M378 8 L383 8 L380.5 14 Z' fill='%23dff2ff'/%3E%3Cpath d='M0 38 V31 C60 27 120 33 200 30 C280 27 340 32 400 29 V38 Z' fill='%23eaf6ff' fill-opacity='0.85'/%3E%3Ccircle cx='60' cy='20' r='1.3' fill='%23ffffff' fill-opacity='0.8'/%3E%3Ccircle cx='150' cy='24' r='1.3' fill='%23ffffff' fill-opacity='0.8'/%3E%3Ccircle cx='250' cy='19' r='1.3' fill='%23ffffff' fill-opacity='0.8'/%3E%3Ccircle cx='340' cy='23' r='1.3' fill='%23ffffff' fill-opacity='0.8'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #35659f, #4f8fd9 60%, #35659f); }
+
+/* Spring: vines winding along both edges, cherry blossoms where they cross. */
+[data-season='spring'] .bar { background-image:
+  linear-gradient(90deg, rgba(8, 4, 16, 0.32), rgba(8, 4, 16, 0.05) 55%, rgba(8, 4, 16, 0) 80%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Cpath d='M-5 6 C60 -2 120 12 200 5 C280 -2 340 11 405 4' stroke='%235a7d4a' stroke-width='2.4' fill='none'/%3E%3Cpath d='M-5 33 C70 26 140 38 220 31 C300 25 350 36 405 30' stroke='%234c6d3e' stroke-width='2.2' fill='none'/%3E%3Ccircle cx='60' cy='4' r='2.2' fill='%237fb069'/%3E%3Ccircle cx='160' cy='7' r='2.2' fill='%238fd07a'/%3E%3Ccircle cx='260' cy='4' r='2.2' fill='%237fb069'/%3E%3Ccircle cx='100' cy='32' r='2.2' fill='%238fd07a'/%3E%3Ccircle cx='240' cy='30' r='2.2' fill='%237fb069'/%3E%3Ccircle cx='330' cy='33' r='2.2' fill='%238fd07a'/%3E%3Ccircle cx='28' cy='7' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='30.9' cy='9.1' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='29.8' cy='12.4' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='26.2' cy='12.4' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='25.1' cy='9.1' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='28' cy='10' r='1.3' fill='%23ffe9a8'/%3E%3Ccircle cx='86' cy='23' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='88.9' cy='25.1' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='87.8' cy='28.4' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='84.2' cy='28.4' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='83.1' cy='25.1' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='86' cy='26' r='1.3' fill='%23ffe9a8'/%3E%3Ccircle cx='205' cy='9' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='207.9' cy='11.1' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='206.8' cy='14.4' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='203.2' cy='14.4' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='202.1' cy='11.1' r='2.6' fill='%23ffc1da'/%3E%3Ccircle cx='205' cy='12' r='1.3' fill='%23ffe9a8'/%3E%3Ccircle cx='318' cy='22' r='2.6' fill='%23ffb3d1'/%3E%3Ccircle cx='320.9' cy='24.1' r='2.6' fill='%23ffb3d1'/%3E%3Ccircle cx='319.8' cy='27.4' r='2.6' fill='%23ffb3d1'/%3E%3Ccircle cx='316.2' cy='27.4' r='2.6' fill='%23ffb3d1'/%3E%3Ccircle cx='315.1' cy='24.1' r='2.6' fill='%23ffb3d1'/%3E%3Ccircle cx='318' cy='25' r='1.3' fill='%23ffe9a8'/%3E%3Ccircle cx='378' cy='6' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='380.9' cy='8.1' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='379.8' cy='11.4' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='376.2' cy='11.4' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='375.1' cy='8.1' r='2.6' fill='%23fff0f6'/%3E%3Ccircle cx='378' cy='9' r='1.3' fill='%23ffe9a8'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #7a2c50, #a63a6a 60%, #7a2c50); }
+
+/* Summer: a sun over the water, foam where the water meets the sand. The
+   scene is bright, so the label gets a shadow to stay readable. */
+[data-season='summer'] .bar { text-shadow: 0 1px 3px rgba(74, 42, 0, 0.6); background-image:
+  linear-gradient(90deg, rgba(20, 40, 60, 0.20), rgba(20, 40, 60, 0) 60%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Ccircle cx='348' cy='9' r='17' fill='%23ffd95c' fill-opacity='0.35'/%3E%3Cpath d='M361 9 L366 9 M335 9 L330 9 M357 0 L360.5 -3.5 M339 0 L335.5 -3.5 M357 18 L360.5 21.5 M339 18 L335.5 21.5' stroke='%23ffd95c' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='348' cy='9' r='11' fill='%23ffd95c'/%3E%3Cpath d='M0 22 C40 19 80 24 120 21.5 C160 19 200 24 240 21.5 C280 19 320 24 360 21.5 C380 20.4 390 21 400 20.6 L400 24.5 L0 24.5 Z' fill='%23ffffff' fill-opacity='0.55'/%3E%3Ccircle cx='40' cy='30' r='1.2' fill='%23d9b878'/%3E%3Ccircle cx='120' cy='33' r='1.2' fill='%23d9b878'/%3E%3Ccircle cx='210' cy='29' r='1.2' fill='%23d9b878'/%3E%3Ccircle cx='300' cy='32' r='1.2' fill='%23d9b878'/%3E%3Ccircle cx='370' cy='28' r='1.2' fill='%23d9b878'/%3E%3C/svg%3E"),
+  linear-gradient(180deg, #6fa8cf 0%, #a8d4e8 44%, #57a7b8 46%, #57a7b8 58%, #eed9a0 61%, #e8cc8a 100%); }
+
+/* Autumn: the leafy top of a tree, round puffs of leaves over dark bark. */
+[data-season='autumn'] .bar { background-image:
+  linear-gradient(90deg, rgba(8, 4, 16, 0.32), rgba(8, 4, 16, 0.05) 55%, rgba(8, 4, 16, 0) 80%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H400 V12 C370 20 345 8 305 14 C265 20 240 9 200 15 C160 21 135 8 95 13 C55 18 25 10 0 16 Z' fill='%23a14d22'/%3E%3Cpath d='M0 0 H400 V8 C365 15 335 5 295 10 C255 15 230 6 195 11 C155 16 130 5 90 10 C50 14 20 7 0 12 Z' fill='%23e0702e'/%3E%3Ccircle cx='40' cy='6' r='9' fill='%23c8402a'/%3E%3Ccircle cx='110' cy='4' r='10' fill='%23e0702e'/%3E%3Ccircle cx='185' cy='7' r='9' fill='%23d98a3d'/%3E%3Ccircle cx='255' cy='4' r='10' fill='%23c8402a'/%3E%3Ccircle cx='330' cy='6' r='9' fill='%23e0702e'/%3E%3Ccircle cx='385' cy='5' r='8' fill='%23b8432f'/%3E%3Ccircle cx='70' cy='12' r='1.6' fill='%23ffd8b0'/%3E%3Ccircle cx='150' cy='13' r='1.6' fill='%23e8b23a'/%3E%3Ccircle cx='230' cy='12' r='1.6' fill='%23ffd8b0'/%3E%3Ccircle cx='300' cy='13' r='1.6' fill='%23e8b23a'/%3E%3Ccircle cx='360' cy='11' r='1.6' fill='%23ffd8b0'/%3E%3Crect x='0' y='33' width='400' height='5' fill='%232e1608' fill-opacity='0.55'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #5a2c12, #7a3c1a 60%, #5a2c12); }
+
+/* Winter Holidays: a pine garland along the top with baubles and lights,
+   over deep red, with a gold line and a red band at the bottom. */
+[data-season='winter-holidays'] .bar { background-image:
+  linear-gradient(90deg, rgba(8, 4, 16, 0.32), rgba(8, 4, 16, 0.05) 55%, rgba(8, 4, 16, 0) 80%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H400 V8 C360 13 330 5 290 9 C250 13 220 6 180 10 C140 14 110 6 70 10 C40 13 15 9 0 12 Z' fill='%231d4a2c'/%3E%3Cpath d='M0 0 H400 V5 C355 9 325 3 285 6 C245 9 215 4 175 7 C135 10 105 3 65 7 C35 9 12 6 0 8 Z' fill='%232f7a4a'/%3E%3Crect x='47.5' y='8.5' width='1' height='2.5' fill='%23173d27'/%3E%3Crect x='127.5' y='9.5' width='1' height='2.5' fill='%23173d27'/%3E%3Crect x='207.5' y='8.5' width='1' height='2.5' fill='%23173d27'/%3E%3Crect x='287.5' y='9.5' width='1' height='2.5' fill='%23173d27'/%3E%3Crect x='361.5' y='8.5' width='1' height='2.5' fill='%23173d27'/%3E%3Ccircle cx='48' cy='13' r='2.6' fill='%23ff6a5e'/%3E%3Ccircle cx='128' cy='14' r='2.6' fill='%23ffd95c'/%3E%3Ccircle cx='208' cy='13' r='2.6' fill='%236ab8ff'/%3E%3Ccircle cx='288' cy='14' r='2.6' fill='%23ff8ad4'/%3E%3Ccircle cx='362' cy='13' r='2.6' fill='%23ff6a5e'/%3E%3Ccircle cx='88' cy='10' r='3' fill='%23fff7cc' fill-opacity='0.35'/%3E%3Ccircle cx='88' cy='10' r='1.2' fill='%23fff7cc'/%3E%3Ccircle cx='168' cy='11' r='3' fill='%23fff7cc' fill-opacity='0.35'/%3E%3Ccircle cx='168' cy='11' r='1.2' fill='%23fff7cc'/%3E%3Ccircle cx='248' cy='10' r='3' fill='%23fff7cc' fill-opacity='0.35'/%3E%3Ccircle cx='248' cy='10' r='1.2' fill='%23fff7cc'/%3E%3Ccircle cx='328' cy='11' r='3' fill='%23fff7cc' fill-opacity='0.35'/%3E%3Ccircle cx='328' cy='11' r='1.2' fill='%23fff7cc'/%3E%3Crect x='0' y='32' width='400' height='1' fill='%23e8c46a'/%3E%3Crect x='0' y='33' width='400' height='5' fill='%23b02a34'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #5e1a20, #7d2129 60%, #5e1a20); }
+
+/* New Year: a night sky with stars, one firework, and a gold line. */
+[data-season='new-year'] .bar { background-image:
+  linear-gradient(90deg, rgba(8, 4, 16, 0.32), rgba(8, 4, 16, 0.05) 55%, rgba(8, 4, 16, 0) 80%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Ccircle cx='30' cy='8' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='90' cy='16' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='150' cy='6' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='210' cy='14' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='270' cy='7' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='330' cy='15' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='380' cy='9' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='60' cy='20' r='1.4' fill='%23ffd95c'/%3E%3Ccircle cx='180' cy='22' r='1.4' fill='%23ffd95c'/%3E%3Ccircle cx='300' cy='20' r='1.4' fill='%23ffd95c'/%3E%3Cpath d='M0 -5 L1.2 -1.2 L5 0 L1.2 1.2 L0 5 L-1.2 1.2 L-5 0 L-1.2 -1.2 Z' transform='translate(120 12)' fill='%23fff0c2'/%3E%3Cpath d='M0 -5 L1.2 -1.2 L5 0 L1.2 1.2 L0 5 L-1.2 1.2 L-5 0 L-1.2 -1.2 Z' transform='translate(255 18) scale(0.7)' fill='%23ffd95c'/%3E%3Ccircle cx='360' cy='13' r='1.5' fill='%23ff8ab8'/%3E%3Ccircle cx='357.7' cy='18.7' r='1.5' fill='%23ff8ab8'/%3E%3Ccircle cx='352' cy='21' r='1.5' fill='%23ff8ab8'/%3E%3Ccircle cx='346.3' cy='18.7' r='1.5' fill='%23ff8ab8'/%3E%3Ccircle cx='344' cy='13' r='1.5' fill='%23ff8ab8'/%3E%3Ccircle cx='346.3' cy='7.3' r='1.5' fill='%23ff8ab8'/%3E%3Ccircle cx='352' cy='5' r='1.5' fill='%23ff8ab8'/%3E%3Ccircle cx='357.7' cy='7.3' r='1.5' fill='%23ff8ab8'/%3E%3Ccircle cx='352' cy='13' r='1.6' fill='%23ffd95c'/%3E%3Crect x='0' y='35' width='400' height='3' fill='%23c9a227'/%3E%3Crect x='0' y='35' width='400' height='1' fill='%23ffe9a8'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #171233, #241d4d 60%, #171233); }
+
+/* Valentine's: big soft hearts behind smaller bright ones, over deep pink. */
+[data-season='valentines'] .bar { background-image:
+  linear-gradient(90deg, rgba(8, 4, 16, 0.32), rgba(8, 4, 16, 0.05) 55%, rgba(8, 4, 16, 0) 80%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Cpath d='M0 3.4 C-0.5 1.4 -2.6 0.2 -4.1 0.2 C-6.2 0.2 -7.4 1.8 -7.4 3.6 C-7.4 6.2 0 10.4 0 10.8 C0 10.4 7.4 6.2 7.4 3.6 C7.4 1.8 6.2 0.2 4.1 0.2 C2.6 0.2 0.5 1.4 0 3.4 Z' transform='translate(60 8) scale(1.6)' fill='%23ff6f9c' fill-opacity='0.30'/%3E%3Cpath d='M0 3.4 C-0.5 1.4 -2.6 0.2 -4.1 0.2 C-6.2 0.2 -7.4 1.8 -7.4 3.6 C-7.4 6.2 0 10.4 0 10.8 C0 10.4 7.4 6.2 7.4 3.6 C7.4 1.8 6.2 0.2 4.1 0.2 C2.6 0.2 0.5 1.4 0 3.4 Z' transform='translate(210 16) scale(1.2)' fill='%23ff6f9c' fill-opacity='0.25'/%3E%3Cpath d='M0 3.4 C-0.5 1.4 -2.6 0.2 -4.1 0.2 C-6.2 0.2 -7.4 1.8 -7.4 3.6 C-7.4 6.2 0 10.4 0 10.8 C0 10.4 7.4 6.2 7.4 3.6 C7.4 1.8 6.2 0.2 4.1 0.2 C2.6 0.2 0.5 1.4 0 3.4 Z' transform='translate(330 6) scale(1.5)' fill='%23ff6f9c' fill-opacity='0.28'/%3E%3Cpath d='M0 3.4 C-0.5 1.4 -2.6 0.2 -4.1 0.2 C-6.2 0.2 -7.4 1.8 -7.4 3.6 C-7.4 6.2 0 10.4 0 10.8 C0 10.4 7.4 6.2 7.4 3.6 C7.4 1.8 6.2 0.2 4.1 0.2 C2.6 0.2 0.5 1.4 0 3.4 Z' transform='translate(130 10) scale(0.55)' fill='%23ffb3cb'/%3E%3Cpath d='M0 3.4 C-0.5 1.4 -2.6 0.2 -4.1 0.2 C-6.2 0.2 -7.4 1.8 -7.4 3.6 C-7.4 6.2 0 10.4 0 10.8 C0 10.4 7.4 6.2 7.4 3.6 C7.4 1.8 6.2 0.2 4.1 0.2 C2.6 0.2 0.5 1.4 0 3.4 Z' transform='translate(275 22) scale(0.55)' fill='%23ff8fab'/%3E%3Cpath d='M0 3.4 C-0.5 1.4 -2.6 0.2 -4.1 0.2 C-6.2 0.2 -7.4 1.8 -7.4 3.6 C-7.4 6.2 0 10.4 0 10.8 C0 10.4 7.4 6.2 7.4 3.6 C7.4 1.8 6.2 0.2 4.1 0.2 C2.6 0.2 0.5 1.4 0 3.4 Z' transform='translate(368 20) scale(0.45)' fill='%23ffb3cb'/%3E%3Crect x='0' y='30' width='400' height='8' fill='%23ff6f9c' fill-opacity='0.18'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #5e1030, #8a1c44 60%, #5e1030); }
+
+/* Easter: eggs resting in a wavy line of grass, over pastel purple. */
+[data-season='easter'] .bar { background-image:
+  linear-gradient(90deg, rgba(8, 4, 16, 0.32), rgba(8, 4, 16, 0.05) 55%, rgba(8, 4, 16, 0) 80%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Ccircle cx='40' cy='8' r='1.1' fill='%23ffffff' fill-opacity='0.5'/%3E%3Ccircle cx='160' cy='6' r='1.1' fill='%23ffffff' fill-opacity='0.5'/%3E%3Ccircle cx='280' cy='9' r='1.1' fill='%23ffffff' fill-opacity='0.5'/%3E%3Ccircle cx='360' cy='7' r='1.1' fill='%23ffffff' fill-opacity='0.5'/%3E%3Cellipse cx='70' cy='26' rx='4.5' ry='6' fill='%23ffe9a8'/%3E%3Cellipse cx='185' cy='25' rx='4' ry='5.5' fill='%23ffc6dd'/%3E%3Cellipse cx='305' cy='24' rx='4.5' ry='6' fill='%23b8ecd0'/%3E%3Cpath d='M0 38 V26 C30 21 55 28 85 24 C115 20 140 27 170 23 C200 19 225 26 255 22 C285 18 310 25 340 21 C365 18 385 23 400 20 V38 Z' fill='%235da884'/%3E%3Ccircle cx='50' cy='29' r='1.5' fill='%23ffffff'/%3E%3Ccircle cx='150' cy='27' r='1.5' fill='%23ffffff'/%3E%3Ccircle cx='250' cy='28' r='1.5' fill='%23ffffff'/%3E%3Ccircle cx='340' cy='26' r='1.5' fill='%23ffffff'/%3E%3Ccircle cx='100' cy='30' r='1.5' fill='%23ffe9a8'/%3E%3Ccircle cx='200' cy='29' r='1.5' fill='%23ffe9a8'/%3E%3Ccircle cx='300' cy='30' r='1.5' fill='%23ffe9a8'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #4a3f8f, #6a5bb5 60%, #4a3f8f); }
+
+/* Halloween: a full moon and bats over a dark hill, pumpkins sitting on it. */
+[data-season='halloween'] .bar { background-image:
+  linear-gradient(90deg, rgba(8, 4, 16, 0.32), rgba(8, 4, 16, 0.05) 55%, rgba(8, 4, 16, 0) 80%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Ccircle cx='356' cy='11' r='8.5' fill='%23f5eeda'/%3E%3Ccircle cx='353' cy='9' r='1.3' fill='%23d9cdb2'/%3E%3Ccircle cx='359' cy='14' r='1.3' fill='%23d9cdb2'/%3E%3Cpath d='M-15 0 Q-8 -5.5 0 -0.5 Q8 -5.5 15 0 Q9 -1.4 7.5 2.5 Q4.5 0.8 0 2 Q-4.5 0.8 -7.5 2.5 Q-9 -1.4 -15 0 Z' transform='translate(70 10) scale(0.8)' fill='%230d0616'/%3E%3Cpath d='M-15 0 Q-8 -5.5 0 -0.5 Q8 -5.5 15 0 Q9 -1.4 7.5 2.5 Q4.5 0.8 0 2 Q-4.5 0.8 -7.5 2.5 Q-9 -1.4 -15 0 Z' transform='translate(180 16) scale(0.55)' fill='%230d0616'/%3E%3Cpath d='M-15 0 Q-8 -5.5 0 -0.5 Q8 -5.5 15 0 Q9 -1.4 7.5 2.5 Q4.5 0.8 0 2 Q-4.5 0.8 -7.5 2.5 Q-9 -1.4 -15 0 Z' transform='translate(300 8) scale(0.65)' fill='%230d0616'/%3E%3Cellipse cx='120' cy='30' rx='60' ry='5' fill='%23ffffff' fill-opacity='0.07'/%3E%3Cellipse cx='300' cy='33' rx='70' ry='4' fill='%23ffffff' fill-opacity='0.07'/%3E%3Cpath d='M0 38 V30 C80 24 160 32 240 27 C310 23 360 29 400 26 V38 Z' fill='%2312081f'/%3E%3Crect x='51.2' y='25.8' width='1.6' height='2.4' fill='%233f6212'/%3E%3Ccircle cx='52' cy='31' r='4.5' fill='%23e0702e'/%3E%3Crect x='249.2' y='24.3' width='1.6' height='2.4' fill='%233f6212'/%3E%3Ccircle cx='250' cy='29.5' r='3.8' fill='%23c85a1e'/%3E%3Crect x='337.2' y='25.3' width='1.6' height='2.4' fill='%233f6212'/%3E%3Ccircle cx='338' cy='30.5' r='4.2' fill='%23e0702e'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #1d0f2e, #33204d 60%, #1d0f2e); }
+
+/* Thanksgiving: a row of pumpkins along the bottom, wheat standing over them. */
+[data-season='thanksgiving'] .bar { background-image:
+  linear-gradient(90deg, rgba(8, 4, 16, 0.32), rgba(8, 4, 16, 0.05) 55%, rgba(8, 4, 16, 0) 80%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='38' viewBox='0 0 400 38' preserveAspectRatio='none'%3E%3Cellipse cx='60' cy='10' rx='1.6' ry='3.4' transform='rotate(12 60 10)' fill='%23e8c46a'/%3E%3Cellipse cx='180' cy='8' rx='1.6' ry='3.4' transform='rotate(-10 180 8)' fill='%23e8c46a'/%3E%3Cellipse cx='300' cy='11' rx='1.6' ry='3.4' transform='rotate(12 300 11)' fill='%23e8c46a'/%3E%3Crect x='0' y='35' width='400' height='3' fill='%232e1608' fill-opacity='0.5'/%3E%3Crect x='34.8' y='26.5' width='2.4' height='3' fill='%235a7d4a'/%3E%3Cellipse cx='36' cy='34' rx='10' ry='7' fill='%23d98a3d'/%3E%3Crect x='88.8' y='30' width='2.4' height='2.6' fill='%235a7d4a'/%3E%3Cellipse cx='90' cy='36' rx='8' ry='5.5' fill='%23b8432f'/%3E%3Crect x='148.8' y='25' width='2.4' height='3' fill='%235a7d4a'/%3E%3Cellipse cx='150' cy='33' rx='11' ry='7.5' fill='%23c85a1e'/%3E%3Crect x='213.8' y='30' width='2.4' height='2.6' fill='%235a7d4a'/%3E%3Cellipse cx='215' cy='36' rx='8' ry='5.5' fill='%23d98a3d'/%3E%3Crect x='273.8' y='26.5' width='2.4' height='3' fill='%235a7d4a'/%3E%3Cellipse cx='275' cy='34' rx='10' ry='7' fill='%23b8432f'/%3E%3Crect x='333.8' y='30' width='2.4' height='2.6' fill='%235a7d4a'/%3E%3Cellipse cx='335' cy='36' rx='8' ry='5.5' fill='%23c85a1e'/%3E%3Crect x='383.8' y='27' width='2.4' height='3' fill='%235a7d4a'/%3E%3Cellipse cx='385' cy='34' rx='9' ry='6.5' fill='%23d98a3d'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #4a2410, #6e3418 60%, #4a2410); }
+
 /* Reading pages: keep the effect soft so it doesn't get in the way of the text. */
 body:has(.sl-markdown-content) .season-fx { opacity: 0.45; }
