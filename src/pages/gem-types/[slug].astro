@@ -33,15 +33,26 @@ const CATS: Record<string, string> = {
   summoning: '<:summoning:1545467552854056980>',
   elements: '<:elements:1545467786501947462>',
 };
-// The Discord-format text a member copies from an ability card: one spell block
-// per move, or the ability itself when it has no moves. Empty when the ability
-// is passive or has no category set, so those cards get no copy button.
+// The Discord-format text a member copies from an ability card. Active
+// abilities copy as spell blocks, one per move, or the ability itself when it
+// has no moves; a latent with moves puts its own line first, the way a sheet
+// writes it. Passives and anything else without a cost copies as a single
+// sheet line. Empty only when the ability has no name, so those cards get no
+// copy button.
 const sheetText = (a: Gem['abilities'][number]): string => {
+  if (!a.name) return '';
   const units = a.moves.length > 0 ? a.moves : [a];
-  return units
+  const spells = units
     .filter((u) => u.cost != null && CATS[(u.category ?? a.category) ?? ''])
-    .map((u) => [`## ${SPELL_EMOJI} *${u.name}*`, `> ${CATS[(u.category ?? a.category) as string]}  ${u.text}`, '`Costs ' + u.cost + ' SP.`'].join('\n'))
-    .join('\n\n');
+    .map((u) => [`## ${SPELL_EMOJI} *${u.name}*`, `> ${CATS[(u.category ?? a.category) as string]}  ${u.text}`, '`Costs ' + u.cost + ' SP.`'].join('\n'));
+  if (spells.length > 0) {
+    if (a.section === 'Latent Ability' && a.moves.length > 0) {
+      return [`\`${a.name}\` - ${a.text}`, ...spells].join('\n\n');
+    }
+    return spells.join('\n\n');
+  }
+  if ((a.tags ?? []).includes('PASSIVE')) return `\`${a.name} [PASSIVE]\` - ${a.text}`;
+  return `\`${a.name}\` - ${a.text}`;
 };
 
 // Related: parent, sub-types, fusions it's part of, same-name variants, fusion halves.
