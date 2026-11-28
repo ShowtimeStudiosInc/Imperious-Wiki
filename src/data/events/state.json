@@ -2,6 +2,10 @@
  "flags": {},
  "recent": {
   "small": [
+   "sculpture-contest",
+   "gift-ignored",
+   "kandy-warp-broke",
+   "epsilon-long-line",
    "wall-crack",
    "alpha-questions",
    "magda-blunt",
@@ -17,11 +21,7 @@
    "florentino-race",
    "tethys-lies",
    "crowd-fight-poorly",
-   "kandy-lab-noise",
-   "statue-vandal",
-   "alpha-sighting",
-   "best-dressed",
-   "nightshade-eyes-help"
+   "kandy-lab-noise"
   ],
   "big": [
    "solar-flares"
@@ -31,26 +31,6 @@
   ]
  },
  "history": [
-  {
-   "t": 1795212981471,
-   "scores": {
-    "alpha-black": 49,
-    "epsilon-blue": 68,
-    "theta-gold": 57,
-    "saturn-light": 80,
-    "nightshade-violet": 59,
-    "maroon-red": 62,
-    "bi-colored-kandy": 68,
-    "antton": 74,
-    "florentino": 75,
-    "tethys": 41,
-    "reina": 61,
-    "magda": 67,
-    "law": 57,
-    "ordr": 54,
-    "dante": 44
-   }
-  },
   {
    "t": 1795246094333,
    "scores": {
@@ -1030,6 +1010,86 @@
     "ordr": 56,
     "dante": 44
    }
+  },
+  {
+   "t": 1795832425575,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 72,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 70,
+    "antton": 69,
+    "florentino": 70,
+    "tethys": 42,
+    "reina": 58,
+    "magda": 62,
+    "law": 54,
+    "ordr": 56,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795839625575,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 72,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 69,
+    "antton": 69,
+    "florentino": 70,
+    "tethys": 42,
+    "reina": 58,
+    "magda": 62,
+    "law": 54,
+    "ordr": 56,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795846825575,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 72,
+    "theta-gold": 53,
+    "saturn-light": 78,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 69,
+    "antton": 69,
+    "florentino": 70,
+    "tethys": 42,
+    "reina": 58,
+    "magda": 62,
+    "law": 54,
+    "ordr": 55,
+    "dante": 44
+   }
+  },
+  {
+   "t": 1795854025575,
+   "scores": {
+    "alpha-black": 47,
+    "epsilon-blue": 72,
+    "theta-gold": 53,
+    "saturn-light": 79,
+    "nightshade-violet": 62,
+    "maroon-red": 63,
+    "bi-colored-kandy": 69,
+    "antton": 69,
+    "florentino": 70,
+    "tethys": 42,
+    "reina": 58,
+    "magda": 62,
+    "law": 54,
+    "ordr": 55,
+    "dante": 44
+   }
   }
  ],
  "lastMedium": 1795729887898,
@@ -1037,6 +1097,6 @@
  "nextMediumGap": 282807231,
  "post": null,
  "appliedNews": [],
- "lastRun": 1795819987580,
+ "lastRun": 1795854025575,
  "unrestLevel": "Uneasy"
 }

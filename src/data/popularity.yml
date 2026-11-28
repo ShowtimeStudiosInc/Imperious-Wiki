@@ -11,15 +11,15 @@
 # and change that gem's `score` to match. `previous` is filled in by the script (score 7 days ago).
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
-updated: '2026-11-27'
-unrest: 47
+updated: '2026-11-28'
+unrest: 46
 deity:
   - slug: alpha-black
     score: 47
-    previous: 49
+    previous: 48
     votes: 49083
   - slug: epsilon-blue
-    score: 73
+    score: 72
     previous: 68
     votes: 51365
   - slug: theta-gold
@@ -28,7 +28,7 @@ deity:
     votes: 44814
 ruling:
   - slug: saturn-light
-    score: 78
+    score: 79
     previous: 80
     votes: 37555
   - slug: nightshade-violet
@@ -43,7 +43,7 @@ ruling:
     votes: 31709
   - slug: bi-colored-kandy
     name: Bi-Colored Kandy Diamond
-    score: 70
+    score: 69
     previous: 68
     votes: 31546
 regents:
@@ -72,7 +72,7 @@ regents:
     previous: 57
     votes: 6395
   - slug: ordr
-    score: 56
+    score: 55
     previous: 54
     votes: 5182
   - slug: dante
@@ -154,6 +154,26 @@ earlier_news:
       - who: ordr
         change: -4
 log:
+  - date: '2026-11-28'
+    who: saturn-light
+    change: +1
+    kind: small
+    text: An Opal won a sculpture contest with a piece shaped like Saturn. It's on display near the warp hub.
+  - date: '2026-11-28'
+    who: ordr
+    change: -1
+    kind: small
+    text: A Pezzottaite says she sent Ordr a gift months ago and never heard anything back.
+  - date: '2026-11-28'
+    who: bi-colored-kandy
+    change: -1
+    kind: small
+    text: A new warp pad built by Kandy's crews broke down on its first day. It's fixed now, but people remember.
+  - date: '2026-11-28'
+    who: epsilon-blue
+    change: -1
+    kind: small
+    text: Gems say the wait to file a complaint in Epsilon's courts is now weeks long.
   - date: '2026-11-27'
     who: antton
     change: -2
@@ -171,7 +191,7 @@ log:
     text: Magda told a group of new recruits exactly what she thought of their form. Some of them are still recovering.
   - date: '2026-11-27'
     who: tethys
-    change: +2
+    change: 2
     kind: small
     text: Someone dug up a promise Tethys made a long time ago. Turns out it was kept, quietly, years back.
   - date: '2026-11-27'
