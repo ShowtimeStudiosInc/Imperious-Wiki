@@ -12,14 +12,14 @@
 # `unrest` (0 to 100) is the Gempire-wide Unrest meter. High Unrest unlocks worse events.
 # Diamonds without a page yet need a `name:`.
 updated: '2026-11-28'
-unrest: 46
+unrest: 48
 deity:
   - slug: alpha-black
     score: 47
     previous: 48
     votes: 49083
   - slug: epsilon-blue
-    score: 72
+    score: 71
     previous: 68
     votes: 51365
   - slug: theta-gold
@@ -28,13 +28,13 @@ deity:
     votes: 44814
 ruling:
   - slug: saturn-light
-    score: 79
+    score: 77
     previous: 80
     votes: 37555
   - slug: nightshade-violet
     name: Nightshade Violet Diamond
-    score: 62
-    previous: 59
+    score: 61
+    previous: 57
     votes: 28579
   - slug: maroon-red
     name: Maroon Red Diamond
@@ -72,7 +72,7 @@ regents:
     previous: 57
     votes: 6395
   - slug: ordr
-    score: 55
+    score: 54
     previous: 54
     votes: 5182
   - slug: dante
@@ -156,7 +156,27 @@ earlier_news:
 log:
   - date: '2026-11-28'
     who: saturn-light
-    change: +1
+    change: -2
+    kind: small
+    text: Gems in Saturn's court were caught keeping supplies that were meant for a nearby colony.
+  - date: '2026-11-28'
+    who: epsilon-blue
+    change: -1
+    kind: small
+    text: A new rule from Epsilon's court has gems confused. Three different offices gave three different answers about it.
+  - date: '2026-11-28'
+    who: nightshade-violet
+    change: -1
+    kind: small
+    text: Word is going around that Nightshade's court reported an off-color gem who had asked them for help.
+  - date: '2026-11-28'
+    who: ordr
+    change: -1
+    kind: small
+    text: A rumor says Ordr hasn't answered a single petition this month. Nobody knows where it started.
+  - date: '2026-11-28'
+    who: saturn-light
+    change: 1
     kind: small
     text: An Opal won a sculpture contest with a piece shaped like Saturn. It's on display near the warp hub.
   - date: '2026-11-28'
