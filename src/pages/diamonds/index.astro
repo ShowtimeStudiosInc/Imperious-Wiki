@@ -13,7 +13,7 @@ const SLOTS: Record<string, (string | null)[]> = {
   'saturn-light': ['florentino'],
   'nightshade-violet': ['reina', 'antton'],
   'maroon-red': ['magda', null],
-  'bi-colored-kandy': ['cece', null],
+  'bi-colored-kandy': ['cece', 'cotton'],
 };
 
 // Pearl slots: every Diamond has 3, and every Cubic Zirconia has 1. Members can claim an open slot by
@@ -55,6 +55,7 @@ const ART: Record<string, { mode: 'glass' | 'paper'; src?: string; pos?: string 
   antton: { mode: 'glass' },
   reina: { mode: 'glass' },
   cece: { mode: 'glass', pos: '82% 40%' },
+  cotton: { mode: 'glass', pos: '100% 40%' },
   magda: { mode: 'glass', pos: '50% 40%' },
   tethys: { mode: 'glass', src: '/images/glass/tethys.webp' },
 };

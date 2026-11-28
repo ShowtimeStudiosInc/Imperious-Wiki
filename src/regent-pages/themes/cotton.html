@@ -1,0 +1,76 @@
+<!--fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<!--/fonts-->
+<style>
+  :root {
+    color-scheme: dark;
+    --font-body: "Nunito", system-ui, sans-serif;
+    --font-display: "Comfortaa", system-ui, sans-serif;
+    --bg: #16102a; --bg-deep: #241640;
+    --panel: rgba(34, 24, 58, .9); --panel-2: rgba(34, 24, 58, .9); --panel-solid: rgba(24, 17, 44, .92);
+    --ink: #fff6fa; --ink-soft: #f3d3e4; --ink-faint: #bda6c9;
+    --gold: #ffabc9; --gold-bright: #8fdcf2; --gold-pale: #ffd3e6;
+    --brown-deep: rgba(18, 12, 36, .95);
+    --line: rgba(255, 171, 201, .18); --line-strong: rgba(143, 220, 242, .42);
+    --chip: rgba(255, 171, 201, .14);
+    --quote-bg: rgba(18, 12, 36, .9); --quote-ink: #fff6fa;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .45);
+    --sp: #241640; --sp-bg: #8fdcf2; --badge-ink: #241640;
+  }
+  body { background: var(--bg); }
+  h1 { text-shadow: 0 0 18px rgba(255, 171, 201, .4); }
+  .hero { border-top-color: var(--gold-bright) !important; }
+
+  /* A quiet room with the lamps left on. The room stays dark and closed in, soft pink lamplight
+     glows in a few spots, and tiny motes of data drift up through the light, slow and unbothered. */
+  .ct-room { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 42%, transparent 55%, rgba(8, 5, 18, .55) 100%),
+      radial-gradient(ellipse 55% 38% at 50% 108%, rgba(255, 171, 201, .16), transparent 70%),
+      linear-gradient(180deg, #100b22 0%, #181030 52%, #20153f 100%); }
+
+  .ct-lamp { position: absolute; border-radius: 50%; filter: blur(2px); animation: breathe 7s ease-in-out infinite; }
+  .ct-lamp::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14%; height: 14%; border-radius: 50%;
+    transform: translate(-50%, -50%); background: #fff2f8; box-shadow: 0 0 18px 6px rgba(255, 226, 240, .75); }
+  .ct-lamp.p { background: radial-gradient(circle, rgba(255, 171, 201, .34) 0%, rgba(255, 171, 201, .12) 45%, transparent 70%); }
+  .ct-lamp.c { background: radial-gradient(circle, rgba(143, 220, 242, .26) 0%, rgba(143, 220, 242, .09) 45%, transparent 70%); animation-duration: 9s; }
+
+  .ct-mote { position: absolute; border-radius: 50%; background: #ffd3e6; opacity: 0; animation: rise linear infinite; }
+  .ct-mote.c { background: #bfefff; } .ct-mote.w { background: #fff; }
+
+  .ct-desk { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 26vh; min-height: 150px; }
+
+  @keyframes breathe { 0%, 100% { opacity: .75; } 50% { opacity: 1; } }
+  @keyframes rise { 0% { transform: translateY(12vh); opacity: 0; } 12% { opacity: .8; } 88% { opacity: .55; } 100% { transform: translateY(-58vh); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .ct-room * { animation: none !important; } .ct-mote { display: none; } }
+  @media (max-width: 760px) { .ct-lamp.big { width: 190px !important; height: 190px !important; } }
+</style>
+<!--mark-->
+<svg class="hero-mark" width="190" height="190" viewBox="0 0 100 100" aria-hidden="true"><g fill="#ffabc9"><ellipse cx="50" cy="33" rx="11" ry="19"/><ellipse cx="50" cy="33" rx="11" ry="19" transform="rotate(90 50 50)"/><ellipse cx="50" cy="33" rx="11" ry="19" transform="rotate(180 50 50)"/><ellipse cx="50" cy="33" rx="11" ry="19" transform="rotate(270 50 50)"/></g><path d="M50 66 L46.5 92 L53.5 92Z" fill="#ffd3e6"/><circle cx="50" cy="50" r="8" fill="#2a1544" stroke="#8fdcf2" stroke-width="2"/></svg>
+<!--/mark-->
+<div class="ct-room" id="ct-room" aria-hidden="true">
+  <span class="ct-lamp p big" style="left:4%;top:16%;width:280px;height:280px"></span>
+  <span class="ct-lamp c" style="right:6%;top:9%;width:170px;height:170px;animation-delay:1.6s"></span>
+  <span class="ct-lamp p" style="right:14%;bottom:14%;width:210px;height:210px;animation-delay:3.1s"></span>
+  <span class="ct-lamp p" style="left:12%;bottom:6%;width:150px;height:150px;animation-delay:4.4s"></span>
+  <svg class="ct-desk" viewBox="0 0 1440 220" preserveAspectRatio="none">
+    <path fill="#ffabc9" fill-opacity=".1" d="M0 150 C240 118 420 128 720 142 C1020 128 1200 118 1440 150 V220 H0Z"/>
+    <path fill="#ffd3e6" fill-opacity=".07" d="M0 182 C260 158 480 166 720 176 C960 166 1180 158 1440 182 V220 H0Z"/>
+  </svg>
+</div>
+<script>
+  (function () {
+    var room = document.getElementById('ct-room'); if (!room) return;
+    var desk = room.querySelector('.ct-desk');
+    for (var i = 0; i < 44; i++) {
+      var m = document.createElement('span'), size = Math.random() < .18 ? 3 : 2;
+      m.className = 'ct-mote' + (i % 4 === 1 ? ' c' : i % 4 === 3 ? ' w' : '');
+      m.style.width = m.style.height = size + 'px';
+      m.style.left = Math.random() * 100 + '%';
+      m.style.bottom = (Math.random() * 22) + '%';
+      m.style.animationDuration = (16 + Math.random() * 22).toFixed(1) + 's';
+      m.style.animationDelay = (-Math.random() * 30).toFixed(1) + 's';
+      room.insertBefore(m, desk);
+    }
+  })();
+</script>
